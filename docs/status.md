@@ -1,4 +1,27 @@
 # Current Nightcap status
+## 2026-10-22 — Unique Classic raid rewards candidate
+
+Adds42 dungeon-specific designs /84 Polished and Ascended definitions for the
+14 added Classic dungeons. All414 dungeon rewards become MAGIC; the existing330
+retain IDs, names and stats, with220 flag-only updates. Fear, Hate and Sky gain
+nine authored relics and three level46 equipped utility clicks with shared reuse.
+New numeric power stays within existing dungeon-band budgets. Guarded full-row
+migration, matching world/zone/shared_memory and regenerated caches are required.
+No production activation or player/balance acceptance. Full catalog, evidence,
+rollout boundaries and QA: [unique rewards](dungeons/classic-rewards-20261022/README.md).
+
+## 2026-10-22 — Every Classic dungeon candidate
+
+Extends Raid/Grind and Enter, Join, Status, Claim Rewards and Reset to21 Classic
+dungeons including Fear, Hate and Sky. Preserves the original seven indices,
+run revision and330 reward definitions. Fixes stale native item guards behind
+the reported Permafrost mismatch. Adds guarded entrance/content SQL, UUID-scoped
+plane quests and restart-safe Sky key services. Automated verification is
+separate from deployment and owner gameplay/balance acceptance; not live.
+See [source, evidence, pairing and exact all-zone QA](dungeons/classic-expansion-20261022/README.md).
+
+## Classic race robes — published for live QA, October 22
+## Quest ingredient qualities — October 22 candidate
 ## Quest ingredient qualities - October22 deployed for live QA
 
 Owner-authorized PR290 (`c66df0e`) is on main and the paired zone/seven-file

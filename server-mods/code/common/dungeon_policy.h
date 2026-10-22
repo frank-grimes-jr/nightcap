@@ -1,4 +1,5 @@
 #pragma once
+#include "common/dungeon_catalog.h"
 #include <array>
 #include <cstdint>
 #include <limits>
@@ -10,7 +11,7 @@ constexpr unsigned MaxMembers = 6;
 constexpr uint32_t ItemBegin = 960000;
 constexpr uint32_t SharedDesigns = 24;
 constexpr uint32_t SharedItems = SharedDesigns * 4 * 3;
-constexpr uint32_t ItemEnd = ItemBegin + SharedItems + 7 * 3 * 2;
+constexpr uint32_t ItemEnd = ItemBegin + SharedItems + DungeonCount * 3 * 2;
 enum class Mode : uint8_t { Grind = 0, Raid = 1 };
 enum class Quality : uint8_t { Normal = 0, Polished = 1, Ascended = 2 };
 inline bool IsReward(uint32_t id) { return id >= ItemBegin && id < ItemEnd; }
@@ -22,8 +23,13 @@ inline uint32_t SharedItem(unsigned band, unsigned design, Quality quality) {
 	return band < 4 && design < SharedDesigns && unsigned(quality)<3 ? ItemBegin + (band * SharedDesigns + design) * 3 + unsigned(quality) : 0;
 }
 inline uint32_t BossItem(unsigned dungeon, unsigned design, Quality quality) {
-	return dungeon < 7 && design < 3 && unsigned(quality)>=1 && unsigned(quality)<=2 ?
+	return dungeon < DungeonCount && design < 3 && unsigned(quality)>=1 && unsigned(quality)<=2 ?
 		ItemBegin + SharedItems + (dungeon * 3 + design) * 2 + unsigned(quality) - 1 : 0;
+}
+// Append exclusive families; the original seven identities remain unchanged.
+inline uint32_t FinalBossItem(unsigned dungeon, unsigned band, unsigned design, Quality quality) {
+	if (dungeon>=DungeonCount || band>=4 || design>=3 || unsigned(quality)<1 || unsigned(quality)>2) { return 0; }
+	return BossItem(dungeon,design,quality);
 }
 inline int64_t Scale(int64_t value, unsigned percent) {
 	if (value <= 0) { return value; }

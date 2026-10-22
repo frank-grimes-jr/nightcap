@@ -1,0 +1,119 @@
+{
+  "status": "local_candidate_review_not_published",
+  "source_base": "26761ff",
+  "maintained_articles": [
+    {
+      "article": "about",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    {
+      "article": "advanced-loot",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "article": "ascension",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b"
+    },
+    {
+      "article": "combat",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594"
+    },
+    {
+      "article": "commands",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e"
+    },
+    {
+      "article": "dungeon-modes",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "0ef9c732bc87198674d7e87f8257d4aefe65f2fad6ce95d14ca446329f2f5ce4"
+    },
+    {
+      "article": "equipment",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "a0e2096ebc631099c934cf8a9f28d6d356b585a356ddffe5542bc5298f4f3d5e"
+    },
+    {
+      "article": "features",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "0425e38b1b47a26d8771ece671e73ebdb40930ee704c6537f980239e48315139"
+    },
+    {
+      "article": "getting-started",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4"
+    },
+    {
+      "article": "index",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "5777957102c4e0dafa3bca6c39345f11a081b2e35dcf34ac05928295fc9b1552"
+    },
+    {
+      "article": "item-upgrades",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d"
+    },
+    {
+      "article": "launcher",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "b1e7b8b61e69acc73c5d2d3060e8bcf9db42ce75dfd9fecd5a95438c029d1beb"
+    },
+    {
+      "article": "multiclass",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "656ff44894567684ed8d2c1791bacc7931a420e3cf751f1cce98e2c01b160e50"
+    },
+    {
+      "article": "pets",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb"
+    },
+    {
+      "article": "recent-changes",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "40f698b765da044241841fea2f1f2c1902c72ccfc03ac45caf912e9d8f5ff264"
+    },
+    {
+      "article": "tradeskills",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    {
+      "article": "travel",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "83d08ee67ccd25a11c8a847d85a620ee3d6b906c62816541c01b7f44b7f551de"
+    },
+    {
+      "article": "tunnel",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447"
+    },
+    {
+      "article": "unreleased",
+      "decision": "Added explicit Not released candidate scope; preserved existing live notices.",
+      "sha256": "3c4abe0f6a1dee1e07473425952d031b57c621822919cdf27342a0607e23f283"
+    },
+    {
+      "article": "waypoints",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    {
+      "article": "zone-hunt",
+      "decision": "No change: unrelated mechanic, command or guide remains as released.",
+      "sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d"
+    }
+  ],
+  "generated_reward_routes": 432,
+  "catalog_item_variants": 384,
+  "catalog_decision": "Unchanged: no new items, item values, hunt zones, commands or reward catalog projection.",
+  "commands": "All existing Keeper choices retain semantics; only zone coverage changes. Command reference unchanged.",
+  "publication": false,
+  "owner_gameplay_accepted": false,
+  "global_reviewed_revision_preserved": true,
+  "independent_review": "Read all21 articles and catalog/templates; seven notices cover impact. Exclusive designs qualified to releasedseven, managedSky timers documented; no remaining omission."
+}

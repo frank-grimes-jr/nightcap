@@ -1,5 +1,14 @@
 # Raid and Grind dungeons — deployed for live QA
 
+October22 reward follow-up: [unique Classic raid rewards](classic-rewards-20261022/README.md)
+adds84 exclusive definitions and makes all414 dungeon rewards MAGIC. Candidate
+only; it supersedes the expansion's temporary shared reward fallback.
+
+October22 follow-up: [21-zone Classic candidate](classic-expansion-20261022/README.md)
+extends all choices to every Classic combat dungeon including Fear/Hate/Sky and
+repairs stale item guards. Not deployed; the original live-release history below
+retains its seven-zone scope.
+
 October 16, 2026. The owner authorized main promotion and production deployment.
 Revision 2026101601 is enabled on OVH with matching native binaries and a freshly
 regenerated production item cache; game access is open. All 309,410 existing

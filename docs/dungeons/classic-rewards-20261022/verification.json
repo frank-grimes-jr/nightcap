@@ -1,0 +1,44 @@
+{
+  "status": "focused_suite_passed_except_proven_preexisting_generator_drift",
+  "tests_run": 77,
+  "passed": 74,
+  "skipped": 2,
+  "preexisting_errors": 1,
+  "skip_reason": "Two optional historical bootstrap DB tests require NIGHTCAP_DB_TESTS=1; fresh reward migration has its own isolated SQL rehearsal.",
+  "preexisting_error": "test_item_scaling_overrides: spell-stat verification SQL already drifts at HEAD; see preexisting-test-drift.json.",
+  "production_changed": false,
+  "owner_gameplay_accepted": false,
+  "source_hashes": {
+    "server-mods/code/common/dungeon_policy.h": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd",
+    "server-mods/code/common/dungeon_contract.h": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d",
+    "tools/dungeon_catalog.py": "d770b7110f618416e3780ca4b7ff83ad97a1c2ec56e2d19a2e585ae441b31b92",
+    "tools/classic_dungeon_rewards.py": "59fb0474d2349f9dde7c8ff34b8e3ee66c1b473486112490f77369299b31747f",
+    "tools/dungeon_contract.py": "cec4e2bdc38a651f6c8302e0074528c678376df27a0340ee850ccec770d6dfcf",
+    "tools/classic_reward_migration.py": "ad2abbc895625ed1b7e5da2e63b68fffd0ff1108a647b2327051f273ac9f23a4",
+    "tools/dungeon_refresh_contract.py": "d7be6c091966de2dafd71c7fd2b89f1a5ec1ea5efd8352dd14a4ebb0e9b2f2f1",
+    "tools/tests/test_classic_dungeon_rewards.py": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31",
+    "tools/tests/test_dungeon_policy.py": "7a85e25f28e7cdcc0eb85d6969124122a912b9caf4b4a8f1a7b73c721c649221"
+  },
+  "native_build": "world/zone/shared_memory built; retained baselines reproduced; not installed",
+  "sql": {
+    "schema": 39,
+    "content": 497,
+    "collision_and_drift_cases": 6,
+    "rollback": true,
+    "repeat_rejected": true
+  },
+  "cache": {
+    "items": 414,
+    "clicks": 6,
+    "negative_cases": 888,
+    "actual_candidate_loader": true
+  },
+  "wiki": {
+    "python_passed": 21,
+    "python_skipped": 9,
+    "node": 13,
+    "pages": 458,
+    "published": false
+  },
+  "independent_review": "No remaining blocking source finding; review.md"
+}

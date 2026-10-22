@@ -237,7 +237,7 @@ int main() {
   }
  }
  TaskInformation unrelated;unrelated.activity_count=6;unrelated.description="untouched";
- ConfigureJournalTask(9699,unrelated);ConfigureJournalTask(9714,unrelated);
+ ConfigureJournalTask(9699,unrelated);ConfigureJournalTask(9700+2*DungeonCount,unrelated);
  assert(unrelated.description=="untouched");
  TaskInformation malformed;malformed.activity_count=2;malformed.description="malformed";
  ConfigureJournalTask(9701,malformed);assert(malformed.description=="malformed");

@@ -1,0 +1,237 @@
+{
+  "status": "read_only_production_reproduction",
+  "original_capture": "2026-10-22T14:38:03.694698+00:00",
+  "original_checks": {
+    "schema": {
+      "total": 39,
+      "failed": []
+    },
+    "content": {
+      "total": 252,
+      "failed": [
+        {
+          "label": "items/0",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/8",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/16",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/24",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/32",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/40",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/48",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/56",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/64",
+          "expected": "8",
+          "actual": "6"
+        },
+        {
+          "label": "items/72",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/80",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/88",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/96",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/104",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/112",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/120",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/128",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/136",
+          "expected": "8",
+          "actual": "6"
+        },
+        {
+          "label": "items/144",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/152",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/160",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/168",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/176",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/184",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/192",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/200",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/208",
+          "expected": "8",
+          "actual": "6"
+        },
+        {
+          "label": "items/216",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/224",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/232",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/240",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/248",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/256",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/264",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/272",
+          "expected": "8",
+          "actual": "0"
+        },
+        {
+          "label": "items/280",
+          "expected": "8",
+          "actual": "6"
+        },
+        {
+          "label": "items/288",
+          "expected": "8",
+          "actual": "2"
+        },
+        {
+          "label": "items/296",
+          "expected": "8",
+          "actual": "2"
+        },
+        {
+          "label": "items/304",
+          "expected": "8",
+          "actual": "4"
+        },
+        {
+          "label": "items/312",
+          "expected": "8",
+          "actual": "2"
+        },
+        {
+          "label": "items/320",
+          "expected": "8",
+          "actual": "2"
+        }
+      ]
+    }
+  },
+  "refreshed_capture": "2026-10-22T14:55:34.748740+00:00",
+  "refreshed_original_release_checks": {
+    "schema": {
+      "total": 39,
+      "failed": []
+    },
+    "content": {
+      "total": 252,
+      "failed": []
+    }
+  },
+  "production_item_definitions": 330,
+  "current_compiler_field_differences": 0,
+  "production_changed": false,
+  "cause": "Native guards retained pre-October18 item budgets; current330 item compiler matches production.",
+  "expanded_release_requires_additive_migration": true,
+  "cache_runtime_not_directly_observed": true
+}

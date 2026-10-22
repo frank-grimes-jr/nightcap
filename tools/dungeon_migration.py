@@ -87,4 +87,5 @@ def generate():
     (folder/'install-rows.json').write_text(json.dumps(tables,indent=2)+'\n')
     print({k:len(v) for k,v in tables.items()})
 
-if __name__=='__main__':generate()
+if __name__=='__main__':
+    raise SystemExit('Historical October16 installation is frozen. Use classic_dungeon_migration.py and classic_reward_migration.py for the current additive candidate.')

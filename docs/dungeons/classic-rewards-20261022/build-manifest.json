@@ -1,0 +1,32 @@
+{
+  "status": "built_not_installed",
+  "baseline_zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+  "baseline_reproduced": true,
+  "zone_sha256": "948e0fd03523e9469e9829e78d6be24052433114541fb8b8eed53443d3274332",
+  "candidate_sources": {
+    "zone/dungeon_service.cpp": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e",
+    "zone/dungeon_service.h": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
+    "zone/lua_general.cpp": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
+    "common/dungeon_policy.h": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd",
+    "common/dungeon_catalog.h": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8",
+    "common/dungeon_contract.h": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d",
+    "common/shareddb.cpp": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461"
+  },
+  "retained_inputs_unchanged": true,
+  "lua_archive_sha256": "8f354ef9cfb7d10cc5fe57d8344a7487d83bd17a54ca35532d3491117e8ddc25",
+  "reused_lua_archive_from": null,
+  "other_binaries": {
+    "world": {
+      "baseline": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
+      "candidate": "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7"
+    },
+    "shared_memory": {
+      "baseline": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c",
+      "candidate": "6b314bf087bb06c8fb5ffc6d606090876b17c062f8014acb0e3784d12da9514f"
+    }
+  },
+  "common_archive_sha256": "ca2beae6d3764a138eed6447ffba3ec546c3a5c2dc52cf61726e6c62c9f16246",
+  "abi_changed": false,
+  "production_changed": false,
+  "owner_gameplay_accepted": false
+}

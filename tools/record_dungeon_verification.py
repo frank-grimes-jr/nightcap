@@ -1,3 +1,5 @@
+raise SystemExit('Historical October16 verification is frozen; current evidence is in docs/dungeons/classic-rewards-20261022/.')
+
 """Record observed checks, verify exact pairing and retain open manual gates."""
 import hashlib
 import json

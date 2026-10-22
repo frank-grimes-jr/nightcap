@@ -25,13 +25,28 @@ int main() {
     std::set<unsigned> ids;
     for(unsigned b=0;b<4;++b) for(unsigned d=0;d<24;++d) for(unsigned q=0;q<3;++q)
         assert(ids.insert(SharedItem(b,d,Quality(q))).second);
-    for(unsigned z=0;z<7;++z) for(unsigned d=0;d<3;++d) for(unsigned q=1;q<3;++q)
+    for(unsigned z=0;z<DungeonCount;++z) for(unsigned d=0;d<3;++d) for(unsigned q=1;q<3;++q)
         assert(ids.insert(BossItem(z,d,Quality(q))).second);
-    assert(ids.size()==330 && *ids.rbegin()<1048576);
+    assert(ids.size()==414 && *ids.rbegin()<1048576);
     for(auto id:ids) assert(IsReward(id));
     assert(!IsReward(ItemBegin-1) && !IsReward(ItemEnd));
     assert(SharedItem(4,0,Quality::Normal)==0);
     assert(BossItem(0,0,Quality::Normal)==0);
+    assert(DungeonCount==21);
+    for(unsigned zone=0;zone<DungeonCount;++zone) for(unsigned quality=1;quality<3;++quality) {
+        const auto &d=Dungeons[zone]; std::set<unsigned> final_items;
+        for(unsigned design=0;design<3;++design) {
+            const auto item=FinalBossItem(zone,d.band,design,Quality(quality));
+            assert(IsReward(item) && final_items.insert(item).second);
+            assert(item==BossItem(zone,design,Quality(quality)));
+            assert(item==960288+(zone*3+design)*2+quality-1);
+        }
+    }
+    assert(FinalBossItem(21,0,0,Quality::Polished)==0);
+    assert(FinalBossItem(7,4,0,Quality::Polished)==0);
+    assert(FinalBossItem(20,3,3,Quality::Polished)==0);
+    assert(FinalBossItem(7,0,0,Quality::Normal)==0);
+    assert(FinalBossItem(7,0,0,Quality(3))==0);
     for(uint64_t seed=0;seed<10000;++seed) {
         const auto p=BossOrder(seed);
         assert(std::set<unsigned>(p.begin(),p.end()).size()==3);

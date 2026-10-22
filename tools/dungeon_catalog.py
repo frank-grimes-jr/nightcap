@@ -58,6 +58,10 @@ DUNGEONS=[
  ('permafrost',73,999232,50,[73104,73068,73022,73013,73004,73006,73103,73057]),
  ('soldungb',32,999233,50,[32068,32063,32045,32059,32066,32083,32015,32057,32062,32041,32022,32020,32040])]
 
+LEGACY_DUNGEONS=tuple(DUNGEONS)
+from classic_dungeon_catalog import ADDED_DUNGEONS, SKY_PRIVATE, SKY_SERVICES, SKY_KEY_SERVICE
+DUNGEONS += ADDED_DUNGEONS
+
 def base_item(id,name):
     item=dict.fromkeys(('ac hp mana astr asta aagi adex aint awis acha mr fr cr pr dr damage delay magic range '
         'bagsize bagslots bagtype bagwr accuracy attack avoidance damageshield dotshielding endur haste regen '
@@ -114,7 +118,7 @@ def legacy_items():
                 id=960000+(band_index*24+design)*3+quality
                 result.append(dict(id=id,band=band,quality=QUALITIES[quality],design=design,
                                    source='completion',values=equipment(id,design,band,quality)))
-    for dungeon,(_,_,_,band,_) in enumerate(DUNGEONS):
+    for dungeon,(_,_,_,band,_) in enumerate(LEGACY_DUNGEONS):
         for design,template in enumerate(((8,17,22),(9,20,22),(10,18,23),(12,4,22),(13,7,23),(11,7,23),(8,1,23))[dungeon]):
             for quality in (1,2):
                 id=960288+(dungeon*3+design)*2+quality-1
@@ -122,11 +126,17 @@ def legacy_items():
                                    source=DUNGEONS[dungeon][0],values=equipment(id,template,band,quality,BOSS_DESIGNS[dungeon][design])))
     return result
 
-def items():
+def existing_items():
     # One policy supplies the live compiler and the starter comparison. Do not
     # feed these afterimages back into the historical preimage planner.
     from starter_retune import dungeon_proposal
     return dungeon_proposal(legacy_items())
+
+def items():
+    from classic_dungeon_rewards import added_rewards
+    result=existing_items()
+    for row in result:row['values']['magic']=1
+    return result+added_rewards(result,DUNGEONS)
 
 def objectives(snapshot):
     result=[]
@@ -153,6 +163,9 @@ def main():
     parser.add_argument('--output',type=Path,default=ROOT/'docs/dungeons')
     args=parser.parse_args()
     snap=json.loads((ROOT/'docs/dungeons/local-content.json').read_text())
+    added=json.loads((ROOT/'docs/dungeons/classic-expansion-20261022/content.json').read_text())
+    for table in ('npc_types','spawnentry','spawn2'):
+        snap[table] += added[table]
     dungeons=objectives(snap)
     adapted=json.loads((ROOT/'docs/dungeons/classic-ct-adapted.json').read_text())
     dungeons[4]['bosses']=adapted['roster']
@@ -167,13 +180,15 @@ def main():
       'inline constexpr Dungeon Dungeons[] = {']
     for d in dungeons:
         header.append('\t{%d,%d,%d,%d,%d,"%s"},'%(d['zone_id'],d['keeper_id'],d['band_index'],len(d['bosses']),d['index'],d['zone']))
-    header+=['};','inline constexpr Boss Bosses[] = {']
+    header+=['};','inline constexpr unsigned DungeonCount = sizeof(Dungeons)/sizeof(Dungeons[0]);','inline constexpr Boss Bosses[] = {']
     for d in dungeons:
         for b in d['bosses']:
             header.append('\t{%d,%d,%d,%d,%s,"%s"},'%(d['zone_id'],b['spawn_id'],b['npc_id'],b['boss_id'],'true' if b['is_final'] else 'false',b['name']))
     header+=['};','struct ExcludedNPC { uint32_t zone, npc; };','inline constexpr ExcludedNPC ExcludedNPCs[] = {']
     header += ['\t{%d,%d},'%(r['zone_id'],r['npc_id']) for r in EXCLUDED_NPCS]
-    header+=['};','inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
+    header+=['};',f'inline constexpr uint32_t SkyKeyService = {SKY_KEY_SERVICE};',
+      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : 0; }}',
+      'inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
     (ROOT/'server-mods/code/common/dungeon_catalog.h').write_text('\n'.join(header)+'\n')
     print(f'{len(data["items"])} item definitions; {sum(len(d["bosses"]) for d in data["dungeons"])} objectives')
 
