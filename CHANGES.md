@@ -29,6 +29,9 @@ The complete unsigned waypoint inventory plan preserves its two archives and all
 135 unrelated descriptors; all25 model-contract entries match. The merged wiki
 passes its content/search checks. No additional production change is authorized.
 
+Promoted the identical tested source through dev PR278 and test PR279/c209952,
+with exact in-game QA attached. Main26761ff and live publication remain unchanged.
+
 Installed Nightcap world/client/wiki knowledge and 26 candidate fingerprints
 are updated and validated. Unrelated concurrent source drift remains recorded
 separately in the [maintenance receipt](docs/ops/waypoint-crystal-20261022/skill-update/README.md).

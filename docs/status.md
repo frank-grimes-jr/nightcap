@@ -29,6 +29,12 @@ Classic robe archives, other assets and patch history in its unsigned inventory
 plan. Current source/inventory compatibility and merged wiki checks pass;
 deployment authorization and native visibility acceptance remain pending.
 
+Source promoted through dev PR278 and test PR279; test c209952 has the exact
+reviewed candidate tree. Quest19/Python27 and launcher package/preflight/manifest
+checks pass after the dev merge. PR279 includes the exact five-step in-game QA.
+Main remains26761ff; no live client/server/wiki publication was performed.
+[Branch promotion receipt](ops/waypoint-crystal-20261022/promotion.json).
+
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 
 An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,
