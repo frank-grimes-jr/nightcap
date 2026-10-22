@@ -1,13 +1,15 @@
 # Current Nightcap status
 
-## October 22 — Class-armor reward candidate, not deployed
+## October 22 — Ascended class armor deployed; Palwar corrected
 
-Palwar's Crafted pieces were Normal because live Meadowgreen scripts grant
-base IDs. The owner's clarified policy includes substantial repeatable class
-armor. The reviewed candidate covers 37 rewards in five families and preserves
-the dependent Darkforge epic hand-in. Existing item definitions are reused;
-production scripts, Palwar's inventory and the public wiki are unchanged.
-[Implementation, release boundary and QA](releases/quest-armor-20261022/README.md).
+Owner-authorized main PR285 (`7f97288`) is deployed. Eleven quest files now grant
+37 Ascended rewards across Crafted, Lambent, Darkforge, Ivy Etched and Totemic,
+with Normal/Ascended Darkforge epic compatibility. Twelve aggregate Quest reload
+acknowledgments were observed; world/zone lifetimes and all five services stayed
+unchanged. Palwar was offline under an admission hold: only the three affected
+item IDs changed, preserving every other inventory field. Logins are reopened.
+Native fresh-hand-in, inspection/relog and broader balance acceptance remain open.
+[Release evidence and recovery](releases/quest-armor-20261022/deployment/README.md).
 
 ## Classic race robes — published for live QA, October 22
 

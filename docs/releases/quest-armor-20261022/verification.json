@@ -1,7 +1,7 @@
 {
   "date": "2026-10-22",
-  "status": "candidate; not deployed",
-  "production_write_performed": false,
+  "status": "deployed; owner native gameplay/balance acceptance open",
+  "production_write_performed": true,
   "source_baseline": "f293626",
   "capture": "production-reference.json",
   "tests": [
@@ -46,6 +46,23 @@
       "suite": "wiki build",
       "pages": 458,
       "command": "python -B wiki/build.py"
+    },
+    {
+      "suite": "deployment failure/recovery",
+      "passed": 17,
+      "command": "python docs/releases/quest-armor-20261022/deployment/test_remote.py -v",
+      "boundary": "Windows ownership and directory fsync mocked; actual atomic replacement exercised"
+    },
+    {
+      "suite": "actual MariaDB temporary inventory transaction",
+      "passed": 5,
+      "command": "python docs/releases/quest-armor-20261022/deployment/test_remote.py --local-sql",
+      "boundary": "local disposable MariaDB10.5.4; exact generated SQL; all17columns preserved; charge/case/trailing-space drift and replay reject"
+    },
+    {
+      "suite": "Linux wiki publisher recovery",
+      "passed": 16,
+      "boundary": "actual host temporary site; existing updater"
     }
   ],
   "red_evidence": {
@@ -75,11 +92,10 @@
     "scope": "correctness, dependency compatibility, source identity, regression tests, docs/wiki and release boundary"
   },
   "open": [
-    "authorized main promotion and eleven-file production activation",
-    "fresh runtime cache and configured-root preflight",
-    "Palwar three-piece correction authorization/offline preimage",
-    "native full-cursor delivery and relog QA",
-    "owner gameplay/balance acceptance",
-    "authorized wiki publication"
-  ]
+    "native fresh-hand-in/full-cursor/equip/relog QA",
+    "owner progression and balance acceptance"
+  ],
+  "deployment": "deployment/apply.json",
+  "wiki_publication": "deployment/wiki-publication.json",
+  "wiki_public_verification": "deployment/wiki-public-verification.json"
 }
