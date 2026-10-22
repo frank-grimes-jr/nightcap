@@ -1,6 +1,6 @@
 {
   "created_at": "2026-10-22T16:30:36.170018+00:00",
-  "status": "candidate_not_deployed",
+  "status": "deployed_for_live_qa",
   "baseline_red": {
     "native": "Aviak tier rejected",
     "lua": "Aviak tier rejected: 213737",
@@ -47,16 +47,15 @@
     "zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b"
   },
   "open": [
-    "Native owner gameplay acceptance",
-    "Main promotion and production paired activation",
-    "Public wiki publication"
+    "Native owner gameplay acceptance"
   ],
   "notes": [
     "Windows default temporary directory and GNU compiler were unavailable under sandbox; MSVC succeeded with workspace TEMP. Linux compiler independently passed.",
     "First Perl test harness incorrectly treated a do-file undefined return as failure; corrected before reproducing the real 68-assertion baseline failure.",
     "Read-only audit decoder now preserves legacy latin-1 quest bytes; no remote mutations.",
     "Wiki checker intentionally reports reviewed source drift; published source ledger is not advanced for an unreleased candidate.",
-    "Initial Docker archive refresh lacked write permission to root-owned temporary files; reran scoped copy as container root, tests as normal user."
+    "Initial Docker archive refresh lacked write permission to root-owned temporary files; reran scoped copy as container root, tests as normal user.",
+    "Owner-authorized PR290 and paired production deployment supersede the candidate activation boundary. Earlier captures remain historical; current proof is deployment/live-verification.json."
   ],
   "final_integrated_checks": [
     {
@@ -153,5 +152,6 @@
     "Kurron currency arguments were absent: original native check failed, corrected by exact submitted denominations plus one full refund on success. Removing declarations now fails129/357 callback checks; mutation receipt retained.",
     "Full native source hashes remain identical to built candidate; no rebuild needed."
   ],
-  "promotion": "promotion.json"
+  "promotion": "promotion.json",
+  "deployment": "deployment/live-verification.json"
 }

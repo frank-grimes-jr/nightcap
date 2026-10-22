@@ -1,18 +1,17 @@
 # Exact owner QA â€” quest item qualities
 
-Status: pending; run against the paired candidate zone and seven quest files.
+Status: pending; run against the paired deployed zone and seven quest files.
 Provision test items on a disposable test character, then perform ordinary NPC
 trades. Keep before/after inventory and task screenshots. Do not infer live
 activation from source promotion to test.
 
 1. **Crafted Gauntlets, Shakrn Meadowgreen, South Karana (`southkarana`, NPC
    14075).** Give Aviak Charm (Polished) **213737** and two Star Rubies **10032**
-   in separate trade slots. With the integrated class-armor candidate, expect
+   in separate trade slots. With the deployed class-armor reward policy, expect
    exactly one Crafted Gauntlets (Ascended) **604178**, the
    ordinary quest EXP, and no returned ingredients. Repeat independently with
    Normal **13737**, Exalted **413737**, Ascended **613737**. All award the same
-   configured quest reward; no bonus reward. If testing only the ingredient fix
-   with the captured live quest, its unchanged reward is Normal **4178**.
+   configured quest reward; no bonus reward. The historical captured Normal **4178** fixture is not the current live reward.
 2. **Rejected and excess items at Shakrn.** Give Polished charm with only one
    ruby: expect no reward and both original items returned. Give a complete set
    plus an unrelated fourth-slot item: expect one reward and that exact extra
@@ -51,7 +50,7 @@ activation from source promotion to test.
    **3140**, Breastplate **3141**, Greaves **3145**, using any mix of Normal or
    +200000/+400000/+600000 versions, plus **900 platinum**. Expect +7 Truespirit
    and one Letter to Duriek **18099** on the NPC per spawn. All submitted coins
-   return exactly once, preserving the separate armor candidate's reviewed policy.
+   return exactly once, preserving the class-armor release's reviewed policy.
    Repeat with **901pp + 1gp + 2sp + 3cp**, and verify the exact full refund once.
    Missing/wrong pieces, **899pp**, or equivalent gold without 900pp must fail;
    native returns retain original items/coins. A second complete set on the same

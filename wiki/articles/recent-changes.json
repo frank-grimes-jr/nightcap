@@ -40,6 +40,8 @@
     "docs/releases/quest-armor-20261022/deployment/: main PR285, eleven quest scripts activated and offline Palwar correction verified; native gameplay and balance acceptance remain open",
     "docs/releases/classic-robes-20261022/README.md and QA.md; signed game 2026102201 published for live testing; native visual acceptance pending",
     "docs/ops/waypoint-crystal-20261022/README.md; source/build candidate only, no publication or native visual acceptance",
-    "docs/releases/quest-armor-20261022/README.md: owner clarified substantial repeatable class armor; 37-reward candidate, not deployed or accepted"
+    "docs/releases/quest-armor-20261022/README.md: owner clarified substantial repeatable class armor; 37-reward candidate, not deployed or accepted",
+    "docs/releases/classic-robes-20261022/waist-correction/README.md; signed game 2026102203 waist correction published for live testing; native acceptance pending",
+    "docs/releases/quest-tier-handins-20261022/README.md (candidate, not deployed)"
   ]
 }

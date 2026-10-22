@@ -1,6 +1,6 @@
 {
-  "recorded_at": "2026-10-22T17:13:56.742093+00:00",
-  "status": "promoted_to_dev_and_test_not_deployed",
+  "recorded_at": "2026-10-22T18:11:07.530298+00:00",
+  "status": "merged_to_main_deployed_for_live_qa",
   "feature_commit": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
   "dev_commit": "7d8082d4bec69cf36718d17f73e27d3db1f721df",
   "test_commit": "c889cd8204d5e02c1d40cfebc5307e6754f40c67",
@@ -10,6 +10,11 @@
   "test_pr": "https://github.com/frank-grimes-jr/nightcap/pull/287",
   "native_build": "native-build-manifest.json",
   "qa": "QA.md",
-  "main_production_wiki_authorized": false,
-  "owner_gameplay_accepted": false
+  "main_production_wiki_authorized": true,
+  "owner_gameplay_accepted": false,
+  "main_commit": "c66df0e4b36a6f9a041f9ef3ad609779fd1eb85e",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/290",
+  "authorization": "Owner: Merge the quest-tier fix to main and deploy it to the server for live QA.",
+  "deployment": "deployment/live-verification.json",
+  "wiki": "deployment/wiki-public-verification.json"
 }
