@@ -1,4 +1,61 @@
 # CHANGES
+## 2026-10-22 — Classic race robes published for live QA
+
+Adds missing robe bodies for both genders of Half Elf, Wood Elf, Barbarian,
+Dwarf, Troll, Ogre and Halfling, preserving native skeletons, original armor
+and HE90 helmets. The native client already selects these bodies; no permission
+or executable patch is needed. Canonical client generation includes both global
+archives and now requires the pinned NumPy build dependency. Owner-approved
+main PR276 and signed game2026102201 publish both archives; 136 other client
+assets and the matching DLL/catalog remain intact. Close the game and update
+through the normal launcher; no server restart. Native appearance/animation QA
+remains open. Wiki20261022-classic-robes-v1 carries matching live-testing guidance. See
+[evidence, recovery and exact QA](docs/releases/classic-robes-20261022/README.md).
+
+
+
+## 2026-10-22 — Glowing waypoint crystal candidate
+
+The owner selected a glowing crystal with a waypoint label. Marker999240 uses
+Crystal Shard geometry plus the existing portal glow and nameplate. Locations,
+attunement, recall, Explorer progress and Keepers are preserved. The paired
+proxy0.11.1 loads a complete crystal-capable list in both model modes and retains
+all22 prior model archives. Do not deploy the quest without its matching client.
+Automated checks pass; native visibility QA and main/server/client/wiki publication
+remain pending. [Design, pairing and exact QA](docs/ops/waypoint-crystal-20261022/README.md).
+
+Integrated the subsequently published Classic robe release through main26761ff.
+The complete unsigned waypoint inventory plan preserves its two archives and all
+135 unrelated descriptors; all25 model-contract entries match. The merged wiki
+passes its content/search checks. No additional production change is authorized.
+
+Installed Nightcap world/client/wiki knowledge and 26 candidate fingerprints
+are updated and validated. Unrelated concurrent source drift remains recorded
+separately in the [maintenance receipt](docs/ops/waypoint-crystal-20261022/skill-update/README.md).
+
+## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
+
+An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,
+Permafrost and Nagafen's Lair. The shared quest now separates these four by 15
+units, retaining Befallen's correction and the already-separate High Keep and
+Cazic-Thule poses. Geometry, 52 Keeper/16 waypoint/10 recovery assertions and 8
+operator tests pass. Main PR274 is deployed without restart; visible QA is untested. See
+[full audit, positions and QA](docs/ops/dungeon-keeper-visibility-20261022/README.md).
+
+Wiki `20261022-dungeon-keepers-v1` publishes all seven locations; all 465 public
+files verify. No visible resolution is accepted yet.
+
+## 2026-10-22 — Befallen Keeper correction deployed for live QA
+
+The targetable-but-invisible report revealed the Keeper and waypoint at exactly
+the same entrance pose. The quest now separates Befallen Keeper 999227 by 15 units
+on spawn/live refresh, including saved-state and private-instance loads. Dungeon
+actions, waypoint and player progress stay unchanged. Native geometry, 30 Keeper
+and 16 waypoint checks pass. Main PR272 is deployed by quest reload; no restart. Visible resolution requires owner QA.
+Details: [evidence and QA](docs/ops/befallen-keeper-visibility-20261022/README.md).
+
+Wiki `20261022-befallen-keeper-v1` publishes the placement and open visual QA;
+waypoint, dungeon progress, native processes and client remain unchanged.
 
 ## 2026-10-21 - AA million-point release deployed for live QA
 Main PR268/e64f502 and the authorized production rollout are complete. AA costs

@@ -1,0 +1,336 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -1,4 +1,33 @@
+ # RoF2 client, pets and buff effects
++
++## Classic race robes — October 22 candidate, not published
++
++Source: C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev,
++feature/robe-visibility; docs/releases/classic-robes-20261022/ owns evidence,
++archive hashes, preview and exact owner QA. This is not live client acceptance.
++
++Classic BAM/BAF, ELM/ELF (Wood Elf), HAM/HAF, DWM/DWF, TRM/TRF, OGM/OGF
++and HOM/HOF lacked CODE01_DMSPRITEDEF bodies. Pinned eqgame RVA0x99f0 already
++selects robe01 for all12 Classic races;336 exact native equip/remove cases and
++pattern10..16→4..10 pass with graphics/name boundaries mocked. No DLL, permission,
++server or database change. Keep current proxy/catalog and default Classic models.
++
++tools/build_classic_robes.py applies after canonical HE90 helmet generation;
++client_gameplay_assets.py includes it. Both global_chr and global4_chr must ship
++together (global4 repeats Barbarians). Shared first-mesh palettes gain five cloth
++slots, typed refs relocate and contiguous mesh registration discovers new bodies.
++Original fragments, textures, native skeletons/animations and helmets survive.
++Same-sex Human/Gnome skirts fit in P01 standing space and map by named bones.
++HOF FT0001 is its actual feet; preserve it. Export normals with full waist-warp
++inverse transpose and the interior derivative at the top boundary. Preview must
++use exported normals and unflipped UV V. NumPy2.4.0 is build-time only.
++
++11 robe,16 helmet,3 PFS checks and the full asset build pass;7race/2gender
++offline previews are not native visual proof. Owner QA still covers seams,
++patterns/dyes, deep animations, observer/first-person, armor swaps and relog.
++Never edit protected Client_RoF2_Dev. Stage separately; after accepted/authorized
++signed asset-only publication, full client exit/update/relaunch is required.
++No server reload/restart. Rollback the exact prior two-archive helmet pair.
+ 
+ ## THJ custom behavior and stock gear — October 19, deployed for live testing
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
+@@ -1,4 +1,15 @@
+ # Official player wiki and Features
++
++## Classic robe candidate — October 22, local source only
++
++The robe-visibility worktree is rebased onto main88562b1 and preserves the
++published20261022-dungeon-keepers-v1 guide text. All21 maintained articles and
++432generated reward routes were assessed. Equipment, Multiclass, Features,
++Launcher, home, In development and Recent changes explicitly label the robe
++repair Not released. Commands, catalog values/reward templates, gameplay and
++published availability remain unchanged. Global source review is not blindly
++advanced; scoped hashes/decisions are in docs/releases/classic-robes-20261022/
++wiki-review.json. Native QA, game signing and wiki publication remain pending.
+ 
+ ## All-dungeon Keeper visibility — October22 deployed, visual QA open
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -73,7 +73,8 @@
+     "aa_point_cost_40000_deployed_evidence_20261021": "42d9ca8992738b21dffe4b8a22b52e971cee832d",
+     "befallen_keeper_candidate_20261022": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
+     "befallen_keeper_live_20261022": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-    "dungeon_keeper_live_20261022": "dbe04dd7c915e6fa03dde485d43837066e765da7"
++    "dungeon_keeper_live_20261022": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++    "classic_robes_candidate_20261022": "178bb35231e58ca98799b56b2ba695ef7504385d; candidate only, rebased onto main88562b1; not installed or published"
+   },
+   "topics": {
+     "operations": [
+@@ -4959,13 +4960,6 @@
+         "sha256": "5527a93e2615693a2d4d5ccda40e572154af3bac3b511ec6ee6f831c8f294fa9"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/client_gameplay_assets.py",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "c5dc6eb41bf3e445fc94c2e6be59dbd716cbe5b0cb01ddf02da6a77829bc4717"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/client-zone-validation/EQ_Local_Dev",
+         "path": "tools/tests/test_client_zone_archives.py",
+         "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+@@ -5195,6 +5189,90 @@
+         "role": "Verified production deployment; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed",
+         "sha256": "57f930fb8dc37a8fe02f0e037f42a74622969bccbf8015223cb88253f2ee50e3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "tools/build_classic_robes.py",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "01f9aa8ea0f559d045ce7f186275e338ce55c4663f0658635ba915e59b9bff22"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "tools/classic_robe_geometry.py",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "d8224fce0f1c9f8e1a718fa36bc3bc996b72276a63e5ca2269e73144f7cdc563"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "tools/classic-robes-requirements.txt",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "9eb067f16d4ad3f45fc9ccd3649162dac0ae41d27695c77dbe0b842bd76e2ac6"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "tools/client_gameplay_assets.py",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "f207b6f41b8e987561ae76801e2f4a4e4b56a7984a850c7a6f00f179e0251100"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "tools/preview_classic_robes.py",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "cbc88788b4ea0b34885d7b325c490a0f5d65ea42c7e977dd722a09ad020693bb"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "tools/tests/test_classic_robes.py",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "f05df2e91ba934ee64d265b3fc41a3828ef246aff55e28423449273735a90e4f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "eq-client-dll/tests/classic-robes-native.cpp",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "09508344e674536743034bedbf95efe66e4cdaa347ce0386ee11d39126b80b05"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/adr/0065-classic-race-robe-assets.md",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "2bc2290671a97684a4418299c136ef302721c69d5f188964598a57fa151b853d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/README.md",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "886a5e7610f3d3be1d6ff9ec7ed5c7e72be0ad2385b92d7aee274260e6ee798a"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/QA.md",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "129f5287c2e9ae7c290badcdf47bd9161148b4705a514023a341ce234755d50d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/evidence.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "2fe072d32b72a1dd121021190abc4fdb461475e7a6adbfc0613db7d2ac95f931"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/robe-audit.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "51e6ba146757fa722cb87221cd48bf174f0a315e15af4407a9e766c003b3f401"
+       }
+     ],
+     "admin": [
+@@ -6373,13 +6451,6 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "22783dbb8447a03788d81cc1230489177fc730fc5cbe9a56fefdd1c979797302"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "wiki/articles/item-upgrades.json",
+         "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+@@ -6737,13 +6808,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+-        "path": "wiki/articles/launcher.json",
+-        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+-        "revision": "0fae6bc16552c31166abbb200e47deeac7627ce2",
+-        "sha256": "31977e8b5eb84fbb7d85b82956e9056dafaea2a3549939b6b1c30cb61cc869b4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+         "path": "docs/releases/client-contract-20261019/wiki-publication.json",
+         "revision": "0fae6bc16552c31166abbb200e47deeac7627ce2",
+         "sha256": "34c58d53e369cd63cb54855de0f28fdc222cc06de1c6e61f5e08becd7a071d50",
+@@ -6790,13 +6854,6 @@
+         "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+         "sha256": "147f69eeac672273e3e651b4de9c6f0f554e6bafdca64a4747b9f9b4ef9779fe"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/unreleased.json",
+-        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+-        "sha256": "b3d52f4faad38341a940021b4df3060019d7fd6ba7bdd00c79362f951e741aba",
+-        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -6942,13 +6999,6 @@
+         "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+-        "path": "wiki/content-review.json",
+-        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+-        "sha256": "74449d0ac96b8c0cdb66a8ab687aff6a97f63d9834003abf539d67be2763b48a",
+-        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/test_wiki.py",
+         "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+@@ -6992,38 +7042,10 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/features.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "29393a6b215cb367a89ea26952d8102c6eb17565d2671845c764f7d335e39758",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/getting-started.json",
+         "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+         "sha256": "ef0ff898bcbfaf0284e0533cdfdd2190b03f0976e3e0975ecc19bbd251e0d1db",
+         "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/index.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "efd7553957cae4973346fdf2006e64a30edcf486c53df18150bcd9951e8eede1",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/multiclass.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "e4e6949c0c39057eb02cb71b7ebfbe323aede0df5ab828bbeff9099e0a6152ce",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/recent-changes.json",
+-        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+-        "sha256": "fb854b322634462db557ad18ac580953d57b54731483f8da4e91fdcdbd062243",
+-        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+@@ -7052,6 +7074,69 @@
+         "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+         "sha256": "703253d857dd7cccc5a132089bf31067745ca38929a826cefe2e5e6bbe9c166e",
+         "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "62439e336d3307af87b97120a799f69b88091173afe96f5fcff0a0bea51d7a3e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/multiclass.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "b75c5373e1bb7844b94002a28fe00bf415b6639a139c7213629dc24b48b0d684"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "d3fd11e1eea8a215afb95751aeff358014175f93f733a3a812281119c2c56846"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/launcher.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "335f7377b7f6d43fe75ff5f45427c27888b14ac992f494e34465c02cf177a61f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "20b5f02c84089e3f79413c3f5aac014d1fc38293110b8a8a6e34fc283e9c9a1e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "e38cb2f0e49f5274ff2793daa0ebbc7308c485cbf00a757963c8ae6cdcf6105b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "8ce119b4f7e3a534a20df24767c2239e9b2d372e18582c78fd8b6dbb80672196"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "wiki/content-review.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "9b15ee1d7e0bfc5798406f2833843c176b115d9f700b6b3442154b355cd6ba4b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/wiki-review.json",
++        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
++        "revision": "178bb35231e58ca98799b56b2ba695ef7504385d + reviewed evidence bookkeeping",
++        "sha256": "3d6573652b90802ea138dad471ab8ee4004f7c5cc31eb89cc927c45137345217"
+       }
+     ]
+   }

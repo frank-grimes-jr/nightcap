@@ -1,0 +1,21 @@
+{
+  "owner_approval": "Approved. move into main.",
+  "date": "2026-10-22",
+  "source_pr": "https://github.com/frank-grimes-jr/nightcap/pull/276",
+  "main_merge": "4661ddcd3ed6389fce8d9120358d4b6a2b157622",
+  "scope": "main and signed client publication for live QA before native acceptance; not standing deployment permission",
+  "client_release": 2026102201,
+  "wiki_release": "20261022-classic-robes-v1",
+  "native_visual_acceptance": "pending",
+  "publisher_review": "One valid-prefix recovery finding corrected and covered by Linux regressions; no remaining actionable blocker. Independent reviewer temp execution was blocked by sandbox ACL, so test proof is the actual Linux receipt.",
+  "protected_reference_client": "read only",
+  "installed_player_client": "read only; normal launcher installs the public update on next Play",
+  "local_wiki_tests": {
+    "python_pass": 21,
+    "python_POSIX_skipped": 9,
+    "search_scenarios_pass": 6,
+    "equipment_checks_pass": 7
+  },
+  "linux_publisher_tests": 10,
+  "linux_wiki_tests": 16
+}

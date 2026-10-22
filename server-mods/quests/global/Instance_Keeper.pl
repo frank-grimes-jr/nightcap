@@ -83,13 +83,35 @@ sub keeper_visual {
         helmtexture => 0, size => 3 });
 }
 
+sub keeper_position {
+    # Only audited waypoint overlaps: fixed poses also normalize saved spawns.
+    # High Keep and Cazic-Thule are already separate and retain their placement.
+    my %positions = (
+        befallen => [999227,35,-67,3.1,256],
+        unrest => [999228,67,-38,3.1,384],
+        najena => [999230,858,-61,4.1,256],
+        permafrost => [999232,46,-121,2.1,128],
+        soldungb => [999233,-248,-424,-108,384],
+    );
+    my $pose = $positions{$zonesn};
+    return unless $pose && $npc->GetNPCTypeID() == $pose->[0];
+    my ($type, $x, $y, $z, $heading) = @$pose;
+    return if abs($npc->GetX() - $x) < 0.25
+        && abs($npc->GetY() - $y) < 0.25
+        && abs($npc->GetZ() - $z) < 0.25
+        && abs($npc->GetHeading() - $heading) < 0.25;
+    $npc->GMMove($x, $y, $z, $heading, 1);
+}
+
 sub EVENT_SPAWN {
     keeper_visual();
+    keeper_position();
 }
 
 sub EVENT_SIGNAL {
-    return unless $signal == 20261014;
+    return unless $signal == 20261014 || $signal == 20261022;
     keeper_visual();
+    keeper_position();
 }
 
 sub EVENT_SAY {

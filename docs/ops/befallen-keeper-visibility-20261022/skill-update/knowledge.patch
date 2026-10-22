@@ -1,0 +1,147 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -69 +69,31 @@
+-The other human at Befallen/Permafrost was an overlapping **Instance Keeper**, not a duplicate marker. October 12 keeper quest adds a small floating-eye appearance (race 108, gender 2, size 3), retaining its interaction; refresh signal 20261014 covers existing Keepers. Both repairs use quest reload plus scoped signals, with no client update or native restart. Permafrost portal visibility/function was owner-confirmed October 12. On October 13 the owner confirmed "resolved" after the Keeper follow-up, closing the reported visual issue; the reply does not individually attest every zone or optional QA case. The 16 waypoint and 13 Keeper regression assertions are in `tools/tests/waypoint_visuals.t` and `tools/tests/instance_keeper_visuals.t`. `docs/ops/waypoint-visuals-20261011/README.md`, `docs/ops/keeper-visuals-20261012/README.md`. Crushbone marker, recall and matching saved state moved together to entrance `/loc -644,158,4`; `/loc` display ordering differs from DB x/y. See `docs/ops/crushbone-waypoint-20261009/README.md`.
++Instance Keepers use a small floating eye (race 108, gender 2, size 3).
++October 12 deployed appearance signal 20261014 remains supported; October 13
++owner "resolved" accepted the earlier reported visual issue, not every dungeon.
++The new October 22 Befallen report reopens visibility for that zone.
++
++**Befallen correction is a tested candidate, not deployed.** Fresh production
++inspection confirms Keeper999227/spawn3266036 and waypoint999240/spawn3266054
++both at XYZ35,-82,3, saved3.1. Bodytype1/model0 and installed eye quest are intact.
++Overlap is established; its role in invisibility awaits in-game proof. The
++candidate `Instance_Keeper.pl::keeper_position` limits itself to Befallen NPC999227
++and moves it to XYZ35,-67,3.1, heading256 on spawn and signals20261014/20261022.
++Absolute pose,0.25 tolerance and GMMove's saved guard spot handle fresh/saved
++poses and loaded eyes without cumulative movement. Production grid/roam fields
++are zero. The waypoint, discovery, native dungeon actions and earned state stay.
++
++The production/local Befallen map hashes match;10 ground/headroom samples and
++two approach rays pass.30 Keeper,16 waypoint and6 recovery assertions pass,
++with native binding/saved-state ordering inspected separately. Doubles do not
++execute the native saved-state loader or establish visible rendering. Independent
++review has no blocking findings. Quest reload plus NPC-type999227 signal20261022
++is the candidate activation; no native restart, client or cache pairing change.
++Rollback retains a scoped helper restoring XYZ35,-82,3.1/heading0 so dormant
++saved relocated poses also recover. Restoring old quest bytes alone is incomplete;
++never restore player/loot/dungeon snapshots for this appearance correction.
++
++Source, exact owner QA, recovery quest and tests:
++`C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev`,
++`docs/ops/befallen-keeper-visibility-20261022/`,
++`tools/tests/instance_keeper_visuals.t`. Candidate commit e06f5cd; main/server
++approval and visible acceptance remain pending. Historical waypoint release and
++Crushbone/Unrest placement evidence retain their dated scopes.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,0 +2,18 @@
++
++## Befallen Keeper visibility — October22 candidate
++
++The fresh owner report identifies a targetable but invisible Befallen Keeper.
++Production confirms exact overlap with its waypoint. Candidate e06f5cd in
++C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev separates
++only that eye; rendering causality and owner acceptance remain open. All maintained
++articles and the generated catalog were reviewed. Dungeon modes, In development
++and Recent changes contain /target Instance_Keeper fallback and explicitly
++undeployed candidate wording. Features/home, commands, rewards and generated
++values retain existing released meaning. Fourteen wiki/content-refresh tests pass.
++
++This is a local draft, not published guidance. check_refresh HEAD plus working
++changes identified only this correction's source/evidence for review; the existing
++global ledger was not blindly advanced. Exact impact/source results:
++docs/ops/befallen-keeper-visibility-20261022/{wiki-review.json,wiki-refresh.json}.
++Main/production and public publication remain pending authorization; no runtime
++or wiki release is claimed. See world.md for native reload/recovery boundaries.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -73 +73,2 @@
+-    "aa_point_cost_40000_deployed_evidence_20261021": "42d9ca8992738b21dffe4b8a22b52e971cee832d"
++    "aa_point_cost_40000_deployed_evidence_20261021": "42d9ca8992738b21dffe4b8a22b52e971cee832d",
++    "befallen_keeper_candidate_20261022": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec"
+@@ -3449 +3450 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+@@ -3451,3 +3452,3 @@
+-        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+-        "sha256": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9"
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "e78eb53a54a8d39ac915efa0c131c0171094841d833842c5802f57895ae865a2",
++        "role": "Reviewed Befallen-only overlap correction candidate;52 quest/recovery assertions and native geometry pass; not deployed or visibly accepted"
+@@ -4001,0 +4003,35 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "tools/tests/instance_keeper_visuals.t",
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "6b6962f6f3c057402c350ca64b744f540b0dc9727a118c5710cd90fb615c74b8",
++        "role": "Reviewed Befallen-only overlap correction candidate;52 quest/recovery assertions and native geometry pass; not deployed or visibly accepted"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/befallen-keeper-visibility-20261022/README.md",
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "4e2dac25d716689fe30c07717d64373769200b1bc30779b9de3186e6e8ce1fda",
++        "role": "Reviewed Befallen-only overlap correction candidate;52 quest/recovery assertions and native geometry pass; not deployed or visibly accepted"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/befallen-keeper-visibility-20261022/evidence.json",
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "fc0c8282ae0597603eae84e53b32628f3ee747d32b26334eee448f7cab5b6704",
++        "role": "Reviewed Befallen-only overlap correction candidate;52 quest/recovery assertions and native geometry pass; not deployed or visibly accepted"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/befallen-keeper-visibility-20261022/Instance_Keeper.recovery.pl",
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "cecfae0e22025aa5cad439193b829653e438ab794d25fb7d1b81921acf65a29a",
++        "role": "Reviewed Befallen-only overlap correction candidate;52 quest/recovery assertions and native geometry pass; not deployed or visibly accepted"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/befallen-keeper-visibility-20261022/test_recovery.t",
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "2925ca6da6986a3d775fa9d5b3f157b9de85161a8459bf122371328aa3194a16",
++        "role": "Reviewed Befallen-only overlap correction candidate;52 quest/recovery assertions and native geometry pass; not deployed or visibly accepted"
+@@ -6337 +6373 @@
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+@@ -6339,3 +6375,3 @@
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac"
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "88abb34e07d1804c811a6e2d9dd14c7670b00d7f00d418682baca9ec897bbf7a",
++        "role": "Reviewed Befallen visibility workaround and explicitly undeployed candidate draft over current main; public publication pending"
+@@ -6715 +6751 @@
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+@@ -6717,4 +6753,3 @@
+-        "role": "October 21 AA pacing deployed/published; 40,000 XP per point, 10% passive, earned progress retained; owner gameplay QA pending",
+-        "revision": "059fd49dece0ba58e51e4019ab16bb426240f72e + reviewed October 21 deployment/publication evidence",
+-        "sha256": "ec40f0725c6228277c2f19c382868f2d32e2a6ca0aa466ba6d9fca8c05255c55",
+-        "reviewed_revision": "059fd49dece0ba58e51e4019ab16bb426240f72e + reviewed October 21 deployment/publication evidence"
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "ff7259548bc66169e41fd19e105bb7d391788d2eae10e30a3b287466536400bf",
++        "role": "Reviewed Befallen visibility workaround and explicitly undeployed candidate draft over current main; public publication pending"
+@@ -6943 +6978 @@
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+@@ -6945,3 +6980,3 @@
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "5e770fda536189fc5a7f6cca75fab0f7cf0d09e5c606603c090cd3eb4ca246fc",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "6907559dee9b9956e905df46d596f86b4f436c660ebe4cfe3d25a11a7b2de0f3",
++        "role": "Reviewed Befallen visibility workaround and explicitly undeployed candidate draft over current main; public publication pending"
+@@ -6954,0 +6990,7 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/befallen-keeper-visibility-20261022/wiki-review.json",
++        "revision": "e06f5cdde6a33006d4d5bf26fcac01310d9756ec",
++        "sha256": "691af419420eb6f2288b213a827c377b2b852c6f5c25f2e0bda642479a0dbce7",
++        "role": "Reviewed Befallen visibility workaround and explicitly undeployed candidate draft over current main; public publication pending"

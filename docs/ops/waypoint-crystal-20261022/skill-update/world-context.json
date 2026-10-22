@@ -1,0 +1,488 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "world": [
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\server-mods\\quests\\global\\999240.pl",
+        "role": "unchanged deployed portal and 25/30-unit discovery behavior",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\server-mods\\quests\\global\\Instance_Keeper.pl",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\tunnel_travel.pl",
+        "role": "Merrin route and player-state gates",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\tunnel_travel_data.pl",
+        "role": "exact ten-city route catalog",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\tunnel_spire_data.pl",
+        "role": "separate wizard route catalog",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\tunnel-compact-20261002\\README.md",
+        "role": "current deployed layout reference",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\adventure-journal\\README.md",
+        "role": "candidate task/attunement system, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\README.md",
+        "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\asset-audit.json",
+        "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\install-receipt.json",
+        "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\archive-checks.json",
+        "role": "34 complete PFS/WLD checks after local travel asset repair; not live zoning acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\waypoint-visuals\\docs\\ops\\waypoint-visuals-20261011\\README.md",
+        "role": "portal deployment, reload/recovery and dated owner acceptance scope",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\waypoint-visuals\\docs\\ops\\keeper-visuals-20261012\\README.md",
+        "role": "Keeper deployment and October 13 owner resolution; not an all-zone QA attestation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tunnel_cozy_layout.py",
+        "role": "deployed exact workshop and buffer-adjacent poses; owner visual QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tunnel_cozy.py",
+        "role": "reviewed guarded pose migration and fresh-state rollback",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tests\\test_tunnel_cozy.py",
+        "role": "nine layout regressions including Veyra frontage and interactive donors",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tests\\probe_tunnel_cozy.py",
+        "role": "whole-scene approaches, patrols and native geometry",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tests\\rehearse_tunnel_cozy.py",
+        "role": "eleven real-schema SQL preservation checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\README.md",
+        "role": "deployed evidence, recovery boundary and exact open owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\production.json",
+        "role": "dated exact production afterimages, preserved data/runtime and healthy process evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\rollout.py",
+        "role": "deployed locked operator with isolated exact backup restore and scoped recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\test_rollout.py",
+        "role": "thirteen failure, preservation and precision-sidecar tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\README.md",
+        "role": "deployed Unrest scope, recovery and open owner gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\forward.sql",
+        "role": "reviewed readable placement contract; production uses stronger fresh-preimage generator",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\rollback.sql",
+        "role": "pose-only recovery contract preserving subsequent activity",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\inspection.json",
+        "role": "dated read-only diagnosis, superseded placement by production receipt",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\check_mariadb.py",
+        "role": "synthetic native SQL rehearsal",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\mariadb-checks.json",
+        "role": "seven local native SQL checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\tests\\test_unrest_waypoint.py",
+        "role": "five placement, scope and rollback regressions",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\production.json",
+        "role": "verified live positions, preservation and health; public-safe evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\run.py",
+        "role": "reviewed commit-guarded staging and operator entrypoint",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\ops\\rollout.py",
+        "role": "deployed backup/rehearsal/preservation and recovery operator",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\ops\\test_rollout.py",
+        "role": "thirteen recovery/failure and precision tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\unrest_waypoint.py",
+        "role": "deployed exact marker/catalog/saved-pose generator",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\content_patch.py",
+        "role": "reviewed shared full-row guarded transaction mechanics",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\tests\\test_unrest_waypoint_content.py",
+        "role": "six generator ownership, drift and fresh-state recovery checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\operator.py",
+        "role": "guarded content operation and exact forward/inverse plus rejected-drift rehearsal",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\verify.py",
+        "role": "read-only deployed health and native process verification",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\README.md",
+        "role": "deployed Commonlands stock/banker contract, recovery and pending owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\deployment.json",
+        "role": "verified production afterimages, 309410-item cache comparison and 12 native zones",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\terrain.json",
+        "role": "banker native terrain and access probe",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\dungeon_service.cpp",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\spawn2.cpp",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\zone_save_state.cpp",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\sql\\20261016_dungeons.sql",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\tools\\tests\\test_dungeon_lifecycle.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\README.md",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\QA.md",
+        "role": "Palwar confirmed Befallen Keeper targeting and Raid/Grind menu; remaining gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\concurrency-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\production-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\README.md",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\rollout.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\test_rollout.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\dungeon_service.h",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\task_client_state.cpp",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\task_client_state.h",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\task_manager.cpp",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\tools\\tests\\test_dungeon_journal.py",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\verification.json",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\README.md",
+        "role": "Befallen journal repair: deployed and owner-confirmed display fix; full-clear rewards and broader gameplay QA remain open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\verification.json",
+        "role": "Befallen journal repair: deployed and owner-confirmed display fix; full-clear rewards and broader gameplay QA remain open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\native-build-manifest.json",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\production-verification.json",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\rollout.py",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\test_rollout.py",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\build_candidate.py",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-options-20261021\\options.json",
+        "role": "Historical pre-release analysis; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-options-20261021\\production-inputs.json",
+        "role": "Historical pre-release analysis; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\README.md",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\rollout.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\native-build-manifest.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\deployed.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\verification.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\review.md",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\finish_cache.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\test_finish_cache.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-diagnosis.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-source-pairing.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\quests\\ecommons\\Magus_Goldwind.pl",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\quests\\poknowledge\\Magus_Goldwind.pl",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_goldwind_retired.pl",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\tools\\tests\\instance_keeper_visuals.t",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\README.md",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\placements.json",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\selected-geometry.json",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\all-keepers-audit.json",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\Instance_Keeper.recovery.pl",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\test_recovery.t",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\run.py",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\remote.py",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\test_operator.py",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\deployment.json",
+        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\server-mods\\quests\\global\\999240.pl",
+        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\tools\\tests\\waypoint_visuals.t",
+        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\README.md",
+        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\verification.json",
+        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

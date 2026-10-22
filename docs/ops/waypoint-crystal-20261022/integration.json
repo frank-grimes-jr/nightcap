@@ -1,0 +1,18 @@
+{
+  "status": "integrated_candidate_not_deployed",
+  "source_main": "26761ff5837746ace4725f8715bc6782e48fdf5b",
+  "baseline_channel_fresh_https_hash_matches_prior_verified_signature": true,
+  "baseline_release": 2026102201,
+  "baseline_channel_sha256": "78e1173d2279ff185c883645f8c2d43e1d1454676bf696f8ac0b545d2e3174fa",
+  "waypoint_implementation_hashes_unchanged": 14,
+  "wiki_python_tests": 14,
+  "wiki_search_cases": 6,
+  "wiki_equipment_tests": 7,
+  "wiki_pages_built": 458,
+  "model_contract_entries_match_assembled_descriptors": 25,
+  "existing_assets_preserved": 135,
+  "replaced": 3,
+  "added": 2,
+  "native_rendering_qa": "pending",
+  "main_and_publication_authorization": "pending"
+}

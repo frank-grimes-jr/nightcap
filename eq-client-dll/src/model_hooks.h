@@ -84,7 +84,11 @@ inline void __fastcall TagHook(void* self, void*, char* output, int race, int ge
     original_tag(self, output, race, gender);
 }
 inline void __fastcall ImportsHook(void* self, void*, const char* filename) {
-    original_imports(self, modern ? filename : "nightcap_models_chr.txt");
+    // The native parser replaces its table; never call it twice on this object.
+    // Both complete lists include the crystal; modern retains the pinned stock
+    // global imports, while classic retains all existing aliases and imports.
+    (void)filename;
+    original_imports(self, modern ? "nightcap_modern_chr.txt" : "nightcap_models_chr.txt");
 }
 inline bool Install(uintptr_t base) {
     original_profile = reinterpret_cast<ProfileString>(client_ui::EntryHook(base+kModelProfileRva,

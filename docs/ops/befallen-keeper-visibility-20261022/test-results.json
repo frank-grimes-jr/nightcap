@@ -1,0 +1,18 @@
+{
+  "keeper": {
+    "exit_code": 0,
+    "output": "ok 1 - globally loaded floating eye replaces human\nok 2 - destination metadata retained\nok 3 - unrelated signal ignored\nok 4 - repeated refresh does not rebuild actor\nok 5 - already spawned human can refresh without respawn\nok 6 - appearance does not read or mutate instance state\nok 7 - hail still offers correct dungeon\nok 8 - same character and instance version\nok 9 - active instance recognized\nok 10 - status preserved\nok 11 - join validation preserved\nok 12 - reset still requires existing confirmation popup\nok 13 - reset without instance stays harmless\nok 14 - managed dialogue reaches native Keeper with normalized action\nok 15 - handled native action never reaches legacy lookup\nok 16 - legacy popup must pass native reset authorization\nok 17 - managed popup never reaches legacy destruction\nok 18 - unrelated popup ignored\nok 19 - Befallen spawn separates the eye from the portal and saves its guard spot\nok 20 - Befallen keeps the floating-eye appearance\nok 21 - new refresh is idempotent at the clear position\nok 22 - existing eye moves even when illusion is already correct\nok 23 - live refresh uses the same fixed pose\nok 24 - existing visual refresh also corrects the overlap\nok 25 - unrelated signal cannot relocate a keeper\nok 26 - other Keeper NPC types are not relocated\nok 27 - wrong zone is not relocated even with the Befallen NPC type\nok 28 - native ground offset does not cause repeated movement\nok 29 - visual correction never reads or changes dungeon state\nok 30 - visual correction never invokes a dungeon action\n1..30\n"
+  },
+  "waypoint": {
+    "exit_code": 0,
+    "output": "ok 1 - discovery box unchanged\nok 2 - waypoint has no human mesh\nok 3 - one persistent WizardPortal effect\nok 4 - unrelated signal ignored\nok 5 - refresh does not rebuild an already correct actor\nok 6 - refresh cannot stack portal effects\nok 7 - live human marker refreshed without respawn\nok 8 - live marker receives portal\nok 9 - existing nimbus slots retained without duplicates\nok 10 - visual application never writes discoveries\nok 11 - discovery still scoped to player and zone\nok 12 - new discovery announced\nok 13 - new discovery reports progress\nok 14 - repeat discovery remains silent\nok 15 - partial discovery gives no title\nok 16 - Explorer completion preserved\n1..16\n"
+  },
+  "recovery": {
+    "exit_code": 0,
+    "output": "ok 1 - saved relocated eye returns to original pose and guard\nok 2 - repeated recovery does not move the restored eye\nok 3 - loaded relocated eye recovers without respawn\nok 4 - another Keeper cannot move\nok 5 - another zone cannot move\nok 6 - unrelated signal cannot move\n1..6\n"
+  },
+  "syntax": {
+    "exit_code": 0,
+    "output": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\server-mods\\quests\\global\\Instance_Keeper.pl syntax OK\n"
+  }
+}

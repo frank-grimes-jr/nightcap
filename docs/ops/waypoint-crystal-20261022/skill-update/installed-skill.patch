@@ -1,0 +1,278 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/world.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/world.md
+@@ -42,1 +42,26 @@
+-Waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
++## Waypoint crystal - October 22 candidate, not deployed
++
++The owner selected a glowing crystal with the existing `a waypoint` label.
++Candidate quest999240 uses Crystal Shard race425, neutral gender2, size6 and
++retains WizardPortal nimbus178. Signals20261011/20261022 refresh idempotently.
++The last deployed presentation below remains race127 until paired activation.
++Positions, 25-unit horizontal/30-unit vertical discovery, earned progress,
++recall and Explorer title100 are unchanged. No new NPC, SQL or native server build.
++
++Source: C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev at367e640;
++server-mods/quests/global/999240.pl, tools/tests/waypoint_visuals.t and
++docs/ops/waypoint-crystal-20261022/{README.md,candidate.json,verification.json}.
++Quest19/Keeper52 assertions and Python27 waypoint/model tests pass. Matching
++proxy0.11.1/catalog plus crystal and both import lists are mandatory; client.md
++owns the contract. Only after authorized signed publication and client exit/
++update/relaunch may the quest be reloaded and NPC999240 signaled20261022.
++No process kill, repop or saved-state deletion. Recovery must actively restore
++race127/gender0/size6 before reinstalling the retained quest; bytes alone leave
++active illusions. Preserve player activity and use a higher signed client counter.
++
++The crystal material uses AddAlpha_MaxCBSG1.fx; geometry does not prove visible
++rendering with particles disabled. Exact Befallen/Unrest/Crushbone QA, both model
++modes, low/off particles, label, scale, late joiners and discovery/recall remain
++open. Main promotion, server/client deployment and wiki publication are pending.
++
++Last deployed waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -1,0 +2,34 @@
++
++## Waypoint crystal - October 22 candidate, not published
++
++Candidate367e640 in C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev
++pairs proxy/catalog0.11.1 with crs.eqg, nightcap_models_chr.txt and
++nightcap_modern_chr.txt. Do not activate quest999240's race425 without this pair.
++The signed release must preserve the current complete inventory; the retained
++five-file delta is unsigned and is not a complete release. Protected reference
++and installed game folders were read only. No desktop launcher rebuild is required.
++
++The pinned parser VA0x48CB80 replaces its table, so ImportsHook calls it exactly
++once with a complete mode-specific list. Classic retains155 rows; Modern retains
++the13 pinned stock Resources/GlobalLoad_chr.txt rows; each adds crs,crs. Separate
++zone import calls and Luclin preferences remain intact. Custom native global
++import tables are outside this pinned contract. All22 prior isolated archives
++remain byte-identical; both modes require the generated25-file asset contract.
++crs.eqg SHA256 is0a06d4b41d49843b40518105b50057a50d1abb07147e10fb3769135ee1223f6b.
++
++Source/tests: eq-client-dll/{src/model_hooks.h,tests/model-hooks.cpp},
++tools/{client_classic_models.py,generate-classic-model-contract.py},
++tools/tests/test_waypoint_model.py and eq-launcher/{cmd/nightcap-package/
++classic_models_test.go,internal/preflight/proxy_catalog_test.go}.
++Missing/corrupt assets and mismatched catalogs fail the gates. The historical
++October19 regression pins its own good catalog fixture; current embedded catalog
++is not a valid fixture for that old DLL. Actual new and historical DLL pairing
++checks pass, plus x86 build,9 runtime groups,288 native animation cases, native
++invisible regression,107 exact-client guards and package/preflight/manifest tests.
++
++docs/ops/waypoint-crystal-20261022/ records hashes, validation and exact native QA.
++Race425's additive material still needs particles-off, both-mode and observer
++visibility checks; no native visual acceptance is claimed. Signed publication,
++quest activation and public wiki release await authorization. Full exit/update/
++relaunch precedes quest activation. Recovery keeps a complete matching pair at
++a higher signed counter and restores active server illusions explicitly.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -1,0 +2,17 @@
++
++## Waypoint crystal candidate - October 22, local source only
++
++Candidate367e640 in C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev
++reviews all21 maintained articles and432 generated reward routes. Waypoint
++Explorer, In development and Recent changes describe the chosen crystal/label
++as Not released. Features/home/travel/dungeons, commands and catalog values keep
++their released meaning. Source ledger7792171 is retained with a scoped review;
++check_refresh still reports review required rather than claiming publication.
++The known source delta through base88562b1 is Keeper deployment/wiki/knowledge
++evidence, not a new gameplay change. Unrelated robe candidate records are retained.
++
++docs/ops/waypoint-crystal-20261022/{wiki-review.json,wiki-refresh.json,
++verification.json} records decisions and hashes.14 Python content/refresh tests,
++6 search cases,7 equipment checks and458-page build pass. Native visual QA,
++paired signed client/server activation and public wiki publication are pending;
++the prior published20261022-dungeon-keepers-v1 remains the recorded public state.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -77,1 +77,2 @@
+-    "classic_robes_candidate_20261022": "178bb35231e58ca98799b56b2ba695ef7504385d; candidate only, rebased onto main88562b1; not installed or published"
++    "classic_robes_candidate_20261022": "178bb35231e58ca98799b56b2ba695ef7504385d; candidate only, rebased onto main88562b1; not installed or published",
++    "waypoint_crystal_candidate_20261022": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+@@ -4082,0 +4084,28 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "server-mods/quests/global/999240.pl",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "981a7c3cb56f265bb3ffe1db9d5e23aa2e3aee9d415288f75beb123580a9c58a",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "tools/tests/waypoint_visuals.t",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "1833e460df1165b59d9726df28da8ba3f9d0219aa116800b4d9516a025c6518d",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/README.md",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "1c9c3a5bbf3957e07767d799b334890fc32f51639e81d73c1d7cd8855c1ce9a5",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/verification.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "aa3e51c0b8be5f5ebafa69fc6a269b78a3c2a1b08d9fe102b9029eb847022e6f",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+@@ -5275,0 +5305,112 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-client-dll/src/model_hooks.h",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "f1215c7ba2a69008d4c4ce46e862c62b69faf2ad14b25201c501463a7c9eefb3",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-client-dll/src/model_catalog.h",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "4762e280bbd5c5c852f6ac7bb6e8cee8d66f9cfb28a9d697aafed5ac7f33a0bf",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-client-dll/src/runtime_contract.h",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "64c99eb75d6d0502a6b835def114978285b011816ba9c73a01d379d4ea6762ea",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-client-dll/config/classic-models.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "7e28df55278b0b81090ec8ec6870e7714bb8da731986cc5e0ebf76a86ee47839",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-client-dll/config/patch-sites.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-client-dll/tests/model-hooks.cpp",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "e8eb245355df8a8e47afb3f038e547c4da4588875ed78a920625acdde31379f9",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "tools/client_classic_models.py",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "b2fb39c55e7f600136d71d0df8a0511579300fe50295d32869401b1f3b658823",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "tools/generate-classic-model-contract.py",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "bb0d69654dbe6e09fda78d2e48f2e2dcd0ec0bec3be9440e097d2e396c769ed8",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "tools/tests/test_waypoint_model.py",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "46228d987cd66ac75ade1cb1db22ddaf2002387e5ccca656c963f6a1071be809",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-launcher/cmd/nightcap-package/classic_models.go",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "090db85e82e2644c814ba59920d05bdb6b8c570aca1a8e744f70278c3dbe2f99",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-launcher/cmd/nightcap-package/classic_models_test.go",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "38559e1b4c941a91ab3dc86c4ef69ce254226de211b193ef216e41b93706c602",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-launcher/internal/preflight/proxy_catalog_test.go",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "27c605ac7b323c576986be34a4828a6a67a519a5351c5e58df7aaf372b6c0391",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-launcher/internal/preflight/catalog.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-launcher/internal/preflight/testdata/released-catalog-20261019.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/candidate.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "3ec663c9a528f329a29bbb431b84e3f25712e5c6375dbf2ddf9fd3897e9f3b10",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/verification.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "aa3e51c0b8be5f5ebafa69fc6a269b78a3c2a1b08d9fe102b9029eb847022e6f",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+@@ -7139,0 +7281,42 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "wiki/articles/waypoints.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "686d5adc21ba8f4b8620e240dd901704a077e43cd4cc91e803b7fcbed2b202fa",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "wiki/articles/unreleased.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "aa18d7c9051e9e4929006af2b1a998c496754d9346ec6ce4d03a606b2a758b7c",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "5d8dc239174c65ecdd6741ff2c35dc42f4dda4b9d098f968573fe01222ce2e49",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "wiki/content-review.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "1fce5d39a48023c8d2b4f8fca03ea9e7105c0cf00388e6a5d41f358c63afacb2",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/wiki-review.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "699131a204294018419c3bfe6f0078408052dbc31bb0d90d4cd74c02e850c308",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/wiki-refresh.json",
++        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "sha256": "279852587805593798e6fe7b9f482c284670fc5a0d9c1c877d20cccc3b9833df",
++        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"

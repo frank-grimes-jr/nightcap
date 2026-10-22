@@ -1,0 +1,155 @@
+{
+  "source_ref": "4661ddcd3ed6389fce8d9120358d4b6a2b157622",
+  "include_worktree": true,
+  "owner_approval": "Approved. move into main.",
+  "source_review": "PR276 implements the reviewed robe candidate and preserves the published dungeon Keeper guides; remaining source drift since main7792171 is Keeper publication evidence and robe source/tests/docs.",
+  "previous_public_release": "20261022-dungeon-keepers-v1",
+  "client_release": 2026102201,
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "after_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "after_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "after_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
+      "after_sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "62439e336d3307af87b97120a799f69b88091173afe96f5fcff0a0bea51d7a3e",
+      "after_sha256": "59f05dbef612d33d7be8376f3a0175cbaa7774f04d5f464b1ddca3cf22bd8a5e"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "d3fd11e1eea8a215afb95751aeff358014175f93f733a3a812281119c2c56846",
+      "after_sha256": "3115bd2d2f337287344567466de79f6fa93ade4eed4d494504bf828ff9b2eb69"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "after_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "20b5f02c84089e3f79413c3f5aac014d1fc38293110b8a8a6e34fc283e9c9a1e",
+      "after_sha256": "b758032279dce6421f7acce8a52e3679bdb21296e7e5aa2cde9a10ca4e5073a0"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d",
+      "after_sha256": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "335f7377b7f6d43fe75ff5f45427c27888b14ac992f494e34465c02cf177a61f",
+      "after_sha256": "5dfd4dd0acfa57218ec8f839107a797037b4f90a290facf9f44df1b8a2c0e169"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "b75c5373e1bb7844b94002a28fe00bf415b6639a139c7213629dc24b48b0d684",
+      "after_sha256": "d41705388cb37caf78df62cdf3a34b7923164fee021e17f5337f9cff4019c78b"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "after_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "8ce119b4f7e3a534a20df24767c2239e9b2d372e18582c78fd8b6dbb80672196",
+      "after_sha256": "094b6e72c33f8d009debb543fb7ea7de9549212eee78b2cc90dc4c98df85428c"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20",
+      "after_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "after_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "decision": "Promoted only the robe candidate notice to live testing; full exit/update/relaunch and pending native acceptance explicit.",
+      "before_sha256": "e38cb2f0e49f5274ff2793daa0ebbc7308c485cbf00a757963c8ae6cdcf6105b",
+      "after_sha256": "e82b0ab1a80e3d9a4c6266fa500166c1f9c26d1705fae9b8ebf96a9be5dae953"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "decision": "No robe publication impact on mechanics, commands or guidance; prior content preserved.",
+      "before_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "after_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d"
+    }
+  ],
+  "generated_routes": 432,
+  "catalog_items": 384,
+  "catalog_and_commands": "No stat, reward, recipe, acquisition, class permission, era or command change; generated catalog/templates preserved.",
+  "native_acceptance": "pending",
+  "status": "published_verified_native_QA_pending",
+  "publication": {
+    "result": "PASS",
+    "release": "20261022-classic-robes-v1",
+    "verified_at": "2026-10-22T14:46:00.808933+00:00",
+    "files": 465,
+    "sha256_and_security_headers": true,
+    "private_routes_denied": [
+      ".env",
+      "articles/item-upgrades.json",
+      "content-review.json",
+      "catalog.json",
+      "wiki/current/index.html"
+    ]
+  }
+}

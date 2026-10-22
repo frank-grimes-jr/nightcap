@@ -2,6 +2,7 @@
 
 RoF2 field indices are verified against the spells_new repository/export schema.
 The input client remains read-only. The signed launcher installs the output later.
+Classic robe geometry requires tools/classic-robes-requirements.txt at build time.
 """
 import argparse
 import hashlib
@@ -244,7 +245,9 @@ def main():
     files.update(model_files(client))
     helmet_mesh = (ROOT/'assets/winged-helmet/helmet-game-mesh.json').read_bytes()
     helmets, helmet_audit = helmet_files(client, json.loads(helmet_mesh))
-    files.update(helmets)
+    from build_classic_robes import robe_files
+    robes, robe_audit = robe_files(helmets)
+    files.update(robes)
     from client_loading_screens import loading_files
     gallery, gallery_audit = loading_files()
     files.update(gallery)
@@ -254,12 +257,13 @@ def main():
         target = output/name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','merchant_sell_all','tradeskill_repeat','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet'],
+    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','merchant_sell_all','tradeskill_repeat','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet','classic_race_robes'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,
              'instant_dot_ids':ids, 'skin_activation':'automatic_at_native_ui_load',
              'helmet_mesh_sha256':hashlib.sha256(helmet_mesh).hexdigest(), 'helmet_archives':helmet_audit,
+             'robe_archives':robe_audit,
              'loading_screens': gallery_audit,
              'files':{name:{'size':len(data),'sha256':hashlib.sha256(data).hexdigest()} for name,data in files.items()}}
     (output/'audit.json').write_text(json.dumps(audit,indent=2)+'\n')

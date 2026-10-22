@@ -83,7 +83,36 @@ func TestReleasedProxyCatalog(t *testing.T) {
 	if err := CheckProxyCatalog(proxy, old); err == nil {
 		t.Fatal("broken published pair accepted")
 	}
+	// Preserve this incident regression when the current proxy version changes.
+	good, err := os.ReadFile("testdata/released-catalog-20261019.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if manifest.Digest(good) != "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4" {
+		t.Fatal("released catalog fixture drift")
+	}
+	if err := CheckProxyCatalog(proxy, good); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestBuiltProxyCatalog(t *testing.T) {
+	path := os.Getenv("NIGHTCAP_BUILT_PROXY")
+	if path == "" {
+		t.Skip("set NIGHTCAP_BUILT_PROXY to check the actual candidate artifact")
+	}
+	proxy, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
 	if err := CheckProxyCatalog(proxy, catalogBytes); err != nil {
 		t.Fatal(err)
+	}
+	old, err := os.ReadFile(os.Getenv("NIGHTCAP_PREVIOUS_CATALOG"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := CheckProxyCatalog(proxy, old); err == nil {
+		t.Fatal("candidate accepted the previous proxy catalog")
 	}
 }
