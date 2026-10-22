@@ -1,11 +1,8 @@
-# Substantial class-armor rewards — October 22 candidate
+# Substantial class-armor rewards — October 22 release
 
-**Not deployed. Owner gameplay and balance acceptance are open.**
+**Deployed with owner approval via main PR285 (`7f97288`) on October 22 at 17:07 UTC. Palwar’s three pieces are corrected. Owner in-game delivery, relog and balance acceptance remain open.**
 
-Publication follow-up: the explicitly unreleased candidate guidance is included
-in `20261022-classic-robes-waist-v1`; all 465 public files verify. This does not
-activate the quest scripts or establish gameplay acceptance. The original
-source-review/publication-pending statements below retain their candidate scope.
+[Deployment, recovery and verification](deployment/README.md) record the current state; the original candidate capture and tests below remain dated evidence.
 
 ## Diagnosis and accepted behavior
 
@@ -21,7 +18,7 @@ repeatable, while excluding cheap/basic hand-ins. This supersedes the blanket
 repeatable exclusion. [ADR 0066](../../adr/0066-substantial-class-armor-rewards.md)
 and the [explicit catalog](../../items/quest-armor-catalog.json) own the rule.
 
-## Implemented candidate
+## Implemented release
 
 Ten quest scripts change exactly 37 terminal reward literals:
 
@@ -89,8 +86,7 @@ tests establish script behavior. Neither is deployment or balance acceptance.
 
 ## Activation and recovery boundary
 
-Before activation, obtain the owner approval required for `test` to `main` and
-production changes. Re-capture scripts/precedence and verify their exact retained
+The owner explicitly authorized main promotion, deployment and Palwar’s offline correction. Activation completed; the following gates also apply to any future reactivation. Re-capture scripts/precedence and verify their exact retained
 before hashes; stop on drift. Verify the currently paired item cache contains all
 37 existing targets (not merely SQL rows). If cache repair is needed, stop and
 plan it with the current runtime pair; never kill a production zone process.
@@ -99,9 +95,9 @@ Under the existing deployment/GM locks, retain originals and install only the el
 verified scripts with original owner/mode and atomic file replacement. Use the
 supported global Quest reload and verify all current zones acknowledge it without
 quest errors; compare all native process lifetimes and unrelated service states.
-No restart is expected. Do not use an old release image or copy the entire local
+No restart was needed; the same constraint applies to future activation. Do not use an old release image or copy the entire local
 quest mirror. Publish the matching wiki candidate-to-live wording only with the
-authorized release; the current public wiki is not changed by this branch.
+authorized release; wiki20261022-quest-armor-v2 is published; its receipts record the preserved concurrent robe release.
 
 Rollback restores only the exact retained eleven preimages and reloads quests after
 verifying the installed candidate hashes. Keep all earned armor and player state;
@@ -110,9 +106,8 @@ reload acknowledgment requires inspecting exact live hashes before any retry.
 
 ### Palwar's already earned pieces
 
-No live inventory was changed. Proposed separate correction, after approval and
-Palwar logging out: saved slots 7/17/19, IDs 4176/4174/4180 become
-604176/604174/604180 respectively. Take a fresh full-row preimage and confirm exact
+The authorized correction committed while world player count was zero and admissions were held: saved slots 7/17/19 changed from 4176/4174/4180 to
+604176/604174/604180 respectively. All other fields across Palwar’s complete saved inventory were unchanged. The following describes the guard contract for this correction: Take a fresh full-row preimage and confirm exact
 character, slot and item IDs plus offline status immediately before committing.
 Change only item_id in one guarded transaction, retaining augments, dye, charges,
 binding and every other field. This correction is separate from the quest-script release. Abort if the player moved/replaced a piece or is
@@ -122,8 +117,5 @@ Verify the three items in game and after relog; no other owned items are implied
 ## Wiki impact
 
 All maintained guides and generated reward routes are reviewed in `wiki-review.json`.
-Equipment, Features, home, In development and Recent changes describe an explicitly
-unreleased five-family candidate. Tradeskills explains the distinction. Commands,
-Hunt/dungeon catalog values and published mechanics remain unchanged. The source
-ledger retains its published baseline; `check_refresh.py --include-worktree`
-correctly reports this unpublished source drift. Publication is pending.
+Equipment, Features, home, In development and Recent changes describe the deployed five-family release as Live testing. Tradeskills explains the distinction. Commands,
+Hunt/dungeon catalog values and published mechanics remain unchanged. The source ledger records the reviewed current-main baseline and supplemental deployment evidence. `check_refresh.py --include-worktree` reports the reviewed release records until their commit is recorded. Wiki20261022-quest-armor-v2 is published; public verification is recorded in deployment/.

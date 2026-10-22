@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-22 — Class-armor release and Palwar correction
+
+Owner-authorized PR285 is on main and all eleven quest scripts are activated.
+Thirty-seven substantial class-armor rewards now grant Ascended items; basic
+hand-ins remain unchanged. Palwar’s Vambraces, Breastplate and Plate Boots were
+upgraded while offline, changing only three item IDs and retaining all instance
+and other inventory data. No runtime restart or client/cache change was needed.
+Seventeen operator fault tests and five real temporary-table MariaDB rehearsals
+passed; uncertain SQL completion retains the admission hold. Native gameplay and
+balance QA remain open. [Deployment evidence](docs/releases/quest-armor-20261022/deployment/README.md).
+
 ## 2026-10-22 — Classic robe waist correction
 
 Owner QA found a missing waist on Barbarian and Half Elf. All fourteen added
