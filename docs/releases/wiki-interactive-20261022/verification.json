@@ -40,7 +40,13 @@
       "deep-link opens release digest",
       "slash opens focused modal",
       "Shift+Tab and Escape"
-    ]
+    ],
+    "public_smoke": "Published home, four paths and quick search rendered without console errors."
   },
-  "review": "Author reviewed behavior/regression, privacy/CSP, and requested design. No independent-agent review claimed. Fixed hidden-section contents tracking; preserved existing asset allowlist and release prose."
+  "review": "Author reviewed behavior/regression, privacy/CSP, and requested design. No independent-agent review claimed. Fixed hidden-section contents tracking; preserved existing asset allowlist and release prose.",
+  "linux_recovery": {
+    "passed": 16,
+    "skipped": 0
+  },
+  "publication": "All465 HTTPS hashes/security headers and five private-route denials PASS; origin rollback and service/private-download preservation verified."
 }

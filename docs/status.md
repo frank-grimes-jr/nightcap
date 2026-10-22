@@ -6,7 +6,9 @@ The redesigned handbook adds adventure paths, quick search, saved guides and
 light/dark reading modes across the existing HTML wiki. Gameplay content, labels,
 commands and catalog values remain unchanged. Local verification and publication
 receipts: [wiki interface release](releases/wiki-interactive-20261022/README.md).
-Publication is pending until that release's origin and public receipts pass.
+Published as `20261022-interactive-handbook-v1`: all 465 HTTPS hashes/security
+headers and five private-route denials pass; rollback and service preservation
+are verified. No gameplay acceptance status changed.
 
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 

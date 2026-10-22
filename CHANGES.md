@@ -7,7 +7,8 @@ browser-local saved guides, light/dark reading modes, responsive navigation and
 reading progress. Original home release notices remain intact in an expandable
 section. All 458 HTML pages, catalog values, gameplay labels and equipment filters
 are preserved. No new dependencies or hosting policy changes. Tests and guarded
-publication state: `docs/releases/wiki-interactive-20261022/`.
+publication evidence: `docs/releases/wiki-interactive-20261022/`. Published as
+`20261022-interactive-handbook-v1`; all 465 public hashes and preservation checks pass.
 
 ## 2026-10-22 - Robe waist repair accepted
 

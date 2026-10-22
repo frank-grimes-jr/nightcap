@@ -5,8 +5,8 @@ Updated October 22, 2026.
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
-- **Active OVH origin release:** `20261022-classic-dungeons-v1`; previous release
-  `20261022-classic-robes-native-waist-v1` is retained for recovery.
+- **Active OVH origin release:** `20261022-interactive-handbook-v1`; previous release
+  `20261022-classic-dungeons-v1` is retained for recovery.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
@@ -20,6 +20,17 @@ Updated October 22, 2026.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## October 22 interactive handbook
+
+Four adventure paths, instant quick search, browser-local saved guides, dark/light
+reading modes, mobile navigation and reading progress now run across all 458 HTML
+pages. Release notices remain intact in a home-page disclosure, including their
+deep links. About documents storage/shortcuts; Recent changes announces the UI.
+All 465 HTTPS hashes/security headers and five private-route denials pass.
+Sixteen Linux recovery tests and actual rollback rehearsal preserve configuration,
+private downloads and all service identities. No Nginx reload is needed.
+[Source, verification and recovery](../releases/wiki-interactive-20261022/README.md).
 
 ## October22 Classic dungeon options and rewards
 

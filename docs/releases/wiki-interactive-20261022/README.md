@@ -42,8 +42,11 @@ recovery checks run on the host before the pointer change.
 
 ## Publication and recovery
 
-Publication is pending until `wiki-publication.json` and
-`wiki-public-verification.json` report PASS. `publish.py` uses the unchanged
+Published as **20261022-interactive-handbook-v1** at
+https://wiki.nightcapgame.org/. Both `wiki-publication.json` and
+`wiki-public-verification.json` report PASS: all 465 hashes/security headers,
+five private-route denials, 16 Linux recovery tests and actual pointer rollback.
+The public browser also renders the new home and quick search without errors. `publish.py` uses the unchanged
 guarded updater, asserts the expected prior release and its complete manifest,
 runs Linux recovery tests and rehearses the old/new pointer. The current source
 and package must match the recorded file hashes. Only public wiki files change;
