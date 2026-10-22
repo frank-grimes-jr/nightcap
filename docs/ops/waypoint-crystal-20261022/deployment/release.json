@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-22T16:20:38.086829+00:00",
+  "authorization": [
+    "Merge to main and server",
+    "EverQuest is fully closed"
+  ],
+  "source_main": "f293626d4ddb69d464806084308f00b93ca8f35f",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/280",
+  "game_release": 2026102202,
+  "client_files_verified": 140,
+  "quest_sha256": "4b15350087dfd4153ea2ef98e418da9696b0c7efe99cdd8fe62cb96483f764a2",
+  "wiki_release": "20261022-waypoint-crystal-v1",
+  "wiki_files_verified": 465,
+  "admissions_restored": true,
+  "native_restart": false,
+  "database_writes": false,
+  "native_player_acceptance": "pending",
+  "receipts": [
+    "deployment.json",
+    "hosted-verification.json",
+    "quest-check.json",
+    "quest-apply.json",
+    "wiki-publication.json",
+    "wiki-public-verification.json",
+    "review.json"
+  ]
+}
