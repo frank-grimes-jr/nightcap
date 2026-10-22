@@ -14,6 +14,21 @@ See [release evidence and exact QA](releases/classic-robes-20261022/README.md).
 
 
 
+## 2026-10-22 — Waypoint crystal candidate, not deployed
+
+The requested glowing crystal and existing `a waypoint` label are implemented
+with a paired proxy0.11.1/model update. Automated quest, client and packaging
+checks pass. Native particles-off visibility, scale and both model modes need
+owner QA. Main promotion and server/client/wiki publication are pending; the
+current live waypoint still uses its portal-only presentation. No locations,
+discoveries, recall, Keeper behavior or player data changed.
+[Candidate evidence and QA](ops/waypoint-crystal-20261022/README.md).
+
+The candidate now includes main26761ff and preserves signed game2026102201's
+Classic robe archives, other assets and patch history in its unsigned inventory
+plan. Current source/inventory compatibility and merged wiki checks pass;
+deployment authorization and native visibility acceptance remain pending.
+
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 
 An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,

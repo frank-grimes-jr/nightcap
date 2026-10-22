@@ -14,6 +14,25 @@ remains open. Wiki20261022-classic-robes-v1 carries matching live-testing guidan
 
 
 
+## 2026-10-22 — Glowing waypoint crystal candidate
+
+The owner selected a glowing crystal with a waypoint label. Marker999240 uses
+Crystal Shard geometry plus the existing portal glow and nameplate. Locations,
+attunement, recall, Explorer progress and Keepers are preserved. The paired
+proxy0.11.1 loads a complete crystal-capable list in both model modes and retains
+all22 prior model archives. Do not deploy the quest without its matching client.
+Automated checks pass; native visibility QA and main/server/client/wiki publication
+remain pending. [Design, pairing and exact QA](docs/ops/waypoint-crystal-20261022/README.md).
+
+Integrated the subsequently published Classic robe release through main26761ff.
+The complete unsigned waypoint inventory plan preserves its two archives and all
+135 unrelated descriptors; all25 model-contract entries match. The merged wiki
+passes its content/search checks. No additional production change is authorized.
+
+Installed Nightcap world/client/wiki knowledge and 26 candidate fingerprints
+are updated and validated. Unrelated concurrent source drift remains recorded
+separately in the [maintenance receipt](docs/ops/waypoint-crystal-20261022/skill-update/README.md).
+
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 
 An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,
