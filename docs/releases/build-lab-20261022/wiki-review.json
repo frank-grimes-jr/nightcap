@@ -1,0 +1,36 @@
+{
+  "reviewed": "2026-10-22",
+  "source_base": "b6fe8e2965df33c7961d61c3f2659bdaae5e0b2e",
+  "main_checked": "c6c210085a20ed206a729f4b06ae2a5002ba65b4",
+  "new_guide": "build-lab",
+  "existing_guides": {
+    "about": "No player mechanic impact; content retained",
+    "advanced-loot": "No player mechanic impact; content retained",
+    "ascension": "No player mechanic impact; content retained",
+    "build-lab": "New experimental model and documented limitations",
+    "combat": "Build Lab cross-link or release entry; existing gameplay prose retained",
+    "commands": "No player mechanic impact; content retained",
+    "dungeon-modes": "No player mechanic impact; content retained",
+    "equipment": "Build Lab cross-link or release entry; existing gameplay prose retained",
+    "features": "Build Lab cross-link or release entry; existing gameplay prose retained",
+    "getting-started": "No player mechanic impact; content retained",
+    "index": "Existing content retained; home build path points to new tool",
+    "item-upgrades": "No player mechanic impact; content retained",
+    "launcher": "No player mechanic impact; content retained",
+    "multiclass": "No player mechanic impact; content retained",
+    "pets": "No player mechanic impact; content retained",
+    "recent-changes": "Build Lab cross-link or release entry; existing gameplay prose retained",
+    "tradeskills": "No player mechanic impact; content retained",
+    "travel": "No player mechanic impact; content retained",
+    "tunnel": "No player mechanic impact; content retained",
+    "unreleased": "No player mechanic impact; content retained",
+    "waypoints": "No player mechanic impact; content retained",
+    "zone-hunt": "No player mechanic impact; content retained"
+  },
+  "generated_routes": {
+    "count": 432,
+    "decision": "No changes to gameplay values, release labels or acquisition; shared navigation/assets add Build Lab access."
+  },
+  "catalog": "All 384 published entries unchanged; raw values reused for differences only.",
+  "commands": "No change. No gameplay/DB/client changes."
+}

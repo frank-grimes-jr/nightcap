@@ -6,7 +6,7 @@ PATHS = [
     ('begin', 'Start here', 'Your first evening in Nightcap', 'A little preparation. A whole world ahead.',
      ['getting-started', 'launcher', 'features', 'tunnel']),
     ('build', 'Build a character', 'Make the adventure your own', 'Explore the choices behind your next character.',
-     ['multiclass', 'combat', 'pets', 'ascension']),
+     ['build-lab', 'multiclass', 'combat', 'pets']),
     ('gear', 'Find better gear', 'Something worth the next fight', 'Find a reward, understand its quality, then plan your upgrade.',
      ['items', 'equipment', 'item-upgrades', 'tradeskills']),
     ('explore', 'Go adventuring', 'Take the long way home', 'Find a destination and learn what is waiting there.',
