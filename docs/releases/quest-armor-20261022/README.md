@@ -1,13 +1,8 @@
-# Substantial class-armor rewards — October 22 release
+# Substantial class-armor rewards â€” October 22 release
 
-**Deployed with owner approval via main PR285 (`7f97288`) on October 22 at 17:07 UTC. Palwar’s three pieces are corrected. Owner in-game delivery, relog and balance acceptance remain open.**
+**Deployed with owner approval via main PR285 (`7f97288`) on October 22 at 17:07 UTC. Palwarâ€™s three pieces are corrected. Owner in-game delivery, relog and balance acceptance remain open.**
 
 [Deployment, recovery and verification](deployment/README.md) record the current state; the original candidate capture and tests below remain dated evidence.
-
-Publication follow-up: the explicitly unreleased candidate guidance is included
-in `20261022-classic-robes-waist-v1`; all 465 public files verify. This does not
-activate the quest scripts or establish gameplay acceptance. The original
-source-review/publication-pending statements below retain their candidate scope.
 
 ## Diagnosis and accepted behavior
 
@@ -91,7 +86,7 @@ tests establish script behavior. Neither is deployment or balance acceptance.
 
 ## Activation and recovery boundary
 
-The owner explicitly authorized main promotion, deployment and Palwar’s offline correction. Activation completed; the following gates also apply to any future reactivation. Re-capture scripts/precedence and verify their exact retained
+The owner explicitly authorized main promotion, deployment and Palwarâ€™s offline correction. Activation completed; the following gates also apply to any future reactivation. Re-capture scripts/precedence and verify their exact retained
 before hashes; stop on drift. Verify the currently paired item cache contains all
 37 existing targets (not merely SQL rows). If cache repair is needed, stop and
 plan it with the current runtime pair; never kill a production zone process.
@@ -112,7 +107,7 @@ reload acknowledgment requires inspecting exact live hashes before any retry.
 ### Palwar's already earned pieces
 
 The authorized correction committed while world player count was zero and admissions were held: saved slots 7/17/19 changed from 4176/4174/4180 to
-604176/604174/604180 respectively. All other fields across Palwar’s complete saved inventory were unchanged. The following describes the guard contract for this correction: Take a fresh full-row preimage and confirm exact
+604176/604174/604180 respectively. All other fields across Palwarâ€™s complete saved inventory were unchanged. The following describes the guard contract for this correction: Take a fresh full-row preimage and confirm exact
 character, slot and item IDs plus offline status immediately before committing.
 Change only item_id in one guarded transaction, retaining augments, dye, charges,
 binding and every other field. This correction is separate from the quest-script release. Abort if the player moved/replaced a piece or is
