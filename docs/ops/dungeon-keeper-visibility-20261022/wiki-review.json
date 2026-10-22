@@ -1,5 +1,5 @@
 {
-  "source_ref": "origin/main 0f96a4d plus working follow-up",
+  "source_ref": "main7792171 plus reviewed deployment/publication/knowledge working evidence",
   "articles": [
     {
       "article": "wiki/articles/about.json",
@@ -29,7 +29,7 @@
     {
       "article": "wiki/articles/dungeon-modes.json",
       "sha256": "ea12029035565a70fcd85d8c7fd1ce6b8ea41b7e0bbfc2dac52205b53519ac20",
-      "assessment": "Update for all-seven audit and four new placements after verified activation; retain open visible QA."
+      "assessment": "Published all-seven locations and five installed corrections with open visible QA. High Keep/CT separate positions and /target fallback retained."
     },
     {
       "article": "wiki/articles/equipment.json",
@@ -74,7 +74,7 @@
     {
       "article": "wiki/articles/recent-changes.json",
       "sha256": "fc50fd0b964f4e66ca0b56b4ba8de1642bbae0f7b328a5e4e5b41516d6352b34",
-      "assessment": "Update for all-seven audit and four new placements after verified activation; retain open visible QA."
+      "assessment": "Published all-seven locations and five installed corrections with open visible QA. High Keep/CT separate positions and /target fallback retained."
     },
     {
       "article": "wiki/articles/tradeskills.json",
@@ -94,7 +94,7 @@
     {
       "article": "wiki/articles/unreleased.json",
       "sha256": "7b262944a2b7a86dec5c4ad71a0fc4a6136ed697ebe018e6cca7cc6ad9085b03",
-      "assessment": "Update for all-seven audit and four new placements after verified activation; retain open visible QA."
+      "assessment": "Published all-seven locations and five installed corrections with open visible QA. High Keep/CT separate positions and /target fallback retained."
     },
     {
       "article": "wiki/articles/waypoints.json",
@@ -108,5 +108,5 @@
     }
   ],
   "generated_catalog": "No reward/zone-hunt/acquisition/stat/template change. All generated routes retain their released meaning.",
-  "publication": "Pending after activation; no new public payload yet."
+  "publication": "20261022-dungeon-keepers-v1 published;465 public hashes/headers,private denials,16 Linux tests and rollback rehearsal pass;services/private guide/config retained."
 }

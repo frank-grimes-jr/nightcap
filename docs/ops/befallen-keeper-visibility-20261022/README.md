@@ -1,6 +1,6 @@
 # Befallen Keeper visibility — October 22, 2026
 
-Status: main PR272 / 434d0e5 deployed October 22 for live QA. Visible acceptance is pending.
+Status: historical Befallen-only release, superseded by [the all-dungeon follow-up](../dungeon-keeper-visibility-20261022/README.md). Use the successor recovery operator against the current shared quest. Visible acceptance remains pending.
 
 The installed quest SHA is `3c22ca3d3e4a1b39b56c018ea97c5daea5abf735b633bf8a389ebb6ae7e8da4d`.
 Twelve aggregate quest reload acknowledgments arrived before refresh signal 20261022.
