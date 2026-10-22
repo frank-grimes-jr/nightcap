@@ -11,6 +11,12 @@ equipment eligibility is a separate, existing server/client policy.
 Generate the missing male/female bodies from native upper bodies and same-sex
 Human/Gnome robe skirts, fitted in the native standing pose and mapped by
 anatomical bone name. Retain target skeletons, animations, heads, hands and feet.
+The torso and skirt must share all eight native waist edges with identical
+bone-local coordinates and pelvis assignments. Pose-space overlap is insufficient:
+owner QA exposed a gap on Barbarian and Half Elf. Match the opposite directed
+rings and distribute their displacement around the waist and down to the hem;
+rim-only snapping folds adjacent faces inward. Recompute skirt normals, retain
+the torso's seam normals, and reject collapsed or reversed triangles.
 Add bodies to native contiguous mesh registration and append cloth slots to the
 shared first-mesh palette. Preserve all old fragments by inverse-reference byte
 comparison, apart from the explicit palette extension. Both global archives
