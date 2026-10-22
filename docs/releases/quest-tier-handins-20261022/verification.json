@@ -56,5 +56,70 @@
     "First Perl test harness incorrectly treated a do-file undefined return as failure; corrected before reproducing the real 68-assertion baseline failure.",
     "Read-only audit decoder now preserves legacy latin-1 quest bytes; no remote mutations.",
     "Wiki checker intentionally reports reviewed source drift; published source ledger is not advanced for an unreleased candidate."
-  ]
+  ],
+  "final_integrated_checks": [
+    {
+      "name": "native-windows",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_quest_handins.py",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-python",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_wiki",
+        "test_refresh"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-search",
+      "command": [
+        "node",
+        "test_search.cjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-equipment",
+      "command": [
+        "node",
+        "test_equipment.cjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-build",
+      "command": [
+        "python",
+        "-B",
+        "build.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "integrated_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b",
+  "native_source_matches_built_candidate": true,
+  "independent_review": "review.json",
+  "final_linux_checks": {
+    "native_acceptance_return_and_delivery_groups": 2,
+    "lua": "passed",
+    "perl_assertions": 221,
+    "exit_code": 0
+  }
 }

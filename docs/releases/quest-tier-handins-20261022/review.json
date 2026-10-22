@@ -1,0 +1,16 @@
+{
+  "status": "no outstanding actionable findings",
+  "reviewer": "fresh gpt-6-astra agent",
+  "scope": "native hand-in/return, task filter, Lua helper, legacy Perl recipes and tests",
+  "finding": {
+    "severity": "P3",
+    "file": "server-mods/quests/soltemple/Vilissia.pl",
+    "description": "legacy separators became mojibake",
+    "resolution": "three ASCII hyphens; independently rechecked"
+  },
+  "remaining_limits": [
+    "Inherited multiquest completion clears its donation bucket, including surplus",
+    "Complete task delivery/event/inventory lifecycle requires in-game QA"
+  ],
+  "source_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b"
+}

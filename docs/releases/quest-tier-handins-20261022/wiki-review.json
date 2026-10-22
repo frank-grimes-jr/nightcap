@@ -30,5 +30,8 @@
   "catalog_values_changed": false,
   "commands_changed": false,
   "published_ledger_retained": true,
-  "publication": "pending owner-authorized release; existing published guides remain unchanged"
+  "publication": "pending owner-authorized release; existing published guides remain unchanged",
+  "source_integrated_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b",
+  "main_integrated": "f293626",
+  "preserved_other_candidate": "Current waypoint crystal source and Not released notices from main are preserved; this task grants no new waypoint activation permission."
 }
