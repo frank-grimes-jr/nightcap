@@ -54,7 +54,7 @@ its saved-state test wording and rollback caveats are addressed. See evidence.js
 
 ## Activation boundary and recovery
 
-Repository policy requires owner sign-off before main/production. After approval,
+The owner explicitly authorized main and server deployment on October 22. Before activation,
 recheck the live quest hash and service/zone lifetimes under the deployment and
 GM locks; retain the exact previous quest. Install the reviewed committed quest
 atomically, use the supported quest reload without resetting timers, and send
@@ -84,3 +84,13 @@ snapshots, dungeon ledgers, loot or whole zone state for this cosmetic rollback.
 
 The older October 13 acceptance remains historical and does not close this new
 Befallen report. This candidate has no current deployment or rendering approval.
+
+## Guarded operator
+
+`python run.py check` checks syntax and all scoped regressions. After main promotion,
+`python run.py apply` verifies the pinned live preimage under both deployment and
+GM locks, retains original/candidate/recovery bytes and checks native lifetimes,
+service identities, unchanged waypoint and quest reload acknowledgments.
+`python run.py rollback` installs the retained position-recovery helper.
+Receipts are retained in `/opt/nightcap/backups/befallen-keeper-visibility-20261022`.
+An incomplete operation must be inspected; never blindly retry it.
