@@ -1,4 +1,14 @@
 # Current Nightcap status
+## Quest ingredient qualities — October 22 candidate
+
+Shared Lua/native hand-ins and journal deliveries accept ordinary qualities for
+Normal requirements; five older Solusek Ro scripts now use the native checker.
+Crafted Gauntlets has an exact regression using Polished Aviak Charm. Automated
+checks pass; this is not deployed or owner accepted. No SQL/client/cache changes.
+Paired native/quest activation and exact in-game QA remain required. See
+[release evidence](releases/quest-tier-handins-20261022/README.md) and
+[QA steps](releases/quest-tier-handins-20261022/QA.md).
+
 ## Classic race robes — published for live QA, October 22
 
 Generated missing robe bodies for male/female Half Elf, Wood Elf, Barbarian,

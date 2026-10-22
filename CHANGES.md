@@ -1,4 +1,16 @@
 # CHANGES
+## 2026-10-22 — Tiered quest ingredients (candidate)
+
+Normal quest requirements accept verified Polished, Exalted and Ascended versions
+of the same item through Lua, native Perl hand-ins and task Deliver objectives.
+Fixes Shakrn's Aviak Charm/Crafted Gauntlets rejection and migrates five legacy
+Solusek Ro quests. Exact inputs are preferred, explicit quality requirements
+remain exact, failed native money checks restore counts, and real item instances
+are retained for returns. Rewards and forging costs do not change. Paired zone
+and six quest files required; no SQL/cache/client update. Tested candidate only;
+production/main and player acceptance remain pending. Evidence and QA:
+`docs/releases/quest-tier-handins-20261022/`.
+
 ## 2026-10-22 — Classic race robes published for live QA
 
 Adds missing robe bodies for both genders of Half Elf, Wood Elf, Barbarian,

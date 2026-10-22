@@ -28,6 +28,7 @@
 #include "common/linked_list.h"
 #include "common/misc_functions.h"
 #include "common/nightcap_doppelganger.h"
+#include "common/quest_item_policy.h"
 #include "common/repositories/npc_types_repository.h"
 #include "common/repositories/spawn2_repository.h"
 #include "common/repositories/spawnentry_repository.h"
@@ -4502,6 +4503,13 @@ bool NPC::CheckHandin(
 {
 	auto h = Handin{};
 	auto r = Handin{};
+	bool valid_requirements = true;
+	auto matches = [](const HandinEntry &handed, const HandinEntry &required) {
+		return NightcapQuestItems::Matches(
+			database.GetItem(Strings::ToUnsignedInt(handed.item_id)),
+			database.GetItem(Strings::ToUnsignedInt(required.item_id))
+		);
+	};
 
 	std::string log_handin_prefix = fmt::format("[{}] -> [{}]", c->GetCleanName(), GetCleanName());
 
@@ -4537,6 +4545,8 @@ bool NPC::CheckHandin(
 				if (const auto *exists = database.GetItem(Strings::ToUnsignedInt(key));
 					exists && current_dataset == set_required) {
 					current_handin.items.emplace_back(HandinEntry{.item_id = key, .count = value});
+				} else if (!exists && current_dataset == set_required) {
+					valid_requirements = false;
 				}
 				continue;
 			}
@@ -4595,9 +4605,9 @@ bool NPC::CheckHandin(
 
 	// multi-quest
 	if (IsMultiQuestEnabled()) {
-		for (auto &h_item: m_hand_in.items) {
+		for (auto &h_item: handin_items) {
 			for (const auto &r_item: r.items) {
-				if (h_item.item_id == r_item.item_id && h_item.count == r_item.count) {
+				if (matches(h_item, r_item) && h_item.count == r_item.count) {
 					h_item.is_multiquest_item = true;
 				}
 			}
@@ -4608,38 +4618,42 @@ bool NPC::CheckHandin(
 	bool items_met = true;
 	if (!handin_items.empty() && !r.items.empty()) {
 		std::vector<HandinEntry> before_handin_state = handin_items;
+		// Reserve explicit qualities before flexible Normal requirements.
+		std::stable_sort(r.items.begin(), r.items.end(), [](const HandinEntry &a, const HandinEntry &b) {
+			return (Strings::ToUnsignedInt(a.item_id) >= 200000) >
+				(Strings::ToUnsignedInt(b.item_id) >= 200000);
+		});
 		for (const auto &r_item : r.items) {
 			uint32 remaining_requirement = r_item.count;
-			bool fulfilled = false;
 
-			// Process the hand-in items using a standard for loop
-			for (size_t i = 0; i < handin_items.size() && remaining_requirement > 0; ++i) {
-				auto &h_item = handin_items[i];
+			// Prefer exact items, then verified quality variants; never rewrite instances.
+			for (int pass = 0; pass < 2 && remaining_requirement > 0; ++pass) {
+				for (size_t i = 0; i < handin_items.size() && remaining_requirement > 0; ++i) {
+					auto &h_item = handin_items[i];
 
-				// Check if the item IDs match (normalize if necessary)
-				bool id_match = (h_item.item_id == r_item.item_id);
+					const bool exact = h_item.item_id == r_item.item_id;
+					const bool id_match = pass == 0 ? exact : !exact && matches(h_item, r_item);
 
-				if (id_match) {
-					uint32 used_count = std::min(remaining_requirement, h_item.count);
-					// If the item is a multi-quest item, we don't want to consume it for the hand-in bucket
-					if (!IsMultiQuestEnabled()) {
+					if (id_match) {
+						uint32 used_count = std::min(remaining_requirement, h_item.count);
+						// Tentative allocation also prevents reuse across multiquest requirements.
 						h_item.count -= used_count;
-					}
-					remaining_requirement -= used_count;
+						remaining_requirement -= used_count;
 
-					LogNpcHandinDetail(
-						"{} >>>> Using item [{}] ({}) count [{}] to fulfill [{}], remaining requirement [{}]",
-						log_handin_prefix,
-						h_item.item->GetItem()->Name,
-						h_item.item_id,
-						used_count,
-						r_item.item_id,
-						remaining_requirement
-					);
+						LogNpcHandinDetail(
+							"{} >>>> Using item [{}] ({}) count [{}] to fulfill [{}], remaining requirement [{}]",
+							log_handin_prefix,
+							h_item.item->GetItem()->Name,
+							h_item.item_id,
+							used_count,
+							r_item.item_id,
+							remaining_requirement
+						);
 
-					// If the item is fully consumed, mark it for removal
-					if (h_item.count == 0) {
-						items_to_remove.push_back(h_item);
+						// If the item is fully consumed, mark it for removal
+						if (h_item.count == 0) {
+							items_to_remove.push_back(h_item);
+						}
 					}
 				}
 			}
@@ -4654,14 +4668,12 @@ bool NPC::CheckHandin(
 				);
 				items_met = false;
 				break;
-			} else {
-				fulfilled = true;
 			}
 		}
 
 		// reset the hand-in items to the state prior to processing the hand-in
 		// if we failed to fulfill the requirement
-		if (!items_met) {
+		if (!items_met || !money_met || !valid_requirements) {
 			handin_items = before_handin_state;
 			items_to_remove.clear();
 		}
@@ -4673,7 +4685,7 @@ bool NPC::CheckHandin(
 		items_met = false;
 	}
 
-	requirement_met = money_met && items_met;
+	requirement_met = valid_requirements && money_met && items_met;
 
 	// in-case we trigger CheckHand-in multiple times, only set these once
 	if (!m_handin_started) {

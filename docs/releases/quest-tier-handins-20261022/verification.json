@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-10-22T16:30:36.170018+00:00",
+  "status": "candidate_not_deployed",
+  "baseline_red": {
+    "native": "Aviak tier rejected",
+    "lua": "Aviak tier rejected: 213737",
+    "perl": "68 of 221 assertions failed against captured original scripts"
+  },
+  "completed_checks": [
+    {
+      "name": "Windows native acceptance and task delivery",
+      "result": "passed",
+      "test_groups": 2
+    },
+    {
+      "name": "Linux native acceptance and task delivery",
+      "result": "passed",
+      "test_groups": 2
+    },
+    {
+      "name": "Lua helper with captured Shakrn quest",
+      "result": "passed"
+    },
+    {
+      "name": "Perl 17 legacy recipes, four qualities, extras/repeats/missing inputs",
+      "result": "passed",
+      "assertions": 221
+    },
+    {
+      "name": "Wiki complete links, generated equipment and source drift behavior",
+      "result": "passed",
+      "python_tests": 14,
+      "search_scenarios": 6,
+      "equipment_scenarios": 7,
+      "built_pages": 458
+    },
+    {
+      "name": "Complete zone compile/link and dynamic dependencies",
+      "result": "passed",
+      "manifest": "native-build-manifest.json",
+      "baseline_byte_identical": true
+    }
+  ],
+  "production_probe": {
+    "date": "2026-10-22",
+    "process_count": 12,
+    "zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b"
+  },
+  "open": [
+    "Native owner gameplay acceptance",
+    "Main promotion and production paired activation",
+    "Public wiki publication"
+  ],
+  "notes": [
+    "Windows default temporary directory and GNU compiler were unavailable under sandbox; MSVC succeeded with workspace TEMP. Linux compiler independently passed.",
+    "First Perl test harness incorrectly treated a do-file undefined return as failure; corrected before reproducing the real 68-assertion baseline failure.",
+    "Read-only audit decoder now preserves legacy latin-1 quest bytes; no remote mutations.",
+    "Wiki checker intentionally reports reviewed source drift; published source ledger is not advanced for an unreleased candidate."
+  ]
+}
