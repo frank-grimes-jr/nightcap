@@ -5,8 +5,13 @@ Updated October 22, 2026.
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
-- **Active OVH origin release:** `20261022-build-lab-v1`; previous release
-  `20261022-interactive-handbook-v1` is retained for recovery.
+- **Active OVH origin release:** `20261022-hate-keeper-v1`; previous release
+  `20261022-build-lab-v1` is retained for recovery.
+- **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
+  required and the GM access restriction removed. Private Hate retains its
+  entrance Keeper. Main PR299/server and466-file wiki publication are verified;
+  native owner visibility/travel/gameplay acceptance remains open. Evidence:
+  `docs/ops/hate-keeper-commonlands-20261022/` in the gameplay release checkout.
 - **Build Lab:** experimental A/B builds, supported spell/stat benefits, item differences,
   resolved abilities and priority-order testing; scope and dated fixtures are explicit.
   Verified publication: `docs/releases/build-lab-20261022/`. No gameplay changes.
