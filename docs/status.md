@@ -1,4 +1,13 @@
 # Current Nightcap status
+
+## 2026-10-22 — Hate Keeper relocation ready for approval
+
+Candidate moves the public Hate Keeper to East Commonlands `/loc -1570,-346,3`,
+with native Hate routing, correct arrival/journal and private Keeper continuity.
+Hate's level46 requirement stays; its status80 gate is removed for public/private
+access. Built and tested against the exact live baseline; production unchanged.
+Main/live sign-off, wiki publication and owner QA remain open.
+[Release and exact in-game checks](ops/hate-keeper-commonlands-20261022/README.md).
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 
 All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,

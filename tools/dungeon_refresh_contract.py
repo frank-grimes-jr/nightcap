@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from dungeon_catalog import items
 from dungeon_contract import predicate, render_header
+from hate_keeper import refresh_contract
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -29,6 +30,7 @@ def refresh():
     if rewards.exists():
         contract['content']=[c for c in contract['content'] if not c['label'].startswith('rewards/')]
         contract['content']+=json.loads(rewards.read_text())
+    contract=refresh_contract(contract)
     path.write_text(json.dumps(contract,indent=2)+'\n',encoding='utf-8',newline='\n')
     (ROOT/'server-mods/code/common/dungeon_contract.h').write_text(
         render_header(contract['schema'],contract['content'],definitions),encoding='utf-8',newline='\n')

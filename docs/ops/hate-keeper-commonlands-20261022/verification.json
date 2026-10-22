@@ -1,0 +1,26 @@
+{
+  "status": "candidate passed",
+  "production_changed": false,
+  "native_gameplay_accepted": false,
+  "source_regressions": {
+    "keeper_route_and_entry": 2,
+    "journal": 4,
+    "private_spawns": 1,
+    "content_scope_and_drift": 3,
+    "current_contract": 1,
+    "catalog": 3,
+    "lifecycle": 4,
+    "result": "passed"
+  },
+  "native_build": "baseline reproduced byte-for-byte; candidate compiled, linked and ldd passed",
+  "sql_rehearsal": "forward, inverse, mid-transaction failure, repeat rejection and saved-state scope passed",
+  "geometry": "10 ground/headroom samples, clear approach, production map SHA-256 matches",
+  "wiki": "16 content/link/source-review tests passed; 459 pages built; candidate not published",
+  "knowledge": "Installed world/wiki references and source fingerprints updated; both topics have zero drift; skill validator passed",
+  "review": {
+    "independent_reviewer": "keeper_review",
+    "source": "no unresolved findings after journal, admission, checkpoint and nullable-notes corrections",
+    "operator": "no blocking preservation defect; immutable package rerun naming fixed",
+    "live_operator_execution": "not executed; main/live approval pending"
+  }
+}

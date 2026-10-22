@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "database": "nightcap_dungeon_rehearsal_a8549d6c8fa2",
+  "source": "captured production DDL and public service rows only",
+  "forward_exact": true,
+  "inverse_exact": true,
+  "mid_transaction_failure_rolled_back": true,
+  "repeat_rejected": true,
+  "private_and_unrelated_saved_state_preserved": true,
+  "production_changed": false
+}

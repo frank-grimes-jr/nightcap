@@ -1,0 +1,107 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -346,
+      "y": -1570,
+      "z": 3
+    },
+    {
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -346,
+      "y": -1582,
+      "z": 3
+    }
+  ],
+  "segments": [
+    {
+      "blocked": false,
+      "from": [
+        -346,
+        -1582,
+        6
+      ],
+      "to": [
+        -346,
+        -1570,
+        6
+      ]
+    }
+  ],
+  "map_sha256": "861fa497df139138b13d08b6e16f2d50c6f1a0ccc3f0fa4ce0afadddb6a17915",
+  "production_map_equal": true,
+  "native_appearance_accepted": false
+}

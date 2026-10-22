@@ -183,6 +183,6 @@ inline constexpr ExcludedNPC ExcludedNPCs[] = {
 	{73,73092},
 };
 inline constexpr uint32_t SkyKeyService = 998814;
-inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==48 ? 188 : zone==71 ? 12 : 0; }
+inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : 0; }
 inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }
 }
