@@ -24,20 +24,24 @@ See [release evidence and exact QA](releases/classic-robes-20261022/README.md).
 
 
 
-## 2026-10-22 — Waypoint crystal candidate, not deployed
+## 2026-10-22 — Waypoint crystals deployed for live QA
 
-The requested glowing crystal and existing `a waypoint` label are implemented
-with a paired proxy0.11.1/model update. Automated quest, client and packaging
-checks pass. Native particles-off visibility, scale and both model modes need
-owner QA. Main promotion and server/client/wiki publication are pending; the
-current live waypoint still uses its portal-only presentation. No locations,
-discoveries, recall, Keeper behavior or player data changed.
-[Candidate evidence and QA](ops/waypoint-crystal-20261022/README.md).
+The owner authorized “Merge to main and server” and confirmed EverQuest was
+fully closed. Main PR280 (`f293626`) and signed game **2026102202** are deployed.
+The complete signed 140-file client inventory, actual DLL/catalog pairing and
+all HTTPS hashes verify; 135 prior descriptors, including Classic robes, are
+preserved. Quest activation verified zero clients, the exact committed LF hash,
+12 aggregate reload acknowledgments and signal20261022. Login admissions were
+restored; world/all12 zone lifetimes, five services and Keeper quest are unchanged.
+No database write, native restart, repop or saved-state rewrite was needed.
 
-The candidate now includes main26761ff and preserves signed game2026102201's
-Classic robe archives, other assets and patch history in its unsigned inventory
-plan. Current source/inventory compatibility and merged wiki checks pass;
-deployment authorization and native visibility acceptance remain pending.
+Wiki20261022-waypoint-crystal-v1 is published with all465 public files verified.
+
+Fully close EverQuest and use normal launcher Play before testing. Crystal/label
+appearance, particles low/off, both model modes and discovery/recall still need
+owner in-game acceptance. Locations and earned progress are unchanged.
+
+[Deployment, recovery and exact QA](ops/waypoint-crystal-20261022/README.md).
 
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 

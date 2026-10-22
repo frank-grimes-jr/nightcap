@@ -1,0 +1,16 @@
+{
+  "skill_creator": "PASS",
+  "scoped_fingerprints": 53,
+  "other_topic_drift": {
+    "client-context": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-launcher\\patch-notes.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      }
+    ],
+    "wiki-context": [],
+    "world-context": []
+  },
+  "native_acceptance": "open"
+}
