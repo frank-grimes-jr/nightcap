@@ -3243,7 +3243,9 @@ int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 		if (NightcapPetScaling::PermanentRabidBear(spell_id) && spells[spell_id].buff_duration_formula == DF_Permanent) {
 			return PERMANENT_BUFF_DURATION;
 		}
-		if (IsDisciplineBuff(spell_id) || spells[spell_id].short_buff_box || IsAARelatedBuffSpell(spell_id)) {
+		if (IsDisciplineBuff(spell_id) || spells[spell_id].short_buff_box ||
+			IsEffectInSpell(spell_id, SpellEffect::PercentXPIncrease) || IsAARelatedBuffSpell(spell_id)) {
+			// Temporary AA effects and XP boosts must not inherit ordinary buff permanence.
 			// The previous blanket policy persisted temporary buffs as permanent.
 			// Their elapsed time is unknowable: expire them without granting a new
 			// full duration on login/pet restore. Positive remaining/focused timers
