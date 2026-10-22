@@ -17,6 +17,12 @@ owner QA exposed a gap on Barbarian and Half Elf. Match the opposite directed
 rings and distribute their displacement around the waist and down to the hem;
 rim-only snapping folds adjacent faces inward. Recompute skirt normals, retain
 the torso's seam normals, and reject collapsed or reversed triangles.
+After joining, group all vertices for each bone contiguously, moving positions,
+UVs and normals together and remapping polygon indices. The native loader calls
+ID3DXSkinInfo::SetBoneInfluence per WLD group; repeated groups replace prior
+influences. Owner QA rejected2203 despite closed saved geometry. Real x86 DirectX
+checks reproduce lost torso waist bindings and validate the grouped correction.
+Offline per-run expansion alone is not a valid native skinning check.
 Add bodies to native contiguous mesh registration and append cloth slots to the
 shared first-mesh palette. Preserve all old fragments by inverse-reference byte
 comparison, apart from the explicit palette extension. Both global archives

@@ -15,6 +15,16 @@ production/main and player acceptance remain pending. Evidence and QA:
 `docs/releases/quest-tier-handins-20261022/`.
 
 
+## 2026-10-22 — Native robe waist binding correction
+
+Owner QA rejected2203 with the gap visible while standing and moving; installed
+archive hashes match. Native DirectX overwrites the earlier torso influence list
+when the skirt repeats its pelvis group. The generator now groups each bone once,
+preserving exact physical geometry, UVs, normals and materials. Actual x86 library
+checks reproduce432 lost influences on the old16 registrations and zero after
+regrouping. Publication and visible recheck remain separate gates. See
+[native binding proof and QA](docs/releases/classic-robes-20261022/native-skinning/README.md).
+
 ## 2026-10-22 — Class-armor release and Palwar correction
 
 Owner-authorized PR285 is on main and all eleven quest scripts are activated.

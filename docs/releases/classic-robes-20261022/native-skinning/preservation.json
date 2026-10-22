@@ -1,0 +1,131 @@
+{
+  "status": "candidate_not_published_native_visual_recheck_pending",
+  "previous_release": 2026102203,
+  "change": "vertex permutation and polygon index remap only; same physical geometry, UVs, normals, materials and per-vertex bone IDs",
+  "archives": {
+    "global_chr.s3d": {
+      "sha256": "8cb7f1e2cb7e702fbe0039053cae33e230515b7f2a1105714aab9a74f9b667ab",
+      "size": 8221514,
+      "all_other_fragments_and_textures_preserved": true
+    },
+    "global4_chr.s3d": {
+      "sha256": "da5f127ec87a0da6ef0131bb041f01d3e29a0785f59d96ec5abcd81ad37c433d",
+      "size": 2715905,
+      "all_other_fragments_and_textures_preserved": true
+    }
+  },
+  "models": [
+    {
+      "archive": "global_chr.s3d",
+      "code": "BAM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 18,
+      "vertices": 343
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "BAF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 296
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ELM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 276
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ELF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 315
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HAM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 289
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HAF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 337
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DWM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 266
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DWF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 268
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "TRM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 272
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "TRF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 277
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "OGM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 286
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "OGF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 289
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HOM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 258
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HOF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 273
+    },
+    {
+      "archive": "global4_chr.s3d",
+      "code": "BAM",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 18,
+      "vertices": 343
+    },
+    {
+      "archive": "global4_chr.s3d",
+      "code": "BAF",
+      "exact_face_attributes_preserved": true,
+      "unique_bone_groups": 17,
+      "vertices": 296
+    }
+  ]
+}
