@@ -1,7 +1,8 @@
 {
-  "status": "deployed and published; owner native QA open",
+  "status": "deployed, published and owner-confirmed for relocation/visibility/travel",
   "production_changed": true,
-  "native_gameplay_accepted": false,
+  "native_gameplay_accepted": true,
+  "owner_acceptance_scope": "Relocation, Commonlands visibility and Hate travel confirmed. Broader dungeon balance/full-clear QA remains separate.",
   "source_regressions": {
     "keeper_route_and_entry": 2,
     "journal": 4,
@@ -15,12 +16,13 @@
   "native_build": "baseline reproduced byte-for-byte; candidate compiled, linked and ldd passed",
   "sql_rehearsal": "forward, inverse, mid-transaction failure, repeat rejection and saved-state scope passed",
   "geometry": "10 ground/headroom samples, clear approach, production map SHA-256 matches",
-  "wiki": "16 local content/source checks and16 Linux recovery checks passed;459 pages built;466 public hashes/security headers and five private denials passed",
-  "knowledge": "Installed world/wiki references and source fingerprints updated; both topics have zero drift; skill validator passed",
+  "wiki": "16 local content/source checks and16 Linux recovery checks passed;459 pages built;466 public hashes/security headers and five private denials passed for 20261022-hate-keeper-confirmed-v1",
+  "knowledge": "Installed world/wiki references and source fingerprints updated; acceptance entries verified unchanged; unrelated historical ledger drift retained for separate review; skill validator passed",
   "review": {
     "independent_reviewer": "keeper_review",
     "source": "no unresolved findings after journal, admission, checkpoint and nullable-notes corrections",
     "operator": "no blocking preservation defect; immutable package rerun naming fixed",
-    "live_operator_execution": "approved and completed; private receipt and redacted deployment.json retained"
+    "live_operator_execution": "approved and completed; private receipt and redacted deployment.json retained",
+    "owner_confirmation": "Confirmed"
   }
 }

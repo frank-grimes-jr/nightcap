@@ -7,8 +7,10 @@ with native Hate routing, correct arrival/journal and private Keeper continuity.
 Hate's level46 requirement stays; its status80 gate is removed for public/private
 access. Owner-authorized main PR299 and paired production activation are
 verified: all12 zones,39 schema/499 content checks, fresh stopped backup and
-player/state/cache preservation. Gateway open; no client update. Wiki466 files
-verify over HTTPS. Owner in-game visibility/travel/gameplay QA remains open.
+player/state/cache preservation. Gateway open; no client update. Wiki
+`20261022-hate-keeper-confirmed-v1` verifies all466 files over HTTPS. The owner
+confirmed the Keeper relocation, visibility and Hate travel behavior. Broader
+dungeon balance/full-clear QA remains open separately.
 [Release and exact in-game checks](ops/hate-keeper-commonlands-20261022/README.md).
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 

@@ -1,0 +1,10 @@
+{
+  "message": "Confirmed",
+  "accepted_at": "2026-10-22",
+  "scope": "Live Plane of Hate Keeper relocation to East Commonlands, Commonlands visibility and travel into Hate",
+  "release": "PR299 / a736fb02937931254456daf8954d7466a6aa1c28",
+  "wiki_release": "20261022-hate-keeper-confirmed-v1",
+  "wiki_source_revision": "89d8d38",
+  "server_receipt": "deployment.json",
+  "broader_qa": "Dungeon balance and full-clear acceptance remain separate and are not claimed here"
+}

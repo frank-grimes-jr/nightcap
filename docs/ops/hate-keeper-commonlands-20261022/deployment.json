@@ -253,7 +253,9 @@
     "native_rule_days": 7,
     "boundary_window_seconds": 600
   },
-  "owner_gameplay_accepted": false,
+  "owner_gameplay_accepted": true,
+  "owner_acceptance_scope": "Owner confirmed the live Keeper relocation, Commonlands visibility and Hate travel behavior. Broader dungeon balance/full-clear QA remains separate.",
+  "owner_acceptance_message": "Confirmed",
   "gateway_open": true,
   "database_restored": false
 }
