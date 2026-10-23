@@ -1,8 +1,8 @@
-# Owner in-game QA — paired candidate required
+# Owner in-game QA â€” paired candidate required
 
 Status: native checks passed; visible gameplay acceptance is pending.
 
-Use the matching launcher release after closing EverQuest. Preserve existing
+Use launcher game2026102301 after closing EverQuest. Preserve existing
 character progress; a new level-1 character is the low-level control.
 
 1. Open Alternate Advancement at level 1. Press plus from 0 to 100 and minus
@@ -23,7 +23,7 @@ character progress; a new level-1 character is the low-level control.
    0/50/100 settings; they follow the same allocation. Resurrection and GM
    level changes must not mint AA. No automatic or retroactive AA grants occur.
 6. Cross a level boundary at 0%, then zone/relog: earned points and partial
-   progress remain. Repeat near 49→50. At level 50, ordinary and focused AA
+   progress remain. Repeat near 49â†’50. At level 50, ordinary and focused AA
    earning continue while the Classic cap remains in force.
 7. With an isolated test-only AA bank cap, reaching that cap at 100% must retain
    the selection and keep leveling paused. Production currently has no bank cap.
