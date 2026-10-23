@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-23",
+  "status": "candidate; no publication claimed",
+  "wiki_source_base": "d3b6def",
+  "source_authority": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev",
+  "baseline_reproduction": "all467 published files exactly matched",
+  "guides": [
+    {
+      "guide": "about",
+      "title": "About this wiki",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f"
+    },
+    {
+      "guide": "advanced-loot",
+      "title": "Advanced loot",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "guide": "ascension",
+      "title": "Ascension quest",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b"
+    },
+    {
+      "guide": "build-lab",
+      "title": "Build Lab",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "3e8a167eb258a3c385797e2cdd2f55a117fc76b7ffc712f823455808f400c157"
+    },
+    {
+      "guide": "combat",
+      "title": "Combat, buffs & recovery",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "bb5d4a86d609eb3f2296c22281dd21e3be116307663b56f98df6a17ba824fc38"
+    },
+    {
+      "guide": "commands",
+      "title": "Command reference",
+      "decision": "AA instructions/release labels updated",
+      "sha256": "0d24409204b88d6485442b8c6e00a247dd00be9dd6cf79685afa238dbe4a4190"
+    },
+    {
+      "guide": "dungeon-modes",
+      "title": "Raid & Grind dungeons",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "86a123987d3eafb84dc638856478b00ff2439bf746fab26cff6bc4b01c56d8ed"
+    },
+    {
+      "guide": "equipment",
+      "title": "Equipment & trading",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "edc2b2d265003924d5cb27e1860edee85a71c38d1b9fe5b5cc610291f2bcf04c"
+    },
+    {
+      "guide": "features",
+      "title": "Features",
+      "decision": "AA instructions/release labels updated",
+      "sha256": "dd5f7ddc92d69fd64ad81385d17ba72c15a59238865cf692896de76da62ea620"
+    },
+    {
+      "guide": "getting-started",
+      "title": "Getting started",
+      "decision": "AA instructions/release labels updated",
+      "sha256": "c6f2ddc52d8c222c1a22f6a153b2d473fafe01bf89d57e222315bde89b87ab38"
+    },
+    {
+      "guide": "index",
+      "title": "Welcome to the Nightcap Wiki",
+      "decision": "AA instructions/release labels updated",
+      "sha256": "a2eb52584c82f4eab308ba63440f9b8b4ab0ccfe1ac36bb5573e0beed77bdd50"
+    },
+    {
+      "guide": "item-upgrades",
+      "title": "Item upgrades",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d"
+    },
+    {
+      "guide": "launcher",
+      "title": "Launcher & interface",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0"
+    },
+    {
+      "guide": "loot-finder",
+      "title": "Loot finder",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a"
+    },
+    {
+      "guide": "multiclass",
+      "title": "Multiclass & progression",
+      "decision": "AA instructions/release labels updated",
+      "sha256": "d2c02a0a2e9c93421e24925e44de6a4f326f01154f6572cd4f30bec4964099a9"
+    },
+    {
+      "guide": "pets",
+      "title": "Pets & pet armor",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb"
+    },
+    {
+      "guide": "recent-changes",
+      "title": "Recent changes",
+      "decision": "AA instructions/release labels updated",
+      "sha256": "afa2183b927fe8f6ed232d69c31c6264dc1f860419bd1f6b35dadeccefc07462"
+    },
+    {
+      "guide": "tradeskills",
+      "title": "Tradeskills & Craft All",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+    },
+    {
+      "guide": "travel",
+      "title": "Travel & instances",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "81ac7f449bb739a8f0b1d3059cc6d290b2f4919b8d3b8fd4ef1443053b501981"
+    },
+    {
+      "guide": "tunnel",
+      "title": "East Commonlands tunnel",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "1f0081880f17426b8e0adbe8935a74debeb54d1b04811ad033b99a2039674212"
+    },
+    {
+      "guide": "unreleased",
+      "title": "In development",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "984a038508fc91af15382787e9a453f96a10a9c46bd241737ab3b4072a175ab3"
+    },
+    {
+      "guide": "waypoints",
+      "title": "Waypoint Explorer",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672"
+    },
+    {
+      "guide": "zone-hunt",
+      "title": "Zone hunt & forging",
+      "decision": "reviewed; no AA mechanics or instructions to change",
+      "sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d"
+    }
+  ],
+  "generated_routes": 432,
+  "hunt_variants": 384,
+  "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae",
+  "unchanged_systems": [
+    "loot finder and live JSON/timer routes",
+    "Build Lab formulas and data",
+    "interactive handbook paths/storage",
+    "all item and zone reward values",
+    "retired Goldwind paid boost and Matron ordinary buffs"
+  ],
+  "source_drift_review": [
+    "Main Keeper relocation/owner acceptance is already reflected by published wiki baseline",
+    "Published handbook, Build Lab and loot reader source exists on the newer wiki branch and is preserved; do not overwrite from main",
+    "AA native and proxy changes reviewed against feature/aa-level-progression and exact source/test/build evidence",
+    "Release/operator/testing records are private and not published"
+  ],
+  "browser_fix": "Shared Build Lab initializer now requires data-lab, preserving existing heading anchors",
+  "native_owner_qa": "pending",
+  "public_release": "pending"
+}

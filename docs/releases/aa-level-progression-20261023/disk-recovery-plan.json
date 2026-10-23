@@ -1,0 +1,74 @@
+{
+  "status": "exact local recovery copies verified",
+  "files": 11,
+  "reclaimable_bytes": 1883127258,
+  "records": [
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\advanced-loot-stock-icons-20261010\\deployment\\advanced-loot-stock-icons-2026101001.tar.gz",
+      "remote": "/home/ubuntu/advanced-loot-stock-icons-2026101001.tar.gz",
+      "bytes": 176962205,
+      "sha256": "850fd9d4831276bc6ccf9df17926b0777ca6f428337a729abd30c303d5f58e9d"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\advloot-actions-20261002\\advanced-loot-actions-server-20261002.tar.gz",
+      "remote": "/home/ubuntu/advanced-loot-actions-server-20261002.tar.gz",
+      "bytes": 165673260,
+      "sha256": "48dfbac56503657400772afc75afb6bfbc0df79b064071bba4c2e880f67ddcca"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\blessing-deploy-20261003\\blessing-relogin-server-20261003.tar.gz",
+      "remote": "/home/ubuntu/blessing-relogin-server-20261003.tar.gz",
+      "bytes": 165658028,
+      "sha256": "0ad667219505473ab3e9233dfb12c956255698780142629d1766df1273f07be2"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\blessing-lifetime-20261004\\blessing-lifetime-server-20261004-r2.tar.gz",
+      "remote": "/home/ubuntu/blessing-lifetime-server-20261004-r2.tar.gz",
+      "bytes": 165663842,
+      "sha256": "e973248820019a86c2ad73e661c986d00618450c698a96e3abcbdd8c312af74f"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\blessing-lifetime-20261004\\blessing-lifetime-server-20261004.tar.gz",
+      "remote": "/home/ubuntu/blessing-lifetime-server-20261004.tar.gz",
+      "bytes": 165663381,
+      "sha256": "888b818d454ec7381009e7236269f2de54842bebb69cca7ede9a90a2c95efa27"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\enchanter-animation-20260930\\enchanter-animation-20260930.tar.gz",
+      "remote": "/home/ubuntu/enchanter-animation-20260930.tar.gz",
+      "bytes": 170894848,
+      "sha256": "3b6419ce7c5f76ce0514ac54ec3d549b59936bf7dc61a58515a2cb4a8cbf7a30"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\inventory-class-refresh-20260921\\server-inventory-ui-20260921.tar.gz",
+      "remote": "/home/ubuntu/server-inventory-ui-20260921.tar.gz",
+      "bytes": 170696471,
+      "sha256": "796cab8ca34bbf53f45414f6bf366d7e63a7608da2cace00ddc946b452166c4a"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\merchant-sell-all\\deployment\\merchant-sell-all-2026101201.tar.gz",
+      "remote": "/home/ubuntu/merchant-sell-all-2026101201.tar.gz",
+      "bytes": 176964254,
+      "sha256": "07b11d311d03e14bc92c4125e1daec295c65d89b2df8dc16b2961eeb25159a59"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\multiclass-skill-progression-20261013\\deployment\\client\\multiclass-skills-2026101301.tar.gz",
+      "remote": "/home/ubuntu/multiclass-skills-2026101301.tar.gz",
+      "bytes": 176966377,
+      "sha256": "6bc5c252343a035b74aacc5abbc3b80e93e5e9ee27ddf344deb0e9d985ee00fa"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\pet-management-20260922\\production-ops\\pet-server-20260922.tar.gz",
+      "remote": "/home/ubuntu/pet-server-20260922.tar.gz",
+      "bytes": 171019125,
+      "sha256": "610cbe1e21a80ce7d743b2acc16328e81541e0895cccc42d8a7aa5a05890c598"
+    },
+    {
+      "local": "E:\\EQ_Local_Dev\\artifacts\\trainer-access-20261012\\deployment\\client\\multiclass-trainers-2026101204.tar.gz",
+      "remote": "/home/ubuntu/multiclass-trainers-2026101204.tar.gz",
+      "bytes": 176965467,
+      "sha256": "0f38c7fae382eaa66e2378bc4efac8e2dfa186681cd3e12ffd415180d32e7039"
+    }
+  ],
+  "production_deleted": false
+}

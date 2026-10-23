@@ -1,0 +1,19 @@
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+AA runtime and exact rule catalog verified; access remains closed.
+Two passive AA per level enabled; normal access restored.
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.455s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.282s
+
+OK

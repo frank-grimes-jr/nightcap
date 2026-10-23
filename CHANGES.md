@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-10-23 — Level-scaled AA and level-1 allocation controls (candidate)
+
+Adds the owner-selected two passive AA per level of eligible XP while retaining
+normal leveling rates. Native AA plus/minus controls work from level 1; valid
+0–100 allocations persist, 100% pauses leveling, and a full AA bank cannot
+silently resume it. The existing tenfold focus relationship yields 20 AA per
+level-equivalent at full focus. Fixed internal AA units preserve existing points,
+purchases and partial progress; no retroactive grants. Kill/quest/task awards
+share the normal XP basis, segment level crossings and continue at the Classic
+50 cap. Separate AA-only multipliers do not multiply the scaled rate again.
+
+Requires fresh matching server binaries for the new rule plus proxy0.12.0 and
+its signed catalog. Current production remains the million-point release until
+a separate deployment receipt verifies activation. Native reward/transition and
+exact-client controls pass; owner gameplay/balance QA remains open.
+[Evidence and QA](docs/releases/aa-level-progression-20261023/README.md).
+
 ## 2026-10-22 — Hate Keeper moved to Commonlands
 
 Moves Hate's existing public Keeper to the East Commonlands travel area at

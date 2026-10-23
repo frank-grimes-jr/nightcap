@@ -1,0 +1,31 @@
+{
+  "reviewer": "independent review_aa_pacing agent",
+  "status": "no blocking source/operator/client findings; guidance wording corrected",
+  "axes": [
+    "correctness",
+    "readability",
+    "architecture",
+    "security",
+    "performance"
+  ],
+  "source_boundaries": "reward arithmetic/native SetEXP and exact-client code tested; wire/rendered/gameplay acceptance pending",
+  "operator_tests": 27,
+  "client_publisher_tests_windows": {
+    "passed": 10,
+    "posix_skipped": 1
+  },
+  "fixed_findings": [
+    "preserve percentages at bank cap",
+    "bound native non-ten-percent +/-",
+    "actual SetEXP coverage",
+    "fresh matched rule-dependent binaries",
+    "pinned local Docker base tag",
+    "full rule and dungeon-state comparisons",
+    "post-stop and pre-SQL schema guards",
+    "level-span example assumptions",
+    "candidate/publication labels",
+    "native instance expiry offset, exact boundary and unchanged startup guards",
+    "prebuilt-only exact image validation and measured672MiB preflight reserve;512MiB post-backup/open floor retained"
+  ],
+  "owner_gameplay_accepted": false
+}

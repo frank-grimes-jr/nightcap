@@ -1,0 +1,12 @@
+{
+  "status": "actual MariaDB temporary-table rehearsal passed",
+  "checks": [
+    "forward adds exact ruleset1 value20",
+    "replay rejected",
+    "other-ruleset collision rejected",
+    "live full rule table unchanged"
+  ],
+  "persistent_tables_written": false,
+  "rule_rows": 1076,
+  "before_after_sha256": "f3ac145991b9cb07d275de64596e63c5a1165efb0a0300fa6e77af1cead5922a"
+}
