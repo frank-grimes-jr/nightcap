@@ -2300,9 +2300,8 @@ void Client::SetSkill(EQ::skills::SkillType skillid, uint16 value) {
 	safe_delete(outapp);
 }
 
-// Set the AA-experience split server-side. The RoF2 client hides the AA-XP toggle
-// below level 51, so the #aaexp command drives this instead of OP_AAAction. exp.cpp
-// still enforces Character:AAExpMinLevel, so this only "sticks" at/above that level.
+// Commands, quests and native AA controls share eligibility and percentage
+// validation. The paired RoF2 proxy enables the native controls from level 1.
 void Client::SetAAExperiencePercent(uint32 percent)
 {
 	m_epp.perAA = percent;
