@@ -45,7 +45,7 @@ Native award369, legacy129, actual SetEXP8 and pinned client167 checks pass.
 The client runtime suite passes10groups and112exact executable guards. Signed
 client2026102301 changes only the proxy/catalog and preserves138assets. Fresh complete world/zone/shared_memory compilation passed; no gameplay/client/wiki activation is claimed.
 
-Operator20failure/boundary cases pass on Windows and Linux. Actual MariaDB temporary-table forward/replay/
+Operator27failure/boundary cases pass on Windows and Linux. Actual MariaDB temporary-table forward/replay/
 collision rehearsal leaves live rules unchanged. The compiled catalog1013rules
 matches all1076existing rows/notes; only the new rule will be added. Wiki67Linux
 cases and existing Node suites pass, with467publishedbaselinefiles reproduced

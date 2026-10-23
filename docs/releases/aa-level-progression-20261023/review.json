@@ -9,7 +9,7 @@
     "performance"
   ],
   "source_boundaries": "reward arithmetic/native SetEXP and exact-client code tested; wire/rendered/gameplay acceptance pending",
-  "operator_tests": 15,
+  "operator_tests": 27,
   "client_publisher_tests_windows": {
     "passed": 10,
     "posix_skipped": 1
@@ -23,7 +23,9 @@
     "full rule and dungeon-state comparisons",
     "post-stop and pre-SQL schema guards",
     "level-span example assumptions",
-    "candidate/publication labels"
+    "candidate/publication labels",
+    "native instance expiry offset, exact boundary and unchanged startup guards",
+    "prebuilt-only exact image validation and measured672MiB preflight reserve;512MiB post-backup/open floor retained"
   ],
   "owner_gameplay_accepted": false
 }
