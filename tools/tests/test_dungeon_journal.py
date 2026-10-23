@@ -208,6 +208,9 @@ template<typename Td,typename Ts>
 #pragma GCC diagnostic pop
 #endif
 namespace NightcapDungeon {
+namespace Vigil { constexpr unsigned Task=9800;
+'''+native.body((ROOT/'server-mods/code/zone/chapterhouse_vigil.inc').read_text(),'void Configure(')+r'''
+}
 '''+function+r'''
 }
 int main() {

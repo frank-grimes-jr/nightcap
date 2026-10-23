@@ -1,0 +1,297 @@
+{
+  "status": "superseded: stale fixture settings and initial weak NPC stats",
+  "files": [
+    {
+      "file": "combat-998821-grind-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998821-grind-500aa-polished-result.json",
+      "sha256": "40c751591545acc4837423662ff413496c0ee76e1c542c217dc31e4f4e42ec95"
+    },
+    {
+      "file": "combat-998821-grind-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998821-grind-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998821-grind-98aa-polished-result.json",
+      "sha256": "45311365abb78a958b32a621814e779d73941e426e96b1555d5f87e5c60958c8"
+    },
+    {
+      "file": "combat-998821-grind-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998821-grind-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998821-grind-legal-max-ascended-result.json",
+      "sha256": "527e26e33ed79b3338a240d6cc616ebdec54dffd5d31aeba286a6c5030904781"
+    },
+    {
+      "file": "combat-998821-grind-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998821-raid-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998821-raid-500aa-polished-result.json",
+      "sha256": "1cfa8ff3cefcafac726ddb70100a4e6d4d0917ced2a6eb1afeb80dc81e470716"
+    },
+    {
+      "file": "combat-998821-raid-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998821-raid-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998821-raid-98aa-polished-result.json",
+      "sha256": "91d0b8130a8582ae084b410f3e1ae488619e38baaddc2789ad64d8170b891863"
+    },
+    {
+      "file": "combat-998821-raid-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998821-raid-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998821-raid-legal-max-ascended-result.json",
+      "sha256": "bc96fa1d4bcce21b6eb8554ddf20116a7d805390ec93c9f4826069aa41c77b37"
+    },
+    {
+      "file": "combat-998821-raid-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998822-grind-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998822-grind-500aa-polished-result.json",
+      "sha256": "e32c9b64fdbae70c17f66d796ca624ceec99d5d4520ebedaa86b7788edb83c58"
+    },
+    {
+      "file": "combat-998822-grind-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998822-grind-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998822-grind-98aa-polished-result.json",
+      "sha256": "951f50803589cfb010a7758af998b04f85ccd82443cd27af8a1cf0681af593a4"
+    },
+    {
+      "file": "combat-998822-grind-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998822-grind-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998822-grind-legal-max-ascended-result.json",
+      "sha256": "2b3dada84074f5175d43b03fdd2784b94bb3ea12d6821afcd42aff52a5d6da85"
+    },
+    {
+      "file": "combat-998822-grind-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998822-raid-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998822-raid-500aa-polished-result.json",
+      "sha256": "3ba6c65d0d652a5881d7e88b609ee0d2ff33cfa71c48b32b0c3062613879f049"
+    },
+    {
+      "file": "combat-998822-raid-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998822-raid-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998822-raid-98aa-polished-result.json",
+      "sha256": "3c844a6e80cfd594bf4bf5d8140905da2cd640ba627d128c7d3f13fda84b8e5e"
+    },
+    {
+      "file": "combat-998822-raid-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998822-raid-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998822-raid-legal-max-ascended-result.json",
+      "sha256": "6c04ab5a0db99bf8fe3c3d966d7ad3936e6e9f7f259b7b943430c92d01555e0b"
+    },
+    {
+      "file": "combat-998822-raid-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998823-grind-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998823-grind-500aa-polished-result.json",
+      "sha256": "090713057db0b1b54812da566913943295c1188745e173924932497313a37107"
+    },
+    {
+      "file": "combat-998823-grind-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998823-grind-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998823-grind-98aa-polished-result.json",
+      "sha256": "8c3e612a263d3ab6733efb677821fbed5d56e562f1156b8b3d7b8f3f3c62413a"
+    },
+    {
+      "file": "combat-998823-grind-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998823-grind-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998823-grind-legal-max-ascended-result.json",
+      "sha256": "a0950b6eefce09d5c724840d932577535168ff19a3ddce9369213ad70cfd2d68"
+    },
+    {
+      "file": "combat-998823-grind-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998823-raid-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998823-raid-500aa-polished-result.json",
+      "sha256": "06fb43b884076cccd3f2a3c139173b023cb3cfa96b86a18b27f02014c970ae06"
+    },
+    {
+      "file": "combat-998823-raid-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998823-raid-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998823-raid-98aa-polished-result.json",
+      "sha256": "92fee558bd4414713291801b9cbc584843b890fddc22644c3358f59d15fda505"
+    },
+    {
+      "file": "combat-998823-raid-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998823-raid-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998823-raid-legal-max-ascended-result.json",
+      "sha256": "3dda4881482dab039dc50eacc71559e79d75860f23d6c195435fdeb0ed81f64d"
+    },
+    {
+      "file": "combat-998823-raid-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998824-grind-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998824-grind-500aa-polished-result.json",
+      "sha256": "59929ee4dad517bf325ffcd8c91a2e60da09ac7a6bda44ffab9ee6b65de3d9d4"
+    },
+    {
+      "file": "combat-998824-grind-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998824-grind-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998824-grind-98aa-polished-result.json",
+      "sha256": "fc11e0af41c4b6195fc78d1c5c166d958275e7c8730303da8f06f73707d5a922"
+    },
+    {
+      "file": "combat-998824-grind-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998824-grind-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998824-grind-legal-max-ascended-result.json",
+      "sha256": "fdff856bed4096bd5c98c1198bca5050c99e1965fb59bce25c8f053cc08d1f72"
+    },
+    {
+      "file": "combat-998824-grind-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998824-raid-500aa-polished-input.json",
+      "sha256": "040fd78aa189811a24797cf29cf16c61a64d3482e4d82378fa82fac0c742b225"
+    },
+    {
+      "file": "combat-998824-raid-500aa-polished-result.json",
+      "sha256": "b72cfcb3c479ae91bf4fc403f4ca4a1fc976e4652f92d91d2f0033dcc6e30fdb"
+    },
+    {
+      "file": "combat-998824-raid-500aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998824-raid-98aa-polished-input.json",
+      "sha256": "acaa6a8b014c9cc1631122bcfeb4635bf586ba1a5c417e6bd75841788e64795a"
+    },
+    {
+      "file": "combat-998824-raid-98aa-polished-result.json",
+      "sha256": "f4f196250000616293242ab39984822cb03d2cd2ecf67fd2528c686463bd9165"
+    },
+    {
+      "file": "combat-998824-raid-98aa-polished.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "combat-998824-raid-legal-max-ascended-input.json",
+      "sha256": "4c831b532c6982ca92bb3c1fa0507a8699a502b81a5867d997ca092b45e192b0"
+    },
+    {
+      "file": "combat-998824-raid-legal-max-ascended-result.json",
+      "sha256": "4ca17de4d8b020cdfe481a95444434fc66b879ae3546f6ed1c5a1db40b53a1a8"
+    },
+    {
+      "file": "combat-998824-raid-legal-max-ascended.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "balance-results.json",
+      "sha256": "7a5fb7f7e4ff9bddc30a5dad635bbaedcbcfdf6ed34b0761f3eefb75891a8cfb"
+    }
+  ]
+}

@@ -1523,6 +1523,7 @@ uint32 Zone::CountAuth() {
 }
 
 bool Zone::Process() {
+	NightcapDungeon::Process();
 	spawn_conditions.Process();
 
 	if (spawn2_timer.Check()) {

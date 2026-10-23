@@ -1,0 +1,5637 @@
+{
+  "spent": 3319,
+  "owned": [
+    {
+      "ability_id": 331,
+      "category": 9,
+      "charges": 0,
+      "cooldown_group": 20,
+      "cost": 0,
+      "effects": [],
+      "expansion": 0,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Origin",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 1000,
+      "recast_seconds": 1080,
+      "spell_id": 5824,
+      "total_cost": 0,
+      "type": 1
+    },
+    {
+      "ability_id": 938,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 0,
+      "effects": [
+        {
+          "base": 8,
+          "effect_id": 426,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Eyes Wide Open",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 16420,
+      "purchasable_now_ignoring_price": false,
+      "rank": 8,
+      "rank_id": 16421,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 0,
+      "type": 1
+    },
+    {
+      "ability_id": 2220,
+      "category": 9,
+      "charges": 0,
+      "cooldown_group": 1,
+      "cost": 0,
+      "effects": [],
+      "expansion": 0,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Ancient Attunement",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 22200,
+      "recast_seconds": 600,
+      "spell_id": 42604,
+      "total_cost": 0,
+      "type": 1
+    },
+    {
+      "ability_id": 6001,
+      "category": 9,
+      "charges": 0,
+      "cooldown_group": 39,
+      "cost": 0,
+      "effects": [],
+      "expansion": 0,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Lay on Hands",
+      "next_rank_id": 7853,
+      "prereqs": [],
+      "previous_rank_id": 7851,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 7852,
+      "recast_seconds": 4320,
+      "spell_id": 13548,
+      "total_cost": 0,
+      "type": 3
+    },
+    {
+      "ability_id": 1,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 4,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Strength",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 300,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 301,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 2,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 7,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Stamina",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 310,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 311,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 3,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 6,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Agility",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 320,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 321,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 4,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 5,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Dexterity",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 330,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 331,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 5,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 8,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Intelligence",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 340,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 341,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 6,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 9,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Wisdom",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 350,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 351,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 7,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 10,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Charisma",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 360,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 361,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 8,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 46,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Fire Protection",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 370,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 371,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 9,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 47,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Cold Protection",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 380,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 381,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 10,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 50,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Magic Protection",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 390,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 391,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 11,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 48,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Poison Protection",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 400,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 401,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 12,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 49,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Disease Protection",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 410,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 411,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 13,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 35,
+          "effect_id": 271,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Run Speed",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 672,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 673,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 13,
+      "type": 1
+    },
+    {
+      "ability_id": 15,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 150,
+          "effect_id": 233,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Metabolism",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 69,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 70,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 3,
+      "type": 1
+    },
+    {
+      "ability_id": 16,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 14,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 350,
+          "effect_id": 246,
+          "limit": 0,
+          "slot": 2
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Lung Capacity",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 677,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 978,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 13,
+      "type": 1
+    },
+    {
+      "ability_id": 17,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 1,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 269,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "First Aid",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 75,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 76,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 3,
+      "type": 1
+    },
+    {
+      "ability_id": 18,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 28,
+          "effect_id": 125,
+          "limit": 28,
+          "slot": 1
+        },
+        {
+          "base": 0,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 1,
+          "effect_id": 141,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": -6233,
+          "effect_id": 139,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": -6265,
+          "effect_id": 139,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": 28,
+          "effect_id": 125,
+          "limit": 28,
+          "slot": 6
+        },
+        {
+          "base": 147,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 7
+        },
+        {
+          "base": 1,
+          "effect_id": 141,
+          "limit": 0,
+          "slot": 8
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Healing Adept",
+      "next_rank_id": 12449,
+      "prereqs": [],
+      "previous_rank_id": 1084,
+      "purchasable_now_ignoring_price": false,
+      "rank": 9,
+      "rank_id": 1085,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 42,
+      "type": 2
+    },
+    {
+      "ability_id": 19,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 28,
+          "effect_id": 274,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Healing Gift",
+      "next_rank_id": 5592,
+      "prereqs": [],
+      "previous_rank_id": 4780,
+      "purchasable_now_ignoring_price": false,
+      "rank": 12,
+      "rank_id": 4781,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 57,
+      "type": 2
+    },
+    {
+      "ability_id": 20,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 132,
+          "limit": 15,
+          "slot": 1
+        }
+      ],
+      "expansion": 17,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Spell Casting Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 85,
+      "purchasable_now_ignoring_price": false,
+      "rank": 4,
+      "rank_id": 13099,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 21,
+      "type": 2
+    },
+    {
+      "ability_id": 21,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 8,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 128,
+          "limit": 50,
+          "slot": 1
+        },
+        {
+          "base": 1,
+          "effect_id": 138,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 1,
+          "effect_id": 140,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": -2741,
+          "effect_id": 139,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": -16843,
+          "effect_id": 139,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": -16192,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 6
+        },
+        {
+          "base": -10547,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 7
+        },
+        {
+          "base": -13543,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 8
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Spell Casting Reinforcement",
+      "next_rank_id": 10467,
+      "prereqs": [],
+      "previous_rank_id": 88,
+      "purchasable_now_ignoring_price": false,
+      "rank": 4,
+      "rank_id": 266,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 20,
+      "type": 2
+    },
+    {
+      "ability_id": 23,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 7,
+          "effect_id": 294,
+          "limit": 100,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Spell Casting Fury",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 93,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 94,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 2
+    },
+    {
+      "ability_id": 28,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 1000,
+          "effect_id": 214,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Natural Durability",
+      "next_rank_id": 7541,
+      "prereqs": [],
+      "previous_rank_id": 108,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 109,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 1
+    },
+    {
+      "ability_id": 29,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 3,
+          "effect_id": 0,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Natural Healing",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 111,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 112,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 2
+    },
+    {
+      "ability_id": 30,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 150,
+          "effect_id": 169,
+          "limit": -1,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Combat Fury",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 444,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 445,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 21,
+      "type": 2
+    },
+    {
+      "ability_id": 31,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 25,
+          "effect_id": 181,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Fear Resistance",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 117,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 118,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 2
+    },
+    {
+      "ability_id": 33,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 45,
+          "effect_id": 259,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Combat Stability",
+      "next_rank_id": 5524,
+      "prereqs": [],
+      "previous_rank_id": 1402,
+      "purchasable_now_ignoring_price": false,
+      "rank": 18,
+      "rank_id": 1403,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 77,
+      "type": 1
+    },
+    {
+      "ability_id": 34,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 39,
+          "effect_id": 172,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Combat Agility",
+      "next_rank_id": 5519,
+      "prereqs": [],
+      "previous_rank_id": 1397,
+      "purchasable_now_ignoring_price": false,
+      "rank": 18,
+      "rank_id": 1398,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 77,
+      "type": 1
+    },
+    {
+      "ability_id": 35,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 1,
+      "cost": 9,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Mass Group Buff",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 128,
+      "recast_seconds": 4320,
+      "spell_id": 5228,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 48,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 127,
+          "limit": 50,
+          "slot": 1
+        },
+        {
+          "base": 1,
+          "effect_id": 138,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 1,
+          "effect_id": 140,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 3000,
+          "effect_id": 143,
+          "limit": 0,
+          "slot": 4
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Quick Buff",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 148,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 149,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 2
+    },
+    {
+      "ability_id": 73,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 2,
+      "cost": 9,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Divine Stun",
+      "next_rank_id": 7339,
+      "prereqs": [],
+      "previous_rank_id": 1277,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 5044,
+      "recast_seconds": 30,
+      "spell_id": 11258,
+      "total_cost": 27,
+      "type": 3
+    },
+    {
+      "ability_id": 76,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 3,
+      "cost": 3,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Act of Valor",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 193,
+      "recast_seconds": 4320,
+      "spell_id": 2775,
+      "total_cost": 3,
+      "type": 3
+    },
+    {
+      "ability_id": 77,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Holy Steed",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 194,
+      "recast_seconds": 1,
+      "spell_id": 2874,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 79,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 226,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "2 Hand Bash",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 196,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 81,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 32,
+          "effect_id": 276,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Ambidexterity",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 198,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 98,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 1,
+      "cost": 9,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Purify Body",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 233,
+      "recast_seconds": 1800,
+      "spell_id": 5248,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 100,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 5,
+          "effect_id": 227,
+          "limit": 25,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Rapid Feign",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 238,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 239,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 101,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 224,
+          "limit": 26,
+          "slot": 1
+        },
+        {
+          "base": 3,
+          "effect_id": 173,
+          "limit": 0,
+          "slot": 2
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Return Kick",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 241,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 242,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 104,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 130,
+          "effect_id": 224,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Double Riposte",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 505,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 506,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 27,
+      "type": 2
+    },
+    {
+      "ability_id": 109,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 1,
+      "cost": 5,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Rampage",
+      "next_rank_id": 10578,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 258,
+      "recast_seconds": 600,
+      "spell_id": 5233,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 110,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 2,
+      "cost": 5,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Area Taunt",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 259,
+      "recast_seconds": 900,
+      "spell_id": 5234,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 116,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 1000,
+          "effect_id": 288,
+          "limit": 21,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Dragon Punch",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 273,
+      "recast_seconds": 0,
+      "spell_id": 2767,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 119,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 0,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 1,
+          "effect_id": 15,
+          "limit": 0,
+          "slot": 2
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Body and Mind Rejuvenation",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 278,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 120,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 200,
+          "effect_id": 214,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 2,
+          "effect_id": 259,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 2,
+          "effect_id": 172,
+          "limit": 0,
+          "slot": 3
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Physical Enhancement",
+      "next_rank_id": 18972,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 279,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 122,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 228,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Acrobatics",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 284,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 285,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 141,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 6,
+          "effect_id": 263,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "New Tanaan Crafting Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 416,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 417,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 142,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 1,
+          "slot": 2
+        },
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 2,
+          "slot": 3
+        },
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 3,
+          "slot": 4
+        },
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 4,
+          "slot": 5
+        },
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 5,
+          "slot": 6
+        },
+        {
+          "base": 75,
+          "effect_id": 262,
+          "limit": 6,
+          "slot": 7
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Planar Power",
+      "next_rank_id": 7547,
+      "prereqs": [],
+      "previous_rank_id": 4681,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 4682,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 60,
+      "type": 1
+    },
+    {
+      "ability_id": 143,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 450,
+          "effect_id": 214,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Planar Durability",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 424,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 425,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 188,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 24,
+          "effect_id": 177,
+          "limit": -1,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Knight's Advantage",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 1625,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 1626,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 33,
+      "type": 3
+    },
+    {
+      "ability_id": 189,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 24,
+          "effect_id": 177,
+          "limit": -1,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Ferocity",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 1622,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 1623,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 30,
+      "type": 2
+    },
+    {
+      "ability_id": 202,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 17,
+          "effect_id": 266,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Punishing Blade",
+      "next_rank_id": 5534,
+      "prereqs": [],
+      "previous_rank_id": 1537,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 1538,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 30,
+      "type": 2
+    },
+    {
+      "ability_id": 203,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 29,
+          "effect_id": 266,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Speed of the Knight",
+      "next_rank_id": 5580,
+      "prereqs": [],
+      "previous_rank_id": 4759,
+      "purchasable_now_ignoring_price": false,
+      "rank": 9,
+      "rank_id": 4760,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 45,
+      "type": 3
+    },
+    {
+      "ability_id": 206,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 2,
+      "effects": [
+        {
+          "base": 120,
+          "effect_id": 283,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 15,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Technique of Master Wu",
+      "next_rank_id": 7176,
+      "prereqs": [],
+      "previous_rank_id": 615,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 7175,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 210,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 294,
+          "limit": 100,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Ingenuity",
+      "next_rank_id": 7641,
+      "prereqs": [],
+      "previous_rank_id": 4734,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 4735,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 2
+    },
+    {
+      "ability_id": 213,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 75,
+          "effect_id": 292,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Tactical Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 4799,
+      "purchasable_now_ignoring_price": false,
+      "rank": 9,
+      "rank_id": 4800,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 39,
+      "type": 3
+    },
+    {
+      "ability_id": 222,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 75,
+          "effect_id": 195,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Stalwart Endurance",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 653,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 654,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 224,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 8,
+          "effect_id": 15,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Mental Clarity",
+      "next_rank_id": 5623,
+      "prereqs": [],
+      "previous_rank_id": 5309,
+      "purchasable_now_ignoring_price": false,
+      "rank": 8,
+      "rank_id": 5310,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 37,
+      "type": 2
+    },
+    {
+      "ability_id": 225,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 0,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate Regeneration",
+      "next_rank_id": 6390,
+      "prereqs": [],
+      "previous_rank_id": 4696,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 4697,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 39,
+      "type": 1
+    },
+    {
+      "ability_id": 233,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 221,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Packrat",
+      "next_rank_id": 6518,
+      "prereqs": [],
+      "previous_rank_id": 681,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 682,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 234,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 11,
+          "effect_id": 189,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Heightened Endurance  ",
+      "next_rank_id": 6080,
+      "prereqs": [],
+      "previous_rank_id": 5304,
+      "purchasable_now_ignoring_price": false,
+      "rank": 11,
+      "rank_id": 5305,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 58,
+      "type": 2
+    },
+    {
+      "ability_id": 235,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 200,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Weapon Affinity",
+      "next_rank_id": 7640,
+      "prereqs": [],
+      "previous_rank_id": 689,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 690,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 25,
+      "type": 2
+    },
+    {
+      "ability_id": 237,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 229,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Persistent Casting",
+      "next_rank_id": 7647,
+      "prereqs": [],
+      "previous_rank_id": 693,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 694,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 2
+    },
+    {
+      "ability_id": 271,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 292,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Strikethrough",
+      "next_rank_id": 5922,
+      "prereqs": [],
+      "previous_rank_id": 1269,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 1270,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 33,
+      "type": 3
+    },
+    {
+      "ability_id": 272,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 60,
+          "effect_id": 239,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Stonewall",
+      "next_rank_id": 15426,
+      "prereqs": [],
+      "previous_rank_id": 4827,
+      "purchasable_now_ignoring_price": false,
+      "rank": 10,
+      "rank_id": 4828,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 50,
+      "type": 3
+    },
+    {
+      "ability_id": 273,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 28,
+          "effect_id": 279,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Rapid Strikes ",
+      "next_rank_id": 5909,
+      "prereqs": [],
+      "previous_rank_id": 5144,
+      "purchasable_now_ignoring_price": false,
+      "rank": 10,
+      "rank_id": 5145,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 45,
+      "type": 3
+    },
+    {
+      "ability_id": 274,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 90,
+          "effect_id": 220,
+          "limit": 26,
+          "slot": 1
+        },
+        {
+          "base": 90,
+          "effect_id": 220,
+          "limit": 30,
+          "slot": 2
+        },
+        {
+          "base": 90,
+          "effect_id": 220,
+          "limit": 38,
+          "slot": 3
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Kick Mastery",
+      "next_rank_id": 5917,
+      "prereqs": [],
+      "previous_rank_id": 4814,
+      "purchasable_now_ignoring_price": false,
+      "rank": 9,
+      "rank_id": 4815,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 48,
+      "type": 3
+    },
+    {
+      "ability_id": 275,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 222,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Heightened Awareness",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 826,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 827,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 25,
+      "type": 3
+    },
+    {
+      "ability_id": 276,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 2,
+      "cost": 9,
+      "effects": [],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Destructive Force  ",
+      "next_rank_id": 16250,
+      "prereqs": [],
+      "previous_rank_id": 829,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 830,
+      "recast_seconds": 3600,
+      "spell_id": 5242,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 283,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 3,
+          "effect_id": 231,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Immobilizing Bash",
+      "next_rank_id": 5500,
+      "prereqs": [],
+      "previous_rank_id": 853,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 854,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 3
+    },
+    {
+      "ability_id": 284,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 25,
+          "effect_id": 220,
+          "limit": 10,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Vicious Smash",
+      "next_rank_id": 7673,
+      "prereqs": [],
+      "previous_rank_id": 858,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 859,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 25,
+      "type": 3
+    },
+    {
+      "ability_id": 285,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 5,
+      "cost": 6,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Radiant Cure",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 5131,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 5132,
+      "recast_seconds": 180,
+      "spell_id": 5862,
+      "total_cost": 36,
+      "type": 2
+    },
+    {
+      "ability_id": 286,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 6,
+      "cost": 12,
+      "effects": [],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Purification  ",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 863,
+      "recast_seconds": 4320,
+      "spell_id": 5248,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 299,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 1000,
+          "effect_id": 69,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Sturdiness",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 5246,
+      "purchasable_now_ignoring_price": false,
+      "rank": 10,
+      "rank_id": 5247,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 60,
+      "type": 3
+    },
+    {
+      "ability_id": 301,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 220,
+          "limit": 10,
+          "slot": 1
+        },
+        {
+          "base": 15,
+          "effect_id": 220,
+          "limit": 30,
+          "slot": 2
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Strengthened Strike",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 916,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 917,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 302,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 6,
+          "effect_id": 230,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Extended Shielding",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 919,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 920,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 315,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 375,
+          "effect_id": 214,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Planar Durability",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 953,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 954,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 322,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 13,
+          "limit": 0,
+          "slot": 2
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Innate See Invis",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 1388,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 9,
+      "type": 1
+    },
+    {
+      "ability_id": 324,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 63,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Blacksmithing Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 980,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 981,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 325,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 60,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Baking Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 983,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 984,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 326,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 65,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Brewing Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 986,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 987,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 327,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 64,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Fletching Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 989,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 990,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 328,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 69,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Pottery Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 992,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 993,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 329,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 61,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Tailoring Mastery",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 995,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 996,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 330,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 25,
+          "effect_id": 331,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Salvage",
+      "next_rank_id": 1113,
+      "prereqs": [],
+      "previous_rank_id": 998,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 999,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 333,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 25,
+          "effect_id": 262,
+          "limit": 7,
+          "slot": 1
+        },
+        {
+          "base": 25,
+          "effect_id": 262,
+          "limit": 8,
+          "slot": 2
+        },
+        {
+          "base": 25,
+          "effect_id": 262,
+          "limit": 9,
+          "slot": 3
+        },
+        {
+          "base": 25,
+          "effect_id": 262,
+          "limit": 10,
+          "slot": 4
+        },
+        {
+          "base": 25,
+          "effect_id": 262,
+          "limit": 11,
+          "slot": 5
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Discordant Defiance",
+      "next_rank_id": 7516,
+      "prereqs": [],
+      "previous_rank_id": 1009,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1010,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 25,
+      "type": 1
+    },
+    {
+      "ability_id": 334,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 3,
+          "effect_id": 327,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Mystical Attuning",
+      "next_rank_id": 1024,
+      "prereqs": [],
+      "previous_rank_id": 1022,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1023,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 335,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 750,
+          "effect_id": 328,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Delay Death",
+      "next_rank_id": 6523,
+      "prereqs": [],
+      "previous_rank_id": 4686,
+      "purchasable_now_ignoring_price": false,
+      "rank": 15,
+      "rank_id": 4687,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 65,
+      "type": 1
+    },
+    {
+      "ability_id": 347,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 4,
+          "effect_id": 326,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Mnemonic Retention",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 7553,
+      "purchasable_now_ignoring_price": false,
+      "rank": 4,
+      "rank_id": 7681,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 21,
+      "type": 2
+    },
+    {
+      "ability_id": 348,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 10,
+          "effect_id": 318,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Expansive Mind",
+      "next_rank_id": 5566,
+      "prereqs": [],
+      "previous_rank_id": 4747,
+      "purchasable_now_ignoring_price": false,
+      "rank": 10,
+      "rank_id": 4748,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 50,
+      "type": 2
+    },
+    {
+      "ability_id": 354,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": -100,
+          "effect_id": 304,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Slippery Attacks",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 1096,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1097,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 2
+    },
+    {
+      "ability_id": 385,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 399,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 1,
+          "effect_id": 138,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 0,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": 1,
+          "effect_id": 141,
+          "limit": 0,
+          "slot": 6
+        },
+        {
+          "base": 254,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 7
+        },
+        {
+          "base": -39,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 8
+        }
+      ],
+      "expansion": 17,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Twinheal",
+      "next_rank_id": 12653,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 12652,
+      "recast_seconds": 0,
+      "spell_id": 0,
+      "total_cost": 9,
+      "type": 2
+    },
+    {
+      "ability_id": 388,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": -100,
+          "effect_id": 305,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Shielding Resistance",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 1184,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1185,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 2
+    },
+    {
+      "ability_id": 389,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 16,
+          "effect_id": 319,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Healing Boon",
+      "next_rank_id": 5589,
+      "prereqs": [],
+      "previous_rank_id": 4777,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 4778,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 36,
+      "type": 2
+    },
+    {
+      "ability_id": 410,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 200,
+          "effect_id": 220,
+          "limit": 30,
+          "slot": 1
+        },
+        {
+          "base": 200,
+          "effect_id": 220,
+          "limit": 38,
+          "slot": 2
+        },
+        {
+          "base": 200,
+          "effect_id": 220,
+          "limit": 52,
+          "slot": 3
+        },
+        {
+          "base": 200,
+          "effect_id": 220,
+          "limit": 23,
+          "slot": 4
+        },
+        {
+          "base": 200,
+          "effect_id": 220,
+          "limit": 21,
+          "slot": 5
+        },
+        {
+          "base": 200,
+          "effect_id": 220,
+          "limit": 26,
+          "slot": 6
+        },
+        {
+          "base": 23598,
+          "effect_id": 427,
+          "limit": 60,
+          "slot": 7
+        },
+        {
+          "base": 30,
+          "effect_id": 428,
+          "limit": 0,
+          "slot": 8
+        },
+        {
+          "base": 38,
+          "effect_id": 428,
+          "limit": 0,
+          "slot": 9
+        },
+        {
+          "base": 52,
+          "effect_id": 428,
+          "limit": 0,
+          "slot": 10
+        },
+        {
+          "base": 23,
+          "effect_id": 428,
+          "limit": 0,
+          "slot": 11
+        },
+        {
+          "base": 21,
+          "effect_id": 428,
+          "limit": 0,
+          "slot": 12
+        },
+        {
+          "base": 26,
+          "effect_id": 428,
+          "limit": 0,
+          "slot": 13
+        }
+      ],
+      "expansion": 17,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Way of Steel",
+      "next_rank_id": 12708,
+      "prereqs": [],
+      "previous_rank_id": 12706,
+      "purchasable_now_ignoring_price": false,
+      "rank": 2,
+      "rank_id": 12707,
+      "recast_seconds": 0,
+      "spell_id": 0,
+      "total_cost": 16,
+      "type": 3
+    },
+    {
+      "ability_id": 420,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 4,
+      "cost": 9,
+      "effects": [],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Imitate Death",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 1255,
+      "recast_seconds": 1080,
+      "spell_id": 5918,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 434,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 195,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Steadfast Will",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 5013,
+      "purchasable_now_ignoring_price": false,
+      "rank": 8,
+      "rank_id": 5014,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 48,
+      "type": 3
+    },
+    {
+      "ability_id": 435,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 5,
+          "effect_id": 320,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Shield Block",
+      "next_rank_id": 5516,
+      "prereqs": [],
+      "previous_rank_id": 1288,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1289,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 2
+    },
+    {
+      "ability_id": 467,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 5,
+      "cost": 5,
+      "effects": [],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Press the Attack",
+      "next_rank_id": 6133,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 1351,
+      "recast_seconds": 30,
+      "spell_id": 5939,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 468,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 3,
+      "cost": 9,
+      "effects": [],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Crippling Strike",
+      "next_rank_id": 6313,
+      "prereqs": [],
+      "previous_rank_id": 1353,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1354,
+      "recast_seconds": 60,
+      "spell_id": 6069,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 469,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 3,
+      "cost": 6,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Stunning Kick",
+      "next_rank_id": 5914,
+      "prereqs": [],
+      "previous_rank_id": 5241,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 5242,
+      "recast_seconds": 60,
+      "spell_id": 11613,
+      "total_cost": 36,
+      "type": 3
+    },
+    {
+      "ability_id": 470,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 3,
+      "cost": 9,
+      "effects": [],
+      "expansion": 8,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Eye Gouge",
+      "next_rank_id": 6307,
+      "prereqs": [],
+      "previous_rank_id": 1359,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1360,
+      "recast_seconds": 60,
+      "spell_id": 6075,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 498,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 341,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Enhanced Aggression",
+      "next_rank_id": 5557,
+      "prereqs": [],
+      "previous_rank_id": 4728,
+      "purchasable_now_ignoring_price": false,
+      "rank": 10,
+      "rank_id": 4729,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 50,
+      "type": 2
+    },
+    {
+      "ability_id": 500,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 15,
+      "cost": 5,
+      "effects": [],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Silent Casting",
+      "next_rank_id": 12880,
+      "prereqs": [],
+      "previous_rank_id": 1407,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1408,
+      "recast_seconds": 60,
+      "spell_id": 8058,
+      "total_cost": 25,
+      "type": 2
+    },
+    {
+      "ability_id": 529,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 7,
+      "cost": 12,
+      "effects": [],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Cloak of Light",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 1523,
+      "recast_seconds": 7,
+      "spell_id": 8221,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 539,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 75,
+          "effect_id": 293,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Unflinching Resolve",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 1550,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1551,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 552,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 6,
+      "cost": 9,
+      "effects": [],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Call of Challenge",
+      "next_rank_id": 6606,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 1597,
+      "recast_seconds": 10,
+      "spell_id": 8271,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 563,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 150,
+          "effect_id": 344,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Concentration",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 1589,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1590,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 2
+    },
+    {
+      "ability_id": 576,
+      "category": 6,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 268,
+          "limit": 68,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Jewel Craft Mastery ",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 4676,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 4677,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 1
+    },
+    {
+      "ability_id": 581,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 362,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Quick Draw",
+      "next_rank_id": 6545,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 4698,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 5,
+      "type": 1
+    },
+    {
+      "ability_id": 582,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 4,
+          "effect_id": 363,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 17,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Battle Ready",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 7500,
+      "purchasable_now_ignoring_price": false,
+      "rank": 4,
+      "rank_id": 10788,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 22,
+      "type": 1
+    },
+    {
+      "ability_id": 601,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 5,
+      "cost": 5,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Grappling Strike",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 4836,
+      "recast_seconds": 30,
+      "spell_id": 11033,
+      "total_cost": 5,
+      "type": 3
+    },
+    {
+      "ability_id": 606,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 7,
+      "cost": 9,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Mark of the Mage Hunter",
+      "next_rank_id": 6134,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 4849,
+      "recast_seconds": 1800,
+      "spell_id": 11041,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 611,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 13,
+      "cost": 12,
+      "effects": [],
+      "expansion": 14,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Battle Leap",
+      "next_rank_id": 7127,
+      "prereqs": [],
+      "previous_rank_id": 4860,
+      "purchasable_now_ignoring_price": false,
+      "rank": 2,
+      "rank_id": 5606,
+      "recast_seconds": 60,
+      "spell_id": 11688,
+      "total_cost": 21,
+      "type": 3
+    },
+    {
+      "ability_id": 701,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 10,
+      "cost": 9,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Armor of the Inquisitor",
+      "next_rank_id": 5975,
+      "prereqs": [],
+      "previous_rank_id": 5096,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 5097,
+      "recast_seconds": 900,
+      "spell_id": 11309,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 733,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 360,
+          "limit": 11023,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Killing Spree",
+      "next_rank_id": 5562,
+      "prereqs": [],
+      "previous_rank_id": 4740,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 4741,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 2
+    },
+    {
+      "ability_id": 734,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 12,
+      "cost": 9,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Hold the Line",
+      "next_rank_id": 5565,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 4742,
+      "recast_seconds": 600,
+      "spell_id": 11024,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 783,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 5,
+          "effect_id": 317,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Energetic Attunement",
+      "next_rank_id": 6431,
+      "prereqs": [],
+      "previous_rank_id": 1059,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1060,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 25,
+      "type": 1
+    },
+    {
+      "ability_id": 800,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 61,
+      "cost": 9,
+      "effects": [],
+      "expansion": 15,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Vehement Rage",
+      "next_rank_id": 6608,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 6607,
+      "recast_seconds": 600,
+      "spell_id": 16092,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 891,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 339,
+          "limit": 16139,
+          "slot": 1
+        },
+        {
+          "base": 21,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": -18000,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 30,
+          "effect_id": 339,
+          "limit": 16139,
+          "slot": 4
+        },
+        {
+          "base": 343,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": -18000,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 6
+        }
+      ],
+      "expansion": 15,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Healing Light",
+      "next_rank_id": 10044,
+      "prereqs": [],
+      "previous_rank_id": 6792,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 6793,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 911,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 73,
+      "cost": 12,
+      "effects": [],
+      "expansion": 17,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Warlord's Resurgence",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 10545,
+      "recast_seconds": 600,
+      "spell_id": 23531,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 912,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 74,
+      "cost": 12,
+      "effects": [],
+      "expansion": 17,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Warlord's Fury",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 10546,
+      "recast_seconds": 60,
+      "spell_id": 23528,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 1433,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 4,
+      "effects": [
+        {
+          "base": 5,
+          "effect_id": 128,
+          "limit": 5,
+          "slot": 1
+        },
+        {
+          "base": 1,
+          "effect_id": 138,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 1,
+          "effect_id": 140,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": 66434,
+          "effect_id": 411,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": -40,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 6
+        }
+      ],
+      "expansion": 15,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Extended Ingenuity",
+      "next_rank_id": 8233,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 8232,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 4,
+      "type": 2
+    },
+    {
+      "ability_id": 1664,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 3,
+          "effect_id": 399,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 1,
+          "effect_id": 141,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 0,
+          "effect_id": 138,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 255,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": 0,
+          "effect_id": 391,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 6
+        },
+        {
+          "base": -152,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 7
+        },
+        {
+          "base": 100350,
+          "effect_id": 411,
+          "limit": 0,
+          "slot": 8
+        },
+        {
+          "base": -39,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 9
+        }
+      ],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Twinproc",
+      "next_rank_id": 12417,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 12416,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 7,
+      "type": 3
+    },
+    {
+      "ability_id": 2011,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 32,
+      "cost": 12,
+      "effects": [],
+      "expansion": 19,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Imperator's Command",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 15129,
+      "recast_seconds": 180,
+      "spell_id": 37196,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 3500,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 8,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 124,
+          "limit": 100,
+          "slot": 1
+        },
+        {
+          "base": 19,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 0,
+          "effect_id": 144,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 3,
+          "effect_id": 403,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": 48,
+          "effect_id": 404,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": -21768,
+          "effect_id": 385,
+          "limit": 0,
+          "slot": 6
+        }
+      ],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Blessing of Light",
+      "next_rank_id": 10357,
+      "prereqs": [],
+      "previous_rank_id": 10355,
+      "purchasable_now_ignoring_price": false,
+      "rank": 2,
+      "rank_id": 10356,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 14,
+      "type": 3
+    },
+    {
+      "ability_id": 3646,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 18,
+      "cost": 7,
+      "effects": [],
+      "expansion": 14,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Blast of Anger",
+      "next_rank_id": 7111,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 6135,
+      "recast_seconds": 180,
+      "spell_id": 12651,
+      "total_cost": 7,
+      "type": 3
+    },
+    {
+      "ability_id": 3731,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 13200,
+          "effect_id": 85,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 14,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Infused by Rage ",
+      "next_rank_id": 6284,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 6283,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 3732,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 17,
+      "cost": 7,
+      "effects": [],
+      "expansion": 14,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Gut Punch",
+      "next_rank_id": 7115,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 6286,
+      "recast_seconds": 45,
+      "spell_id": 12802,
+      "total_cost": 7,
+      "type": 3
+    },
+    {
+      "ability_id": 3805,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 90,
+          "effect_id": 227,
+          "limit": 32,
+          "slot": 1
+        }
+      ],
+      "expansion": 14,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Hastened Mend",
+      "next_rank_id": 7160,
+      "prereqs": [],
+      "previous_rank_id": 4802,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 4803,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 3820,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 13504,
+          "effect_id": 85,
+          "limit": 20,
+          "slot": 1
+        }
+      ],
+      "expansion": 14,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Blessing of Life",
+      "next_rank_id": 7336,
+      "prereqs": [],
+      "previous_rank_id": 6396,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 6397,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 21,
+      "type": 3
+    },
+    {
+      "ability_id": 5005,
+      "category": 8,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 372,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 0,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Foraging",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 7062,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 3,
+      "type": 1
+    },
+    {
+      "ability_id": 8901,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 12,
+      "effects": [
+        {
+          "base": 480000,
+          "effect_id": 310,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 4502,
+          "effect_id": 139,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 4509,
+          "effect_id": 139,
+          "limit": 0,
+          "slot": 3
+        }
+      ],
+      "expansion": 21,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Hastened Defensive Poses",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": 10655,
+      "purchasable_now_ignoring_price": false,
+      "rank": 4,
+      "rank_id": 17406,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 33,
+      "type": 3
+    },
+    {
+      "ability_id": 10394,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 30,
+      "cost": 12,
+      "effects": [],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Beacon of the Righteous",
+      "next_rank_id": 10704,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 10394,
+      "recast_seconds": 600,
+      "spell_id": 21821,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 30196,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 38,
+      "cost": 1,
+      "effects": [],
+      "expansion": 0,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Expeditious Dispatch",
+      "next_rank_id": -1,
+      "prereqs": [],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": true,
+      "rank": 1,
+      "rank_id": 50000,
+      "recast_seconds": 60,
+      "spell_id": 42603,
+      "total_cost": 1,
+      "type": 2
+    },
+    {
+      "ability_id": 163,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 270,
+          "effect_id": 264,
+          "limit": 110,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Hastened Instigation",
+      "next_rank_id": 7116,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 110,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": 490,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 491,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 164,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 2,
+      "effects": [
+        {
+          "base": 180,
+          "effect_id": 264,
+          "limit": 109,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Hastened Rampage",
+      "next_rank_id": 7128,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 109,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": 493,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 494,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 165,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 2,
+      "effects": [
+        {
+          "base": 540,
+          "effect_id": 264,
+          "limit": 98,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Hastened Purification of the Body",
+      "next_rank_id": 6260,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 98,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": 496,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 497,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 196,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 2,
+      "effects": [
+        {
+          "base": 21,
+          "effect_id": 264,
+          "limit": 73,
+          "slot": 1
+        },
+        {
+          "base": 21,
+          "effect_id": 264,
+          "limit": 702,
+          "slot": 2
+        },
+        {
+          "base": 21,
+          "effect_id": 264,
+          "limit": 3826,
+          "slot": 3
+        },
+        {
+          "base": 21,
+          "effect_id": 264,
+          "limit": 7712,
+          "slot": 4
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Rush to Judgment",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 73,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": 584,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 585,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 197,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 36,
+          "effect_id": 255,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Living Shield",
+      "next_rank_id": 6130,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 120,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": 587,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 588,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 270,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 12,
+      "effects": [
+        {
+          "base": 1,
+          "effect_id": 249,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 7,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Sinister Strikes",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 81,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 806,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 538,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 720,
+          "effect_id": 264,
+          "limit": 420,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Hastened Death",
+      "next_rank_id": 6441,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 420,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": 4830,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 4831,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 30,
+      "type": 3
+    },
+    {
+      "ability_id": 570,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Valiant Steed",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 77,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 1645,
+      "recast_seconds": 1,
+      "spell_id": 8977,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 992,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 67,
+      "cost": 9,
+      "effects": [],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Tranquil Blessings",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 35,
+          "ranks": 1
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 3676,
+      "recast_seconds": 30,
+      "spell_id": 23606,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 702,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 2,
+      "cost": 9,
+      "effects": [],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Hand of Disruption",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 73,
+          "ranks": 2
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 5098,
+      "recast_seconds": 30,
+      "spell_id": 11310,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 75,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 390,
+          "effect_id": 219,
+          "limit": 2300,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Slay Undead",
+      "next_rank_id": 15141,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 30,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 5039,
+      "purchasable_now_ignoring_price": false,
+      "rank": 9,
+      "rank_id": 5040,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 60,
+      "type": 3
+    },
+    {
+      "ability_id": 78,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 181,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Fearless",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 31,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 195,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 97,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 84,
+          "effect_id": 275,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Critical Mend",
+      "next_rank_id": 12677,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 17,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 540,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 541,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 30,
+      "type": 3
+    },
+    {
+      "ability_id": 108,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 30,
+          "effect_id": 279,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Flurry",
+      "next_rank_id": 5595,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 30,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 4796,
+      "purchasable_now_ignoring_price": false,
+      "rank": 12,
+      "rank_id": 4797,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 60,
+      "type": 3
+    },
+    {
+      "ability_id": 111,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 3,
+      "cost": 9,
+      "effects": [],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] War Cry",
+      "next_rank_id": 8309,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 31,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 261,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 262,
+      "recast_seconds": 2160,
+      "spell_id": 5231,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 112,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 50,
+          "effect_id": 282,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 3,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Bandage Wound",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 17,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 264,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 265,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 215,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 294,
+          "limit": 100,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Fury of Magic",
+      "next_rank_id": 5571,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 23,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 4750,
+      "purchasable_now_ignoring_price": false,
+      "rank": 9,
+      "rank_id": 4751,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 54,
+      "type": 2
+    },
+    {
+      "ability_id": 495,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 8105,
+          "slot": 1
+        },
+        {
+          "base": 65,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 2
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 3
+        },
+        {
+          "base": 70,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 4
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 5
+        },
+        {
+          "base": 0,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 6
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 8105,
+          "slot": 7
+        },
+        {
+          "base": 65,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 8
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 9
+        },
+        {
+          "base": 70,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 10
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 11
+        },
+        {
+          "base": 100,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 12
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 8105,
+          "slot": 13
+        },
+        {
+          "base": 65,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 14
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 15
+        },
+        {
+          "base": 70,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 16
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 17
+        },
+        {
+          "base": 79,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 18
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 8105,
+          "slot": 19
+        },
+        {
+          "base": 65,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 20
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 21
+        },
+        {
+          "base": 70,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 22
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 23
+        },
+        {
+          "base": 147,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 24
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 11404,
+          "slot": 25
+        },
+        {
+          "base": 71,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 26
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 27
+        },
+        {
+          "base": 75,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 28
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 29
+        },
+        {
+          "base": 0,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 30
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 11404,
+          "slot": 31
+        },
+        {
+          "base": 71,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 32
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 33
+        },
+        {
+          "base": 75,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 34
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 35
+        },
+        {
+          "base": 100,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 36
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 11404,
+          "slot": 37
+        },
+        {
+          "base": 71,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 38
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 39
+        },
+        {
+          "base": 75,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 40
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 41
+        },
+        {
+          "base": 79,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 42
+        },
+        {
+          "base": 10,
+          "effect_id": 339,
+          "limit": 11404,
+          "slot": 43
+        },
+        {
+          "base": 71,
+          "effect_id": 142,
+          "limit": 0,
+          "slot": 44
+        },
+        {
+          "base": 0,
+          "effect_id": 311,
+          "limit": 0,
+          "slot": 45
+        },
+        {
+          "base": 75,
+          "effect_id": 134,
+          "limit": 0,
+          "slot": 46
+        },
+        {
+          "base": 10,
+          "effect_id": 348,
+          "limit": 0,
+          "slot": 47
+        },
+        {
+          "base": 147,
+          "effect_id": 137,
+          "limit": 0,
+          "slot": 48
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Gift of Mana",
+      "next_rank_id": 6517,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 20,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 1437,
+      "purchasable_now_ignoring_price": false,
+      "rank": 4,
+      "rank_id": 4773,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 27,
+      "type": 2
+    },
+    {
+      "ability_id": 497,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 282,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Bandage Wounds",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 17,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 1423,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1424,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 549,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 12,
+      "effects": [
+        {
+          "base": 25,
+          "effect_id": 293,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Dauntless Perseverance",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 222,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 1591,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 605,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 5,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 349,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR PAL] Shield Specialist",
+      "next_rank_id": 7122,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 435,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 4847,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 4848,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 25,
+      "type": 3
+    },
+    {
+      "ability_id": 8903,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 7,
+      "effects": [
+        {
+          "base": 900,
+          "effect_id": 264,
+          "limit": 276,
+          "slot": 1
+        }
+      ],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Hastened Destructive Force",
+      "next_rank_id": 12679,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 276,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 10658,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 10659,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 21,
+      "type": 3
+    },
+    {
+      "ability_id": 30200,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 25,
+          "effect_id": 200,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 42840,
+          "effect_id": 85,
+          "limit": 20,
+          "slot": 2
+        },
+        {
+          "base": 25,
+          "effect_id": 250,
+          "limit": 0,
+          "slot": 3
+        }
+      ],
+      "expansion": 13,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[PAL] Holy Shield",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 435,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 43210,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 9,
+      "type": 3
+    },
+    {
+      "ability_id": 540,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 9,
+      "effects": [
+        {
+          "base": 15,
+          "effect_id": 271,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[MNK] Weightless Steps",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 13,
+          "ranks": 5
+        }
+      ],
+      "previous_rank_id": 1553,
+      "purchasable_now_ignoring_price": false,
+      "rank": 3,
+      "rank_id": 1554,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 18,
+      "type": 3
+    },
+    {
+      "ability_id": 131,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 9,
+      "cost": 12,
+      "effects": [],
+      "expansion": 16,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "[WAR] Rage of Rallos Zek",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 30,
+          "ranks": 6
+        }
+      ],
+      "previous_rank_id": -1,
+      "purchasable_now_ignoring_price": false,
+      "rank": 1,
+      "rank_id": 8303,
+      "recast_seconds": 60,
+      "spell_id": 21773,
+      "total_cost": 12,
+      "type": 3
+    },
+    {
+      "ability_id": 181,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 75,
+          "effect_id": 282,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 4,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Mithaniel's Binding",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 112,
+          "ranks": 3
+        }
+      ],
+      "previous_rank_id": 537,
+      "purchasable_now_ignoring_price": false,
+      "rank": 2,
+      "rank_id": 538,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 6,
+      "type": 3
+    },
+    {
+      "ability_id": 341,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 0,
+          "slot": 1
+        },
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 1,
+          "slot": 2
+        },
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 2,
+          "slot": 3
+        },
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 3,
+          "slot": 4
+        },
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 28,
+          "slot": 5
+        },
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 36,
+          "slot": 6
+        },
+        {
+          "base": 80,
+          "effect_id": 330,
+          "limit": 77,
+          "slot": 7
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Veteran's Wrath",
+      "next_rank_id": 5551,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 30,
+          "ranks": 6
+        }
+      ],
+      "previous_rank_id": 4717,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 4718,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 36,
+      "type": 3
+    },
+    {
+      "ability_id": 496,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 282,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 10,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Field Dressing",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 181,
+          "ranks": 2
+        }
+      ],
+      "previous_rank_id": 1614,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 1615,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 3
+    },
+    {
+      "ability_id": 579,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 282,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Combat Medic ",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 497,
+          "ranks": 5
+        }
+      ],
+      "previous_rank_id": 4691,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 4692,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 1
+    },
+    {
+      "ability_id": 398,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 6,
+      "effects": [
+        {
+          "base": 0,
+          "effect_id": 294,
+          "limit": 140,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Destructive Fury",
+      "next_rank_id": 5577,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 215,
+          "ranks": 6
+        }
+      ],
+      "previous_rank_id": 4756,
+      "purchasable_now_ignoring_price": false,
+      "rank": 6,
+      "rank_id": 4757,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 36,
+      "type": 2
+    },
+    {
+      "ability_id": 689,
+      "category": -1,
+      "charges": 0,
+      "cooldown_group": 0,
+      "cost": 3,
+      "effects": [
+        {
+          "base": 100,
+          "effect_id": 282,
+          "limit": 0,
+          "slot": 1
+        }
+      ],
+      "expansion": 12,
+      "grant_only": false,
+      "level_req": 1,
+      "name": "Combat Medic ",
+      "next_rank_id": -1,
+      "prereqs": [
+        {
+          "ability_exists": true,
+          "ability_id": 496,
+          "ranks": 5
+        }
+      ],
+      "previous_rank_id": 5139,
+      "purchasable_now_ignoring_price": false,
+      "rank": 5,
+      "rank_id": 5140,
+      "recast_seconds": 0,
+      "spell_id": -1,
+      "total_cost": 15,
+      "type": 3
+    }
+  ],
+  "excluded": [
+    {
+      "rank_id": 446,
+      "ability_id": 150,
+      "reasons": [
+        "prerequisite:26"
+      ]
+    },
+    {
+      "rank_id": 447,
+      "ability_id": 150,
+      "reasons": [
+        "previous_rank",
+        "prerequisite:26"
+      ]
+    },
+    {
+      "rank_id": 448,
+      "ability_id": 150,
+      "reasons": [
+        "previous_rank",
+        "prerequisite:26"
+      ]
+    }
+  ]
+}

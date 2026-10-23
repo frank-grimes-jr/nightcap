@@ -27,12 +27,12 @@ int main() {
         assert(ids.insert(SharedItem(b,d,Quality(q))).second);
     for(unsigned z=0;z<DungeonCount;++z) for(unsigned d=0;d<3;++d) for(unsigned q=1;q<3;++q)
         assert(ids.insert(BossItem(z,d,Quality(q))).second);
-    assert(ids.size()==414 && *ids.rbegin()<1048576);
+    assert(ids.size()==420 && *ids.rbegin()<1048576);
     for(auto id:ids) assert(IsReward(id));
     assert(!IsReward(ItemBegin-1) && !IsReward(ItemEnd));
     assert(SharedItem(4,0,Quality::Normal)==0);
     assert(BossItem(0,0,Quality::Normal)==0);
-    assert(DungeonCount==21);
+    assert(DungeonCount==22);
     for(unsigned zone=0;zone<DungeonCount;++zone) for(unsigned quality=1;quality<3;++quality) {
         const auto &d=Dungeons[zone]; std::set<unsigned> final_items;
         for(unsigned design=0;design<3;++design) {
@@ -42,7 +42,7 @@ int main() {
             assert(item==960288+(zone*3+design)*2+quality-1);
         }
     }
-    assert(FinalBossItem(21,0,0,Quality::Polished)==0);
+    assert(FinalBossItem(22,0,0,Quality::Polished)==0);
     assert(FinalBossItem(7,4,0,Quality::Polished)==0);
     assert(FinalBossItem(20,3,3,Quality::Polished)==0);
     assert(FinalBossItem(7,0,0,Quality::Normal)==0);

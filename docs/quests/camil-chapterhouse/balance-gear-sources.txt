@@ -1,0 +1,19 @@
+1547	fearplane:Cazic_Thule:min-1/-1:flag=/
+1550	fearplane:Cazic_Thule:min-1/-1:flag=/
+1551	fearplane:Cazic_Thule:min-1/-1:flag=/
+1555	fearplane:a_dracoliche:min-1/-1:flag=/
+2630	commons:A_Legendary_Hill_Giant:min-1/11:flag=/; steamfont:A_Legendary_Behemoth:min-1/-1:flag=/
+4504	soldungb:King_Tranix:min-1/-1:flag=/
+4915	fearplane:phoboplasm:min-1/-1:flag=/; hateplane:a_kiraikuei:min-1/-1:flag=/; hateplane:Grandmaster_R`Tal:min-1/-1:flag=/; hateplaneb:#Master_R`Tal:min-1/-1:flag=/; hateplaneb:a_kiraikuei:min-1/-1:flag=/; hateplaneb:a_repulsive_rat:min-1/-1:flag=/
+4917	hateplane:a_haunted_chest:min-1/-1:flag=/; hateplane:a_kiraikuei:min-1/-1:flag=/; hateplane:Grandmaster_R`Tal:min-1/-1:flag=/; hateplaneb:#Master_R`Tal:min-1/-1:flag=/; hateplaneb:a_haunted_chest:min-1/-1:flag=/; hateplaneb:a_kiraikuei:min-1/-1:flag=/; hateplaneb:a_repulsive_rat:min-1/-1:flag=/
+5403	felwitheb:Joren_Nobleheart:min-1/1:flag=/; guktop:the_froglok_shin_lord:min-1/-1:flag=/
+7767	commons:A_Legendary_Hill_Giant:min-1/11:flag=/; steamfont:A_Legendary_Behemoth:min-1/-1:flag=/
+8332	hateplane:a_kiraikuei:min-1/-1:flag=/; hateplaneb:a_greater_kiraikuei:min-1/-1:flag=/; hateplaneb:a_kiraikuei:min-1/-1:flag=/
+9959	commons:A_Legendary_Hill_Giant:min-1/11:flag=/; steamfont:A_Legendary_Behemoth:min-1/-1:flag=/
+15841	commons:A_Legendary_Hill_Giant:min-1/11:flag=/; steamfont:A_Legendary_Behemoth:min-1/-1:flag=/
+62022	hateplaneb:#Dread_Knight_T`Kamax:min-1/-1:flag=/
+62025	hateplaneb:#Warlord_E`Prosio:min-1/-1:flag=/
+62034	hateplaneb:#Overlord_R`Gahbsa:min-1/-1:flag=/
+62038	hateplaneb:#Arch_Lich_T`Vaxok:min-1/-1:flag=/
+62292	hole:#an_ancient_construct:min-1/-1:flag=/
+68251	northkarana:The_Fabled_GrimFeather:min-1/-1:flag=/

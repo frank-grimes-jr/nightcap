@@ -16,6 +16,8 @@ def refresh():
     path=ROOT/'docs/dungeons/runtime-contract.json'
     contract=json.loads(path.read_text())
     definitions=items()
+    from chapterhouse_content import compile_rows
+    custom = [dict(values=r) for r in compile_rows()['items']]
     rows=[r['values'] for r in definitions]
     checks=[dict(label=f'items/{i}',
                  sql='SELECT COUNT(*) FROM `items` WHERE '+' OR '.join(predicate(r) for r in rows[i:i+8]),
@@ -31,9 +33,14 @@ def refresh():
         contract['content']=[c for c in contract['content'] if not c['label'].startswith('rewards/')]
         contract['content']+=json.loads(rewards.read_text())
     contract=refresh_contract(contract)
+    vigil=ROOT/'docs/quests/camil-chapterhouse/runtime-checks.json'
+    contract['content']=[c for c in contract['content'] if not c['label'].startswith('vigil/')]
+    contract['content']+=json.loads(vigil.read_text())
+    contract['schema']=[c for c in contract['schema'] if not c['label'].startswith('nightcap_vigil_')]
+    contract['schema']+=json.loads((vigil.parent/'schema-checks.json').read_text())
     path.write_text(json.dumps(contract,indent=2)+'\n',encoding='utf-8',newline='\n')
     (ROOT/'server-mods/code/common/dungeon_contract.h').write_text(
-        render_header(contract['schema'],contract['content'],definitions),encoding='utf-8',newline='\n')
+        render_header(contract['schema'],contract['content'],definitions+custom),encoding='utf-8',newline='\n')
     return contract
 
 if __name__=='__main__':

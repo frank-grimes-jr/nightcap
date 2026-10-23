@@ -32,6 +32,15 @@ function Sql($query) {
     if ($LASTEXITCODE -ne 0) { throw "Era SQL failed; further changes and restarts stopped." }
 }
 
+# An exception is installed only by its guarded, paired content migration.
+# Era apply validates its declaration; it never opens the rest of Rain of Fear.
+if ($Era.zone_exception_policy) {
+    if ($Era.zone_exception_policy -ne 'config/chapterhouse-access.json') { throw 'Unsupported zone exception policy.' }
+    python -B -c "import sys; sys.path.insert(0, sys.argv[1]); from chapterhouse_content import access_policy; access_policy()" $PSScriptRoot
+    if ($LASTEXITCODE -ne 0) { throw 'Invalid Chapterhouse policy; no era changes applied.' }
+    Write-Output 'Chapterhouse candidate policy verified. Activation is a separate paired content release.'
+}
+
 if ($Check) {
     $drift = 0
     $live = @{}

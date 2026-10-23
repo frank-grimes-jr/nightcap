@@ -1,0 +1,1192 @@
+{
+  "archive": "native-combat-fixtures.tar.gz",
+  "sha256": "4f52f4088fed84f2c4ae923f56644113de84a2d3792c460a6d5d67a05a588785",
+  "scope": "Exact current and superseded preliminary inputs/results/logs; extract to a new directory for inspection. Summary JSON identifies current cases.",
+  "files": [
+    {
+      "path": "calibration-catalog-input.json",
+      "bytes": 4274,
+      "sha256": "c93da10f4d4c72ba56824d187f498e16703aefccc2603e353233ae9548bd03fa"
+    },
+    {
+      "path": "calibration-catalog-result.json",
+      "bytes": 688087,
+      "sha256": "5390f515df7364fc6ca3a1a1df5cc338fe986cd99e888ef2fa79760e6e31153a"
+    },
+    {
+      "path": "capstone-998821-grind-205403-500AA-Polished-101-input.json",
+      "bytes": 4853,
+      "sha256": "a9c40ab5aa78e8b3d4c9dc1ccc7948c46f170dd71f4ccbc3b3dcaefd2aedfd00"
+    },
+    {
+      "path": "capstone-998821-grind-205403-500AA-Polished-101-result.json.gz",
+      "bytes": 13777,
+      "sha256": "29f63dc5a2bfa03ea573951e091cae1b80593e09dff76d347bc2f2c7156ac05b"
+    },
+    {
+      "path": "capstone-998821-grind-205403-500AA-Polished-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-205403-98AA-Polished-101-input.json",
+      "bytes": 3685,
+      "sha256": "10606ca63ef0e800c6feee47b3de6ae0496b6fdf13dad3f7daeb241961a57360"
+    },
+    {
+      "path": "capstone-998821-grind-205403-98AA-Polished-101-result.json.gz",
+      "bytes": 7970,
+      "sha256": "df25ebff0b5c63845605623cadfcd181fac7e571ec7403d8a32cbb38df0e7492"
+    },
+    {
+      "path": "capstone-998821-grind-205403-98AA-Polished-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-101-result.json.gz",
+      "bytes": 39533,
+      "sha256": "0bf37764b93e3ec54e4fd4b81a34a207ec8bb32020990a6bd0148f39c8abdbbf"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-2718-result.json.gz",
+      "bytes": 39183,
+      "sha256": "2005ba6db7279974a6a8417adedccd8ec1d7f79967169941677af4552e1eeee3"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-8675309-result.json.gz",
+      "bytes": 38380,
+      "sha256": "ab2d88110103f10707be3296474626fd77c2ac890df5e7f084de3d2548489d8b"
+    },
+    {
+      "path": "capstone-998821-grind-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-101-result.json.gz",
+      "bytes": 37713,
+      "sha256": "704d0406005fcb2cc3f7766430a42ab4503319525f46e2a72a8de09229be5a11"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-2718-result.json.gz",
+      "bytes": 37983,
+      "sha256": "b2257a34e372ed1a4bd6629eb9656d6b8b6482e074c8af0cc2591fe1a1c7bdd5"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-8675309-result.json.gz",
+      "bytes": 38320,
+      "sha256": "f51c8e75a17ddd68097aeeb125379a15f3def7c1b0c63dfb7538c0dafa0ff128"
+    },
+    {
+      "path": "capstone-998821-grind-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-101-result.json.gz",
+      "bytes": 44707,
+      "sha256": "316a36c28285e9d4ffc04066e7012568171a297a9f15617d89bcaadd94ece4d5"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-2718-result.json.gz",
+      "bytes": 46195,
+      "sha256": "06ce87e5866c45b61b025055ddf1a3b3d685b4454c7ff9421eba8597b561cb12"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-8675309-result.json.gz",
+      "bytes": 44864,
+      "sha256": "bc89ca0cc38c7aae016e03d65f54351315576d7da094d4d8c04de64e2716e31d"
+    },
+    {
+      "path": "capstone-998821-raid-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-101-result.json.gz",
+      "bytes": 43796,
+      "sha256": "b00e4aa8bd409289d86bb9f4b27f2ad9501aeb585c15ed4191143620e26fe591"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-2718-result.json.gz",
+      "bytes": 43748,
+      "sha256": "8cc8ae979b143f9bccf2afa38269cc441bd75e04046ddeadc5243de931179154"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-8675309-result.json.gz",
+      "bytes": 44273,
+      "sha256": "ad1fbf5eeaed356a5db3b5b601d74f7cf929cc515f5dd3a9c1113a6625b3705b"
+    },
+    {
+      "path": "capstone-998821-raid-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-101-result.json.gz",
+      "bytes": 46740,
+      "sha256": "fee2a8de845c99b14a282ebec3e1b525de1116906eb1822846d2243ac237c245"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-2718-result.json.gz",
+      "bytes": 43276,
+      "sha256": "b224c2b87c1e4ba56cf705567debe6c8085a65ea3f4e59a62b14e8b778c1dac6"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-8675309-result.json.gz",
+      "bytes": 44570,
+      "sha256": "ac4aa6ea32e0e4f8e0cca5e6b9aa5969ae9e59853aeebe8fc1205b738e8d330d"
+    },
+    {
+      "path": "capstone-998822-grind-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-101-result.json.gz",
+      "bytes": 43284,
+      "sha256": "55cccd86190b2873fb9ba89e0366ce03d18e3464323140d105da3d4bdea7d292"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-2718-result.json.gz",
+      "bytes": 43356,
+      "sha256": "d1d93065e553afa00678b79bde3f58523bbbd8f4839d12f012d002d3d1f81745"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-8675309-result.json.gz",
+      "bytes": 44203,
+      "sha256": "e128a09d0b8fbb843d963ccac12524bc767115fe6925c63002f7309de97462b3"
+    },
+    {
+      "path": "capstone-998822-grind-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-101-result.json.gz",
+      "bytes": 53153,
+      "sha256": "4c53e204fab3b9dcde27a457552f2e1321139d72adc2b4422cab5d029cf62396"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-2718-result.json.gz",
+      "bytes": 52528,
+      "sha256": "ac4fe46b348670ec0bc245a01fd97b315b0b6867a331ea88ffa542f5f82591f7"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-8675309-result.json.gz",
+      "bytes": 53088,
+      "sha256": "8eb2a24c0890153b8c9af68088b24feb8490f334dd419a435371056fd831a842"
+    },
+    {
+      "path": "capstone-998822-raid-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-101-result.json.gz",
+      "bytes": 52026,
+      "sha256": "7e105ab9dfefe024f30aeb0432ad21a36b950efb8f425e0a403eb44900193977"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-2718-result.json.gz",
+      "bytes": 53729,
+      "sha256": "66fbdc314ac8db44896d4e80e488eefcc2e19778807c535593ae794c447f9035"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-8675309-result.json.gz",
+      "bytes": 52763,
+      "sha256": "75b81468785ea7b3a4b3ef3951b3701399d377c59cbd4f72ecd7cf446497833d"
+    },
+    {
+      "path": "capstone-998822-raid-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-101-result.json.gz",
+      "bytes": 50317,
+      "sha256": "cae9e3b8646563d6314c3b30f4e43d051b92013fb8f5062e12bcfb1c39512297"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-2718-result.json.gz",
+      "bytes": 49656,
+      "sha256": "c72e171588d91d156151a6740d8832960e462a9a921a54b042f9a80fe67e367b"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-8675309-result.json.gz",
+      "bytes": 51086,
+      "sha256": "fd73117f11a432719956bd83d0312c00805b346ca08458e24177572c85e33330"
+    },
+    {
+      "path": "capstone-998823-grind-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-101-result.json.gz",
+      "bytes": 51413,
+      "sha256": "5139f5cdd9b060c212a8cb0691ed40caf1c5772dd027ca49b1a97ba995dc9ad9"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-2718-result.json.gz",
+      "bytes": 51850,
+      "sha256": "b809517cb7c97d0a992a5c44a155d9acb2f40d79be1ec31a2a558fe4bf3bdf0e"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-8675309-result.json.gz",
+      "bytes": 50124,
+      "sha256": "98eed10c3dc36a514344887000f80b4e2d9bdc6ea14869f0ee03d4c7a2c5d9dd"
+    },
+    {
+      "path": "capstone-998823-grind-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-101-result.json.gz",
+      "bytes": 61474,
+      "sha256": "b3b3d313a16700ed1b33937ebd4a236ca8bc1e507650f932da8558ee5b95c8b7"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-2718-result.json.gz",
+      "bytes": 62076,
+      "sha256": "63a01099797c1fb89b1780832f3a36ed683ce5763be7a52c96e86b4839b83771"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-8675309-result.json.gz",
+      "bytes": 61018,
+      "sha256": "7d04e4eda2985690bd3169b14f22d71d147b659c18df3574688302ef9dc41481"
+    },
+    {
+      "path": "capstone-998823-raid-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-101-result.json.gz",
+      "bytes": 60032,
+      "sha256": "390ce79263486cf3808a9004608d51eb25f410fd2364df2635b34553c73d2e87"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-2718-result.json.gz",
+      "bytes": 62734,
+      "sha256": "a4bec652af6024e0baade9e727b1870e1cc845543fd0c1e653367e1300f306cf"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-8675309-result.json.gz",
+      "bytes": 63648,
+      "sha256": "fba07f8e2a2558cef2d2094342bf70aaddefe9b14cf24f1984d5bd71fb7adc37"
+    },
+    {
+      "path": "capstone-998823-raid-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-205403-500AA-Polished-101-input.json",
+      "bytes": 4853,
+      "sha256": "a9c40ab5aa78e8b3d4c9dc1ccc7948c46f170dd71f4ccbc3b3dcaefd2aedfd00"
+    },
+    {
+      "path": "capstone-998824-grind-205403-500AA-Polished-101-result.json.gz",
+      "bytes": 11889,
+      "sha256": "742b9ee877ffc6746655a19966677917e1ab66ed19694946e2bf68f84e02eeb4"
+    },
+    {
+      "path": "capstone-998824-grind-205403-500AA-Polished-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-205403-98AA-Polished-101-input.json",
+      "bytes": 3685,
+      "sha256": "10606ca63ef0e800c6feee47b3de6ae0496b6fdf13dad3f7daeb241961a57360"
+    },
+    {
+      "path": "capstone-998824-grind-205403-98AA-Polished-101-result.json.gz",
+      "bytes": 6662,
+      "sha256": "637bfd1da2daaf55086d64a54a382961ee5090fe85c7ff85d4df09485e6c0917"
+    },
+    {
+      "path": "capstone-998824-grind-205403-98AA-Polished-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-605403-living-control-101-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998824-grind-605403-living-control-101-result.json.gz",
+      "bytes": 80274,
+      "sha256": "811c65a47a684c28681cb8deab4ce2df96b063aa818e5e317e61112853c3cc00"
+    },
+    {
+      "path": "capstone-998824-grind-605403-living-control-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-101-result.json.gz",
+      "bytes": 57821,
+      "sha256": "a0d6a596641c203107dd708ecf633ef79627a2645f6ca97d0da2cca8b3018cf2"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-2718-result.json.gz",
+      "bytes": 55574,
+      "sha256": "d10a560c8f6912ddb9f1242b877e99a8b2f00c88f006485357423ae6bc915c49"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "d7531006b38bc84f2d69c56e814cac1fee2c37e3893b2081085b49a602519601"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-8675309-result.json.gz",
+      "bytes": 57652,
+      "sha256": "ba9c0cd05ff50989f3696f1904f78f3f980b413e95de3ae3088660d859c98add"
+    },
+    {
+      "path": "capstone-998824-grind-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-605403-no-Stun-Mend-Rage-101.log",
+      "bytes": 83,
+      "sha256": "08249d0de4d7c392ae3a8e8c4852b5d741adc1438950e93b548940901ed4e761"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-101-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-101-result.json.gz",
+      "bytes": 57586,
+      "sha256": "11ad83ace182167a62683437006ef33771eb52470600a16129e9084694c9eacb"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-2718-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-2718-result.json.gz",
+      "bytes": 57953,
+      "sha256": "7ea4e519156c7665e5e34992cfd2c60ec796885dfb7a71b9484b89a0673ec8cf"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-8675309-input.json",
+      "bytes": 15669,
+      "sha256": "928972df63190d30c4fc443e0472a11061c91944e05187d79e58ef61766c48eb"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-8675309-result.json.gz",
+      "bytes": 59484,
+      "sha256": "0b4dad92b472c609dd6c771437f42f837f29aec6a4273d4f495d784b6f6e8c7a"
+    },
+    {
+      "path": "capstone-998824-grind-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-101-result.json.gz",
+      "bytes": 67988,
+      "sha256": "cf444a9095edefd4e7f2d61fea13668d7d92248b9c7e808d71bdf58160eaa639"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-2718-result.json.gz",
+      "bytes": 69125,
+      "sha256": "f3539b81d205c9a58eeb4ad5af3f605904c8b3e596c6745a1660a37d82843148"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "ef62bed4371a44863cdaa2ae8259fc7e3df50361bdcf759cc8907cd23e51f0a3"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-8675309-result.json.gz",
+      "bytes": 70817,
+      "sha256": "a0cc145c8f7f480db19345e8002880a9ebf3d20b9764cc58faf99e65971f11a2"
+    },
+    {
+      "path": "capstone-998824-raid-605403-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-101-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-101-result.json.gz",
+      "bytes": 68666,
+      "sha256": "483e3276623fdfb3462d575c60821725fbb1f2a6e70f45ed9b87d31191b4b505"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-101.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-2718-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-2718-result.json.gz",
+      "bytes": 71655,
+      "sha256": "22d63de0726201aacbff8f091197d1245409897dda2b7078a97e52c21becaf97"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-2718.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-8675309-input.json",
+      "bytes": 15668,
+      "sha256": "555ff9b220f3f9eb9e306cb6cb1dc5b334a08f742a779893dda5aa83015343e0"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-8675309-result.json.gz",
+      "bytes": 71502,
+      "sha256": "5b18d0340a4345c8b1a2fc9abffce2a3933d1511328c1cfd76d7ff068bdbe60b"
+    },
+    {
+      "path": "capstone-998824-raid-662038-max-8675309.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "capstone-catalog-input.json",
+      "bytes": 4324,
+      "sha256": "f03a785c21d664d98a610662ab46a6397377b51919a656408ec37753886c8cbc"
+    },
+    {
+      "path": "capstone-catalog-result.json",
+      "bytes": 691124,
+      "sha256": "42fa4c799df279c9d9bad008af5c11398cbf8d4959b20d3a352132f46c7831f9"
+    },
+    {
+      "path": "capstone-catalog.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "combat-998821-grind-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998821-grind-500aa-polished-result.json.gz",
+      "bytes": 16421,
+      "sha256": "1e134560ad30fc54e4da7e9bedb2339d13dae8252a39ee57999ed68ee5cf3b08"
+    },
+    {
+      "path": "combat-998821-grind-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998821-grind-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998821-grind-98aa-polished-result.json.gz",
+      "bytes": 32763,
+      "sha256": "c28ae504eefc27b61c55e5a37bc0f005d210cf8f799d92c068bdaa52a9b6c199"
+    },
+    {
+      "path": "combat-998821-grind-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998821-grind-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998821-grind-legal-max-ascended-result.json.gz",
+      "bytes": 15859,
+      "sha256": "83038a3436b314dd32925788faaa174d4ea57511cb0f40823dcb244eb03dbff8"
+    },
+    {
+      "path": "combat-998821-grind-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998821-raid-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998821-raid-500aa-polished-result.json.gz",
+      "bytes": 20075,
+      "sha256": "980a0060f1ae4e934790f9fd1e6f8cc841951520c4dd8f26ce9c6a7e0b4baf5a"
+    },
+    {
+      "path": "combat-998821-raid-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998821-raid-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998821-raid-98aa-polished-result.json.gz",
+      "bytes": 34562,
+      "sha256": "26a5cda2fccff5bd067911eea54ea24bd8989e6d974535d218794627c3661fea"
+    },
+    {
+      "path": "combat-998821-raid-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998821-raid-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998821-raid-legal-max-ascended-result.json.gz",
+      "bytes": 16603,
+      "sha256": "37e275d2424378b51e7a10f2213905e295275f5a082bdc90aaf76afa40a432d5"
+    },
+    {
+      "path": "combat-998821-raid-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998822-grind-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998822-grind-500aa-polished-result.json.gz",
+      "bytes": 20484,
+      "sha256": "8f4dabe828f03013b38cb2ca27c4037f001aef583c6b1ba8c2c34c7bc1d967ea"
+    },
+    {
+      "path": "combat-998822-grind-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998822-grind-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998822-grind-98aa-polished-result.json.gz",
+      "bytes": 34058,
+      "sha256": "8c58deb73778d213d98ca1600c5a439087cd96a8c942da104145a9b415c7d5a9"
+    },
+    {
+      "path": "combat-998822-grind-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998822-grind-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998822-grind-legal-max-ascended-result.json.gz",
+      "bytes": 16167,
+      "sha256": "7db698137d8ff34982831f431c003919937bb906aa761e2cdaa06eaac4c495b0"
+    },
+    {
+      "path": "combat-998822-grind-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998822-raid-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998822-raid-500aa-polished-result.json.gz",
+      "bytes": 25381,
+      "sha256": "1e554d38a09cb772c735188730629af8f17d359ff02f412794c00d94ae4b047f"
+    },
+    {
+      "path": "combat-998822-raid-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998822-raid-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998822-raid-98aa-polished-result.json.gz",
+      "bytes": 34632,
+      "sha256": "a4ca47f06ea16dd22842cf4b6f6a6cd24a579d31a9119e9c5f210a3539c73c9b"
+    },
+    {
+      "path": "combat-998822-raid-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998822-raid-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998822-raid-legal-max-ascended-result.json.gz",
+      "bytes": 16959,
+      "sha256": "031fb6f4b81c103528089e581776effa7929f1e77aac2b1fd8a1e2c7f3f1bc19"
+    },
+    {
+      "path": "combat-998822-raid-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998823-grind-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998823-grind-500aa-polished-result.json.gz",
+      "bytes": 24922,
+      "sha256": "559df979c6ca8c7e39c8bde75ffb3176c480fcd1bcaa9eb203465e88b95bbe1d"
+    },
+    {
+      "path": "combat-998823-grind-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998823-grind-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998823-grind-98aa-polished-result.json.gz",
+      "bytes": 33421,
+      "sha256": "0809803d19400194f269f32bef1c5dae70c51375c687ff339459fdc2573ec1f1"
+    },
+    {
+      "path": "combat-998823-grind-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998823-grind-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998823-grind-legal-max-ascended-result.json.gz",
+      "bytes": 16747,
+      "sha256": "7e36ba69af5f20e8514adb35f5d6775a237bc0d291b169c24327c928a7f3812e"
+    },
+    {
+      "path": "combat-998823-grind-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998823-raid-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998823-raid-500aa-polished-result.json.gz",
+      "bytes": 30782,
+      "sha256": "9fa16f7b0eef5a4965bf54805cf1a910d6f89fd3933731081e14d4f1229c919a"
+    },
+    {
+      "path": "combat-998823-raid-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998823-raid-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998823-raid-98aa-polished-result.json.gz",
+      "bytes": 33742,
+      "sha256": "07d1f770476c64d46aa9856b8dfef16fafc1e9312f8794310bb7a62b81c3f3be"
+    },
+    {
+      "path": "combat-998823-raid-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998823-raid-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998823-raid-legal-max-ascended-result.json.gz",
+      "bytes": 17765,
+      "sha256": "dce9d32b413b61b6b2fff895417b4c9bc27c6e65f7d7e75b3c2473708fa1aa2b"
+    },
+    {
+      "path": "combat-998823-raid-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998824-grind-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998824-grind-500aa-polished-result.json.gz",
+      "bytes": 28267,
+      "sha256": "34124822542124f4f798437a19f2a84031de5ed28fe09c60f9fe2467e85fd69d"
+    },
+    {
+      "path": "combat-998824-grind-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998824-grind-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998824-grind-98aa-polished-result.json.gz",
+      "bytes": 33155,
+      "sha256": "b968fbce5817dc713c54d59176e7412d87e171341c2a993177b2b3866819fa97"
+    },
+    {
+      "path": "combat-998824-grind-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998824-grind-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998824-grind-legal-max-ascended-result.json.gz",
+      "bytes": 17627,
+      "sha256": "b5c862e814b7cf61b2f337d3c004d2ea48c5d9420933369038f5c72f8f17642c"
+    },
+    {
+      "path": "combat-998824-grind-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998824-raid-500aa-polished-input.json.gz",
+      "bytes": 1073,
+      "sha256": "25e4b4bcdc790a7be85afa5bef4872708c844ad63bfb76526332ac1a51fabb80"
+    },
+    {
+      "path": "combat-998824-raid-500aa-polished-result.json.gz",
+      "bytes": 34599,
+      "sha256": "b30218675ecd8e97a0c5a12747e545477015e355e873a983afe14801f019281d"
+    },
+    {
+      "path": "combat-998824-raid-500aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998824-raid-98aa-polished-input.json.gz",
+      "bytes": 824,
+      "sha256": "2e2b36e2e66468d50ae78d69a7ed803e8e2d42e4596bec372052dd89d907a202"
+    },
+    {
+      "path": "combat-998824-raid-98aa-polished-result.json.gz",
+      "bytes": 33676,
+      "sha256": "e59109f20e5b04a38e1f2e4345e6cf4cb9ca4ce677ac4e3e59c8a725a9085191"
+    },
+    {
+      "path": "combat-998824-raid-98aa-polished.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "combat-998824-raid-legal-max-ascended-input.json.gz",
+      "bytes": 2887,
+      "sha256": "cf58e26b2e218162543dfefde7fe93ee6138fba178f61247b289a0aec08d4efd"
+    },
+    {
+      "path": "combat-998824-raid-legal-max-ascended-result.json.gz",
+      "bytes": 18565,
+      "sha256": "6f51e2835eb2687d3f6090a1fd6b029a05087c70db6e32093b47f24d91efb555"
+    },
+    {
+      "path": "combat-998824-raid-legal-max-ascended.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    }
+  ]
+}

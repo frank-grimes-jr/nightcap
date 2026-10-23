@@ -1,0 +1,156 @@
+{
+  "skill_validator_exit": 0,
+  "skill_validator_output": "Skill is valid!",
+  "current_candidate_pins": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\SPEC.md",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\server-mods\\code\\zone\\chapterhouse_vigil.inc",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\server-mods\\code\\zone\\dungeon_service.cpp",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\tests\\test_chapterhouse.py",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\tests\\test_chapterhouse_journal.py",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\tests\\test_chapterhouse_encounters.py",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\QA.md",
+      "role": "Reviewed Chapterhouse world implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\chapterhouse_content.py",
+      "role": "Reviewed Chapterhouse items implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\server-mods\\code\\common\\zone_hunt_catalog.h",
+      "role": "Reviewed Chapterhouse items implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\chapterhouse_content.py",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\chapterhouse_capstone.py",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\chapterhouse_balance.py",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\tools\\chapterhouse_balance_capture.py",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\BALANCE.md",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\capstone-results.json",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\balance-public-content-receipt.json",
+      "role": "Reviewed Chapterhouse balance implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\RUNBOOK.md",
+      "role": "Reviewed Chapterhouse operations implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\native-build-manifest.json",
+      "role": "Reviewed Chapterhouse operations implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\rehearsal.json",
+      "role": "Reviewed Chapterhouse operations implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\config\\chapterhouse-access.json",
+      "role": "Reviewed Chapterhouse operations implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\wiki-review.json",
+      "role": "Reviewed Chapterhouse wiki implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\wiki-candidate.patch",
+      "role": "Reviewed Chapterhouse wiki implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev\\docs\\quests\\camil-chapterhouse\\wiki-validation.json",
+      "role": "Reviewed Chapterhouse wiki implemented candidate; source/testing documented separately from deployment and owner acceptance",
+      "state": "unchanged"
+    }
+  ],
+  "unrelated_prior_drift": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\sellall-supplies\\EQ_Local_Dev\\server-mods\\code\\zone\\gm_commands\\sell_all.cpp",
+      "role": "newest supply protection command",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\sellall-supplies\\EQ_Local_Dev\\docs\\ops\\sellall-supplies-20261012\\README.md",
+      "role": "concurrent release; recheck deployment status",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\items\\quest-armor-catalog.json",
+      "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\README.md",
+      "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\QA.md",
+      "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
+      "state": "changed: review implementation and evidence"
+    }
+  ],
+  "topic_exit_codes": {
+    "world": 0,
+    "items": 1,
+    "balance": 0,
+    "operations": 0,
+    "wiki": 0
+  },
+  "boundary": "All23 candidate pins current; five unrelated prior item-source entries retain their drift. Installed knowledge describes an undeployed candidate, not accepted gameplay."
+}
