@@ -1,0 +1,19 @@
+{
+  "title": "The Vigil of the Dawn (candidate)",
+  "summary": "Camil’s level-50 Paladin helmet story in Chapterhouse. Implemented for testing; not released.",
+  "category": "World",
+  "status": "Not released",
+  "updated": "2026-10-23",
+  "sources": [
+    "docs/quests/camil-chapterhouse/SPEC.md",
+    "docs/quests/camil-chapterhouse/QA.md"
+  ],
+  "keywords": [
+    "Camil Silvermist",
+    "Chapterhouse",
+    "Paladin helmet",
+    "Ember of the First Dawn"
+  ],
+  "body": "<h2 id=\"availability\">Not released</h2><p>This candidate has not been activated. Native and in-game balance, travel and recovery checks remain distinct; no completed player acceptance is claimed.</p><h2 id=\"story\">Camil’s vigil</h2><p>The intended route starts with Camil in East Commonlands at level 50, with Paladin in any held class slot. A Keeper near Befallen in West Commonlands opens a Chapterhouse expedition. The native Tasks window tracks Sered, three memorials, Elowen’s three-wave defense, Halvyr, three bound knights, Vaelen, the Unbroken Shadow and the altar, then return to Camil.</p><h2 id=\"difficulty\">Endgame capstone</h2><p>The tuning target is a demanding fight for a fully developed level-50 character, including legal undead procs, Slay Undead, Ghoulbane and critical AAs. Reaching level 50 alone does not imply readiness. Sered rewards timely interrupts; Elowen needs protection. Vaelen and the Shadow mark your position with a three-second warning: move more than ten paces or interrupt. Undead bonuses remain effective. Full encounter balance and other strong class combinations still require player testing.</p><h2 id=\"progress\">Personal progress</h2><p>Earned chapters survive reconnects and run resets. Removing the Tasks display does not erase them. Make room for both story and dungeon journals. Eligible nearby participants earn personal credit; later witnesses cannot borrow another player’s kills. The helmet claim survives a full inventory and is delivered once.</p><h2 id=\"rewards\">Candidate rewards</h2><p>The existing Winged Helm of the Dawn keeps its stats and sockets. Three miniboss items and final Raid designs use current level-50 dungeon budgets. Ember of the First Dawn is a type-22 armor augment with four qualities: HP/mana 60/87/114/144, heroic STA/WIS 5/6/8/10 and AC 2/3/5/6. It requires level 50 and follows existing Hunt headroom and zone forging. Static curated enemies have a 0.5% augment roll, with quality weights 60/30/8/2; miniboss custom items have a 35% roll. These are candidate values.</p><h2 id=\"access\">Classic access</h2><p>Chapterhouse uses a scoped exception while Classic and level 50 remain global. Its population, spells and rewards are curated; stock Rain of Fear drops are excluded. The waypoint recalls to a public foyer, and the Keeper controls private run admission.</p>",
+  "slug": "camil-vigil"
+}

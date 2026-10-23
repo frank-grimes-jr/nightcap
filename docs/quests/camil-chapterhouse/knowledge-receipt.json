@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "state": "installed",
+  "scope": "Implemented Chapterhouse candidate; max-legal-power balance, paired installation, wiki and QA boundaries; reviewed fingerprints",
+  "files": [
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/world.md",
+      "before_sha256": "2f8cf7283881a810e9e83cc5516bf394382d7ba04476b980f77333b207f377c0",
+      "after_sha256": "f059852f39c7554a3df40f073e864c236fe22895587fd0b2c418625ea9a27882"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/balance.md",
+      "before_sha256": "438c4ef353813dd7a8778ddfe70554c0c93750a5ff0fa53c276de6fdfac6484e",
+      "after_sha256": "44a75233c7e7b5ed7c7f94e89dda279989f50d33bb13e91801fa02510aada6c8"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/items.md",
+      "before_sha256": "b68c0cc970ed06cd3f22b1d61d713a708634b02bf503bbcde63b73a2cce62911",
+      "after_sha256": "5a495230ab7b0ae5286d60fb4e22e73f0dd3504a092b190ff9f584cca82057be"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/operations.md",
+      "before_sha256": "0eef28ee468ff81c3b14803077aa8561b4c396a865d1bd1abf81767683649e4d",
+      "after_sha256": "5c0915da33a4e4c359dfa520a2617adc85696f73cddd490a0d83f76070345581"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+      "before_sha256": "312cba8fb6c25293ee3ba54751c0aeada895e3da493c85aafc594821391dab23",
+      "after_sha256": "3db21b2c79fe4e3e23b6744a6755096d5455ff7092542bab7bac9a2b879ae202"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json",
+      "before_sha256": "6702ab9122554bb9394d93b2df614cf38270e789cf5d90a3c81712e5c98e078e",
+      "after_sha256": "57c6083226471bcaa52beafa72bc0ec0660772fc03732ac98819af3b00cc1379"
+    }
+  ],
+  "final_reviewed_changes": [
+    "docs/quests/camil-chapterhouse/BALANCE.md",
+    "docs/quests/camil-chapterhouse/capstone-results.json",
+    "tools/chapterhouse_balance_capture.py"
+  ],
+  "exact_patch": "skill-update.patch.gz"
+}

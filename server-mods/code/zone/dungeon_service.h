@@ -15,6 +15,7 @@ namespace NightcapDungeon {
 using SavedSpawn = ZoneStateSpawnsRepository::ZoneStateSpawns;
 // Called before loading any NPCs. Failure prevents a managed zone from booting.
 bool Boot();
+void Process();
 bool Managed();
 // Read-only identity for run-scoped quest state. Retained after expiry or
 // suspension so quest callbacks cannot fall through to public-zone behavior.

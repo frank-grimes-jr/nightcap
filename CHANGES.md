@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-23 — Camil's Chapterhouse helmet quest candidate
+
+Implements the level-50 Vigil of the Dawn with native Tasks, durable personal
+chapters and a receipt-backed one-time helmet claim. Adds curated NPCs, warned
+bell/guardian/add/positioning encounters, era-safe custom loot, Ember augment, waypoint and
+Keeper near Befallen. Scoped declarative access preserves Classic; migration
+starts disabled. Retuned as an endgame capstone against current level50 WPM
+with3319 legal AAs, Ascended Ghoulbane, Slay/proc/crit stacking and native Raid
+scaling:48 maximum-power arena cases pass; complete encounter QA remains open.
+Paired native/schema/cache install and owner gameplay/balance
+QA remain required. [Specification and evidence](docs/quests/camil-chapterhouse/SPEC.md).
+
 ## 2026-10-23 — Level-scaled AA and level-1 allocation controls (deployed)
 
 Adds the owner-selected two passive AA per level of eligible XP while retaining

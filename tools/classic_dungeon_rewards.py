@@ -4,6 +4,10 @@ from copy import deepcopy
 # zone: (title, shared design, role, resistance, inspect lore). Lore is authored
 # Nightcap fiction inspired by the zone, not a claim these were original EQ loot.
 DESIGNS = {
+    'chapterhouse': (
+        ('Blade of the Released Dawn',11,'melee','mr','An oath released from the knight who would not yield.'),
+        ('Mantle of the First Dawn',20,'guardian','dr','The fallen order remembers those who kept the vigil.'),
+        ('Seal of the Rekindled Chapel',17,'healer','mr','The chapel is quiet; its light has returned.')),
     'blackburrow': (
         ("Elgnub's Burrowfang",10,'melee','pr','A fang claimed from the lord beneath the hills.'),
         ('Blackburrow Packwarden Mantle',20,'guardian','cr','Gnoll-hide stitched for the long watch over the burrow.'),

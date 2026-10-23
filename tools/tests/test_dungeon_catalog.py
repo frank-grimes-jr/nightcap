@@ -9,8 +9,8 @@ from dungeon_catalog import items, DUNGEONS
 class DungeonCatalogTests(unittest.TestCase):
     def test_catalog_contract(self):
         data=items()
-        self.assertEqual(len(data),414)
-        self.assertEqual({x['id'] for x in data},set(range(960000,960414)))
+        self.assertEqual(len(data),420)
+        self.assertEqual({x['id'] for x in data},set(range(960000,960420)))
         for row in data:
             i=row['values']
             self.assertLess(i['id'],1048576)

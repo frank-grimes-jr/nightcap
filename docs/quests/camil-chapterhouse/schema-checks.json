@@ -1,0 +1,32 @@
+[
+  {
+    "label": "nightcap_vigil_state/columns",
+    "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_vigil_state'",
+    "expected": "4fcd2f0bc5488409638eb385c4db6449f8b30b7bbac55e3a552506743e66db04"
+  },
+  {
+    "label": "nightcap_vigil_state/statistics",
+    "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(index_name AS CHAR),'~NULL~'),COALESCE(CAST(non_unique AS CHAR),'~NULL~'),COALESCE(CAST(seq_in_index AS CHAR),'~NULL~'),COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(sub_part AS CHAR),'~NULL~'),COALESCE(CAST(index_type AS CHAR),'~NULL~')),256) ORDER BY index_name,seq_in_index SEPARATOR ''),256),'empty') FROM information_schema.statistics WHERE table_schema=DATABASE() AND table_name='nightcap_vigil_state'",
+    "expected": "eb04590a59343d6571f1624411c8632074951200afb7944dcee8c15b48513eff"
+  },
+  {
+    "label": "nightcap_vigil_state/key_column_usage",
+    "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(constraint_name AS CHAR),'~NULL~'),COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(ordinal_position AS CHAR),'~NULL~'),COALESCE(CAST(referenced_table_name AS CHAR),'~NULL~'),COALESCE(CAST(referenced_column_name AS CHAR),'~NULL~')),256) ORDER BY constraint_name,ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.key_column_usage WHERE table_schema=DATABASE() AND table_name='nightcap_vigil_state'",
+    "expected": "56ed965eb81189f58ae21709a1e20821ea6a1f259933cb44bef08ca5008e275d"
+  },
+  {
+    "label": "nightcap_vigil_characters/columns",
+    "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_vigil_characters'",
+    "expected": "3cf31b6e9c61d63fb215b33e492458ed45ed1b6912915b76a966c9f5a602c390"
+  },
+  {
+    "label": "nightcap_vigil_characters/statistics",
+    "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(index_name AS CHAR),'~NULL~'),COALESCE(CAST(non_unique AS CHAR),'~NULL~'),COALESCE(CAST(seq_in_index AS CHAR),'~NULL~'),COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(sub_part AS CHAR),'~NULL~'),COALESCE(CAST(index_type AS CHAR),'~NULL~')),256) ORDER BY index_name,seq_in_index SEPARATOR ''),256),'empty') FROM information_schema.statistics WHERE table_schema=DATABASE() AND table_name='nightcap_vigil_characters'",
+    "expected": "e802f70fdc817886335a6b34483f7ea1ac1d3765454de68cf2da787de65c16ba"
+  },
+  {
+    "label": "nightcap_vigil_characters/key_column_usage",
+    "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(constraint_name AS CHAR),'~NULL~'),COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(ordinal_position AS CHAR),'~NULL~'),COALESCE(CAST(referenced_table_name AS CHAR),'~NULL~'),COALESCE(CAST(referenced_column_name AS CHAR),'~NULL~')),256) ORDER BY constraint_name,ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.key_column_usage WHERE table_schema=DATABASE() AND table_name='nightcap_vigil_characters'",
+    "expected": "61bc019769f91d31ac4431dda8997a86b7e113e089efb5d190c082749b00c1bb"
+  }
+]
