@@ -6,6 +6,7 @@ prove ordering/guards; SQL execution and native startup remain separate checks.
 import copy
 import importlib.util
 import json
+import sqlite3
 from pathlib import Path
 import sys
 import tempfile
@@ -64,6 +65,8 @@ class Fixture:
                   'content':{**self.content,**self.dungeon},'before':copy.deepcopy(self.rows),
                   'after':o.desired(copy.deepcopy(self.rows)),'image':'sha256:candidate',
                   'dungeon_state':copy.deepcopy(self.dungeon)}
+        self.real_startup_guards = o.startup_guards
+        o.startup_guards = lambda:self.event('startup_guards')
         o.manifest = lambda:self.m
         o.save = self.save; o.sql = self.sql; o.caches = lambda:copy.deepcopy(self.cache)
         o.contract = lambda:self.event('contract') or {'schema':39,'content':499}
@@ -177,6 +180,63 @@ class OperatorTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory(prefix='aa-operator-')
         self.addCleanup(self.temp.cleanup)
         self.f=Fixture(Path(self.temp.name));self.o=self.f.op
+
+    def startup_transport(self, rows=(), offset='3600', blocked=None):
+        # Execute the real operator instance SELECT in SQLite; only its clock is
+        # supplied. This tests the predicate, not a Python reimplementation of it.
+        db=sqlite3.connect(':memory:');self.addCleanup(db.close)
+        db.create_function('UNIX_TIMESTAMP',0,lambda:100000)
+        db.execute('CREATE TABLE instance_list (expire_at INTEGER, never_expires INTEGER, start_time INTEGER, duration INTEGER)')
+        db.executemany('INSERT INTO instance_list VALUES(?,?,?,?)',rows)
+        queries=[]
+        def sql(q):
+            queries.append(q)
+            if 'Instances:ExpireOffsetTimeSeconds' in q:return offset
+            if q.startswith('SELECT COUNT(*) FROM instance_list WHERE'):
+                return str(db.execute(q).fetchone()[0])
+            if 'Character:CorpseDecayTime' in q:return '604800000'
+            if 'Zone:EnableShadowrest' in q:return 'true'
+            if q.startswith('SELECT COUNT(*)'):
+                return '1' if blocked and blocked in q else '0'
+            raise AssertionError('Unmodeled startup SQL: '+q)
+        self.o.sql=sql
+        return queries
+
+    def test_startup_allows_gameplay_expiry_before_native_cleanup(self):
+        for expiry in (100120,100000,99900,97001):
+            with self.subTest(expire_at=expiry):
+                # Old start_time+duration guard would reject every one of these.
+                self.startup_transport([(expiry,0,1,1)])
+                self.assertEqual(self.f.real_startup_guards()['expiring_instances'],0)
+
+    def test_startup_rejects_exact_native_cleanup_horizon_and_older_rows(self):
+        for expiry in (97000,96999,1):
+            with self.subTest(expire_at=expiry):
+                # Far-future legacy fields cannot hide an actual native purge.
+                self.startup_transport([(expiry,0,200000,10000)])
+                with self.assertRaisesRegex(AssertionError,'Upcoming instance expiry'):
+                    self.f.real_startup_guards()
+
+    def test_startup_preserves_zero_expiry_and_never_expiring_instances(self):
+        self.startup_transport([(0,0,1,1),(1,1,1,1),(97000,1,1,1)])
+        self.assertEqual(self.f.real_startup_guards()['expiring_instances'],0)
+
+    def test_startup_rejects_offset_drift_before_instance_query(self):
+        for offset in ('0','3599','3601','', '3600\n3600'):
+            with self.subTest(offset=offset):
+                queries=self.startup_transport(offset=offset)
+                with self.assertRaises((AssertionError,ValueError)):
+                    self.f.real_startup_guards()
+                self.assertFalse(any('FROM instance_list WHERE' in q for q in queries))
+
+    def test_startup_retains_other_native_cleanup_guards(self):
+        for table in ('`shared_tasks`','`dynamic_zones`','`dynamic_zone_members`',
+                      '`dynamic_zone_lockouts`','character_expedition_lockouts',
+                      'character_task_timers','character_corpses WHERE',
+                      'character_corpses c JOIN'):
+            with self.subTest(table=table):
+                self.startup_transport(blocked=table)
+                with self.assertRaises(AssertionError):self.f.real_startup_guards()
 
     def test_desired_preserves_every_old_field_and_adds_one_exact_row(self):
         old=copy.deepcopy(self.f.rows); result=self.o.desired(old)

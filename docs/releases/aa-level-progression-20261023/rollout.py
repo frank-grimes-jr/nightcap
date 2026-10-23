@@ -6,7 +6,7 @@ access closed. Never restore player snapshots or silently revert percentage supp
 import argparse,fcntl,hashlib,importlib.util,json,os,shutil,time
 from pathlib import Path
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/aa-level-progression-20261023')
+STAGE=Path('/opt/nightcap/releases/aa-level-progression-20261023-v2')
 EVIDENCE=STAGE/'evidence'
 PRIOR=Path('/opt/nightcap/releases/hate-keeper-commonlands-20261022/rollout.py')
 RULE='AA:LevelBasedPointsPerLevel'
@@ -47,6 +47,32 @@ def database_guards():
  assert not sql("SELECT value FROM variables WHERE varname='RuleSet' AND value<>'default';").strip()
  # RuleSet is absent on the live baseline: world uses its default ruleset1.
 
+def startup_guards():
+    # These native systems are unused by the custom dungeon service. Do not silently
+    # accept startup cleanup; a nonempty case requires its own scoped reconciliation.
+    tables=('shared_tasks','dynamic_zones','dynamic_zone_members','dynamic_zone_lockouts')
+    counts={t:int(sql('SELECT COUNT(*) FROM `'+t+'`;')) for t in tables}
+    assert not any(counts.values()),('Native shared/dynamic systems need audit',counts)
+    for table in ('character_expedition_lockouts','character_task_timers'):
+        counts[table]=int(sql('SELECT COUNT(*) FROM '+table+' WHERE expire_time<=NOW()+INTERVAL 10 MINUTE;'))
+        assert counts[table]==0,'Upcoming native cleanup: '+table
+    # Audit native startup cleanup against the authenticated current schema.
+    # Match the exact retained world purge predicate, including its one-hour
+    # offset. Gameplay expiry alone does not delete the membership on startup.
+    offset=int(sql("SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Instances:ExpireOffsetTimeSeconds';"))
+    assert offset==3600,'Native instance purge offset drift'
+    counts['expiring_instances']=int(sql(f'SELECT COUNT(*) FROM instance_list WHERE never_expires=0 AND expire_at<>0 AND expire_at<=UNIX_TIMESTAMP()+600-{offset};'))
+    assert counts['expiring_instances']==0,'Upcoming instance expiry needs audit'
+    decay=int(sql("SELECT COALESCE((SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Character:CorpseDecayTime'),604800000);"))//1000
+    shadow=sql("SELECT LOWER(COALESCE((SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Zone:EnableShadowrest'),'true'));").strip() in ('true','1')
+    predicate=f'time_of_death<>0 AND UNIX_TIMESTAMP()+600-UNIX_TIMESTAMP(time_of_death)>{decay}'
+    if shadow:predicate+=' AND is_buried=0'
+    counts['decaying_corpses']=int(sql('SELECT COUNT(*) FROM character_corpses WHERE '+predicate+';'))
+    counts['instance_corpses']=int(sql('SELECT COUNT(*) FROM character_corpses c JOIN instance_list i ON i.id=c.instance_id WHERE i.never_expires=0;'))
+    assert counts['decaying_corpses']==counts['instance_corpses']==0,'Upcoming native corpse cleanup needs audit'
+    return counts
+
+
 def forward_sql():
  # A CHECK violation aborts this session before COMMIT; closing rolls back InnoDB.
  return "START TRANSACTION; CREATE TEMPORARY TABLE aa_release_guard (ok INT CHECK(ok=1));\n"+\
@@ -65,7 +91,7 @@ def unchanged(p,installed=False):
  assert sql('SELECT revision,enabled FROM nightcap_dungeon_state;').strip()=='2026101601\t1'
 
 def build_image(m):
- tag='nightcap-game:aa-level-progression-20261023'
+ tag='nightcap-game:aa-level-progression-20261023-v2'
  base_tag=tag+'-base'
  r.call('docker','tag',m['base_image_id'],base_tag)
  assert r.out('docker','image','inspect','--format','{{.Id}}',base_tag).strip()==m['base_image_id']
@@ -94,7 +120,7 @@ def preflight():
  assert sha(ROOT/'data/public/channel.json')==m['client_channel_sha256'],'Signed client baseline changed'
  assert m['binaries']=={**{n:m['base_hashes']['bin/'+n] for n in NAMES},**m['replacement_binaries']}
  r.running(m['base_image_id'],{n:m['base_hashes']['bin/'+n] for n in NAMES},services['game']['restarts'])
- base.health();base.startup_guards();r.closed_ports();contract()
+ base.health();startup_guards();r.closed_ports();contract()
  database_guards();before=rules();check_policy(before);after=desired(before)
  assert before==m['rules_before'],'Rules changed after packaging'
  assert shutil.disk_usage(ROOT).free>=m['replacement_bytes']+750*1024**2,'Insufficient image/backup reserve'
@@ -108,7 +134,7 @@ def preflight():
 def activate():
  p=read('preflight.json');m=manifest();assert p['manifest_sha256']==sha(STAGE/'manifest.json')
  assert not (EVIDENCE/'activation-started.json').exists()
- unchanged(p);base.startup_guards()
+ unchanged(p);startup_guards()
  assert all(r.compact(s)==v for s,v in p['services'].items())
  assert shutil.disk_usage(ROOT).free>=750*1024**2
  save('activation-started.json',{'owner_authorized_live_testing':True})
@@ -116,7 +142,7 @@ def activate():
   r.compose('stop','gateway');r.compose('stop','-t','90','game')
   state=r.state('game')['State'];assert not state['Running'] and state['ExitCode']==0 and not state['OOMKilled']
   assert not r.state('gateway')['State']['Running']
-  base.startup_guards();database_guards();unchanged(p)
+  startup_guards();database_guards();unchanged(p)
   data=base.saved_state();save('stopped-state.json',data);save('market-before.json',base.market())
   save('backup.json',r.database_backup());assert base.saved_state()==data
   assert shutil.disk_usage(ROOT).free>=512*1024**2

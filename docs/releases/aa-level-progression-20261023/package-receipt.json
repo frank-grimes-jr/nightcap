@@ -1,0 +1,16 @@
+{
+  "status": "verified package; not deployed",
+  "archive": "E:\\EQ_Local_Dev\\artifacts\\aa-level-progression-20261023\\server.tar.gz",
+  "archive_sha256": "73bae39626528a7e7b105979a9139f9b3433b4139fb1cefb0de6364ff58325b1",
+  "archive_bytes": 185008609,
+  "replacement_bytes": 454397984,
+  "manifest_sha256": "ec437084db832ac48a55e4a60a14a9b9cf77a7fda639272c6a347cfd0644243f",
+  "binaries": {
+    "world": "4cabbac9210f2e46bf3f4ae9fb711bda839a4f372f194e9a43b0e2b4c3e4dbee",
+    "zone": "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70",
+    "shared_memory": "4123b138edb9aa556668b768b253e8d34b1aebf51ff675e81812d29f0ef82fc6",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+  },
+  "source_revision": "d10020bde46f96c4faeed1647bea5c8de0a6c37f"
+}

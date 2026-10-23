@@ -5,3 +5,5 @@ package-inputs.json
 package/
 *.tar.gz
 __pycache__/
+instance-audit-private.json
+package-v2/
