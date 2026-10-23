@@ -1,20 +1,165 @@
 --- a/references/sources.json
 +++ b/references/sources.json
-@@ -1070,7 +1070,7 @@
+@@ -91,7 +91,7 @@
+     "hate_keeper_wiki_candidate_20261022": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+     "hate_keeper_deployed_20261022": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+     "hate_keeper_wiki_published_20261022": "b077d4995e932ac35383189b66859c65b36554d5",
+-    "hate_keeper_owner_acceptance_20261022": "b03b32908a6ab581d10f73842b8aef6e6887664d"
++    "hate_keeper_owner_acceptance_20261022": "5ec177514b4deb46119769d79fbc8232d97017a7"
+   },
+   "topics": {
+     "operations": [
+@@ -1034,63 +1034,63 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/deployment.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "d422b8f77fe0e7c62e07a517d10fd940cf182615b26f4a41062eb354df99d09f",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/README.md",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "dd17c3702298d7c36236fb3bf6e7d12174f8c856fc255b1b0c689abb897420b7",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/authorization.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "7d0eecc9dd28fec8b57b3dccde77bab28b538f6933bbd64bf575e30969985853",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-publication.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "3fa26a5974381c1c80b7a9a943c47442a77d348793fdc1b2874b1ef07a71e611",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-public-verification.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "890cdba0fa62c15baa7e20865a83df03466dd4ebc7daacc5bc09dd74eb968f45",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
          "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
          "path": "docs/ops/hate-keeper-commonlands-20261022/owner-acceptance.json",
-         "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
--        "sha256": "f2d74f03429882560a1388d00c476e0f234d85cb978dcbfd94503618fe2042b7",
-+        "sha256": "0beb2c740570c9f3938426a4794760f6337d52af5159573f1961f2fbc2cfc887",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "0beb2c740570c9f3938426a4794760f6337d52af5159573f1961f2fbc2cfc887",
          "role": "Owner-confirmed relocation/visibility/travel acceptance; broader dungeon QA remains separate"
        },
        {
-@@ -5544,7 +5544,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-before-confirmed.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "cbc0d4062279fb59e293d0c5159e35671ee7f04260145c87e83b912b1df5b21d",
+         "role": "Guarded successor publication preimage; current release pointer and manifest"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-publication-confirmed.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "d681a911ed496442854037ed8cd15218c0e1097eba6478197f1621812ac4a1cd",
+         "role": "Owner-confirmed wiki publication with rollback and private-service preservation"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-public-verification-confirmed.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "5915c9c8b606e1772b287dd77bc037e2f709ef3b8fda001c10b4913cf7f30b41",
+         "role": "Owner-confirmed public wiki hashes, security headers and private-route denials"
+       }
+@@ -5501,70 +5501,70 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/rollout.py",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "26bc50f568cab1a0e0932869855ce7d702c41063136f6d791dc68309b767e5f3",
+         "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/deployment.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "d422b8f77fe0e7c62e07a517d10fd940cf182615b26f4a41062eb354df99d09f",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/README.md",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "dd17c3702298d7c36236fb3bf6e7d12174f8c856fc255b1b0c689abb897420b7",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/authorization.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "7d0eecc9dd28fec8b57b3dccde77bab28b538f6933bbd64bf575e30969985853",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-publication.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "3fa26a5974381c1c80b7a9a943c47442a77d348793fdc1b2874b1ef07a71e611",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-public-verification.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "890cdba0fa62c15baa7e20865a83df03466dd4ebc7daacc5bc09dd74eb968f45",
+         "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open"
+       },
+       {
          "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
          "path": "docs/ops/hate-keeper-commonlands-20261022/owner-acceptance.json",
-         "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
--        "sha256": "f2d74f03429882560a1388d00c476e0f234d85cb978dcbfd94503618fe2042b7",
-+        "sha256": "0beb2c740570c9f3938426a4794760f6337d52af5159573f1961f2fbc2cfc887",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "0beb2c740570c9f3938426a4794760f6337d52af5159573f1961f2fbc2cfc887",
          "role": "Owner-confirmed relocation/visibility/travel acceptance; broader dungeon QA remains separate"
        },
        {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-before-confirmed.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "cbc0d4062279fb59e293d0c5159e35671ee7f04260145c87e83b912b1df5b21d",
+         "role": "Guarded successor publication preimage; current release pointer and manifest"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-publication-confirmed.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "d681a911ed496442854037ed8cd15218c0e1097eba6478197f1621812ac4a1cd",
+         "role": "Owner-confirmed wiki publication with rollback and private-service preservation"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-public-verification-confirmed.json",
+-        "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
++        "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "5915c9c8b606e1772b287dd77bc037e2f709ef3b8fda001c10b4913cf7f30b41",
+         "role": "Owner-confirmed public wiki hashes, security headers and private-route denials"
+       }
