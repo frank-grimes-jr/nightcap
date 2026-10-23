@@ -1,0 +1,7 @@
+{
+  "archive_sha256": "30c79743c83e710fa90c33fae084771b2e85e1af337e374421cd0c9bdc684c60",
+  "archive_bytes": 185274227,
+  "files": 21,
+  "source_base_matches_production": true,
+  "fresh_preimages_match_reviewed_inputs": true
+}

@@ -1,0 +1,15 @@
+ Container nightcap-production-gateway-1 Stopping 
+ Container nightcap-production-gateway-1 Stopped 
+ Container nightcap-production-game-1 Stopping 
+ Container nightcap-production-game-1 Stopped 
+ Container nightcap-production-gateway-1 Stopping 
+ Container nightcap-production-gateway-1 Stopped 
+ Container nightcap-production-game-1 Stopping 
+ Container nightcap-production-game-1 Stopped 
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/camil-chapterhouse-20261023/rollout.py", line 187, in <module>
+    {'preflight':preflight,'activate':activate,'open':open_access}[action]()
+  File "/opt/nightcap/releases/camil-chapterhouse-20261023/rollout.py", line 138, in activate
+    assert base.hashes(base.PUBLIC)==p['after'] and base.saved_state()==data
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
