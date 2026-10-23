@@ -1,6 +1,6 @@
 # Two-AA-per-level matrix
 
-Candidate: normal leveling is unchanged. At0% allocation, two AA are earned gradually per level. At100%, normal leveling is paused and20AA are earned per current-level-equivalent of eligible XP. Existing and starter AA are excluded from cumulative estimates.
+Deployed October23 for live testing: normal leveling is unchanged. At0% allocation, two AA are earned gradually per level. At100%, normal leveling is paused and20AA are earned per current-level-equivalent of eligible XP. Existing and starter AA are excluded from cumulative estimates.
 
 The XP-per-point columns use eligible modified normal XP, not internal AA-bar storage units. Values assume awards stay within that level; crossings use each actual span. Tiny individual awards can round down. Level50 remains capped and can continue earning AA.
 

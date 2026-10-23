@@ -1,6 +1,6 @@
 {
   "date": "2026-10-23",
-  "status": "candidate; no publication claimed",
+  "status": "published and verified: wiki20261023-aa-level-v1 and private guide20261023-aa-level-guide-v1; native owner QA open",
   "wiki_source_base": "d3b6def",
   "source_authority": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev",
   "baseline_reproduction": "all467 published files exactly matched",
@@ -39,7 +39,7 @@
       "guide": "commands",
       "title": "Command reference",
       "decision": "AA instructions/release labels updated",
-      "sha256": "0d24409204b88d6485442b8c6e00a247dd00be9dd6cf79685afa238dbe4a4190"
+      "sha256": "d3aa297d7319e9fb90643a94b6f963a7c3e6b6d5bb8709c6bbef95fd00d5205f"
     },
     {
       "guide": "dungeon-modes",
@@ -57,19 +57,19 @@
       "guide": "features",
       "title": "Features",
       "decision": "AA instructions/release labels updated",
-      "sha256": "dd5f7ddc92d69fd64ad81385d17ba72c15a59238865cf692896de76da62ea620"
+      "sha256": "79e28251c0e29fac2671fd4ace05d47fd3a7c169f3d4583a3b57edb89f0469d0"
     },
     {
       "guide": "getting-started",
       "title": "Getting started",
       "decision": "AA instructions/release labels updated",
-      "sha256": "c6f2ddc52d8c222c1a22f6a153b2d473fafe01bf89d57e222315bde89b87ab38"
+      "sha256": "d4f29b4f7a992f29dc8d2fa869c09e94424e797d882dbd30403c7fe7c413cdf4"
     },
     {
       "guide": "index",
       "title": "Welcome to the Nightcap Wiki",
       "decision": "AA instructions/release labels updated",
-      "sha256": "a2eb52584c82f4eab308ba63440f9b8b4ab0ccfe1ac36bb5573e0beed77bdd50"
+      "sha256": "cfa74a67fff14ce7404b87ab81f8cdbf504d70a70bb9497b47992784a5d21620"
     },
     {
       "guide": "item-upgrades",
@@ -93,7 +93,7 @@
       "guide": "multiclass",
       "title": "Multiclass & progression",
       "decision": "AA instructions/release labels updated",
-      "sha256": "d2c02a0a2e9c93421e24925e44de6a4f326f01154f6572cd4f30bec4964099a9"
+      "sha256": "0f574cb9d9a88a7d7f477d645214cb6d076f0f44711d8d7a1a8c28840654982b"
     },
     {
       "guide": "pets",
@@ -105,7 +105,7 @@
       "guide": "recent-changes",
       "title": "Recent changes",
       "decision": "AA instructions/release labels updated",
-      "sha256": "afa2183b927fe8f6ed232d69c31c6264dc1f860419bd1f6b35dadeccefc07462"
+      "sha256": "2f4c58b6f65790e82bd3a0deaf7602cd198dd10587f5f5ae198b1132fdb57248"
     },
     {
       "guide": "tradeskills",
@@ -162,5 +162,8 @@
   ],
   "browser_fix": "Shared Build Lab initializer now requires data-lab, preserving existing heading anchors",
   "native_owner_qa": "pending",
-  "public_release": "pending"
+  "public_release": "pending",
+  "source_revision": "00f90e99cf28ad8bb4df60da420c16e87a8a91b3 plus reviewed release closeout",
+  "whole_wiki_preservation": "All unrelated HTML content byte-identical after normalizing shared asset cache version;432routes/384variants retained",
+  "build_lab_pin_review": "Only new AA rule catalog entry; spell formulas unchanged"
 }

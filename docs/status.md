@@ -1,13 +1,16 @@
 # Current Nightcap status
 
-## 2026-10-23 — Two-AA progression and low-level controls candidate
+## 2026-10-23 — Two-AA progression and level-1 controls deployed
 
-The owner selected two passive AA per level and native +/- allocation controls
-from level1, including100% AA to hold a chosen level. Implementation and native
-checks pass; a fresh paired server build is running. Existing earned points,
-purchases and AA fraction remain. Production still uses the prior million-point
-policy until activation is verified; visible owner QA is pending.
-[Candidate evidence and exact QA](releases/aa-level-progression-20261023/README.md).
+Main PR305/00f90e9 and production image5e501da8 are verified. At0% AA,
+normal leveling is unchanged and earns two passive AA per level;100% holds
+normal XP and earns20AA per input level-equivalent. Partial allocations persist.
+Fresh paired binaries, backup,91saved-state tables,1077rules,12zones and
+39schema/499content checks passed; gateway reopened. Signed game2026102301
+verifies140hosted assets, preserving138. Close the game and use launcher Play.
+Wiki20261023-aa-level-v1/all467 and private-guide5files verify over HTTPS.
+Owner native control/persistence/reward/balance acceptance remains open.
+[Release evidence, matrix and exact QA](releases/aa-level-progression-20261023/README.md).
 
 ## 2026-10-22 — Wiki loot finder published
 

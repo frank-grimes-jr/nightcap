@@ -80,7 +80,7 @@ with (base/'website-history/.lock').open('a') as lock:
  sys.argv=['player-site-deploy.py','activate','20261023-aa-level-guide-v1']
  guide_live=captured(player.main)
  report={{'wiki':wiki,'guide_stage':guide_stage,'guide':guide_live,'config_unchanged':(base/'nginx.conf').read_bytes()==config}}
- (stage/'published.json').write_text(json.dumps(report,indent=2)+'\n')
+ (stage/'published.json').write_text(json.dumps(report,indent=2)+chr(10))
  print(json.dumps(report))
 
 """
