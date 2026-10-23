@@ -1,6 +1,6 @@
 # ADR 0068: production-backed wiki loot finder
 
-Date: 2026-10-22. Status: implemented candidate; installation pending.
+Date: 2026-10-22. Status: accepted and deployed with owner approval.
 
 Players need equipment shared with their held classes, current-era source mobs,
 locations and drop chances. The owner chose **any held class** as the default and
@@ -24,11 +24,15 @@ crafting and private dungeon/Hunt reward acquisition remain separate guides.
 This avoids exposing a database socket or user-supplied SQL and bounds database
 load independently of public traffic. Trade-offs: a roughly fifteen-minute delay,
 only the active era, and database-derived availability rather than proof of game
-cache state, encounter access or measured kills. The current projection is about
-327 MB on disk (6,293 items); eight retained captures need about 2.7 GB plus staging.
-The index is about 1.6 MB; individual details load on demand and nginx compresses
-JSON in transit. Measured local Linux peak RSS is about 619 MiB under the 1 GiB unit
-limit. Reassess size/time/memory before expanding capture scope.
+cache state, encounter access or measured kills. The 6,293-item projection has about
+327 MB of canonical JSON; gzip-only storage reduces payloads to 23.34 MB. The
+deployment preflight found only about 720 MB free, so uncompressed retention was
+rejected. Canonical JSON URLs/hashes are unchanged; nginx's static gzip and gunzip
+modules serve both identity and gzip clients. File allocation is budgeted before
+staging, with an additional 256 MiB disk reserve; insufficient space preserves the
+last good capture. Eight generations are retained. The decoded index is about
+1.6 MB and details load on demand. Local Linux peak RSS is about 640 MiB under the
+1 GiB unit limit. Reassess size/time/memory before expanding capture scope.
 
 Alternatives considered: a publish-only capture is simpler but fails the automatic
 refresh request; a public query API adds attack surface and traffic-driven DB load

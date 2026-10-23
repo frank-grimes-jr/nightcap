@@ -11,7 +11,7 @@ from pathlib import Path
 import subprocess
 import time
 import deploy
-from loot_refresh import locked
+from loot_refresh import locked, read_payload
 
 SOURCE=Path(__file__).resolve().parent
 INSTALL=Path('/opt/nightcap/wiki-loot')
@@ -79,7 +79,7 @@ def verify_data(index, enabled=True):
     data=json.loads(index)
     name=f"{data['base_url']}item-{data['items'][0]['id']}.json"
     path=deploy.BASE/'data/public/wiki-data'/data['snapshot']/f"item-{data['items'][0]['id']}.json"
-    if deploy.probe(deploy.HOST,name)[:2]!=(200,deploy.sha(path.read_bytes())):
+    if deploy.probe(deploy.HOST,name)[:2]!=(200,deploy.sha(read_payload(path))):
         raise RuntimeError('Item details do not match the index snapshot')
     for bad in ['/loot-data/current/item-1.json','/loot-data/current/.manifest.json',
                 '/loot-data/current/content.json.gz','/loot-data/../nginx.conf']:
@@ -134,7 +134,7 @@ def install(args):
         started=datetime.now(timezone.utc)
         systemctl('start',NAMES[0]) # verifies the actual unit sandbox and captures once
         index_path=deploy.BASE/'data/public/wiki-data/current/index.json'
-        index=index_path.read_bytes()
+        index=read_payload(index_path)
         if datetime.fromisoformat(json.loads(index)['captured_at'])<started:
             raise RuntimeError('Service did not produce a fresh capture')
         guard_config(before);config.write_bytes(after);activated=True;deploy.reload_web()

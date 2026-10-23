@@ -1,0 +1,40 @@
+{
+  "observed_at": "2026-10-23T01:41:23.556576+00:00",
+  "service": {
+    "Result": "success",
+    "ExecMainStartTimestamp": "Fri 2026-10-23 01:40:27 UTC",
+    "ExecMainExitTimestamp": "Fri 2026-10-23 01:41:15 UTC",
+    "ExecMainStatus": "0",
+    "ActiveState": "inactive"
+  },
+  "timer": {
+    "TimersMonotonic": "{ OnBootUSec=2min ; next_elapse=2min }",
+    "NextElapseUSecMonotonic": "1month 1d 22h 11min 36.587471s",
+    "LastTriggerUSec": "Fri 2026-10-23 01:40:27 UTC",
+    "ActiveState": "active",
+    "UnitFileState": "enabled"
+  },
+  "snapshot": "56ccc0c7378abfae",
+  "captured_at": "2026-10-23T01:40:27.396985+00:00",
+  "items": 6293,
+  "index_sha256": "53ccb8e6abf0a33a1664af958445e0e808f71fd2daec91e17146daf81f90468f",
+  "installed_sha256": {
+    "loot_capture.py": "903d2f3716e0b0d6dd35dd314d71163d0df5e16a6d9e3d0ed3d982db5550d0d0",
+    "loot_model.py": "0a0c35e431c7cf02ad3a2e2296549e5b2a661137c16671986b00e10b157bf4aa",
+    "loot_refresh.py": "c8188ed7ccb6ce8506b42d2a30287b38a0397037599fcfcfec9659252a7c0bd5",
+    "nightcap-wiki-loot.service": "b4b17b6fd51865d1788b5f111863cba4848ab3ac0683a4c399fd2423daea8f1c",
+    "nightcap-wiki-loot.timer": "245fbf2fa94acae7d67ffe2617c047c49d70be32ee94aea765c28506851a72c9"
+  },
+  "retained_snapshots": [
+    "56ccc0c7378abfae",
+    "7e63a1baccbd3f1e",
+    "c7da22524ad022f9"
+  ],
+  "free_bytes": 567111680,
+  "release": "20261022-loot-finder-v2",
+  "recent_service_log": "2026-10-23T01:23:06+00:00 vps-dcdc49fe systemd[1]: Starting nightcap-wiki-loot.service - Refresh public Nightcap wiki item and loot data...\n2026-10-23T01:23:54+00:00 vps-dcdc49fe python3[2544904]: {\"snapshot\": \"7e63a1baccbd3f1e\", \"items\": 6293, \"public_files\": 6294, \"bytes\": 327229363, \"compressed_bytes\": 23343964, \"captured_at\": \"2026-10-23T01:23:06.604194+00:00\"}\n2026-10-23T01:23:55+00:00 vps-dcdc49fe systemd[1]: nightcap-wiki-loot.service: Deactivated successfully.\n2026-10-23T01:23:55+00:00 vps-dcdc49fe systemd[1]: Finished nightcap-wiki-loot.service - Refresh public Nightcap wiki item and loot data.\n2026-10-23T01:23:55+00:00 vps-dcdc49fe systemd[1]: nightcap-wiki-loot.service: Consumed 38.739s CPU time.\n2026-10-23T01:23:58+00:00 vps-dcdc49fe systemd[1]: Starting nightcap-wiki-loot.service - Refresh public Nightcap wiki item and loot data...\n2026-10-23T01:24:46+00:00 vps-dcdc49fe python3[2545508]: {\"snapshot\": \"c7da22524ad022f9\", \"items\": 6293, \"public_files\": 6294, \"bytes\": 327229363, \"compressed_bytes\": 23343964, \"captured_at\": \"2026-10-23T01:23:58.399340+00:00\"}\n2026-10-23T01:24:46+00:00 vps-dcdc49fe systemd[1]: nightcap-wiki-loot.service: Deactivated successfully.\n2026-10-23T01:24:46+00:00 vps-dcdc49fe systemd[1]: Finished nightcap-wiki-loot.service - Refresh public Nightcap wiki item and loot data.\n2026-10-23T01:24:46+00:00 vps-dcdc49fe systemd[1]: nightcap-wiki-loot.service: Consumed 38.718s CPU time.\n2026-10-23T01:40:27+00:00 vps-dcdc49fe systemd[1]: Starting nightcap-wiki-loot.service - Refresh public Nightcap wiki item and loot data...\n2026-10-23T01:41:15+00:00 vps-dcdc49fe python3[2549243]: {\"snapshot\": \"56ccc0c7378abfae\", \"items\": 6293, \"public_files\": 6294, \"bytes\": 327229363, \"compressed_bytes\": 23343964, \"captured_at\": \"2026-10-23T01:40:27.396985+00:00\"}\n2026-10-23T01:41:15+00:00 vps-dcdc49fe systemd[1]: nightcap-wiki-loot.service: Deactivated successfully.\n2026-10-23T01:41:15+00:00 vps-dcdc49fe systemd[1]: Finished nightcap-wiki-loot.service - Refresh public Nightcap wiki item and loot data.\n2026-10-23T01:41:15+00:00 vps-dcdc49fe systemd[1]: nightcap-wiki-loot.service: Consumed 39.244s CPU time, 303.0M memory peak, 0B memory swap peak.\n",
+  "result": "PASS",
+  "public_index_matches_origin": true,
+  "previous_immutable_item_readable": true,
+  "installed_sources_match": true
+}

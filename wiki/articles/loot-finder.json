@@ -3,9 +3,27 @@
   "title": "Loot finder",
   "summary": "Find equipment for your held classes in the active era, then follow each item to its mobs, zones and drop chances.",
   "category": "Equipment",
-  "status": "Not released",
+  "status": "Reference",
   "updated": "2026-10-22",
   "body": "<h2 id=\"how-to-use\">Plan your next upgrade</h2><p>Select up to three held classes. <strong>Any held class</strong> matches Nightcap equipment access; <strong>All selected classes</strong> requires every selected class on the item. Filter by name, slot, quality, required level or drop zone. Click an item to see its stats and source mobs, with spawn coordinates in game <code>/loc y, x, z</code> order.</p><h2 id=\"drop-chances\">What the drop chance means</h2><p>Each percentage is the calculated chance of at least one copy from that NPC’s newly generated database loot. It includes weighted pools, minimum drops, repeated rolls, the zone loot multiplier, global loot and the selected quality’s upgrade chance. A range reflects different NPC levels. The chance of the mob itself spawning is separate; a spawn weight is not a percentage. Time windows, spawn conditions and roaming paths are shown beside the locations.</p><p>The finder uses a read-only production capture refreshed every fifteen minutes. The capture time is shown above. If refresh fails, the last successful capture remains available and is marked delayed after 45 minutes. Saved NPC loot can predate the capture; runtime script changes and unreloaded game caches can differ from the database. These are calculated rates, not measured kill statistics.</p><h2 id=\"coverage\">Coverage and other rewards</h2><p>Results cover equippable items and bags with database loot on public version-0 spawn paths in the active production era, including ordinary Polished, Exalted and Ascended upgrades. Era eligibility comes from the complete spawn-to-loot path, not the item’s required level. Slot, required level, deity and special item rules still apply. Race restrictions are relaxed for playable races on Nightcap.</p><p>Quest hand-ins, scripted spawns, shops, crafting, <a href=\"zone-hunt.html\">Hunt rewards</a> and <a href=\"dungeon-modes.html\">private dungeon completion and exclusive rewards</a> use separate acquisition paths. They are not inferred from ordinary loot tables. Browse the <a href=\"items.html\">Hunt equipment catalog</a> or the <a href=\"equipment.html\">equipment guide</a> for those systems.</p>",
-  "sources": ["wiki/loot_capture.py", "wiki/loot_model.py", "wiki/loot_refresh.py", "server-mods/code/zone/loot.cpp", "docs/releases/wiki-loot-finder-20261022/README.md"],
-  "keywords": ["production items", "class filter", "loot", "drop rate", "mob", "spawn", "equipment", "era", "Polished", "Exalted", "Ascended"]
+  "sources": [
+    "wiki/loot_capture.py",
+    "wiki/loot_model.py",
+    "wiki/loot_refresh.py",
+    "server-mods/code/zone/loot.cpp",
+    "docs/releases/wiki-loot-finder-20261022/README.md"
+  ],
+  "keywords": [
+    "production items",
+    "class filter",
+    "loot",
+    "drop rate",
+    "mob",
+    "spawn",
+    "equipment",
+    "era",
+    "Polished",
+    "Exalted",
+    "Ascended"
+  ]
 }

@@ -23,6 +23,13 @@ def encoded(value):
     return (json.dumps(value,ensure_ascii=False,separators=(',',':'),allow_nan=False)+'\n').encode()
 
 
+def read_payload(path):
+    """Read the canonical JSON bytes from the compressed-only on-disk surface."""
+    path=Path(path)
+    try:return gzip.decompress(path.with_name(path.name+'.gz').read_bytes())
+    except (OSError,EOFError) as error:raise ValueError('Unreadable compressed snapshot') from error
+
+
 def publish(root, index, details, *, retain=8):
     root=Path(root)
     if root.is_symlink(): raise ValueError('Data root must not be a symlink')
@@ -37,6 +44,9 @@ def publish(root, index, details, *, retain=8):
     for name,body in sorted(payloads.items()): digest.update(name.encode()+b'\0'+body)
     revision=digest.hexdigest()[:16]
     payloads['index.json']=encoded(index|{'snapshot':revision,'base_url':f'/loot-data/{revision}/'})
+    manifest={name:hashlib.sha256(body).hexdigest() for name,body in payloads.items()}
+    raw_bytes=sum(map(len,payloads.values()))
+    payloads={name:gzip.compress(body,compresslevel=6,mtime=0) for name,body in payloads.items()}
     target=root/revision
     current=root/'current'
     if current.exists() or current.is_symlink():
@@ -44,14 +54,18 @@ def publish(root, index, details, *, retain=8):
             raise ValueError('Unsafe current pointer')
         if current.resolve().parent!=root: raise ValueError('Pointer escaped data root')
     if not target.exists():
+        # Count filesystem blocks as well as payload bytes and leave headroom for
+        # game/database activity. Never prune the last good data to make space.
+        needed=sum((len(body)+4095)//4096*4096 for body in payloads.values())+len(encoded(manifest))+65536
+        if shutil.disk_usage(root).free < needed+256*1024*1024:
+            raise OSError('Insufficient disk headroom for a complete loot snapshot')
         stage=Path(tempfile.mkdtemp(prefix='.stage-',dir=root))
         try:
             for name,body in payloads.items():
-                with (stage/name).open('xb') as handle:
+                with (stage/(name+'.gz')).open('xb') as handle:
                     handle.write(body)
                     handle.flush()
                     os.fsync(handle.fileno())
-            manifest={name:hashlib.sha256(body).hexdigest() for name,body in payloads.items()}
             (stage/'.manifest.json').write_bytes(encoded(manifest))
             # mkdtemp is 0700 regardless of service umask. Public nginx workers
             # need traversal after this directory becomes the served snapshot.
@@ -64,7 +78,7 @@ def publish(root, index, details, *, retain=8):
     else:
         if target.is_symlink() or target.resolve().parent!=root: raise ValueError('Unsafe snapshot target')
         for name,body in payloads.items():
-            if (target/name).read_bytes()!=body: raise ValueError('Immutable snapshot differs')
+            if read_payload(target/name)!=gzip.decompress(body): raise ValueError('Immutable snapshot differs')
     temporary=root/'.current-next'
     if temporary.exists() or temporary.is_symlink():
         # The process lock is held by the caller. A killed process can leave this
@@ -84,7 +98,8 @@ def publish(root, index, details, *, retain=8):
         if old.resolve().parent!=root: raise ValueError('Unsafe retention target')
         shutil.rmtree(old)
     return {'snapshot':revision,'items':len(details),'public_files':len(payloads),
-            'bytes':sum(map(len,payloads.values())),'captured_at':index['captured_at']}
+            'bytes':raw_bytes,'compressed_bytes':sum(map(len,payloads.values())),
+            'captured_at':index['captured_at']}
 
 
 @contextmanager

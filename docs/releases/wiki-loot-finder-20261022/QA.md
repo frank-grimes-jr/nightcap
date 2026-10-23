@@ -1,7 +1,13 @@
 # Loot finder acceptance
 
-Local browser/test checks are complete; these production checks remain pending
-installation approval. No gameplay or balance acceptance is inferred.
+Local browser/test checks and approved production publication are complete.
+Deployment receipts record the actual service/timer, public-file/JSON checks,
+rollback rehearsals and live browser results. These steps remain a repeatable
+owner QA guide; agent checks do not imply owner or gameplay/balance acceptance.
+
+Scheduled refresh evidence: `deployment/timer-verification.json`, trigger
+2026-10-23 01:40:27UTC, success01:41:15, new public snapshot and old immutable item
+both verified. Live browser evidence: `deployment/live-browser.json`.
 
 1. Open the published Loot finder. Confirm Classic, capture time and any-held-class
    default. Select Warrior, Cleric and Enchanter. A fourth selection is rejected.

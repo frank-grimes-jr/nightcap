@@ -101,7 +101,7 @@ optimizer cancellation and320/768/1024/1440 layouts.
 
 ## Verification contract
 
-### Production loot finder candidate
+### Production loot finder
 
 `loot-finder.html` adds any-held-class search (up to three), optional all-class
 matching, the active production era, slot/quality/level/zone/name filters and
@@ -109,9 +109,10 @@ per-item mob/location/drop-rate details. `loot_capture.py` uses a fixed content
 allowlist in a read-only MariaDB transaction. `loot_model.py` projects public
 fields and calculates native database-loot probabilities; `loot_refresh.py`
 publishes immutable snapshots. `loot_install.py` guards the initial JSON route
-and systemd installation. It requires owner approval; no installation is claimed.
+and systemd installation. The owner-approved reader, timer and JSON route were
+installed October 22, 2026; publication/refresh evidence is in the release folder.
 
-The candidate has460HTML pages/467public static files. Dynamic JSON is separate;
+The release has460HTML pages/467public static files. Dynamic JSON is separate;
 the existing Hunt catalog remains384variants/96families. Player rows, credentials,
 raw captures, scripts and manifests are excluded from both public surfaces.
 Private dungeon, quest, scripted and Hunt acquisition remain separate guides.
@@ -123,6 +124,12 @@ recovery tests and200,000-roll native comparisons in existing local Docker image
 with network disabled and the checkout mounted read-only. It uses a private
 fixture at `artifacts/wiki-loot/content.json.gz`; never commit or upload it.
 The script writes its receipt under that ignored directory.
+
+`python -B wiki/verify_loot_nginx.py` checks the compressed-only storage contract
+in offline local containers using synthetic data. Public `.json` URLs are served
+by static gzip/gunzip; manifests hash decoded bytes and direct `.gz` URLs are
+denied. The publisher keeps eight generations and reserves 256 MiB free disk after
+staging allocation. Compression changed storage only, not filtering or rate math.
 
 Local preview: `python -B wiki/loot_refresh.py --capture
 artifacts/wiki-loot/content.json.gz --output artifacts/wiki-loot/preview`, then

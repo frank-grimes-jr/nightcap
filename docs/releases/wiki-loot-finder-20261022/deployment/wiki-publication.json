@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "release": "20261022-loot-finder-v1",
+  "previous_release": "20261022-hate-keeper-confirmed-v1",
+  "files": 467,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "package_sha256": "c880245817ddee2dee4f26817ccc82c1459343f34ed1e5591779f50888adcb34"
+}

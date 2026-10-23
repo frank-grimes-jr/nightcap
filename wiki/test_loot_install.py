@@ -1,4 +1,5 @@
 import json
+import gzip
 from datetime import datetime, timezone
 import os
 from pathlib import Path
@@ -25,7 +26,7 @@ class InstallTests(unittest.TestCase):
         def service(*args):
             if args==('start',operator.NAMES[0]):
                 path=self.base/'data/public/wiki-data/current';path.mkdir(parents=True)
-                (path/'index.json').write_text(json.dumps({'snapshot':'a'*16,'captured_at':datetime.now(timezone.utc).isoformat()}))
+                (path/'index.json.gz').write_bytes(gzip.compress(json.dumps({'snapshot':'a'*16,'captured_at':datetime.now(timezone.utc).isoformat()}).encode()))
         patches=[patch.object(operator.deploy,'BASE',self.base),patch.object(operator,'INSTALL',self.root/'reader'),
             patch.object(operator,'UNITS',self.units),patch.object(operator,'systemctl',side_effect=service),
             patch.object(operator.deploy,'services',return_value=[('service',str(i),'start') for i in range(5)]),

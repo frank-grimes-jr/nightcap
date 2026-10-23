@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    "identity/gzip decoded hashes match",
+    "immutable item path",
+    "JSON type and nosniff",
+    "raw gz/manifest/current item/invalid id denied",
+    "POST denied"
+  ]
+}

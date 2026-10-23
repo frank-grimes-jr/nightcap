@@ -1,26 +1,26 @@
 {
-  "status": "REVIEWED CANDIDATE",
-  "source_ref": "b077d4995e932ac35383189b66859c65b36554d5",
+  "status": "REVIEWED AND PUBLISHED",
+  "source_ref": "37ef4a9aabfcf16a96089010c6a5456f10f3ff78",
   "include_worktree": true,
   "maintained_articles": 23,
   "article_sha256": {
-    "about.json": "1702acc10f5d9362a5ecad9e831742a0ef8d18e5b5a7757fca1e7495489fc474",
+    "about.json": "b00485ea24b88c4de49b1a0e008d6b3a193af1bbf009d61bc455449c97bf8c41",
     "advanced-loot.json": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
     "ascension.json": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
     "build-lab.json": "3e8a167eb258a3c385797e2cdd2f55a117fc76b7ffc712f823455808f400c157",
     "combat.json": "bb5d4a86d609eb3f2296c22281dd21e3be116307663b56f98df6a17ba824fc38",
     "commands.json": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
     "dungeon-modes.json": "3d027dc5253c082a983ad1e3a05a6b62e452c22b3e4756d33a492ded1d357d42",
-    "equipment.json": "c529f833a9daf58f7ef0db766415b5c9e8124b25aff27a9fb2aed1cf1088ae83",
-    "features.json": "53f036ea475d581ce4886b5a209216fb3d7e3ea56abfe9f12de30b9b50c0df2d",
+    "equipment.json": "046d6ad4a04daa07027680f541a20413b410c10ebad3f290d48ac816f0a3ecd2",
+    "features.json": "a894c1acec33eb4d6b06995dcef87aa90082cc38132b8ebdeeb6128edaf91d5a",
     "getting-started.json": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
-    "index.json": "fff0a5f682b6c957b16cc1cf3e6e530cdf5e0f91ae6b8a9999eccd1474cc8e0f",
+    "index.json": "94cf131d1ba300aae2bf980c6b489a595271d951abe8b31d5e844d58a6c5e716",
     "item-upgrades.json": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d",
     "launcher.json": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0",
-    "loot-finder.json": "0eb6954ac53a78e21b7b21bcc694caf15ede1b379b80008f7d61e5edff0e3287",
-    "multiclass.json": "b4236456ac2589e9a0598aa428b9027823e7dc099a9be5270f10043f745efb31",
+    "loot-finder.json": "d1cb6fde6415c7479028e6064b941793ba9d2509ee907dc25f8be13383c7244c",
+    "multiclass.json": "ed0933027591d6934da8f25eee2ac65c2fac430e7d8e98487d132b69fb40b9b5",
     "pets.json": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
-    "recent-changes.json": "17cdd826235508e230f64f901109352316dc55fb9e0750afd9e8d683161452e8",
+    "recent-changes.json": "31aa36c04a4cd3cf7906cfc620d76113680b35e95945d1a1a72bd258f4ddeeb3",
     "tradeskills.json": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
     "travel.json": "032031d030b357f00602d14dd2d86b49e79c85b460a81bd10271cf2fa0aeb98a",
     "tunnel.json": "a7f5bf5eed73539c82ab22fc299f5e6b3f0ed5c30f47203e12ec6f6c2c59c4c6",
@@ -51,7 +51,7 @@
       "dungeon reward paths and QA labels"
     ],
     "new_mechanics": "Wiki query/refresh only; no gameplay balance or eligibility changes",
-    "source_drift": "New loot reader/UI/operator/tests and their docs reviewed together; source implementation pins and dated native tests retained",
-    "publication": "Pending; current live release remains separately recorded in the runbook"
+    "source_drift": "Compression/storage/operator changes reviewed against canonical JSON contract, low-space recovery and actual nginx identity/gzip tests. All23articles reviewed; seven release notices updated, UTF-8 preserved. All384Hunt values, commands, historical release/QA labels, Build Lab and handbook unchanged.",
+    "publication": "20261022-loot-finder-v2; 467 public HTTPS file hashes and security headers verified. Actual route/config and HTML pointer rollback rehearsed; timer recurrence verified."
   }
 }

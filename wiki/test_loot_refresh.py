@@ -1,4 +1,5 @@
 import json
+import gzip
 import os
 from pathlib import Path
 import tempfile
@@ -37,9 +38,10 @@ class PublishTests(unittest.TestCase):
         first=loot_refresh.publish(self.root,*fixture())
         second=loot_refresh.publish(self.root,*fixture('2026-10-23T00:15:00+00:00'))
         self.assertNotEqual(first['snapshot'],second['snapshot'])
-        index=json.loads((self.root/'current/index.json').read_text())
+        index=json.loads(loot_refresh.read_payload(self.root/'current/index.json'))
         self.assertIn(second['snapshot'],index['base_url'])
-        self.assertTrue((self.root/first['snapshot']/'item-1.json').is_file())
+        self.assertTrue((self.root/first['snapshot']/'item-1.json.gz').is_file())
+        self.assertFalse((self.root/first['snapshot']/'item-1.json').exists())
         self.assertEqual((self.root/'current').readlink(),Path(second['snapshot']))
         self.assertEqual((self.root/second['snapshot']).stat().st_mode & 0o777,0o755)
 
@@ -72,7 +74,7 @@ class PublishTests(unittest.TestCase):
 
     def test_changed_immutable_payload_fails(self):
         first=loot_refresh.publish(self.root,*fixture())
-        (self.root/first['snapshot']/'item-1.json').write_text('changed')
+        (self.root/first['snapshot']/'item-1.json.gz').write_bytes(gzip.compress(b'changed'))
         with self.assertRaises(ValueError):loot_refresh.publish(self.root,*fixture())
 
     def test_retention_preserves_unrelated_paths(self):
@@ -80,6 +82,14 @@ class PublishTests(unittest.TestCase):
         for minute in range(4):loot_refresh.publish(self.root,*fixture(f'2026-10-23T00:0{minute}:00+00:00'),retain=2)
         self.assertTrue((protected/'keep').is_file())
         self.assertEqual(len([p for p in self.root.iterdir() if len(p.name)==16]),2)
+
+    def test_low_disk_space_preserves_previous_snapshot(self):
+        first=loot_refresh.publish(self.root,*fixture())
+        with patch.object(loot_refresh.shutil,'disk_usage',return_value=type('Space',(),{'free':1})()):
+            with self.assertRaisesRegex(OSError,'disk headroom'):
+                loot_refresh.publish(self.root,*fixture('2026-10-23T00:15:00+00:00'))
+        self.assertEqual((self.root/'current').readlink(),Path(first['snapshot']))
+        self.assertTrue(loot_refresh.read_payload(self.root/'current/index.json'))
 
 
 if __name__=='__main__': unittest.main()

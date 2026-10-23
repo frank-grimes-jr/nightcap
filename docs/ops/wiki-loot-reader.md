@@ -1,8 +1,8 @@
 # Wiki production loot reader
 
-Candidate October 22, 2026. **Not installed or published.** Owner choices: any
-held class by default; automatic refresh. The active wiki is separately recorded
-in `nightcap-wiki.md`. This runbook grants no standing deployment permission.
+Installed and published October 22, 2026 (EDT), following explicit owner approval.
+Owner choices: any held class by default; automatic refresh. The active wiki is
+recorded in `nightcap-wiki.md`. This runbook grants no standing deployment permission.
 
 ## Scope and operation
 
@@ -35,15 +35,38 @@ Public contract (GET/HEAD only, schema 1):
   spawn locations/conditions. Coordinates display as `/loc y, x, z`.
 - All other data paths, raw captures and manifests: denied by the wiki catch-all.
 
-The current 6,293-item snapshot uses about327MB disk; keep at least4GB free for
-eight snapshots plus staging. Local offline peak RSS633572KiB. Future growth must
-recheck time, disk and memory. Compression is enabled only for the JSON route.
+The current 6,293-item projection contains about 327 MB canonical JSON, stored as
+23.34 MB of gzip payloads (filesystem allocation is larger because of small files).
+Only `.json.gz` payloads are stored, while URLs and manifest hashes describe decoded
+JSON. The JSON location uses `gzip_static always`, `gunzip on` and `gzip_vary on`;
+both encoded and identity clients receive the same JSON. Direct `.gz` URLs remain
+denied. Installed nginx 1.28.2 supports both required modules.
 
-## Prepare and install after approval
+Before staging, the publisher budgets 4 KiB file allocation, the manifest and
+64 KiB directory overhead, plus a 256 MiB free-disk reserve. It refuses a capture
+without changing the current pointer when space is insufficient. Never prune the
+last good snapshot to make space. Eight generations plus staging fit the observed
+host; initial deployment had about 720 MB free and two captures plus HTML left
+621,596,672 bytes free. These are dated measurements, not capacity guarantees.
+Offline peak RSS655132KiB remains below the 1 GiB service limit. Recheck disk,
+time and memory before expanding scope; investigate delayed captures.
+
+Installed files: `/opt/nightcap/wiki-loot/{loot_capture,loot_model,loot_refresh}.py`
+and `/etc/systemd/system/nightcap-wiki-loot.{service,timer}`. Initial installation
+receipt: `website-history/20261022-wiki-loot-reader-v1/`. The post-install nginx
+SHA-256 is `46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6`.
+Retained private staging is `/opt/nightcap/wiki-loot-staging/20261022-v1/`.
+Local release receipts: `docs/releases/wiki-loot-finder-20261022/deployment/`.
+Regular timer recurrence was observed at01:40:27UTC on October23 (October22EDT),
+successful completion01:41:15. Public snapshot `56ccc0c7378abfae` matched origin;
+the previous immutable item remained readable. Free disk was567,111,680bytes.
+This is deployment verification, not a standing guarantee of future freshness.
+
+## Initial installation procedure (completed; future changes need their own authorization)
 
 1. Re-read current origin release/config, service identities and private download
    hashes. Reconcile intervening wiki publications; do not overwrite them with this
-   candidate. Verify `check_refresh.py --repo CURRENT_CHECKOUT --ref HEAD
+   checkout. Verify `check_refresh.py --repo CURRENT_CHECKOUT --ref HEAD
    --include-worktree` and its reviewed changes. Public content labels must be
    updated to released only with actual successful installation/publication.
 2. Run Windows and offline Linux checks in `wiki/README.md`. Package the complete

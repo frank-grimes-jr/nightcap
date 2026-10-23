@@ -1,15 +1,20 @@
 # CHANGES
 
-## 2026-10-22 — Production-backed wiki loot finder candidate
+## 2026-10-22 — Production-backed wiki loot finder
 
 Added current-era equipment search for up to three held classes, defaulting to
 any held class with optional all-class matching. Item links show stats, source
 mobs/zones, spawn locations/conditions and calculated per-kill drop chances. A
 fixed read-only production content capture and guarded fifteen-minute publisher
-are prepared; immutable public snapshots keep index/details paired and preserve
+are installed; immutable public snapshots keep index/details paired and preserve
 the last good capture after failures. No game/database/client mutation. Native
 loot-roll comparisons, Linux recovery checks and browser filters verified.
-Reader/timer/nginx installation and public publication remain pending approval.
+Owner-approved reader/timer/JSON route and wiki `20261022-loot-finder-v2` are live.
+Gzip-only snapshots reduce 327 MB canonical JSON to 23.34 MB payloads; the publisher
+checks staging allocation plus a 256 MiB disk reserve before switching. Both
+identity/gzip clients retain canonical JSON URLs and hashes. All467public files,
+route/private-service preservation and actual rollback are verified. A Windows
+UTF-8 prose correction is included in v2; no gameplay or acceptance labels changed.
 Evidence, limitations and recovery: `docs/releases/wiki-loot-finder-20261022/`.
 
 ## 2026-10-22 — Experimental Build Lab

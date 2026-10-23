@@ -28,7 +28,7 @@ with tempfile.TemporaryDirectory(prefix='wiki-loot-check-') as temporary:
  index,details=loot_model.project(raw)
  public=root/'public';result=loot_refresh.publish(public,index,details)
  root.chmod(0o755)
- check=subprocess.run(['runuser','-u','nobody','--','head','-c','1',str(public/'current/index.json')],capture_output=True)
+ check=subprocess.run(['runuser','-u','nobody','--','head','-c','1',str(public/'current/index.json.gz')],capture_output=True)
  report['projection']=result|{'unprivileged_readable':check.returncode==0}
  report['peak_rss_kib']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
  if check.returncode:print(json.dumps(report));sys.exit(1)
