@@ -1,11 +1,14 @@
 # Nightcap documentation
 
+- [Quest ingredient qualities: deployed for live QA, October22](releases/quest-tier-handins-20261022/deployment/README.md)
+
 Current AA release: [all-class changes and exact live QA](releases/thj-all-class-aa-20261019/README.md).
 The [level-one access correction](releases/aa-tbs-level1-20261013/README.md) remains in effect.
 
 Start with [current status](status.md), not a dated candidate report.
 
-- [Substantial class-armor Ascended candidate and exact QA](releases/quest-armor-20261022/README.md)
+- [All 21 Classic dungeons and MAGIC rewards: live deployment, recovery and exact QA](dungeons/classic-rewards-20261022/deployment/README.md)
+- [Deployed Ascended class-armor rewards and exact QA](releases/quest-armor-20261022/README.md)
 
 - [Classic race robe release, asset recovery and native QA](releases/classic-robes-20261022/README.md)
 

@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-22",
+  "owner_authorization": "Prior Approved. move into main. continues for this corrective live-QA delivery; optional different-model review declined.",
+  "source_pr": "https://github.com/frank-grimes-jr/nightcap/pull/291",
+  "main_merge": "42603ee6b9ef8928698d2c6aac0cc7605196229b",
+  "client_release": 2026102204,
+  "client_verification": {
+    "changed_assets": 2,
+    "channel_sha256": "562cac1419a64f916370b34a707ec5d6a39493ca5f5a4ed0f64e1853e5654ebf",
+    "existing_assets_preserved": 138,
+    "history_preserved": true,
+    "hosted": true,
+    "managed_files": 140,
+    "release": 2026102204,
+    "signature": "valid against shipped production key",
+    "verified_bytes": 279407878
+  },
+  "wiki_release": "20261022-classic-robes-native-waist-v1",
+  "owner_report": "2203 not fixed; gap both standing and moving; installed archive hashes match2203",
+  "native_acceptance": "reported missing-waist defect accepted by owner on2026-10-22; broader regression matrix remains separately tracked",
+  "proof": "Pinned native loader disassembly and actual x86 d3dx9_30 setter/getter execution; 432 lost old influences versus zero corrected across16 registrations. Identity remapping fixture, not complete native rendered acceptance.",
+  "preservation": "All triangle-corner position/bone/UV/normal/material attributes exactly preserved after permutation; all other fragments/textures unchanged.",
+  "independent_review": "No blocker after native contract and exact triangle-attribute comparison.",
+  "tests": {
+    "robe_suite_before_native_regression": 13,
+    "added_actual_library_regression": 1,
+    "actual_library_old_new_cases": 32,
+    "native_regression_corrected_models": 16,
+    "negative_control": 1,
+    "Linux_client_publisher": 10,
+    "local_wiki_pass": 21,
+    "local_wiki_POSIX_skips": 9,
+    "search_scenarios": 6,
+    "equipment_checks": 7,
+    "Linux_wiki_recovery": 16,
+    "final_reconciled_wiki_checks": 9
+  },
+  "retained_runtime_pair": "proxy/catalog0.11.1 plus waypoint assets;138 unchanged exact descriptors/URLs; patch history/tombstones retained",
+  "reference_and_player_folders": "read only; normal launcher Play installs signed public update",
+  "runtime": "This client/wiki release did not restart services, reload quests or write SQL. Concurrent quest-tier deployment is separate and preserved.",
+  "owner_confirmation": "../owner-acceptance/owner-confirmation.json"
+}

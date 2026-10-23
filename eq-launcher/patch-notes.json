@@ -1,5 +1,25 @@
 [
   {
+    "release": 2026102204,
+    "date": "2026-10-22",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Live testing: Robe waist binding repair for seven added Classic races. Close EverQuest completely and use launcher Play, then recheck standing, movement and casting."
+      }
+    ]
+  },
+  {
+    "release": 2026102203,
+    "date": "2026-10-22",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixed the missing waist between Classic robe torsos and skirts across all seven added races. Close EverQuest completely and update through the launcher; please recheck appearance and movement."
+      }
+    ]
+  },
+  {
     "release": 2026102202,
     "date": "2026-10-22",
     "changes": [
@@ -119,7 +139,7 @@
     "changes": [
       {
         "kind": "feature",
-        "text": "Raid \u0026 Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
+        "text": "Raid & Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
       },
       {
         "kind": "feature",
@@ -159,7 +179,7 @@
       },
       {
         "kind": "feature",
-        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid \u0026 Grind guide on wiki.nightcapgame.org lists every required boss."
+        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid & Grind guide on wiki.nightcapgame.org lists every required boss."
       }
     ]
   },

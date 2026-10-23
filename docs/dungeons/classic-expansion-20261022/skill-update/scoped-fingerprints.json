@@ -1,0 +1,339 @@
+{
+  "audited_at": "2026-10-22",
+  "scope": "Reviewed candidate files; not deployment or owner QA",
+  "topics": {
+    "world": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/code/zone/dungeon_service.cpp",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/code/zone/dungeon_service.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/code/zone/lua_general.cpp",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/code/common/dungeon_catalog.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/code/common/dungeon_contract.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "77b8e0a1d59e860c72618fd3592e0565a01fbb23cc8ec25a5adb63718ffc2796",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/code/common/dungeon_policy.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "dc851a89f29eb9b57485b07c8aadabdc5117185fa11832a3a3bda442ed7c8c5d",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/lua_modules/nightcap_dungeons.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "7bded6e8ad4dae6ecac00aadb17ab9f01bc1957f566981f6f1d168937c435636",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/sql/20261022_classic_dungeons.sql",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "276d23c69e1992980d3c272f4b2cd6b3c43bea6b7fe4febdcd35d37c70ff4d33",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/classic_dungeon_catalog.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "435f59487a23906087e20781af2e6da375bffe18f36756495d5a841841af8a40",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/classic_dungeon_migration.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "a7d2ab61d28ea922e57640893f237efce08bbe722458bbccb4df72b4cfe138ff",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/dungeon_refresh_contract.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "aaf7153bd4bb7f12a91c6aa33301553d9fbbab29c62991550c33a375c905375a",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/prepare_classic_dungeons.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "d86b8124405150301b19781527ba25b732839e9af64adaa80552a492cf159a9c",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_classic_dungeon_catalog.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "1558828e9e4866335f58395da46dac00fd742dcffe53097f65f166fd5e7e5162",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_classic_dungeon_private.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "fb63a8bc70effd63eb97ac20c8651495f0eab3feb29a2bfd89727ea4ad2642f3",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_classic_dungeon_quests.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "e588ec491260b03b79e7ebb0d82ab515137324dc77bfe8caef18e83e54df242a",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_dungeon_current_contract.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "1618c149894491db21cae004f2275d3ea40c56ba45e1ccf3bac0dfb39b0224c0",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_dungeon_lifecycle.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "8ed09a8ea1e173ede412d36644f333887ce92df827b71b8c77a5c11e99198ccd",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_dungeon_policy.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "00e0ceb4b2838f0137cb542889e78cba032580fc61b56abe6b6ddb84868819d0",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/test_dungeon_journal.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "948464b693fe591b311e9b4dd1687d43bdaab5a828e019c63d8e5ec19d1dcdaf",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "tools/tests/rehearse_classic_dungeons.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "1e30f6b9d7cd64528c95ab4f41cd917c333421c32ad7f5d085428c913f288eca",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/README.md",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "c080e024a75a13c9df59a9a140786dd61a1edf03acdb0ed5e20d31b679abd7f4",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/QA.md",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "2cea295d88d2d44ca3217ef4591dc21cc8f586755b1ed68b0a287818ef591d00",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/verification.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "90e948ea0a55844d8a3f003dba9c6509ee0464824684cb9397b3db69ef3d74bd",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/rehearsal.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "05ea761bfcbe65d4a63c53de9b7cc693f5892a6eb660b9030cf3d558934196d8",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/build-manifest.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "70eb1cdb2d21ef6e745b64f6534ab496f75a25663ce935ec579a9cd433615860",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/review.md",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "bc4378a04b865e3b738fbb15cb23c3e39187cd7118305864e3c53d643dbd8a1c",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/#Sister_of_the_Spire.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "f7ebf89c5dbf2b5d42fbe92f9ff5d1915299e430efcb901910d7c13b304bc6b1",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/a_thunder_spirit_princess.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "fdaa3d458d83a857b01b07cbc57b2cb95d49a147d8617011b2df54708660dbbf",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Bazzt_Zzzt.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "f9b9718edf5d2d8e9806a6b6dff014ac0492f0a98b2df998f98851ea0eae6fbc",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Bzzzt.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "05b61474b8271c9b844038ee0f3db2ee6743a23f57a17eec1f9d8e08af154d3f",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Gorgalosk.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "94eb59f73af051fb117060e48e075b03ad7a4a14cfa3e678aa738c8629bcdbf3",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Keeper_of_Souls.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "7b1d5d0d356b7ce0be54ebb0617bcd8bb0180767ea72966ae891e8a7953493ee",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Key_Master.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "8afbd2f723d9ea860a86310faf994e56294d4c8df11a3a4a94b1c9d826f3f5a3",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Protector_of_Sky.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "ddf97467605167b83a3b020e8d98639b61054062e9cee70a5d2c9c30e1e39146",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/Sirran_the_Lunatic.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "70caf6cbbc1d88b38e9b1101d52fb1865d74f43c7444656033208f47f8022824",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/airplane/The_Spiroc_Lord.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "761255de20bf6f89e914837d3f42f84e81dabe710bebae4b9b1910b72f7ee768",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "server-mods/quests/fearplane/Cazic_Thule.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "ca26aff682e1205e3af17a2e75248b83b34ce25f6900b6a51a7abe2db9e3739f",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      }
+    ],
+    "wiki": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/dungeon-modes.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "0ef9c732bc87198674d7e87f8257d4aefe65f2fad6ce95d14ca446329f2f5ce4",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/features.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "0425e38b1b47a26d8771ece671e73ebdb40930ee704c6537f980239e48315139",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/index.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "5777957102c4e0dafa3bca6c39345f11a081b2e35dcf34ac05928295fc9b1552",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/travel.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "83d08ee67ccd25a11c8a847d85a620ee3d6b906c62816541c01b7f44b7f551de",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/equipment.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "a0e2096ebc631099c934cf8a9f28d6d356b585a356ddffe5542bc5298f4f3d5e",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/unreleased.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "3c4abe0f6a1dee1e07473425952d031b57c621822919cdf27342a0607e23f283",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/articles/recent-changes.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "40f698b765da044241841fea2f1f2c1902c72ccfc03ac45caf912e9d8f5ff264",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "wiki/content-review.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "70aeabe0ae8326ed93446f7fbf08e2b8572fa9a598554d530314a46a040769f2",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/wiki-review.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "fe97682603032da66877f14a161169799debb2bb8873186b6697a78207ea3566",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+        "path": "docs/dungeons/classic-expansion-20261022/wiki-refresh.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "sha256": "b705de48e5ac74227fae08d521691f2e2f35fb34bb6d4060955f697d8db8a13f",
+        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+      }
+    ]
+  }
+}

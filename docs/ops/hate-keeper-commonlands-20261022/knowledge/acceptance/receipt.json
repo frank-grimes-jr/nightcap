@@ -1,0 +1,2745 @@
+{
+  "message": "Confirmed",
+  "scope": "Live Plane of Hate Keeper relocation to East Commonlands, Commonlands visibility and travel into Hate",
+  "preimages": {
+    "references/world.md": "fd48ce26779fbef3d39c298d05fdacaaeb9ffd1a8bd4559a6b43e3186e276fdd",
+    "references/wiki.md": "e352eeb4d9dbc2a762b413aa845b459c05dcb282f97550e6ea5414803408eb1f",
+    "references/operations.md": "055ea619554c88ffd7b1b3238884ddaaf8d1197011f35375ddd101055a161165",
+    "references/sources.json": "9d517ce263de12bb0fcdcd71881db4b0c3950989cc2c9a9f68b0206ac56af77d"
+  },
+  "afterimages": {
+    "references/world.md": "fd48ce26779fbef3d39c298d05fdacaaeb9ffd1a8bd4559a6b43e3186e276fdd",
+    "references/wiki.md": "e352eeb4d9dbc2a762b413aa845b459c05dcb282f97550e6ea5414803408eb1f",
+    "references/operations.md": "055ea619554c88ffd7b1b3238884ddaaf8d1197011f35375ddd101055a161165",
+    "references/sources.json": "b1d76ef76b44bd2c75056607558a0cbd1b3bcccde3e8f213947a0d935a490453"
+  },
+  "checks": {
+    "world": {
+      "acceptance_entries": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\rollout.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\deployment.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\README.md",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\authorization.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-publication.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-public-verification.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\owner-acceptance.json",
+          "role": "Owner-confirmed relocation/visibility/travel acceptance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-before-confirmed.json",
+          "role": "Guarded successor publication preimage; current release pointer and manifest",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-publication-confirmed.json",
+          "role": "Owner-confirmed wiki publication with rollback and private-service preservation",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-public-verification-confirmed.json",
+          "role": "Owner-confirmed public wiki hashes, security headers and private-route denials",
+          "state": "unchanged"
+        }
+      ],
+      "preexisting_or_unrelated_drift": [
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\server-mods\\quests\\global\\999240.pl",
+          "role": "unchanged deployed portal and 25/30-unit discovery behavior",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\server-mods\\quests\\global\\Instance_Keeper.pl",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\tunnel_travel.pl",
+          "role": "Merrin route and player-state gates",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\tunnel_travel_data.pl",
+          "role": "exact ten-city route catalog",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\tunnel_spire_data.pl",
+          "role": "separate wizard route catalog",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\tunnel-compact-20261002\\README.md",
+          "role": "current deployed layout reference",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\adventure-journal\\README.md",
+          "role": "candidate task/attunement system, not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\README.md",
+          "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\asset-audit.json",
+          "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\install-receipt.json",
+          "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g\\work\\travel-client-audit\\docs\\ops\\travel-client-audit-20261012\\archive-checks.json",
+          "role": "34 complete PFS/WLD checks after local travel asset repair; not live zoning acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\waypoint-visuals\\docs\\ops\\waypoint-visuals-20261011\\README.md",
+          "role": "portal deployment, reload/recovery and dated owner acceptance scope",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\waypoint-visuals\\docs\\ops\\keeper-visuals-20261012\\README.md",
+          "role": "Keeper deployment and October 13 owner resolution; not an all-zone QA attestation",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tunnel_cozy_layout.py",
+          "role": "deployed exact workshop and buffer-adjacent poses; owner visual QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tunnel_cozy.py",
+          "role": "reviewed guarded pose migration and fresh-state rollback",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tests\\test_tunnel_cozy.py",
+          "role": "nine layout regressions including Veyra frontage and interactive donors",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tests\\probe_tunnel_cozy.py",
+          "role": "whole-scene approaches, patrols and native geometry",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\tools\\tests\\rehearse_tunnel_cozy.py",
+          "role": "eleven real-schema SQL preservation checks",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\README.md",
+          "role": "deployed evidence, recovery boundary and exact open owner QA",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\production.json",
+          "role": "dated exact production afterimages, preserved data/runtime and healthy process evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\rollout.py",
+          "role": "deployed locked operator with isolated exact backup restore and scoped recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\test_rollout.py",
+          "role": "thirteen failure, preservation and precision-sidecar tests",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\README.md",
+          "role": "deployed Unrest scope, recovery and open owner gameplay QA",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\forward.sql",
+          "role": "reviewed readable placement contract; production uses stronger fresh-preimage generator",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\rollback.sql",
+          "role": "pose-only recovery contract preserving subsequent activity",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\inspection.json",
+          "role": "dated read-only diagnosis, superseded placement by production receipt",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\check_mariadb.py",
+          "role": "synthetic native SQL rehearsal",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\mariadb-checks.json",
+          "role": "seven local native SQL checks",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\tests\\test_unrest_waypoint.py",
+          "role": "five placement, scope and rollback regressions",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\production.json",
+          "role": "verified live positions, preservation and health; public-safe evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\run.py",
+          "role": "reviewed commit-guarded staging and operator entrypoint",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\ops\\rollout.py",
+          "role": "deployed backup/rehearsal/preservation and recovery operator",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\docs\\ops\\unrest-waypoint-20261013\\ops\\test_rollout.py",
+          "role": "thirteen recovery/failure and precision tests",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\unrest_waypoint.py",
+          "role": "deployed exact marker/catalog/saved-pose generator",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\content_patch.py",
+          "role": "reviewed shared full-row guarded transaction mechanics",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\go\\work\\unrest-waypoint\\tools\\tests\\test_unrest_waypoint_content.py",
+          "role": "six generator ownership, drift and fresh-state recovery checks",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\operator.py",
+          "role": "guarded content operation and exact forward/inverse plus rejected-drift rehearsal",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\verify.py",
+          "role": "read-only deployed health and native process verification",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\README.md",
+          "role": "deployed Commonlands stock/banker contract, recovery and pending owner QA",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\deployment.json",
+          "role": "verified production afterimages, 309410-item cache comparison and 12 native zones",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\terrain.json",
+          "role": "banker native terrain and access probe",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\spawn2.cpp",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\zone_save_state.cpp",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\sql\\20261016_dungeons.sql",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\tools\\tests\\test_dungeon_lifecycle.py",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\README.md",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\QA.md",
+          "role": "Palwar confirmed Befallen Keeper targeting and Raid/Grind menu; remaining gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\concurrency-verification.json",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\production-verification.json",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\README.md",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\rollout.py",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\test_rollout.py",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\dungeon_service.h",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\task_client_state.cpp",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\task_client_state.h",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\server-mods\\code\\zone\\task_manager.cpp",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\verification.json",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\README.md",
+          "role": "Befallen journal repair: deployed and owner-confirmed display fix; full-clear rewards and broader gameplay QA remain open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\verification.json",
+          "role": "Befallen journal repair: deployed and owner-confirmed display fix; full-clear rewards and broader gameplay QA remain open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\native-build-manifest.json",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\production-verification.json",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\rollout.py",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\test_rollout.py",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\journal-repair\\build_candidate.py",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-options-20261021\\options.json",
+          "role": "Historical pre-release analysis; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-options-20261021\\production-inputs.json",
+          "role": "Historical pre-release analysis; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\README.md",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\rollout.py",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\native-build-manifest.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\deployed.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\verification.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\review.md",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\finish_cache.py",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\test_finish_cache.py",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-diagnosis.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-source-pairing.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\quests\\ecommons\\Magus_Goldwind.pl",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\quests\\poknowledge\\Magus_Goldwind.pl",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_goldwind_retired.pl",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\tools\\tests\\instance_keeper_visuals.t",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\README.md",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\placements.json",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\selected-geometry.json",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\all-keepers-audit.json",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\Instance_Keeper.recovery.pl",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\test_recovery.t",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\run.py",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\remote.py",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\test_operator.py",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\deployment.json",
+          "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\server-mods\\quests\\global\\999240.pl",
+          "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\tools\\tests\\waypoint_visuals.t",
+          "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\README.md",
+          "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\verification.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\integration.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\promotion.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\README.md",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\quest_remote.py",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\world_control.py",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\test_quest.py",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\quest-apply.json",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\review.json",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\code\\zone\\npc.cpp",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\code\\zone\\task_client_state.cpp",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\lua_modules\\items.lua",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Gardern.pl",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Joyce.pl",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Sultin.pl",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Vilissia.pl",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Vurgo.pl",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\test_quest_handins.py",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\quest_handins.lua",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\quest_handins.t",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\fixtures\\quest_handins.cpp",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\fixtures\\quest_delivery.cpp",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\overthere\\Kurron_Ni.pl",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\items\\quest-armor-catalog.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\quest_armor_rewards.t",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\quest_armor.py",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\README.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\QA.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\manifest.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\currency-mutation.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\integrated-native-source-proof.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\plugin-path-probe.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\capture_quest_handins.py",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\README.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\QA.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\verification.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\review.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\status.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\CHANGES.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\promotion.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\QA.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\README.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\build-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\rehearsal.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\review.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\QA.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\README.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\REWARDS.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\build-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\cache-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\README.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\combined-build-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\live-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\package-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\preflight-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\rollout.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\test_release.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-publication.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\rehearsal.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\review.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\zone\\dungeon_service.h",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\zone\\lua_general.cpp",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\lua_modules\\nightcap_dungeons.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\#Sister_of_the_Spire.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Bazzt_Zzzt.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Bzzzt.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Gorgalosk.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Keeper_of_Souls.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Key_Master.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Protector_of_Sky.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Sirran_the_Lunatic.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\The_Spiroc_Lord.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\a_thunder_spirit_princess.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\fearplane\\Cazic_Thule.lua",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\sql\\20261022_classic_dungeon_rewards.sql",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\sql\\20261022_classic_dungeons.sql",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_catalog.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_migration.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_rewards.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_reward_migration.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_contract.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\prepare_classic_dungeons.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_dungeons.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_reward_cache.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_rewards.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_catalog.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_quests.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_rewards.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_current_contract.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_lifecycle.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_policy.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\server-mods\\code\\zone\\dungeon_service.cpp",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\server-mods\\code\\common\\dungeon_policy.h",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\server-mods\\code\\common\\dungeon_catalog.h",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\server-mods\\code\\common\\dungeon_contract.h",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\dungeons\\runtime-contract.json",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\hate_keeper.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\dungeon_catalog.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\dungeon_refresh_contract.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\tests\\test_hate_keeper.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\tests\\test_hate_keeper_content.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\tests\\test_classic_dungeon_private.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\tools\\tests\\test_dungeon_journal.py",
+          "role": "Verified live Hate Keeper release; owner native gameplay acceptance open",
+          "state": "unchanged"
+        }
+      ],
+      "global_drift_present": false
+    },
+    "wiki": {
+      "acceptance_entries": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\dungeon-modes.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\tunnel.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\travel.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\features.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\index.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\unreleased.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\articles\\recent-changes.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\wiki\\content-review.json",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki\\docs\\ops\\nightcap-wiki.md",
+          "role": "Owner-confirmed Hate Keeper relocation/visibility/travel wiki guidance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        }
+      ],
+      "preexisting_or_unrelated_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\README.md",
+          "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\origin-verification.json",
+          "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\public-verification.json",
+          "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\README.md",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\origin-verification.json",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\public-verification.json",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\browser-verification.json",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\release.json",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\source-manifest.json",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\linux-tests.txt",
+          "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeon-journal-20261016\\public-verification.json",
+          "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\README.md",
+          "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\docs\\releases\\monk-independent-reuse-20261017\\wiki-review.json",
+          "role": "whole-wiki impact review and six local unreleased notices",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\docs\\releases\\cooldown-audit-20261017\\wiki-review.json",
+          "role": "21 maintained/432 generated routes assessed; seven local unreleased notices and no-impact decisions",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\README.md",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\QA.md",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\production-verification.json",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\hosted-client-verification.json",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\wiki-publication.json",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\verify_sites.py",
+          "role": "Read-only exact HTTPS payload/header and denied-route verification",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\wiki-public-verification.json",
+          "role": "All 465 published wiki files and five denied source/private routes",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\guide-public-verification.json",
+          "role": "Five private guide files and exact response policy",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\wiki-review.json",
+          "role": "Reviewed cooldown identity candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\README.md",
+          "role": "Reviewed cooldown identity candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\client-zone-validation\\EQ_Local_Dev\\docs\\releases\\client-zone-validation-20261018\\wiki-review.json",
+          "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\weapon-tier-damage\\docs\\releases\\weapon-tier-damage-20261018\\wiki-review.json",
+          "role": "Historical superseded blanket +1 candidate; do not deploy",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\wiki-review.json",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\README.md",
+          "role": "Verified combined465-file public wiki release; prior cooldown/travel content and pending owner QA preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\wiki-review.json",
+          "role": "Verified combined465-file public wiki release; prior cooldown/travel content and pending owner QA preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\wiki-build.json",
+          "role": "Verified combined465-file public wiki release; prior cooldown/travel content and pending owner QA preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\wiki-publication.json",
+          "role": "Verified combined465-file public wiki release; prior cooldown/travel content and pending owner QA preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\wiki-public-verification.json",
+          "role": "Verified combined465-file public wiki release; prior cooldown/travel content and pending owner QA preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\wiki-manifest.json",
+          "role": "Verified combined465-file public wiki release; prior cooldown/travel content and pending owner QA preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\owner-acceptance.json",
+          "role": "Owner-confirmed reported Palwar combine; broader QA unconfirmed; no public wiki change",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\loot-quality-rates\\docs\\ops\\loot-quality-rates-20261018\\wiki-review.json",
+          "role": "whole-wiki impact review; live loot notices published and verified",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\owner-confirmation.json",
+          "role": "General owner release confirmation; detailed QA and successor release acceptance remain separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\weapon-tier-damage\\docs\\releases\\cultural-armor-20261018\\wiki-review.json",
+          "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\weapon-tier-damage\\docs\\releases\\gear-progression-20261018\\wiki-review.json",
+          "role": "Superseded preservation-only prototype; not current tuning or deployment",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\weapon-tier-damage\\docs\\releases\\starter-retune-20261018\\wiki-review.json",
+          "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\thj-pet-scaling-20261018\\wiki-review.json",
+          "role": "Reviewed pet/shared-scaling candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\wiki-review.json",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\wiki-publication.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\wiki-review.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\wiki-review.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\wiki-review.json",
+          "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\wiki-publication.json",
+          "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\wiki-public-verification.json",
+          "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\owner-confirmation.json",
+          "role": "October19 owner-confirmed normal launcher Play on their PC; broader native QA open; no new wiki publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\wiki-public-verification.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\wiki-publication.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\wiki-review.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\wiki-review.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-review.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-publication.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-public-verification.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+          "role": "Verified production deployment; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+          "role": "Verified production deployment; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\wiki-review.md",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\wiki-review.json",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\wiki-refresh.json",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\guides-publication.json",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\wiki-public-verification.json",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\guide-public-verification.json",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\ops\\publish_guides.py",
+          "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\wiki-review.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\guides-publication.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\wiki-public-verification.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\guide-public-verification.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\index.html",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\player-website.md",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\wiki-review.json",
+          "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\wiki-publication.json",
+          "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\docs\\ops\\dungeon-keeper-visibility-20261022\\wiki-public-verification.json",
+          "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\wiki-review.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\wiki-refresh.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\deployment\\wiki-review.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\deployment\\publish_wiki.py",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\deployment\\verify_wiki.py",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\deployment\\wiki-publication.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\wiki-integration-review.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\wiki-refresh-integration.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\promotion.json",
+          "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-armor-ascended\\docs\\releases\\quest-armor-20261022\\wiki-review.json",
+          "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-armor-ascended\\docs\\releases\\quest-armor-20261022\\wiki-refresh.json",
+          "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\wiki-review.json",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\publish_wiki.py",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\verify_wiki.py",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\wiki-publication.json",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\docs\\ops\\waypoint-crystal-20261022\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\wiki-review.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\publish_wiki.py",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\verify_wiki.py",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\wiki-publication.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-armor-ascended\\docs\\releases\\quest-armor-20261022\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-armor-ascended\\docs\\releases\\quest-armor-20261022\\deployment\\wiki-publication.json",
+          "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-armor-ascended\\docs\\releases\\quest-armor-20261022\\deployment\\wiki-review.json",
+          "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\wiki-review.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\wiki-refresh.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\wiki-review.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\wiki-publication.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\wiki-public-verification.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\wiki-review.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\concurrent-wiki-reconciliation.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\publish_wiki.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\verify_wiki.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\wiki-publication.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\wiki-refresh.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\wiki-review.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\README.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\combined-build-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\live-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\package-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\preflight-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\rollout.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\test_release.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-publication.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-review.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\wiki-review.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\classic-robes-20261022\\native-skinning\\owner-acceptance\\wiki-impact.json",
+          "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\wiki-interactive-20261022\\README.md",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\wiki-interactive-20261022\\verification.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\wiki-interactive-20261022\\wiki-public-verification.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\wiki-interactive-20261022\\wiki-publication.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\wiki-interactive-20261022\\wiki-review.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\about.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\advanced-loot.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\ascension.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\commands.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\getting-started.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\item-upgrades.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\launcher.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\multiclass.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\pets.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\tradeskills.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\waypoints.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\zone-hunt.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\assets\\experience.css",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\assets\\experience.js",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\assets\\wiki.css",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\catalog.json",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\catalog.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\check_refresh.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\deploy.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\equipment.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_deploy.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_equipment.cjs",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_experience.cjs",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_refresh.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_search.cjs",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_update.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_wiki.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\update.py",
+          "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\build-lab\\README.md",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\build-lab\\data-provenance.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\build-lab-20261022\\README.md",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\build-lab-20261022\\verification.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\build-lab-20261022\\wiki-public-verification.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\build-lab-20261022\\wiki-publication.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\docs\\releases\\build-lab-20261022\\wiki-review.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\README.md",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\build-lab.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\combat.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\articles\\equipment.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\assets\\build-lab-model.js",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\assets\\build-lab.css",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\assets\\build-lab.js",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\build-lab-data.json",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\build.py",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\build_lab.py",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\experience.py",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_build_lab.cjs",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\wiki-interactive\\wiki\\test_build_lab.py",
+          "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+          "state": "unchanged"
+        }
+      ],
+      "global_drift_present": false
+    },
+    "operations": {
+      "acceptance_entries": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\deployment.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\README.md",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\authorization.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-publication.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-public-verification.json",
+          "role": "Reviewed deployed Keeper/publication evidence; owner relocation/visibility/travel acceptance confirmed; broader dungeon QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\owner-acceptance.json",
+          "role": "Owner-confirmed relocation/visibility/travel acceptance; broader dungeon QA remains separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-before-confirmed.json",
+          "role": "Guarded successor publication preimage; current release pointer and manifest",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-publication-confirmed.json",
+          "role": "Owner-confirmed wiki publication with rollback and private-service preservation",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-commonlands\\docs\\ops\\hate-keeper-commonlands-20261022\\wiki-public-verification-confirmed.json",
+          "role": "Owner-confirmed public wiki hashes, security headers and private-route denials",
+          "state": "unchanged"
+        }
+      ],
+      "preexisting_or_unrelated_drift": [
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\AGENTS.md",
+          "role": "current integrated operating contract",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\status.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\item-upgrades-20261012\\README.md",
+          "role": "retained source/build and activity-preserving recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\plugins\\nightcap-eqemu\\README.md",
+          "role": "existing lookup plugin and availability fallback",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\artifacts\\karl-rescue-20261012\\rescue.py",
+          "role": "reviewed one-shot rescue with backup, preimage and preservation guards",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\docs\\ops\\karl-rescue-20261012.md",
+          "role": "Karl server rescue and screenshot-confirmed commons client failure; installation and QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\artifacts\\karl-rescue-20261012\\commons-package-validation.json",
+          "role": "manual two-archive package integrity evidence; no remote installation or signed publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\README.md",
+          "role": "paired native/client activation and recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\server-receipt.json",
+          "role": "verified backup, running hashes and preservation",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\deployment\\native\\rollout.py",
+          "role": "data-preserving recovery; closed on unresolved drift",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\deployment\\native\\test_rollout.py",
+          "role": "nine native recovery tests",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\README.md",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\deployment\\rollout.py",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\deployment\\aa_preflight.py",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\deployment\\manifest.json",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\preflight.json",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\activated.json",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\final-runtime-verification.json",
+          "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\production.json",
+          "role": "dated exact production afterimages, preserved data/runtime and healthy process evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\rollout.py",
+          "role": "deployed locked operator with isolated exact backup restore and scoped recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\test_rollout.py",
+          "role": "thirteen failure, preservation and precision-sidecar tests",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\README.md",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\rollout.py",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\production-verification.json",
+          "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\server-mods\\code\\zone\\zone.cpp",
+          "role": "Manifest-matching Zone::Shutdown and idle timer behavior",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\deploy\\production\\start.py",
+          "role": "Inspected production-matching any-child-exit supervisor",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\README.md",
+          "role": "Live correction, retained incidents, pending natural-unload/player QA",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\ops\\apply.py",
+          "role": "Guarded one-rule operation, rollback rehearsal and global reload verification",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\ops\\verify.py",
+          "role": "Read-only native lifetime and incident follow-up",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\result.json",
+          "role": "Verified live rule reload with native/service identities preserved",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\followup.json",
+          "role": "Dated follow-up; no natural unload observed yet",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\wiki-review.md",
+          "role": "Whole-wiki impact assessment; local notice, not publication",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\README.md",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\QA.md",
+          "role": "Exact owner in-game checks; deployment does not establish acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\production-verification.json",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\hosted-client-verification.json",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\wiki-publication.json",
+          "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\reconcile_market.py",
+          "role": "Exact observed market-startup reconciliation and held-receipt opening; no SQL writes",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\test_reconcile_market.py",
+          "role": "Four guards for epoch/policy, table boundaries, unknown holds and failed opening",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\tools\\cooldown_identity_migration.py",
+          "role": "Reviewed cooldown identity candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\tools\\tests\\rehearse_cooldown_identity.py",
+          "role": "Reviewed cooldown identity candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\README.md",
+          "role": "Reviewed cooldown identity candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\migration-rehearsal.json",
+          "role": "Reviewed cooldown identity candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\manifest.json",
+          "role": "Exact retained-source candidate build; not installed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\CHANGES.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\rollout.py",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\resume.py",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\test_resume.py",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\finish.py",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\test_finish.py",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\completion-review.json",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\HELD-RECOVERY.md",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\README.md",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\production-verification.json",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\staged-manifest.json",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\finish-manifest.json",
+          "role": "Reviewed cooldown deployment, recovery or guide evidence",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\README.md",
+          "role": "Reviewed native successor rollout, current release status, preservation and data-safe recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\rollout.py",
+          "role": "Reviewed native successor rollout, current release status, preservation and data-safe recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\test_rollout.py",
+          "role": "Reviewed native successor rollout, current release status, preservation and data-safe recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\production-verification.json",
+          "role": "Reviewed native successor rollout, current release status, preservation and data-safe recovery",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\owner-acceptance.json",
+          "role": "Owner-confirmed reported Palwar combine; broader QA unconfirmed; no public wiki change",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\owner-confirmation.json",
+          "role": "General owner release confirmation; detailed QA and successor release acceptance remain separate",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\thj-pet-scaling-20261018\\IMPLEMENTATION.md",
+          "role": "Reviewed pet/shared-scaling candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\thj-pet-scaling-20261018\\evidence\\native-build-manifest.json",
+          "role": "Reviewed pet/shared-scaling candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\thj-pet-scaling-20261018\\evidence\\regression.json",
+          "role": "Reviewed pet/shared-scaling candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\README.md",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\ACTIVATION.md",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\evidence\\regression.json",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\evidence\\independent-review.json",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\evidence\\native-build-manifest.json",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\evidence\\native-pairing.json",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\evidence\\native-comparison.json",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-18\\goa\\work\\thj-pet-scaling\\docs\\releases\\wpm-melee-20261018\\COMPARISON.md",
+          "role": "Reviewed combined WPM/pet candidate; not deployed",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\ACTIVATION.md",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\QA.md",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\README.md",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\receipts\\deployed.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\receipts\\report.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\resume_pinned.py",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\resume_rule_notes.py",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\rollout.py",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\test_rollout.py",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\deployment\\test_rule_notes.py",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\evidence\\completion.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\evidence\\native-build-manifest.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\evidence\\native-pairing.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\README.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\manifest.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\receipts\\activation\\backup.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\receipts\\activation\\deployed.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\receipts\\report.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\review.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\rollout.py",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\test_rollout.py",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\README.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\ruletypes.h",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\validation-summary.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\database-rehearsal.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\native-source-provenance.json",
+          "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+          "role": "Verified production deployment; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+          "role": "Verified production deployment; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\rollout.py",
+          "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\resume_oom.py",
+          "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\finish_zone_cache.py",
+          "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\test_resume_oom.py",
+          "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\compressed-cache-backups.json",
+          "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\README.md",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\rollout.py",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\native-build-manifest.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\deployed.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\verification.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\review.md",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\finish_cache.py",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\test_finish_cache.py",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-diagnosis.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-source-pairing.json",
+          "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\rollout.py",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\test_rollout.py",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\manifest.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\live-verification.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\README.md",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment\\review.json",
+          "role": "quest ingredient release deployed; owner gameplay QA pending",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\README.md",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\combined-build-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\live-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\package-manifest.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\preflight-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\rollout.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\test_release.py",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-public-verification.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\deployment\\wiki-publication.json",
+          "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open",
+          "state": "unchanged"
+        }
+      ],
+      "global_drift_present": false
+    }
+  },
+  "note": "Acceptance entries verified unchanged; unrelated historical ledger drift is retained for separate review."
+}

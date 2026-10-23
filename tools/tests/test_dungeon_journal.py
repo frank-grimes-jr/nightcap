@@ -71,7 +71,7 @@ int main(){
 ''')
 
     def test_actual_journal_preserves_runs_and_never_completes_native_sentinel(self):
-        function=native.body((ROOT/'server-mods/code/zone/dungeon_service.cpp').read_text(),'void Journal(')
+        function=native.body((ROOT/'server-mods/code/zone/dungeon_service.cpp').read_text(),'void JournalForRun(')
         native.FreeTradeTests.compile_run(self,r'''
 #include <array>
 #include <cassert>
@@ -111,8 +111,8 @@ struct Client {
  template<class...T>void Message(int,const char*,T...){}
 };
 struct Run {std::string id="first";unsigned start=100;uint64_t expiry=1000;Mode mode=Mode::Raid;const Dungeon *dungeon=&Dungeons[0];};
-Run current;bool Managed(){return true;}uint64_t Now(){return 200;}
-struct Zone{unsigned GetZoneID(){return 36;}} z,*zone=&z;
+Run current;bool managed=true;bool Managed(){return managed;}uint64_t Now(){return 200;}
+struct Zone{unsigned id=36;unsigned GetZoneID(){return id;}} z,*zone=&z;
 Run Personal(unsigned,unsigned){return current;}std::string Q(const std::string &s){return s;}
 struct Row{std::string value;const char *operator[](int)const{return value.c_str();}};
 struct Rows {
@@ -130,6 +130,7 @@ Rows Query(const std::string &sql){
  return r;
 }
 '''+function+r'''
+void Journal(Client *c) { JournalForRun(c,nullptr); }
 int main(){
  Client c;credits={1};Journal(&c);
  assert(c.state.accepts==1 && c.state.counts[0]==1 && c.state.counts[1]==0);
@@ -148,6 +149,12 @@ int main(){
  current.id="third";current.start=190;ledger_completed=0;credits={};Journal(&c);
  assert(c.state.active && c.state.accepts==4); // old completion never hides a new run
  enrolled=false;Journal(&c);assert(c.state.accepts==4);
+ // A hub Keeper explicitly selects its destination run, never the host zone.
+ enrolled=true;managed=false;z.id=22;Client hub;
+ Run selected;selected.id="hate-from-commonlands";selected.dungeon=FindDungeon(76);
+ JournalForRun(&hub,&selected);
+ assert(hub.vars["nightcap:dungeon-journal-9739"]==selected.id);
+ assert(hub.vars.count("nightcap:dungeon-journal-9701")==0);
 }
 ''')
 
@@ -237,7 +244,7 @@ int main() {
   }
  }
  TaskInformation unrelated;unrelated.activity_count=6;unrelated.description="untouched";
- ConfigureJournalTask(9699,unrelated);ConfigureJournalTask(9714,unrelated);
+ ConfigureJournalTask(9699,unrelated);ConfigureJournalTask(9700+2*DungeonCount,unrelated);
  assert(unrelated.description=="untouched");
  TaskInformation malformed;malformed.activity_count=2;malformed.description="malformed";
  ConfigureJournalTask(9701,malformed);assert(malformed.description=="malformed");

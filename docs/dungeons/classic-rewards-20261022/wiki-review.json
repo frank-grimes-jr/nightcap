@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-22",
+  "scope": "All21 maintained articles,432 generated routes, commands, Hunt catalog and release labels reviewed against current candidate worktree.",
+  "changed": [
+    "dungeon-modes",
+    "equipment",
+    "features",
+    "index",
+    "travel",
+    "unreleased",
+    "recent-changes"
+  ],
+  "unchanged": [
+    {
+      "article": "about",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "advanced-loot",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "ascension",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "combat",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "commands",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "getting-started",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "item-upgrades",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "launcher",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "multiclass",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "pets",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "tradeskills",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "tunnel",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "waypoints",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    },
+    {
+      "article": "zone-hunt",
+      "reason": "No changed mechanics, commands or released values from dungeon reward additions."
+    }
+  ],
+  "publication": "Not authorized; local candidate only",
+  "catalog": "48 Hunt zones /384 variants unchanged; dungeon rewards documented separately from live Hunt index.",
+  "source_context": "Based on reviewed Classic dungeon expansion. Preserve current parallel waypoint and quest-armor notices at integration; never publish this older complete site over newer content.",
+  "files": {
+    "wiki/articles/about.json": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+    "wiki/articles/advanced-loot.json": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+    "wiki/articles/ascension.json": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+    "wiki/articles/combat.json": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+    "wiki/articles/commands.json": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+    "wiki/articles/dungeon-modes.json": "3d265de09c3b0c2bea2e43b8b4936c155c12e8b5a573530cf7f45b986cbb42aa",
+    "wiki/articles/equipment.json": "8fdf721e545d9b0a7dc0ad3247c8fec04464cbc7984ad3f018d9a806c1bc4415",
+    "wiki/articles/features.json": "78b79342ce68eeb602ade57a3f77d5c2949381afa725d475e8c9752f232a81b6",
+    "wiki/articles/getting-started.json": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+    "wiki/articles/index.json": "7c7ecb285abce38369d75d2d589e25e613aa0e4c9f9cde2743703374ed1c30ac",
+    "wiki/articles/item-upgrades.json": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d",
+    "wiki/articles/launcher.json": "b1e7b8b61e69acc73c5d2d3060e8bcf9db42ce75dfd9fecd5a95438c029d1beb",
+    "wiki/articles/multiclass.json": "656ff44894567684ed8d2c1791bacc7931a420e3cf751f1cce98e2c01b160e50",
+    "wiki/articles/pets.json": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+    "wiki/articles/recent-changes.json": "7a2d3f6f9fb1d28f6037a811b873f18cf24b04d7bf153ffd8558fceaa04e4c0f",
+    "wiki/articles/tradeskills.json": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+    "wiki/articles/travel.json": "b3bf61c3435166a0310b4e112650cd894ba2e694d4c3681be9330d683f57bc12",
+    "wiki/articles/tunnel.json": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+    "wiki/articles/unreleased.json": "b7c54934541821ba7034983f1f1c40ae280b17f0ebba15436febc607b4c2d227",
+    "wiki/articles/waypoints.json": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+    "wiki/articles/zone-hunt.json": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+    "wiki/catalog.json": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae"
+  },
+  "python_tests": {
+    "run": 30,
+    "passed": 21,
+    "skipped": 9,
+    "skip_reason": "POSIX publisher/recovery checks intentionally skipped on Windows"
+  },
+  "node_checks": 13,
+  "built_pages": 458
+}

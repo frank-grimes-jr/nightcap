@@ -1,0 +1,15 @@
+{
+  "v1": "Stopped on incorrect instance purge horizon; no changes",
+  "v2": "Binary/image/runtime checks passed, stopped on750MiB post-build reserve; no restart/SQL",
+  "staging_encoding": "Verified CRLF-to-LF conversion corrected byte-exactly before v2 preflight; no live change",
+  "v3": "Pins existing full image ID; repeated full runtime validations; no rebuild",
+  "reserve_bytes": 704643072,
+  "reserve_components_MiB": {
+    "runtime": 512,
+    "backup": 128,
+    "publication": 32
+  },
+  "latest_backup_bytes": 64974681,
+  "temporary_cache_cleanup": "Only four cache IDs created by this task; installed images and services retained",
+  "independent_review": "No blocker;27 Windows/Linux operator tests pass"
+}

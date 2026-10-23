@@ -1,0 +1,23 @@
+{
+  "result": "preflight false positive; no cleanup or gameplay changes",
+  "failed_stage": "/opt/nightcap/releases/aa-level-progression-20261023",
+  "failure_before": "image build, evidence initialization, restart or SQL",
+  "native_source": "common/database_instances.cpp Database::PurgeExpiredInstances and world/main.cpp",
+  "native_condition": "expire_at != 0 AND never_expires = 0 AND expire_at <= UNIX_TIMESTAMP() - Instances:ExpireOffsetTimeSeconds",
+  "active_offset_seconds": 3600,
+  "periodic_timer_ms": 450000,
+  "old_guard": "start_time+duration <= now+600 incorrectly treated gameplay expiry as immediate cleanup",
+  "new_guard": "native purge predicate projected600seconds ahead; every other startup guard unchanged",
+  "observed_instance_id": 101,
+  "observed_zone_id": 66,
+  "reference_counts": {
+    "instance_list_player": 1,
+    "character_data": 0,
+    "character_corpses": 0,
+    "respawn_times": 0,
+    "zone_state_spawns": 0
+  },
+  "player_rows_mutated": false,
+  "new_attempt": "separate v2 stage with hash-verified immutable binary hardlinks",
+  "review": "Independent review found no blocker; five boundary regressions and all20 operator tests pass on Windows and Linux."
+}

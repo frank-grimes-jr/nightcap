@@ -1,0 +1,15 @@
+{
+  "preimages": {
+    "references/world.md": "85788a554f8eef14e5aa1df2e87b10a876ffbdb954729a76505f97a5d1fddd64",
+    "references/wiki.md": "a06509ae174af2b4ebdd130fe3bd485140dd7669d58760f760c71a4c53d1ee4a",
+    "references/operations.md": "00e4c5f1e5cc37b9381482771247d51b79583bc7a4cda00cefc7d47afffe56a0",
+    "references/sources.json": "c0744baba7b6df0dc6176ae56cc6d8da5a398f79def3776eeee554c46c20a6d1"
+  },
+  "afterimages": {
+    "references/world.md": "56988bc1a6ef428f7080c37ff026dcbcf3a9f2e0473225b6fedb710700fd0652",
+    "references/wiki.md": "22aad8c353d7828293497b08171e16db77afb5f94e78288735a3f7ac84cf405a",
+    "references/operations.md": "9dbbe632cf3a2b3f5bddb517f09422f0b85737a711c5decd60c8f9a28bd21754",
+    "references/sources.json": "5fe3a6e9aacde43694349284abf559bab6e3ed4b0774322d718df3696aff6f70"
+  },
+  "result": "live evidence installed; zero drift"
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "status": "applied",
+  "source_revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+  "scope": "waist correction, client pairing/reload, owner QA rejection and pending recheck, wiki publication and reviewed fingerprints",
+  "files": [
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/client.md",
+      "before_sha256": "eefd0344297ee2c2ec24000ba408f89dd27d4bdc762027d09c2b341374145723",
+      "after_sha256": "f8171ea7e07327ab67f3ed5bc2b93032896560a5dc90440fc7a6c9b219b1a632"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+      "before_sha256": "de46ae4f575233a97f52afe4f876fa3933c9e5a54f66d10c727482a0742ff508",
+      "after_sha256": "15f287b6e155fc90bbcc8b99bdc1b4635f3ea3833b3dd33ddca3ded68b0a399d"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json",
+      "before_sha256": "e06d7f8a73c27735578a2837a761a9fe2c043ab409d75feacf4dc3a0ac5ba69d",
+      "after_sha256": "397ea6bd74594ce0b8d167124424f38185cd710d1cc06f289ad0e82b7c196817"
+    }
+  ]
+}

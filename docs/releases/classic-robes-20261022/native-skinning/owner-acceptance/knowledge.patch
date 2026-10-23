@@ -1,0 +1,124 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -52,7 +52,10 @@
+ PR291/main42603ee and signed game2026102204 correct the native binding defect.
+ Evidence through048f222 in C:/Users/verre/.codex/worktrees/robe-visibility/
+ EQ_Local_Dev, docs/releases/classic-robes-20261022/native-skinning/. Earlier
+-candidate/publication records are historical. Native visual acceptance is open.
++candidate/publication records are historical. The owner replied "Fixed" on
++October22 after the2204 recheck instructions, closing the reported waist defect.
++The broader race/gender/dye/animation/observer matrix remains separately tracked.
++Exact acceptance: native-skinning/owner-acceptance/owner-confirmation.json.
+ 
+ Classic BAM/BAF, ELM/ELF, HAM/HAF, DWM/DWF, TRM/TRF, OGM/OGF and HOM/HOF now
+ have CODE01_DMSPRITEDEF bodies. global4 repeats the Barbarian pair, making16
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -97,7 +97,12 @@
+ config and private resources without reload. Local21 Python pass/9POSIX skips,
+ 6 search scenarios,7 equipment checks and458-page build pass; all9 wiki checks
+ also pass after reconciling concurrent content. Browser layout/search behavior
+-did not change. Native wearer/observer acceptance remains open.
++did not change. The owner subsequently confirmed "Fixed" after2204, accepting
++the reported waist repair. Full race/dye/animation/observer coverage remains
++separate. All21 guides/432 generated routes were assessed for this acceptance:
++no public payload change is needed because mechanics, installation steps and
++aggregate Live testing/QA limits remain. See native-skinning/owner-acceptance/
++{owner-confirmation.json,wiki-impact.json}. No new publication is claimed.
+ 
+ docs/releases/classic-robes-20261022/native-skinning/deployment/ owns the review,
+ concurrent reconciliation, publication, public verification and recovery records.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -75,7 +75,7 @@
+     "befallen_keeper_live_20261022": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+     "dungeon_keeper_live_20261022": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+     "waypoint_crystal_candidate_20261022": "367e6406a093d3c8a9adffb62837200d8ad04be0",
+-    "classic_robes_published_20261022": "048f22220fec3c572b806dd7bee9188a46b3faac; PR291/main42603ee; signed2204/native-waist-v1 verified; owner rejected2203; native visual recheck pending",
++    "classic_robes_published_20261022": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits; signed2204 and native-waist-v1 previously verified; owner confirmed missing-waist defect fixed; broader visual regression matrix separate",
+     "waypoint_crystal_integrated_20261022": "23e551eafe824363767f8c7ac66776e6431b362f",
+     "waypoint_crystal_test_promotion_20261022": "442dce32933dd76c648e71b85baf428b958a67ac",
+     "classic_dungeon_candidate_20261022": "c4fb75cdec971172657040a28661fa84e995d725",
+@@ -6582,16 +6582,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/README.md",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "5fd54a1c7ea55cd33c1e5a130fc50f06767a6e1af60959b63442b9105118e324"
++        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "1f514d5cdc6399d6cbd298a4373433aab7a9a386995c4e06bb7ce20941561fca"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/QA.md",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "6b647ee7757329e084b07e7b9a225539b643f79db3d7c448c7bcd82144ba4d86"
++        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "1af0e5014fcb8d013426cf5fce964f9ae79583e2035962c13aed9be1b9d6005f"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+@@ -6953,9 +6953,9 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/README.md",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+-        "sha256": "75a069341e5eb665a2bcdc11daad043b5e932b0622de3530e011f8bd26029596"
++        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "3aedb350cfcb2709656a22b0f47c1c5fd69ea29fc67609d67f0c6af10719ddd9"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+@@ -6988,9 +6988,9 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/README.md",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+-        "sha256": "e527a120bc20517e0a5b3f599336163ad548f024449395a1a390a210c6cc5b6f"
++        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "f1b20aed271b26b8a4dbf159ca62bdd07b30144e712cebfbb18e8c13c0195e5a"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+@@ -7044,9 +7044,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/release-record.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+-        "sha256": "55b6e88aa140d7cf8b1c4ed637a9be3a40a9556677cea2f33e7832983f0b5671"
++        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "8be5b208b09508ab2ca1c963368c24a08538ff0c87ff46b55cdf34f76259c867"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/owner-confirmation.json",
++        "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "eda221101767869a367a5e14c62bc056ad6ed7ea28a9cf5313c9d876193fc4eb"
+       }
+     ],
+     "admin": [
+@@ -9513,6 +9520,13 @@
+         "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+         "sha256": "bafea63c86c7bbaebf3668963e51e8d8b1c602325fce7aeef8474bec66f00047",
+         "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "path": "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/wiki-impact.json",
++        "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
++        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
++        "sha256": "c4fa6d2ffb2a6f4bf4ad41ddd22d07f83cce6362cb917684cc9c018e8758aa0a"
+       }
+     ]
+   }

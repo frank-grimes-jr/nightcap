@@ -1,5 +1,77 @@
 # CHANGES
+
+## 2026-10-23 — Level-scaled AA and level-1 allocation controls (candidate)
+
+Adds the owner-selected two passive AA per level of eligible XP while retaining
+normal leveling rates. Native AA plus/minus controls work from level 1; valid
+0–100 allocations persist, 100% pauses leveling, and a full AA bank cannot
+silently resume it. The existing tenfold focus relationship yields 20 AA per
+level-equivalent at full focus. Fixed internal AA units preserve existing points,
+purchases and partial progress; no retroactive grants. Kill/quest/task awards
+share the normal XP basis, segment level crossings and continue at the Classic
+50 cap. Separate AA-only multipliers do not multiply the scaled rate again.
+
+Requires fresh matching server binaries for the new rule plus proxy0.12.0 and
+its signed catalog. Current production remains the million-point release until
+a separate deployment receipt verifies activation. Native reward/transition and
+exact-client controls pass; owner gameplay/balance QA remains open.
+[Evidence and QA](docs/releases/aa-level-progression-20261023/README.md).
+
+## 2026-10-22 — Hate Keeper moved to Commonlands
+
+Moves Hate's existing public Keeper to the East Commonlands travel area at
+`/loc -1570,-346,3`. Cross-zone routing selects Hate for entry and journal actions;
+private Hate instances retain their entrance Keeper, including checkpoint reloads.
+Removes Hate's GM-status gate while retaining level46, also allowing normal
+level46+ public Hate access. New zone binary and guarded SQL must activate together.
+Owner-approved PR299 is merged and the paired release is live. All12 zone
+workers,39 schema/499 content checks and preserved state/cache checks pass.
+Wiki `20261022-hate-keeper-confirmed-v1` verifies all466 files and private-route
+denials. The owner confirmed relocation, Commonlands visibility and Hate travel;
+broader dungeon balance/full-clear QA remains separate. [Evidence and exact QA](docs/ops/hate-keeper-commonlands-20261022/README.md).
+
+## 2026-10-22 - Robe waist repair accepted
+
+The owner confirmed "Fixed" after game 2026102204, closing the reported missing
+waist defect. No additional asset or runtime change. Broader race, dye, animation
+and observer regression coverage remains separate. Acceptance evidence:
+`docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/`.
+## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
+
+All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,
+Grind, Enter, Join, Status, Claim Rewards and Reset. The 14 additions have 42
+unique designs in Polished and Ascended versions; all 414 dungeon reward
+definitions are MAGIC. Existing reward identities and other stats remain.
+Planar relics include level-46 equipped utility clicks with shared family reuse.
+Main PR293/3af85bb and the paired live deployment are verified. Owner gameplay
+and balance acceptance remain open.
+
+Fresh backup, exact state/content/cache preservation and all12 workers verified.
+Current client2204 and quest-tier behavior retained. Wiki465-file publication
+verified. [Deployment, recovery and QA](docs/dungeons/classic-rewards-20261022/deployment/README.md).
+
+## 2026-10-22 — Unique Classic raid rewards candidate
+
+Adds42 dungeon-specific designs /84 Polished and Ascended definitions for the
+14 added Classic dungeons. All414 dungeon rewards become MAGIC; the existing330
+retain IDs, names and stats, with220 flag-only updates. Fear, Hate and Sky gain
+nine authored relics and three level46 equipped utility clicks with shared reuse.
+New numeric power stays within existing dungeon-band budgets. Guarded full-row
+migration, matching world/zone/shared_memory and regenerated caches are required.
+No production activation or player/balance acceptance. Full catalog, evidence,
+rollout boundaries and QA: [unique rewards](docs/dungeons/classic-rewards-20261022/README.md).
+
+## 2026-10-22 — Every Classic dungeon candidate
+
+Extends Raid/Grind and Enter, Join, Status, Claim Rewards and Reset to21 Classic
+dungeons including Fear, Hate and Sky. Preserves the original seven indices,
+run revision and330 reward definitions. Fixes stale native item guards behind
+the reported Permafrost mismatch. Adds guarded entrance/content SQL, UUID-scoped
+plane quests and restart-safe Sky key services. Automated verification is
+separate from deployment and owner gameplay/balance acceptance; not live.
+See [source, evidence, pairing and exact all-zone QA](docs/dungeons/classic-expansion-20261022/README.md).
 ## 2026-10-22 — Tiered quest ingredients (candidate)
+## 2026-10-22 — Tiered quest ingredients deployed for live QA
 
 Normal quest requirements accept verified Polished, Exalted and Ascended versions
 of the same item through Lua, native Perl hand-ins and task Deliver objectives.
@@ -9,10 +81,49 @@ remain exact, failed native money checks restore counts, and real item instances
 are retained for returns. Rewards and forging costs do not change. Paired zone
 and seven quest files required; no SQL/cache/client update. Integration also fixes
 Kurron Ni's native currency mismatch while retaining the reviewed full-refund
-policy; all 64 ordinary Darkforge combinations pass. Tested candidate only;
-production/main and player acceptance remain pending. Evidence and QA:
+policy; all 64 ordinary Darkforge combinations pass. PR284/dev and PR287/test
+are merged with matching reviewed trees. Owner-authorized main PR290 and paired
+production deployment now verify all12 zones, fresh stopped backup and preserved
+player/custom/content/cache/client state. Wiki465-file publication verifies;
+owner gameplay acceptance remains pending. Evidence and QA:
 `docs/releases/quest-tier-handins-20261022/`.
 
+
+## 2026-10-22 — Native robe waist binding correction
+
+Owner QA rejected2203 with the gap visible while standing and moving; installed
+archive hashes match. Native DirectX overwrites the earlier torso influence list
+when the skirt repeats its pelvis group. The generator now groups each bone once,
+preserving exact physical geometry, UVs, normals and materials. Actual x86 library
+checks reproduce432 lost influences on the old16 registrations and zero after
+regrouping. PR291/main and signed game 2026102204 are published; all 140 hosted
+files and the retained DLL/catalog pair verify. Native visible recheck remains
+open; close EverQuest fully and use launcher Play. See
+[native binding proof and QA](docs/releases/classic-robes-20261022/native-skinning/README.md).
+
+## 2026-10-22 — Class-armor release and Palwar correction
+
+Owner-authorized PR285 is on main and all eleven quest scripts are activated.
+Thirty-seven substantial class-armor rewards now grant Ascended items; basic
+hand-ins remain unchanged. Palwar’s Vambraces, Breastplate and Plate Boots were
+upgraded while offline, changing only three item IDs and retaining all instance
+and other inventory data. No runtime restart or client/cache change was needed.
+Seventeen operator fault tests and five real temporary-table MariaDB rehearsals
+passed; uncertain SQL completion retains the admission hold. Native gameplay and
+balance QA remain open. [Deployment evidence](docs/releases/quest-armor-20261022/deployment/README.md).
+
+## 2026-10-22 — Classic robe waist correction
+
+Owner QA found a missing waist on Barbarian and Half Elf. All fourteen added
+models used unjoined torso/skirt surfaces. The generator now closes the eight
+native waist edges with matching local coordinates and pelvis binding, spreading
+the displacement down the skirt to prevent inverted faces. Existing UVs, bones,
+faces, native body parts and helmets remain. Twelve robe, sixteen helmet and
+three PFS tests pass; independent serialized-geometry review passes. Corrective
+signed game2026102203 is published through main PR286, preserving138 other
+client files and the waypoint pair. All140 client files and465 wiki files verify.
+Native waist/animation acceptance remains open. Evidence and recheck are tracked in
+[waist correction](docs/releases/classic-robes-20261022/waist-correction/README.md).
 
 ## 2026-10-22 — Substantial class-armor Ascended rewards (candidate)
 
@@ -23,8 +134,9 @@ selects existing Ascended variants for 37 Crafted, Lambent, Darkforge, Ivy
 Etched and Totemic rewards, preserving original hand-in requirements and XP.
 Kurron Ni's dependent Shadow Knight epic hand-in accepts the original or new
 Ascended Darkforge pieces without bypassing its three-piece/900pp requirement.
-No item-stat/client change or live inventory repair. Quest activation, public
-wiki release and owner gameplay/balance QA remain pending.
+No item-stat/client change or live inventory repair. Quest activation and owner
+gameplay/balance QA remain pending. Explicitly unreleased candidate guidance is
+included in wiki20261022-classic-robes-waist-v1.
 See [evidence and exact QA](docs/releases/quest-armor-20261022/README.md).
 
 ## 2026-10-22 — Classic race robes published for live QA

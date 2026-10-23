@@ -1,0 +1,1952 @@
+{
+  "identities": [
+    {
+      "kind": "npc",
+      "id": 985000,
+      "name": "Avatar_of_Fear"
+    },
+    {
+      "kind": "npc",
+      "id": 985001,
+      "name": "a_lizard_crusader"
+    },
+    {
+      "kind": "npc",
+      "id": 985002,
+      "name": "a_lizard_judicator"
+    },
+    {
+      "kind": "npc",
+      "id": 985003,
+      "name": "a_lizard_zealot"
+    },
+    {
+      "kind": "npc",
+      "id": 985004,
+      "name": "a_lizard_zealot"
+    },
+    {
+      "kind": "npc",
+      "id": 985005,
+      "name": "Tae_Ew_Diviner"
+    },
+    {
+      "kind": "npc",
+      "id": 985006,
+      "name": "Tae_Ew_Templar"
+    },
+    {
+      "kind": "npc",
+      "id": 985007,
+      "name": "Tae_Ew_Archon"
+    },
+    {
+      "kind": "npc",
+      "id": 985008,
+      "name": "a_lizard_defender"
+    },
+    {
+      "kind": "npc",
+      "id": 985009,
+      "name": "a_lizard_justicar"
+    },
+    {
+      "kind": "npc",
+      "id": 985010,
+      "name": "a_lizard_disciple"
+    },
+    {
+      "kind": "npc",
+      "id": 985011,
+      "name": "a_lizard_probationer"
+    },
+    {
+      "kind": "npc",
+      "id": 985012,
+      "name": "a_lizard_page"
+    },
+    {
+      "kind": "npc",
+      "id": 985013,
+      "name": "a_lizard_sentinel"
+    },
+    {
+      "kind": "npc",
+      "id": 985014,
+      "name": "a_clay_golem"
+    },
+    {
+      "kind": "npc",
+      "id": 985015,
+      "name": "a_lizard_herald"
+    },
+    {
+      "kind": "npc",
+      "id": 985016,
+      "name": "a_lizard_protector"
+    },
+    {
+      "kind": "npc",
+      "id": 985017,
+      "name": "a_lizard_fanatic"
+    },
+    {
+      "kind": "npc",
+      "id": 985018,
+      "name": "a_lizard_justicar"
+    },
+    {
+      "kind": "npc",
+      "id": 985019,
+      "name": "a_stone_golem"
+    },
+    {
+      "kind": "npc",
+      "id": 985020,
+      "name": "Cazic_Cenobite"
+    },
+    {
+      "kind": "npc",
+      "id": 985021,
+      "name": "a_steel_golem"
+    },
+    {
+      "kind": "npc",
+      "id": 985022,
+      "name": "a_hulking_gorilla"
+    },
+    {
+      "kind": "npc",
+      "id": 985023,
+      "name": "a_lizard_ritualist"
+    },
+    {
+      "kind": "npc",
+      "id": 985024,
+      "name": "an_alligator"
+    },
+    {
+      "kind": "npc",
+      "id": 985025,
+      "name": "Radiant"
+    },
+    {
+      "kind": "npc",
+      "id": 985026,
+      "name": "a_lizard_broodling"
+    },
+    {
+      "kind": "npc",
+      "id": 985027,
+      "name": "a_lizard_page"
+    },
+    {
+      "kind": "npc",
+      "id": 985028,
+      "name": "a_lizard_probationer"
+    },
+    {
+      "kind": "npc",
+      "id": 997900,
+      "name": "Freya_Ironmark"
+    },
+    {
+      "kind": "npc",
+      "id": 997901,
+      "name": "Serelis_Dawnmere"
+    },
+    {
+      "kind": "npc",
+      "id": 997902,
+      "name": "Brynn_Valeward"
+    },
+    {
+      "kind": "npc",
+      "id": 997903,
+      "name": "Sylwen_Leafrunner"
+    },
+    {
+      "kind": "npc",
+      "id": 997904,
+      "name": "Neryth_Duskblade"
+    },
+    {
+      "kind": "npc",
+      "id": 997905,
+      "name": "Faelira_Willowbend"
+    },
+    {
+      "kind": "npc",
+      "id": 997906,
+      "name": "Hana_Stillwater"
+    },
+    {
+      "kind": "npc",
+      "id": 997907,
+      "name": "Rilwen_Silverstring"
+    },
+    {
+      "kind": "npc",
+      "id": 997908,
+      "name": "Mira_Quickpalm"
+    },
+    {
+      "kind": "npc",
+      "id": 997909,
+      "name": "Astrid_Winterhorn"
+    },
+    {
+      "kind": "npc",
+      "id": 997910,
+      "name": "Kasira_Ashenveil"
+    },
+    {
+      "kind": "npc",
+      "id": 997911,
+      "name": "Selkira_Nightglass"
+    },
+    {
+      "kind": "npc",
+      "id": 997912,
+      "name": "Bimble_Cogspell"
+    },
+    {
+      "kind": "npc",
+      "id": 997913,
+      "name": "Aelira_Mistweave"
+    },
+    {
+      "kind": "npc",
+      "id": 997914,
+      "name": "Frida_Wolfkin"
+    },
+    {
+      "kind": "npc",
+      "id": 997915,
+      "name": "Ragna_Bloodfury"
+    },
+    {
+      "kind": "npc",
+      "id": 998000,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998001,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998002,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998003,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998004,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998005,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998006,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998007,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998008,
+      "name": "an_earthen_reject"
+    },
+    {
+      "kind": "npc",
+      "id": 998009,
+      "name": "an_earthen_reject"
+    },
+    {
+      "kind": "npc",
+      "id": 998010,
+      "name": "a_squeaking_rat"
+    },
+    {
+      "kind": "npc",
+      "id": 998011,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998012,
+      "name": "a_squeaking_rat"
+    },
+    {
+      "kind": "npc",
+      "id": 998013,
+      "name": "a_swooping_bat"
+    },
+    {
+      "kind": "npc",
+      "id": 998014,
+      "name": "a_granite_protector"
+    },
+    {
+      "kind": "npc",
+      "id": 998015,
+      "name": "a_granite_protector"
+    },
+    {
+      "kind": "npc",
+      "id": 998016,
+      "name": "a_granite_protector"
+    },
+    {
+      "kind": "npc",
+      "id": 998017,
+      "name": "golem_control"
+    },
+    {
+      "kind": "npc",
+      "id": 998018,
+      "name": "a_taelosian_controller"
+    },
+    {
+      "kind": "npc",
+      "id": 998019,
+      "name": "a_taelosian_controller"
+    },
+    {
+      "kind": "npc",
+      "id": 998020,
+      "name": "a_taelosian_controller"
+    },
+    {
+      "kind": "npc",
+      "id": 998021,
+      "name": "a_stoneshapen_gladiator"
+    },
+    {
+      "kind": "npc",
+      "id": 998022,
+      "name": "a_stoneshapen_gladiator"
+    },
+    {
+      "kind": "npc",
+      "id": 998023,
+      "name": "a_squeaking_rat"
+    },
+    {
+      "kind": "npc",
+      "id": 998024,
+      "name": "summon_control"
+    },
+    {
+      "kind": "npc",
+      "id": 998025,
+      "name": "a_yunjo_groundskeeper"
+    },
+    {
+      "kind": "npc",
+      "id": 998026,
+      "name": "a_yunjo_spectator"
+    },
+    {
+      "kind": "npc",
+      "id": 998027,
+      "name": "a_yunjo_groundskeeper"
+    },
+    {
+      "kind": "npc",
+      "id": 998028,
+      "name": "a_yunjo_pilgrim"
+    },
+    {
+      "kind": "npc",
+      "id": 998029,
+      "name": "a_yunjo_pilgrim"
+    },
+    {
+      "kind": "npc",
+      "id": 998030,
+      "name": "a_harindi_geomancer"
+    },
+    {
+      "kind": "npc",
+      "id": 998031,
+      "name": "a_harindi_geomancer"
+    },
+    {
+      "kind": "npc",
+      "id": 998032,
+      "name": "a_harindi_geomancer"
+    },
+    {
+      "kind": "npc",
+      "id": 998033,
+      "name": "a_yunjo_pilgrim"
+    },
+    {
+      "kind": "npc",
+      "id": 998034,
+      "name": "a_yunjo_pilgrim"
+    },
+    {
+      "kind": "npc",
+      "id": 998035,
+      "name": "a_yunjo_pilgrim"
+    },
+    {
+      "kind": "npc",
+      "id": 998036,
+      "name": "a_harindi_guide"
+    },
+    {
+      "kind": "npc",
+      "id": 999000,
+      "name": "#Roosevelt"
+    },
+    {
+      "kind": "npc",
+      "id": 999001,
+      "name": "#Kai"
+    },
+    {
+      "kind": "npc",
+      "id": 999002,
+      "name": "#Brutus"
+    },
+    {
+      "kind": "npc",
+      "id": 999003,
+      "name": "#Aristotle"
+    },
+    {
+      "kind": "npc",
+      "id": 999004,
+      "name": "#Zeus"
+    },
+    {
+      "kind": "npc",
+      "id": 999005,
+      "name": "________"
+    },
+    {
+      "kind": "npc",
+      "id": 999006,
+      "name": "#Ocho"
+    },
+    {
+      "kind": "npc",
+      "id": 999007,
+      "name": "#Toby"
+    },
+    {
+      "kind": "npc",
+      "id": 999008,
+      "name": "__________"
+    },
+    {
+      "kind": "npc",
+      "id": 999009,
+      "name": "#Napoleon"
+    },
+    {
+      "kind": "npc",
+      "id": 999010,
+      "name": "#Sprocket"
+    },
+    {
+      "kind": "npc",
+      "id": 999011,
+      "name": "#Mortimer"
+    },
+    {
+      "kind": "npc",
+      "id": 999012,
+      "name": "#Paulie"
+    },
+    {
+      "kind": "npc",
+      "id": 999013,
+      "name": "#Icarus"
+    },
+    {
+      "kind": "npc",
+      "id": 999014,
+      "name": "#Zeus__"
+    },
+    {
+      "kind": "npc",
+      "id": 999017,
+      "name": "#Toby__"
+    },
+    {
+      "kind": "npc",
+      "id": 999019,
+      "name": "#Napoleon__"
+    },
+    {
+      "kind": "npc",
+      "id": 999022,
+      "name": "#Paulie__"
+    },
+    {
+      "kind": "npc",
+      "id": 999024,
+      "name": "#Zeus_"
+    },
+    {
+      "kind": "npc",
+      "id": 999027,
+      "name": "#Toby_"
+    },
+    {
+      "kind": "npc",
+      "id": 999029,
+      "name": "#Napoleon_"
+    },
+    {
+      "kind": "npc",
+      "id": 999032,
+      "name": "#Paulie_"
+    },
+    {
+      "kind": "npc",
+      "id": 999100,
+      "name": "#____________"
+    },
+    {
+      "kind": "npc",
+      "id": 999101,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999102,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999103,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999104,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999105,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999106,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999107,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999108,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999109,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999110,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999111,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999112,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999113,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999114,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999115,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999116,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999117,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999118,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999119,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999120,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999121,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999122,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999123,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999124,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999125,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999126,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999127,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999128,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999129,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999130,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999131,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999132,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999133,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999134,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999135,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999136,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999137,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999138,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999139,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999140,
+      "name": "#____"
+    },
+    {
+      "kind": "npc",
+      "id": 999220,
+      "name": "The_Ancient_Chronicler"
+    },
+    {
+      "kind": "npc",
+      "id": 999221,
+      "name": "Arcane_Loremaster"
+    },
+    {
+      "kind": "npc",
+      "id": 999222,
+      "name": "Divine_Loremaster"
+    },
+    {
+      "kind": "npc",
+      "id": 999223,
+      "name": "Martial_Loremaster"
+    },
+    {
+      "kind": "npc",
+      "id": 999224,
+      "name": "Stalwart_Loremaster"
+    },
+    {
+      "kind": "npc",
+      "id": 999225,
+      "name": "Bartholomew_Packwell"
+    },
+    {
+      "kind": "npc",
+      "id": 999226,
+      "name": "Epic_Forgemaster"
+    },
+    {
+      "kind": "npc",
+      "id": 999227,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999228,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999229,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999230,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999231,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999232,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999233,
+      "name": "Instance_Keeper"
+    },
+    {
+      "kind": "npc",
+      "id": 999234,
+      "name": "Arcane_Loremaster_II"
+    },
+    {
+      "kind": "npc",
+      "id": 999235,
+      "name": "Divine_Loremaster_II"
+    },
+    {
+      "kind": "npc",
+      "id": 999236,
+      "name": "Stalwart_Loremaster_II"
+    },
+    {
+      "kind": "npc",
+      "id": 999237,
+      "name": "Matron_Restora"
+    },
+    {
+      "kind": "npc",
+      "id": 999238,
+      "name": "Magus_Goldwind"
+    },
+    {
+      "kind": "npc",
+      "id": 999239,
+      "name": "Waypoint_Master"
+    },
+    {
+      "kind": "npc",
+      "id": 999240,
+      "name": "a_waypoint"
+    },
+    {
+      "kind": "npc",
+      "id": 999258,
+      "name": "skel_pet_41_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999259,
+      "name": "skel_pet_43_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999260,
+      "name": "skel_pet_44_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999261,
+      "name": "skel_pet_47_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999262,
+      "name": "skel_pet_47_p10 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999263,
+      "name": "skel_pet_47_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999264,
+      "name": "skel_pet_61_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999265,
+      "name": "skel_pet_61_p15 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999266,
+      "name": "skel_pet_61_p20 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999267,
+      "name": "skel_pet_61_p25 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999268,
+      "name": "skel_pet_61_p30 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999269,
+      "name": "skel_pet_63_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999270,
+      "name": "skel_pet_63_p15 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999271,
+      "name": "skel_pet_63_p20 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999272,
+      "name": "skel_pet_63_p25 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999273,
+      "name": "skel_pet_63_p30 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999274,
+      "name": "skel_pet_65_ - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999275,
+      "name": "skel_pet_65_p15 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999276,
+      "name": "skel_pet_65_p20 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999277,
+      "name": "skel_pet_65_p25 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999278,
+      "name": "skel_pet_65_p30 - Copy"
+    },
+    {
+      "kind": "npc",
+      "id": 999500,
+      "name": "Rellan_Ridgewalker"
+    },
+    {
+      "kind": "npc",
+      "id": 999501,
+      "name": "Mirielle_Dusksong"
+    },
+    {
+      "kind": "npc",
+      "id": 999502,
+      "name": "Caelith_Emberweave"
+    },
+    {
+      "kind": "npc",
+      "id": 999503,
+      "name": "Bromli_Copperkeg"
+    },
+    {
+      "kind": "npc",
+      "id": 999504,
+      "name": "Tamsin_Quickstep"
+    },
+    {
+      "kind": "npc",
+      "id": 999505,
+      "name": "Varkyn_Ashblade"
+    },
+    {
+      "kind": "npc",
+      "id": 999506,
+      "name": "Harlon_Frostbeard"
+    },
+    {
+      "kind": "npc",
+      "id": 999507,
+      "name": "Nimri_Mossfoot"
+    },
+    {
+      "kind": "npc",
+      "id": 999508,
+      "name": "Grukk_Bargainhand"
+    },
+    {
+      "kind": "npc",
+      "id": 999509,
+      "name": "Selindra_Starsong"
+    },
+    {
+      "kind": "npc",
+      "id": 999520,
+      "name": "Sortre_Blackdragon"
+    },
+    {
+      "kind": "npc",
+      "id": 999521,
+      "name": "Camil_Silvermist"
+    },
+    {
+      "kind": "npc",
+      "id": 999522,
+      "name": "Rekk_Diver"
+    },
+    {
+      "kind": "npc",
+      "id": 999523,
+      "name": "Nalin_Shadowbane"
+    },
+    {
+      "kind": "npc",
+      "id": 999524,
+      "name": "Trift"
+    },
+    {
+      "kind": "npc",
+      "id": 999525,
+      "name": "Khalure_Ser`Tiras"
+    },
+    {
+      "kind": "npc",
+      "id": 999526,
+      "name": "Glorphyndel"
+    },
+    {
+      "kind": "npc",
+      "id": 999527,
+      "name": "Khaleid"
+    },
+    {
+      "kind": "npc",
+      "id": 999600,
+      "name": "Tessa"
+    },
+    {
+      "kind": "npc",
+      "id": 999601,
+      "name": "Berrin"
+    },
+    {
+      "kind": "npc",
+      "id": 999602,
+      "name": "Torvik"
+    },
+    {
+      "kind": "npc",
+      "id": 999603,
+      "name": "Haldra"
+    },
+    {
+      "kind": "npc",
+      "id": 999604,
+      "name": "Pella"
+    },
+    {
+      "kind": "npc",
+      "id": 999605,
+      "name": "Odel"
+    },
+    {
+      "kind": "npc",
+      "id": 999606,
+      "name": "Mara"
+    },
+    {
+      "kind": "npc",
+      "id": 999607,
+      "name": "Fenna"
+    },
+    {
+      "kind": "npc",
+      "id": 999608,
+      "name": "Aven"
+    },
+    {
+      "kind": "npc",
+      "id": 999609,
+      "name": "Della"
+    },
+    {
+      "kind": "npc",
+      "id": 999610,
+      "name": "Corin"
+    },
+    {
+      "kind": "npc",
+      "id": 999611,
+      "name": "Nelli"
+    },
+    {
+      "kind": "npc",
+      "id": 999612,
+      "name": "Yara"
+    },
+    {
+      "kind": "npc",
+      "id": 999613,
+      "name": "Fenrik"
+    },
+    {
+      "kind": "npc",
+      "id": 999614,
+      "name": "Mosslin"
+    },
+    {
+      "kind": "npc",
+      "id": 999615,
+      "name": "Usha"
+    },
+    {
+      "kind": "npc",
+      "id": 999616,
+      "name": "Rusk"
+    },
+    {
+      "kind": "npc",
+      "id": 999617,
+      "name": "Vessa"
+    },
+    {
+      "kind": "npc",
+      "id": 999618,
+      "name": "Ilyen"
+    },
+    {
+      "kind": "npc",
+      "id": 999619,
+      "name": "Meris"
+    },
+    {
+      "kind": "npc",
+      "id": 999620,
+      "name": "Davin"
+    },
+    {
+      "kind": "npc",
+      "id": 999621,
+      "name": "Finn"
+    },
+    {
+      "kind": "npc",
+      "id": 999650,
+      "name": "Garran"
+    },
+    {
+      "kind": "npc",
+      "id": 999651,
+      "name": "Elowen"
+    },
+    {
+      "kind": "npc",
+      "id": 999652,
+      "name": "Aldric"
+    },
+    {
+      "kind": "npc",
+      "id": 999653,
+      "name": "Maren"
+    },
+    {
+      "kind": "npc",
+      "id": 999654,
+      "name": "Veyra"
+    },
+    {
+      "kind": "npc",
+      "id": 999655,
+      "name": "Thalen"
+    },
+    {
+      "kind": "npc",
+      "id": 999656,
+      "name": "Joren"
+    },
+    {
+      "kind": "npc",
+      "id": 999657,
+      "name": "Liora"
+    },
+    {
+      "kind": "npc",
+      "id": 999658,
+      "name": "Silas"
+    },
+    {
+      "kind": "npc",
+      "id": 999659,
+      "name": "Korra"
+    },
+    {
+      "kind": "npc",
+      "id": 999660,
+      "name": "Velis"
+    },
+    {
+      "kind": "npc",
+      "id": 999661,
+      "name": "Orwen"
+    },
+    {
+      "kind": "npc",
+      "id": 999662,
+      "name": "Mirel"
+    },
+    {
+      "kind": "npc",
+      "id": 999663,
+      "name": "Sarina"
+    },
+    {
+      "kind": "npc",
+      "id": 999664,
+      "name": "Torren"
+    },
+    {
+      "kind": "npc",
+      "id": 999665,
+      "name": "Brakka"
+    },
+    {
+      "kind": "npc",
+      "id": 999680,
+      "name": "Doran"
+    },
+    {
+      "kind": "npc",
+      "id": 999681,
+      "name": "Mella"
+    },
+    {
+      "kind": "npc",
+      "id": 999682,
+      "name": "Kavin"
+    },
+    {
+      "kind": "npc",
+      "id": 999683,
+      "name": "Brinna"
+    },
+    {
+      "kind": "npc",
+      "id": 999684,
+      "name": "Osric"
+    },
+    {
+      "kind": "npc",
+      "id": 999685,
+      "name": "Tyra"
+    },
+    {
+      "kind": "npc",
+      "id": 999700,
+      "name": "Alwen"
+    },
+    {
+      "kind": "npc",
+      "id": 999701,
+      "name": "Borin"
+    },
+    {
+      "kind": "npc",
+      "id": 999702,
+      "name": "Cassia"
+    },
+    {
+      "kind": "npc",
+      "id": 999703,
+      "name": "Darik"
+    },
+    {
+      "kind": "npc",
+      "id": 999704,
+      "name": "Esme"
+    },
+    {
+      "kind": "npc",
+      "id": 999705,
+      "name": "Galen"
+    },
+    {
+      "kind": "npc",
+      "id": 999706,
+      "name": "Hessa"
+    },
+    {
+      "kind": "npc",
+      "id": 999707,
+      "name": "Iven"
+    },
+    {
+      "kind": "npc",
+      "id": 999810,
+      "name": "Merrin"
+    },
+    {
+      "kind": "npc",
+      "id": 999820,
+      "name": "Artisan_Veyra"
+    },
+    {
+      "kind": "npc",
+      "id": 999821,
+      "name": "Mira_Coinwell"
+    },
+    {
+      "kind": "group",
+      "id": 985000
+    },
+    {
+      "kind": "group",
+      "id": 985001
+    },
+    {
+      "kind": "group",
+      "id": 985002
+    },
+    {
+      "kind": "group",
+      "id": 985003
+    },
+    {
+      "kind": "group",
+      "id": 985004
+    },
+    {
+      "kind": "group",
+      "id": 985005
+    },
+    {
+      "kind": "group",
+      "id": 985006
+    },
+    {
+      "kind": "group",
+      "id": 985007
+    },
+    {
+      "kind": "group",
+      "id": 985008
+    },
+    {
+      "kind": "group",
+      "id": 985009
+    },
+    {
+      "kind": "group",
+      "id": 985010
+    },
+    {
+      "kind": "group",
+      "id": 985011
+    },
+    {
+      "kind": "group",
+      "id": 985012
+    },
+    {
+      "kind": "group",
+      "id": 985013
+    },
+    {
+      "kind": "group",
+      "id": 985014
+    },
+    {
+      "kind": "group",
+      "id": 985015
+    },
+    {
+      "kind": "group",
+      "id": 985016
+    },
+    {
+      "kind": "group",
+      "id": 985017
+    },
+    {
+      "kind": "group",
+      "id": 985018
+    },
+    {
+      "kind": "group",
+      "id": 985019
+    },
+    {
+      "kind": "group",
+      "id": 985020
+    },
+    {
+      "kind": "group",
+      "id": 985021
+    },
+    {
+      "kind": "group",
+      "id": 985022
+    },
+    {
+      "kind": "group",
+      "id": 985023
+    },
+    {
+      "kind": "group",
+      "id": 985024
+    },
+    {
+      "kind": "group",
+      "id": 985025
+    },
+    {
+      "kind": "group",
+      "id": 985026
+    },
+    {
+      "kind": "group",
+      "id": 985027
+    },
+    {
+      "kind": "group",
+      "id": 985028
+    },
+    {
+      "kind": "group",
+      "id": 985029
+    },
+    {
+      "kind": "group",
+      "id": 985030
+    },
+    {
+      "kind": "group",
+      "id": 985031
+    },
+    {
+      "kind": "group",
+      "id": 985032
+    },
+    {
+      "kind": "group",
+      "id": 985033
+    },
+    {
+      "kind": "group",
+      "id": 985034
+    },
+    {
+      "kind": "group",
+      "id": 985035
+    },
+    {
+      "kind": "group",
+      "id": 985036
+    },
+    {
+      "kind": "group",
+      "id": 985037
+    },
+    {
+      "kind": "group",
+      "id": 985038
+    },
+    {
+      "kind": "group",
+      "id": 985039
+    },
+    {
+      "kind": "group",
+      "id": 985040
+    },
+    {
+      "kind": "group",
+      "id": 985041
+    },
+    {
+      "kind": "group",
+      "id": 985042
+    },
+    {
+      "kind": "group",
+      "id": 985043
+    },
+    {
+      "kind": "group",
+      "id": 985044
+    },
+    {
+      "kind": "group",
+      "id": 985045
+    },
+    {
+      "kind": "group",
+      "id": 985046
+    },
+    {
+      "kind": "group",
+      "id": 985047
+    },
+    {
+      "kind": "group",
+      "id": 997900
+    },
+    {
+      "kind": "group",
+      "id": 997901
+    },
+    {
+      "kind": "group",
+      "id": 997902
+    },
+    {
+      "kind": "group",
+      "id": 997903
+    },
+    {
+      "kind": "group",
+      "id": 997904
+    },
+    {
+      "kind": "group",
+      "id": 997905
+    },
+    {
+      "kind": "group",
+      "id": 997906
+    },
+    {
+      "kind": "group",
+      "id": 997907
+    },
+    {
+      "kind": "group",
+      "id": 997908
+    },
+    {
+      "kind": "group",
+      "id": 997909
+    },
+    {
+      "kind": "group",
+      "id": 997910
+    },
+    {
+      "kind": "group",
+      "id": 997911
+    },
+    {
+      "kind": "group",
+      "id": 997912
+    },
+    {
+      "kind": "group",
+      "id": 997913
+    },
+    {
+      "kind": "group",
+      "id": 997914
+    },
+    {
+      "kind": "group",
+      "id": 997915
+    },
+    {
+      "kind": "group",
+      "id": 999220
+    },
+    {
+      "kind": "group",
+      "id": 999221
+    },
+    {
+      "kind": "group",
+      "id": 999222
+    },
+    {
+      "kind": "group",
+      "id": 999223
+    },
+    {
+      "kind": "group",
+      "id": 999224
+    },
+    {
+      "kind": "group",
+      "id": 999225
+    },
+    {
+      "kind": "group",
+      "id": 999226
+    },
+    {
+      "kind": "group",
+      "id": 999227
+    },
+    {
+      "kind": "group",
+      "id": 999228
+    },
+    {
+      "kind": "group",
+      "id": 999229
+    },
+    {
+      "kind": "group",
+      "id": 999230
+    },
+    {
+      "kind": "group",
+      "id": 999231
+    },
+    {
+      "kind": "group",
+      "id": 999232
+    },
+    {
+      "kind": "group",
+      "id": 999233
+    },
+    {
+      "kind": "group",
+      "id": 999234
+    },
+    {
+      "kind": "group",
+      "id": 999235
+    },
+    {
+      "kind": "group",
+      "id": 999236
+    },
+    {
+      "kind": "group",
+      "id": 999237
+    },
+    {
+      "kind": "group",
+      "id": 999238
+    },
+    {
+      "kind": "group",
+      "id": 999239
+    },
+    {
+      "kind": "group",
+      "id": 999240
+    },
+    {
+      "kind": "group",
+      "id": 999500
+    },
+    {
+      "kind": "group",
+      "id": 999501
+    },
+    {
+      "kind": "group",
+      "id": 999502
+    },
+    {
+      "kind": "group",
+      "id": 999503
+    },
+    {
+      "kind": "group",
+      "id": 999504
+    },
+    {
+      "kind": "group",
+      "id": 999505
+    },
+    {
+      "kind": "group",
+      "id": 999506
+    },
+    {
+      "kind": "group",
+      "id": 999507
+    },
+    {
+      "kind": "group",
+      "id": 999508
+    },
+    {
+      "kind": "group",
+      "id": 999509
+    },
+    {
+      "kind": "group",
+      "id": 999520
+    },
+    {
+      "kind": "group",
+      "id": 999521
+    },
+    {
+      "kind": "group",
+      "id": 999522
+    },
+    {
+      "kind": "group",
+      "id": 999523
+    },
+    {
+      "kind": "group",
+      "id": 999524
+    },
+    {
+      "kind": "group",
+      "id": 999525
+    },
+    {
+      "kind": "group",
+      "id": 999526
+    },
+    {
+      "kind": "group",
+      "id": 999527
+    },
+    {
+      "kind": "group",
+      "id": 999600
+    },
+    {
+      "kind": "group",
+      "id": 999601
+    },
+    {
+      "kind": "group",
+      "id": 999602
+    },
+    {
+      "kind": "group",
+      "id": 999603
+    },
+    {
+      "kind": "group",
+      "id": 999604
+    },
+    {
+      "kind": "group",
+      "id": 999605
+    },
+    {
+      "kind": "group",
+      "id": 999606
+    },
+    {
+      "kind": "group",
+      "id": 999607
+    },
+    {
+      "kind": "group",
+      "id": 999608
+    },
+    {
+      "kind": "group",
+      "id": 999609
+    },
+    {
+      "kind": "group",
+      "id": 999610
+    },
+    {
+      "kind": "group",
+      "id": 999611
+    },
+    {
+      "kind": "group",
+      "id": 999612
+    },
+    {
+      "kind": "group",
+      "id": 999613
+    },
+    {
+      "kind": "group",
+      "id": 999614
+    },
+    {
+      "kind": "group",
+      "id": 999615
+    },
+    {
+      "kind": "group",
+      "id": 999616
+    },
+    {
+      "kind": "group",
+      "id": 999617
+    },
+    {
+      "kind": "group",
+      "id": 999618
+    },
+    {
+      "kind": "group",
+      "id": 999619
+    },
+    {
+      "kind": "group",
+      "id": 999620
+    },
+    {
+      "kind": "group",
+      "id": 999621
+    },
+    {
+      "kind": "group",
+      "id": 999650
+    },
+    {
+      "kind": "group",
+      "id": 999651
+    },
+    {
+      "kind": "group",
+      "id": 999652
+    },
+    {
+      "kind": "group",
+      "id": 999653
+    },
+    {
+      "kind": "group",
+      "id": 999654
+    },
+    {
+      "kind": "group",
+      "id": 999655
+    },
+    {
+      "kind": "group",
+      "id": 999656
+    },
+    {
+      "kind": "group",
+      "id": 999657
+    },
+    {
+      "kind": "group",
+      "id": 999658
+    },
+    {
+      "kind": "group",
+      "id": 999659
+    },
+    {
+      "kind": "group",
+      "id": 999660
+    },
+    {
+      "kind": "group",
+      "id": 999661
+    },
+    {
+      "kind": "group",
+      "id": 999662
+    },
+    {
+      "kind": "group",
+      "id": 999663
+    },
+    {
+      "kind": "group",
+      "id": 999664
+    },
+    {
+      "kind": "group",
+      "id": 999665
+    },
+    {
+      "kind": "group",
+      "id": 999680
+    },
+    {
+      "kind": "group",
+      "id": 999681
+    },
+    {
+      "kind": "group",
+      "id": 999682
+    },
+    {
+      "kind": "group",
+      "id": 999683
+    },
+    {
+      "kind": "group",
+      "id": 999684
+    },
+    {
+      "kind": "group",
+      "id": 999685
+    },
+    {
+      "kind": "group",
+      "id": 999700
+    },
+    {
+      "kind": "group",
+      "id": 999701
+    },
+    {
+      "kind": "group",
+      "id": 999702
+    },
+    {
+      "kind": "group",
+      "id": 999703
+    },
+    {
+      "kind": "group",
+      "id": 999704
+    },
+    {
+      "kind": "group",
+      "id": 999705
+    },
+    {
+      "kind": "group",
+      "id": 999706
+    },
+    {
+      "kind": "group",
+      "id": 999707
+    },
+    {
+      "kind": "group",
+      "id": 999810
+    },
+    {
+      "kind": "group",
+      "id": 999820
+    },
+    {
+      "kind": "group",
+      "id": 999821
+    }
+  ],
+  "map_sha256": {
+    "blackburrow": "7ce27b4f371db575fd30b9905427022793eae59298416b75c5c5c95c4442952a",
+    "crushbone": "c71947ec16390c697184922478564bc7163e82ec5750f66e809a69659adc88da",
+    "runnyeye": "204eac659a2e56d2efeff25f0e5e1d77e071e5875b6c0e3ebd53a17dc0151a8f",
+    "soldunga": "b526c645ab0391bfb295f63bea45101d175bec609f17dd10d16d84ea2b112d60",
+    "guktop": "225531e47c92e702a24a0c7a34bc5be64f59efd1fd0c9e92c48d3b95e00d3038",
+    "gukbottom": "fb7fd1f8a863ce87ad3b2effaa139c23593a00510b83437ee840a0fc85ee6e2c",
+    "mistmoore": "d3d1727fe14d30b48cff88c2859d0caba5a6cb7293253545e5e508a7647b419d",
+    "kedge": "8cdb6253e0be8d6c54e62daf2ad7de6fdd9cdc038a09eee27dfe58d0c8621e99",
+    "paw": "7d96d4cd41b0a13bd8f1df29ed71e3faa9ef0e3f157258edc7ec39977fa6e570",
+    "hole": "0ef90649ca040a99aa2bee06864a68e9e3e65d41a081e903723ec0d935252e93",
+    "qcat": "bc9eb0fe07dca8b3ac272596b5aadb36864b6bd9145565b3d0a1c831ed7d5dda",
+    "fearplane": "6019a02993021507bbe2ba19d31c277da9db8e980e97a99c54d04908cfa96652",
+    "hateplane": "6a2102ad38830015a9d78bcb47ca145e062dfd71d24ae69a944bf13df8b76639",
+    "airplane": "14f5ff983d88498832bbc6598503705f0e767600cff8103284aad7543feb6937"
+  }
+}

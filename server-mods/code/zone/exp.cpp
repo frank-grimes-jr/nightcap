@@ -16,6 +16,7 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "common/aa_progression.h"
 #include "common/data_bucket.h"
 #include "common/data_verification.h"
 #include "common/events/player_event_logs.h"
@@ -416,11 +417,8 @@ void Client::CalculateExp(uint64 in_add_exp, uint64 &add_exp, uint64 &add_aaxp, 
 
 	if (!resexp)
 	{
-		// Compute a full AA award independently. Only focused AA mode diverts XP.
+		// Retain the full raw AA basis for legacy mode; split normal XP after modifiers.
 		add_aaxp = add_exp;
-		if (m_epp.perAA == 100) {
-			add_exp = 0;
-		}
 
 		float totalmod = 1.0;
 		float zemmod = 1.0;
@@ -487,25 +485,47 @@ void Client::CalculateExp(uint64 in_add_exp, uint64 &add_exp, uint64 &add_aaxp, 
 		auto experience_for_level = (GetEXPForLevel(GetLevel() + 1) - GetEXPForLevel(GetLevel()));
 		float exp_percent = (float)((float)add_exp / (float)(GetEXPForLevel(GetLevel() + 1) - GetEXPForLevel(GetLevel()))) * (float)100; //EXP needed for level
 		if (exp_percent > kill_percent_xp_cap) {
-			add_exp = GetEXP() + static_cast<uint64>(std::floor(experience_for_level * (kill_percent_xp_cap / 100.0f)));
-			return;
+			add_exp = static_cast<uint64>(std::floor(experience_for_level * (kill_percent_xp_cap / 100.0f)));
 		}
 	}
 
+	if (!resexp) {
+		if (RuleI(AA, LevelBasedPointsPerLevel) > 0) {
+			// Same modified XP basis at every allocation, before level-cap clamping.
+			add_aaxp = add_exp;
+		}
+		add_exp = AAProgression::LevelShare(add_exp, m_epp.perAA);
+	}
 	add_exp = GetEXP() + add_exp;
+}
+
+uint64 Client::CalculateLevelBasedAAExp(uint64 full_xp, uint64 level_xp)
+{
+	int max_level = RuleI(Character, MaxExpLevel);
+	if (max_level <= 0) {
+		max_level = RuleI(Character, MaxLevel);
+	}
+	if (GetClientMaxLevel()) {
+		max_level = GetClientMaxLevel();
+	}
+	return AAProgression::Award(full_xp, level_xp, GetEXP(), GetLevel(),
+		std::clamp(max_level, 1, 126), m_epp.perAA,
+		std::clamp(RuleI(AA, PassiveExpPercent), 0, 100),
+		std::clamp(RuleI(AA, LevelBasedPointsPerLevel), 0, 1000),
+		GetRequiredAAExperience(), [this](uint16 level) { return GetEXPForLevel(level); });
 }
 
 void Client::NormalizeAAAllocation()
 {
-	const int cap = RuleI(AA, UnusedAAPointCap);
-	const bool eligible = GetLevel() >= RuleI(Character, AAExpMinLevel)
-		&& (cap < 0 || GetAAPoints() < static_cast<uint32>(cap));
-	m_epp.perAA = eligible && m_epp.perAA > 0 && m_epp.perAA <= 100 ? 100 : 0;
+	// A full AA bank must never silently resume leveling at 100% allocation.
+	if (GetLevel() < RuleI(Character, AAExpMinLevel) || m_epp.perAA > 100) {
+		m_epp.perAA = 0;
+	}
 }
 
 // Input is a full, modified AA award. Return the new total for SetEXP, which
 // owns point conversion, events and client updates. Never erase existing AAs.
-uint64 Client::FinalizeAAExperience(uint64 aaexp, bool passive)
+uint64 Client::FinalizeAAExperience(uint64 aaexp, bool level_scaled)
 {
 	const uint64 current = GetAAXP();
 	const int cap = RuleI(AA, UnusedAAPointCap);
@@ -515,7 +535,7 @@ uint64 Client::FinalizeAAExperience(uint64 aaexp, bool passive)
 	}
 
 	// Are we also doing linear AA acceleration?
-	if (RuleB(AA, ModernAAScalingEnabled) && aaexp > 0)
+	if (!level_scaled && RuleB(AA, ModernAAScalingEnabled) && aaexp > 0)
 	{
 		aaexp = ScaleAAXPBasedOnCurrentAATotal(GetSpentAA() + GetAAPoints(), aaexp);
 	}
@@ -525,10 +545,11 @@ uint64 Client::FinalizeAAExperience(uint64 aaexp, bool passive)
 		aaexp = RuleI(AA, MaxAAEXPPerKill);
 	}
 
-	if (passive) {
-		const uint64 percent = std::clamp(RuleI(AA, PassiveExpPercent), 0, 100);
-		// Divide first to avoid overflow; tiny awards deliberately round down.
-		aaexp = (aaexp / 100) * percent + (aaexp % 100) * percent / 100;
+	if (!level_scaled) {
+		const uint64 passive = std::clamp(RuleI(AA, PassiveExpPercent), 0, 100);
+		const uint64 weight = m_epp.perAA * 100 + passive * (100 - m_epp.perAA);
+		// Passive AA follows the retained leveling fraction; never double-pay focus.
+		aaexp = (aaexp / 10000) * weight + (aaexp % 10000) * weight / 10000;
 	}
 
 	// Bound the total before addition and before SetEXP converts it to points.
@@ -548,12 +569,13 @@ void Client::AddEXP(ExpSource exp_source, uint64 in_add_exp, uint8 conlevel, boo
 	uint64 exp = 0;
 	uint64 aaexp = 0;
 	CalculateExp(in_add_exp, exp, aaexp, conlevel, resexp);
-	const bool passive = m_epp.perAA == 0;
+	const bool level_scaled = RuleI(AA, LevelBasedPointsPerLevel) > 0;
 	const bool progression = exp_source == ExpSource::Kill || exp_source == ExpSource::Quest || exp_source == ExpSource::Task;
-	if (!resexp && aaexp > 0 && (!passive || progression)) {
-		// Quest/task awards have no con color. Even with normalized kills enabled,
-		// their AA value follows the actual reward amount.
-		if (RuleB(AA, NormalizedAAEnabled) && exp_source == ExpSource::Kill && conlevel != 0xFF) {
+	if (!resexp && aaexp > 0 && (progression || (!level_scaled && m_epp.perAA > 0))) {
+		if (level_scaled) {
+			aaexp = exp_source == ExpSource::Kill && conlevel == ConsiderColor::Gray ? 0
+				: CalculateLevelBasedAAExp(aaexp, exp - GetEXP());
+		} else if (RuleB(AA, NormalizedAAEnabled) && exp_source == ExpSource::Kill && conlevel != 0xFF) {
 			CalculateNormalizedAAExp(aaexp, conlevel, false);
 		} else {
 			CalculateStandardAAExp(aaexp, conlevel, false);
@@ -561,7 +583,7 @@ void Client::AddEXP(ExpSource exp_source, uint64 in_add_exp, uint8 conlevel, boo
 	} else {
 		aaexp = 0;
 	}
-	aaexp = FinalizeAAExperience(aaexp, passive);
+	aaexp = FinalizeAAExperience(aaexp, level_scaled);
 
 	// Now update our character's normal and AA xp
 	SetEXP(exp_source, exp, aaexp, resexp, npc);
@@ -1127,11 +1149,13 @@ void Client::AddLevelBasedExp(ExpSource exp_source, uint8 exp_percentage, uint8 
 		aaexp *= RuleR(Character, FinalExpMultiplier);
 	}
 
-	const bool passive = m_epp.perAA == 0;
+	const bool level_scaled = RuleI(AA, LevelBasedPointsPerLevel) > 0;
 	const bool progression = exp_source == ExpSource::Quest || exp_source == ExpSource::Task;
-	if (!passive || progression) {
-		// Both branches already include their level-specific and final modifiers.
-		// Percentage rewards do not also take raw kill/zone XP multipliers.
+	const uint64 level_award = AAProgression::LevelShare(award, m_epp.perAA);
+	if (level_scaled) {
+		aaexp = progression ? CalculateLevelBasedAAExp(award, level_award) : 0;
+	} else if (m_epp.perAA > 0 || progression) {
+		// Legacy AA-only modifiers remain available when level scaling is disabled.
 		aaexp = RuleR(Character, AAExpMultiplier) > 0 ? static_cast<uint64>(aaexp * RuleR(Character, AAExpMultiplier)) : 0;
 		if (RuleB(Character, EnableCharacterEXPMods)) {
 			aaexp *= zone->GetAAEXPModifier(this);
@@ -1139,7 +1163,7 @@ void Client::AddLevelBasedExp(ExpSource exp_source, uint8 exp_percentage, uint8 
 	} else {
 		aaexp = 0;
 	}
-	SetEXP(exp_source, GetEXP() + (passive ? award : 0), FinalizeAAExperience(aaexp, passive));
+	SetEXP(exp_source, GetEXP() + level_award, FinalizeAAExperience(aaexp, level_scaled));
 }
 
 void Group::SplitExp(ExpSource exp_source, const uint64 exp, Mob* other) {

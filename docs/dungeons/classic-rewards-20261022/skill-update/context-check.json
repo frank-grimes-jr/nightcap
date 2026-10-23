@@ -1,0 +1,264 @@
+{
+  "audited_at": "2026-10-22",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "items": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_reward_migration.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_catalog.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_contract.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_refresh_contract.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_policy.h",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_contract.h",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\sql\\20261022_classic_dungeon_rewards.sql",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_reward_cache.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\README.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\QA.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\REWARDS.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\verification.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\rehearsal.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\build-manifest.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\cache-verification.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\review.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      }
+    ],
+    "world": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_reward_migration.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_catalog.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_contract.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_refresh_contract.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_policy.h",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_contract.h",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\sql\\20261022_classic_dungeon_rewards.sql",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_reward_cache.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\README.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\QA.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\REWARDS.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\verification.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\rehearsal.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\build-manifest.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\cache-verification.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\review.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      }
+    ],
+    "balance": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_rewards.py",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\QA.md",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\dungeon-modes.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\equipment.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\features.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\index.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\travel.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\content-review.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-rewards-20261022\\wiki-review.json",
+        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

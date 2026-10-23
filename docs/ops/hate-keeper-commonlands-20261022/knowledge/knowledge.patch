@@ -1,0 +1,822 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -1,4 +1,25 @@
+ # Quests, tunnel services and travel
++
++## Hate Keeper in Commonlands — October22 candidate
++
++Source E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands, feature/hate-keeper-commonlands.
++Built/tested, not main-promoted or deployed; owner main/live sign-off is pending.
++The public Hate Keeper998812/spawn9100012 moves to East Commonlands22 at
++/loc -1570,-346,3 between Mirielle and Khalure. KeeperDungeon binds this exact
++public host/NPC to Hate76. Admission precedes mutations; arrival uses destination
++safe coordinates and JournalForRun selects Hate. A private-only spawn overrides
++the moved base on fresh and checkpoint loads, retaining the entrance service.
++Removing Hate's status80 restriction also opens public classic Hate to ordinary
++level46+ players; level46 is retained. No client/quest/world/cache change.
++
++Install scoped SQL and the new zone together, with a full controlled runtime
++restart. The read-only audit found zero unmanaged Hate instances; repeat the
++NULL-safe notes check after writers stop. Capture fresh public saved rows then;
++invalidate only the old non-corpse Keeper, never restore player/run snapshots.
++39schema/499content successor checks, exact-baseline build,18 source regressions,
++SQL forward/failure/inverse/scope rehearsal and production-matching terrain pass.
++Independent source/operator review completed; live execution and native QA remain
++open. Evidence/recovery/exact QA: docs/ops/hate-keeper-commonlands-20261022/.
+ 
+ ## Quest ingredient qualities — October22 deployed for live QA
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,16 @@
+ # Official player wiki and Features
++
++## Hate Keeper relocation — October22 candidate guidance
++
++E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki branches from the published Build Lab
++source5dff50c. Seven Not released notices cover Hate's proposed Commonlands spot,
++level46 access and private entrance continuity. All22 guides/432 generated routes
++were assessed; commands,384 Hunt catalog values, Build Lab and the interactive
++handbook remain.16 wiki checks pass and459 pages build. Source drift is recorded
++without blindly advancing the ledger. This candidate is not published and does
++not supersede the current Build Lab public release. Main/live and owner QA gates
++remain open. Evidence: docs/ops/hate-keeper-commonlands-20261022/wiki-review.json
++in the gameplay candidate checkout; publish only after verified live activation.
+ 
+ ## Build Lab — October22 published
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -86,7 +86,9 @@
+     "quest_armor_deployed_20261022": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a; main PR285/7f97288;11quests/Palwar correction/wiki-v2 verified; native QA pending",
+     "classic_dungeon_rewards_live_20261022": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+     "wiki_interactive_20261022": "b6fe8e2965df33c7961d61c3f2659bdaae5e0b2e",
+-    "build_lab_20261022": "35c8e17a2f2395f96c787ab38d06344a3e962b0b"
++    "build_lab_20261022": "35c8e17a2f2395f96c787ab38d06344a3e962b0b",
++    "hate_keeper_world_candidate_20261022": "af58032512ff50435fa925e5c21dd207be140843",
++    "hate_keeper_wiki_candidate_20261022": "5bd264fdb41b42b9a241b12d91d0d4b393c58736"
+   },
+   "topics": {
+     "operations": [
+@@ -4326,13 +4328,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/code/zone/dungeon_service.cpp",
+-        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+-        "revision": "cdc9772011b24cae65e4afcd0930f4f8b6397c55",
+-        "sha256": "d3c2281e91b97c01edb33887d2b2f36f150a4539e37b311b44249953d42339b7"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+         "path": "server-mods/code/zone/spawn2.cpp",
+         "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+         "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+@@ -4438,13 +4433,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "tools/tests/test_dungeon_journal.py",
+-        "revision": "cdc9772011b24cae65e4afcd0930f4f8b6397c55",
+-        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+-        "sha256": "c81b610340bf5baf8f37dd253ecbb4290ea332329f871292dd0e7a6e109e8067"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+         "path": "docs/dungeons/verification.json",
+         "revision": "b92061d617e8d169489aab0313bf284616ad5a5d",
+         "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+@@ -5145,276 +5133,318 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/code/zone/dungeon_service.h",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/code/zone/lua_general.cpp",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/lua_modules/nightcap_dungeons.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "7bded6e8ad4dae6ecac00aadb17ab9f01bc1957f566981f6f1d168937c435636",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/#Sister_of_the_Spire.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "f7ebf89c5dbf2b5d42fbe92f9ff5d1915299e430efcb901910d7c13b304bc6b1",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Bazzt_Zzzt.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "f9b9718edf5d2d8e9806a6b6dff014ac0492f0a98b2df998f98851ea0eae6fbc",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Bzzzt.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "05b61474b8271c9b844038ee0f3db2ee6743a23f57a17eec1f9d8e08af154d3f",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Gorgalosk.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "94eb59f73af051fb117060e48e075b03ad7a4a14cfa3e678aa738c8629bcdbf3",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Keeper_of_Souls.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "7b1d5d0d356b7ce0be54ebb0617bcd8bb0180767ea72966ae891e8a7953493ee",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Key_Master.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "8afbd2f723d9ea860a86310faf994e56294d4c8df11a3a4a94b1c9d826f3f5a3",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Protector_of_Sky.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "ddf97467605167b83a3b020e8d98639b61054062e9cee70a5d2c9c30e1e39146",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/Sirran_the_Lunatic.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "70caf6cbbc1d88b38e9b1101d52fb1865d74f43c7444656033208f47f8022824",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/The_Spiroc_Lord.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "761255de20bf6f89e914837d3f42f84e81dabe710bebae4b9b1910b72f7ee768",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/airplane/a_thunder_spirit_princess.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "fdaa3d458d83a857b01b07cbc57b2cb95d49a147d8617011b2df54708660dbbf",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/quests/fearplane/Cazic_Thule.lua",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "ca26aff682e1205e3af17a2e75248b83b34ce25f6900b6a51a7abe2db9e3739f",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/sql/20261022_classic_dungeon_rewards.sql",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "0fbce207ca162f6aae7bcf31eacbcce8a48e1c3ea94ac54d6edf33a99ddcb6de",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/sql/20261022_classic_dungeons.sql",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "276d23c69e1992980d3c272f4b2cd6b3c43bea6b7fe4febdcd35d37c70ff4d33",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_dungeon_catalog.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "435f59487a23906087e20781af2e6da375bffe18f36756495d5a841841af8a40",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_dungeon_migration.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "a7d2ab61d28ea922e57640893f237efce08bbe722458bbccb4df72b4cfe138ff",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_dungeon_rewards.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "59fb0474d2349f9dde7c8ff34b8e3ee66c1b473486112490f77369299b31747f",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_reward_migration.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "ad2abbc895625ed1b7e5da2e63b68fffd0ff1108a647b2327051f273ac9f23a4",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_contract.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "cec4e2bdc38a651f6c8302e0074528c678376df27a0340ee850ccec770d6dfcf",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/prepare_classic_dungeons.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "d86b8124405150301b19781527ba25b732839e9af64adaa80552a492cf159a9c",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_dungeons.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "65efe8af2b020e9844319cd2ff8dfce570792fad7ee9822ced363f1022611ae6",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_reward_cache.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "bf71868c6ffdd06425b8517c4af73035488b3c81b5cf98c20752c065c86c160e",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_rewards.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "17a4f0b2259d9ac8c4345bb6f7834eb5ffbb86c71226e618467e43773b62f11b",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_classic_dungeon_catalog.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "f62dfc3a5abe953602b505e829efa3dbe87dd5d8aaffbbc5d19514db793104be",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_classic_dungeon_quests.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "e588ec491260b03b79e7ebb0d82ab515137324dc77bfe8caef18e83e54df242a",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_classic_dungeon_rewards.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_dungeon_current_contract.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "1618c149894491db21cae004f2275d3ea40c56ba45e1ccf3bac0dfb39b0224c0",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_dungeon_lifecycle.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "8ed09a8ea1e173ede412d36644f333887ce92df827b71b8c77a5c11e99198ccd",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_dungeon_policy.py",
++        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++        "sha256": "7a85e25f28e7cdcc0eb85d6969124122a912b9caf4b4a8f1a7b73c721c649221",
++        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "server-mods/code/zone/dungeon_service.cpp",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "c88cca5d370f1c0257cf1563ac625e428c7cb926234f475419e132cbd2e434d5",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "server-mods/code/common/dungeon_policy.h",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "f6017610f1c917a44937c93cad74625cad329a21bc3a4a10fd2bebe81efe46bf",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "server-mods/code/common/dungeon_catalog.h",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "9cf10740697459fb8a11729688b266620ba9cd2b995a88d81bf5e3098b038719",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "server-mods/code/common/dungeon_contract.h",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/code/common/dungeon_policy.h",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/code/zone/dungeon_service.cpp",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/code/zone/dungeon_service.h",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/code/zone/lua_general.cpp",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/lua_modules/nightcap_dungeons.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "7bded6e8ad4dae6ecac00aadb17ab9f01bc1957f566981f6f1d168937c435636",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/#Sister_of_the_Spire.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "f7ebf89c5dbf2b5d42fbe92f9ff5d1915299e430efcb901910d7c13b304bc6b1",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Bazzt_Zzzt.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "f9b9718edf5d2d8e9806a6b6dff014ac0492f0a98b2df998f98851ea0eae6fbc",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Bzzzt.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "05b61474b8271c9b844038ee0f3db2ee6743a23f57a17eec1f9d8e08af154d3f",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Gorgalosk.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "94eb59f73af051fb117060e48e075b03ad7a4a14cfa3e678aa738c8629bcdbf3",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Keeper_of_Souls.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "7b1d5d0d356b7ce0be54ebb0617bcd8bb0180767ea72966ae891e8a7953493ee",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Key_Master.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "8afbd2f723d9ea860a86310faf994e56294d4c8df11a3a4a94b1c9d826f3f5a3",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Protector_of_Sky.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "ddf97467605167b83a3b020e8d98639b61054062e9cee70a5d2c9c30e1e39146",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/Sirran_the_Lunatic.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "70caf6cbbc1d88b38e9b1101d52fb1865d74f43c7444656033208f47f8022824",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/The_Spiroc_Lord.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "761255de20bf6f89e914837d3f42f84e81dabe710bebae4b9b1910b72f7ee768",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/airplane/a_thunder_spirit_princess.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "fdaa3d458d83a857b01b07cbc57b2cb95d49a147d8617011b2df54708660dbbf",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/quests/fearplane/Cazic_Thule.lua",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "ca26aff682e1205e3af17a2e75248b83b34ce25f6900b6a51a7abe2db9e3739f",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/sql/20261022_classic_dungeon_rewards.sql",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "0fbce207ca162f6aae7bcf31eacbcce8a48e1c3ea94ac54d6edf33a99ddcb6de",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/sql/20261022_classic_dungeons.sql",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "276d23c69e1992980d3c272f4b2cd6b3c43bea6b7fe4febdcd35d37c70ff4d33",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/classic_dungeon_catalog.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "435f59487a23906087e20781af2e6da375bffe18f36756495d5a841841af8a40",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/classic_dungeon_migration.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "a7d2ab61d28ea922e57640893f237efce08bbe722458bbccb4df72b4cfe138ff",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/classic_dungeon_rewards.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "59fb0474d2349f9dde7c8ff34b8e3ee66c1b473486112490f77369299b31747f",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/classic_reward_migration.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "ad2abbc895625ed1b7e5da2e63b68fffd0ff1108a647b2327051f273ac9f23a4",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "b19325fc33265b2c731cbf59edd46d64ce0303d87cfe0ed7088c9b26f8fc8e59",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/dungeons/runtime-contract.json",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "3b88a1a2b69ba291a4dc3e14dfde4146de1c5d99d2fe79faee533823b614c761",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "tools/hate_keeper.py",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "35d0fc5cdccfa72646e0ab53c62e071015c0abd088c96b1a7b0f36ab90708cd6",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/dungeon_catalog.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "d770b7110f618416e3780ca4b7ff83ad97a1c2ec56e2d19a2e585ae441b31b92",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/dungeon_contract.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "cec4e2bdc38a651f6c8302e0074528c678376df27a0340ee850ccec770d6dfcf",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "92679d2e26251215c25f23d2ca74e466d7d80d8e711216773d4ece0db14784e7",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/dungeon_refresh_contract.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "d7be6c091966de2dafd71c7fd2b89f1a5ec1ea5efd8352dd14a4ebb0e9b2f2f1",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/prepare_classic_dungeons.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "d86b8124405150301b19781527ba25b732839e9af64adaa80552a492cf159a9c",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/rehearse_classic_dungeons.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "65efe8af2b020e9844319cd2ff8dfce570792fad7ee9822ced363f1022611ae6",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/rehearse_classic_reward_cache.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "bf71868c6ffdd06425b8517c4af73035488b3c81b5cf98c20752c065c86c160e",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/rehearse_classic_rewards.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "17a4f0b2259d9ac8c4345bb6f7834eb5ffbb86c71226e618467e43773b62f11b",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/test_classic_dungeon_catalog.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "f62dfc3a5abe953602b505e829efa3dbe87dd5d8aaffbbc5d19514db793104be",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "1c2ff512a84b583a129475a88baafcec1457bff50157c3d4f0ec2c97c09cff21",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "tools/tests/test_hate_keeper.py",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "023d443581347630960cbf0529c6c129cb8e605137f9de205e752ad70973f8dd",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "tools/tests/test_hate_keeper_content.py",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "e9b611b6c411f16733cbb585b9f12376899093f8f52b8283f97ef543f4f979d9",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/tests/test_classic_dungeon_private.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "fb63a8bc70effd63eb97ac20c8651495f0eab3feb29a2bfd89727ea4ad2642f3",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/test_classic_dungeon_quests.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "e588ec491260b03b79e7ebb0d82ab515137324dc77bfe8caef18e83e54df242a",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/test_classic_dungeon_rewards.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/test_dungeon_current_contract.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "1618c149894491db21cae004f2275d3ea40c56ba45e1ccf3bac0dfb39b0224c0",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "8594a52f5399a443da2551ac04328d2c49579e0754c3275a4f297486717a9adf",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/tests/test_dungeon_journal.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "948464b693fe591b311e9b4dd1687d43bdaab5a828e019c63d8e5ec19d1dcdaf",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/test_dungeon_lifecycle.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "8ed09a8ea1e173ede412d36644f333887ce92df827b71b8c77a5c11e99198ccd",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/tests/test_dungeon_policy.py",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "7a85e25f28e7cdcc0eb85d6969124122a912b9caf4b4a8f1a7b73c721c649221",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "ef058177e932944d2b35afe535732f92cc4ecb81fa874868df2a3cecd8304574",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/README.md",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "3e06af67d68b079de5fcb2955628bafc2644f6ccb4e7d92485c8b1fdb100d9b7",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/rollout.py",
++        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "sha256": "26bc50f568cab1a0e0932869855ce7d702c41063136f6d791dc68309b767e5f3",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
+       }
+     ],
+     "client": [
+@@ -9189,24 +9219,10 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/dungeon-modes.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "49cb58dd0e987dcf187fec419a9128d121996faa583d795f1b5c6e1000db68e2"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/getting-started.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+         "sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/index.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "1f20b30fd17be61f1ed053d94599b64d30e117d1744887723c41252741604618"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+@@ -9245,27 +9261,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/travel.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "aeca83d5778c538f9c0f0747cbb30d0b3e64081ca2096e964a0092045c2ce6f0"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/tunnel.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "a277625ca2d2df3827532716f053204996b06130500bb147004c17cf1df6f318"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/waypoints.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9476,20 +9471,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/features.json",
+-        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "0668428ee20a68b76034fdb38cf7e233662e2ee581d6e05a92eba1ca87381fe5"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "2d0925e075a01c09a13248b8f0f9bfd3e7d4c26d4d62ddf202a4d36f1849fefd"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/assets/build-lab-model.js",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+         "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+@@ -9532,13 +9513,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/content-review.json",
+-        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "5dff50c + final reviewed source ledger",
+-        "sha256": "dd70e14c5ee1b769e5d3902188f9409b7c22c20fcad5abdca00f04f0742ac8c0"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/experience.py",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+         "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+@@ -9557,6 +9531,62 @@
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+         "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+         "sha256": "cf23a079b6e2382c2654798f77537d2b00e99b6a79da6fc1dffcb199708e00eb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/dungeon-modes.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "b48648078ac79824414f7d18cd5ce6f3269db6e02337a81ecc1a919a3c6c6753",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/tunnel.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "5b2e1c073ffb9b4007da713b7187350c0ad0485a897930164a7df5c6fd550e66",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/travel.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "97b7bc433b032fedfcbd62fff31a5ee877475d0233f6a82f56b8014a3de4d3fb",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/features.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "ac8443f286f79460d8fbcec5a199f4360cb9cf41f9f7e771993192d81b0b7302",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/index.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "f81a073c2d5fe7209c6c2f1592ced9283f45cfbcbec44657a9d60ff5dbfbdd8c",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/unreleased.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "984bacd81182b7f2c352f32b5daebbd8379d0554fde1b2b6818243cbacd57a0f",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/articles/recent-changes.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "1ff2cad8a29e9850e047cc145584c2ad57a136ec2614fe9348d9ec6b59a0cc6c",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "wiki/content-review.json",
++        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++        "sha256": "9caa91933c137ebf03c3cf4265b370b94f72238528a78cc290d0c1aacb072e35",
++        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
+       }
+     ]
+   }

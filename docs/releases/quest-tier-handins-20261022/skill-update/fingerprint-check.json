@@ -152,6 +152,11 @@
         "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\CHANGES.md",
         "role": "quest ingredient candidate; built/tested, not deployed",
         "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\promotion.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
       }
     ],
     "items": [

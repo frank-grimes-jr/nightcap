@@ -9,13 +9,13 @@ from dungeon_catalog import items, DUNGEONS
 class DungeonCatalogTests(unittest.TestCase):
     def test_catalog_contract(self):
         data=items()
-        self.assertEqual(len(data),330)
-        self.assertEqual({x['id'] for x in data},set(range(960000,960330)))
+        self.assertEqual(len(data),414)
+        self.assertEqual({x['id'] for x in data},set(range(960000,960414)))
         for row in data:
             i=row['values']
             self.assertLess(i['id'],1048576)
             self.assertLess(len(i['Name']),64)
-            for key,value in {'nodrop':1,'norent':1,'attuneable':0,'loregroup':0,'price':0,'sellrate':0}.items():
+            for key,value in {'magic':1,'nodrop':1,'norent':1,'attuneable':0,'loregroup':0,'price':0,'sellrate':0}.items():
                 self.assertEqual(i[key],value,(i['id'],key))
             if i['itemclass']==1:
                 self.assertLessEqual(i['bagslots'],10);self.assertLessEqual(i['bagwr'],100)

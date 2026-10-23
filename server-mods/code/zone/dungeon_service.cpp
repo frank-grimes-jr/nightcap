@@ -80,7 +80,9 @@ bool CatalogReady() {
 	}
 	for (uint32_t id=ItemBegin;id<ItemEnd;++id) {
 		const auto item=database.GetItem(id);
-		if (!item || !CacheMatches(*item) || !item->NoRent || !item->NoDrop || item->LoreFlag || item->Attuneable || item->Price || item->FixedSellPrice) { return false; }
+		if (!item || !CacheMatches(*item) || !item->NoRent || !item->NoDrop || item->LoreFlag || item->Attuneable || item->Price || item->FixedSellPrice) {
+			LogError("Dungeon item cache drift [{}]",id); return false;
+		}
 	}
 	return true;
 }
@@ -224,7 +226,7 @@ void ShowChecklist(Client *c, const Run &run) {
 }
 
 void ConfigureJournalTask(int task_id, TaskInformation &task) {
-	if (task_id<9700 || task_id>9713) { return; }
+	if (task_id<9700 || task_id>=9700+static_cast<int>(DungeonCount*2)) { return; }
 	const auto &d=Dungeons[(task_id-9700)/2];
 	if (task.type!=TaskType::Quest || task.activity_count!=static_cast<int>(d.count+1)) { return; }
 	const bool raid=(task_id-9700)%2==1;
@@ -256,6 +258,7 @@ void ConfigureJournalTask(int task_id, TaskInformation &task) {
 }
 
 bool Managed() { return !current.id.empty(); }
+std::string RunID() { return current.id; }
 bool Boot() {
 	current={}; healthy=true; deaths.clear(); objectives.clear(); respawns.clear(); death_times.clear(); confirmations.clear();
 	if (!zone || !zone->GetInstanceID() || !FindDungeon(zone->GetZoneID())) { return true; }
@@ -280,7 +283,7 @@ bool Boot() {
 bool RaidNPC(Mob *mob) {
 	return Managed() && current.mode==Mode::Raid && mob && mob->IsNPC() && !mob->IsPet() && !mob->HasOwner() &&
 		!mob->IsMerc() && !mob->CastToNPC()->GetSwarmOwner() && mob->CastToNPC()->GetSpawnPointID()>0 &&
-		mob->GetClass()<=16 && mob->GetNPCTypeID()!=current.dungeon->keeper;
+		mob->GetClass()<=16 && mob->GetNPCTypeID()!=current.dungeon->keeper && mob->GetNPCTypeID()!=SkyKeyService;
 }
 bool SelectSpawn(uint32_t spawn, uint32_t &npc) {
 	if (!Managed()) { return true; }
@@ -316,21 +319,27 @@ void RestoreTimers(std::unordered_map<uint32_t,uint32_t> &timers) {
 void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 	if (!Managed()) { return; }
 	for (auto &s : spawns) { if (RequiredSpawn(s.id)) { s._condition=0; s.cond_value=0; } }
-	if (current.dungeon->zone!=48) { return; }
-	spawns.erase(std::remove_if(spawns.begin(),spawns.end(),[](const auto &s) {
-		return s.spawngroupID!=999231 && s.spawngroupID!=999240;
-	}),spawns.end());
+	const auto private_count=PrivateSpawnCount(current.dungeon->zone);
+	if (!private_count) { return; }
+	if (current.dungeon->zone==48) {
+		spawns.erase(std::remove_if(spawns.begin(),spawns.end(),[](const auto &s) {
+			return s.spawngroupID!=999231 && s.spawngroupID!=999240;
+		}),spawns.end());
+	}
 	try {
-		auto rows=Query("SELECT spawn_id,group_id,npc_id,x,y,z,heading,respawn,grid_id FROM nightcap_dungeon_spawns WHERE zone_id=48");
+		auto rows=Query(fmt::format("SELECT spawn_id,group_id,npc_id,x,y,z,heading,respawn,grid_id FROM nightcap_dungeon_spawns WHERE zone_id={}",current.dungeon->zone));
 		for (auto r=rows.begin();r!=rows.end();++r) {
 			auto s=Spawn2Repository::NewEntity(); s.id=Strings::ToUnsignedInt(r[0]); s.spawngroupID=Strings::ToUnsignedInt(r[1]);
-			s.zone="cazicthule"; s.version=0; s.x=std::stof(r[3]); s.y=std::stof(r[4]); s.z=std::stof(r[5]); s.heading=std::stof(r[6]);
-			s.respawntime=Strings::ToUnsignedInt(r[7]); s.pathgrid=Strings::ToUnsignedInt(r[8]); spawns.push_back(s);
+			s.zone=current.dungeon->name; s.version=0; s.x=std::stof(r[3]); s.y=std::stof(r[4]); s.z=std::stof(r[5]); s.heading=std::stof(r[6]);
+			s.respawntime=Strings::ToUnsignedInt(r[7]); s.pathgrid=Strings::ToUnsignedInt(r[8]);
+			// Saved-state lookup may include the public spawn now hosted elsewhere.
+			spawns.erase(std::remove_if(spawns.begin(),spawns.end(),[&](const auto &base) { return base.id==s.id; }),spawns.end());
+			spawns.push_back(s);
 		}
-		if (rows.RowCount()!=188) { throw std::runtime_error("Classic CT population incomplete"); }
+		if (rows.RowCount()!=private_count) { throw std::runtime_error("Private dungeon population incomplete"); }
 		for (const auto &s : spawns) {
 			if (!zone->spawn_group_list.GetSpawnGroup(s.spawngroupID)) { content_db.LoadSpawnGroupsByID(s.spawngroupID,&zone->spawn_group_list); }
-			if (!zone->spawn_group_list.GetSpawnGroup(s.spawngroupID)) { throw std::runtime_error("Classic CT spawn group missing"); }
+			if (!zone->spawn_group_list.GetSpawnGroup(s.spawngroupID)) { throw std::runtime_error("Private dungeon spawn group missing"); }
 		}
 	} catch (...) { healthy=false; spawns.clear(); }
 }
@@ -421,10 +430,10 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 	}
 }
 
-void Journal(Client *c) {
+void JournalForRun(Client *c, const Run *selected) {
 	if (!c || !c->GetTaskState()) { return; }
 	try {
-		const auto run=Managed() ? current : Personal(c->CharacterID(),zone->GetZoneID());
+		const auto run=selected ? *selected : Managed() ? current : Personal(c->CharacterID(),zone->GetZoneID());
 		if (run.id.empty() || run.expiry<=Now()) { return; }
 		auto member=Query(fmt::format("SELECT completed_at FROM nightcap_dungeon_members WHERE run_id={} AND character_id={}",Q(run.id),c->CharacterID()));
 		if (!member.RowCount()) { return; }
@@ -464,6 +473,8 @@ void Journal(Client *c) {
 	} catch (const std::exception &e) { LogError("Dungeon journal unavailable [{}]",e.what()); }
 }
 
+void Journal(Client *c) { JournalForRun(c,nullptr); }
+
 void Connected(Client *c) {
 	if (!c || !c->Connected() || !zone) { return; }
 	if (!database.QueryDatabase(std::string("SELECT id FROM nightcap_dungeon_state WHERE id=1"),false).Success()) {
@@ -496,8 +507,9 @@ void Connected(Client *c) {
 }
 
 bool Keeper(Client *c, NPC *keeper, const std::string &action) {
-	const auto d=zone ? FindDungeon(zone->GetZoneID()) : nullptr;
-	if (!d || !keeper || keeper->GetNPCTypeID()!=d->keeper) { return false; }
+	if (!zone || !keeper) { return false; }
+	const auto d=KeeperDungeon(zone->GetZoneID(),zone->GetInstanceID(),keeper->GetNPCTypeID());
+	if (!d) { return keeper->GetNPCTypeID()==998812; }
 	// False means the Perl legacy implementation may mutate instance_list.
 	// Invalid input must be consumed, never translated into legacy permission.
 	if (!c || !c->Connected() || !c->ClientDataLoaded()) { return true; }
@@ -505,6 +517,11 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		c->Message(Chat::Yellow,"Move closer to the Instance Keeper."); return true;
 	}
 	try {
+		// Reject entry before managed or legacy allocation/enrollment can write.
+		if ((action=="raid" || action=="grind" || action=="enter" || action=="join" || action=="confirm reset") &&
+			!c->CanEnterZone(d->name,0)) {
+			c->Message(Chat::Yellow,"You do not meet the entry requirements for %s.",d->name); return true;
+		}
 		const auto native_id=database.GetInstanceID(d->zone,c->CharacterID(),0);
 		bool native_managed=false;
 		if (native_id) {
@@ -546,7 +563,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 				Saylink::Silent("join","Join").c_str(),Saylink::Silent("status","Status").c_str(),Saylink::Silent("claim rewards","Claim Rewards").c_str(),Saylink::Silent("reset","Reset").c_str());
 			if (!run.id.empty()) {
 				ShowChecklist(c,run);
-				Journal(c);
+				JournalForRun(c,&run);
 			}
 			auto history=Query(fmt::format("SELECT r.mode,COUNT(*) FROM nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0 AND r.zone_id={} GROUP BY r.mode",c->CharacterID(),d->zone));
 			for (auto r : history) { c->Message(Chat::White,"Permanent %s completions: %s",std::string(r[0])=="1" ? "Raid" : "Grind",r[1]); }
@@ -577,6 +594,8 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		if (action=="raid" || action=="grind" || action=="join" || action=="enter") {
 			if (zone->GetInstanceID()) { c->Message(Chat::Yellow,"You are already inside an instance."); return true; }
 			if (!StorageReady() || !CatalogReady()) { throw std::runtime_error("Dungeon schema, catalog or item cache does not match this release."); }
+			const auto destination=GetZoneVersionWithFallback(d->zone,0);
+			if (!destination) { throw std::runtime_error("Dungeon destination unavailable."); }
 			Transaction tx;
 			// Serialize all feature allocations/joins with native allocation state.
 			Query("SELECT id FROM nightcap_dungeon_state WHERE id=1 FOR UPDATE");
@@ -618,7 +637,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 				if (run.mode==Mode::Raid) {
 					const auto order=BossOrder(run.seed); const auto count=BossCount(Roll(run.seed,0,3,10000));
 					for (unsigned i=0;i<count;++i) {
-						const auto item=BossItem(d->index,order[i],RollQuality(Mode::Raid,Roll(run.seed,0,10+i,10000)));
+						const auto item=FinalBossItem(d->index,d->band,order[i],RollQuality(Mode::Raid,Roll(run.seed,0,10+i,10000)));
 						if (!database.GetItem(item)) { throw std::runtime_error("dungeon item cache incomplete"); }
 						Query(fmt::format("INSERT INTO nightcap_dungeon_loot VALUES ({},{},{},{})",Q(run.id),i,item,Q(NightcapLoot::NewDropID())));
 					}
@@ -626,7 +645,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 			}
 			Query(fmt::format("UPDATE nightcap_dungeon_members SET inside_instance=1 WHERE run_id={} AND character_id={}",Q(run.id),c->CharacterID()));
 			tx.Commit();
-			c->MovePC(d->zone,run.instance,zone->GetSafePoint().x,zone->GetSafePoint().y,zone->GetSafePoint().z,zone->GetSafePoint().w); return true;
+			c->MovePC(d->zone,run.instance,destination->safe_x,destination->safe_y,destination->safe_z,destination->safe_heading); return true;
 		}
 		return true;
 	} catch (const std::exception &e) {

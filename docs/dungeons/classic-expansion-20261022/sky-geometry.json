@@ -1,0 +1,524 @@
+{
+  "map": "/home/eqemu/server/maps/base/airplane.map",
+  "points": [
+    {
+      "label": "9200000",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -336.6880187988281,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -337.6648254394531,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -336.86541748046875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -337.185791015625,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -337.6028747558594,
+          "headroom": 80.0
+        }
+      ],
+      "x": -602.2,
+      "y": -254.4,
+      "z": -333.5
+    },
+    {
+      "label": "9200001",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 189.16720581054688,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 188.9106903076172,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 188.11851501464844,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 188.36993408203125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 189.2417755126953,
+          "headroom": 80.0
+        }
+      ],
+      "x": -996.3,
+      "y": 910.5,
+      "z": 192.3
+    },
+    {
+      "label": "9200002",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 802.1358642578125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 803.3719482421875,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 800.8997802734375,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 802.4028930664062,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 801.8688354492188,
+          "headroom": 80.0
+        }
+      ],
+      "x": 94,
+      "y": -890,
+      "z": 806
+    },
+    {
+      "label": "9200003",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 80.0
+        }
+      ],
+      "x": -929,
+      "y": -1035,
+      "z": 1093
+    },
+    {
+      "label": "9200004",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -663.9275512695312,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -664.7144165039062,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -663.143310546875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -663.4547119140625,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -664.400390625,
+          "headroom": 80.0
+        }
+      ],
+      "x": 609,
+      "y": 1372,
+      "z": -658
+    },
+    {
+      "label": "9200005",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -650.3250122070312,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -653.4323120117188,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -651.53173828125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -651.99169921875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -650.9794921875,
+          "headroom": 80.0
+        }
+      ],
+      "x": 688,
+      "y": 1381,
+      "z": -645
+    },
+    {
+      "label": "9200006",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -326.40277099609375,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -328.0704040527344,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -328.5340576171875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -327.16973876953125,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -327.6820068359375,
+          "headroom": 80.0
+        }
+      ],
+      "x": -531,
+      "y": -214,
+      "z": -322
+    },
+    {
+      "label": "9200007",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -58.84375,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -58.84375,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -58.84375,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -58.84375,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -58.84375,
+          "headroom": 80.0
+        }
+      ],
+      "x": 320,
+      "y": 540,
+      "z": -54
+    },
+    {
+      "label": "9200008",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 169.54949951171875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 169.54949951171875,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 169.54949951171875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 169.54949951171875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 169.54949951171875,
+          "headroom": 80.0
+        }
+      ],
+      "x": -543,
+      "y": 767,
+      "z": 174
+    },
+    {
+      "label": "9200009",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 461.98797607421875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 460.86993408203125,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 461.2295227050781,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 460.8692932128906,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 460.90509033203125,
+          "headroom": 80.0
+        }
+      ],
+      "x": 955,
+      "y": -570,
+      "z": 466
+    },
+    {
+      "label": "9200010",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 807.2944946289062,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 807.9328002929688,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 806.65625,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 805.7684326171875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 805.995361328125,
+          "headroom": 80.0
+        }
+      ],
+      "x": 234,
+      "y": -1078,
+      "z": 812
+    },
+    {
+      "label": "9200011",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 50.78125
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 50.78125
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 50.78125
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 50.78125
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 1088.8125,
+          "headroom": 50.78125
+        }
+      ],
+      "x": -960,
+      "y": -1037,
+      "z": 1093
+    }
+  ],
+  "segments": [],
+  "input_sha256": "bceb223be716ce0faecfb7822fc730b2a5acccf49cc7e26d84566923492f93af",
+  "status": "12 poses / 60 ground and headroom samples passed; visible/pathing QA pending"
+}

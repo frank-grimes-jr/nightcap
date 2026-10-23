@@ -1002,6 +1002,7 @@ RULE_CATEGORY_END()
 
 RULE_CATEGORY(AA)
 RULE_INT(AA, PassiveExpPercent, 1, "Percent of a full AA XP award also earned from kills/quests/tasks at 0% AA allocation, without reducing level XP. Clamped to 0-100; 0 disables passive gains.")
+RULE_INT(AA, LevelBasedPointsPerLevel, 0, "Full-focus AA points per current level of normal XP; 0 disables level scaling. PassiveExpPercent applies to retained leveling XP. Clamp 0-1000; fixed ExpPerPoint storage units preserve saved AA fractions.")
 RULE_INT(AA, ExpPerPoint, 23976503, "Amount of experience per AA. Is the same as the amount of experience to go from level 51 to level 52")
 RULE_BOOL(AA, NormalizedAAEnabled, false, "TSS+ change to AA that normalizes AA experience to a fixed # of white con kills independent of level")
 RULE_INT(AA, NormalizedAANumberOfWhiteConPerAA, 25, "The number of white con kills per AA point")

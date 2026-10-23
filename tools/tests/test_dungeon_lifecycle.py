@@ -85,6 +85,11 @@ int main() {
  current.expiry=10;assert(!SelectSpawn(999,id));
  current.dungeon=FindDungeon(73);healthy=true;current.expiry=100;
  for (const auto &excluded:ExcludedNPCs) {id=excluded.npc;assert(!SelectSpawn(679,id));}
+ current.dungeon=FindDungeon(71);
+ for (unsigned mode=0;mode<2;++mode) {
+  current.mode=Mode(mode);id=71032;assert(!SelectSpawn(2666,id));
+  id=SkyKeyService;assert(SelectSpawn(9200005,id) && id==SkyKeyService);
+ }
  managed=false;id=73092;assert(SelectSpawn(679,id) && id==73092);
 }
 ''')

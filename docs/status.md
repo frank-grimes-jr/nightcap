@@ -1,40 +1,80 @@
 # Current Nightcap status
-## Quest ingredient qualities — October 22 candidate
 
-Shared Lua/native hand-ins and journal deliveries accept ordinary qualities for
-Normal requirements; five older Solusek Ro scripts now use the native checker.
-Crafted Gauntlets has an exact regression using Polished Aviak Charm. Automated
-checks pass; this is not deployed or owner accepted. No SQL/client/cache changes.
-The combined class-armor candidate retains its Ascended rewards. Kurron's native
-currency compatibility is corrected with exactly-once full refunds on success.
-Paired native/quest activation and exact in-game QA remain required. See
-[release evidence](releases/quest-tier-handins-20261022/README.md) and
-[QA steps](releases/quest-tier-handins-20261022/QA.md).
+## 2026-10-23 — Two-AA progression and low-level controls candidate
+
+The owner selected two passive AA per level and native +/- allocation controls
+from level1, including100% AA to hold a chosen level. Implementation and native
+checks pass; a fresh paired server build is running. Existing earned points,
+purchases and AA fraction remain. Production still uses the prior million-point
+policy until activation is verified; visible owner QA is pending.
+[Candidate evidence and exact QA](releases/aa-level-progression-20261023/README.md).
+
+## 2026-10-22 — Hate Keeper relocation deployed
+
+The public Hate Keeper is now in East Commonlands `/loc -1570,-346,3`,
+with native Hate routing, correct arrival/journal and private Keeper continuity.
+Hate's level46 requirement stays; its status80 gate is removed for public/private
+access. Owner-authorized main PR299 and paired production activation are
+verified: all12 zones,39 schema/499 content checks, fresh stopped backup and
+player/state/cache preservation. Gateway open; no client update. Wiki
+`20261022-hate-keeper-confirmed-v1` verifies all466 files over HTTPS. The owner
+confirmed the Keeper relocation, visibility and Hate travel behavior. Broader
+dungeon balance/full-clear QA remains open separately.
+[Release and exact in-game checks](ops/hate-keeper-commonlands-20261022/README.md).
+## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
+
+All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,
+Grind, Enter, Join, Status, Claim Rewards and Reset. The 14 additions have 42
+unique designs in Polished and Ascended versions; all 414 dungeon reward
+definitions are MAGIC. Existing reward identities and other stats remain.
+Planar relics include level-46 equipped utility clicks with shared family reuse.
+Main PR293/3af85bb and the paired live deployment are verified. Owner gameplay
+and balance acceptance remain open.
+
+Fresh backup, exact state/content/cache preservation and all12 workers verified.
+Current client2204 and quest-tier behavior retained. Wiki465-file publication
+verified. [Deployment, recovery and QA](dungeons/classic-rewards-20261022/deployment/README.md).
+
+## Quest ingredient qualities - October22 deployed for live QA
+
+Owner-authorized PR290 (`c66df0e`) is on main and the paired zone/seven-file
+release is installed. All12 zones match6da991b6; gateway access is open. Normal
+quest requirements accept Polished, Exalted and Ascended family variants in
+shared hand-ins and task Deliver. Shakrn accepts Polished Aviak Charm plus two
+Star Rubies for the current Ascended Crafted Gauntlets604178 reward. Five older
+Temple quests now share native matching; Kurron preserves its full-coin refund.
+Fresh stopped backup and47 player/28 custom tables,14 content tables,8133 other
+runtime files, current caches/world/client all verified. No client update.
+Wiki20261022-quest-tiers-v1 verifies465 public files. Owner gameplay acceptance
+remains open: [QA](releases/quest-tier-handins-20261022/QA.md),
+[deployment and recovery](releases/quest-tier-handins-20261022/deployment/README.md).
 
 
-## October 22 — Class-armor reward candidate, not deployed
+## October 22 — Ascended class armor deployed; Palwar corrected
 
-Palwar's Crafted pieces were Normal because live Meadowgreen scripts grant
-base IDs. The owner's clarified policy includes substantial repeatable class
-armor. The reviewed candidate covers 37 rewards in five families and preserves
-the dependent Darkforge epic hand-in. Existing item definitions are reused;
-production scripts, Palwar's inventory and the public wiki are unchanged.
-[Implementation, release boundary and QA](releases/quest-armor-20261022/README.md).
+Owner-authorized main PR285 (`7f97288`) is deployed. Eleven quest files now grant
+37 Ascended rewards across Crafted, Lambent, Darkforge, Ivy Etched and Totemic,
+with Normal/Ascended Darkforge epic compatibility. Twelve aggregate Quest reload
+acknowledgments were observed; world/zone lifetimes and all five services stayed
+unchanged. Palwar was offline under an admission hold: only the three affected
+item IDs changed, preserving every other inventory field. Logins are reopened.
+Native fresh-hand-in, inspection/relog and broader balance acceptance remain open.
+[Release evidence and recovery](releases/quest-armor-20261022/deployment/README.md).
 
-## Classic race robes — published for live QA, October 22
+## Classic robe waist gap - owner confirmed fixed, October 22
 
-Generated missing robe bodies for male/female Half Elf, Wood Elf, Barbarian,
-Dwarf, Troll, Ogre and Halfling. Existing skeletons, armor and custom helmets
-are retained. This is an asset correction, with no gameplay permission change.
-Native selection, archive preservation and offline fit checks are distinct from
-owner in-game acceptance. Main PR276 and signed game2026102201 are published
-with owner approval. Close the game, reopen the normal launcher and press Play.
-The two archives change together; 136 other managed files and the current
-DLL/catalog remain. No runtime restart or database change. Matching wiki
-20261022-classic-robes-v1 is published; native visual and animation QA is open.
-See [release evidence and exact QA](releases/classic-robes-20261022/README.md).
-
-
+The owner rejected game 2203: the waist gap persisted standing and moving, with
+installed archive hashes confirmed. Native skinning replaced earlier torso bone
+assignments when the skirt repeated the same bone. PR291/main `42603ee` and signed
+**2026102204** group each bone once. Actual x86 DirectX checks reproduce 432 lost
+assignments in the old 16 model registrations and retain every corrected vertex.
+All 140 hosted client files, signature and the existing proxy/catalog 0.11.1 pair
+verify; the other 138 descriptors and waypoint assets remain. This client release
+performed no runtime restart or SQL change. The owner replied **"Fixed"** after
+the 2204 recheck instructions. The reported waist issue is closed; broader
+race/dye/animation/observer regression coverage remains separately tracked.
+Fully exit EverQuest and use normal launcher Play; observers must also update.
+[Proof, delivery, recovery and exact recheck](releases/classic-robes-20261022/native-skinning/README.md).
 
 ## 2026-10-22 — Waypoint crystals deployed for live QA
 

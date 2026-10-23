@@ -1,0 +1,7 @@
+{
+  "observed": "Recent changes loads the shared Build Lab script and JSON.parse(undefined) fails",
+  "baseline": "d3b6def contains the same script and build-lab heading ID",
+  "fix": "initialize only the data-lab widget, preserving existing heading anchors",
+  "source_changed": "wiki/assets/build-lab.js",
+  "scope": "one selector; no model or calculator behavior change"
+}

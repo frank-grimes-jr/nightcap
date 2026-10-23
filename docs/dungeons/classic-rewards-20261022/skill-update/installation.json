@@ -1,0 +1,12 @@
+{
+  "status": "installed",
+  "source_revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
+  "references": {
+    "items.md": "9652edc3d35c1ba589bdb88b86bc59a58c13a806b75f0333956fbaebf79992cc",
+    "world.md": "50a2a8cb01947987538bb4b24a385493fef8eea58a818c979555d44407fc2ea2",
+    "balance.md": "ae9a1006d492190ee19ab47203b0b0ded3571d75960edef1dc8a7db434065a2a",
+    "wiki.md": "7defdc94352e78d5caefffefb88ab731cfb22a149cc890ea807367255b585485",
+    "sources.json": "fc0c11839381dc55cef188d0d73fd2e99b093cfcb36ba82d0e97eab8412fb94f"
+  },
+  "scope": "Reviewed candidate behavior and evidence; no live deployment claim"
+}

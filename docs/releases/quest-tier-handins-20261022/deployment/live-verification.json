@@ -1,0 +1,198 @@
+{
+  "verified_at": "2026-10-22T18:08:06.403903+00:00",
+  "gateway_open": true,
+  "deployed": {
+    "runtime": {
+      "image_id": "sha256:085f3021e6a9cd9d67bdf027575f3d15b61516e3db3e375b281b5551051bad1a",
+      "started_at": "2026-10-22T18:01:13.295801522Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ],
+        [
+          "zone",
+          "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "game": {
+      "id": "d595757de56f58f40e101837d587db618080eb9a870bca5c375c382abfc18f03",
+      "image_id": "sha256:085f3021e6a9cd9d67bdf027575f3d15b61516e3db3e375b281b5551051bad1a",
+      "started_at": "2026-10-22T18:01:13.295801522Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "market": {
+      "before": [
+        "1",
+        "1",
+        "90",
+        "0",
+        "4",
+        "2.500000",
+        "2026-10-22 00:39:42"
+      ],
+      "after": [
+        "1",
+        "1",
+        "91",
+        "0",
+        "4",
+        "2.500000",
+        "2026-10-22 18:01:28"
+      ],
+      "offers": 42,
+      "capacity": 44
+    },
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 28,
+    "gateway_open": true,
+    "database_restored": false,
+    "owner_gameplay_accepted": false,
+    "recovery": false
+  },
+  "backup": {
+    "path": "/opt/nightcap/releases/quest-tier-handins-20261022/evidence/activation/private-backup/peq-before.sql.gz",
+    "sha256": "a6fd0250ce8f979621b2dec03f6cb0580ca891439a64c19a0ca89f394dc19188",
+    "compressed_bytes": 64937715,
+    "uncompressed_bytes": 462552058,
+    "gzip_integrity": "passed"
+  },
+  "quest_files": {
+    "quests/lua_modules/items.lua": "eb3b55da12c071707db0aafc9b84c86d048569e44d98f53c677b8af19143045c",
+    "quests/overthere/Kurron_Ni.pl": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698",
+    "quests/soltemple/Gardern.pl": "ac9509bd1c5a2bbe6de7133e7a5dc9f148ea6a023c7fdd110bef2663c18fae5c",
+    "quests/soltemple/Joyce.pl": "a61a0e374db671e98d3b73d295204d16f8b91f205ea09b0dd75de5793c8190d4",
+    "quests/soltemple/Sultin.pl": "5dc01550b42f408f81f536cf934fb9933ce7dc0d45dc615cd09c33983a5ae395",
+    "quests/soltemple/Vilissia.pl": "3c1765048e542e026cb8a8734866b78f83f1833a76713f54883266e2cd6df88e",
+    "quests/soltemple/Vurgo.pl": "8e5f1e7068e30283a6b6b3ca2d8d5c4fbe1f03654a396ae37251f1bdf53cf1b9"
+  },
+  "services": {
+    "game": {
+      "id": "d595757de56f58f40e101837d587db618080eb9a870bca5c375c382abfc18f03",
+      "image_id": "sha256:085f3021e6a9cd9d67bdf027575f3d15b61516e3db3e375b281b5551051bad1a",
+      "started_at": "2026-10-22T18:01:13.295801522Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-10-22T18:04:39.060084006Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-10-20T00:08:02.308087378Z",
+      "restarts": 2,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "preserved": {
+    "runtime_files": 8133,
+    "content_tables": 14,
+    "caches": {
+      "items": "15f5c46c01a04baf62910de7b1cfca5b43aae8d1292863ca6e30ceaa70c5f5f5",
+      "spells": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf"
+    },
+    "public": {
+      "channel.json": "87eadd9c0e7c278d46b79f7d62c3dbc9f8d8f16158ead90cc0bc17b9c4194c62",
+      "launcher-channel.json": "67a94a6d56fca08d21c0d808a2929855ec9e20bf8891ccd390f23cf1f18c3e8e",
+      "nightcap-friends.zip": "bad2fd8d91c74c41e3be84c8e3a985159c1b2eb980c4fddce47780b2a310f452",
+      "guide.html": "c6160072c279b82c420f1c14122cb9bce2d9e5c6edb772db8d8d534ed3b4f675"
+    },
+    "wiki_release_before": "20261022-quest-armor-v2"
+  },
+  "base_image_id": "sha256:15a159c0f9a80d541856d7412e59d94baa6b29cc320c397cab9e3d44278ecfff",
+  "image_id": "sha256:085f3021e6a9cd9d67bdf027575f3d15b61516e3db3e375b281b5551051bad1a",
+  "free_bytes": 3026305024,
+  "owner_gameplay_accepted": false,
+  "database_restored": false
+}

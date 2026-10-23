@@ -1,0 +1,13 @@
+{
+  "scope": "continuation of owner-requested AA progression correction on main/server with matching player guidance",
+  "owner_intent": [
+    "Agreed. Let’s move this into main and server",
+    "Reset the leveling EXP and AA to the original baseline that the client/server comes with.",
+    "No I want AA gained while leveling.",
+    "2 AA per level but I need the AA + - buttons to function at level 1. Allow the player to pause leveling if they wish to grind AA at optimal levels."
+  ],
+  "interpretation": "retain already-stock normal leveling; implement selected level-scaled passive AA and native allocation; preserve player progress",
+  "cleanup_explicit_approval": "Approve the 11 verified archive deletions",
+  "manual_gameplay_acceptance": false,
+  "not_standing_authority_for_other_releases": true
+}

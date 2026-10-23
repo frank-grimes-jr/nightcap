@@ -1,9 +1,12 @@
 """Robe coverage regression against the actual Classic archives."""
 import os
+from collections import Counter
 import json
 from pathlib import Path
 import struct
+import subprocess
 import sys
+import tempfile
 import unittest
 import numpy as np
 
@@ -15,7 +18,7 @@ from helmet_wld_layout import reference_fields, mesh_block
 from helmet_wld import decode_mesh
 from build_winged_helmet_client import helmet_files
 from build_classic_robes import robe_files, add_robes
-from classic_robe_geometry import skeleton, labels, material_labels, skirt_warp
+from classic_robe_geometry import skeleton, labels, material_labels, skirt_warp, world_points
 
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE = Path('E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2')
@@ -131,6 +134,44 @@ class ClassicRobeCoverage(unittest.TestCase):
                 self.assertGreater(old_materials.count(foot), 0)
                 self.assertEqual(new_materials.count(foot), old_materials.count(foot))
 
+    def test_chest_and_skirt_share_a_closed_rigidly_bound_waist(self):
+        # Compare serialized geometry and bone identity, not the fitter's audit.
+        # Coincidence in one world pose alone can separate during animation.
+        for archive, codes in (('global_chr.s3d', TARGETS), ('global4_chr.s3d', ('BAM', 'BAF'))):
+            wld = _Wld(read_pfs(self.generated[archive])[archive.replace('.s3d', '.wld')])
+            for code in codes:
+                model = decode_mesh(wld.fragments[wld.by_name[code + '01_DMSPRITEDEF'][0] - 1])
+                keys = [(bone, *point) for point, bone in zip(model['vertices'], labels(model))]
+                edges = {'chest': Counter(), 'skirt': Counter()}
+                directed = {'chest': set(), 'skirt': set()}
+                for polygon, mat in zip(model['polygons'], material_labels(wld, model)):
+                    part = 'skirt' if mat == 'CLK0405_MDF' else 'chest' if mat in ('CLK0401_MDF', 'CLK0402_MDF') else None
+                    if part:
+                        a, b, c = [keys[i] for i in polygon[1:]]
+                        edges[part].update(tuple(sorted(edge)) for edge in ((a, b), (b, c), (c, a)))
+                        directed[part].update(((a, b), (b, c), (c, a)))
+                shared = set(edges['chest']) & set(edges['skirt'])
+                with self.subTest(archive=archive, code=code):
+                    self.assertEqual(len(shared), 8, 'Open waist: torso and skirt must share all eight native edges')
+                    self.assertTrue(all(edges['chest'][edge] == edges['skirt'][edge] == 1 for edge in shared))
+                    self.assertEqual(len({(b, a) for a, b in directed['chest']} & directed['skirt']), 8,
+                                     'Joined surfaces must traverse waist edges in opposite directions')
+                    degree = Counter(vertex for edge in shared for vertex in edge)
+                    self.assertEqual(len(degree), 8)
+                    self.assertTrue(all(count == 2 for count in degree.values()))
+                    _, transforms = skeleton(wld, code, 'P01')
+                    points = world_points(model, transforms, code)
+                    seam_ids = [i for i, key in enumerate(keys) if key in degree]
+                    center = points[seam_ids].mean(axis=0)
+                    for polygon, mat in zip(model['polygons'], material_labels(wld, model)):
+                        if mat != 'CLK0405_MDF' or not any(keys[i] in degree for i in polygon[1:]):
+                            continue
+                        a, b, c = points[list(polygon[1:])]
+                        outward = -np.cross(b - a, c - a)
+                        radial = ((a + b + c) / 3 - center)[:2]
+                        self.assertGreater(float(np.dot(outward[:2], radial)), 1e-7,
+                                           'Waist closure folded an adjacent skirt face inward')
+
     def test_cloth_material_chains_precede_their_consumers(self):
         for archive, codes in (('global_chr.s3d', TARGETS), ('global4_chr.s3d', ('BAM', 'BAF'))):
             files = read_pfs(self.generated[archive])
@@ -177,6 +218,56 @@ class ClassicRobeCoverage(unittest.TestCase):
                 self.assertTrue(all(0 <= bone < len(names) for bone in labels(model)))
                 self.assertEqual(len(labels(model)), len(model['vertices']))
                 self.assertGreater(len(model['polygons']), 200)
+
+    def test_each_native_bone_has_one_contiguous_vertex_group(self):
+        # The ordinary stock meshes store each bone only once. Appending a
+        # separate skirt must not split the pelvis/foot groups around the torso.
+        for archive, codes in (('global_chr.s3d', TARGETS), ('global4_chr.s3d', ('BAM', 'BAF'))):
+            wld = _Wld(read_pfs(self.generated[archive])[archive.replace('.s3d', '.wld')])
+            for code in codes:
+                model = decode_mesh(wld.fragments[wld.by_name[code + '01_DMSPRITEDEF'][0] - 1])
+                groups = [bone for count, bone in model['bones']]
+                with self.subTest(archive=archive, code=code):
+                    self.assertEqual(len(groups), len(set(groups)),
+                                     'A native bone must own one contiguous vertex group')
+
+    @unittest.skipUnless(sys.platform == 'win32', 'Native x86 DirectX check requires Windows')
+    def test_native_directx_retains_every_vertex_influence(self):
+        python = Path(os.environ.get('NIGHTCAP_X86_PYTHON',
+                      str(Path(os.environ.get('LOCALAPPDATA', '')) /
+                          'Programs/Python/Python38-32/python.exe')))
+        if not python.is_file():
+            self.skipTest('Set NIGHTCAP_X86_PYTHON to a 32-bit Python with d3dx9_30 installed')
+        # A negative control ensures the native library detects the exact
+        # replacement behavior that the earlier offline preview missed.
+        fixtures = [dict(name='split-bone-negative-control', vertex_count=3,
+                         bone_count=2, runs=[[2, 1], [1, 1]],
+                         expected_by_bone={1: [0, 1, 2]}, expect_match=False)]
+        for archive, codes in (('global_chr.s3d', TARGETS), ('global4_chr.s3d', ('BAM', 'BAF'))):
+            wld = _Wld(read_pfs(self.generated[archive])[archive.replace('.s3d', '.wld')])
+            for code in codes:
+                model = decode_mesh(wld.fragments[wld.by_name[code + '01_DMSPRITEDEF'][0] - 1])
+                expected = {}
+                for index, bone in enumerate(labels(model)):
+                    expected.setdefault(bone, []).append(index)
+                fixtures.append(dict(name=archive + '/' + code,
+                                     vertex_count=len(model['vertices']),
+                                     bone_count=len(skeleton(wld, code)[0]),
+                                     runs=model['bones'], expected_by_bone=expected))
+        with tempfile.TemporaryDirectory(prefix='nightcap-robe-skinning-') as temporary:
+            path = Path(temporary) / 'fixtures.json'
+            report = Path(temporary) / 'report.json'
+            path.write_text(json.dumps({'models': fixtures}), encoding='utf-8')
+            result = subprocess.run([str(python), '-B',
+                                     str(Path(__file__).with_name('classic_robes_skinning_native.py')),
+                                     str(path), '--report', str(report)], capture_output=True, text=True,
+                                    timeout=60)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            actual = json.loads(report.read_text(encoding='utf-8'))
+            self.assertTrue(actual['satisfied'])
+            self.assertEqual(len(actual['models']), 17)
+            self.assertEqual(actual['models'][0]['lost_vertex_count'], 2)
+            self.assertTrue(all(row['lost_vertex_count'] == 0 for row in actual['models'][1:]))
 
     def test_no_partial_or_double_application(self):
         with self.assertRaises(ValueError):

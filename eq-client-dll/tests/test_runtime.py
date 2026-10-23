@@ -18,6 +18,11 @@ STOP_CODE = 0x4E430001
 EXACT_CLIENT = os.environ.get("NIGHTCAP_TEST_EQGAME")
 
 class RuntimeTests(unittest.TestCase):
+    def test_native_aa_allocation(self):
+        self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH for the pinned client")
+        result = subprocess.run([ROOT / "build/tests/aa-allocation-native.exe", EXACT_CLIENT], capture_output=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_native_monk_reuse(self):
         self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH for the read-only pinned client")
         result = subprocess.run([ROOT / "build/tests/monk-reuse-native.exe", EXACT_CLIENT], capture_output=True, timeout=15)
@@ -67,7 +72,7 @@ class RuntimeTests(unittest.TestCase):
         for label, config, nonce, reason in cases:
             with self.subTest(label=label), tempfile.TemporaryDirectory(prefix="nightcap-runtime-") as temp:
                 # Non-ASCII + spaces exercise module-relative Unicode paths.
-                directory = Path(temp) / "client é space"
+                directory = Path(temp) / "client Ã© space"
                 directory.mkdir()
                 shutil.copy2(ROOT / "build/tests/runtime-host.exe", directory / "host.exe")
                 shutil.copy2(ROOT / "build/dinput8.dll", directory / "dinput8.dll")

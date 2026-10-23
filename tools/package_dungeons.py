@@ -180,4 +180,5 @@ print('Paired package created.')
         if created:sql('DROP DATABASE '+DB+';')
         remote(f'from pathlib import Path\np=Path({RUNTIME!r})/"eqemu_config.json"\np.unlink(missing_ok=True)\n')
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    raise SystemExit('Historical October16 seven-dungeon package is frozen. Follow docs/dungeons/classic-rewards-20261022/README.md for the current candidate.')

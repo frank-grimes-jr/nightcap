@@ -1,663 +1,730 @@
 --- C:/Users/verre/.codex/skills/nightcap-development/references/world.md
 +++ C:/Users/verre/.codex/skills/nightcap-development/references/world.md
-@@ -1,4 +1,36 @@
- # Quests, tunnel services and travel
-+
-+## Quest ingredient qualities — October 22 candidate
-+
-+Source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins, reviewed 56e6dce5c099.
-+Tested candidate; main/production/player QA remain pending.
-+Normal quest requirements accept verified ordinary +200000/+400000/+600000
-+Polished/Exalted/Ascended definitions with exact generated names. Shared Lua
-+lua_modules/items.lua, native NPC::CheckHandin and task Deliver use this policy;
-+explicit quality requests, +800000 epics, hunt/dungeon catalogs and forging costs
-+stay exact. Prefer exact inputs and reserve explicit qualities first; real item
-+IDs/instances are retained. Failed native money/ingredient/unknown-ID checks
-+restore counts. Multiquest completion still clears the whole donation bucket,
-+including surplus; this change does not make extra donations refundable.
-+
-+Production audit confirms Aviak Charm13737/213737/413737/613737, two Star Rubies10032
-+at Shakrn Meadowgreen14075 in southkarana. Captured live quest grants4178; the
-+integrated class-armor candidate grants604178. Both pass all four charm tiers;
-+the ingredient fix preserves whichever reward policy the quest defines. Five
-+older soltemple scripts (Gardern/Joyce/Sultin/Vilissia/Vurgo) now delegate their17
-+recipes to the native helper; reward/EXP/faction values stay. Kurron declares actual coins to native matching and refunds them once on
-+success, preserving the reviewed no-new-sink policy; failures use native returns.
-+No inventory-ID
-+normalization or universal reward upgrading. Lua retains trade-slot semantics.
-+
-+Exact native hand-in/return and task-filter fixtures pass on Windows/Linux; actual
-+Shakrn Lua and legacy/Kurron Perl controls pass. Fresh independent review's Vilissia
-+encoding finding is resolved. Full zone6da991b6 is built over byte-reproduced
-+deployed5dd5a655 baseline; two implementation objects change, no ABI. Pair zone
-+with seven quest files and supported full-runtime restart, not a zone kill or just
-+quest reload. No SQL/world/cache/client change; preserve current pair and player
-+state during recovery. Full task delivery lifecycle remains in-game QA.
-+Source/tests/manifest/review/recovery/QA: docs/releases/quest-tier-handins-20261022/.
+@@ -2,8 +2,8 @@
  
- ## Every Classic dungeon — October22 candidate, not deployed
+ ## Quest ingredient qualities — October 22 candidate
  
+-Source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins, reviewed 56e6dce5c099.
+-Tested candidate; main/production/player QA remain pending.
++Source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins, reviewed 69d3eba33fc5.
++Promoted through dev/test; main/production/player QA remain pending. See promotion.json.
+ Normal quest requirements accept verified ordinary +200000/+400000/+600000
+ Polished/Exalted/Ascended definitions with exact generated names. Shared Lua
+ lua_modules/items.lua, native NPC::CheckHandin and task Deliver use this policy;
 --- C:/Users/verre/.codex/skills/nightcap-development/references/items.md
 +++ C:/Users/verre/.codex/skills/nightcap-development/references/items.md
-@@ -1,4 +1,36 @@
- # Items, loot, forging and economy
-+
-+## Quest ingredient qualities — October 22 candidate
-+
-+Source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins, reviewed 56e6dce5c099.
-+Tested candidate; main/production/player QA remain pending.
-+Normal quest requirements accept verified ordinary +200000/+400000/+600000
-+Polished/Exalted/Ascended definitions with exact generated names. Shared Lua
-+lua_modules/items.lua, native NPC::CheckHandin and task Deliver use this policy;
-+explicit quality requests, +800000 epics, hunt/dungeon catalogs and forging costs
-+stay exact. Prefer exact inputs and reserve explicit qualities first; real item
-+IDs/instances are retained. Failed native money/ingredient/unknown-ID checks
-+restore counts. Multiquest completion still clears the whole donation bucket,
-+including surplus; this change does not make extra donations refundable.
-+
-+Production audit confirms Aviak Charm13737/213737/413737/613737, two Star Rubies10032
-+at Shakrn Meadowgreen14075 in southkarana. Captured live quest grants4178; the
-+integrated class-armor candidate grants604178. Both pass all four charm tiers;
-+the ingredient fix preserves whichever reward policy the quest defines. Five
-+older soltemple scripts (Gardern/Joyce/Sultin/Vilissia/Vurgo) now delegate their17
-+recipes to the native helper; reward/EXP/faction values stay. Kurron declares actual coins to native matching and refunds them once on
-+success, preserving the reviewed no-new-sink policy; failures use native returns.
-+No inventory-ID
-+normalization or universal reward upgrading. Lua retains trade-slot semantics.
-+
-+Exact native hand-in/return and task-filter fixtures pass on Windows/Linux; actual
-+Shakrn Lua and legacy/Kurron Perl controls pass. Fresh independent review's Vilissia
-+encoding finding is resolved. Full zone6da991b6 is built over byte-reproduced
-+deployed5dd5a655 baseline; two implementation objects change, no ABI. Pair zone
-+with seven quest files and supported full-runtime restart, not a zone kill or just
-+quest reload. No SQL/world/cache/client change; preserve current pair and player
-+state during recovery. Full task delivery lifecycle remains in-game QA.
-+Source/tests/manifest/review/recovery/QA: docs/releases/quest-tier-handins-20261022/.
+@@ -37,8 +37,8 @@
  
- ## THJ custom behavior and stock gear — October 19, deployed for live testing
+ ## Quest ingredient qualities — October 22 candidate
  
-@@ -107,36 +139,28 @@
+-Source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins, reviewed 56e6dce5c099.
+-Tested candidate; main/production/player QA remain pending.
++Source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins, reviewed 69d3eba33fc5.
++Promoted through dev/test; main/production/player QA remain pending. See promotion.json.
+ Normal quest requirements accept verified ordinary +200000/+400000/+600000
+ Polished/Exalted/Ascended definitions with exact generated names. Shared Lua
+ lua_modules/items.lua, native NPC::CheckHandin and task Deliver use this policy;
+@@ -182,7 +182,7 @@
+ of Ro and mixed cleric branches require their own audit; never globally hook
+ SummonItem/QuestReward. Owned Palwar items need separate authorized correction.
  
- ## Substantial class-armor rewards — October 22 candidate, not deployed
- 
--The owner superseded the blanket repeatable-quest exclusion: substantial class
--armor may qualify even when repeatable; cheap/basic hand-ins remain excluded.
--Fresh production evidence confirmed Palwar's Crafted rewards were hard-coded
--Normal. Source E:/EQ_Local_Dev/_worktrees/quest-armor-ascended at d107f901fbf6
--changes37 terminal reward literals across Crafted, Lambent, Darkforge, Ivy Etched
--and Totemic. docs/items/quest-armor-catalog.json owns exact membership. Existing
--+600000 Ascended targets preserve eligibility/sockets; no item/stat/client changes.
--Other quests, basic crafts, materials, returns and epic+800000 remain separate.
--Armor of Ro's tradeskill finish and mixed cleric branches need their own audit.
--Never hook all SummonItem/QuestReward calls or infer membership from names.
--
--Audit downstream item consumers before reward substitution. Kurron Ni's SK epic
--uses three Darkforge pieces: the eleventh script accepts Normal/Ascended mixtures
--while retaining platinum>=900, original helper cash return, faction and once-per-
--spawn letter. Always invoke check_handin under its original coin gate, even when
--pieces are missing; the helper registers money for rejected-hand-in returns.
--The fresh literal script scan found no other progression consumers beyond
--unchanged sizing; recipe/task consumers were empty. Literal scans do not prove
--absence of dynamic references. Playable-race eligibility makes resizing
--unnecessary; higher-quality static sizing needs an instance-preservation audit.
--
--113 real-Lua cases,39 Perl subtests and21 validator controls pass with captured
--production helpers; baseline failures and independent review are recorded in
--docs/releases/quest-armor-20261022/. Activation needs fresh script/root/version
--and target-cache preflight, all11 retained originals, supported global Quest
--reload and unchanged native process lifetimes. No restart is expected; never
--kill a production zone. Recovery restores scripts only, retaining earned armor.
--Palwar's3 already-owned pieces remain unchanged; separate authorized offline
--correction must preserve fresh full-row state. Main/production/wiki publication
--and actual delivery, relog and owner balance QA are pending.
-+The owner permits substantial repeatable class-armor quests; cheap/basic hand-ins
-+stay excluded. The audited catalog grants existing +600000 Ascended definitions
-+for37 Crafted/Lambent/Darkforge/Ivy Etched/Totemic terminal rewards. Membership
-+is docs/items/quest-armor-catalog.json; no new stats, sockets or eligibility.
-+Other quests, basic crafts, intermediates and epic+800000 stay separate. Armor
-+of Ro and mixed cleric branches require their own audit; never globally hook
-+SummonItem/QuestReward. Owned Palwar items need separate authorized correction.
-+
-+Integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 56e6dce5c099. Kurron requires three
-+Darkforge pieces and raw platinum>=900. Native matching accepts all four ordinary
-+qualities. Declare all submitted denominations to CheckHandin, then refund once
-+on success; failure uses native returns. Preserve faction and one letter/spawn.
-+This corrects a real currency mismatch; unused quests/plugins/ fixture success
-+was not evidence of active live behavior. Root plugins/ is configured instead.
-+
-+All113 armor Lua cases use the current helper.39 historical Perl subtests remain
-+reward-delta controls; compiled native and357 callback assertions cover integrated
-+qualities/returns/currency.21 catalog guards pass. Combined activation needs the
-+paired zone and17 distinct quest/helper files, fresh preimages/cache preflight,
-+supported full-runtime restart, and authorized wiki publication. No SQL/world/
-+client/cache replacement. Preserve earned rewards on recovery. Tested candidate; main/production/player QA remain pending.
-+Evidence: docs/releases/quest-armor-20261022/ and docs/releases/quest-tier-handins-20261022/.
+-Integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 56e6dce5c099. Kurron requires three
++Integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 69d3eba33fc5. Kurron requires three
+ Darkforge pieces and raw platinum>=900. Native matching accepts all four ordinary
+ qualities. Declare all submitted denominations to CheckHandin, then refund once
+ on success; failure uses native returns. Preserve faction and one letter/spawn.
+@@ -194,7 +194,7 @@
+ qualities/returns/currency.21 catalog guards pass. Combined activation needs the
+ paired zone and17 distinct quest/helper files, fresh preimages/cache preflight,
+ supported full-runtime restart, and authorized wiki publication. No SQL/world/
+-client/cache replacement. Preserve earned rewards on recovery. Tested candidate; main/production/player QA remain pending.
++client/cache replacement. Preserve earned rewards on recovery. Promoted through dev/test; main/production/player QA remain pending. See promotion.json.
+ Evidence: docs/releases/quest-armor-20261022/ and docs/releases/quest-tier-handins-20261022/.
  
  ## Gear bands and finished cultural armor — October18 candidate
- 
 --- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
 +++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
-@@ -1,21 +1,30 @@
- # Official player wiki and Features
+@@ -2,7 +2,7 @@
  
-+## Quest ingredient qualities — October 22 candidate
-+
-+Tested candidate; main/production/player QA remain pending. Current source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins.
-+All21 guides and432 generated routes reviewed. Equipment, Features, home,
-+item upgrades, In development and Recent changes carry candidate-only notices
-+for ordinary quality quest ingredients. Keep quest rewards, explicit quality
-+requirements and forging rules distinct. Catalog values/commands are unchanged.
-+Published waypoint/robe guidance and separate class-armor candidate are preserved;
-+published ledger
-+is retained and check_refresh includes actual working changes.14 Python checks,
-+13 Node scenarios and458-page build pass. No public wiki publication claimed.
-+Evidence: docs/releases/quest-tier-handins-20261022/wiki-review.json, wiki-refresh.json and QA.md.
-+
- ## Class-armor reward candidate — October 22, not published
+ ## Quest ingredient qualities — October 22 candidate
  
--All21 maintained articles and432 generated routes reviewed against mainf293626
--plus d107f901fbf6. Equipment, Features, home, tradeskills, In development and
--Recent changes explicitly label the37-reward/five-family candidate Not released.
--Substantial repeatable class armor is now eligible for audit; cheap/basic hand-ins
--remain excluded. Kurron Ni's downstream compatibility preserves epic progression.
--Other quest/cultural candidates, commands and384 Hunt catalog values remain.
--Current robe and waypoint notices are preserved.14 content/refresh tests,6 search
--scenarios,7 equipment checks and458-page build pass. Published ledger e209649
--stays unchanged; check_refresh correctly reports reviewed candidate drift.
--Source/evidence: E:/EQ_Local_Dev/_worktrees/quest-armor-ascended,
--docs/releases/quest-armor-20261022/{README.md,wiki-review.json,verification.json}.
--No production or wiki publication, Palwar inventory correction, or owner gameplay
--acceptance is claimed. Pair future publication with the authorized11-script release.
--
-+The37-reward/five-family candidate stays Not released. Substantial repeatable
-+class armor qualifies for audit; cheap/basic hand-ins do not. Integrated tier
-+acceptance and Kurron currency correction are documented separately from reward
-+selection. All21 guides/432 generated routes were reviewed; current published
-+waypoint/robe guidance and the publication ledger stay intact. No item catalog
-+values, commands, owned inventory or public release changed in this task.
-+Current integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 56e6dce5c099.
-+Evidence: docs/releases/quest-armor-20261022/ and docs/releases/quest-tier-handins-20261022/wiki-review.json.
-+Pair future publication with the authorized combined native/quest release.
-+Tested candidate; main/production/player QA remain pending.
+-Tested candidate; main/production/player QA remain pending. Current source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins.
++Promoted through dev/test; main/production/player QA remain pending. See promotion.json. Current source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins.
+ All21 guides and432 generated routes reviewed. Equipment, Features, home,
+ item upgrades, In development and Recent changes carry candidate-only notices
+ for ordinary quality quest ingredients. Keep quest rewards, explicit quality
+@@ -21,10 +21,10 @@
+ selection. All21 guides/432 generated routes were reviewed; current published
+ waypoint/robe guidance and the publication ledger stay intact. No item catalog
+ values, commands, owned inventory or public release changed in this task.
+-Current integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 56e6dce5c099.
++Current integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 69d3eba33fc5.
+ Evidence: docs/releases/quest-armor-20261022/ and docs/releases/quest-tier-handins-20261022/wiki-review.json.
+ Pair future publication with the authorized combined native/quest release.
+-Tested candidate; main/production/player QA remain pending.
++Promoted through dev/test; main/production/player QA remain pending. See promotion.json.
  
- ## Every Classic dungeon — October22 unpublished candidate
+ ## Every Classic dungeon and relics — October22 unpublished candidate
  
 --- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
 +++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
-@@ -80,7 +80,8 @@
-     "waypoint_crystal_test_promotion_20261022": "442dce32933dd76c648e71b85baf428b958a67ac",
+@@ -81,7 +81,7 @@
      "classic_dungeon_candidate_20261022": "c4fb75cdec971172657040a28661fa84e995d725",
      "quest_armor_candidate_20261022": "d107f901fbf637933f40c86b1ddd0ff819438bce; not deployed; owner gameplay acceptance pending",
--    "waypoint_crystal_deployed_20261022": "10f162c8990b905634fd2ed6e9456af648bef180"
-+    "waypoint_crystal_deployed_20261022": "10f162c8990b905634fd2ed6e9456af648bef180",
-+    "quest_tier_handins_20261022": "56e6dce5c0999a385484568c231f7a665f7331f3"
+     "waypoint_crystal_deployed_20261022": "10f162c8990b905634fd2ed6e9456af648bef180",
+-    "quest_tier_handins_20261022": "56e6dce5c0999a385484568c231f7a665f7331f3",
++    "quest_tier_handins_20261022": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
+     "classic_dungeon_rewards_candidate_20261022": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
    },
    "topics": {
-     "operations": [
-@@ -3447,11 +3448,11 @@
-         "sha256": "57f930fb8dc37a8fe02f0e037f42a74622969bccbf8015223cb88253f2ee50e3"
+@@ -3617,34 +3617,6 @@
+         "sha256": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698"
        },
        {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "docs/items/quest-armor-catalog.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "6ac6d1c9429ce2b993b3be4e02968206cb3e3ffbc6816d6e1f84920ba9b04971"
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "3d522c438bed802a168030ae74f2f7d5cf7de079891585f06d5d127f76abce8d"
-       },
-       {
-         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-@@ -3461,11 +3462,11 @@
-         "sha256": "5951fea1fff57f7b21a9a4fce3be7956dc56541dce17856e1ac9cc92d159c4f3"
-       },
-       {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "tools/quest_armor.py",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "eae7be68a5f16407f240b1082dfaa8947ebe05933cfd3d595050c1e2622e0d7c"
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "75a22bef465eb8fd92360f81ed60198107a93361eb47ec11dba8ee92fa33ab5f"
-       },
-       {
-         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-@@ -3482,11 +3483,11 @@
-         "sha256": "53ec21fe0c910dad9d87f14df5d953f9acafce44297b2ab096404eac36dc0445"
-       },
-       {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "tools/tests/quest_armor_rewards.t",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "b020469a91b1a26d1f397accae870949b2d221385b9d7ca8caa39c4602bfdb61"
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "f609ae7991a1fdd1bc6c283ce82d07a36a8854b2acc88e3aa0f7cb63a6d24d7f"
-       },
-       {
-         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-@@ -3503,25 +3504,25 @@
-         "sha256": "95feb2f9906b8734a8bc505e2e76ef734f1b9983d3b9e125c463e600d7b9162a"
-       },
-       {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "docs/releases/quest-armor-20261022/README.md",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "55a3dff0be299ea29f730f138a45e532cd79c383e938c38ebb5a6738d85dc74a"
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/code/common/quest_item_policy.h",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "c1f62c0948d4d8eea7e9b54419f35410c0827235a6ff630a371c3bdf05c9e2ca"
 -      },
 -      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "3952d563cf930cfb6ddaa0fd9fdb5dfceb58e56daf493d50cfcd64c1d1ad860f"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "docs/releases/quest-armor-20261022/QA.md",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "c4f75b92b620769cac17b1bcf1aaa6d3f3961b96c8e4a38ff1c87635effc501e"
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/native-build-manifest.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "527b17b2829a5f38c0bb383e0e8f000701d206bd9f1d71e21e4be4a4054a0ccf"
 -      },
 -      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "18e137573c4350177a82be08bbfae39fa9ca6c50a18c47f4e550874e9f2ebf5f"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "docs/releases/quest-armor-20261022/manifest.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "81f64142b2a1e99cafb68fa304d64af8cb96557669d822320a92bd99644736cb"
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "f83694f0e35e48960987e0516e674c90fc229d03e29ad0464bba101e5bf08c8b"
-       },
-       {
-         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-@@ -3608,11 +3609,39 @@
-         "sha256": "cb52e993ea1cc01942bdaa0c3affd8b39ad3c9ec15761888e2184bce72bbb6ee"
-       },
-       {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-+        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
-         "path": "server-mods/quests/overthere/Kurron_Ni.pl",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "42914766c0360fe1eaf2703a80f07b37835bb295ffe1b0c105c5bb84257d2cd7"
-+        "role": "Reviewed class-armor/ingredient integration; candidate, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698"
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/production-audit.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "4458bf1f6685627bdf5510d152a41339c4217f94cb3b04ba4817bf2cb6bd908d"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/adr/0067-tiered-quest-ingredients.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "7431ca56f1110c6e978fefbd81745e960740dd8dc79f2f8908b3308dd2b1291b"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "tools/classic_dungeon_rewards.py",
+         "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+@@ -3776,6 +3748,34 @@
+         "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+         "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
+         "sha256": "3d8b6fd7ebe025ee186cad16b9ce7439e44cc54e3bf9aa0a08acac76cfbee79c"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/code/common/quest_item_policy.h",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "c1f62c0948d4d8eea7e9b54419f35410c0827235a6ff630a371c3bdf05c9e2ca"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/native-build-manifest.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "527b17b2829a5f38c0bb383e0e8f000701d206bd9f1d71e21e4be4a4054a0ccf"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/production-audit.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "4458bf1f6685627bdf5510d152a41339c4217f94cb3b04ba4817bf2cb6bd908d"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/adr/0067-tiered-quest-ingredients.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "7431ca56f1110c6e978fefbd81745e960740dd8dc79f2f8908b3308dd2b1291b"
        }
      ],
      "world": [
-@@ -4597,6 +4626,216 @@
-         "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
-         "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
+@@ -4741,216 +4741,6 @@
          "sha256": "dc2a236ce419bba2292207980fd20c545e37792d5ea74738edb59676e64e2735"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/code/zone/npc.cpp",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "a0494e064f6a42b00363bb35414aa847e07b45cbc7cc5a8b1a124b991f06c50e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/code/zone/task_client_state.cpp",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "f9256e7a23f293b8e3eca7d5b0f235561f17827088af349d72c6b59bff021948"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/lua_modules/items.lua",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "eb3b55da12c071707db0aafc9b84c86d048569e44d98f53c677b8af19143045c"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/soltemple/Gardern.pl",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "ac9509bd1c5a2bbe6de7133e7a5dc9f148ea6a023c7fdd110bef2663c18fae5c"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/soltemple/Joyce.pl",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "a61a0e374db671e98d3b73d295204d16f8b91f205ea09b0dd75de5793c8190d4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/soltemple/Sultin.pl",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "5dc01550b42f408f81f536cf934fb9933ce7dc0d45dc615cd09c33983a5ae395"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/soltemple/Vilissia.pl",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "3c1765048e542e026cb8a8734866b78f83f1833a76713f54883266e2cd6df88e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/soltemple/Vurgo.pl",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "8e5f1e7068e30283a6b6b3ca2d8d5c4fbe1f03654a396ae37251f1bdf53cf1b9"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/tests/test_quest_handins.py",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "1805aa3076202ae1a878577a42f81db67c328897a13ede9c613b1c7036f7ef3a"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/tests/quest_handins.lua",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "f505834afa8596e4f919125abe1ffcfa8d3a36b658ced596640b2a494248fc82"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/tests/quest_handins.t",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "d8a74666634d721e4a30b6d23bc5577213058b3f495882357d19afac2c77b60f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/tests/fixtures/quest_handins.cpp",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "124d9cbad3bdfee5f3f071725124833bafe69c3972f353c12634c9ff06f44ecd"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/tests/fixtures/quest_delivery.cpp",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "2eee93d5b846317779da686da006a46f3d0779065f24f0edc749e86c87e7a784"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "server-mods/quests/overthere/Kurron_Ni.pl",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/items/quest-armor-catalog.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "3d522c438bed802a168030ae74f2f7d5cf7de079891585f06d5d127f76abce8d"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/tests/quest_armor_rewards.t",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "f609ae7991a1fdd1bc6c283ce82d07a36a8854b2acc88e3aa0f7cb63a6d24d7f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/quest_armor.py",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "75a22bef465eb8fd92360f81ed60198107a93361eb47ec11dba8ee92fa33ab5f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-armor-20261022/README.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "3952d563cf930cfb6ddaa0fd9fdb5dfceb58e56daf493d50cfcd64c1d1ad860f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-armor-20261022/QA.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "18e137573c4350177a82be08bbfae39fa9ca6c50a18c47f4e550874e9f2ebf5f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-armor-20261022/manifest.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "f83694f0e35e48960987e0516e674c90fc229d03e29ad0464bba101e5bf08c8b"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/currency-mutation.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "f4935edba84bc5e0b406cddab4cd9cd060bfd93883db663ac28bdbe86244520f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/integrated-native-source-proof.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "7669f1f5edbdc097cf31df24ec8d88f305e911c9848ee43ef0e4acd0928f5e22"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/plugin-path-probe.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "42eab46b05893617d1bcf4fc9f5ac075799b24eed9e16ee5cad93010598f79fc"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "tools/capture_quest_handins.py",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "2a89f9ccc8c1f081742c73b43629eaa6d336f3d129d8b03f5895d66e41b74fd3"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/README.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "243467629c68f9a5796c7964c232e5772b11290677650ad55afe66e093edd42e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/QA.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "50019c8cce235560494630eac566637c8baa3d32e3846c565b5fc4088a1d9da7"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/verification.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "845f736f650553f9845de2ee46717f2dd4697734ec4b4f06ec48b30e175dbaa3"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/review.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "d8a0d997f415a1c3e960a4596acabbdfac7ebd9b783eee67f62f1d83db62ecd0"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/status.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "072c151c0e7bfa40557a85781404d448b522c6c2e3963086eb0ae14bfe4a92eb"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "CHANGES.md",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "953bb791180244daca49499842f3f7369fd197862173fc23513709a1a0599956"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "tools/classic_dungeon_rewards.py",
+         "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+@@ -5082,6 +4872,223 @@
+         "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+         "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
+         "sha256": "3d8b6fd7ebe025ee186cad16b9ce7439e44cc54e3bf9aa0a08acac76cfbee79c"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/code/zone/npc.cpp",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "a0494e064f6a42b00363bb35414aa847e07b45cbc7cc5a8b1a124b991f06c50e"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/code/zone/task_client_state.cpp",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "f9256e7a23f293b8e3eca7d5b0f235561f17827088af349d72c6b59bff021948"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/lua_modules/items.lua",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "eb3b55da12c071707db0aafc9b84c86d048569e44d98f53c677b8af19143045c"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/soltemple/Gardern.pl",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "ac9509bd1c5a2bbe6de7133e7a5dc9f148ea6a023c7fdd110bef2663c18fae5c"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/soltemple/Joyce.pl",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "a61a0e374db671e98d3b73d295204d16f8b91f205ea09b0dd75de5793c8190d4"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/soltemple/Sultin.pl",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "5dc01550b42f408f81f536cf934fb9933ce7dc0d45dc615cd09c33983a5ae395"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/soltemple/Vilissia.pl",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "3c1765048e542e026cb8a8734866b78f83f1833a76713f54883266e2cd6df88e"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/soltemple/Vurgo.pl",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "8e5f1e7068e30283a6b6b3ca2d8d5c4fbe1f03654a396ae37251f1bdf53cf1b9"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/tests/test_quest_handins.py",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "1805aa3076202ae1a878577a42f81db67c328897a13ede9c613b1c7036f7ef3a"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/tests/quest_handins.lua",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "f505834afa8596e4f919125abe1ffcfa8d3a36b658ced596640b2a494248fc82"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/tests/quest_handins.t",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "d8a74666634d721e4a30b6d23bc5577213058b3f495882357d19afac2c77b60f"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/tests/fixtures/quest_handins.cpp",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "124d9cbad3bdfee5f3f071725124833bafe69c3972f353c12634c9ff06f44ecd"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/tests/fixtures/quest_delivery.cpp",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "2eee93d5b846317779da686da006a46f3d0779065f24f0edc749e86c87e7a784"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "server-mods/quests/overthere/Kurron_Ni.pl",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/items/quest-armor-catalog.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "3d522c438bed802a168030ae74f2f7d5cf7de079891585f06d5d127f76abce8d"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/tests/quest_armor_rewards.t",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "f609ae7991a1fdd1bc6c283ce82d07a36a8854b2acc88e3aa0f7cb63a6d24d7f"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/quest_armor.py",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "75a22bef465eb8fd92360f81ed60198107a93361eb47ec11dba8ee92fa33ab5f"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-armor-20261022/README.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "3952d563cf930cfb6ddaa0fd9fdb5dfceb58e56daf493d50cfcd64c1d1ad860f"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-armor-20261022/QA.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "18e137573c4350177a82be08bbfae39fa9ca6c50a18c47f4e550874e9f2ebf5f"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-armor-20261022/manifest.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "f83694f0e35e48960987e0516e674c90fc229d03e29ad0464bba101e5bf08c8b"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/currency-mutation.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "f4935edba84bc5e0b406cddab4cd9cd060bfd93883db663ac28bdbe86244520f"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/integrated-native-source-proof.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "7669f1f5edbdc097cf31df24ec8d88f305e911c9848ee43ef0e4acd0928f5e22"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/plugin-path-probe.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "42eab46b05893617d1bcf4fc9f5ac075799b24eed9e16ee5cad93010598f79fc"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "tools/capture_quest_handins.py",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "2a89f9ccc8c1f081742c73b43629eaa6d336f3d129d8b03f5895d66e41b74fd3"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/README.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "243467629c68f9a5796c7964c232e5772b11290677650ad55afe66e093edd42e"
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
++        "sha256": "cd43797e24ec66f5b99fe9e74dcf5f76204325496515d8863553fd604ae088d7"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/QA.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "50019c8cce235560494630eac566637c8baa3d32e3846c565b5fc4088a1d9da7"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/verification.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "845f736f650553f9845de2ee46717f2dd4697734ec4b4f06ec48b30e175dbaa3"
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
++        "sha256": "5e9e17783e8de52a8a0abcfff976f6559be1d8ab1c68f035fbad6a690163bd15"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/review.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "d8a0d997f415a1c3e960a4596acabbdfac7ebd9b783eee67f62f1d83db62ecd0"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/status.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "072c151c0e7bfa40557a85781404d448b522c6c2e3963086eb0ae14bfe4a92eb"
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
++        "sha256": "899f9279a5c0ed276d128b20c7bebac118ca880241a46f97c4be16c6e134a053"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "CHANGES.md",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "953bb791180244daca49499842f3f7369fd197862173fc23513709a1a0599956"
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
++        "sha256": "9429d21ec936c666c9541aff8002cce4c395539ff31eae51d858b345791089bf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
++        "path": "docs/releases/quest-tier-handins-20261022/promotion.json",
++        "role": "quest ingredient candidate; built/tested, not deployed",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
++        "sha256": "1ebd9d0bf2f6ebe71e49f460200230a66efb7243898563a1387097c20135da9e"
        }
      ],
      "client": [
-@@ -8077,45 +8316,10 @@
-       },
-       {
-         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
--        "path": "wiki/articles/equipment.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "d7c6bd85b736412eceab9611891047c35600d44e352237ba2be62bd339772b3c"
--      },
--      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
--        "path": "wiki/articles/features.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "8278c5c5cdeef3a69d0420c6d34b9f5cf69e1d06ad02b1d2a65632b73b9c8c26"
--      },
--      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
--        "path": "wiki/articles/index.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "a1001308055bb8d9d042ac5e64431c749a1d3f3d2a9a81409f4aca9f5c302086"
--      },
--      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-         "path": "wiki/articles/tradeskills.json",
-         "role": "Reviewed class-armor candidate; not deployed/published/accepted",
-         "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
-         "sha256": "c89f1cb4cdd873219bd0875ed3932a5feef3726b71670beb125852c96f6fff7b"
--      },
--      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
--        "path": "wiki/articles/unreleased.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "6cbcdd4595130a67a01e4ad8491e2c38be78f536f62e8d8c36396d03f9e10880"
--      },
--      {
--        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
--        "path": "wiki/articles/recent-changes.json",
--        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
--        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
--        "sha256": "6c0f85082ef3bb3c8375fa6c05559ae73284b5b6607bff30d83ca7e21dc4a95c"
-       },
-       {
-         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
-@@ -8165,6 +8369,69 @@
-         "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
-         "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
+@@ -8582,69 +8589,6 @@
          "sha256": "b0715d02165875b1198432bb231bd7a754201826a862c4adb3f783135bad58df"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "abe50722430bfa52e48ffc83e798ff0284d3d25bfeed47a63c69a3565d7c85f8"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/features.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "45c1879aa3401354ea318d3a8ff0c18ee38913c6fb46669db11d7f270497211c"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/index.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "b129d7b078c4f40e54d9e7323a89cd44c4918b79d58710431949bcf50b40f1ac"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/item-upgrades.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "08d53300c925355b993ecfb367f7a17c34ab505271744c5d2336fe5bccf92fcf"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "e30c78f1df4513e5ae30b48e887128885685f320b151c0689dfd856e2c01bf8e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "5c0794d6bf19470933255661695634fe117f11db58042f4b3c5e009bbda058b5"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/content-review.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "4976625b8c6b8ec395549a65f8ef7ccc855bd8c0a9257c6e6ce163d73788c6f9"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/wiki-review.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "5334e8e15296802a8076f15841c3f2e908adaeded9272352f716f0b7a3ff6cee"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "docs/releases/quest-tier-handins-20261022/wiki-refresh.json",
+-        "role": "quest ingredient candidate; built/tested, not deployed",
+-        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+-        "sha256": "fbf49a21c00545c3b055177c82cb5b6c31b571b5e49340734c99e948d39d5996"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "wiki/articles/dungeon-modes.json",
+         "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+@@ -8706,6 +8650,69 @@
+         "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
+         "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
+         "sha256": "15829e58cbbefb4a1ead3a80611a0a8ebf1f5a1ded5ad20868c00a40d7af2b89"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/articles/equipment.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "abe50722430bfa52e48ffc83e798ff0284d3d25bfeed47a63c69a3565d7c85f8"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/articles/features.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "45c1879aa3401354ea318d3a8ff0c18ee38913c6fb46669db11d7f270497211c"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/articles/index.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "b129d7b078c4f40e54d9e7323a89cd44c4918b79d58710431949bcf50b40f1ac"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/articles/item-upgrades.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "08d53300c925355b993ecfb367f7a17c34ab505271744c5d2336fe5bccf92fcf"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/articles/unreleased.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "e30c78f1df4513e5ae30b48e887128885685f320b151c0689dfd856e2c01bf8e"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/articles/recent-changes.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "5c0794d6bf19470933255661695634fe117f11db58042f4b3c5e009bbda058b5"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "wiki/content-review.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "4976625b8c6b8ec395549a65f8ef7ccc855bd8c0a9257c6e6ce163d73788c6f9"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/wiki-review.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
 +        "sha256": "5334e8e15296802a8076f15841c3f2e908adaeded9272352f716f0b7a3ff6cee"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
 +        "path": "docs/releases/quest-tier-handins-20261022/wiki-refresh.json",
 +        "role": "quest ingredient candidate; built/tested, not deployed",
-+        "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
-+        "sha256": "fbf49a21c00545c3b055177c82cb5b6c31b571b5e49340734c99e948d39d5996"
++        "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
++        "sha256": "66d62ab437211a25efb98968fcedebd0df7bc26d41a5c02fdec69b02c3aa8ad9"
        }
      ]
    }

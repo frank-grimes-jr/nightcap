@@ -1,0 +1,23 @@
+{
+  "preimages": {
+    "references/world.md": "35c0edcbe6a640c36941b2c6ae3ef2ef3ded8ded6ffd7392388e438fe219c3a4",
+    "references/wiki.md": "91846bd4e18947b9e34f6c590b1e0e475cc731e7794dfa4ea326e8d11460a5fc",
+    "references/sources.json": "f9e1096e76b2c9f58c1c130b1754d35104424fae05c29c659d3c891d089a95b8"
+  },
+  "afterimages": {
+    "references/world.md": "85788a554f8eef14e5aa1df2e87b10a876ffbdb954729a76505f97a5d1fddd64",
+    "references/wiki.md": "a06509ae174af2b4ebdd130fe3bd485140dd7669d58760f760c71a4c53d1ee4a",
+    "references/sources.json": "c0744baba7b6df0dc6176ae56cc6d8da5a398f79def3776eeee554c46c20a6d1"
+  },
+  "status": "candidate installed",
+  "checks": {
+    "world": {
+      "introduced_drift": [],
+      "preexisting_drift": []
+    },
+    "wiki": {
+      "introduced_drift": [],
+      "preexisting_drift": []
+    }
+  }
+}
