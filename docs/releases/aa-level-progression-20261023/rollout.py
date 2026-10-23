@@ -91,6 +91,7 @@ def preflight():
  assert services['game']['health']==services['db']['health']=='healthy'
  assert services['game']['image_id']==m['base_image_id']
  assert r.image_hashes(m['base_image_id'])==m['base_hashes']
+ assert sha(ROOT/'data/public/channel.json')==m['client_channel_sha256'],'Signed client baseline changed'
  assert m['binaries']=={**{n:m['base_hashes']['bin/'+n] for n in NAMES},**m['replacement_binaries']}
  r.running(m['base_image_id'],{n:m['base_hashes']['bin/'+n] for n in NAMES},services['game']['restarts'])
  base.health();base.startup_guards();r.closed_ports();contract()

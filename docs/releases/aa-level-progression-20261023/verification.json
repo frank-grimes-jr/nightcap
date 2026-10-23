@@ -16,6 +16,10 @@
     "reward and SetEXP bodies extracted from candidate source",
     "world/database/UI services are controlled boundaries"
   ],
-  "native_full_build": "running",
-  "owner_gameplay_accepted": false
+  "native_full_build": "fresh complete world/zone/shared_memory passed",
+  "owner_gameplay_accepted": false,
+  "operator_tests_linux": 15,
+  "client_publisher_tests_linux": 11,
+  "wiki_tests_linux": 67,
+  "wiki_browser_layouts": 21
 }

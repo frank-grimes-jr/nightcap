@@ -43,8 +43,7 @@ No retroactive points or player-data reset is planned.
 
 Native award369, legacy129, actual SetEXP8 and pinned client167 checks pass.
 The client runtime suite passes10groups and112exact executable guards. Signed
-client2026102301 changes only the proxy/catalog and preserves138assets. Full
-native compilation remains pending; no gameplay/client/wiki activation is claimed.
+client2026102301 changes only the proxy/catalog and preserves138assets. Fresh complete world/zone/shared_memory compilation passed; no gameplay/client/wiki activation is claimed.
 
 Operator15failure cases pass. Actual MariaDB temporary-table forward/replay/
 collision rehearsal leaves live rules unchanged. The compiled catalog1013rules
