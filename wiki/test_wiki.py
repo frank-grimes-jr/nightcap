@@ -77,10 +77,11 @@ class WikiTests(unittest.TestCase):
         self.assertIn('selectFamilies', (self.out/'assets/search.js').read_text(encoding='utf-8'))
 
     def test_current_mechanics_and_unreleased_labels(self):
-        self.assertIn('<strong>10%',self.articles['multiclass']['body'])
-        self.assertIn('1,000,000 AA experience',self.articles['multiclass']['body'])
+        self.assertIn('<strong>two AA per level-equivalent</strong>',self.articles['multiclass']['body'])
+        self.assertIn('<strong>100% to pause normal leveling</strong>',self.articles['multiclass']['body'])
+        self.assertIn('98 AA by reaching level 50',self.articles['multiclass']['body'])
         self.assertNotIn('plus 1%',self.articles['multiclass']['body'])
-        self.assertIn('10%',self.articles['commands']['body'])
+        self.assertIn('#aaexp 0–100',self.articles['commands']['body'])
         self.assertNotIn('40%',self.articles['commands']['body'])
         self.assertEqual(self.articles['unreleased']['status'],'Not released')
         self.assertIn('not installed',self.articles['unreleased']['body'])

@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const root=document.getElementById('build-lab');if(!root)return;
+  const root=document.querySelector('#build-lab[data-lab]');if(!root)return;
   const M=window.NightcapBuildLab, data=JSON.parse(root.dataset.lab), $=id=>root.querySelector('#lab-'+id);
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=(n,d=0)=>Number(n).toLocaleString(undefined,{maximumFractionDigits:d});
