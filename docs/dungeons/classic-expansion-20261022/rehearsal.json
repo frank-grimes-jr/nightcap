@@ -1,0 +1,16 @@
+{
+  "status": "passed_local_isolated_SQL",
+  "database": "nightcap_dungeon_rehearsal_697cb715dfc6",
+  "runtime_checks": 483,
+  "dangling_task_collision_rejected": true,
+  "mid_transaction_failure_rolled_back": true,
+  "repeat_rejected": true,
+  "existing_item_run_reward_credit_hashes": {
+    "items": "3743293637",
+    "nightcap_dungeon_runs": "3248664926",
+    "nightcap_dungeon_members": "774108210",
+    "nightcap_dungeon_kills": "1249463406"
+  },
+  "migration_sha256": "276d23c69e1992980d3c272f4b2cd6b3c43bea6b7fe4febdcd35d37c70ff4d33",
+  "production_changed": false
+}

@@ -463,6 +463,42 @@ inline void CallOriginalAA(void* self) {
     __try { original_aa(self); }
     __finally { aa_filter_active=previous; }
 }
+// Native AA +/- controls use a byte and step ten without saturating.
+inline void ClampAAButtonBoundary(void* self, void* sender) {
+    __try {
+        auto window=static_cast<BYTE*>(self);
+        auto character=*reinterpret_cast<BYTE**>(base+0x9D261C);
+        if (!window || !sender || !character) return;
+        BYTE& percent=character[0x2081];
+        if (sender==*reinterpret_cast<void**>(window+0x24C) && percent>0 && percent<10) percent=10;
+        else if (sender==*reinterpret_cast<void**>(window+0x250) && percent>90 && percent<100) percent=90;
+    } __except(EXCEPTION_EXECUTE_HANDLER) {}
+}
+inline bool MatchAAAllocationControls() {
+    __try {
+        if (memcmp(reinterpret_cast<void*>(base+kUIAAExpResetRva),kExpectedUIAAExpReset,sizeof(kExpectedUIAAExpReset)) ||
+            memcmp(reinterpret_cast<void*>(base+kUIAAExpMinusLevelRva),kExpectedUIAAExpMinusLevel,sizeof(kExpectedUIAAExpMinusLevel)) ||
+            memcmp(reinterpret_cast<void*>(base+kUIAAExpPlusLevelRva),kExpectedUIAAExpPlusLevel,sizeof(kExpectedUIAAExpPlusLevel))) return false;
+        // Each native sequence has one HIGHLOW-relocated character global.
+        BYTE minus[sizeof(kExpectedUIAAExpMinusNative)],plus[sizeof(kExpectedUIAAExpPlusNative)];
+        memcpy(minus,kExpectedUIAAExpMinusNative,sizeof(minus));
+        memcpy(plus,kExpectedUIAAExpPlusNative,sizeof(plus));
+        const auto character_global=static_cast<uint32_t>(base+0x9D261C);
+        memcpy(minus+9,&character_global,4);memcpy(plus+9,&character_global,4);
+        return !memcmp(reinterpret_cast<void*>(base+kUIAAExpMinusNativeRva),minus,sizeof(minus)) &&
+            !memcmp(reinterpret_cast<void*>(base+kUIAAExpPlusNativeRva),plus,sizeof(plus));
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+}
+inline bool InstallAAAllocationControls() {
+    if (!MatchAAAllocationControls()) return false;
+    BYTE reset[sizeof(kExpectedUIAAExpReset)],minus[sizeof(kExpectedUIAAExpMinusLevel)],plus[sizeof(kExpectedUIAAExpPlusLevel)];
+    memcpy(reset,kExpectedUIAAExpReset,sizeof(reset));reset[4]=0;
+    memcpy(minus,kExpectedUIAAExpMinusLevel,sizeof(minus));minus[4]=1;
+    memcpy(plus,kExpectedUIAAExpPlusLevel,sizeof(plus));plus[4]=1;
+    return WriteVerifiedPatch(reinterpret_cast<BYTE*>(base+kUIAAExpResetRva),kExpectedUIAAExpReset,reset,sizeof(reset)) &&
+        WriteVerifiedPatch(reinterpret_cast<BYTE*>(base+kUIAAExpMinusLevelRva),kExpectedUIAAExpMinusLevel,minus,sizeof(minus)) &&
+        WriteVerifiedPatch(reinterpret_cast<BYTE*>(base+kUIAAExpPlusLevelRva),kExpectedUIAAExpPlusLevel,plus,sizeof(plus));
+}
 inline void __fastcall AAHook(void* self, void*);
 inline int __fastcall AANotifyHook(void* self, void*, void* sender, uint32_t message, void* data) {
     if (self && sender && IsArmorControl(self,sender,"NC_AARecommended")) {
@@ -470,6 +506,7 @@ inline int __fastcall AANotifyHook(void* self, void*, void* sender, uint32_t mes
         return 1;
     }
     if (self && sender && message==1 && IsArmorControl(self,sender,"ResetFilter")) ResetAARecommended(self);
+    if (self && sender && message==1) ClampAAButtonBoundary(self,sender);
     return original_aa_notify(self,sender,message,data);
 }
 inline bool ReadList(void* window, unsigned index, void*& list, int& rows, int& class_column, int& recommendation_column) {
@@ -647,6 +684,8 @@ inline bool Install(uintptr_t image_base) {
         install_failure = "UICellText_signature";
         if (memcmp(reinterpret_cast<void*>(base+kUICellTextRva), kExpectedUICellText, sizeof(kExpectedUICellText))) return false;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+    install_failure = "aa_allocation_controls";
+    if (!InstallAAAllocationControls()) return false;
     send_request = reinterpret_cast<SendRequest>(base+kUISendRequestRva);
     install_failure = "label_entry";
     original_label = reinterpret_cast<GetLabel>(EntryHook(base+kUILabelRva, kExpectedUILabel, reinterpret_cast<void*>(&LabelHook)));

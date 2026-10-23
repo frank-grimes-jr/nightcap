@@ -1,5 +1,10 @@
 # Raid and Grind dungeons — deployed for live QA
 
+October22: all21 Classic dungeons and414 MAGIC rewards are deployed for live
+QA. [Current release, preservation and recovery](classic-rewards-20261022/deployment/README.md).
+Owner gameplay/balance acceptance remains open. The October16 history below
+retains its original seven-zone/330-item scope.
+
 October 16, 2026. The owner authorized main promotion and production deployment.
 Revision 2026101601 is enabled on OVH with matching native binaries and a freshly
 regenerated production item cache; game access is open. All 309,410 existing

@@ -1,0 +1,18 @@
+{
+  "status": "built_not_installed",
+  "baseline_zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+  "baseline_reproduced": true,
+  "zone_sha256": "d5b418b36d77897f4b186491dc2bcc3986a6ee719ae558f9dc4fcb09c2ab38a9",
+  "candidate_sources": {
+    "zone/dungeon_service.cpp": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e",
+    "zone/dungeon_service.h": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
+    "zone/lua_general.cpp": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
+    "common/dungeon_policy.h": "dc851a89f29eb9b57485b07c8aadabdc5117185fa11832a3a3bda442ed7c8c5d",
+    "common/dungeon_catalog.h": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8",
+    "common/dungeon_contract.h": "280a23a9fdbf8372b3df25582d0097c8e8708724c277af59693f843bd499f3cf"
+  },
+  "retained_inputs_unchanged": true,
+  "abi_changed": false,
+  "production_changed": false,
+  "owner_gameplay_accepted": false
+}

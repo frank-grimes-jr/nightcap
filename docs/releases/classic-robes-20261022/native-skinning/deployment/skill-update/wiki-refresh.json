@@ -1,0 +1,12 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-22",
+  "source_ref": "HEAD",
+  "changed_sources": [
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/skill-update/fingerprint-check.json",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/skill-update/knowledge.patch",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/skill-update/receipt.json",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/skill-update/scoped-fingerprints.json"
+  ],
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
+}

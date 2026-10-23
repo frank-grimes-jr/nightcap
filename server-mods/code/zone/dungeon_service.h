@@ -16,6 +16,9 @@ using SavedSpawn = ZoneStateSpawnsRepository::ZoneStateSpawns;
 // Called before loading any NPCs. Failure prevents a managed zone from booting.
 bool Boot();
 bool Managed();
+// Read-only identity for run-scoped quest state. Retained after expiry or
+// suspension so quest callbacks cannot fall through to public-zone behavior.
+std::string RunID();
 bool RaidNPC(Mob *npc);
 bool SelectSpawn(uint32_t spawn, uint32_t &npc);
 void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns);

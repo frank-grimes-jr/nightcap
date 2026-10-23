@@ -26,6 +26,8 @@ parser.add_argument('output', type=Path)
 parser.add_argument('--pose', default='P01')
 parser.add_argument('--frame', type=int, default=0)
 parser.add_argument('--angle', type=float, default=0, help='actor rotation in degrees')
+parser.add_argument('--actors', nargs='+', choices=TARGETS, default=TARGETS,
+                    help='inspect a smaller set at higher detail')
 args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
 candidate, output = args.candidate, args.output
 output.mkdir(parents=True, exist_ok=False)
@@ -65,7 +67,7 @@ def material(index):
     return mat
 
 
-for cell, code in enumerate(TARGETS):
+for cell, code in enumerate(args.actors):
     _, transforms = skeleton(wld, code, args.pose, args.frame)
     models = [mesh(wld, code + '01'), mesh(wld, code + 'HE00')]
     points = [world_points(model, transforms, code) for model in models]
@@ -120,22 +122,24 @@ for cell, code in enumerate(TARGETS):
 
 camera = bpy.data.objects.new('Robe camera', bpy.data.cameras.new('Robe camera'))
 scene.collection.objects.link(camera)
-camera.location = (3.65, -12, 2.3)
-camera.rotation_euler = (Vector((3.65, 0, .47)) - camera.location).to_track_quat('-Z', 'Y').to_euler()
+columns = (len(args.actors) + 1) // 2
+center_x = ((columns - 1) * 1.15 + (.48 if len(args.actors) > 1 else 0)) / 2
+camera.location = (center_x, -12, 2.3)
+camera.rotation_euler = (Vector((center_x, 0, .47)) - camera.location).to_track_quat('-Z', 'Y').to_euler()
 camera.data.type = 'ORTHO'
-camera.data.ortho_scale = 8.3
+camera.data.ortho_scale = max(2.0, columns * 1.15 + .25)
 scene.camera = camera
-for location, power in [((3, -5, 6), 1500), ((6, 2, 4), 1000)]:
+for location, power in [((center_x - .65, -5, 6), 1500), ((center_x + 2.35, 2, 4), 1000)]:
     light_data = bpy.data.lights.new('Robe light', 'AREA')
     light_data.energy = power
     light_data.size = 7
     light = bpy.data.objects.new('Robe light', light_data)
     scene.collection.objects.link(light)
     light.location = location
-    light.rotation_euler = (Vector((3.5, 0, .5)) - light.location).to_track_quat('-Z', 'Y').to_euler()
+    light.rotation_euler = (Vector((center_x, 0, .5)) - light.location).to_track_quat('-Z', 'Y').to_euler()
 scene.render.engine = 'CYCLES'
 scene.cycles.samples = 16
-scene.render.resolution_x = 2800
+scene.render.resolution_x = max(1000, columns * 400)
 scene.render.resolution_y = 700
 scene.render.resolution_percentage = 100
 scene.render.image_settings.file_format = 'PNG'

@@ -1,0 +1,44 @@
+{
+  "guard_result": "Stopped before upload/public changes on stale quest-armor-v2 pointer",
+  "observed_release": "20261022-quest-tiers-v1",
+  "evidence_root": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\deployment",
+  "changes": [
+    {
+      "path": "wiki/articles/equipment.json",
+      "source_path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\equipment.json",
+      "source_sha256": "5fbb84655c096747393ace56a667fa2812b02cdca66dc2935e7e7cfc70a4b67e",
+      "adopted_paragraph": "<h2 id=\"quest-ingredients\">Quest ingredient qualities - live testing</h2><p>Normal-item quest requirements accept Polished, Exalted and Ascended versions of the same item. Shakrn Meadowgreen in South Karana accepts an Aviak Charm of any ordinary quality plus two Star Rubies for Ascended Crafted Gauntlets, following the current class-armor reward policy. Ingredients are consumed; their quality does not upgrade the configured reward. Exact Normal inputs are used first when both are offered. Explicit quality requirements, reforging recipes and separate epic, hunt and dungeon catalogs retain their own rules. Quest hand-ins and task delivery support the change; in-game acceptance testing remains open.</p>"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "source_path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\features.json",
+      "source_sha256": "6dda6e32950a542dff88ba9304f33c3298ca7191b98b9ddae67a978fcb0637f0",
+      "adopted_paragraph": "<h2 id=\"quest-ingredients-candidate\">Quest ingredient qualities - live testing</h2><p>Better ordinary qualities can satisfy Normal quest ingredients, including the Aviak Charm for Crafted Gauntlets. The quest keeps its configured reward. See <a href=\"equipment.html#quest-ingredients\">ingredient rules and limits</a>.</p>"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "source_path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\index.json",
+      "source_sha256": "1c51b02c42ec21ebe5dc87c5865ba8b62076905714772b3a485dcb1cc2d79596",
+      "adopted_paragraph": "<h2 id=\"quest-ingredients-candidate\">Live testing: quest ingredient qualities</h2><p>Quest hand-ins and deliveries now accept Polished, Exalted and Ascended versions of Normal ingredients. <a href=\"equipment.html#quest-ingredients\">Try the Crafted Gauntlets turn-in and review the limits</a>.</p>"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "source_path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\item-upgrades.json",
+      "source_sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d",
+      "adopted_paragraph": "<h2 id=\"quest-ingredients-candidate\">Quest ingredient qualities - live testing</h2><p><a href=\"equipment.html#quest-ingredients\">Ordinary quality variants can satisfy Normal quest requirements</a>. This does not change the number or quality of copies required by the Reforging Box or zone forging.</p>"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "source_path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\recent-changes.json",
+      "source_sha256": "0690604d4b180665bafbd204011e9bc17b7b18b5c3c769397e2070d04f2d0531",
+      "adopted_paragraph": "<h2 id=\"quest-ingredients-20261022\">October 22 - quest ingredient fix live for testing</h2><p>Polished, Exalted and Ascended ingredients can satisfy Normal quest requirements, including Aviak Charm for Crafted Gauntlets. Shared hand-ins, task delivery and five older Temple quests are covered. The paired server and quest release is deployed; player QA remains open. <a href=\"equipment.html#quest-ingredients\">Scope and limits</a>.</p>"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "source_path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\unreleased.json",
+      "source_sha256": "57abec708b756c17ee1ca9d202c059028f32b79630769c52f6e2bc88f303403e",
+      "adopted_paragraph": "<h2 id=\"quest-ingredients\">Quest ingredient qualities - live testing</h2><p>The fix for rejection of Aviak Charm (Polished) is deployed. Shared quest hand-ins and task delivery accept ordinary higher-quality variants for Normal requirements. Check completion, missing inputs and returned extras in game; <a href=\"equipment.html#quest-ingredients\">explicit-quality and forging rules remain separate</a>.</p>"
+    }
+  ],
+  "scope": "Adopt only already-published ingredient paragraphs; preserve every robe edit. Ingredient native acceptance remains open."
+}

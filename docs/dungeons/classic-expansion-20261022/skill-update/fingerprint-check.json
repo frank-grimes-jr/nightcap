@@ -1,0 +1,245 @@
+{
+  "audited_at": "2026-10-22",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "world": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\zone\\dungeon_service.cpp",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\zone\\dungeon_service.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\zone\\lua_general.cpp",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_catalog.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_contract.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\code\\common\\dungeon_policy.h",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\lua_modules\\nightcap_dungeons.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\sql\\20261022_classic_dungeons.sql",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_catalog.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\classic_dungeon_migration.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\dungeon_refresh_contract.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\prepare_classic_dungeons.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_catalog.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_private.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_classic_dungeon_quests.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_current_contract.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_lifecycle.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_policy.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\test_dungeon_journal.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\tools\\tests\\rehearse_classic_dungeons.py",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\README.md",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\QA.md",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\verification.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\rehearsal.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\build-manifest.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\review.md",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\#Sister_of_the_Spire.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\a_thunder_spirit_princess.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Bazzt_Zzzt.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Bzzzt.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Gorgalosk.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Keeper_of_Souls.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Key_Master.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Protector_of_Sky.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\Sirran_the_Lunatic.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\airplane\\The_Spiroc_Lord.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\server-mods\\quests\\fearplane\\Cazic_Thule.lua",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\dungeon-modes.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\features.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\index.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\travel.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\equipment.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\wiki\\content-review.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\wiki-review.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\docs\\dungeons\\classic-expansion-20261022\\wiki-refresh.json",
+        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

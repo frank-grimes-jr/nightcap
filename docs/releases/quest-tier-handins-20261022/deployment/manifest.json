@@ -1,0 +1,37 @@
+{
+  "base_image_id": "sha256:15a159c0f9a80d541856d7412e59d94baa6b29cc320c397cab9e3d44278ecfff",
+  "base_hashes": {
+    "bin/world": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
+    "bin/zone": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "quest_preimages": {
+    "quests/lua_modules/items.lua": "a70ea72871e5637a669b2f4ccd0dd523e034c721d9b38ffaf5995b8b449c2a0e",
+    "quests/overthere/Kurron_Ni.pl": "42914766c0360fe1eaf2703a80f07b37835bb295ffe1b0c105c5bb84257d2cd7",
+    "quests/soltemple/Gardern.pl": "37bf2828c1e459051d8e888e31481186a39afcc35c982ce072eaee6b353908f9",
+    "quests/soltemple/Joyce.pl": "d91c40856dd6d51279b84f93079f6fab48aaaf49afc55f39f1afa2099632a82e",
+    "quests/soltemple/Sultin.pl": "585fcf48e98622aaf97c35e3a3deb3c87ae1f1a693981c071448536d74469e58",
+    "quests/soltemple/Vilissia.pl": "4dd49c13f68543be671bbda76062eace2f15fc4ecb13ead5c4cbbfa574d7c654",
+    "quests/soltemple/Vurgo.pl": "d67ff695e3bd498aeff35f8483355bf475bd08f0f0e20a54ae67beefc1dda834"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "files": {
+    "bin/zone": "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0",
+    "rollout.py": "cc59f172e3ec80eade848d389e10d3cb78a4e182624ebed7f675769b42de3ab7",
+    "quests/lua_modules/items.lua": "eb3b55da12c071707db0aafc9b84c86d048569e44d98f53c677b8af19143045c",
+    "quests/overthere/Kurron_Ni.pl": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698",
+    "quests/soltemple/Gardern.pl": "ac9509bd1c5a2bbe6de7133e7a5dc9f148ea6a023c7fdd110bef2663c18fae5c",
+    "quests/soltemple/Joyce.pl": "a61a0e374db671e98d3b73d295204d16f8b91f205ea09b0dd75de5793c8190d4",
+    "quests/soltemple/Sultin.pl": "5dc01550b42f408f81f536cf934fb9933ce7dc0d45dc615cd09c33983a5ae395",
+    "quests/soltemple/Vilissia.pl": "3c1765048e542e026cb8a8734866b78f83f1833a76713f54883266e2cd6df88e",
+    "quests/soltemple/Vurgo.pl": "8e5f1e7068e30283a6b6b3ca2d8d5c4fbe1f03654a396ae37251f1bdf53cf1b9"
+  },
+  "zone_sha256": "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0",
+  "client_channel_sha256": "87eadd9c0e7c278d46b79f7d62c3dbc9f8d8f16158ead90cc0bc17b9c4194c62",
+  "source_commit": "21d6c8e42d793a991a74eea7afa75f74a6b6fa24"
+}

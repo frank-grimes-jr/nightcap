@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-22",
+  "status": "verified_candidate_not_deployed",
+  "source_base": "26761ff",
+  "zones": 21,
+  "objectives": 147,
+  "journal_definitions": 42,
+  "reward_definitions_preserved": 330,
+  "original_revision_preserved": 2026101601,
+  "tests": {
+    "focused_native_catalog_actual_lua": 20,
+    "final_catalog_contract_recheck": 9,
+    "wiki_python": 14,
+    "wiki_node_search_and_equipment": 13,
+    "wiki_built_pages": 458,
+    "isolated_sql_content_predicates": 483,
+    "read_only_production_schema_predicates": 39
+  },
+  "geometry": {
+    "new_keeper_zones": 14,
+    "matching_production_map_hashes": 14,
+    "sky_private_poses": 12,
+    "sky_ground_headroom_samples": 60
+  },
+  "build": {
+    "zone_sha256": "babebceb5e73aa9d06b7aeb9f9bfb85c4d2c472f51d7176a317905727a7426af",
+    "original_live_binary_reproduced": true,
+    "source_hashes_match": true,
+    "dependency_link_check": true,
+    "lua_archive_reused_only_after_input_and_dependency_check": true
+  },
+  "review": "independent_no_remaining_blocking_code_findings",
+  "wiki": "7 candidate notices; all21 guides and432 generated reward routes reviewed; not published",
+  "negative_checks": [
+    "Old item contract rejected currentproduction rewards before repair",
+    "ReservedNPC IDs collided with skeletonpets; final ranges auditedfree",
+    "Seven Sirran groups required unique names; regression added",
+    "Synthetic dangling task ownership rejected",
+    "Synthetic mid-transaction failure rolled back",
+    "Repeated installation rejected"
+  ],
+  "limitations": [
+    "No native in-game acceptance",
+    "Plane difficulty and current Hole population not balance-approved",
+    "No production cache runtime inspection; production DB and retained build verified",
+    "No gameplay/main promotion or server/client/wiki publication"
+  ],
+  "production_changed": false,
+  "owner_accepted": false
+}

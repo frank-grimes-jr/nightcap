@@ -1,0 +1,26 @@
+{
+  "status": "passed_local_isolated_SQL",
+  "database": "nightcap_dungeon_rehearsal_ea8b5159b70b",
+  "collision_and_drift_cases": [
+    "orphan inventory",
+    "orphan entitlement",
+    "serialized checkpoint",
+    "item recast timestamp",
+    "full preimage drift",
+    "utility spell drift"
+  ],
+  "mid_transaction_failure_rolled_back": true,
+  "repeat_rejected": true,
+  "all_magic_count": 414,
+  "preserved": {
+    "nightcap_dungeon_runs": "3248664926",
+    "nightcap_dungeon_members": "774108210",
+    "nightcap_dungeon_kills": "1249463406",
+    "nightcap_dungeon_checkpoints": "3013303140",
+    "character_advloot_claims": "0"
+  },
+  "schema_checks": 39,
+  "content_checks": 497,
+  "migration_sha256": "0fbce207ca162f6aae7bcf31eacbcce8a48e1c3ea94ac54d6edf33a99ddcb6de",
+  "production_changed": false
+}

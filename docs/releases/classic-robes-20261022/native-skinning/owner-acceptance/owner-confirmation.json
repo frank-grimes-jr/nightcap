@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-22",
+  "owner_message": "Fixed",
+  "context": "Direct reply to published game2026102204 and the request to recheck the reported Barbarian/Half Elf waist gap while standing, moving and casting.",
+  "accepted_scope": "The reported missing-waist defect is resolved.",
+  "issue_status": "closed_owner_confirmed",
+  "client_release": 2026102204,
+  "not_claimed": "No new exact race/gender/item/animation matrix, screenshots or observer results were supplied. The broader all-race/dye/animation regression checklist remains separate.",
+  "new_deployment": false
+}

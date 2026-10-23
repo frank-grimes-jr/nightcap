@@ -1,0 +1,46 @@
+{
+  "airplane/a_thunder_spirit_princess.lua": {
+    "deployed_preimage_sha256": "5b6c464ae3408c4450032055fab9a015752e5c90650c5d3f7ad3570e96ac4db9",
+    "candidate_sha256": "fdaa3d458d83a857b01b07cbc57b2cb95d49a147d8617011b2df54708660dbbf"
+  },
+  "airplane/Protector_of_Sky.lua": {
+    "deployed_preimage_sha256": "5faf201c85ef76732bc37f8e043b6ac1495d276c28718af9611838b804cd488f",
+    "candidate_sha256": "ddf97467605167b83a3b020e8d98639b61054062e9cee70a5d2c9c30e1e39146"
+  },
+  "airplane/Gorgalosk.lua": {
+    "deployed_preimage_sha256": "3c1906b4916b09f73740cdcdb92a48021fc0b75face00d2e7be8f478dba2b223",
+    "candidate_sha256": "94eb59f73af051fb117060e48e075b03ad7a4a14cfa3e678aa738c8629bcdbf3"
+  },
+  "airplane/Keeper_of_Souls.lua": {
+    "deployed_preimage_sha256": "46d65b26e7fd31d8f6965c03116d3c6a3beae5bbfc6d07b6040468309b646850",
+    "candidate_sha256": "7b1d5d0d356b7ce0be54ebb0617bcd8bb0180767ea72966ae891e8a7953493ee"
+  },
+  "airplane/The_Spiroc_Lord.lua": {
+    "deployed_preimage_sha256": "9aceb5e37e357845114286d5e9b033eb406a95402f0233ab5f5da10fa84d8f03",
+    "candidate_sha256": "761255de20bf6f89e914837d3f42f84e81dabe710bebae4b9b1910b72f7ee768"
+  },
+  "airplane/Bazzt_Zzzt.lua": {
+    "deployed_preimage_sha256": "57d33140d2ad205d48a34e6af2198afc105f188d97a447f3367eda8c92db4f32",
+    "candidate_sha256": "f9b9718edf5d2d8e9806a6b6dff014ac0492f0a98b2df998f98851ea0eae6fbc"
+  },
+  "airplane/#Sister_of_the_Spire.lua": {
+    "deployed_preimage_sha256": "4267a250bba46a15aabd11eca02883c035d86ef27d2d31a11bf6927d07876849",
+    "candidate_sha256": "f7ebf89c5dbf2b5d42fbe92f9ff5d1915299e430efcb901910d7c13b304bc6b1"
+  },
+  "airplane/Sirran_the_Lunatic.lua": {
+    "deployed_preimage_sha256": "261dae07f3b3955eae58d5c0e925e2a3cef039c5ed7ea1d98b187eb9fd5999ff",
+    "candidate_sha256": "70caf6cbbc1d88b38e9b1101d52fb1865d74f43c7444656033208f47f8022824"
+  },
+  "airplane/Key_Master.lua": {
+    "deployed_preimage_sha256": "53982377ae0b81a100a108a0dec48e348bab1fe07ce2ad363940d796eba038c9",
+    "candidate_sha256": "8afbd2f723d9ea860a86310faf994e56294d4c8df11a3a4a94b1c9d826f3f5a3"
+  },
+  "airplane/Bzzzt.lua": {
+    "deployed_preimage_sha256": "786c726c1ffabdfdb7255c9626e0fcaae5fd8e7a8cefffc8931679f5c01e986c",
+    "candidate_sha256": "05b61474b8271c9b844038ee0f3db2ee6743a23f57a17eec1f9d8e08af154d3f"
+  },
+  "fearplane/Cazic_Thule.lua": {
+    "deployed_preimage_sha256": "1e192e822b3f33f9c3ce826e08b7deb30be79e6fe617adfca6fcee438424bcb7",
+    "candidate_sha256": "ca26aff682e1205e3af17a2e75248b83b34ce25f6900b6a51a7abe2db9e3739f"
+  }
+}

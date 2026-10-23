@@ -1,10 +1,15 @@
 # Classic race robe visibility — October 22, 2026
 
-Status: source merged through PR276 at main
-`4661ddcd3ed6389fce8d9120358d4b6a2b157622`; signed game `2026102201` published
-for live testing with owner approval. Native visual and animation acceptance
-remains open. The protected RoF2 reference and installed player client remained
-read only. See [publication and verification](deployment/README.md).
+Status: original PR276/game 2026102201 added robe bodies. Owner QA rejected
+both the original waist and the shared-seam correction in game 2026102203.
+The gap persisted while standing and moving with the correct installed archives.
+PR291/main `42603ee` and signed game **2026102204** now correct the native bone
+assignment loss. All 140 hosted client files, signature and current DLL/catalog
+pair verify. The owner confirmed **"Fixed"** on October 22, closing the reported
+waist defect; broader visual regression coverage remains separate. The protected reference and
+installed player client remain read only. See [native binding correction and
+exact recheck](native-skinning/README.md). Earlier evidence retains its historical
+scope; publication alone does not establish that the visible gap is resolved.
 
 ## Result and boundaries
 

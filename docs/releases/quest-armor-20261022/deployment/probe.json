@@ -1,0 +1,177 @@
+{
+  "observed_utc": "2026-10-22T16:49:08.455213+00:00",
+  "clients": 0,
+  "world_locked": false,
+  "config": {
+    "directories": {
+      "patches": "assets/patches/",
+      "opcodes": "assets/opcodes/"
+    },
+    "paths": {},
+    "quest_paths": []
+  },
+  "cache_sha256": "15f5c46c01a04baf62910de7b1cfca5b43aae8d1292863ca6e30ceaa70c5f5f5",
+  "cache_targets": [
+    {
+      "id": 603140,
+      "name": "Darkforge Helm (Ascended)"
+    },
+    {
+      "id": 603141,
+      "name": "Darkforge Breastplate (Ascended)"
+    },
+    {
+      "id": 603142,
+      "name": "Darkforge Vambraces (Ascended)"
+    },
+    {
+      "id": 603143,
+      "name": "Darkforge Bracer (Ascended)"
+    },
+    {
+      "id": 603144,
+      "name": "Darkforge Gauntlets (Ascended)"
+    },
+    {
+      "id": 603145,
+      "name": "Darkforge Greaves (Ascended)"
+    },
+    {
+      "id": 603146,
+      "name": "Darkforge Boots (Ascended)"
+    },
+    {
+      "id": 603181,
+      "name": "Ivy Etched Helm (Ascended)"
+    },
+    {
+      "id": 603184,
+      "name": "Ivy Etched Tunic (Ascended)"
+    },
+    {
+      "id": 603188,
+      "name": "Ivy Etched Sleeves (Ascended)"
+    },
+    {
+      "id": 603189,
+      "name": "Ivy Etched Bracer (Ascended)"
+    },
+    {
+      "id": 603190,
+      "name": "Ivy Etched Gauntlets (Ascended)"
+    },
+    {
+      "id": 603191,
+      "name": "Ivy Etched Leggings (Ascended)"
+    },
+    {
+      "id": 603192,
+      "name": "Ivy Etched Boots (Ascended)"
+    },
+    {
+      "id": 604153,
+      "name": "Lambent Helm (Ascended)"
+    },
+    {
+      "id": 604154,
+      "name": "Lambent Breastplate (Ascended)"
+    },
+    {
+      "id": 604155,
+      "name": "Lambent Vambraces (Ascended)"
+    },
+    {
+      "id": 604156,
+      "name": "Lambent Bracers (Ascended)"
+    },
+    {
+      "id": 604157,
+      "name": "Lambent Gauntlets (Ascended)"
+    },
+    {
+      "id": 604158,
+      "name": "Lambent Greaves (Ascended)"
+    },
+    {
+      "id": 604159,
+      "name": "Lambent Boots (Ascended)"
+    },
+    {
+      "id": 604173,
+      "name": "Crafted Helm (Ascended)"
+    },
+    {
+      "id": 604174,
+      "name": "Crafted Breastplate (Ascended)"
+    },
+    {
+      "id": 604175,
+      "name": "Crafted Pauldron (Ascended)"
+    },
+    {
+      "id": 604176,
+      "name": "Crafted Vambraces (Ascended)"
+    },
+    {
+      "id": 604177,
+      "name": "Crafted Bracers (Ascended)"
+    },
+    {
+      "id": 604178,
+      "name": "Crafted Gauntlets (Ascended)"
+    },
+    {
+      "id": 604179,
+      "name": "Crafted Greaves (Ascended)"
+    },
+    {
+      "id": 604180,
+      "name": "Crafted Plate Boots (Ascended)"
+    },
+    {
+      "id": 604941,
+      "name": "Totemic Boots (Ascended)"
+    },
+    {
+      "id": 604942,
+      "name": "Totemic Gauntlets (Ascended)"
+    },
+    {
+      "id": 604943,
+      "name": "Totemic Vambraces (Ascended)"
+    },
+    {
+      "id": 604944,
+      "name": "Totemic Greaves (Ascended)"
+    },
+    {
+      "id": 604945,
+      "name": "Totemic Bracers (Ascended)"
+    },
+    {
+      "id": 604946,
+      "name": "Totemic Breastplate (Ascended)"
+    },
+    {
+      "id": 604947,
+      "name": "Totemic Helm (Ascended)"
+    },
+    {
+      "id": 604948,
+      "name": "Totemic Cloak (Ascended)"
+    }
+  ],
+  "scripts": {
+    "southkarana/Shakrn_Meadowgreen.lua": "120aa0f5d8a45388c33c1033007580c96790f2d10ad3b4c64f4f9a18ad829284",
+    "southkarana/Ulan_Meadowgreen.lua": "be61612776ac6f2154893882337a7c9c1b567bd00e152bd70fcf4fd7ade1a59e",
+    "soltemple/Cryssia_Stardreamer.pl": "b6ccb70d191845eb59174d5d3951a43032d10ff516b00a991591b39213745bdc",
+    "soltemple/Walthin_Fireweaver.lua": "e64ab89dea4b4425128a93c110662d6c745405c2b8aa22a19d7d087d74bf9729",
+    "soltemple/an_undead_knight.pl": "2f66d9d3cdb0592f4d93ac15b82b2fb42008c7ff51ae0d96b2df38ad95d81324",
+    "soltemple/an_undead_knight_.pl": "c4e0abffec431b6f424449f292289fc2ab4537cb1573185cedeb65e53b71d045",
+    "kithicor/Gandari.pl": "32d87da72a95c39fecc0677e5bfd6081e4fba9a40f88d78112b08f106534bc04",
+    "kithicor/Leaf_Falldim.pl": "1db9dc51d83a68ecb1adfee8432bf5f87c452a88bffe840c5f820910ec5ee590",
+    "lakerathe/Vrynn.pl": "75666253cdf30e09e3b0c8b0f68940979a1f389697d00fda86435518e222ddcb",
+    "lakerathe/Kyralynn.pl": "65d870dc9815148dbe549662310738c62af99b1f678fe4ac801fb88b415c6591",
+    "overthere/Kurron_Ni.pl": "4f4e0e8c746c176ba94f5536d3a6dcb8619bfc501def376b0849ed1fd9e82d4d"
+  }
+}

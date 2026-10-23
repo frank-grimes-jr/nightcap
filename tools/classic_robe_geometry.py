@@ -6,6 +6,7 @@ actor's original named bones, just like the native Classic robe meshes.
 import copy
 import math
 import struct
+from collections import defaultdict
 
 import numpy as np
 
@@ -106,6 +107,26 @@ def compact(model, polygons, materials):
     return model
 
 
+def group_vertices_by_bone(model):
+    """Emit one influence list per native bone, preserving every mesh attribute.
+
+    EQGraphicsDX9 calls ID3DXSkinInfo::SetBoneInfluence for each WLD group.
+    Another group for the same bone replaces its previous list; it does not
+    append. A separately appended skirt would unbind the torso's pelvis ring.
+    """
+    if model['colors'] or model['aux'] or model['vertex_materials']:
+        raise ValueError('Expected a compact robe without optional vertex sections')
+    bones = labels(model)
+    order_of_bones = {bone: index for index, bone in enumerate(dict.fromkeys(bones))}
+    order = sorted(range(len(bones)), key=lambda index: order_of_bones[bones[index]])
+    mapping = {old: new for new, old in enumerate(order)}
+    for key in ('vertices', 'uv', 'normals'):
+        model[key] = [model[key][index] for index in order]
+    model['polygons'] = [(flag, mapping[a], mapping[b], mapping[c])
+                         for flag, a, b, c in model['polygons']]
+    model['bones'] = runs([bones[index] for index in order])
+
+
 def skirt_warp(point, lo, hi, scale, center, source_center,
                waist_scale, waist_center, source_waist_center):
     """Return the fitted position and its full derivative for normal transport."""
@@ -126,6 +147,110 @@ def skirt_warp(point, lo, hi, scale, center, source_center,
         + (point[:2] - source_xy) * (waist_scale - scale[:2])
         + waist_center - center[:2])
     return fitted, jacobian
+
+
+def vertex_keys(model):
+    """UV splits share geometry only when their rigid bone also matches."""
+    return [(bone, *(round(v, 9) for v in point))
+            for point, bone in zip(model['vertices'], labels(model))]
+
+
+def boundary_loops(model, polygons):
+    keys = vertex_keys(model)
+    representatives = {key: index for index, key in enumerate(keys)}
+    edges = defaultdict(list)
+    for _, a, b, c in polygons:
+        a, b, c = (representatives[keys[i]] for i in (a, b, c))
+        for u, v in ((a, b), (b, c), (c, a)):
+            edges[tuple(sorted((u, v)))].append((u, v))
+    boundary = [uses[0] for uses in edges.values() if len(uses) == 1]
+    following = dict(boundary)
+    if len(following) != len(boundary) or set(following) != set(following.values()):
+        raise ValueError('Garment boundary is not a collection of directed loops')
+    loops = []
+    while following:
+        start = min(following)
+        loop, cursor = [], start
+        while cursor in following:
+            loop.append(cursor)
+            cursor = following.pop(cursor)
+        if cursor != start:
+            raise ValueError('Garment boundary is not closed')
+        loops.append(loop)
+    return loops
+
+
+def join_waist(model, cloth_slots, transforms, code):
+    """Close the torso/skirt seam with identical local coordinates and bones.
+
+    Merely overlapping fitted surfaces leaves an open ring. Reuse the native
+    torso's eight-point waist, retaining separate skirt UVs and native rigging.
+    """
+    materials = [mat for count, mat in model['polygon_materials'] for _ in range(count)]
+    chest = [p for p, mat in zip(model['polygons'], materials)
+             if mat in (cloth_slots[1], cloth_slots[2])]
+    skirt = [p for p, mat in zip(model['polygons'], materials) if mat == cloth_slots[5]]
+    points = world_points(model, transforms, code)
+    torso = min(boundary_loops(model, chest), key=lambda loop: points[loop, 2].mean())
+    rim = max(boundary_loops(model, skirt), key=lambda loop: points[loop, 2].mean())
+    if len(torso) != 8 or len(rim) != 8:
+        raise ValueError('Expected the native eight-edge waist rings')
+    # Adjacent surfaces traverse their shared edge in opposite directions.
+    opposite = list(reversed(torso))
+    choices = [opposite[i:] + opposite[:i] for i in range(len(opposite))]
+    paired = min(choices, key=lambda loop: np.square(points[loop] - points[rim]).sum())
+    keys, bones = vertex_keys(model), labels(model)
+    if any(bones[a] != bones[b] for a, b in zip(rim, paired)):
+        raise ValueError('Waist rings must share the native pelvis bone')
+    matches = {keys[source]: target for source, target in zip(rim, paired)}
+    skirt_ids = {i for p in skirt for i in p[1:]}
+    moved = {i for i in skirt_ids if keys[i] in matches}
+    # Carry the rim displacement down the garment. Snapping only its top row
+    # can put it below the next row and turn the connecting faces inside out.
+    center = points[rim, :2].mean(axis=0)
+    angles = np.arctan2(points[rim, 1] - center[1], points[rim, 0] - center[0])
+    order = np.argsort(angles)
+    angles = angles[order]
+    if np.any(np.diff(angles) < 1e-8):
+        raise ValueError('Ambiguous waist angles')
+    original_rim = points[rim][order]
+    displacements = (points[paired] - points[rim])[order]
+    hem = points[list(skirt_ids), 2].min()
+    inverses = {bone: np.linalg.inv(transform) for bone, transform in transforms.items()}
+    for index in skirt_ids - moved:
+        point = points[index]
+        angle = math.atan2(point[1] - center[1], point[0] - center[0])
+        rim_z = np.interp(angle, angles, original_rim[:, 2], period=2 * math.pi)
+        weight = np.clip((point[2] - hem) / (rim_z - hem), 0, 1)
+        displacement = np.array([np.interp(angle, angles, displacements[:, axis], period=2 * math.pi)
+                                 for axis in range(3)])
+        fitted = point + weight * displacement
+        local = inverses[bones[index]] @ np.array([*to_native_axes(code, fitted), 1])
+        model['vertices'][index] = local[:3].tolist()
+    for index in moved:
+        target = matches[keys[index]]
+        model['vertices'][index] = list(model['vertices'][target])
+        model['normals'][index] = list(model['normals'][target])
+    # Recalculate the deformed skirt's normals while matching the unchanged
+    # native torso normals at the seam. Reject any collapsed or inverted face.
+    keys = vertex_keys(model)
+    normals = defaultdict(lambda: np.zeros(3))
+    fitted = world_points(model, transforms, code)
+    for _, a, b, c in skirt:
+        normal = -np.cross(fitted[b] - fitted[a], fitted[c] - fitted[a])
+        original = -np.cross(points[b] - points[a], points[c] - points[a])
+        if np.linalg.norm(normal) < 1e-8 or np.dot(normal, original) <= 0:
+            raise ValueError('Joining the waist collapsed or inverted a skirt triangle')
+        for index in (a, b, c):
+            normals[keys[index]] += normal
+    for index in skirt_ids - moved:
+        normal = transforms[bones[index]][:3, :3].T @ np.array(to_native_axes(code, normals[keys[index]]))
+        length = np.linalg.norm(normal)
+        if length < 1e-8:
+            raise ValueError('Invalid joined skirt normal')
+        model['normals'][index] = (normal / length).tolist()
+    return dict(waist_edges=len(rim), waist_vertex_copies=len(moved),
+                prior_waist_max_separation=float(np.linalg.norm(points[rim] - points[paired], axis=1).max()))
 
 
 def robe_mesh(target, donor_wld, code, cloth_slots):
@@ -179,8 +304,8 @@ def robe_mesh(target, donor_wld, code, cloth_slots):
     waist = chest_points[chest_points[:, 2] <= chest_bottom + .40 * np.ptp(chest_points[:, 2])]
     waist_lo, waist_hi = waist.min(axis=0), waist.max(axis=0)
     target_hi[2] = max(target_hi[2], chest_bottom + .06 * np.ptp(target_world[:, 2]))
-    # Overlap the waist and preserve the native ankle coverage. Fit the top
-    # separately from the flared hem rather than using spread-leg width there.
+    # Fit near the torso before joining its exact waist ring; preserve native
+    # ankle coverage and fit the top separately from the flared hem.
     scale = (target_hi - target_lo) / (hi - lo)
     scale[:2] *= 1.10
     center = (target_hi + target_lo) / 2
@@ -219,8 +344,10 @@ def robe_mesh(target, donor_wld, code, cloth_slots):
     result['polygon_materials'] = runs([mat for n, mat in result['polygon_materials'] for _ in range(n)]
                                       + [cloth_slots[5]] * len(skirt_polygons))
     result['bones'] = runs(new_bones)
+    seam = join_waist(result, cloth_slots, target_bind, code)
+    group_vertices_by_bone(result)
     largest = max(abs(v) for point in result['vertices'] for v in point)
     result['scale'] = min(13, int(math.floor(math.log2(32760 / largest))))
     return result, dict(code=code, donor=donor, vertices=len(result['vertices']),
                         triangles=len(result['polygons']), skirt_triangles=len(skirt_polygons),
-                        target_bones=len(target_names), fit_scale=scale.tolist())
+                        target_bones=len(target_names), fit_scale=scale.tolist(), **seam)

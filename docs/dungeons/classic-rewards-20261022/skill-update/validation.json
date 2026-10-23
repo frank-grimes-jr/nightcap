@@ -1,0 +1,6 @@
+{
+  "scoped_fingerprints": 50,
+  "scoped_drift": false,
+  "skill_validator_exit": 0,
+  "skill_validator_output": "Skill is valid!\n"
+}

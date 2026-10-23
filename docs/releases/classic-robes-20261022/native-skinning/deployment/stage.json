@@ -1,0 +1,13 @@
+{
+  "stage": "/opt/nightcap/releases/classic-robes-native-waist-20261022",
+  "payload_sha256": {
+    "channel.json": "562cac1419a64f916370b34a707ec5d6a39493ca5f5a4ed0f64e1853e5654ebf",
+    "previous-channel.json": "87eadd9c0e7c278d46b79f7d62c3dbc9f8d8f16158ead90cc0bc17b9c4194c62",
+    "global_chr.s3d": "8cb7f1e2cb7e702fbe0039053cae33e230515b7f2a1105714aab9a74f9b667ab",
+    "global4_chr.s3d": "da5f127ec87a0da6ef0131bb041f01d3e29a0785f59d96ec5abcd81ad37c433d",
+    "publish.py": "9949cbfbd58b2376e90bf33ebcd833a37e3ce6ac6c8b723d6a65529db325493b",
+    "test_publish.py": "a93ba692a365670d449f2265e3254ba1226ba5a11b792dee58adada8754d6e20"
+  },
+  "linux_tests": "test_candidate_and_baseline_drift_fail_before_writes (test_publish.PublicationTests.test_candidate_and_baseline_drift_fail_before_writes) ... ok\ntest_immutable_drift_rejected_before_other_archive_write (test_publish.PublicationTests.test_immutable_drift_rejected_before_other_archive_write) ... ok\ntest_interrupted_archive_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_archive_write_recovers_valid_prefix_only) ... ok\ntest_interrupted_channel_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_channel_write_recovers_valid_prefix_only) ... ok\ntest_interrupted_writes_recover_without_partial_channel (test_publish.PublicationTests.test_interrupted_writes_recover_without_partial_channel) ... ok\ntest_public_control_drift_keeps_old_channel (test_publish.PublicationTests.test_public_control_drift_keeps_old_channel) ... ok\ntest_publish_repeat_and_preservation (test_publish.PublicationTests.test_publish_repeat_and_preservation) ... ok\ntest_retained_asset_drift_keeps_old_channel (test_publish.PublicationTests.test_retained_asset_drift_keeps_old_channel) ... ok\ntest_service_drift_keeps_old_channel (test_publish.PublicationTests.test_service_drift_keeps_old_channel) ... ok\ntest_symlink_release_rejected (test_publish.PublicationTests.test_symlink_release_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.077s\n\nOK\n",
+  "public_changes": false
+}

@@ -1,0 +1,25 @@
+{
+  "status": "candidate verification; no production deployment",
+  "native_level_award_checks": 369,
+  "legacy_award_checks": 129,
+  "actual_SetEXP_integration_checks": 8,
+  "exact_client_allocation_checks": 167,
+  "client_runtime_suite_groups": 10,
+  "client_catalog_guards": 112,
+  "client_proxy_version": "0.12.0",
+  "client_binary_sha256": "805ae3d1088a08a20cd32c3f8d3424380261c3077c7f8f3c633db6ff158c4e56",
+  "client_fixture_boundaries": [
+    "submit/update calls are recording fakes",
+    "rendered window and wire encoding require integration/gameplay QA"
+  ],
+  "server_fixture_boundaries": [
+    "reward and SetEXP bodies extracted from candidate source",
+    "world/database/UI services are controlled boundaries"
+  ],
+  "native_full_build": "fresh complete world/zone/shared_memory passed",
+  "owner_gameplay_accepted": false,
+  "operator_tests_linux": 15,
+  "client_publisher_tests_linux": 11,
+  "wiki_tests_linux": 67,
+  "wiki_browser_layouts": 21
+}
