@@ -1,0 +1,3 @@
+Records the verified two-AA progression release: main PR305, healthy paired production runtime, preserved player progress, signed140-file client delivery, wiki467/private-guide5 publication, and current Nightcap knowledge. Native gameplay acceptance remains open with exact QA steps and a level-by-level matrix.
+
+Fixes two publication defects discovered during verification: check guide baselines under the shared website lock, and give the exact public client release directory755 permissions even under private staging umask. Six website concurrency/syntax tests and14Linux client publisher tests pass. All hosted bytes, headers and private-route denials verify;27operator tests and complete native/client checks passed. No additional gameplay or SQL change is included.

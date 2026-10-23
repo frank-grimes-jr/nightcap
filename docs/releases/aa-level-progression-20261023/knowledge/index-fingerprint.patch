@@ -1,0 +1,30 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -9021,13 +9021,6 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "index.html",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "5c457778638756236842737fcd4ff9f139e9408b975749a666738feacdf245bf",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "docs/ops/player-website.md",
+         "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+         "sha256": "4439744ab48492b2c52e85a6ca4ae3943360b3d73d989038b3bd35cdb812fed2",
+@@ -10180,6 +10173,13 @@
+         "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
+         "sha256": "896a5a606d36910113ef17286c170ae64e9704eca6254a8c26e8cdea5c1351da",
+         "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "index.html",
++        "revision": "e2c4592; published20261023-aa-level-guide-v1",
++        "sha256": "37bc4a4535fb458841ab96fb67289dcf86fe64f7276c2eb51b4e28226d45db6c",
++        "role": "Reviewed published private AA progression guide; all five hosted files verified"
+       }
+     ]
+   }
