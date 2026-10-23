@@ -25,6 +25,7 @@ def function(source, signature):
 
 
 PRELUDE = r'''
+#include "common/aa_progression.h"
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
@@ -75,6 +76,7 @@ struct Client {
     uint64 last_exp=0,last_aa=0;
     int calls=0;
     uint8 GetLevel() { return level; }
+    uint8 GetClientMaxLevel() { return 0; }
     int GetBaseRace() { return race; }
     int GetClass() { return cls; }
     uint64 GetEXP() { return m_pp.exp; }
@@ -103,6 +105,7 @@ struct Client {
     void PurchaseAlternateAdvancementRank(uint32) {}
     void NormalizeAAAllocation();
     uint64 FinalizeAAExperience(uint64,bool);
+    uint64 CalculateLevelBasedAAExp(uint64,uint64);
 };
 void Client::SetEXP(ExpSource,uint64 xp,uint64 aa,bool,NPC*) {
     ++calls; last_exp=xp; last_aa=aa;
@@ -129,10 +132,11 @@ int main() {
     c.AddEXP(Kill,10000,ConsiderColor::White);
     check(c.last_exp==6500 && c.last_aa==65,"off: full level XP plus passive AA");
     reset(); c=Client{}; c.SetAAExperiencePercent(25);
-    check(c.GetAAPercent()==100,"command setter snaps to 100");
+    check(c.GetAAPercent()==25,"command setter preserves percentage");
+    c.SetAAExperiencePercent(100);
     c.AddEXP(Kill,10000,ConsiderColor::White);
     check(c.last_exp==0 && c.last_aa==6500,"on: full AA, no extra passive bonus");
-    c.SetAAEXPPercentage(1); check(c.GetAAPercent()==100,"quest setter snaps to 100");
+    c.SetAAEXPPercentage(1); check(c.GetAAPercent()==1,"quest setter preserves percentage");
     c.SetAAEXPPercentage(0); check(c.GetAAPercent()==0,"quest setter turns off");
     for(auto source : {Quest,Task}) {
         reset(); c=Client{}; c.AddEXP(source,10000);
@@ -166,7 +170,7 @@ int main() {
     check(c.calls==0,"XP disabled covers both reward APIs");
     reset(); rules["AA:UnusedAAPointCap"]=10; c=Client{}; c.m_pp.aapoints=10; c.m_pp.expAA=19; c.m_epp.perAA=100;
     c.AddEXP(Kill,10000,ConsiderColor::White);
-    check(c.last_exp==6500 && c.last_aa==19 && c.m_pp.aapoints==10,"bank cap preserves earned state and leveling");
+    check(c.last_exp==0 && c.last_aa==19 && c.m_pp.aapoints==10 && c.GetAAPercent()==100,"bank cap preserves earned state and level hold");
     c=Client{}; c.m_pp.aapoints=9; c.m_pp.expAA=49990;
     c.AddEXP(Kill,10000000,ConsiderColor::White);
     check(c.m_pp.aapoints==10 && c.m_pp.expAA==0,"large award cannot cross bank cap");
@@ -177,7 +181,7 @@ int main() {
     reset(); c=Client{}; c.AddEXP(Kill,75,ConsiderColor::White);
     check(c.last_aa==0,"tiny rewards round down, no minimum farming bonus");
     reset(); c=Client{}; c.m_epp.perAA=55; c.AddEXP(Kill,10000,ConsiderColor::White);
-    check(c.last_exp==0 && c.last_aa==6500 && c.GetAAPercent()==100,"legacy allocation normalized before split");
+    check(c.last_exp==2925 && c.last_aa==3604 && c.GetAAPercent()==55,"legacy partial allocation and passive fraction retained");
     reset(); c=Client{}; c.m_epp.perAA=256; c.AddEXP(Kill,10000,ConsiderColor::White);
     check(c.last_exp==6500 && c.GetAAPercent()==0,"invalid allocation fails off before narrowing");
     reset(); rules["Zone:LevelBasedEXPMods"]=1; rules["Character:FinalExpMultiplier"]=2;
@@ -191,15 +195,15 @@ int main() {
     for(auto value : {0u,1u,25u,99u,100u,101u,256u,0xffffffffu}) {
         reset(); c=Client{}; AA_Action action{aaActionSetEXP,0,0,value};
         EQApplicationPacket packet{sizeof(action),&action}; c.Handle_OP_AAAction(&packet);
-        check(c.GetAAPercent()==(value>0 && value<=100?100u:0u),"packet validation precedes any narrowing");
-        check(load_allocation(value,30)==(value>0 && value<=100?100u:0u),"saved allocation normalized on load");
+        check(c.GetAAPercent()==(value<=100?value:0u),"packet validation precedes any narrowing");
+        check(load_allocation(value,30)==(value<=100?value:0u),"saved allocation normalized on load");
     }
     reset(); rules["Character:AAExpMinLevel"]=51;
     check(load_allocation(100,30)==0,"loaded allocation below minimum turns off");
     for(const auto& value : {"on","off","0","1","50","100","101","256","-1","1.5","4294967296","garbage"}) {
         reset(); c=Client{}; Seperator sep; sep.arg[1]=value; command_aa_exp(&c,&sep);
-        bool on=std::string(value)=="on" || std::string(value)=="1" || std::string(value)=="50" || std::string(value)=="100";
-        check(c.GetAAPercent()==(on?100u:0u),"command accepts on/off and validates numeric tokens");
+        uint32 expected=std::string(value)=="on" || std::string(value)=="100" ? 100 : std::string(value)=="50" ? 50 : std::string(value)=="1" ? 1 : 0;
+        check(c.GetAAPercent()==expected,"command accepts on/off and validates numeric tokens");
     }
     reset(); rules["AA:ModernAAScalingEnabled"]=1; rules["AA:ModernAAScalingStartPercent"]=1000;
     rules["AA:ModernAAScalingAALimit"]=4000; c=Client{}; c.AddEXP(Quest,10000);
@@ -295,7 +299,7 @@ def main():
     bodies = []
     for name in ['static uint64 ScaleAAXPBasedOnCurrentAATotal', 'float static GetConLevelModifierPercent',
                  'void Client::CalculateNormalizedAAExp', 'void Client::CalculateStandardAAExp',
-                 'void Client::CalculateExp', 'void Client::NormalizeAAAllocation',
+                 'void Client::CalculateExp', 'uint64 Client::CalculateLevelBasedAAExp', 'void Client::NormalizeAAAllocation',
                  'uint64 Client::FinalizeAAExperience', 'void Client::AddEXP',
                  'void Client::AddLevelBasedExp', 'uint32 Client::GetEXPForLevel']:
         if name in source:

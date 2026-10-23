@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "layouts": [
+    {
+      "slug": "multiclass",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "commands",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "features",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "getting-started",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "index",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "recent-changes",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "build-lab",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "slug": "multiclass",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "commands",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "features",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "getting-started",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "index",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "recent-changes",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "build-lab",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "slug": "multiclass",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "slug": "commands",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "slug": "features",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "slug": "getting-started",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "slug": "index",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "slug": "recent-changes",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "slug": "build-lab",
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "console_errors": [],
+  "scope": "six changed guides; native game controls remain separate QA"
+}

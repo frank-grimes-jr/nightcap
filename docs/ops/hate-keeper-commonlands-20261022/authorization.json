@@ -1,0 +1,8 @@
+{
+  "owner_request": "Push to main and server",
+  "scope": "Reviewed PR299: Hate Keeper Commonlands relocation, level46 preserved, GM-status gate removed, paired SQL/zone deployment with brief full runtime restart and accompanying documentation/wiki maintenance",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/299",
+  "main_merge": "a736fb02937931254456daf8954d7466a6aa1c28",
+  "main_merged_at": "2026-10-22T22:53:16Z",
+  "owner_native_gameplay_accepted": false
+}

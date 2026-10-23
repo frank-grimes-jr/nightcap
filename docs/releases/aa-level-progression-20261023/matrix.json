@@ -1,0 +1,408 @@
+{
+  "status": "candidate",
+  "normal_curve": "native float32 GetEXPForLevel, installed normal XP rates retained",
+  "passive_points_per_level": 2,
+  "focused_points_per_level_equivalent": 20,
+  "rows": [
+    {
+      "level": 1,
+      "leveling_xp_to_next": 1000,
+      "aa_basis_level_span": 1000,
+      "eligible_xp_per_passive_aa": 500.0,
+      "eligible_xp_per_focused_aa": 50.0,
+      "passive_aa_on_reaching_level": 0
+    },
+    {
+      "level": 2,
+      "leveling_xp_to_next": 7000,
+      "aa_basis_level_span": 7000,
+      "eligible_xp_per_passive_aa": 3500.0,
+      "eligible_xp_per_focused_aa": 350.0,
+      "passive_aa_on_reaching_level": 2
+    },
+    {
+      "level": 3,
+      "leveling_xp_to_next": 19000,
+      "aa_basis_level_span": 19000,
+      "eligible_xp_per_passive_aa": 9500.0,
+      "eligible_xp_per_focused_aa": 950.0,
+      "passive_aa_on_reaching_level": 4
+    },
+    {
+      "level": 4,
+      "leveling_xp_to_next": 37000,
+      "aa_basis_level_span": 37000,
+      "eligible_xp_per_passive_aa": 18500.0,
+      "eligible_xp_per_focused_aa": 1850.0,
+      "passive_aa_on_reaching_level": 6
+    },
+    {
+      "level": 5,
+      "leveling_xp_to_next": 61000,
+      "aa_basis_level_span": 61000,
+      "eligible_xp_per_passive_aa": 30500.0,
+      "eligible_xp_per_focused_aa": 3050.0,
+      "passive_aa_on_reaching_level": 8
+    },
+    {
+      "level": 6,
+      "leveling_xp_to_next": 91000,
+      "aa_basis_level_span": 91000,
+      "eligible_xp_per_passive_aa": 45500.0,
+      "eligible_xp_per_focused_aa": 4550.0,
+      "passive_aa_on_reaching_level": 10
+    },
+    {
+      "level": 7,
+      "leveling_xp_to_next": 127000,
+      "aa_basis_level_span": 127000,
+      "eligible_xp_per_passive_aa": 63500.0,
+      "eligible_xp_per_focused_aa": 6350.0,
+      "passive_aa_on_reaching_level": 12
+    },
+    {
+      "level": 8,
+      "leveling_xp_to_next": 169000,
+      "aa_basis_level_span": 169000,
+      "eligible_xp_per_passive_aa": 84500.0,
+      "eligible_xp_per_focused_aa": 8450.0,
+      "passive_aa_on_reaching_level": 14
+    },
+    {
+      "level": 9,
+      "leveling_xp_to_next": 217000,
+      "aa_basis_level_span": 217000,
+      "eligible_xp_per_passive_aa": 108500.0,
+      "eligible_xp_per_focused_aa": 10850.0,
+      "passive_aa_on_reaching_level": 16
+    },
+    {
+      "level": 10,
+      "leveling_xp_to_next": 271000,
+      "aa_basis_level_span": 271000,
+      "eligible_xp_per_passive_aa": 135500.0,
+      "eligible_xp_per_focused_aa": 13550.0,
+      "passive_aa_on_reaching_level": 18
+    },
+    {
+      "level": 11,
+      "leveling_xp_to_next": 331000,
+      "aa_basis_level_span": 331000,
+      "eligible_xp_per_passive_aa": 165500.0,
+      "eligible_xp_per_focused_aa": 16550.0,
+      "passive_aa_on_reaching_level": 20
+    },
+    {
+      "level": 12,
+      "leveling_xp_to_next": 397000,
+      "aa_basis_level_span": 397000,
+      "eligible_xp_per_passive_aa": 198500.0,
+      "eligible_xp_per_focused_aa": 19850.0,
+      "passive_aa_on_reaching_level": 22
+    },
+    {
+      "level": 13,
+      "leveling_xp_to_next": 469000,
+      "aa_basis_level_span": 469000,
+      "eligible_xp_per_passive_aa": 234500.0,
+      "eligible_xp_per_focused_aa": 23450.0,
+      "passive_aa_on_reaching_level": 24
+    },
+    {
+      "level": 14,
+      "leveling_xp_to_next": 547000,
+      "aa_basis_level_span": 547000,
+      "eligible_xp_per_passive_aa": 273500.0,
+      "eligible_xp_per_focused_aa": 27350.0,
+      "passive_aa_on_reaching_level": 26
+    },
+    {
+      "level": 15,
+      "leveling_xp_to_next": 631000,
+      "aa_basis_level_span": 631000,
+      "eligible_xp_per_passive_aa": 315500.0,
+      "eligible_xp_per_focused_aa": 31550.0,
+      "passive_aa_on_reaching_level": 28
+    },
+    {
+      "level": 16,
+      "leveling_xp_to_next": 721000,
+      "aa_basis_level_span": 721000,
+      "eligible_xp_per_passive_aa": 360500.0,
+      "eligible_xp_per_focused_aa": 36050.0,
+      "passive_aa_on_reaching_level": 30
+    },
+    {
+      "level": 17,
+      "leveling_xp_to_next": 817000,
+      "aa_basis_level_span": 817000,
+      "eligible_xp_per_passive_aa": 408500.0,
+      "eligible_xp_per_focused_aa": 40850.0,
+      "passive_aa_on_reaching_level": 32
+    },
+    {
+      "level": 18,
+      "leveling_xp_to_next": 919000,
+      "aa_basis_level_span": 919000,
+      "eligible_xp_per_passive_aa": 459500.0,
+      "eligible_xp_per_focused_aa": 45950.0,
+      "passive_aa_on_reaching_level": 34
+    },
+    {
+      "level": 19,
+      "leveling_xp_to_next": 1027000,
+      "aa_basis_level_span": 1027000,
+      "eligible_xp_per_passive_aa": 513500.0,
+      "eligible_xp_per_focused_aa": 51350.0,
+      "passive_aa_on_reaching_level": 36
+    },
+    {
+      "level": 20,
+      "leveling_xp_to_next": 1141000,
+      "aa_basis_level_span": 1141000,
+      "eligible_xp_per_passive_aa": 570500.0,
+      "eligible_xp_per_focused_aa": 57050.0,
+      "passive_aa_on_reaching_level": 38
+    },
+    {
+      "level": 21,
+      "leveling_xp_to_next": 1261000,
+      "aa_basis_level_span": 1261000,
+      "eligible_xp_per_passive_aa": 630500.0,
+      "eligible_xp_per_focused_aa": 63050.0,
+      "passive_aa_on_reaching_level": 40
+    },
+    {
+      "level": 22,
+      "leveling_xp_to_next": 1387000,
+      "aa_basis_level_span": 1387000,
+      "eligible_xp_per_passive_aa": 693500.0,
+      "eligible_xp_per_focused_aa": 69350.0,
+      "passive_aa_on_reaching_level": 42
+    },
+    {
+      "level": 23,
+      "leveling_xp_to_next": 1519000,
+      "aa_basis_level_span": 1519000,
+      "eligible_xp_per_passive_aa": 759500.0,
+      "eligible_xp_per_focused_aa": 75950.0,
+      "passive_aa_on_reaching_level": 44
+    },
+    {
+      "level": 24,
+      "leveling_xp_to_next": 1657000,
+      "aa_basis_level_span": 1657000,
+      "eligible_xp_per_passive_aa": 828500.0,
+      "eligible_xp_per_focused_aa": 82850.0,
+      "passive_aa_on_reaching_level": 46
+    },
+    {
+      "level": 25,
+      "leveling_xp_to_next": 1801000,
+      "aa_basis_level_span": 1801000,
+      "eligible_xp_per_passive_aa": 900500.0,
+      "eligible_xp_per_focused_aa": 90050.0,
+      "passive_aa_on_reaching_level": 48
+    },
+    {
+      "level": 26,
+      "leveling_xp_to_next": 1951000,
+      "aa_basis_level_span": 1951000,
+      "eligible_xp_per_passive_aa": 975500.0,
+      "eligible_xp_per_focused_aa": 97550.0,
+      "passive_aa_on_reaching_level": 50
+    },
+    {
+      "level": 27,
+      "leveling_xp_to_next": 2107000,
+      "aa_basis_level_span": 2107000,
+      "eligible_xp_per_passive_aa": 1053500.0,
+      "eligible_xp_per_focused_aa": 105350.0,
+      "passive_aa_on_reaching_level": 52
+    },
+    {
+      "level": 28,
+      "leveling_xp_to_next": 2269000,
+      "aa_basis_level_span": 2269000,
+      "eligible_xp_per_passive_aa": 1134500.0,
+      "eligible_xp_per_focused_aa": 113450.0,
+      "passive_aa_on_reaching_level": 54
+    },
+    {
+      "level": 29,
+      "leveling_xp_to_next": 2437000,
+      "aa_basis_level_span": 2437000,
+      "eligible_xp_per_passive_aa": 1218500.0,
+      "eligible_xp_per_focused_aa": 121850.0,
+      "passive_aa_on_reaching_level": 56
+    },
+    {
+      "level": 30,
+      "leveling_xp_to_next": 5311000,
+      "aa_basis_level_span": 5311000,
+      "eligible_xp_per_passive_aa": 2655500.0,
+      "eligible_xp_per_focused_aa": 265550.0,
+      "passive_aa_on_reaching_level": 58
+    },
+    {
+      "level": 31,
+      "leveling_xp_to_next": 3070100,
+      "aa_basis_level_span": 3070100,
+      "eligible_xp_per_passive_aa": 1535050.0,
+      "eligible_xp_per_focused_aa": 153505.0,
+      "passive_aa_on_reaching_level": 60
+    },
+    {
+      "level": 32,
+      "leveling_xp_to_next": 3274700,
+      "aa_basis_level_span": 3274700,
+      "eligible_xp_per_passive_aa": 1637350.0,
+      "eligible_xp_per_focused_aa": 163735.0,
+      "passive_aa_on_reaching_level": 62
+    },
+    {
+      "level": 33,
+      "leveling_xp_to_next": 3485900,
+      "aa_basis_level_span": 3485900,
+      "eligible_xp_per_passive_aa": 1742950.0,
+      "eligible_xp_per_focused_aa": 174295.0,
+      "passive_aa_on_reaching_level": 64
+    },
+    {
+      "level": 34,
+      "leveling_xp_to_next": 3703700,
+      "aa_basis_level_span": 3703700,
+      "eligible_xp_per_passive_aa": 1851850.0,
+      "eligible_xp_per_focused_aa": 185185.0,
+      "passive_aa_on_reaching_level": 66
+    },
+    {
+      "level": 35,
+      "leveling_xp_to_next": 8215600,
+      "aa_basis_level_span": 8215600,
+      "eligible_xp_per_passive_aa": 4107800.0,
+      "eligible_xp_per_focused_aa": 410780.0,
+      "passive_aa_on_reaching_level": 68
+    },
+    {
+      "level": 36,
+      "leveling_xp_to_next": 4537200,
+      "aa_basis_level_span": 4537200,
+      "eligible_xp_per_passive_aa": 2268600.0,
+      "eligible_xp_per_focused_aa": 226860.0,
+      "passive_aa_on_reaching_level": 70
+    },
+    {
+      "level": 37,
+      "leveling_xp_to_next": 4796400,
+      "aa_basis_level_span": 4796400,
+      "eligible_xp_per_passive_aa": 2398200.0,
+      "eligible_xp_per_focused_aa": 239820.0,
+      "passive_aa_on_reaching_level": 72
+    },
+    {
+      "level": 38,
+      "leveling_xp_to_next": 5062800,
+      "aa_basis_level_span": 5062800,
+      "eligible_xp_per_passive_aa": 2531400.0,
+      "eligible_xp_per_focused_aa": 253140.0,
+      "passive_aa_on_reaching_level": 74
+    },
+    {
+      "level": 39,
+      "leveling_xp_to_next": 5336400,
+      "aa_basis_level_span": 5336400,
+      "eligible_xp_per_passive_aa": 2668200.0,
+      "eligible_xp_per_focused_aa": 266820.0,
+      "passive_aa_on_reaching_level": 76
+    },
+    {
+      "level": 40,
+      "leveling_xp_to_next": 12017200,
+      "aa_basis_level_span": 12017200,
+      "eligible_xp_per_passive_aa": 6008600.0,
+      "eligible_xp_per_focused_aa": 600860.0,
+      "passive_aa_on_reaching_level": 78
+    },
+    {
+      "level": 41,
+      "leveling_xp_to_next": 6397296,
+      "aa_basis_level_span": 6397296,
+      "eligible_xp_per_passive_aa": 3198648.0,
+      "eligible_xp_per_focused_aa": 319864.8,
+      "passive_aa_on_reaching_level": 80
+    },
+    {
+      "level": 42,
+      "leveling_xp_to_next": 6717104,
+      "aa_basis_level_span": 6717104,
+      "eligible_xp_per_passive_aa": 3358552.0,
+      "eligible_xp_per_focused_aa": 335855.2,
+      "passive_aa_on_reaching_level": 82
+    },
+    {
+      "level": 43,
+      "leveling_xp_to_next": 7044704,
+      "aa_basis_level_span": 7044704,
+      "eligible_xp_per_passive_aa": 3522352.0,
+      "eligible_xp_per_focused_aa": 352235.2,
+      "passive_aa_on_reaching_level": 84
+    },
+    {
+      "level": 44,
+      "leveling_xp_to_next": 7380096,
+      "aa_basis_level_span": 7380096,
+      "eligible_xp_per_passive_aa": 3690048.0,
+      "eligible_xp_per_focused_aa": 369004.8,
+      "passive_aa_on_reaching_level": 86
+    },
+    {
+      "level": 45,
+      "leveling_xp_to_next": 16835800,
+      "aa_basis_level_span": 16835800,
+      "eligible_xp_per_passive_aa": 8417900.0,
+      "eligible_xp_per_focused_aa": 841790.0,
+      "passive_aa_on_reaching_level": 88
+    },
+    {
+      "level": 46,
+      "leveling_xp_to_next": 8695400,
+      "aa_basis_level_span": 8695400,
+      "eligible_xp_per_passive_aa": 4347700.0,
+      "eligible_xp_per_focused_aa": 434770.0,
+      "passive_aa_on_reaching_level": 90
+    },
+    {
+      "level": 47,
+      "leveling_xp_to_next": 9081792,
+      "aa_basis_level_span": 9081792,
+      "eligible_xp_per_passive_aa": 4540896.0,
+      "eligible_xp_per_focused_aa": 454089.6,
+      "passive_aa_on_reaching_level": 92
+    },
+    {
+      "level": 48,
+      "leveling_xp_to_next": 9476608,
+      "aa_basis_level_span": 9476608,
+      "eligible_xp_per_passive_aa": 4738304.0,
+      "eligible_xp_per_focused_aa": 473830.4,
+      "passive_aa_on_reaching_level": 94
+    },
+    {
+      "level": 49,
+      "leveling_xp_to_next": 9879808,
+      "aa_basis_level_span": 9879808,
+      "eligible_xp_per_passive_aa": 4939904.0,
+      "eligible_xp_per_focused_aa": 493990.4,
+      "passive_aa_on_reaching_level": 96
+    },
+    {
+      "level": 50,
+      "leveling_xp_to_next": null,
+      "aa_basis_level_span": 10291392,
+      "eligible_xp_per_passive_aa": 5145696.0,
+      "eligible_xp_per_focused_aa": 514569.6,
+      "passive_aa_on_reaching_level": 98
+    }
+  ]
+}

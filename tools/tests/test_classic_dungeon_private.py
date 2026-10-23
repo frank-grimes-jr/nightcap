@@ -27,7 +27,7 @@ namespace Spawn2Repository {
  Spawn2 NewEntity(){return {};}
 }
 namespace Strings {uint32_t ToUnsignedInt(const char *s){return std::stoul(s);}}
-namespace fmt {std::string format(const char *,uint32_t id){assert(id==71);return "sky";}}
+namespace fmt {std::string format(const char *,uint32_t id){assert(id==71 || id==76);return "private";}}
 struct Result {
  std::vector<std::array<std::string,9>> rows;
  struct Iterator {
@@ -63,6 +63,18 @@ bool RequiredSpawn(uint32_t id){for(const auto &b:Bosses)if(b.zone==71 && b.spaw
  PrivateSpawns(public_spawns);assert(public_spawns.empty());
  managed=true;result.rows.pop_back();PrivateSpawns(public_spawns);
  assert(!healthy && public_spawns.empty());
+ // A saved Hate checkpoint looks up the moved public base point by its ID.
+ // The private definition must replace that EC pose, never append a duplicate.
+ healthy=true;current.dungeon=FindDungeon(76);
+ result.rows={{{"9100012","998812","998812","-337.08","-374.8","2","0","86400","0"}}};
+ for(unsigned load=0;load<2;++load){
+  std::vector<Spawn2Repository::Spawn2> hate;
+  if(load){auto ec=Spawn2Repository::NewEntity();ec.id=9100012;ec.x=-346;ec.y=-1570;ec.zone="ecommons";hate.push_back(ec);}
+  PrivateSpawns(hate);PrivateSpawns(hate);
+  assert(healthy && hate.size()==1 && hate[0].zone=="hateplane");
+  assert(hate[0].x>-338 && hate[0].x<-337 && hate[0].y>-375 && hate[0].y<-374);
+  assert(hate[0].spawngroupID==998812 && zone->spawn_group_list.GetSpawnGroup(998812));
+ }
 }
 '''
         native.FreeTradeTests.compile_run(self,code)

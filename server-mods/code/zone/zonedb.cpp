@@ -556,9 +556,9 @@ bool ZoneDatabase::LoadCharacterData(uint32 character_id, PlayerProfile_Struct* 
 	pp->RestTimer                = e.RestTimer;
 	pp->char_id                  = e.id;
 	m_epp->aa_effects            = e.e_aa_effects;
-	// Normalize old partial allocations before the initial player profile is sent.
+	// Preserve valid partial allocations before the initial player profile is sent.
 	m_epp->perAA                 = e.e_percent_to_aa > 0 && e.e_percent_to_aa <= 100
-		&& pp->level >= RuleI(Character, AAExpMinLevel) ? 100 : 0;
+		&& pp->level >= RuleI(Character, AAExpMinLevel) ? e.e_percent_to_aa : 0;
 	m_epp->expended_aa           = e.e_expended_aa_spent;
 	m_epp->last_invsnapshot_time = e.e_last_invsnapshot;
 	m_epp->next_invsnapshot_time = m_epp->last_invsnapshot_time + (RuleI(Character, InvSnapshotMinIntervalM) * 60);

@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:42380/",
+  "checks": [
+    "brand and metadata guard",
+    "73 visible custom changes / 2 installed quests / 8 unreleased quests",
+    "all anchor targets",
+    "keyboard disclosures",
+    "history and deep links",
+    "5 responsive widths",
+    "200% text reflow",
+    "images",
+    "no JavaScript needed",
+    "strict CSP",
+    "private non-caching responses",
+    "clean console/network"
+  ]
+}

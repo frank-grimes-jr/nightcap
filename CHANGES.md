@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-10-23 — Level-scaled AA and level-1 allocation controls (candidate)
+
+Adds the owner-selected two passive AA per level of eligible XP while retaining
+normal leveling rates. Native AA plus/minus controls work from level 1; valid
+0–100 allocations persist, 100% pauses leveling, and a full AA bank cannot
+silently resume it. The existing tenfold focus relationship yields 20 AA per
+level-equivalent at full focus. Fixed internal AA units preserve existing points,
+purchases and partial progress; no retroactive grants. Kill/quest/task awards
+share the normal XP basis, segment level crossings and continue at the Classic
+50 cap. Separate AA-only multipliers do not multiply the scaled rate again.
+
+Requires fresh matching server binaries for the new rule plus proxy0.12.0 and
+its signed catalog. Current production remains the million-point release until
+a separate deployment receipt verifies activation. Native reward/transition and
+exact-client controls pass; owner gameplay/balance QA remains open.
+[Evidence and QA](docs/releases/aa-level-progression-20261023/README.md).
+
 ## 2026-10-22 — Production-backed wiki loot finder
 
 Added current-era equipment search for up to three held classes, defaulting to
@@ -38,6 +55,19 @@ section. All 458 HTML pages, catalog values, gameplay labels and equipment filte
 are preserved. No new dependencies or hosting policy changes. Tests and guarded
 publication evidence: `docs/releases/wiki-interactive-20261022/`. Published as
 `20261022-interactive-handbook-v1`; all 465 public hashes and preservation checks pass.
+
+## 2026-10-22 — Hate Keeper moved to Commonlands
+
+Moves Hate's existing public Keeper to the East Commonlands travel area at
+`/loc -1570,-346,3`. Cross-zone routing selects Hate for entry and journal actions;
+private Hate instances retain their entrance Keeper, including checkpoint reloads.
+Removes Hate's GM-status gate while retaining level46, also allowing normal
+level46+ public Hate access. New zone binary and guarded SQL must activate together.
+Owner-approved PR299 is merged and the paired release is live. All12 zone
+workers,39 schema/499 content checks and preserved state/cache checks pass.
+Wiki `20261022-hate-keeper-confirmed-v1` verifies all466 files and private-route
+denials. The owner confirmed relocation, Commonlands visibility and Hate travel;
+broader dungeon balance/full-clear QA remains separate. [Evidence and exact QA](docs/ops/hate-keeper-commonlands-20261022/README.md).
 
 ## 2026-10-22 - Robe waist repair accepted
 

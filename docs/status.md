@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## 2026-10-23 — Two-AA progression and low-level controls candidate
+
+The owner selected two passive AA per level and native +/- allocation controls
+from level1, including100% AA to hold a chosen level. Implementation and native
+checks pass; a fresh paired server build is running. Existing earned points,
+purchases and AA fraction remain. Production still uses the prior million-point
+policy until activation is verified; visible owner QA is pending.
+[Candidate evidence and exact QA](releases/aa-level-progression-20261023/README.md).
+
 ## 2026-10-22 — Wiki loot finder published
 
 The live finder uses read-only production content to filter current-era
@@ -33,6 +42,19 @@ Published as `20261022-interactive-handbook-v1`: all 465 HTTPS hashes/security
 headers and five private-route denials pass; rollback and service preservation
 are verified. No gameplay acceptance status changed.
 
+
+## 2026-10-22 — Hate Keeper relocation deployed
+
+The public Hate Keeper is now in East Commonlands `/loc -1570,-346,3`,
+with native Hate routing, correct arrival/journal and private Keeper continuity.
+Hate's level46 requirement stays; its status80 gate is removed for public/private
+access. Owner-authorized main PR299 and paired production activation are
+verified: all12 zones,39 schema/499 content checks, fresh stopped backup and
+player/state/cache preservation. Gateway open; no client update. Wiki
+`20261022-hate-keeper-confirmed-v1` verifies all466 files over HTTPS. The owner
+confirmed the Keeper relocation, visibility and Hate travel behavior. Broader
+dungeon balance/full-clear QA remains open separately.
+[Release and exact in-game checks](ops/hate-keeper-commonlands-20261022/README.md).
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 
 All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,

@@ -4,5 +4,5 @@
   "docs/releases/thj-parity-20261018/evidence/native-results.tar.gz": "80e8e06b84ed5ffb0344574dae06ede971f4d249630dfcf35a96c4b3676715b7",
   "server-mods/code/zone/effects.cpp": "a306af310942ac2dd35d47b28cdd09d203bbb214943d6fbf827c5b63a1063da1",
   "server-mods/code/common/nightcap_spell_scaling.h": "3a9e99e3e01e71acd780f568b9186695b491258869bd630725f23a83ec36a6ac",
-  "server-mods/code/common/ruletypes.h": "fcafc20cdafa44c5cf25a4f4202d37c71b96091aea01f4e1ba79b355133955d6"
+  "server-mods/code/common/ruletypes.h": "d29ad746ecc8b81d1de66b4cd8faaa831c275403334559ca2cca156d6b16f390"
 }

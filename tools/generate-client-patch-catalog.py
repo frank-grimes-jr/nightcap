@@ -20,6 +20,12 @@ assert len(sites) > 0 and sorted(sites,key=lambda x:x["rva"]) == catalog["sites"
 # Names already consumed by the proxy. Keeping these declarations generated
 # binds launcher preflight and runtime original-byte guards to one catalog.
 symbols = {
+ 0x20A12E:("kUIAAExpResetRva","kExpectedUIAAExpReset"),
+ 0x20A1D0:("kUIAAExpMinusLevelRva","kExpectedUIAAExpMinusLevel"),
+ 0x20A22B:("kUIAAExpPlusLevelRva","kExpectedUIAAExpPlusLevel"),
+ 0x20AAD8:("kUIAAExpMinusNativeRva","kExpectedUIAAExpMinusNative"),
+ 0x20AB0B:("kUIAAExpPlusNativeRva","kExpectedUIAAExpPlusNative"),
+
  0x2085B0:("kUIAAFilterRva","kExpectedUIAAFilter"),
  0x208C73:("kUIAAFilterCallRva","kExpectedUIAAFilterCall"),
  0x20AA80:("kUIAANotifyRva","kExpectedUIAANotify"),
