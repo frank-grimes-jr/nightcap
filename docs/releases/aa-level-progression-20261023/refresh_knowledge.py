@@ -136,7 +136,7 @@ paths={
 'multiclass':['server-mods/code/common/aa_progression.h','server-mods/code/common/ruletypes.h','server-mods/code/zone/exp.cpp','server-mods/code/zone/client.h','server-mods/code/zone/client.cpp','server-mods/code/zone/zonedb.cpp','server-mods/code/zone/gm_commands/aa_exp.cpp','tools/tests/test_level_aa.py','tools/tests/test_level_aa_integration.py','tools/tests/test_passive_aa.py',rbase+'README.md',rbase+'matrix.md',rbase+'open-receipt.json'],
 'client':['eq-client-dll/src/ui_hooks.h','eq-client-dll/config/patch-sites.json','eq-client-dll/tests/aa-allocation-native.cpp',rbase+'client/hosted-verification.json',rbase+'client/publish.py',rbase+'client/test_publish.py'],
 'operations':[rbase+n for n in ['rollout.py','test_rollout.py','native-build-manifest.json','preflight-receipt.json','open-receipt.json','RECOVERY.md','instance-expiry-audit.json','preflight-recovery.json']],
-'wiki':[rbase+n for n in ['wiki-review.json','publish_guides.py','test_publish_guides.py','guides-publication.json','wiki-public-verification.json','guide-public-verification.json']]
+'wiki':['index.html']+[rbase+n for n in ['wiki-review.json','publish_guides.py','test_publish_guides.py','guides-publication.json','wiki-public-verification.json','guide-public-verification.json']]
 }
 for topic,names in paths.items():
  d['topics'][topic]=[e for e in d['topics'][topic] if e['path'] not in names]
