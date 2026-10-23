@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "deployment": "NOT INSTALLED OR PUBLISHED",
+  "windows_python": {
+    "tests": 50,
+    "skipped_linux_only": 17
+  },
+  "linux_suite": {
+    "tests": 61,
+    "skipped": 0
+  },
+  "final_installer_tests": 10,
+  "node": {
+    "loot_filter_checks": 14,
+    "search_checks": 6,
+    "equipment_checks": 7,
+    "build_lab_scenarios": 10,
+    "native_landed_controls": 12,
+    "handbook": "PASS"
+  },
+  "public_build": {
+    "html": 460,
+    "files": 467
+  },
+  "independent_review": "All actionable findings corrected; final installer review has no substantive findings. Owner requested current review/tests only.",
+  "gameplay_changes": false,
+  "raw_capture_public": false
+}

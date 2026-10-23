@@ -4,13 +4,18 @@ Updated October 22, 2026.
 
 ## Current state
 
+- **Loot finder candidate:** read-only production capture, any-held-class default,
+  active-era item/source/rate filtering and fifteen-minute refresh are implemented
+  locally. Reader/timer/JSON route and HTML publication are pending approval.
+  [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
+
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
-- **Active OVH origin release:** `20261022-hate-keeper-v1`; previous release
-  `20261022-build-lab-v1` is retained for recovery.
+- **Active OVH origin release:** `20261022-hate-keeper-confirmed-v1`; previous
+  release `20261022-hate-keeper-v1` is retained for recovery.
 - **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
   required and the GM access restriction removed. Private Hate retains its
   entrance Keeper. Main PR299/server and466-file wiki publication are verified;
-  native owner visibility/travel/gameplay acceptance remains open. Evidence:
+  owner confirmed relocation, Commonlands visibility and Hate travel; broader dungeon balance/full-clear QA remains separate. Evidence:
   `docs/ops/hate-keeper-commonlands-20261022/` in the gameplay release checkout.
 - **Build Lab:** experimental A/B builds, supported spell/stat benefits, item differences,
   resolved abilities and priority-order testing; scope and dated fixtures are explicit.

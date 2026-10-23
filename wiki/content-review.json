@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-22",
-  "reviewed_revision": "1fe68f2530342885238fa93909e11be50db1de8e",
+  "reviewed_revision": "b077d4995e932ac35383189b66859c65b36554d5",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -11,7 +11,12 @@
     "docs/",
     "config/",
     "sql/",
-    "index.html"
+    "index.html",
+    "wiki/loot_*.py",
+    "wiki/*loot*.conf",
+    "wiki/nightcap-wiki-loot.*",
+    "wiki/assets/loot-finder*",
+    "wiki/articles/loot-finder.json"
   ],
   "scope": "All maintained articles and generated item/zone guidance reviewed; unchanged reward stats retained. New mechanics require a Features decision and affected-guide updates.",
   "supplemental_evidence": [
@@ -68,6 +73,7 @@
     "Interactive handbook final source and publication receipts through 13f7dbde1707b0d18c18a1a0715cf0c04da1d831 reviewed: all465 public hashes/headers, five private-route denials,16 Linux recovery cases and actual rollback/service preservation pass. Public browser smoke verified. Installed wiki knowledge and174 source fingerprints validated; relocated historical receipts are byte-identical. Remaining source drift consisted only of these authored interface/operator/review records. This ledger update changes no public payload or gameplay acceptance.",
     "October22 Build Lab: all22 maintained guides/432 generated routes reviewed against current source and working changes. New experimental workbench plus Features/Combat/Equipment/Recent changes and home/navigation links; existing mechanics, labels, commands and384reward values preserved. Narrow source/formula and captured native controls do not establish full native simulation, equipment/AA/pet legality or balance acceptance. Evidence docs/releases/build-lab-20261022/. Publication tracked separately.",
     "Final Build Lab closeout reviewed: verified publication466files,16Linux recovery checks, public HTTPS/private-route checks, source provenance, knowledge patches and current runbook/status. No further public payload or gameplay changes. Existing October19 NightcapTHJBehaviors rule-header drift was compared to its October18 pin and reconciled to current main;750caps remain unchanged.",
-    "Hate Keeper relocation: owner-authorized main PR299/a736fb0 and paired live server release verified; all12 workers and39 schema/499 content checks passed. All22 guides/432 generated routes reviewed; seven guides plus search updated for live placement, level46 and private Keeper continuity.384 Hunt catalog values, commands, Build Lab and handbook preserved. Owner native QA open. Source/deployment evidence in hate-keeper-commonlands checkout, docs/ops/hate-keeper-commonlands-20261022/."
+    "Hate Keeper relocation: owner-authorized main PR299/a736fb0 and paired live server release verified; all12 workers and39 schema/499 content checks passed. All22 guides/432 generated routes reviewed; seven guides plus search updated for live placement, level46 and private Keeper continuity.384 Hunt catalog values, commands, Build Lab and handbook preserved. Owner confirmed relocation, Commonlands visibility and Hate travel; broader dungeon balance/full-clear QA remains separate. Source/deployment evidence in hate-keeper-commonlands checkout, docs/ops/hate-keeper-commonlands-20261022/.",
+    "October22 loot finder candidate: all23 maintained guides and432 generated reward routes reviewed against HEAD plus working changes. Any-held-class default and automatic15minute production refresh reflect owner choices. Fixed read-only content capture, exact source-reviewed probability model, immutable public JSON and optional all-class mode. Features/home/equipment/multiclass/about/Recent changes and navigation updated together. Hunt catalog384values, generated acquisition routes, commands and gameplay acceptance unchanged. Current Hate Keeper owner confirmation and Build Lab/handbook retained. Reader/timer/nginx installation and public publication remain pending approval. Evidence: docs/releases/wiki-loot-finder-20261022/."
   ]
 }

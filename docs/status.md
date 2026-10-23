@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## 2026-10-22 — Wiki loot finder ready for publication review
+
+The local candidate uses read-only production content to filter current-era
+equipment for any held class, with item links to source mobs, zones, locations
+and calculated drop rates. The owner requested automatic refresh; a guarded
+fifteen-minute service/timer and narrow public JSON route are prepared. The
+reader, route and HTML have **not been installed or published**. No game/client
+changes or gameplay acceptance. [Evidence and QA](releases/wiki-loot-finder-20261022/README.md),
+[installation and rollback](ops/wiki-loot-reader.md).
+
 ## 2026-10-22 — Build Lab
 
 The experimental wiki workbench compares A/B stat inputs and gear differences,

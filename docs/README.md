@@ -79,6 +79,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Crushbone entrance waypoint: deployment, rollback and QA](ops/crushbone-waypoint-20261009/README.md)
 - [Official Nightcap wiki: content, hosting and remaining public setup](ops/nightcap-wiki.md)
+- [Wiki loot finder: production reader, automatic refresh and recovery](ops/wiki-loot-reader.md)
 
 - [Classic zone augments, new gear and forge: live deployment and exact QA](releases/zone-loot-20261009/README.md)
 

@@ -101,6 +101,40 @@ optimizer cancellation and320/768/1024/1440 layouts.
 
 ## Verification contract
 
+### Production loot finder candidate
+
+`loot-finder.html` adds any-held-class search (up to three), optional all-class
+matching, the active production era, slot/quality/level/zone/name filters and
+per-item mob/location/drop-rate details. `loot_capture.py` uses a fixed content
+allowlist in a read-only MariaDB transaction. `loot_model.py` projects public
+fields and calculates native database-loot probabilities; `loot_refresh.py`
+publishes immutable snapshots. `loot_install.py` guards the initial JSON route
+and systemd installation. It requires owner approval; no installation is claimed.
+
+The candidate has460HTML pages/467public static files. Dynamic JSON is separate;
+the existing Hunt catalog remains384variants/96families. Player rows, credentials,
+raw captures, scripts and manifests are excluded from both public surfaces.
+Private dungeon, quest, scripted and Hunt acquisition remain separate guides.
+
+From `wiki/`, run `python -B -m unittest test_loot_model test_loot_refresh
+test_loot_install`, `node test_loot_finder.cjs`, and the existing complete-site
+checks. From repository root, `python -B wiki/verify_loot_linux.py` runs Linux
+recovery tests and200,000-roll native comparisons in existing local Docker images,
+with network disabled and the checkout mounted read-only. It uses a private
+fixture at `artifacts/wiki-loot/content.json.gz`; never commit or upload it.
+The script writes its receipt under that ignored directory.
+
+Local preview: `python -B wiki/loot_refresh.py --capture
+artifacts/wiki-loot/content.json.gz --output artifacts/wiki-loot/preview`, then
+`python -B wiki/preview_loot.py` at loopback port8769. This is a fixed local capture;
+the production timer is separate. The UI does not expose an SQL console or DB port.
+
+[ADR](../docs/adr/0068-production-wiki-loot-reader.md),
+[operator/recovery](../docs/ops/wiki-loot-reader.md),
+[evidence and acceptance](../docs/releases/wiki-loot-finder-20261022/README.md).
+
+### Complete site checks
+
 Python checks all generated local links, fragment targets, assets, unique IDs,
 single page titles, catalog families, key live values, release labels, exact
 package contents and private-data exclusions. Node exercises the actual browser
