@@ -1,0 +1,19 @@
+{
+  "status": "candidate; activation requires the paired guarded content release",
+  "zone_id": 760,
+  "short_name": "chapterhouse",
+  "version": 0,
+  "source_expansion": 19,
+  "bypass_expansion_check": 1,
+  "min_status": 0,
+  "min_level": 50,
+  "canbind": 0,
+  "safe_x": -119,
+  "safe_y": -197,
+  "safe_z": 2,
+  "safe_heading": 0,
+  "stock_spawn_flag": "nightcap_chapterhouse_stock_disabled",
+  "stock_spawn_flag_enabled": false,
+  "public_exit_zone": 21,
+  "campaign_enabled_on_install": false
+}

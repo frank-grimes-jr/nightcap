@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-23",
+  "status": "Candidate source review and automated verification; not deployed or owner accepted",
+  "source_base": "5d0a0d31bd1b8c07ca1df3cc620d323c0c07f175",
+  "native_binaries": {
+    "world": "97403fdaf874bce9d5a153119c2ac5dd4b8596f0e625f00d9097d3f59a7ca9bc",
+    "zone": "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6",
+    "shared_memory": "375814fe49f128466caa1d8571be0dff47b58e396ffce012358d9db258adae53"
+  },
+  "diagnostic_binary": "d9f5fc6bf80faa15d5e16fb9f305f788e95e88bb745f569bbe61e029e0ca1991",
+  "tests": {
+    "chapterhouse": 5,
+    "existing_dungeon": 16,
+    "classic_dungeon": 10,
+    "zone_hunt": 8,
+    "wiki_build_lab": 14,
+    "sql_postconditions": 32,
+    "geometry_points": 40
+  },
+  "reviewed": [
+    "Personal ordered ledger versus run-wide kills, nearby living party/pet credit and no first-time mid-run acceptance",
+    "Task capacity before allocation; abandon/reconnect recovery and delivery-owned Completed history",
+    "One-time native inventory receipt and uncertain-delivery quarantine; paused claim recovery",
+    "Dedicated no-network SQL collision, injected rollback and repeat-apply checks",
+    "Managed private population, public foyer, scoped era exception and secondary loot/exit suppression",
+    "Current legal AA pool, original Paladin spell access, live public gear definitions and undead/proc effects",
+    "Raid post-calculation damage path and observed initial HP; no double HP scaling",
+    "Perl warning/interrupt/movement/target-change/wipe cleanup; Warden-owned add cleanup",
+    "Candidate wiki preserves current publication; installed skill updated without accepting unrelated source drift"
+  ],
+  "outstanding": [
+    "Owner RoF2 visual/pathing/Tasks/end-to-end completion acceptance",
+    "Full encounters including guardian and scripted damage in both modes",
+    "Other fully developed Paladin combinations, external buffs/pets and broader gear optimization",
+    "Fresh production preimage/backup/rehearsal and separately authorized paired activation",
+    "Separate public wiki release"
+  ],
+  "production_changed": false
+}

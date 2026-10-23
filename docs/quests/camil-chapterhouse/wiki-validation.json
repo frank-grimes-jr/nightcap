@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "tests": 14,
+  "articles": 24,
+  "html": 461,
+  "scope": "Candidate source in temporary copy of current wiki, with its pinned Build Lab dependencies; not published",
+  "patch_apply_check": "passed against current aa-level-wiki checkout",
+  "difficulty": "Maximum legal power, undead/proc identity preserved; candidate labels retained"
+}

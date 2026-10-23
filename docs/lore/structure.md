@@ -1,5 +1,15 @@
 # Nightcap local character notes
 
+## Camil and the Vigil of the Dawn
+
+October23 implemented candidate, not live: Camil led civilians to safety while
+Vaelen bound the fallen Order of the First Dawn to its armor. Sered guards the
+memorials, Elowen holds a prayer against three waves, Halvyr commands the watch,
+and the player releases the knights, Vaelen and the Unbroken Shadow before
+restoring the altar. All are original Nightcap fiction. The prior multi-zone
+route and proposed second spirit defense are superseded. Native Tasks preserve
+personal chapters. [Candidate scope](../quests/camil-chapterhouse/SPEC.md).
+
 ## Wayfarer's Oath
 
 October 1, 2026 candidate: the Ancient Chronicler records a character's journeys
