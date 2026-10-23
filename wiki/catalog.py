@@ -47,4 +47,8 @@ def catalog_articles():
     zone_links = ''.join(f'<li><a href="zone-{z["slug"]}.html">{html.escape(z["name"])}</a></li>' for z in sorted(data['zones'], key=lambda z:z['name']))
     add('zones', 'Zones & rewards', 'Explore all 48 enabled Classic reward zones.', '<p>Each listed zone has one custom augment family and one equipment family. Click a zone for all four qualities and their item details. The level shown on an item is its required level, not a recommended adventuring level.</p><ul class="article-list">'+zone_links+'</ul><h2 id="excluded">Outside this reward release</h2><p>Highpass, Splitpaw, Cazic-Thule, Jaggedpine, Nedaria, Hate B and both tutorial zones remain outside the reward pool pending access checks. Cities and Plane of Knowledge have no new random drops. This does not mean every excluded zone is inaccessible.</p>', 'World')
     add('items', 'Equipment', '48 gear families. 48 augments. Four qualities for every reward.', equipment_directory(data), 'Equipment')
+    if data.get('chapterhouse'):
+        from chapterhouse_catalog import articles as chapterhouse_articles
+        articles.extend(chapterhouse_articles(data['chapterhouse']))
+        next(a for a in articles if a['slug']=='zones')['body'] += '<h2 id="chapterhouse">Custom expedition</h2><p><a href="zone-chapterhouse.html">Chapterhouse of the Fallen</a> has a separate curated capstone reward pool. Its scoped access exception does not expand the 48 Classic Hunt zones.</p>'
     return articles

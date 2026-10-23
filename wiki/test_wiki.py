@@ -101,11 +101,26 @@ class WikiTests(unittest.TestCase):
         self.assertNotIn('all 72',self.articles['waypoints']['body'])
 
     def test_generated_reward_pages_use_current_upgrade_costs(self):
-        rewards = [a for slug,a in self.articles.items() if re.fullmatch(r'item-\d+|zone-(?!hunt$)[a-z0-9-]+',slug)]
+        catalog = json.loads((Path(__file__).parent/'catalog.json').read_text(encoding='utf-8'))
+        hunt_slugs = {'item-'+str(i['id']) for i in catalog['items']} | {'zone-'+z['slug'] for z in catalog['zones']}
+        rewards = [a for slug,a in self.articles.items() if slug in hunt_slugs]
         self.assertEqual(len(rewards),432)
         for a in rewards:
             self.assertRegex(a['body'],r'[Ff]our (?:identical )?Polished',a['slug'])
             self.assertNotIn('exchange three identical eligible copies',a['body'])
+
+    def test_chapterhouse_separates_augments_equipment_and_quest_delivery(self):
+        self.assertIn('0.5%',self.articles['zone-chapterhouse']['body'])
+        self.assertIn('35%',self.articles['zone-chapterhouse']['body'])
+        for item in range(961000,961004):
+            page=self.articles['item-'+str(item)]
+            self.assertEqual(page['status'],'Live testing')
+            self.assertIn('type-22',page['body'])
+            self.assertIn('four Polished or Exalted',page['body'])
+        for item in list(range(960414,960420))+list(range(961010,961013)):
+            self.assertIn('does not use the Ember',self.articles['item-'+str(item)]['body'])
+        self.assertIn('Delivered once by Camil',self.articles['item-990500']['body'])
+        self.assertIn('balance acceptance remain open',self.articles['camil-vigil']['body'])
 
     def test_search_index_has_all_articles_without_internal_sources(self):
         index = json.loads((self.out/'search-index.json').read_text(encoding='utf-8'))

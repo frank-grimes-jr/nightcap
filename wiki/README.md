@@ -43,7 +43,8 @@ deployment. Packaging emits an exact SHA256 manifest alongside the immutable tar
 - `assets/traders-at-dusk.png` and `moon.svg` are unchanged approved site artwork.
   CSS and browser search are local. No third-party trackers or dependencies.
 
-The build contains 455 articles plus All articles, Search, and 404 pages.
+The current Chapterhouse release contains 473 articles plus All articles,
+Search, and 404 pages (476 HTML pages and 483 public files).
 `items.html` is the Equipment catalog: 96 item families with their four qualities
 together, type/slot/level/zone/name filters, sorting and 12-family pagination.
 The URL preserves filters; all item links remain in static HTML without JavaScript.
@@ -51,6 +52,14 @@ The URL preserves filters; all item links remain in static HTML without JavaScri
 the existing public assets by `build.py`, with content-based cache versioning.
 Run `test_equipment.cjs` for filtering, paging and all 384 exact variant names.
 This is a custom-system and reward wiki; it is not the full ordinary game database.
+
+`catalog.json` also has a separate `chapterhouse` projection for the verified
+expedition release: four Ember qualities, three miniboss items, six final Raid
+variants and Camil's existing helmet. `chapterhouse_catalog.py` generates its
+zone and item pages with distinct acquisition/forging rules. The Classic Hunt
+directory stays at 384 variants and 96 families. Whole-site links and the new
+reward boundary are checked by `test_wiki`; preserve the existing Build Lab and
+automatic loot finder when publishing this release.
 
 ## Interactive handbook
 
