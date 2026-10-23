@@ -1,0 +1,20 @@
+[Unit]
+Description=Refresh public Nightcap wiki item and loot data
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/nightcap/wiki-loot
+ExecStart=/usr/bin/python3 -B loot_refresh.py
+TimeoutStartSec=10min
+Nice=10
+IOSchedulingClass=idle
+UMask=0022
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/nightcap/deploy/production/data/public
+MemoryMax=1G
+

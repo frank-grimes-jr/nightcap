@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-22 — Production-backed wiki loot finder candidate
+
+Added current-era equipment search for up to three held classes, defaulting to
+any held class with optional all-class matching. Item links show stats, source
+mobs/zones, spawn locations/conditions and calculated per-kill drop chances. A
+fixed read-only production content capture and guarded fifteen-minute publisher
+are prepared; immutable public snapshots keep index/details paired and preserve
+the last good capture after failures. No game/database/client mutation. Native
+loot-roll comparisons, Linux recovery checks and browser filters verified.
+Reader/timer/nginx installation and public publication remain pending approval.
+Evidence, limitations and recovery: `docs/releases/wiki-loot-finder-20261022/`.
+
 ## 2026-10-22 — Experimental Build Lab
 
 Added a visual wiki workbench for two saved Classic50 builds, supported spell
