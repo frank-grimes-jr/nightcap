@@ -1,0 +1,1 @@
+{"release": 2026102301, "before_mode": "0o700", "after_mode": "0o755", "files_and_signed_channel_unchanged": true, "scope": "only new public release directory traversal permissions"}

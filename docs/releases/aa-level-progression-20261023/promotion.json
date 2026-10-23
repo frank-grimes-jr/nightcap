@@ -1,0 +1,9 @@
+{
+  "feature_dev_pr": 303,
+  "dev_test_pr": 304,
+  "test_main_pr": 305,
+  "main_revision": "00f90e99cf28ad8bb4df60da420c16e87a8a91b3",
+  "source_tree_matches": true,
+  "owner_authorized_live_testing": true,
+  "owner_gameplay_accepted": false
+}

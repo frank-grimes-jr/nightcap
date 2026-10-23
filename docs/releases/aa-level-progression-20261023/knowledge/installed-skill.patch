@@ -1,0 +1,793 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -362,20 +362,40 @@
+ uses a higher signed counter. Native/unit/hosted checks do not establish actual
+ player combat or purchase acceptance.
+ 
+-## XP
+-OVH uses **1,000,000 XP per AA and 10% passive earning**, owner-authorized and
+-deployed October 21, 2026 (EDT), main PR268/e64f502. This replaces the earlier
+-same-day 40,000-point trial. Earned points, purchases and raw partial XP remain;
+-2,000 XP now represents 0.2% of a point. The rule change leaves raw awards and
+-normal XP alone; retiring Goldwind's +50% package separately removes its boost.
+-
+-At level38, unboosted Mistmoore35-37 dark blues model25,081-28,030 passive AA XP
+-per kill, about36-40 kills/point or about4 with full focus. Level50 Hole47-49
+-dark blues model12-13 passive kills. Corrected continuous normal-level1-50
+-model includes per-level AA/normal modifiers:19,740,195 AA XP, about19.7 points
+-at1m (493.5 at40k, correcting the earlier simplified412 estimate). These are
+-conditional models, not measured player trajectories. Carry, quests, group/
+-con/zone/level modifiers, focus and rounding matter.
++## XP — level-scaled AA deployed October23
++
++Main PR305/00f90e9 and the paired server/client release are verified for live
++QA. Normal installed PEQ leveling thresholds and rates remain unchanged. With
++AA allocation0%, eligible kills/quests/tasks earn two AA per normal level span;
++level1→50 yields about98 AA excluding starters and extra grinding. At100%,
++normal XP is held and the same current-level XP span earns20 AA. At50%, it
++retains half normal XP and earns11 AA per full input span. Valid0–100 selections
++persist through zoning/relog, including a full AA wallet. Native +/- buttons
++work from level1 in proxy0.12.0/game2026102301; close the game and use Play.
++
++Production AA:LevelBasedPointsPerLevel=20, AA:PassiveExpPercent=10 and
++AA:ExpPerPoint=1000000. The last value is fixed storage units, not a million
++normal XP requirement: one passive AA at level1 costs500 normal XP, focused50.
++Fixed units preserve existing earned points, purchases and partial AA progress
++across levels/relogs. Award crossings use each actual native float32 level span;
++at Classic50 use its span indefinitely. Modified normal XP is the common basis
++before allocation/capping; AA-only/modern multipliers do not multiply it again.
++Gray kills, rez/GM/LDoN/excluded sources do not mint bonus AA. Tiny awards can
++truncate; do not promise exact fractional carry in every focus/cap scenario.
++
++Source: C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev,
++common/aa_progression.h, zone/exp.cpp, zonedb.cpp and gm_commands/aa_exp.cpp
++under server-mods/code. tests/test_level_aa.py, test_level_aa_integration.py and
++test_passive_aa.py under tools; exact client tests/aa-allocation-native.cpp.
++369award/129legacy/8actual SetEXP/167client checks,112exact executable guards
++and27Windows/Linux operator cases pass. Fresh world/zone/shared_memory are
++paired for the new rule; all12 zones,39schema/499content and91state-table
++checks pass. Signed140-file delivery and wiki/private-guide publication verify.
++Native window/wire/quest/persistence/balance acceptance remains owner QA.
++Evidence, full matrix and recovery: docs/releases/aa-level-progression-20261023/.
++Never restore player snapshots. After percentage support is exposed, old images
++that coerce positive allocation to100 are incompatible; recovery needs the new
++percentage-capable binaries and an explicitly reviewed policy decision.
+ 
+ No verified THJ raw XP/point constant was discovered. Archived forum posts357/
+ 387 report level60 ChardokB percentages and an XP-buff drop from16% to9% on
+@@ -395,21 +415,6 @@
+ The observed spell21030 is finite formula3600/cap2400, effect337/base50.
+ Goldwind no longer grants it; future earned boosts remain a separate proposal.
+ 
+-Source: C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev. docs/releases/aa-pacing-million-20261021/ contains native-build-manifest.json,
+-rollout.py,23 Windows/Linux operation tests, fresh backup/preservation and
+-deployed.json receipts. The zone-only build reproduces current59831725 before
+-replacing spells.cpp.o; deployed successor5dd5a655 preserves world/shared/client
+-and caches. Full supported runtime restart loads the rule and quest pair.
+-197 native AA arithmetic checks,21 duration groups and6 Goldwind interactions
+-pass; these use actual functions with boundary fakes, not full-game acceptance.
+-Wiki465/private guide5 HTTPS files verify. Owner gameplay/balance QA remains open.
+-
+-Classic50 and level1 AA eligibility remain. #aaexp off adds10% passive AA
+-without reducing normal XP; #aaexp on diverts to full AA with no passive extra.
+-Modern scaling and normalized mode remain false. Compiled fallbacks remain
+-1%/23,976,503, so retain production overrides. No rank, cost or legal-pool change.
+-Rollback restores only the prior image/quest/rule; retained remainder may convert
+-under a lower threshold on the next award. Never restore old player snapshots.
+ 
+ ## Normal death EXP loss — deployed October 17
+ 
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -78,27 +78,37 @@
+ Owner gameplay acceptance and complete task-delivery lifecycle QA remain open;
+ exact source/tests/build/rollback boundary and QA: docs/releases/quest-tier-handins-20261022/.
+ 
+-## AA million-point release - October 21, deployed for live QA
+-Main PR268/e64f502 and C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev/docs/releases/aa-pacing-million-20261021/ record owner-authorized
+-1m XP per point,10% passive, retired Goldwind scripts and timed XP boost policy.
+-Zone-only successor5dd5a655 is built from exact reproduced59831725 baseline;
+-world/shared/client/caches are retained. Full-runtime restart, fresh stopped
+-backup, current player/content checks and all12 zones verify before reopening.
+-Never kill one child or restore old player snapshots.
+-
+-Two preflights stopped before live changes because image construction consumed
+-more than a raw zone layer. Recovery pruned only three named task build caches
+-and four upload archives with exact retained local copies. Pinned candidate reuse
+-avoided another build; backups and active services were retained. Reserve512MiB
+-runtime headroom after backup and before reopening.
+-
+-First boot naturally expired485 non-corpse NPC cache rows older than7days in
+-zones38/75. An exact cache-only scratch restore authenticated the original hash,
+-removed set and surviving fields; all other player/custom state was unchanged.
+-finish_cache.py pins the after hash, preserves the original hold, takes another
+-stopped backup and verifies a fresh restart before reopening. Never ignore cache
+-drift generically or restore old earned state. Deployment and website evidence
+-remain distinct from owner gameplay acceptance.
++## Level-scaled AA — October23 deployed for live QA
++
++Main PR305/00f90e9, fresh world4cabbac9/zone41443afd/shared_memory4123b138 and
++signed game2026102301/proxy0.12.0 are paired. One new rule value20 with existing
++passive10% gives2 AA per level at0% and20 per level-equivalent at100%, which
++holds normal XP. Normal leveling and earned/fractional AA state are preserved.
++Evidence: C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev/
++docs/releases/aa-level-progression-20261023/. Active stage is
++/opt/nightcap/releases/aa-level-progression-20261023-v3; image5e501da8.
++Full backup,91saved-state tables, exact1077rule rows,12zone hashes,
++39schema/499content checks and one native market rotation verify before reopening.
++Client140 hosted files and wiki467/private-guide5 publication verify separately.
++Owner native gameplay acceptance remains open. No player snapshot restoration.
++
++Failed v1 guard used gameplay expiry instead of native delayed instance purge:
++match expire_at!=0, never_expires=0 and expire_at<=now-offset with active
++Instances:ExpireOffsetTimeSeconds3600, projected600seconds ahead. World startup
++and450000ms periodic purge share this predicate. Keep all other cleanup guards.
++No instance deletion/exception was needed. Byte-exact base64 staging avoids
++Windows newline conversion. v2 image passed but disk reserve stopped activation;
++v3 reused its exact immutable ID, hashes/layers/dependencies/supervisor checks.
++Only11 explicitly approved duplicate uploads and4 cache IDs created by this task
++were removed. No installed image, unrelated cache, player data or backup removed.
++672MiB prebuilt reserve budgets512runtime+128backup+32publication; actual new
++compressed backup65173102bytes. Keep512MiB post-backup/pre-open floor. Future
++releases must measure their own needs, not reuse this reserve indiscriminately.
++
++New rules require paired world/zone; runtime child exit restarts everything.
++After native percentage controls are exposed, retained older AA images are not
++compatible rollback. Follow RECOVERY.md; preserve earned state and stop access
++on failed invariants. Retired Goldwind boosts/timed-XP policy remain in effect.
+ 
+ ## THJ custom behavior and stock gear — October 19, deployed for live testing
+ 
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,4 +1,22 @@
+ # RoF2 client, pets and buff effects
++
++## Level-1 AA allocation controls — October23 published
++
++Game2026102301 pairs proxy/catalog0.12.0 with level-scaled AA server PR305.
++Exactly DLL and patch catalog change;138 unrelated assets, descriptors/history,
++Classic robe repair and waypoint models are retained. All140 hosted hashes,
++shipped-key signature and actual DLL/catalog pairing verify. Close the game and
++use normal launcher Play. Protected reference client remains read-only.
++
++src/ui_hooks.h and tests/aa-allocation-native.cpp under eq-client-dll guard three
++native level gates and native +/- bounds for non-ten allocations1–9/91–99,
++then delegate native Notify. No global level spoofing or AA purchase changes.
++Canonical patch-sites.json and generated contracts must stay paired. Native167
++control checks,10runtime groups and112exact executable guards pass. Wire,
++rendered controls, real rewards and owner acceptance remain in-game QA.
++Source/evidence: C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev/
++docs/releases/aa-level-progression-20261023/client/ and ../QA.md. Never revert
++only one half of the proxy/catalog or expose the old0/100-only server afterward.
+ 
+ ## Waypoint crystal - October22 published for live QA
+ 
+@@ -61,7 +79,7 @@
+ have CODE01_DMSPRITEDEF bodies. global4 repeats the Barbarian pair, making16
+ registrations. The existing selector at eqgame RVA0x99f0 already chooses robe01.
+ The336 original native equip/remove cases mock graphics callbacks and therefore
+-do not prove loading or rendering. Keep current proxy/catalog0.11.1 and Classic
++do not prove loading or rendering. That historical release retained proxy/catalog0.11.1 and Classic
+ models; no permission, DLL, server, quest, SQL or gameplay-power change here.
+ 
+ build_classic_robes.py runs after canonical HE90 generation and participates in
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,26 @@
+ # Official player wiki and Features
++
++## Level-scaled AA guidance — October23 published
++
++Current wiki20261023-aa-level-v1 preserves the loot finder, automatic JSON
++reader/timer, Build Lab and interactive handbook. Source is
++C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev, feature/aa-level-wiki;
++never publish the older gameplay checkout's wiki. Six guides, Features/home,
++commands and Recent changes explain2passive AA/level,98by50, native level1
++0–100controls,50%=half level+11AA and100%=held level+20AA per input span.
++Crossing awards use each span. Existing progress and Goldwind retirement remain.
++Normal leveling is unchanged; owner native gameplay acceptance remains open.
++
++Whole-wiki23guides/432generated routes/384Hunt variants reviewed. Build Lab
++initializes only #build-lab[data-lab], avoiding the existing Recent changes
++heading with the same ID; narrow selector fix retains anchors. Its source pin
++was reviewed for the AA-only rule-header addition; spell formulas unchanged.
++All467 HTTPS files/security headers and5private denials verify, plus private
++player-guide20261023-aa-level-guide-v1/all5files. Publisher checks both expected
++pointers and private baseline hashes under one website lock;6concurrency/remote
++syntax regressions pass. No Nginx configuration/service identity change.
++67Linux wiki cases, Node suites and21responsive browser layouts passed.
++Evidence: gameplay checkout docs/releases/aa-level-progression-20261023/.
+ 
+ ## Production loot finder — October22 published
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -93,7 +93,8 @@
+     "hate_keeper_wiki_published_20261022": "b077d4995e932ac35383189b66859c65b36554d5",
+     "hate_keeper_owner_acceptance_20261022": "5ec177514b4deb46119769d79fbc8232d97017a7",
+     "wiki_loot_finder_candidate_20261022": "37ef4a9aabfcf16a96089010c6a5456f10f3ff78",
+-    "wiki_loot_finder_published_20261022": "d3b6deff0e2a14135f933ee2fe4802f7443074e9"
++    "wiki_loot_finder_published_20261022": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
++    "aa_level_progression_20261023": "main00f90e9; deployed image5e501da8; client2026102301; wiki20261023-aa-level-v1; owner QA open"
+   },
+   "topics": {
+     "operations": [
+@@ -1095,6 +1096,62 @@
+         "revision": "5ec177514b4deb46119769d79fbc8232d97017a7",
+         "sha256": "5915c9c8b606e1772b287dd77bc037e2f709ef3b8fda001c10b4913cf7f30b41",
+         "role": "Owner-confirmed public wiki hashes, security headers and private-route denials"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/rollout.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "14bcdfd78bf2be95041a705a03e8ae945cbf06dfadc33ea4e347e4106c82f7b9",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/test_rollout.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "7e56a5660891a363cd881d1278baaf7957a95fb8768402a11683d606563aeb44",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/native-build-manifest.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "4907c47a2c9a89abcbc7dbd8f087e36424e98196279846910e9a2ab72ca49534",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/preflight-receipt.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "76f04d79e7a89df0b22f4c6a8f888183b40226f1e20b68d66d101cc52bdcb171",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/open-receipt.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "1177702671bd8f4da0e60b1aa45fbd1b0917f4931363179ef17e5051a467d3c0",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/RECOVERY.md",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "f88ca5e01307bf1684df48ac4aa7e1ce50303df66c728c362e5ae574f2e0c587",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/instance-expiry-audit.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "841068c2354d019502656a861632a07355c2d540e19ac424e179e69c0fa0bbc7",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/preflight-recovery.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "8b04efb8e5600bf39400afc26b60d08758da696cb5889595fef3ca741daff96c",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
+       }
+     ],
+     "multiclass": [
+@@ -1125,13 +1182,6 @@
+         "sha256": "0f4c21642bf5cbc6b9dfc687a431a45854578ed2d2508a7b67249c822a07a373"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-13/aa-x20/work/passive-aa-twenty",
+-        "path": "tools/tests/test_passive_aa.py",
+-        "role": "native XP verification route",
+-        "sha256": "37f6af9f8fd9fbb296c4a77623efd1fa6bf16f975b363ef4580f91fcb4e8b256",
+-        "revision": "cdcdef0fb3de487d26318d18a4813af61d4aa00c"
+-      },
+-      {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+         "path": "docs/ops/aa-point-cost-20261012/README.md",
+         "role": "historical 4000 XP/AA activation and point-conversion behavior; current passive rate supersedes 40 percent",
+@@ -1146,20 +1196,6 @@
+         "sha256": "6beeede7f58464e48cabd195c815697a698d9d5e819d8432ebf443b8dc45f793"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+-        "path": "server-mods/code/common/ruletypes.h",
+-        "role": "compiled AA defaults differ from persistent production overrides",
+-        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+-        "sha256": "89a0f6e313c3aa16390a5f3ea8bfaf74c1bd7f855674a0d8841a0d406a4524d2"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+-        "path": "server-mods/code/zone/gm_commands/aa_exp.cpp",
+-        "role": "0/100 focus contract; passive mode retains full normal XP",
+-        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+-        "sha256": "86e6af36871712eb5db29e6f38a0a20f6634c70c5532fceb09d95d0629f5068e"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
+         "path": "server-mods/code/zone/client_process.cpp",
+         "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+@@ -1307,20 +1343,6 @@
+         "sha256": "359a502c8bc52bd17815fdb0f9ef3f1cff54d37743acac1400d738fa5cb97216"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/client.h",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "50e10ff7ae195e9889c0b7d915589a1159ea2d1c6c3a87dfe5d8c71f683f731b"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+-        "path": "server-mods/code/zone/client.cpp",
+-        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+-        "revision": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+-        "sha256": "0562142fa4e1cc60ae3d0a366001dc1598f245458c4f12adecbc5f2739331182"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+         "path": "server-mods/code/zone/mob.cpp",
+         "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+@@ -1781,14 +1803,6 @@
+         "role": "reviewed build/test/source evidence; not gameplay acceptance",
+         "revision": "b81fd66 + reviewed Go verification follow-up",
+         "sha256": "333494d1836e6b0d93e208d7590c7e3f6ff813bf79d1cc27f44f17edcadc5bdc"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/exp.cpp",
+-        "role": "October 21 AA pacing deployed/published; 40,000 XP per point, 10% passive, earned progress retained; owner gameplay QA pending",
+-        "revision": "059fd49dece0ba58e51e4019ab16bb426240f72e + reviewed October 21 deployment/publication evidence",
+-        "sha256": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf",
+-        "reviewed_revision": "059fd49dece0ba58e51e4019ab16bb426240f72e + reviewed October 21 deployment/publication evidence"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+@@ -2475,6 +2489,97 @@
+         "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+         "sha256": "67fd69327ec0007590069dfbfafa4cc3632307d606ffc670e3c17c0e913d6938",
+         "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/common/aa_progression.h",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "75c2a69a49026ebbe917168b4ba5377d845a48fe3eae21d4d0d6d4e182db1ed4",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/common/ruletypes.h",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "d29ad746ecc8b81d1de66b4cd8faaa831c275403334559ca2cca156d6b16f390",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/zone/exp.cpp",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "a4f95c9a05166de01678bb104f313f330d899d027e374c4ab05b99fd74d46fe0",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/zone/client.h",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "54cb5aef73d04fe49a6e0461679a247a549709847dc2e27dec380960df1e9f4a",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/zone/client.cpp",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "26b368a5a065b16585e6e6c6986eb8d355ee2e030f9ec9173d9572a71a3380bf",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/zone/zonedb.cpp",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "390adad99cc9f668a544202cc1c7b78e29bb5263c4330640b38592aa4ac0f0e5",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "server-mods/code/zone/gm_commands/aa_exp.cpp",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "af0d240e276ed1913162cc61196b1e9e6f10e4e621dc76cad006c6e20169f536",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "tools/tests/test_level_aa.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "508fed1e5776428deab0cd4f6964a2521b24fd6ed0ed3938a671fa7fde2cc611",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "tools/tests/test_level_aa_integration.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "5103bdc7ac0f514d2ff53cb53118ebcbc5182a709151057d2f5304439edabb3b",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "tools/tests/test_passive_aa.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "61847c8e7cd7b4b7ff333d2d72f615b880a4d61d656154678aa59b6c8528aeeb",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/README.md",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "f4aea943d62ac4c467e27884c6bddc23abf558bcc31945a455385c97f6f05210",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/matrix.md",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "014cded4efefd525b88b3672536de86a5ce3b12e61eb1f9258dd30817acfeb3b",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/open-receipt.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "1177702671bd8f4da0e60b1aa45fbd1b0917f4931363179ef17e5051a467d3c0",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
+       }
+     ],
+     "items": [
+@@ -6043,13 +6148,6 @@
+         "sha256": "bcd05c88d31c913f1dfd797f5cca49d0a93d99dcaa276e21608bfe927c5c46a9"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "eq-client-dll/src/ui_hooks.h",
+-        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "9faac3a7c6723d8e8e491d103ff30810e02e044c1b852a13ab84a0bd679a51c3"
+-      },
+-      {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-13/w/work/tradeskill-revamp",
+         "path": "eq-client-dll/tests/ui-hooks.cpp",
+         "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+@@ -6597,13 +6695,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+-        "path": "eq-client-dll/config/patch-sites.json",
+-        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+-        "revision": "0fae6bc16552c31166abbb200e47deeac7627ce2",
+-        "sha256": "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+         "path": "docs/releases/client-contract-20261019/README.md",
+         "role": "October19 published contract repair; owner-confirmed Play on their PC; broader native QA open",
+         "revision": "60e724bf36581633328bfc2addf271e16388810a",
+@@ -6793,13 +6884,6 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+-        "path": "eq-client-dll/config/patch-sites.json",
+-        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+-        "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
+-        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+         "path": "eq-client-dll/tests/model-hooks.cpp",
+         "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+         "sha256": "e8eb245355df8a8e47afb3f038e547c4da4588875ed78a920625acdde31379f9",
+@@ -7210,6 +7294,48 @@
+         "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+         "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+         "sha256": "eda221101767869a367a5e14c62bc056ad6ed7ea28a9cf5313c9d876193fc4eb"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "eq-client-dll/src/ui_hooks.h",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "99237f845bbbcb75a7f0dd69d1b9356fbdacfc1355509c12dd52347bb38652e3",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "eq-client-dll/config/patch-sites.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "9bbbdaabea9976a001e3200fb4d5c2f5cdd9c83b2d414acb85c5a68de93392de",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "eq-client-dll/tests/aa-allocation-native.cpp",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "f6566fb6cf8b155d625f0b4edcd940f670f71d8a47afb98a21eff8cdcff9dea3",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/client/hosted-verification.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "4e6fa1ded6163a5c9028b407a7358f1c9c587971e5d83edce7e3c1d3f1e0ddfe",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/client/publish.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "6e9719d9b083a5e1fab725784f7cb3dfaab7bc1cf3000f11055d59836376e837",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/client/test_publish.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "c5f1574503e9c7a5d134867438b6a3a3eb39c790b296ff3ae189fa4bbadaea66",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
+       }
+     ],
+     "admin": [
+@@ -9329,20 +9455,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/commands.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/getting-started.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/item-upgrades.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9483,13 +9595,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/test_wiki.py",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "3cc2c2f6e8d9aaa8e626c07e544ee3f4b64f02a46af49420d9bcda8bb760155b"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/update.py",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9504,13 +9609,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "docs/build-lab/data-provenance.json",
+-        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed ledger closeout",
+-        "sha256": "c10dda1aad9a3b906edf4742de442b2c60c1d5f41287e297bb2b766f85be8ce4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/build-lab-20261022/README.md",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+         "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+@@ -9574,13 +9672,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/assets/build-lab.js",
+-        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "dde4be291be9fe9d7769cd7c13348d044d4dce44448893546eb44d4373ee217f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/build-lab-data.json",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+         "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+@@ -9805,13 +9896,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+-        "path": "wiki/README.md",
+-        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+-        "sha256": "ab34f16a8585242aa218b01e77e8554d33caf31452225d93c2f4384f23cd0c37",
+-        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+         "path": "wiki/articles/about.json",
+         "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+         "sha256": "b00485ea24b88c4de49b1a0e008d6b3a193af1bbf009d61bc455449c97bf8c41",
+@@ -9826,37 +9910,9 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+-        "path": "wiki/articles/features.json",
+-        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+-        "sha256": "a894c1acec33eb4d6b06995dcef87aa90082cc38132b8ebdeeb6128edaf91d5a",
+-        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+-        "path": "wiki/articles/index.json",
+-        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+-        "sha256": "94cf131d1ba300aae2bf980c6b489a595271d951abe8b31d5e844d58a6c5e716",
+-        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+         "path": "wiki/articles/loot-finder.json",
+         "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+         "sha256": "d1cb6fde6415c7479028e6064b941793ba9d2509ee907dc25f8be13383c7244c",
+-        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+-        "path": "wiki/articles/multiclass.json",
+-        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+-        "sha256": "ed0933027591d6934da8f25eee2ac65c2fac430e7d8e98487d132b69fb40b9b5",
+-        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+-        "path": "wiki/articles/recent-changes.json",
+-        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+-        "sha256": "31aa36c04a4cd3cf7906cfc620d76113680b35e95945d1a1a72bd258f4ddeeb3",
+         "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+       },
+       {
+@@ -9896,13 +9952,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+-        "path": "wiki/content-review.json",
+-        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+-        "sha256": "b540d34eb8f6cc68af4e29d01d1f18edd7dff276884c0218a34d4958275b449e",
+-        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+         "path": "wiki/loot-nginx.conf",
+         "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+         "sha256": "13ff1c7c19d172270810be2aec3809be08d73a63917ae513c52dde403d154410",
+@@ -10012,6 +10061,125 @@
+         "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
+         "sha256": "251801f47e40d09acaac9cb2bc79adedde0966d44d447b272d1e73c2728e349f",
+         "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/wiki-review.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "39762bb8ad36cf0f7511b87ffb2c04184008c64d798f850357cd3821ef869054",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/publish_guides.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "76c7d27dc5ddf6f602ea5e1c0d05478352e206917c2c06b29662416c6cd023a1",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/test_publish_guides.py",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "3d7232bd9679dad620bdd2e7fcf3454e77a36cea88f9ec37f674e756593be2b0",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/guides-publication.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "6c669166ce581d970fd5d9c6533e2eeac2431b77bd8a16f00cb8df9c78dc87d8",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/wiki-public-verification.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "531a9dccb8182648f96c6b69f8afd37c6788c0216c4cb351c4ade4b315535e3c",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/releases/aa-level-progression-20261023/guide-public-verification.json",
++        "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
++        "sha256": "d755661d85c44e7e019353bb7d65f727cf4b1e2938bb65a2d3bc034223ff7e69",
++        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/articles/commands.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "d3aa297d7319e9fb90643a94b6f963a7c3e6b6d5bb8709c6bbef95fd00d5205f",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/articles/features.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "79e28251c0e29fac2671fd4ace05d47fd3a7c169f3d4583a3b57edb89f0469d0",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/articles/getting-started.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "d4f29b4f7a992f29dc8d2fa869c09e94424e797d882dbd30403c7fe7c413cdf4",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/articles/index.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "cfa74a67fff14ce7404b87ab81f8cdbf504d70a70bb9497b47992784a5d21620",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/articles/multiclass.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "0f574cb9d9a88a7d7f477d645214cb6d076f0f44711d8d7a1a8c28840654982b",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/articles/recent-changes.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "2f4c58b6f65790e82bd3a0deaf7602cd198dd10587f5f5ae198b1132fdb57248",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/assets/build-lab.js",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "db01c918bc201961ca77d18c6a04061402d463436df8dc8ea9a59f79b02195ba",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/test_wiki.py",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "6051c23f51cb665c13e2d38600cb316e3bc783f795e53a586c3b50a09b0f7ec3",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/content-review.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "6818b8088b098428a61dce4c5b448148a14e3a70183ad943b333edcadef51dee",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "wiki/README.md",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "febf6320287a6a427fabf0157c4741cec0e07a8a940d6f922a81427a2b9a774f",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-level-wiki/EQ_Local_Dev",
++        "path": "docs/build-lab/data-provenance.json",
++        "revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24; reviewed published AA guidance",
++        "sha256": "896a5a606d36910113ef17286c170ae64e9704eca6254a8c26e8cdea5c1351da",
++        "role": "Current published AA guidance preserving loot finder/Build Lab; native owner QA separate"
+       }
+     ]
+   }

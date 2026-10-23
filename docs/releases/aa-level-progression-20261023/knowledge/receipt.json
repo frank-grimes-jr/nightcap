@@ -1,0 +1,12 @@
+{
+  "updated": [
+    "references/multiclass.md",
+    "references/operations.md",
+    "references/client.md",
+    "references/wiki.md",
+    "references/sources.json"
+  ],
+  "revision": "e2c45922b35afe90148fb7505d76832da7043dd9",
+  "wiki_revision": "3e852cd15daf0b5af260fc8ed1fa54ac5366ef24",
+  "owner_gameplay_accepted": false
+}
