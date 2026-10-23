@@ -31,9 +31,8 @@
   "outstanding": [
     "Owner RoF2 visual/pathing/Tasks/end-to-end completion acceptance",
     "Full encounters including guardian and scripted damage in both modes",
-    "Other fully developed Paladin combinations, external buffs/pets and broader gear optimization",
-    "Fresh production preimage/backup/rehearsal and separately authorized paired activation",
-    "Separate public wiki release"
+    "Other fully developed Paladin combinations, external buffs/pets and broader gear optimization"
   ],
-  "production_changed": false
+  "production_changed": false,
+  "delivery": "Main c0c9896e and paired production activation verified; see deployment/deployed.json"
 }

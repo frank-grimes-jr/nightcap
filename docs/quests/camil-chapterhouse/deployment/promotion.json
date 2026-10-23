@@ -1,0 +1,11 @@
+{
+  "main_commit": "c0c9896e",
+  "feature_commit": "8f4f7f1f8f3e777d392c739d4a5d57a09235486d",
+  "prs": {
+    "dev": 309,
+    "test": 310,
+    "main": 311
+  },
+  "owner_authorized_live_testing": true,
+  "owner_gameplay_accepted": false
+}

@@ -1,0 +1,199 @@
+{
+  "verified_at": "2026-10-23T21:21:24.401262+00:00",
+  "release": "camil-chapterhouse-20261023",
+  "main_commit": "c0c9896e",
+  "runtime": {
+    "image_id": "sha256:db570029805ba5145824529a4487de62536b207e86ab61054feab7d1a199579c",
+    "started_at": "2026-10-23T21:15:07.586062789Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "97403fdaf874bce9d5a153119c2ac5dd4b8596f0e625f00d9097d3f59a7ca9bc"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ],
+      [
+        "zone",
+        "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "game": {
+    "id": "2f29abc85d03f9dd1d19df9b64052a7a6fb6ff469de5ac839ee1c4ce62a2228c",
+    "image_id": "sha256:db570029805ba5145824529a4487de62536b207e86ab61054feab7d1a199579c",
+    "started_at": "2026-10-23T21:15:07.586062789Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "gateway_open": true,
+  "campaign_enabled": true,
+  "checks": {
+    "schema": 45,
+    "content": 532
+  },
+  "cache": {
+    "hashes": {
+      "items": "4905448ef74a733db74b7ffd2eae3f243c203177965f5e8cae4c8fd40f287ae5",
+      "spells": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf"
+    },
+    "contract": {
+      "items": 427,
+      "drift_rejections": 854,
+      "item_bytes": 1332
+    },
+    "comparison": {
+      "preserved_items": 309844,
+      "new_items": 13,
+      "existing_changed": 0
+    }
+  },
+  "state_tables": 91,
+  "backup": {
+    "path": "/opt/nightcap/releases/camil-chapterhouse-20261023/private-backup/peq-before.sql.gz",
+    "sha256": "8d75c3cb8869b373f1a0ff04c20109e7f3f5f9cfb73ce0d95b86e21922153f41",
+    "compressed_bytes": 65169949,
+    "uncompressed_bytes": 464512283,
+    "gzip_integrity": "passed"
+  },
+  "native_expiry": {
+    "cutoff_epoch": 1792185304,
+    "expired_noncorpse_rows": 0,
+    "native_rule_days": 7,
+    "boundary_window_seconds": 600
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "94",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-23 12:04:59"
+    ],
+    "after": [
+      "1",
+      "1",
+      "95",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-23 21:15:22"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "client_channel_sha256": "1e6edaaea728c447ac074fcd3c6da1155c2f14514f10ff44c5ca74624dcba8d2",
+  "client_update_required": false,
+  "scripts": {
+    "quests/chapterhouse/998821.pl": "ce42f98a831cb8771ba76f5ec764fb5ff8c5364180127932866deda67f51fc49",
+    "quests/chapterhouse/998822.pl": "ce7fbfb152279986d1f88568c120f4afa860c0383c711c44980b1fd48c56e9a0",
+    "quests/chapterhouse/998823.pl": "6737406a5d8971a10740f58e7b1ca566a92931e1eca6208867a0d5f3000a5c6f",
+    "quests/chapterhouse/998824.pl": "0f88bcf1260ca7d3df461d56453807d39ee014295974df62fba6f3762cc5478b",
+    "quests/chapterhouse/998827.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998828.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998829.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998830.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998831.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998832.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998833.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/chapterhouse/998834.pl": "2cf8ae292cd14bd75c4bc02ab5decf92d75dd59e86ff2b2ac90ae2c77ab58295",
+    "quests/ecommons/999521.pl": "28a33a8bc28726eefc7340a50976b830fdd9b83dc31b14d7ce4e93e46c5468c6"
+  },
+  "geometry_assets": {
+    "maps/base/chapterhouse.map": {
+      "bytes": 3457111,
+      "sha256": "8066c2ec6effc7d292ab31c4a3a684c2b6bf6e5302c167de506ef0ad3e784da0"
+    },
+    "maps/nav/chapterhouse.nav": {
+      "bytes": 457085,
+      "sha256": "0e5134e488a3b76f243ca7a039eff00b6b83e8885655303abcf4e8e626d52f3e"
+    },
+    "maps/base/commons.map": {
+      "bytes": 108473,
+      "sha256": "3c05f50d69db462a9726469f251819c5dfdfbe2045439732b00a9bbcdfca6f14"
+    }
+  },
+  "disk_free": 2152427520,
+  "database_restored": false,
+  "owner_gameplay_accepted": false,
+  "waypoint_addition_reconciled": true,
+  "first_hold_preserved": true,
+  "fresh_preflight": {
+    "checks": {
+      "schema": 45,
+      "content": 532
+    },
+    "cache": {
+      "items": 427,
+      "drift_rejections": 854,
+      "item_bytes": 1332
+    },
+    "comparison": {
+      "preserved_items": 309844,
+      "new_items": 13,
+      "existing_changed": 0
+    },
+    "database": "nightcap_classic_stage_690a971902bc",
+    "public_content_only": true,
+    "player_references_checked_by_stopped_live_migrations": true
+  }
+}

@@ -1,7 +1,9 @@
-# The Vigil of the Dawn — Chapterhouse candidate
+# The Vigil of the Dawn — Chapterhouse
 
 2026-10-23. Implemented on feature/camil-chapterhouse, based on main
-5d0a0d31bd1b8c07ca1df3cc620d323c0c07f175. **Not deployed or player accepted.**
+5d0a0d31bd1b8c07ca1df3cc620d323c0c07f175. Promoted to main c0c9896e and deployed
+October23 for live testing. **Owner gameplay acceptance remains open.**
+[Delivery evidence](deployment/README.md).
 The owner selected Chapterhouse, native Tasks, challenging level-50 encounters,
 era-safe loot, custom miniboss items, a zone augment, waypoint and Instance Keeper.
 The accepted difficulty target is demanding even at maximum legal power: this
