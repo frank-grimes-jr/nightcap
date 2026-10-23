@@ -58,13 +58,31 @@ for name,digest in pins.items():
 config=(base/'nginx.conf').read_bytes()
 assert hashlib.sha256(config).hexdigest()=={before['config_sha256']!r}
 (stage/'current-nginx.conf').write_bytes(config)
-wiki=subprocess.check_output(['python3',str(stage/'update.py'),str(stage/{wiki.name!r}),str(stage/{wiki.with_suffix('.json').name!r}),{RELEASE!r},{before['wiki']!r},{before['config_sha256']!r}],timeout=180,text=True)
-print('WIKI '+wiki,flush=True)
-assert (base/'data/public/player-site/current').readlink().name=={before['guide']!r}
-guide_stage=subprocess.check_output(['python3',str(stage/'player-site-deploy.py'),'stage',str(stage/{guide.name!r}),str(stage/{guide.with_suffix('.json').name!r}),'20261023-aa-level-guide-v1',{before['config_sha256']!r},str(stage/'current-nginx.conf')],timeout=120,text=True)
-guide_live=subprocess.check_output(['python3',str(stage/'player-site-deploy.py'),'activate','20261023-aa-level-guide-v1'],timeout=120,text=True)
-print('GUIDE '+guide_stage+guide_live,flush=True)
-print(json.dumps({{'wiki':json.loads(wiki),'guide_stage':json.loads(guide_stage),'guide':json.loads(guide_live),'config_unchanged':(base/'nginx.conf').read_bytes()==config}}))
+import contextlib,fcntl,importlib.util,io,sys,types
+sys.path.insert(0,str(stage))
+import update
+spec=importlib.util.spec_from_file_location('player_site',stage/'player-site-deploy.py')
+player=importlib.util.module_from_spec(spec);spec.loader.exec_module(player)
+def captured(fn,*args):
+ buffer=io.StringIO()
+ with contextlib.redirect_stdout(buffer):fn(*args)
+ return json.loads(buffer.getvalue())
+with (base/'website-history/.lock').open('a') as lock:
+ fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+ assert (base/'data/public/wiki/current').readlink()==Path('releases')/{before['wiki']!r}
+ assert (base/'data/public/player-site/current').readlink().name=={before['guide']!r}
+ expected_guide={before['guide_manifest']!r}
+ for name,digest in expected_guide.items():assert hashlib.sha256((base/'data/public/player-site/current'/name).read_bytes()).hexdigest()==digest
+ assert (base/'nginx.conf').read_bytes()==config
+ wiki=captured(update.main,types.SimpleNamespace(archive=stage/{wiki.name!r},manifest=stage/{wiki.with_suffix('.json').name!r},release={RELEASE!r},expected_release={before['wiki']!r},expected_config_sha={before['config_sha256']!r}))
+ sys.argv=['player-site-deploy.py','stage',str(stage/{guide.name!r}),str(stage/{guide.with_suffix('.json').name!r}),'20261023-aa-level-guide-v1',{before['config_sha256']!r},str(stage/'current-nginx.conf')]
+ guide_stage=captured(player.main)
+ sys.argv=['player-site-deploy.py','activate','20261023-aa-level-guide-v1']
+ guide_live=captured(player.main)
+ report={{'wiki':wiki,'guide_stage':guide_stage,'guide':guide_live,'config_unchanged':(base/'nginx.conf').read_bytes()==config}}
+ (stage/'published.json').write_text(json.dumps(report,indent=2)+'\n')
+ print(json.dumps(report))
+
 """
     report=json.loads(remote(source,timeout=420).splitlines()[-1])
     report['changed_wiki_files']=sorted(changed)
