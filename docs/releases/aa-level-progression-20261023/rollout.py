@@ -6,12 +6,14 @@ access closed. Never restore player snapshots or silently revert percentage supp
 import argparse,fcntl,hashlib,importlib.util,json,os,shutil,time
 from pathlib import Path
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/aa-level-progression-20261023-v2')
+STAGE=Path('/opt/nightcap/releases/aa-level-progression-20261023-v3')
 EVIDENCE=STAGE/'evidence'
 PRIOR=Path('/opt/nightcap/releases/hate-keeper-commonlands-20261022/rollout.py')
 RULE='AA:LevelBasedPointsPerLevel'
 NOTES='Full-focus AA points per current level of normal XP; 0 disables level scaling. PassiveExpPercent applies to retained leveling XP. Clamp 0-1000; fixed ExpPerPoint storage units preserve saved AA fractions.'
 NAMES={'world','zone','shared_memory','loginserver','ucs'}
+PREFLIGHT_RESERVE=672*1024**2 #512MiB runtime +128MiB backup +32MiB publication
+PREBUILT='sha256:5e501da82b8eae0d461f7f32d54539ae59d4b57e477bcb9e34f20bbd09146cf2'
 def sha(p):
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def read(n):return json.loads((EVIDENCE/n).read_text())
@@ -91,16 +93,9 @@ def unchanged(p,installed=False):
  assert sql('SELECT revision,enabled FROM nightcap_dungeon_state;').strip()=='2026101601\t1'
 
 def build_image(m):
- tag='nightcap-game:aa-level-progression-20261023-v2'
- base_tag=tag+'-base'
- r.call('docker','tag',m['base_image_id'],base_tag)
- assert r.out('docker','image','inspect','--format','{{.Id}}',base_tag).strip()==m['base_image_id']
- (STAGE/'Dockerfile').write_text('FROM '+base_tag+'\nCOPY bin/ /opt/nightcap/bin/\n')
- (STAGE/'.dockerignore').write_text('*\n!Dockerfile\n!.dockerignore\n!bin\n!bin/*\n')
- assert {p.name for p in (STAGE/'bin').iterdir()}==set(m['replacement_binaries'])
- r.call('docker','build','--pull=false','--network','none','-t',tag,str(STAGE))
- assert r.out('docker','image','inspect','--format','{{.Id}}',base_tag).strip()==m['base_image_id']
- image=r.out('docker','image','inspect','--format','{{.Id}}',tag).strip()
+ assert m['prebuilt_image']==PREBUILT,'Unexpected prebuilt image'
+ image=r.out('docker','image','inspect','--format','{{.Id}}',PREBUILT).strip()
+ assert image==PREBUILT,'Prebuilt image identity drift'
  expected={**m['base_hashes'],**{'bin/'+n:h for n,h in m['replacement_binaries'].items()}}
  assert r.image_hashes(image)==expected
  layers=lambda v:json.loads(r.out('docker','image','inspect',v))[0]['RootFS']['Layers']
@@ -123,12 +118,12 @@ def preflight():
  base.health();startup_guards();r.closed_ports();contract()
  database_guards();before=rules();check_policy(before);after=desired(before)
  assert before==m['rules_before'],'Rules changed after packaging'
- assert shutil.disk_usage(ROOT).free>=m['replacement_bytes']+750*1024**2,'Insufficient image/backup reserve'
+ assert shutil.disk_usage(ROOT).free>=PREFLIGHT_RESERVE,'Insufficient image/backup reserve'
  p={'manifest_sha256':sha(STAGE/'manifest.json'),'services':services,'runtime':r.runtime(),'public':r.public(),'caches':caches(),'content':base.hashes((base.PUBLIC-{'rule_values'})|{'nightcap_dungeon_state'}),'before':before,'after':after}
  EVIDENCE.mkdir(mode=0o700);save('preflight-started.json',p)
  p['image']=build_image(m);unchanged(p)
  assert all(r.compact(s)==v for s,v in services.items())
- assert shutil.disk_usage(ROOT).free>=750*1024**2
+ assert shutil.disk_usage(ROOT).free>=PREFLIGHT_RESERVE
  save('preflight.json',p);print('Paired runtime preflight passed; live gameplay unchanged.',flush=True)
 
 def activate():
@@ -136,7 +131,7 @@ def activate():
  assert not (EVIDENCE/'activation-started.json').exists()
  unchanged(p);startup_guards()
  assert all(r.compact(s)==v for s,v in p['services'].items())
- assert shutil.disk_usage(ROOT).free>=750*1024**2
+ assert shutil.disk_usage(ROOT).free>=PREFLIGHT_RESERVE
  save('activation-started.json',{'owner_authorized_live_testing':True})
  try:
   r.compose('stop','gateway');r.compose('stop','-t','90','game')

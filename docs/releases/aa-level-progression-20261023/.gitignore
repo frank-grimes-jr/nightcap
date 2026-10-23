@@ -7,3 +7,4 @@ package/
 __pycache__/
 instance-audit-private.json
 package-v2/
+package-v3/

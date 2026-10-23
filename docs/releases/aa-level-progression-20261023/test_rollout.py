@@ -28,7 +28,7 @@ class Fixture:
         o.EVIDENCE = o.STAGE/'evidence'; o.EVIDENCE.mkdir()
         (o.STAGE/'manifest.json').write_text('{}')
         (o.STAGE/'bin').mkdir()
-        self.events = []; self.fail = None; self.held = False
+        self.events = []; self.calls = []; self.fail = None; self.held = False
         self.rows = [[1,'AA:ExpPerPoint','1000000','old cost'],
                      [1,'AA:PassiveExpPercent','10','passive'],
                      [1,'Character:AAExpMinLevel','1','minimum'],
@@ -54,7 +54,7 @@ class Fixture:
         self.base_hashes = {'bin/'+n:'old-'+n for n in o.NAMES}
         self.replacements = {n:'new-'+n for n in ('world','zone','shared_memory')}
         self.binary_hashes = {n:self.replacements.get(n,'old-'+n) for n in o.NAMES}
-        self.m = {'base_image_id':'sha256:base','base_hashes':self.base_hashes,
+        self.m = {'base_image_id':'sha256:base','base_hashes':self.base_hashes,'prebuilt_image':o.PREBUILT,
                   'binaries':self.binary_hashes,'replacement_binaries':self.replacements,
                   'replacement_bytes':300,'rules_before':copy.deepcopy(self.rows)}
         for n in self.replacements:(o.STAGE/'bin'/n).write_text(n)
@@ -135,7 +135,8 @@ class Fixture:
     def running(self, image, binaries, *args):
         self.event('running')
         assert self.services['game']['running'] and self.services['game']['image_id']==image
-        assert binaries==self.binary_hashes
+        expected={n:'old-'+n for n in self.op.NAMES} if image=='sha256:base' else self.binary_hashes
+        assert binaries==expected
         return {'image_id':image,'started_at':self.services['game']['started_at']}
 
     def boot_state(self, data):
@@ -158,6 +159,7 @@ class Fixture:
         return self.base_hashes if image=='sha256:base' else {**self.base_hashes,**{'bin/'+n:h for n,h in self.replacements.items()}}
 
     def call(self, *args):
+        self.calls.append(args)
         self.events.append('call:'+':'.join(args[:3]))
         if args[:2]==('docker','tag'):
             self.tags[args[3]]=args[2]
@@ -170,7 +172,7 @@ class Fixture:
     def out(self, *args):
         if args[:3]==('docker','image','inspect'):
             image=args[-1]
-            if '--format' in args:return self.tags.get(image,'sha256:candidate')+'\n'
+            if '--format' in args:return (image if image==self.op.PREBUILT else self.tags.get(image,'sha256:candidate'))+'\n'
             return json.dumps([{'RootFS':{'Layers':['baseline']+([] if image=='sha256:base' else ['candidate'])}}])
         if 'ldd' in args:return 'all dependencies found\n'
         raise AssertionError(args)
@@ -277,8 +279,95 @@ class OperatorTests(unittest.TestCase):
         self.assertLess(q.index('SELECT ROW_COUNT()=1'),q.index('COMMIT;'))
         self.assertNotIn('DELETE ',q);self.assertNotIn('REPLACE ',q)
 
-    def test_candidate_image_uses_authenticated_local_base_tag(self):
-        self.assertEqual(self.o.build_image(self.f.m),'sha256:candidate')
+    def test_prebuilt_image_verifies_exact_id_without_building_or_tagging(self):
+        queries=[];original=self.o.r.out
+        def out(*args):queries.append(args);return original(*args)
+        self.o.r.out=out
+        self.assertEqual(self.o.build_image(self.f.m),self.o.PREBUILT)
+        self.assertFalse(any(c[:2] in (('docker','build'),('docker','tag')) for c in self.f.calls))
+        self.assertFalse((self.o.STAGE/'Dockerfile').exists())
+        self.assertEqual(len([q for q in queries if 'ldd' in q]),3)
+        self.assertTrue(any('start.validate_native()' in c[-1] for c in self.f.calls))
+
+    def test_prebuilt_rejects_unpinned_manifest_or_inspected_identity(self):
+        for value in ('nightcap-game:candidate','sha256:'+'0'*64,None):
+            with self.subTest(value=value):
+                self.f.m['prebuilt_image']=value
+                with self.assertRaisesRegex(AssertionError,'Unexpected prebuilt'):self.o.build_image(self.f.m)
+        self.f.m['prebuilt_image']=self.o.PREBUILT
+        original=self.o.r.out
+        self.o.r.out=lambda *a:'sha256:wrong' if '--format' in a else original(*a)
+        with self.assertRaisesRegex(AssertionError,'identity drift'):self.o.build_image(self.f.m)
+        self.assertEqual(self.f.calls,[])
+
+    def test_prebuilt_rejects_hash_or_layer_drift(self):
+        original_hashes=self.o.r.image_hashes
+        for drift in ('changed','extra'):
+            def hashes(image):
+                result=original_hashes(image)
+                result['bin/world' if drift=='changed' else 'unexpected']='wrong'
+                return result
+            self.o.r.image_hashes=hashes
+            with self.assertRaises(AssertionError):self.o.build_image(self.f.m)
+        self.o.r.image_hashes=original_hashes
+        original=self.o.r.out
+        def out(*args):
+            if args[:3]==('docker','image','inspect') and '--format' not in args and args[-1]==self.o.PREBUILT:
+                return json.dumps([{'RootFS':{'Layers':['different-baseline','candidate']}}])
+            return original(*args)
+        self.o.r.out=out
+        with self.assertRaises(AssertionError):self.o.build_image(self.f.m)
+        self.assertEqual(self.f.calls,[])
+
+    def test_prebuilt_requires_dependencies_and_supervisor_validation(self):
+        original=self.o.r.out
+        self.o.r.out=lambda *a:'libmissing.so => not found' if 'ldd' in a else original(*a)
+        with self.assertRaises(AssertionError):self.o.build_image(self.f.m)
+        self.assertEqual(self.f.calls,[])
+        self.o.r.out=original
+        def failed(*args):raise RuntimeError('supervisor validation failed')
+        self.o.r.call=failed
+        with self.assertRaisesRegex(RuntimeError,'supervisor'):self.o.build_image(self.f.m)
+
+    def prepare_preflight(self):
+        (self.o.EVIDENCE/'preflight.json').unlink();self.o.EVIDENCE.rmdir()
+        public=self.o.ROOT/'data/public';public.mkdir(parents=True)
+        (public/'channel.json').write_text('baseline')
+        self.f.m['client_channel_sha256']=self.o.sha(public/'channel.json')
+
+    def test_prebuilt_preflight_reserve_rejects_before_image_or_evidence(self):
+        self.prepare_preflight()
+        self.o.shutil.disk_usage=lambda _:types.SimpleNamespace(free=self.o.PREFLIGHT_RESERVE-1)
+        with self.assertRaisesRegex(AssertionError,'reserve'):self.o.preflight()
+        self.assertFalse(self.o.EVIDENCE.exists());self.assertEqual(self.f.calls,[])
+        self.assertNotIn('stop_gateway',self.f.events)
+
+    def test_prebuilt_preflight_accepts_exact_reserve_and_records_pinned_image(self):
+        self.prepare_preflight()
+        self.o.shutil.disk_usage=lambda _:types.SimpleNamespace(free=self.o.PREFLIGHT_RESERVE)
+        self.o.preflight()
+        self.assertEqual(self.o.read('preflight.json')['image'],self.o.PREBUILT)
+        self.assertEqual(self.o.PREFLIGHT_RESERVE,(512+128+32)*1024**2)
+        self.assertNotIn('stop_gateway',self.f.events)
+
+    def test_prebuilt_preflight_rechecks_reserve_after_validation(self):
+        self.prepare_preflight();free=iter((self.o.PREFLIGHT_RESERVE,self.o.PREFLIGHT_RESERVE-1))
+        self.o.shutil.disk_usage=lambda _:types.SimpleNamespace(free=next(free))
+        with self.assertRaises(AssertionError):self.o.preflight()
+        self.assertTrue((self.o.EVIDENCE/'preflight-started.json').exists())
+        self.assertFalse((self.o.EVIDENCE/'preflight.json').exists())
+        self.assertNotIn('stop_gateway',self.f.events)
+
+    def test_activation_reserves_reject_before_stop_or_hold_after_backup(self):
+        self.o.shutil.disk_usage=lambda _:types.SimpleNamespace(free=self.o.PREFLIGHT_RESERVE-1)
+        with self.assertRaises(AssertionError):self.o.activate()
+        self.assertNotIn('stop_gateway',self.f.events)
+        self.assertFalse((self.o.EVIDENCE/'activation-started.json').exists())
+        free=iter((self.o.PREFLIGHT_RESERVE,512*1024**2-1))
+        self.o.shutil.disk_usage=lambda _:types.SimpleNamespace(free=next(free))
+        with self.assertRaises(AssertionError):self.o.activate()
+        self.assertTrue(self.f.held);self.assertIn('backup',self.f.events)
+        self.assertNotIn('rule_sql',self.f.events);self.assertNotIn('start_gateway',self.f.events)
 
     def test_activation_orders_stop_backup_rule_start_and_keeps_access_closed(self):
         self.o.activate()
