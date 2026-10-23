@@ -1,0 +1,91 @@
+{
+  "result": "PASS",
+  "runtime": {
+    "image_id": "sha256:5e501da82b8eae0d461f7f32d54539ae59d4b57e477bcb9e34f20bbd09146cf2",
+    "started_at": "2026-10-23T12:04:44.59689812Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "4cabbac9210f2e46bf3f4ae9fb711bda839a4f372f194e9a43b0e2b4c3e4dbee"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "rule_catalog_exact": true,
+  "rules": 1077,
+  "contract": {
+    "schema": 39,
+    "content": 499
+  },
+  "caches_unchanged": true,
+  "services_running": [
+    "game",
+    "gateway",
+    "db",
+    "web",
+    "tunnel"
+  ],
+  "free_bytes": 622858240,
+  "loot_timer_active": true
+}

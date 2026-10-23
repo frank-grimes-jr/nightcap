@@ -1,6 +1,6 @@
 # Level-scaled AA and level-1 allocation controls
 
-Status: implementation candidate; not deployed or accepted in game.
+Status: deployed to production and published October23,2026; owner native gameplay acceptance remains pending.
 
 ## Accepted intent
 The owner selected two passive AA per level of earned experience on October 23,
@@ -43,9 +43,9 @@ No retroactive points or player-data reset is planned.
 
 Native award369, legacy129, actual SetEXP8 and pinned client167 checks pass.
 The client runtime suite passes10groups and112exact executable guards. Signed
-client2026102301 changes only the proxy/catalog and preserves138assets. Fresh complete world/zone/shared_memory compilation passed; no gameplay/client/wiki activation is claimed.
+client2026102301 changes only the proxy/catalog and preserves138assets. Fresh complete world/zone/shared_memory compilation passed and the paired runtime is deployed.
 
-Operator27failure/boundary cases pass on Windows and Linux. Actual MariaDB temporary-table forward/replay/
+Operator27failure/boundary cases pass on Windows and Linux;14client publisher Linux tests and6website concurrency/syntax tests pass. Actual MariaDB temporary-table forward/replay/
 collision rehearsal leaves live rules unchanged. The compiled catalog1013rules
 matches all1076existing rows/notes; only the new rule will be added. Wiki67Linux
 cases and existing Node suites pass, with467publishedbaselinefiles reproduced
@@ -56,3 +56,26 @@ See [matrix](matrix.md), [owner QA](QA.md), [recovery](RECOVERY.md),
 [review](review.json), and the individual signed/build/deployment receipts.
 The latest wiki source is feature/aa-level-wiki in the aa-level-wiki managed
 worktree, preserving the published loot finder, Build Lab and handbook.
+
+## Verified delivery
+
+Featureâ†’dev PR303, devâ†’test PR304 and owner-authorized testâ†’main PR305 landed
+at00f90e9. Active stage /opt/nightcap/releases/aa-level-progression-20261023-v3
+uses image5e501da8 with fresh world/zone/shared_memory. Fresh stopped backup,
+91saved-state tables,1077exact rule rows,12zones and39schema/499content checks
+passed; access reopened. Existing earned points, purchases and fractions remain.
+Native cache expiry handling and one market rotation were checked against exact expected state.
+Signed game2026102301 verifies all140hosted files (279410356bytes); two assets
+change and138remain. A private-umask directory permission issue was corrected
+on the exact new public directory, with3POSIX regressions added.
+Wiki20261023-aa-level-v1 verifies467HTTPS files and5private denials; private
+player-guide20261023-aa-level-guide-v1 verifies5files. Loot finder, Build Lab,
+reader/timer,384Hunt values and unrelated article contents remain.
+
+The first preflight stopped on a gameplay/purge-expiry mismatch; v2 built a
+valid image but stopped on disk reserve. v3 reused that exact image after
+removing only task-created cache. The11obsolete upload deletions had explicit
+owner approval and verified identical local recovery copies. No player snapshot,
+installed image or unrelated backup was deleted. See preflight-recovery.json,
+instance-expiry-audit.json and client/permission-repair.json. Do not replay
+activation; use RECOVERY.md for any new incident.
