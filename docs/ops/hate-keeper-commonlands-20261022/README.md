@@ -1,14 +1,15 @@
 # Plane of Hate Keeper relocation — October 22, 2026
 
-**Main and production deployment verified; owner gameplay acceptance remains open.**
+**Main and production deployment verified; owner confirmed the relocation, visibility and travel behavior.**
 The owner explicitly approved "Push to main and server". PR299 merged as
 `a736fb0`; the paired move is live and gateway access is open. All12 zone workers
 match the tested new binary and39 schema/499 content checks pass. A fresh stopped
 backup and exact player/state/content/cache preservation were verified.
 `deployment.json` is the redacted receipt; private full backup stays on the host.
-Wiki `20261022-hate-keeper-v1` verifies all466 public hashes/security headers and
-five private-route denials. No client update. These checks do not replace the
-owner QA below.
+Wiki `20261022-hate-keeper-confirmed-v1` verifies all466 public hashes/security
+headers and five private-route denials; it supersedes the live-testing pointer
+`20261022-hate-keeper-v1`. No client update. Broader dungeon balance and
+full-clear QA remain separate from this scoped acceptance.
 
 ## Result
 
@@ -106,4 +107,6 @@ generated routes were reviewed; catalog values, commands and other dungeon
 policies remain.16 content/source checks,16 Linux publisher/recovery checks and
 the real old/new pointer rollback rehearsal pass. Source:
 `E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki`; publication and HTTPS receipts are
-retained alongside this record. Owner gameplay acceptance remains open.
+retained alongside this record. The owner confirmed the live relocation,
+Commonlands visibility and Hate travel behavior; broader dungeon balance and
+full-clear QA remain separate.

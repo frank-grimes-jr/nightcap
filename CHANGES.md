@@ -9,7 +9,9 @@ Removes Hate's GM-status gate while retaining level46, also allowing normal
 level46+ public Hate access. New zone binary and guarded SQL must activate together.
 Owner-approved PR299 is merged and the paired release is live. All12 zone
 workers,39 schema/499 content checks and preserved state/cache checks pass.
-Wiki466-file publication is verified. Owner gameplay QA remains open. [Evidence and exact QA](docs/ops/hate-keeper-commonlands-20261022/README.md).
+Wiki `20261022-hate-keeper-confirmed-v1` verifies all466 files and private-route
+denials. The owner confirmed relocation, Commonlands visibility and Hate travel;
+broader dungeon balance/full-clear QA remains separate. [Evidence and exact QA](docs/ops/hate-keeper-commonlands-20261022/README.md).
 
 ## 2026-10-22 - Robe waist repair accepted
 

@@ -1,0 +1,20 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -1070,7 +1070,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/owner-acceptance.json",
+         "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
+-        "sha256": "f2d74f03429882560a1388d00c476e0f234d85cb978dcbfd94503618fe2042b7",
++        "sha256": "0beb2c740570c9f3938426a4794760f6337d52af5159573f1961f2fbc2cfc887",
+         "role": "Owner-confirmed relocation/visibility/travel acceptance; broader dungeon QA remains separate"
+       },
+       {
+@@ -5544,7 +5544,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/owner-acceptance.json",
+         "revision": "b03b32908a6ab581d10f73842b8aef6e6887664d",
+-        "sha256": "f2d74f03429882560a1388d00c476e0f234d85cb978dcbfd94503618fe2042b7",
++        "sha256": "0beb2c740570c9f3938426a4794760f6337d52af5159573f1961f2fbc2cfc887",
+         "role": "Owner-confirmed relocation/visibility/travel acceptance; broader dungeon QA remains separate"
+       },
+       {
