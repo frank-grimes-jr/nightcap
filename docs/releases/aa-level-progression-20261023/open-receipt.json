@@ -1,0 +1,119 @@
+{
+  "action": "open",
+  "result": "PASS",
+  "stage": "/opt/nightcap/releases/aa-level-progression-20261023-v3",
+  "runtime": {
+    "image_id": "sha256:5e501da82b8eae0d461f7f32d54539ae59d4b57e477bcb9e34f20bbd09146cf2",
+    "started_at": "2026-10-23T12:04:44.59689812Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "4cabbac9210f2e46bf3f4ae9fb711bda839a4f372f194e9a43b0e2b4c3e4dbee"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ],
+      [
+        "zone",
+        "41443afdf3e2df27da9a3a39d5ddfce63ca312fe6e47e8e9bf6ff31ea40c4c70"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "state_tables": 91,
+  "checks": {
+    "schema": 39,
+    "content": 499
+  },
+  "caches": {
+    "items": "cbfc9e8adce57157888ecdde0c516a2bbd7c94739be6d152774914bd10465dee",
+    "spells": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf"
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "93",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-22 23:01:31"
+    ],
+    "after": [
+      "1",
+      "1",
+      "94",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-23 12:04:59"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "backup": {
+    "path": "/opt/nightcap/releases/aa-level-progression-20261023-v3/private-backup/peq-before.sql.gz",
+    "sha256": "9783ecebf81a4b7d28497feb57331d2eaf9fa896759f49e37fbdbcd23a900d08",
+    "compressed_bytes": 65173102,
+    "uncompressed_bytes": 464637276,
+    "gzip_integrity": "passed"
+  },
+  "free_bytes": 654422016,
+  "gateway_open": true,
+  "owner_gameplay_accepted": false,
+  "database_restored": false
+}

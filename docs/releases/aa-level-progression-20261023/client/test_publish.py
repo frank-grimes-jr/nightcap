@@ -141,6 +141,54 @@ class PublicationTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'Public control drift'): self.run_publish(snapshot)
         self.assertEqual((self.public/'channel.json').read_bytes(), self.old)
 
+    @unittest.skipUnless(os.name == 'posix', 'POSIX mode bits and umask')
+    def test_private_umask_creates_publicly_traversable_release_and_readable_files(self):
+        previous=os.umask(0o077)
+        try:
+            self.run_publish()
+        finally:
+            os.umask(previous)
+        self.assertEqual(self.release.stat().st_mode & 0o777,0o755)
+        for name,data in self.assets.items():
+            path=self.release/name
+            self.assertEqual(path.stat().st_mode & 0o777,0o644)
+            self.assertEqual(path.read_bytes(),data)
+        self.assertEqual((self.public/'channel.json').stat().st_mode & 0o777,0o644)
+        self.assertEqual((self.public/'channel.json').read_bytes(),self.new)
+
+    @unittest.skipUnless(os.name == 'posix', 'POSIX mode bits and umask')
+    def test_verified_existing_release_directory_permissions_are_repaired(self):
+        self.release.mkdir(mode=0o700)
+        for name,data in self.assets.items():
+            (self.release/name).write_bytes(data)
+            (self.release/name).chmod(0o644)
+        previous=os.umask(0o077)
+        try:
+            self.run_publish()
+        finally:
+            os.umask(previous)
+        self.assertEqual(self.release.stat().st_mode & 0o777,0o755)
+        for name in self.assets:self.assertEqual((self.release/name).stat().st_mode & 0o777,0o644)
+
+    @unittest.skipUnless(os.name == 'posix', 'POSIX mode bits and umask')
+    def test_invalid_baseline_does_not_change_existing_release_bytes_or_permissions(self):
+        self.release.mkdir(mode=0o700)
+        for name,data in self.assets.items():
+            (self.release/name).write_bytes(data)
+            (self.release/name).chmod(0o644)
+        (self.public/'channel.json').write_bytes(b'unexpected baseline')
+        def snapshot():
+            return {q.relative_to(self.public).as_posix():
+                    (q.stat().st_mode & 0o777,q.read_bytes() if q.is_file() else None)
+                    for q in self.public.rglob('*')}
+        before=snapshot();previous=os.umask(0o077)
+        try:
+            with self.assertRaisesRegex(RuntimeError,'Public channel drift'):self.run_publish()
+        finally:
+            os.umask(previous)
+        self.assertEqual(snapshot(),before)
+        self.assertEqual(self.release.stat().st_mode & 0o777,0o700)
+
     @unittest.skipIf(os.name == 'nt', 'POSIX symlink permissions')
     def test_symlink_release_rejected(self):
         self.release.symlink_to(self.stage, target_is_directory=True)

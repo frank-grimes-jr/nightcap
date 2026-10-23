@@ -12,7 +12,7 @@
   "operator_tests": 27,
   "client_publisher_tests_windows": {
     "passed": 10,
-    "posix_skipped": 1
+    "posix_skipped": 4
   },
   "fixed_findings": [
     "preserve percentages at bank cap",
@@ -25,7 +25,12 @@
     "level-span example assumptions",
     "candidate/publication labels",
     "native instance expiry offset, exact boundary and unchanged startup guards",
-    "prebuilt-only exact image validation and measured672MiB preflight reserve;512MiB post-backup/open floor retained"
+    "prebuilt-only exact image validation and measured672MiB preflight reserve;512MiB post-backup/open floor retained",
+    "website baseline checks and publishers share one lock",
+    "generated remote newline regression",
+    "public release directory755 under private umask077"
   ],
-  "owner_gameplay_accepted": false
+  "owner_gameplay_accepted": false,
+  "client_publisher_tests_linux": 14,
+  "website_concurrency_tests": 6
 }

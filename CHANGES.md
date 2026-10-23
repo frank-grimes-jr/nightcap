@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-23 — Level-scaled AA and level-1 allocation controls (candidate)
+## 2026-10-23 — Level-scaled AA and level-1 allocation controls (deployed)
 
 Adds the owner-selected two passive AA per level of eligible XP while retaining
 normal leveling rates. Native AA plus/minus controls work from level 1; valid
@@ -12,8 +12,8 @@ share the normal XP basis, segment level crossings and continue at the Classic
 50 cap. Separate AA-only multipliers do not multiply the scaled rate again.
 
 Requires fresh matching server binaries for the new rule plus proxy0.12.0 and
-its signed catalog. Current production remains the million-point release until
-a separate deployment receipt verifies activation. Native reward/transition and
+its signed catalog. Main PR305/00f90e9 and production image5e501da8 are verified; signed game2026102301
+verifies all140assets. Wiki467/private guide5files are published and verified. Native reward/transition and
 exact-client controls pass; owner gameplay/balance QA remains open.
 [Evidence and QA](docs/releases/aa-level-progression-20261023/README.md).
 

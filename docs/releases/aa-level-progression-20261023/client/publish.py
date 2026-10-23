@@ -125,6 +125,7 @@ def publish(stage, public, snapshot=services):
                 require(assets[path.name.removesuffix(PARTIAL)].startswith(path.read_bytes()), 'Partial archive drift')
     unchanged()
     release.mkdir(exist_ok=True)
+    release.chmod(0o755)  # Public files must be traversable even under private staging umask.
     sync_dir(release.parent)
     for name, data in assets.items():
         path = release / name
