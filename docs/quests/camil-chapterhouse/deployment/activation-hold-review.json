@@ -1,0 +1,16 @@
+{
+  "content_differences": {},
+  "state_differences": {
+    "nightcap_waypoints": {
+      "before": "4261781391",
+      "actual": "2941369031"
+    }
+  },
+  "missing_state_keys": [],
+  "contract": {
+    "schema": 45,
+    "content": 532
+  },
+  "campaign": "2026102301\t0",
+  "dungeon": "2026101601\t0"
+}

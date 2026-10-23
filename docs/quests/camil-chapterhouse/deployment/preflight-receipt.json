@@ -1,0 +1,23 @@
+{
+  "rehearsal": {
+    "checks": {
+      "schema": 45,
+      "content": 532
+    },
+    "cache": {
+      "items": 427,
+      "drift_rejections": 854,
+      "item_bytes": 1332
+    },
+    "comparison": {
+      "preserved_items": 309844,
+      "new_items": 13,
+      "existing_changed": 0
+    },
+    "database": "nightcap_classic_stage_690a971902bc",
+    "public_content_only": true,
+    "player_references_checked_by_stopped_live_migrations": true
+  },
+  "image": "sha256:db570029805ba5145824529a4487de62536b207e86ab61054feab7d1a199579c",
+  "production_changed": false
+}

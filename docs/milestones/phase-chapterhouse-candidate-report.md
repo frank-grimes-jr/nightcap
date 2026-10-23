@@ -15,3 +15,12 @@ Evidence and outstanding gates: [candidate specification](../quests/camil-chapte
 native/SQL/map/arena receipts alongside it, [owner QA](../quests/camil-chapterhouse/QA.md).
 Full visual pathing, varied-build encounter balance and owner acceptance remain
 open. Candidate values and build success must not be presented as live acceptance.
+
+## October 23 delivery
+
+Owner-authorized main PR #311 and paired production deployment are verified.
+The native campaign is enabled and access is open; all 12 workers, 45 schema /
+532 content checks and 427 reward cache definitions pass. A guarded continuation
+reconciled only the expected public waypoint addition, with player data preserved.
+Wiki publication verifies all 483 files. Full encounter and owner acceptance
+remain open. [Delivery, recovery and exact QA](../quests/camil-chapterhouse/deployment/README.md).

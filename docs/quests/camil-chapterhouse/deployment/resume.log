@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/camil-chapterhouse-20261023/resume.py", line 82, in <module>
+    resume() if action=='resume' else o.open_access()
+    ^^^^^^^^
+  File "/opt/nightcap/releases/camil-chapterhouse-20261023/resume.py", line 35, in resume
+    state=r.state(service)['State'];assert not state['Running'] and state['ExitCode']==0 and not state['OOMKilled']
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

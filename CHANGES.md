@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-23 — Chapterhouse deployed for live testing
+
+Owner-authorized main PR311/c0c9896e and paired production activation are verified.
+Camil’s Vigil, native story/dungeon Tasks, four level50–53 bosses, curated loot,
+Ember augment, waypoint and Keeper are live. Fresh backup, all12workers,
+45schema/532content checks and427reward cache definitions pass;309844old items
+remain byte-identical. A strict preservation guard held on the intended public
+waypoint addition; an audited continuation reconciled only that catalog row,
+without player restoration. Wiki483files is published; client2026102301 remains.
+Full encounters and owner balance acceptance remain open.
+[Delivery and recovery](docs/quests/camil-chapterhouse/deployment/README.md).
+
 ## 2026-10-23 — Camil's Chapterhouse helmet quest candidate
 
 Implements the level-50 Vigil of the Dawn with native Tasks, durable personal

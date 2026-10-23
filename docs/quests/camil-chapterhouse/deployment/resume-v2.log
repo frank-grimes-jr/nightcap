@@ -1,0 +1,45 @@
+ Container nightcap-production-game-run-9ef37e55b5dc Creating 
+ Container nightcap-production-game-run-9ef37e55b5dc Created 
+Shared |    Info    | Init Loading server paths 
+Shared |    Info    | Init ---------------------------------------------------------------------- 
+Shared |    Info    | Init          server > [/srv/nightcap] 
+Shared |    Info    | Init            logs > [logs] 
+Shared |    Info    | Init            maps > [maps] 
+Shared |    Info    | Init        lua mods > [mods] 
+Shared |    Info    | Init         patches > [assets/patches] 
+Shared |    Info    | Init          opcode > [assets/opcodes] 
+Shared |    Info    | Init   shared_memory > [shared] 
+Shared |    Info    | operator()         quests > [quests] 
+Shared |    Info    | operator()        plugins > [plugins] 
+Shared |    Info    | operator()    lua_modules > [lua_modules] 
+Shared |    Info    | Init ---------------------------------------------------------------------- 
+Shared |    Info    | main Shared Memory Loader Program 
+Shared |    Info    | main Connecting to database 
+Shared |    Info    | Connect Connected to database [default] [peq] @ [db:3306] 
+Shared |    Info    | Connect Connected to database [default] [peq] @ [db:3306] 
+Shared |    Info    | LoadLogDatabaseSettings Loaded [84] log categories 
+Shared |    Info    | LoadVariables Loaded [6] Variables 
+Shared |    Info    | LoadRules Loaded [1,013] rules(s) in rule_set [default] id [1] 
+Shared |    Info    | LoadRules Loaded [1,013] rules(s) in rule_set [default] id [1] 
+Shared |    Info    | SetExpansionContext Current expansion is [0] (Classic) 
+Shared |    Info    | ReloadContentFlags Loaded content flag [peq_halloween] [disabled] 
+Shared |    Info    | ReloadContentFlags Loaded content flag [don_nest_unlocked] [enabled] 
+Shared |    Info    | ReloadContentFlags Loaded content flag [frostfell] [disabled] 
+Shared |    Info    | ReloadContentFlags Loaded content flag [eq_anniversary] [disabled] 
+Shared |    Info    | LoadStaticGlobalZoneInstances Loaded [1] zone_instances 
+Shared |    Info    | LoadZones Loaded [618] zones 
+Shared |    Info    | main Current expansion is [0] (Classic) 
+Shared |    Info    | main Loading items 
+Shared |    Info    | main Loading spells 
+ Container nightcap-production-db-1 Running 
+ Container nightcap-production-game-1 Recreate 
+ Container nightcap-production-game-1 Recreated 
+ Container nightcap-production-db-1 Waiting 
+ Container nightcap-production-db-1 Healthy 
+ Container nightcap-production-game-1 Starting 
+ Container nightcap-production-game-1 Started 
+ Container nightcap-production-db-1 Waiting 
+ Container nightcap-production-game-1 Waiting 
+ Container nightcap-production-db-1 Healthy 
+ Container nightcap-production-game-1 Healthy 
+Chapterhouse runtime and exact saved-state preservation verified; access closed.

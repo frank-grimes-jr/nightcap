@@ -1,0 +1,177 @@
+{
+  "before_free": 521404416,
+  "files": [
+    {
+      "path": "/opt/nightcap/releases/tradeskills-20261013/zone",
+      "sha256": "6317ba70619dbb0d012ec9f58a4a91a096374af0b20d411eccb44fc6ac20fbf3",
+      "original_bytes": 311704064,
+      "compressed_bytes": 90734277,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/tradeskills-20261013/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/aa-class-ranks-20261013/zone",
+      "sha256": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681",
+      "original_bytes": 311593832,
+      "compressed_bytes": 90706550,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/aa-class-ranks-20261013/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/aa-tbs-level1-20261013/zone",
+      "sha256": "c4a1f73b251da5bfa88f3f3a9ffdb7f30686b26365ad8a6a71943d940ba5ad10",
+      "original_bytes": 311571480,
+      "compressed_bytes": 90708623,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/aa-tbs-level1-20261013/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/aa-tbs-20261013/zone",
+      "sha256": "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143",
+      "original_bytes": 311568456,
+      "compressed_bytes": 90705762,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/aa-tbs-20261013/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/multiclass-skills-20261013/zone",
+      "sha256": "c2bcd33b771112b6c5ecf1b4f7c179f22e749c9d144ab75b1384a2293e7a6766",
+      "original_bytes": 311494760,
+      "compressed_bytes": 90636136,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/multiclass-skills-20261013/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/sellall-supplies-20261012/zone",
+      "sha256": "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537",
+      "original_bytes": 311478872,
+      "compressed_bytes": 90666465,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/sellall-supplies-20261012/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/item-upgrades-20261012/bin/zone",
+      "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb",
+      "original_bytes": 311471416,
+      "compressed_bytes": 90666781,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/item-upgrades-20261012/bin/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/multiclass-trainers-20261012/zone",
+      "sha256": "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0",
+      "original_bytes": 311449128,
+      "compressed_bytes": 90662312,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/multiclass-trainers-20261012/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/early-scribing-20261012-v2/zone",
+      "sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463",
+      "original_bytes": 311422704,
+      "compressed_bytes": 90651627,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/early-scribing-20261012-v2/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/early-scribing-20261012/zone",
+      "sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463",
+      "original_bytes": 311422704,
+      "compressed_bytes": 90651627,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/early-scribing-20261012/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/npc-heal-self-20261009/zone",
+      "sha256": "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412",
+      "original_bytes": 311393376,
+      "compressed_bytes": 90635812,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/npc-heal-self-20261009/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/food-drink-removal-20261011/zone",
+      "sha256": "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+      "original_bytes": 311379016,
+      "compressed_bytes": 90636465,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/food-drink-removal-20261011/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/aa-temporary-buffs-20261016/zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+      "original_bytes": 311802440,
+      "compressed_bytes": 90769467,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/aa-temporary-buffs-20261016/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/cooldown-identities-20261018/bin/zone",
+      "sha256": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
+      "original_bytes": 315866544,
+      "compressed_bytes": 91733997,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/cooldown-identities-20261018/bin/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/reforge-colors-20261018/bin/zone",
+      "sha256": "29b8093147ffbc4c0d387a4e3fa55a3a041dbb9ae7da731b493b21601a6dec2f",
+      "original_bytes": 315866624,
+      "compressed_bytes": 91733981,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/reforge-colors-20261018/bin/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/all-class-aa-20261019/bin/zone",
+      "sha256": "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0",
+      "original_bytes": 316172672,
+      "compressed_bytes": 91866218,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/all-class-aa-20261019/bin/zone.chapterhouse-recovery.gz"
+    },
+    {
+      "path": "/opt/nightcap/releases/aa-pacing-million-20261021/bin/zone",
+      "sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+      "original_bytes": 316180744,
+      "compressed_bytes": 91853347,
+      "mode": 33261,
+      "uid": 0,
+      "gid": 0,
+      "archive": "/opt/nightcap/releases/aa-pacing-million-20261021/bin/zone.chapterhouse-recovery.gz"
+    }
+  ],
+  "active_files_changed": false,
+  "after_free": 4379938816
+}
