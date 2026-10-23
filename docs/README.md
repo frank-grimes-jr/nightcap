@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [Camil's Chapterhouse helmet quest: implemented level-50 candidate, evidence and required QA](quests/camil-chapterhouse/SPEC.md)
+
 - [Quest ingredient qualities: deployed for live QA, October22](releases/quest-tier-handins-20261022/deployment/README.md)
 
 Current AA release: [all-class changes and exact live QA](releases/thj-all-class-aa-20261019/README.md).

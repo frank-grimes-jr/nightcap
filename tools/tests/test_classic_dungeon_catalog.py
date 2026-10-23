@@ -29,7 +29,9 @@ class ClassicCoverage(unittest.TestCase):
         expected=existing_items()
         for row in expected:row['values']['magic']=1
         self.assertEqual(items()[:330],expected)
-        self.assertEqual(len(items()),414)
+        self.assertEqual(len([r for r in items() if r['values']['id']<960414]),414)
+        self.assertEqual({r['values']['id'] for r in items()[414:]},set(range(960414,960420)))
+        self.assertTrue(all(r['source']=='chapterhouse' for r in items()[414:]))
 
     def test_all_objectives_have_distinct_native_or_private_spawn_identities(self):
         catalog=json.loads((ROOT/'docs/dungeons/catalog.json').read_text())

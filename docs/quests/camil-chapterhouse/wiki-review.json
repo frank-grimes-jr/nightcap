@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-23",
+  "status": "Whole-wiki impact reviewed; candidate source patch prepared, not published",
+  "wiki_root": "C:\\Users\\verre\\.codex\\worktrees\\aa-level-wiki\\EQ_Local_Dev",
+  "source_root": "C:\\Users\\verre\\.codex\\worktrees\\camil-chapterhouse\\EQ_Local_Dev",
+  "source_revision": "5d0a0d31 + feature/camil-chapterhouse worktree",
+  "articles": [
+    {
+      "path": "articles/about.json",
+      "title": "About this wiki",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "reviewed_characters": 3344,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/advanced-loot.json",
+      "title": "Advanced loot",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "reviewed_characters": 2688,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/ascension.json",
+      "title": "Ascension quest",
+      "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "reviewed_characters": 1445,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/build-lab.json",
+      "title": "Build Lab",
+      "sha256": "3e8a167eb258a3c385797e2cdd2f55a117fc76b7ffc712f823455808f400c157",
+      "reviewed_characters": 3900,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/combat.json",
+      "title": "Combat, buffs & recovery",
+      "sha256": "bb5d4a86d609eb3f2296c22281dd21e3be116307663b56f98df6a17ba824fc38",
+      "reviewed_characters": 8161,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/commands.json",
+      "title": "Command reference",
+      "sha256": "d3aa297d7319e9fb90643a94b6f963a7c3e6b6d5bb8709c6bbef95fd00d5205f",
+      "reviewed_characters": 2420,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "sha256": "86a123987d3eafb84dc638856478b00ff2439bf746fab26cff6bc4b01c56d8ed",
+      "reviewed_characters": 17264,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "7066b3b83a893e5c5cdfda42eb4e52e461c2eca37c70ec300939eaf98dc725a0"
+    },
+    {
+      "path": "articles/equipment.json",
+      "title": "Equipment & trading",
+      "sha256": "edc2b2d265003924d5cb27e1860edee85a71c38d1b9fe5b5cc610291f2bcf04c",
+      "reviewed_characters": 13798,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "365a90306622d710518d4f81d8264758c8fbf093bdd6bc663ad5ae77b8911131"
+    },
+    {
+      "path": "articles/features.json",
+      "title": "Features",
+      "sha256": "79e28251c0e29fac2671fd4ace05d47fd3a7c169f3d4583a3b57edb89f0469d0",
+      "reviewed_characters": 12793,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "4bec1a081b40cc9c4bead6b588a60456b8bc4b39a9b15c32e3576982fb950cca"
+    },
+    {
+      "path": "articles/getting-started.json",
+      "title": "Getting started",
+      "sha256": "d4f29b4f7a992f29dc8d2fa869c09e94424e797d882dbd30403c7fe7c413cdf4",
+      "reviewed_characters": 3890,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "sha256": "cfa74a67fff14ce7404b87ab81f8cdbf504d70a70bb9497b47992784a5d21620",
+      "reviewed_characters": 8973,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "2b53955be776119f1cd17f6cc03c8a0642673d08b6ffaae2d57d8e939903cb1b"
+    },
+    {
+      "path": "articles/item-upgrades.json",
+      "title": "Item upgrades",
+      "sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d",
+      "reviewed_characters": 4479,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "86b0c3050de3554e4b29797f081ffb44d83d839fc7f6a62bbe69357433b3c7c2"
+    },
+    {
+      "path": "articles/launcher.json",
+      "title": "Launcher & interface",
+      "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0",
+      "reviewed_characters": 4473,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/loot-finder.json",
+      "title": "Loot finder",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "reviewed_characters": 2170,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/multiclass.json",
+      "title": "Multiclass & progression",
+      "sha256": "0f574cb9d9a88a7d7f477d645214cb6d076f0f44711d8d7a1a8c28840654982b",
+      "reviewed_characters": 10773,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/pets.json",
+      "title": "Pets & pet armor",
+      "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "reviewed_characters": 4842,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/recent-changes.json",
+      "title": "Recent changes",
+      "sha256": "2f4c58b6f65790e82bd3a0deaf7602cd198dd10587f5f5ae198b1132fdb57248",
+      "reviewed_characters": 15212,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "02c0065e963743e29e23ac81e0649ec8482463262fb1878cd7d2388f6a0065c3"
+    },
+    {
+      "path": "articles/tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "reviewed_characters": 2790,
+      "decision": "No player behavior change on this surface. Existing guide, release label and source ledger preserved."
+    },
+    {
+      "path": "articles/travel.json",
+      "title": "Travel & instances",
+      "sha256": "81ac7f449bb739a8f0b1d3059cc6d290b2f4919b8d3b8fd4ef1443053b501981",
+      "reviewed_characters": 4210,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "8dd605d59e4b51f2c7d35b8140cc9729d61fe5475f297062d71213c7628371a0"
+    },
+    {
+      "path": "articles/tunnel.json",
+      "title": "East Commonlands tunnel",
+      "sha256": "1f0081880f17426b8e0adbe8935a74debeb54d1b04811ad033b99a2039674212",
+      "reviewed_characters": 3434,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "36d59b189558d6be926973c23a87f1fd8740bfae5f9c40919d4f8759233e994d"
+    },
+    {
+      "path": "articles/unreleased.json",
+      "title": "In development",
+      "sha256": "984a038508fc91af15382787e9a453f96a10a9c46bd241737ab3b4072a175ab3",
+      "reviewed_characters": 9651,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "02e00daf77d708ccbdd05448733c94f64267b7dd73bafa7190353fb8bf412cd0"
+    },
+    {
+      "path": "articles/waypoints.json",
+      "title": "Waypoint Explorer",
+      "sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672",
+      "reviewed_characters": 1716,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "fcc40e08e89c755c05395bd1a89b1f10988862ef74e8475ad36e9d280a4dc857"
+    },
+    {
+      "path": "articles/zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "reviewed_characters": 3085,
+      "decision": "Prepared candidate-labelled addition; existing released behavior preserved.",
+      "after_sha256": "d76012f691ce8fccdbfb9db886901ff2598358200c244ddd7962727d8c281816"
+    }
+  ],
+  "generated_catalog": {
+    "decision": "Keep the 432 published generated routes and 384 Hunt variants unchanged until authorized verified gameplay activation. New candidate stats live in a clearly labelled candidate guide.",
+    "sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae"
+  },
+  "commands": "No new slash command; existing #zoneforge remains. Keeper/Camil use saylinks.",
+  "release_labels": "Existing Live testing/Reference labels preserved; new guide Not released. Recent changes/home/features explicitly candidate.",
+  "drift": "check_refresh reports REVIEW REQUIRED from newer wiki source authority and this uncommitted gameplay candidate; no blind ledger advancement.",
+  "publication": "Not attempted or claimed",
+  "balance_target": "Endgame capstone at maximum legal power including Ghoulbane/proc/crit stacking; candidate guide updated, released item/zone catalogs intentionally unchanged until activation"
+}

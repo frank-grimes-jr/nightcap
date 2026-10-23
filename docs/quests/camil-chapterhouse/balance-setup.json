@@ -1,0 +1,8 @@
+{
+  "database": "nightcap_chapterhouse_balance_20261023",
+  "source_database": "nightcap_thj_parity_20261018",
+  "runtime": "/tmp/nightcap-balance-chapterhouse-20261023",
+  "scope": "Synthetic clone refreshed with complete production public combat definitions before final calibration",
+  "production_changed": false,
+  "refresh_receipt": "balance-public-content-receipt.json"
+}
