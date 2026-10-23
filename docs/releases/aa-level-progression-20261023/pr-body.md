@@ -1,0 +1,7 @@
+Eligible XP now earns two AA per level while normal leveling continues. Players can use AA +/− from level1, retain partial percentages, or select100% to hold their level and grind AA. Existing normal XP settings, earned points, purchases and fractional AA progress remain intact.
+
+The server scales awards by actual level spans while retaining the fixed AA storage denominator. A signed RoF2 proxy/catalog pair removes the native level51 gates and bounds +/- at0/100. Full focus retains the existing ten-times-passive ratio. The new catalog rule requires paired world/zone/shared_memory binaries.
+
+Validation:369native award,129legacy,8actualSetEXP and167exact-client checks;10client runtime groups;112client byte guards;15operator and11Linux publisher tests; actual MariaDB temporary-table forward/conflict rehearsal and full catalog comparison. Independent review found no blockers. Full native build remains in progress; production and publication are not yet claimed.
+
+Owner requested this AA correction for main/server after the earlier pacing changes. Exact in-game QA covers level1 native buttons,0/50/100% awards, level hold, zone/relog, existing fractions, level crossings/cap and Recommended AA/purchasing. See docs/releases/aa-level-progression-20261023/QA.md. Gameplay/balance acceptance remains pending.

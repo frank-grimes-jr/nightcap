@@ -1,0 +1,5 @@
+369 checks, 0 failures
+/tmp/passive-aa-bqsqb3gw/test.cpp:626:16: warning: comparison of integers of different signs: 'uint32' (aka 'unsigned int') and 'int' [-Wsign-compare]
+                && pp->level >= RuleI(Character, AAExpMinLevel) ? e.e_percent_to_aa : 0;return m_epp->perAA;}
+                   ~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.

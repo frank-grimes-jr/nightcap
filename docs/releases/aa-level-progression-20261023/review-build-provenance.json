@@ -1,0 +1,220 @@
+{
+  "status": "read_only_provenance_pass",
+  "captured_at": "2026-10-23T10:37:11.218555+00:00",
+  "production_probed": false,
+  "build_executed": false,
+  "base_source": "/tmp/nightcap-thj-behaviors-v1/source",
+  "base_hash_key": "source_files",
+  "manifests": [
+    {
+      "path": "/tmp/nightcap-thj-behaviors-v1/final-manifest.json",
+      "sha256": "b79ba0087a75f096d740b68a5c4ad1ac7edd2e536d660666597b2cb320a1f618",
+      "repository_normalized_sha256": "b79ba0087a75f096d740b68a5c4ad1ac7edd2e536d660666597b2cb320a1f618"
+    },
+    {
+      "path": "/tmp/nightcap-aa-pacing-million-v2/manifest.json",
+      "sha256": "93cea86ac749ace637f3115c754b6bc77916337d88b7afb0a2f38bdc0aed1ec6",
+      "repository_normalized_sha256": "93cea86ac749ace637f3115c754b6bc77916337d88b7afb0a2f38bdc0aed1ec6"
+    },
+    {
+      "path": "/tmp/nightcap-classic-rewards-build-v2/manifest.json",
+      "sha256": "5054e7254bc6b9725d96e36294278895a6c9f9db717643714a4d25d9a8d0647d",
+      "repository_normalized_sha256": "5054e7254bc6b9725d96e36294278895a6c9f9db717643714a4d25d9a8d0647d"
+    },
+    {
+      "path": "/tmp/nightcap-quest-handins-build-v1/manifest.json",
+      "sha256": "527b17b2829a5f38c0bb383e0e8f000701d206bd9f1d71e21e4be4a4054a0ccf",
+      "repository_normalized_sha256": "527b17b2829a5f38c0bb383e0e8f000701d206bd9f1d71e21e4be4a4054a0ccf"
+    },
+    {
+      "path": "/tmp/nightcap-hate-keeper-build-v1/manifest.json",
+      "sha256": "708d7f26e2302a256b02d114dc41b1ee164b49feab9297c91028e53cded10377",
+      "repository_normalized_sha256": "708d7f26e2302a256b02d114dc41b1ee164b49feab9297c91028e53cded10377"
+    }
+  ],
+  "ordered_overlays": [
+    {
+      "manifest": "/tmp/nightcap-aa-pacing-million-v2/manifest.json",
+      "hash_key": "changed_sources",
+      "sources": {
+        "zone/spells.cpp": {
+          "path": "/tmp/nightcap-aa-pacing-million-v2/spells.cpp",
+          "sha256": "43d896df2b9146c1d01b5903cf2fc8af4e8f830b7185b5bd882290fa458436d5"
+        }
+      }
+    },
+    {
+      "manifest": "/tmp/nightcap-classic-rewards-build-v2/manifest.json",
+      "hash_key": "candidate_sources",
+      "sources": {
+        "zone/dungeon_service.cpp": {
+          "path": "/tmp/nightcap-classic-rewards-input/zone/dungeon_service.cpp",
+          "sha256": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e"
+        },
+        "zone/dungeon_service.h": {
+          "path": "/tmp/nightcap-classic-rewards-input/zone/dungeon_service.h",
+          "sha256": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158"
+        },
+        "zone/lua_general.cpp": {
+          "path": "/tmp/nightcap-classic-rewards-input/zone/lua_general.cpp",
+          "sha256": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0"
+        },
+        "common/dungeon_policy.h": {
+          "path": "/tmp/nightcap-classic-rewards-input/common/dungeon_policy.h",
+          "sha256": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd"
+        },
+        "common/dungeon_catalog.h": {
+          "path": "/tmp/nightcap-classic-rewards-input/common/dungeon_catalog.h",
+          "sha256": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8"
+        },
+        "common/dungeon_contract.h": {
+          "path": "/tmp/nightcap-classic-rewards-input/common/dungeon_contract.h",
+          "sha256": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d"
+        },
+        "common/shareddb.cpp": {
+          "path": "/tmp/nightcap-classic-rewards-input/common/shareddb.cpp",
+          "sha256": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461"
+        }
+      }
+    },
+    {
+      "manifest": "/tmp/nightcap-quest-handins-build-v1/manifest.json",
+      "hash_key": "candidate_sources",
+      "sources": {
+        "zone/npc.cpp": {
+          "path": "/tmp/nightcap-quest-handins-build-v1/source/zone/npc.cpp",
+          "sha256": "a0494e064f6a42b00363bb35414aa847e07b45cbc7cc5a8b1a124b991f06c50e"
+        },
+        "zone/task_client_state.cpp": {
+          "path": "/tmp/nightcap-quest-handins-build-v1/source/zone/task_client_state.cpp",
+          "sha256": "f9256e7a23f293b8e3eca7d5b0f235561f17827088af349d72c6b59bff021948"
+        },
+        "common/quest_item_policy.h": {
+          "path": "/tmp/nightcap-quest-handins-build-v1/source/common/quest_item_policy.h",
+          "sha256": "c1f62c0948d4d8eea7e9b54419f35410c0827235a6ff630a371c3bdf05c9e2ca"
+        }
+      }
+    },
+    {
+      "manifest": "/tmp/nightcap-hate-keeper-build-v1/manifest.json",
+      "hash_key": "candidate_sources",
+      "sources": {
+        "common/dungeon_catalog.h": {
+          "path": "/tmp/nightcap-hate-keeper-input/common/dungeon_catalog.h",
+          "sha256": "063bf842d985c0800ba5e9abb45d1403546105d90dd7f67705b81fc160ce183d"
+        },
+        "common/dungeon_contract.h": {
+          "path": "/tmp/nightcap-hate-keeper-input/common/dungeon_contract.h",
+          "sha256": "b19325fc33265b2c731cbf59edd46d64ce0303d87cfe0ed7088c9b26f8fc8e59"
+        },
+        "common/dungeon_policy.h": {
+          "path": "/tmp/nightcap-hate-keeper-input/common/dungeon_policy.h",
+          "sha256": "2a4124a4ff1f11726de7ce29439386de7217234398ca4c126e852c9ea2454b3b"
+        },
+        "zone/dungeon_service.h": {
+          "path": "/tmp/nightcap-hate-keeper-input/zone/dungeon_service.h",
+          "sha256": "057627f0355edad49893eb4114c8015892283a4e3e7b3356fe63d4588e25356a"
+        },
+        "zone/dungeon_service.cpp": {
+          "path": "/tmp/nightcap-hate-keeper-input/zone/dungeon_service.cpp",
+          "sha256": "900440f667890e9c480624836c5522fd07cdbb6c015d8be34e3b6d321e25f905"
+        }
+      }
+    }
+  ],
+  "assembled_source_count": 2829,
+  "assembled_source_map_sha256": "7a5b43658da94e82164b477c38af2ac8bad73934c51c43f271f2581e161035f8",
+  "retained_inputs_verified": 145,
+  "retained_binaries": {
+    "zone": "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f",
+    "world": "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7",
+    "shared_memory": "6b314bf087bb06c8fb5ffc6d606090876b17c062f8014acb0e3784d12da9514f"
+  },
+  "checkout_comparison": "CRLF normalized to LF only",
+  "checkout_delta": [
+    "common/aa_progression.h",
+    "common/ruletypes.h",
+    "zone/client.cpp",
+    "zone/client.h",
+    "zone/exp.cpp",
+    "zone/gm_commands/aa_exp.cpp",
+    "zone/zonedb.cpp"
+  ],
+  "checkout_delta_raw_sha256": {
+    "common/aa_progression.h": "75c2a69a49026ebbe917168b4ba5377d845a48fe3eae21d4d0d6d4e182db1ed4",
+    "common/ruletypes.h": "d29ad746ecc8b81d1de66b4cd8faaa831c275403334559ca2cca156d6b16f390",
+    "zone/client.cpp": "26b368a5a065b16585e6e6c6986eb8d355ee2e030f9ec9173d9572a71a3380bf",
+    "zone/client.h": "54cb5aef73d04fe49a6e0461679a247a549709847dc2e27dec380960df1e9f4a",
+    "zone/exp.cpp": "a4f95c9a05166de01678bb104f313f330d899d027e374c4ab05b99fd74d46fe0",
+    "zone/gm_commands/aa_exp.cpp": "af0d240e276ed1913162cc61196b1e9e6f10e4e621dc76cad006c6e20169f536",
+    "zone/zonedb.cpp": "390adad99cc9f668a544202cc1c7b78e29bb5263c4330640b38592aa4ac0f0e5"
+  },
+  "cmake_cache_path": "/tmp/nightcap-thj-behaviors-v1/build/CMakeCache.txt",
+  "cmake_cache_sha256": "435e39393714fedc1832b8a4ce24984888ccac30d89de6e85e5908027e2974f6",
+  "cmake_cache_options": [
+    "CMAKE_BUILD_TYPE:STRING=RelWithDebInfo",
+    "CMAKE_CXX_COMPILER:STRING=/usr/bin/clang++",
+    "CMAKE_CXX_COMPILER_LAUNCHER:UNINITIALIZED=/usr/bin/ccache",
+    "CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake",
+    "CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "EQEMU_ADDITIVE_LFIB_PRNG:BOOL=OFF",
+    "EQEMU_ADD_PROFILER:BOOL=OFF",
+    "EQEMU_BIASED_INT_DIST:BOOL=OFF",
+    "EQEMU_BUILD_CLIENT_FILES:BOOL=ON",
+    "EQEMU_BUILD_LOGIN:BOOL=ON",
+    "EQEMU_BUILD_LUA:BOOL=ON",
+    "EQEMU_BUILD_PCH:BOOL=ON",
+    "EQEMU_BUILD_PERL:BOOL=ON",
+    "EQEMU_BUILD_SERVER:BOOL=ON",
+    "EQEMU_BUILD_TESTS:BOOL=OFF",
+    "EQEMU_CUSTOM_PRNG_ENGINE:STRING=",
+    "VCPKG_INSTALLED_DIR:PATH=/home/eqemu/code/build/vcpkg_installed",
+    "VCPKG_MANIFEST_MODE:BOOL=OFF",
+    "VCPKG_TARGET_TRIPLET:STRING=x64-linux",
+    "CMAKE_GENERATOR:INTERNAL=Unix Makefiles"
+  ],
+  "dependencies": {
+    "/usr/bin/clang++": {
+      "resolved": "/usr/lib/llvm-14/bin/clang",
+      "sha256": "71b0de1b06b1ffe3a68f1b15f3bfff1f80ba3351ac679be346fb515327494157"
+    },
+    "/usr/bin/ccache": {
+      "resolved": "/usr/bin/ccache",
+      "sha256": "bf6c055deb910cd65a1b78b00d9fdbec35a2b6be081281fbc39e90aee6d59489"
+    },
+    "/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake": {
+      "resolved": "/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "sha256": "8318048b80b022b44043272c56d4ee77f46e1051606a15dfe1afe121db34615c"
+    },
+    "/home/eqemu/code/build/vcpkg_installed/vcpkg/status": {
+      "resolved": "/home/eqemu/code/build/vcpkg_installed/vcpkg/status",
+      "sha256": "19a38fbf6a35b719fb2fda1e677a086903269dafda1671b667cf23b554969eef"
+    }
+  },
+  "fresh_configure_command": [
+    "cmake",
+    "-S",
+    "<fresh-source>",
+    "-B",
+    "<fresh-build>",
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_CXX_COMPILER_LAUNCHER=/usr/bin/ccache",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_LUA=ON"
+  ],
+  "fresh_build_command": [
+    "cmake",
+    "--build",
+    "<fresh-build>",
+    "--target",
+    "world",
+    "zone",
+    "shared_memory",
+    "-j2"
+  ],
+  "boundary": "Authenticates retained local baseline and overlays, not fresh production state or future build outputs. Rebuild PCH and all rule-dependent objects in a fresh build directory."
+}

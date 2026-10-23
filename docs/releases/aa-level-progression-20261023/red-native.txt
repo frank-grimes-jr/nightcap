@@ -1,0 +1,21 @@
+13 checks, 8 failures
+/tmp/passive-aa-0lmhvftx/test.cpp:601:16: warning: comparison of integers of different signs: 'uint32' (aka 'unsigned int') and 'int' [-Wsign-compare]
+                && pp->level >= RuleI(Character, AAExpMinLevel) ? 100 : 0;return m_epp->perAA;}
+                   ~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+FAIL level1 half a level earns one passive AA
+FAIL level1 full level earns two passive AA
+FAIL full focus keeps level1 and tenfold AA rate
+FAIL partial allocation remains selectable
+FAIL half allocation divides XP and blends passive with focus
+FAIL full AA bank never silently resumes leveling
+FAIL percentage quest/task earns proportional passive AA
+FAIL percentage quest/task earns proportional passive AA
+Traceback (most recent call last):
+  File "/tmp/nightcap-level-aa-tests-20261023/tools/tests/test_level_aa.py", line 50, in <module>
+    harness.main()
+  File "/tmp/nightcap-level-aa-tests-20261023/tools/tests/test_passive_aa.py", line 320, in main
+    subprocess.run([str(path/'test')], check=True)
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/tmp/passive-aa-0lmhvftx/test']' returned non-zero exit status 1.

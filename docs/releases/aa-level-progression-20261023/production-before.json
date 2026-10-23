@@ -1,0 +1,63 @@
+{
+  "services": [
+    {
+      "service": "db",
+      "image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "status": "running",
+      "health": "healthy",
+      "started": "2026-10-20T00:08:02.308087378Z",
+      "restarts": 2
+    },
+    {
+      "service": "game",
+      "image": "sha256:88f37a44c1d96318233661ae4b8cd3c5bdef0ab90e56021db5bb538ce117a8b6",
+      "status": "running",
+      "health": "healthy",
+      "started": "2026-10-22T23:01:16.571425537Z",
+      "restarts": 0
+    },
+    {
+      "service": "gateway",
+      "image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "status": "running",
+      "health": null,
+      "started": "2026-10-22T23:02:57.168160929Z",
+      "restarts": 0
+    },
+    {
+      "service": "tunnel",
+      "image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "status": "running",
+      "health": null,
+      "started": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0
+    },
+    {
+      "service": "web",
+      "image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "status": "running",
+      "health": null,
+      "started": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0
+    }
+  ],
+  "disk_free_bytes": 349872128,
+  "rules": [
+    "1\tAA:ExpPerPoint\t1000000",
+    "1\tAA:ModernAAScalingEnabled\tfalse",
+    "1\tAA:NormalizedAAEnabled\tfalse",
+    "1\tAA:PassiveExpPercent\t10",
+    "1\tAA:UnusedAAPointCap\t-1",
+    "1\tCharacter:AAExpMinLevel\t1",
+    "1\tCharacter:AAExpMultiplier\t0.6499999761581",
+    "1\tCharacter:ExpMultiplier\t0.65",
+    "1\tCharacter:GroupExpMultiplier\t0.6499999761581",
+    "1\tCharacter:MaxExpLevel\t50",
+    "1\tZone:LevelBasedEXPMods\ttrue",
+    "10\tCharacter:AAExpMultiplier\t0.65",
+    "10\tCharacter:ExpMultiplier\t0.65",
+    "10\tCharacter:GroupExpMultiplier\t0.65",
+    "10\tCharacter:MaxExpLevel\t68",
+    "10\tZone:LevelBasedEXPMods\tfalse"
+  ]
+}

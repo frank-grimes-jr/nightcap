@@ -1,0 +1,10 @@
+{
+  "status": "obsolete upload copies removed",
+  "files": 11,
+  "removed_bytes": 1883127258,
+  "free_before": 349769728,
+  "free_after": 2232934400,
+  "local_recovery_copies_verified": true,
+  "player_data_backups_images_unchanged": true,
+  "owner_explicitly_authorized": true
+}
