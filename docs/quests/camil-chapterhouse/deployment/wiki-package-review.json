@@ -1,0 +1,41 @@
+{
+  "previous": "20261023-aa-level-v1",
+  "release": "20261023-camil-chapterhouse-v1",
+  "files": 483,
+  "added": [
+    "camil-vigil.html",
+    "item-960414.html",
+    "item-960415.html",
+    "item-960416.html",
+    "item-960417.html",
+    "item-960418.html",
+    "item-960419.html",
+    "item-961000.html",
+    "item-961001.html",
+    "item-961002.html",
+    "item-961003.html",
+    "item-961010.html",
+    "item-961011.html",
+    "item-961012.html",
+    "item-990500.html",
+    "zone-chapterhouse.html"
+  ],
+  "changed": [
+    "all-pages.html",
+    "dungeon-modes.html",
+    "equipment.html",
+    "features.html",
+    "index.html",
+    "item-upgrades.html",
+    "recent-changes.html",
+    "search-index.json",
+    "sitemap.xml",
+    "travel.html",
+    "tunnel.html",
+    "unreleased.html",
+    "waypoints.html",
+    "zone-hunt.html",
+    "zones.html"
+  ],
+  "preserved": 452
+}

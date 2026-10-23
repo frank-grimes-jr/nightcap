@@ -1,8 +1,11 @@
-# Chapterhouse candidate operations
+# Chapterhouse operations
 
-Not installed. Source tests, native build, SQL rehearsal, map probes and arena
-calibration are separate from production and player QA. Local-preimage SQL must
-not be applied to production without fresh capture and target rehearsal.
+Installed October23 after explicit owner authorization, fresh production capture,
+rehearsal and stopped backup. Main c0c9896e and paired runtime are live for testing.
+The original guard held on the expected public waypoint catalog addition; the
+reviewed resume-v2 continuation preserves all other state. See
+[delivery and recovery](deployment/README.md). Never replay either operator.
+Native calibration remains separate from owner in-game acceptance.
 
 ## Reproduce
 
@@ -23,7 +26,7 @@ with its separate `--controls` run. Do not use the stale October18 clone without
 refreshing it. NPC 32040 is the diagnostic arena slot containing each authored boss row; live
 Nagafen is unchanged. The runner excludes quest Perl and Chapterhouse navigation.
 
-## Future authorized activation
+## Requirements for a future authorized release
 
 1. Take a current backup and fresh bounded capture of zone 760, reservations,
    affected content, task/item references, active instances, engines and triggers.
@@ -49,7 +52,8 @@ Nagafen is unchanged. The runner excludes quest Perl and Chapterhouse navigation
 
 This runbook grants no production permission. Follow [QA](QA.md) before claiming
 accepted gameplay/balance. The current AA-level wiki, finder and Build Lab must
-be preserved; review the candidate wiki patch before separate publication.
+be preserved. Wiki20261023-camil-chapterhouse-v1 is now published and verified;
+its current source is feature/chapterhouse-wiki in the aa-level-wiki checkout.
 
 ## Pause and rollback
 

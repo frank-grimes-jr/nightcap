@@ -1,13 +1,17 @@
 # Current Nightcap status
 
-## 2026-10-23 — Chapterhouse implemented candidate; not live
+## 2026-10-23 — Chapterhouse deployed for live testing
 
-Camil's level-50 Paladin quest now has native Tasks and persistent progress,
-curated encounters/loot, a zone augment, waypoint and Keeper. The capstone was
-retuned against3319 legal AAs and Ascended Ghoulbane/proc/Slay stacking;48 native
-maximum-power arena cases pass. Complete encounters and other builds still
-require owner QA. No production or public
-wiki activation is claimed. [Scope and evidence](quests/camil-chapterhouse/SPEC.md);
+Main PR311/c0c9896e and paired production image db570029 are verified. Camil’s
+level50 Paladin Vigil uses native Tasks and persistent personal progress. The
+four level50–53 bosses, curated rewards, Ember augment, waypoint and Keeper near
+Befallen are live. All12workers,45schema/532content and427reward cache checks
+pass;309844existing items,player state and signed client2026102301 remain.
+The planned waypoint catalog addition was reconciled after a strict guard held
+activation; no player snapshot was restored. Public access is open.
+Wiki20261023-camil-chapterhouse-v1/all483files verifies. Full encounters, other
+maximum-power combinations and owner acceptance remain open.
+[Delivery/recovery](quests/camil-chapterhouse/deployment/README.md);
 [exact in-game checks](quests/camil-chapterhouse/QA.md).
 
 ## 2026-10-23 — Two-AA progression and level-1 controls deployed
