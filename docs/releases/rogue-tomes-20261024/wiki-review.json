@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-24",
+  "baseline": "a0bd0faa",
+  "scope": {
+    "maintained_guides": 24,
+    "generated_routes": 447
+  },
+  "changed": [
+    "Multiclass: canonical held-class tome learning and preserved items on rejection",
+    "Change Log: dated repair and live-testing boundary",
+    "Search index: rogue tome and discipline keywords"
+  ],
+  "no_impact": [
+    "Home and Features: existing multiclass capability repair, no new system",
+    "Commands: no command changes",
+    "Generated item/zone pages and catalog: no content/stat/acquisition changes",
+    "Other guides: no changed mechanics; existing releases and unpublished candidate labels retained"
+  ],
+  "source_review": "Inherited main drift is documented by existing Chapterhouse/AA/Hole release reviews; the only new gameplay changes are the three tome learning files. Operational/test documents change no public mechanics. Actual main reference and verified deployment evidence will be reconciled before publication.",
+  "qa": "Native player acceptance pending; no AA policy or discipline level changes."
+}
