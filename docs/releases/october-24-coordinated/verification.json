@@ -17,5 +17,15 @@
     "wiki_content": 14
   },
   "client_hosted_files": 140,
-  "client_patch_note_correction": "2026102402 corrects 2026102401 notes; identical archive payloads, append-only history"
+  "client_patch_note_correction": "2026102402 corrects 2026102401 notes; identical archive payloads, append-only history",
+  "native_build": "world/zone/shared_memory passed from authenticated retained source",
+  "native_binary_hashes": {
+    "world": "a94c6e18eabd7b534c97c09f3baa0c4fb8324386dc71b421a5d1b2e04c1cdebd",
+    "zone": "a139726f72960c8966df235088b52d77aca6ac3b6e0d01b50dfae4cba1f1e35b",
+    "shared_memory": "edb41d3133f347aa21daa732b27cddefc51ea18de6548d6f1386862780e84e77"
+  },
+  "native_semantic_changes": 18,
+  "proved_crlf_only_normalizations": 4,
+  "quest_scripts": 15,
+  "camil_helmet": "Local capture lacked deployed990500; reviewed production projection matches, full old-cache preservation required in rehearsal"
 }
