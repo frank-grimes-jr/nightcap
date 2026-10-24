@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## 2026-10-24 — Keyless Hole passage prepared
+
+The Paineel entrance patch is prepared and SQL-tested, not deployed. Existing live key access remains until authorized activation and supported Paineel static reload. Owner in-game QA and wiki publication remain pending. See [evidence and exact QA](ops/hole-keyless-passage-20261024/README.md).
+
 ## 2026-10-23 — Chapterhouse deployed for live testing
 
 Main PR311/c0c9896e and paired production image db570029 are verified. Camil’s
