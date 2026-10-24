@@ -25,7 +25,9 @@ hand-in/quest callers on failure. No AA catalog, balance, SQL or client changes.
    definitions, database failures, compatibility refunds and exact consumption.
 4. Build zone against authenticated retained live sources and reproduce the
    predecessor before compiling. Review source and rollout independently.
-5. Promote feature → dev → test → main under the owner's explicit authorization.
+5. Integrate the scoped feature into dev/test, then promote its scoped main PR
+   under the owner's explicit authorization. Dev/test already contain separate
+   unapproved dungeon/quest candidates; do not include those in this deployment.
    Install one zone-only image layer with fresh stopped backup and preservation
    checks; verify all 12 workers before reopening access.
 6. Update status/CHANGES, wiki guidance and installed knowledge with exact receipt
