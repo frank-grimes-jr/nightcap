@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-24",
-  "reviewed_revision": "51b5865",
+  "reviewed_revision": "824712d",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -81,6 +81,6 @@
     "Final AA closeout through mainPR308/5d0a0d31 reviewed: exact installed knowledge patch,45current AA fingerprints, source-review receipts and publisher regression records only. Public payload remains the already-verified467-file manifest; no additional gameplay, content or owner-acceptance claim. Unrelated historical skill drift remains explicitly review-required.",
     "October23 Chapterhouse main PR311/c0c9896e and paired deployment were reviewed across all24guides/447generated reward routes. Twelve guides plus Chapterhouse zone/14item pages preserve384Hunt values, Build Lab, loot finder/timer and private guide. Current AA wiki source remains authoritative where gameplay-main history lacks newer wiki files. Deployment includes an audited waypoint-only saved-state reconciliation, never player restoration. Full native encounter and owner acceptance remain open. Exact reviewed drift: docs/quests/camil-chapterhouse/deployment/wiki-source-review.json; publication evidence recorded separately.",
     "Final Chapterhouse delivery records through main PR314/ebeb6591 reviewed: 91 saved-state tables, exact waypoint-only reconciliation, five operator test groups, published483-file verification and installed knowledge. Original holds remain recorded; no additional gameplay or public payload change. Full encounter and owner acceptance remain open.",
-    "October24 Hole entrance candidate: reviewed all24 maintained guides and447 generated reward routes. Travel, Features, home, dungeon guide, Hole zone and Recent changes updated as Not released. Commands, item stats, encounters and rewards unchanged. Candidate source and SQL rehearsal: E:/EQ_Local_Dev/_worktrees/hole-keyless-passage; candidate source51b5865 reviewed without promoting its deployment status. Publication pending."
+    "October24 Hole entrance candidate: reviewed all24 maintained guides and447 generated reward routes. Travel, Features, home, dungeon guide, Hole zone and Recent changes updated as Not released. Commands, item stats, encounters and rewards unchanged. Candidate source and SQL rehearsal: E:/EQ_Local_Dev/_worktrees/hole-keyless-passage; candidate source824712d (including newline-only capture cleanup) reviewed without promoting its deployment status. Publication pending."
   ]
 }
