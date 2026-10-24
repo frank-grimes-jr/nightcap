@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-24",
-  "reviewed_revision": "db92def0",
+  "reviewed_revision": "539fd2e85bd98e23d41803288a8d8af73975d31b",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -83,6 +83,7 @@
     "Final Chapterhouse delivery records through main PR314/ebeb6591 reviewed: 91 saved-state tables, exact waypoint-only reconciliation, five operator test groups, published483-file verification and installed knowledge. Original holds remain recorded; no additional gameplay or public payload change. Full encounter and owner acceptance remain open.",
     "October24 Hole entrance deployed via owner-approved main7f126acb/PR318. All24 maintained guides and447 generated reward routes reviewed. Travel, Features, home, dungeon guide, Hole zone and Recent changes reflect installed keyless access with owner gameplay acceptance pending. Commands, item stats, encounters and rewards unchanged. Fresh backup, exact two-field mutation,398 other doors preserved, native/service lifetimes and health verified. Publication receipt tracked with the gameplay evidence.",
     "October24 editorial reorganization: all24guides/447generated reward routes reviewed against published66c7b843/Hole baseline. Inherited ledger drift grouped and assessed in docs/releases/wiki-clarity-20261024/source-review.json, retaining published reader,Chapterhouse,AA,Hole and QA boundaries. Features/Guides/Change Log separated; current mechanics, catalog values, commands and tools retained. Clarity-v2 verifies all483HTTPS hashes/security headers and private denials with16Linux recovery checks. No gameplay promotion or High Keep candidate activation.",
-    "Final clarity-v2 closeout: reviewed source grouping, shared editorial guidance, search aliases, both guarded publication receipts and complete483-file HTTPS verification. These evidence updates make no further public payload or gameplay changes."
+    "Final clarity-v2 closeout: reviewed source grouping, shared editorial guidance, search aliases, both guarded publication receipts and complete483-file HTTPS verification. These evidence updates make no further public payload or gameplay changes.",
+    "October24 custom Features directory: reviewed all24guides/447reward routes from published clarity-v2; no gameplay/catalog changes.14custom systems/adventures grouped with direct guide links. Ashen Compact SPEC653d3266 is unavailable preview only.483HTTPS hashes/headers, five private denials,16Linux recovery,19local Python cases and four browser widths pass. docs/releases/wiki-custom-features-20261024/."
   ]
 }
