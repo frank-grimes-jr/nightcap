@@ -703,6 +703,16 @@ int32 Mob::GetActSpellDuration(uint16 spell_id, int32 duration)
 }
 
 bool Client::TrainDiscipline(uint32 itemid) {
+	// Hand-in and quest callers already removed the tome. Preserve that API's
+	// refund contract; right-click learning keeps the original instance instead.
+	const bool learned = LearnDisciplineFromItem(itemid);
+	if (!learned && database.GetItem(itemid)) {
+		SummonItem(itemid);
+	}
+	return learned;
+}
+
+bool Client::LearnDisciplineFromItem(uint32 itemid) {
 
 	//get the item info
 	const EQ::ItemData *item = database.GetItem(itemid);
@@ -714,8 +724,6 @@ bool Client::TrainDiscipline(uint32 itemid) {
 
 	if (!item->IsClassCommon() || item->ItemType != EQ::item::ItemTypeSpell) {
 		Message(Chat::Red, "Invalid item type, you cannot learn from this item.");
-		//summon them the item back...
-		SummonItem(itemid);
 		return false;
 	}
 
@@ -729,26 +737,6 @@ bool Client::TrainDiscipline(uint32 itemid) {
 		!Strings::BeginsWith(item_name, "Skill: ")
 	) {
 		Message(Chat::Red, "This item is not a tome.");
-		//summon them the item back...
-		SummonItem(itemid);
-		return false;
-	}
-
-	const auto player_class = GetClass();
-	if (player_class == Class::Wizard || player_class == Class::Enchanter || player_class == Class::Magician || player_class == Class::Necromancer) {
-		Message(Chat::Red, "Your class cannot learn from this tome.");
-		//summon them the item back...
-		SummonItem(itemid);
-		return false;
-	}
-
-	//make sure we can train this...
-	//can we use the item?
-	const auto class_bit = static_cast<uint32>(1 << (player_class - 1));
-	if (!(item->Classes & class_bit)) {
-		Message(Chat::Red, "Your class cannot learn from this tome.");
-		//summon them the item back...
-		SummonItem(itemid);
 		return false;
 	}
 
@@ -758,41 +746,43 @@ bool Client::TrainDiscipline(uint32 itemid) {
 		return false;
 	}
 
-	//can we use the spell?
-	const auto& spell = spells[spell_id];
-	const auto level_to_use = spell.classes[player_class - 1];
+	// Item masks and live spell columns can be widened for client compatibility.
+	// Use the same canonical held-class requirement as discipline activation.
+	const auto level_to_use = GetSpellMinLevel(spell_id);
 	if (level_to_use == 255) {
-		Message(Chat::Red, "Your class cannot learn from this tome.");
-		//summon them the item back...
-		SummonItem(itemid);
+		Message(Chat::Red, "None of your classes can learn from this tome.");
 		return false;
 	}
 
 	if (level_to_use > GetLevel()) {
 		Message(Chat::Red, fmt::format("You must be at least level {} to learn this discipline.", level_to_use).c_str());
-		//summon them the item back...
-		SummonItem(itemid);
 		return false;
 	}
 
-	//add it to PP.
+	// Check the whole list for duplicates before selecting its first free slot.
+	int free_slot = -1;
 	for (int r = 0; r < MAX_PP_DISCIPLINES; r++) {
 		if (m_pp.disciplines.values[r] == spell_id) {
 			Message(Chat::Red, "You already know this discipline.");
-			//summon them the item back...
-			SummonItem(itemid);
 			return false;
-		} else if (m_pp.disciplines.values[r] == 0) {
-			m_pp.disciplines.values[r] = spell_id;
-			database.SaveCharacterDiscipline(CharacterID(), r, spell_id);
-			SendDisciplineUpdate();
-			Message(Chat::White, "You have learned a new discipline!");
-			return true;
+		}
+		if (free_slot == -1 && m_pp.disciplines.values[r] == 0) {
+			free_slot = r;
 		}
 	}
 
-	Message(Chat::Red, "You have learned too many disciplines and can learn no more.");
-	return false;
+	if (free_slot == -1) {
+		Message(Chat::Red, "You have learned too many disciplines and can learn no more.");
+		return false;
+	}
+	if (!database.SaveCharacterDiscipline(CharacterID(), free_slot, spell_id)) {
+		Message(Chat::Red, "Unable to save this discipline. Please try again later.");
+		return false;
+	}
+	m_pp.disciplines.values[free_slot] = spell_id;
+	SendDisciplineUpdate();
+	Message(Chat::White, "You have learned a new discipline!");
+	return true;
 }
 
 bool Client::MemorizeSpellFromItem(uint32 item_id) {
