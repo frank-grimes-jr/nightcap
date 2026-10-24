@@ -1,5 +1,9 @@
 # CHANGES
 
+## 2026-10-24 — Hole entrance access candidate
+
+Prepared a guarded change clearing keyitem6379 and lockpick60 only on Paineel entrance rock10599. City-lift and internal Hole locks remain. Three unit tests and isolated399-door SQL forward/inverse/drift rehearsal pass. No live writes; main promotion, deployment and player QA pending. See [evidence and exact QA](docs/ops/hole-keyless-passage-20261024/README.md).
+
 ## 2026-10-23 — Chapterhouse deployed for live testing
 
 Owner-authorized main PR311/c0c9896e and paired production activation are verified.
