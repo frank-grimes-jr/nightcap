@@ -12,6 +12,18 @@ Not activated or published; manual navigation, pacing and maximum-legal-power
 balance remain open. [Exact QA](dungeons/highkeep-rescue/QA.md) and
 [paired installation/recovery](dungeons/highkeep-rescue/RUNBOOK.md).
 
+## 2026-10-24 — Aggro departure/return-home correction in verification
+
+Source candidate fixes stale feign-memory entity IDs after death/departure and
+stationary NPC homes after zone-state restore. Shared group/raid XTarget counters,
+saved NPC state, corpses, roaming and dungeon progress are preserved by the
+scoped changes. Nine Windows checks, three Linux native checks, independent review
+and the full isolated zone build pass (zone `c14912b6`). Owner Lower Guk Raid QA
+is recorded separately in the release evidence.
+The reported bedroom encounter's cause is not proven. No live runtime, database
+or client was changed. Main/deployment approval and gameplay acceptance remain
+open. [Release](releases/aggro-zone-cleanup-20261024/README.md);
+[QA](releases/aggro-zone-cleanup-20261024/QA.md).
 
 ## 2026-10-24 — Hole entrance key requirement removed live
 

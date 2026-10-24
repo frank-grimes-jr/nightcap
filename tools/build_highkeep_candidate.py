@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'docs/dungeons/highkeep-rescue'
 DEST='/tmp/nightcap-highkeep-rescue-20261024'
 FILES=['common/highkeep_policy.h','zone/highkeep_rescue.inc','zone/dungeon_service.cpp',
-       'zone/dungeon_service.h','zone/client.cpp','zone/npc.cpp','zone/aggro.cpp','zone/attack.cpp','zone/spells.cpp']
+       'zone/dungeon_service.h','zone/client.cpp','zone/npc.cpp','zone/aggro.cpp','zone/attack.cpp','zone/spells.cpp',
+       'zone/client.h','zone/spawn2.cpp','zone/zone_save_state.cpp']
 archive=io.BytesIO()
 with tarfile.open(fileobj=archive,mode='w') as tar:
     for name in FILES:

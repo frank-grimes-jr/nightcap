@@ -699,6 +699,18 @@ Client::Client(EQStreamInterface *ieqs) : Mob(
 	AI_Init();
 }
 
+void Client::ClearFeignMemoryOnDeparture()
+{
+	// Feign memory uses zone entity IDs, which can be reused after departure.
+	// XTarget removal belongs to the existing hate/departure cleanup: its
+	// counters may be shared by a group or raid and must not be decremented twice.
+	for (const auto &entry : entity_list.GetNPCList()) {
+		if (entry.second->IsOnFeignMemory(this)) {
+			entry.second->RemoveFromFeignMemory(this);
+		}
+	}
+}
+
 Client::~Client() {
 	NightcapLoot::Forget(this);
 	entity_list.RemoveMobFromCloseLists(this);
@@ -815,6 +827,9 @@ Client::~Client() {
 	}
 
 	UninitializeBuffSlots();
+	// Group/raid departure may rebuild and demerge XTargets from feign memory.
+	// Leave it available until that bookkeeping is finished.
+	ClearFeignMemoryOnDeparture();
 }
 
 void Client::SendZoneInPackets()
