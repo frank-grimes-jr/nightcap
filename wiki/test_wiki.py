@@ -128,17 +128,43 @@ class WikiTests(unittest.TestCase):
         self.assertNotIn('sources',index[0])
         self.assertTrue(all(a['text'] for a in index))
 
-    def test_home_preserves_release_prose_and_progressive_navigation(self):
-        source = self.articles['index']['body']
+    def test_home_focuses_on_guides_and_progressive_navigation(self):
         page = (self.out/'index.html').read_text(encoding='utf-8')
-        notices = source.split('<div class="welcome">')[0]
-        self.assertIn(notices, page)
-        self.assertLess(page.index('class="welcome"'), page.index('class="release-digest"'))
+        self.assertNotIn('class="release-digest"',page)
+        self.assertIn('What makes Nightcap different',page)
+        self.assertIn('Change Log',page)
         for key, _, _, _, slugs in build.experience.PATHS:
             self.assertIn(f'id="path-{key}"', page)
             self.assertNotIn(f'id="path-{key}" hidden', page)
             for slug in slugs:
                 self.assertIn(f'href="{slug}.html"', page)
+
+    def test_features_guides_and_change_log_are_distinct_destinations(self):
+        features=self.articles['features']['body']
+        self.assertEqual(features.count('class="feature-row"'),8)
+        self.assertNotIn('class="notice"',features)
+        self.assertEqual(self.articles['recent-changes']['title'],'Change Log')
+        self.assertIn('Earlier release detail',self.articles['recent-changes']['body'])
+        directory=(self.out/'all-pages.html').read_text(encoding='utf-8')
+        self.assertNotIn('href="zone-qeytoqrg.html"',directory)
+        self.assertIn('href="zones.html"',directory)
+        for name,page in self.pages.items():
+            self.assertIn('recent-changes.html',page.links,name)
+            self.assertIn('all-pages.html',page.links,name)
+
+    def test_old_guide_anchors_and_moved_notices_remain_reachable(self):
+        import subprocess
+        history=self.articles['recent-changes']['body']
+        for path in (build.ROOT/'articles').glob('*.json'):
+            old=json.loads(subprocess.check_output(['git','show','66c7b843:wiki/articles/'+path.name],cwd=build.ROOT.parent,text=True,encoding='utf-8'))
+            old_ids=set(re.findall(r'\bid="([^"]+)"',old['body']))
+            self.assertTrue(old_ids<=set(self.pages[path.stem+'.html'].ids),path.stem)
+        for slug in ['multiclass','combat','pets','item-upgrades','getting-started']:
+            self.assertNotIn('thj-behavior-candidate',self.articles[slug]['body'].split('class="archived-update"')[0])
+            self.assertIn(slug+'--thj-behavior-candidate',history)
+        self.assertIn('<details class="guide-topic" id="required-bosses">',self.articles['dungeon-modes']['body'])
+        self.assertIn('skeleton Lrodd',self.articles['dungeon-modes']['body'])
+        self.assertIn('keyless',history)
 
     def test_interactive_shell_and_public_asset_allowlist(self):
         for page in self.pages.values():

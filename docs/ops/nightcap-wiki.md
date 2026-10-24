@@ -1,6 +1,6 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 22, 2026.
+Updated October 24, 2026.
 
 ## Current state
 
@@ -9,10 +9,11 @@ Updated October 22, 2026.
   Owner-approved reader/timer/JSON route and HTML publication are verified.
   [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
-- **Active OVH origin release:** `20261022-loot-finder-v2`; previous
-  `20261022-loot-finder-v1` and pre-reader `20261022-hate-keeper-confirmed-v1`
-  are retained for recovery. V2 fixes UTF-8 prose; the JSON reader is unchanged.
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 24, 2026 (EDT).
+- **Active OVH origin release:** `20261024-wiki-clarity-v2`; previous
+  `20261024-wiki-clarity-v1` and `20261024-hole-keyless-v1` are retained for recovery.
+  Editorial source: `E:/EQ_Local_Dev/_worktrees/wiki-clarity`. Publication/recovery:
+  `docs/releases/wiki-clarity-20261024/`. The JSON reader is unchanged.
 - **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
   required and the GM access restriction removed. Private Hate retains its
   entrance Keeper. Main PR299/server and466-file wiki publication are verified;
@@ -22,14 +23,18 @@ Updated October 22, 2026.
   resolved abilities and priority-order testing; scope and dated fixtures are explicit.
   Verified publication: `docs/releases/build-lab-20261022/`. No gameplay changes.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
+- **Content structure:** Features highlights eight major differences; Guides owns
+  current instructions; Change Log owns minor changes, fixes and dated releases.
+  Keep announcements out of guide prefixes and retain old anchors. Shared compact
+  type sizes and expandable references apply across the complete site.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- 457 articles: 23 maintained guides, 48 enabled zone pages, 384 item pages and
-  two catalog indexes. All articles, Search and 404 bring the build to 460 pages.
-- The exact publication contains 467 files. Player access uses the current personal-code
+- 473 articles: 24 maintained guides, 447 generated Hunt/Chapterhouse routes and
+  two catalog indexes. Guides, Search and 404 bring the build to 476 pages.
+- The exact publication contains 483 files. Player access uses the current personal-code
   policy; wiki updates preserve it. October 9 IP-only descriptions below are historical.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).

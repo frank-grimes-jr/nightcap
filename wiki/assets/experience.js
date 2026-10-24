@@ -125,14 +125,14 @@
   navigation.open = !mobile.matches;
   mobile.addEventListener('change', event => { navigation.open = !event.matches; });
 
-  // Deep links into the release digest still reveal their original content.
+  // Deep links open the reference itself as well as any enclosing disclosure.
   function revealAnchor() {
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
     if (!id) return;
     const target = document.getElementById(id);
     if (!target) return;
-    let parent = target.parentElement;
+    let parent = target;
     let revealed = false;
     while (parent) {
       if (parent.tagName === 'DETAILS' && !parent.open) { parent.open = true; revealed = true; }
@@ -197,7 +197,7 @@
           + (title === normalized ? 100 : 0) + (keywords.includes(normalized) ? 50 : 0) + (/^(item-|zone-)/.test(article.slug) ? 0 : 3) : 0;
         return { article, score };
       }).filter(match => match.score).sort((a, b) => b.score - a.score || a.article.title.localeCompare(b.article.title));
-      searchStatus.textContent = matches.length ? `${matches.length} results · ${Math.min(8, matches.length)} best matches below` : `No results for “${query}”. Try fewer words or browse All articles.`;
+      searchStatus.textContent = matches.length ? `${matches.length} results · ${Math.min(8, matches.length)} best matches below` : `No results for “${query}”. Try fewer words or browse Guides.`;
       for (const { article } of matches.slice(0, 8)) {
         const li = document.createElement('li'), link = document.createElement('a');
         link.href = article.slug + '.html';
@@ -210,9 +210,9 @@
       }
     } catch {
       if (generation === searchGeneration) {
-        searchStatus.textContent = 'Search could not load. Type again to retry, or browse All articles.';
+        searchStatus.textContent = 'Search could not load. Type again to retry, or browse Guides.';
         const link = document.createElement('a');
-        link.href = 'all-pages.html'; link.textContent = 'Browse all articles →';
+        link.href = 'all-pages.html'; link.textContent = 'Browse guides →';
         const li = document.createElement('li'); li.append(link); results.append(li);
       }
     }
