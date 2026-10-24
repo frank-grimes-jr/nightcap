@@ -256,6 +256,7 @@ public:
 	Client(EQStreamInterface * ieqs);
 	Client(); // mocking / testing
 	~Client();
+	void ClearFeignMemoryOnDeparture();
 
 	void ReconnectUCS();
 	void RecordStats();
