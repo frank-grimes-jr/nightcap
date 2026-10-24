@@ -1143,5 +1143,6 @@
   "visual_review": "Decoded candidate03 inspected across24Classic race/gender fits in Blender. Closed-head variant removes face intersections. DDS-to-BMP V corrected; skull and first-frame mouth flame visible on all24fits. Native neck seams and flame animation/equip acceptance pending.",
   "baseline_regression": "Original HEAD and new default Camil generators produce identical bytes for both archives; see camil-preservation.json. The existing reviewed-candidate hash test also fails on unmodified HEAD, so it is recorded as a pre-existing reproducibility discrepancy, not silently rebaselined.",
   "uv_reference": "https://github.com/Zaela/EQGModelImporter/blob/master/src/viewer.cpp",
-  "preview_sha256": "4af57042b5b9ade28ac5b763d775b31f41f4beffb84179d43605b40419428f3f"
+  "preview_sha256": "4af57042b5b9ade28ac5b763d775b31f41f4beffb84179d43605b40419428f3f",
+  "native_lookup_note": "Material91 uses the existing numbered Classic head lookup and stays below the native240-255Velious remapping range documented in ADR0053. The candidate introduces no new DLL hook. Native equip acceptance remains required."
 }

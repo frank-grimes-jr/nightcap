@@ -42,7 +42,8 @@ def compile_rows():
                          'nightcap_dungeon_spawns','items','tasks','task_activities','nightcap_waypoints')}
     template=s['templates']
     def npc(id,name,**values):
-        n=dict(template['npc_types'],id=id,name=name,lastname='',race=49,gender=2,size=10,
+        # Captured Kael storm giants and native Race::StormGiant both use189.
+        n=dict(template['npc_types'],id=id,name=name,lastname='',race=189,gender=2,size=10,
                level=50,hp=12000,mana=0,bodytype=4,AC=180,ATK=150,
                mindmg=35,maxdmg=95,attack_count=1,attack_delay=30,
                hp_regen_rate=0,hp_regen_per_second=0,npc_spells_id=0,npc_spells_effects_id=0,
@@ -70,7 +71,10 @@ def compile_rows():
         npc(id,name,level=level,hp=hp,mindmg=low,maxdmg=high,AC=200+(level-50)*10,
             ATK=300+(level-50)*25,attack_count=2,attack_delay=20,
             spellscale=1500 if id==998864 else 1200 if id==998863 else 100,
-            special_abilities='5,1,5' if id==998864 else '')
+            # Native emu_constants.h: charm14, fear17, fleeing21, flurry5.
+            # Named champions cannot be charmed or fear-locked; their adds can.
+            # Keep stun available for the warned attack's interruption answer.
+            special_abilities='14,1^17,1^21,1'+('^5,1,5' if id==998864 else ''))
         spawn(id,anchor)
     npc(998865,'an_iron_oath_warrior',level=48,hp=28000,mindmg=125,maxdmg=320)
     npc(998866,'an_ashen_soulbinder',level=46,hp=22000,mindmg=100,maxdmg=270,race=6,size=6,bodytype=1)
@@ -92,15 +96,16 @@ def compile_rows():
         (998871,'Knight_of_Hunger',pose(23612)),(998872,'Knight_of_Ruin',pose(23619)),
         (998873,'Knight_of_Defiance',pose(23618)),(998874,'War_Altar_of_Rallos_Zek',pose(23663))]
     for id,name,pose in service_poses:
-        npc(id,name,race=1 if id==998867 else 49 if 998871<=id<=998873 else 108,
+        npc(id,name,race=1 if id==998867 else 189 if 998871<=id<=998873 else 108,
             bodytype=1,size=6 if id==998867 else 8 if 998871<=id<=998873 else 3,
             gender=1 if id==998867 else 2,hp=10000,always_aggro=0,aggroradius=0,assistradius=0,
             special_abilities=PROTECTED)
         spawn(id,pose=pose)
-    npc(998875,'Veyras_Soul_Binding',level=50,race=1,gender=1,bodytype=1,hp=10000,
+    npc(998875,'Veyras_Soul_Binding',level=50,race=1,gender=1,bodytype=1,size=6,hp=10000,
         mindmg=0,maxdmg=0,attack_count=0,always_aggro=0,aggroradius=0,assistradius=0,
         special_abilities='',exp_mod=0)
-    npc(998876,'an_unbound_war_soul',level=46,hp=30000,mindmg=175,maxdmg=400,exp_mod=0)
+    npc(998876,'an_unbound_war_soul',level=46,race=85,size=6,bodytype=3,
+        hp=30000,mindmg=175,maxdmg=400,exp_mod=0)
     # Match the existing level-50 hunt family budget, changing its identity/stat pair only.
     for tier,(hp,heroic,ac) in enumerate(((60,5,2),(87,6,3),(114,8,5),(144,10,6))):
         name='Cinder of the Ashen Compact'+('', ' (Polished)',' (Exalted)',' (Ascension)')[tier]

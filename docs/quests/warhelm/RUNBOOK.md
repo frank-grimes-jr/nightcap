@@ -23,7 +23,7 @@ temporary-actor XP gate and the corrected admission/capacity checks.
 fixture into `nightcap_warhelm_balance_20261024`; it refuses overwrite. It does
 not copy PEQ player data. `diagnostics`, `build`, then `warhelm_capstone.py` use
 the separate runtime and current candidate native objects. This controller has
-explicit bounds documented in the results; arena wins do not certify full Kael.
+explicit bounds documented in [BALANCE.md](BALANCE.md); arena wins do not certify full Kael.
 
 `build_warhelm_client.py --client E:/Nightcap --eqg SOURCE --output NEW_STAGING`
 pins the recovered official EQG by SHA1 and requires the installed Camil HE90

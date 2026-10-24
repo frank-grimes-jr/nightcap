@@ -74,6 +74,24 @@ def diagnostics():
             old="    link.insert(1, '-Wl,--wrap=gettimeofday,--wrap=time')"
             assert data.count(old)==1
             data=data.replace(old,old+"\n    link.insert(1, '-Wl,--wrap=_ZN15NightcapDungeon7RaidNPCEP3Mob')")
+            # Adapters may compile alongside the final native build, but never
+            # link against a mixture of old and newly compiled engine objects.
+            old='    subprocess.run(link, cwd=build, check=True)'
+            assert data.count(old)==1
+            data=data.replace(old,'''    import time
+    root = args.build_dir.resolve().parent
+    expected = json.loads((root/'source-manifest.json').read_text())
+    deadline = time.monotonic()+3600
+    while True:
+        try:
+            ready = json.loads((root/'manifest.json').read_text()) if (root/'manifest.json').exists() else {}
+        except json.JSONDecodeError:
+            ready = {} # The builder may be completing its manifest write.
+        if ready.get('source_files') == expected: break
+        if time.monotonic()>deadline: raise RuntimeError('Matching full native build did not finish')
+        time.sleep(1)
+    assert all(digest(source/name)==sha for name,sha in expected.items()), 'Native source changed during diagnostic compilation'
+'''+old)
         if name=='native_runtime.cpp':
             key='json NightcapBalanceEncounter(Client *c, const json &input)'
             assert data.count(key)==1

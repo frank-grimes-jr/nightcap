@@ -22,7 +22,9 @@ Use a disposable test character and the paired staged client/runtime/content.
 5. Kharzug's half-health adds appear once; evade/death removes only his owned adds.
    Move more than10units from a General/Echo mark within3seconds, or interrupt.
    Standing at the mark is hit. Switching target cannot transfer a mark. Verify
-   warnings, cast animations, line of sight, enrage and safe pathing in actual Kael.
+   warnings, cast animations, line of sight, flurries and safe pathing in actual Kael.
+   Bosses reject fear/charm and do not flee; war souls remain controllable. Stun
+   remains available for interrupting the warned attacks.
 6. Remove the journal, reconnect and reset a run. Earned chapters survive; status
    restores the display. Expired or unrelated runs never lend credit. Verify solo
    and grouped completion and both Grind and Raid, including reset with corpses.

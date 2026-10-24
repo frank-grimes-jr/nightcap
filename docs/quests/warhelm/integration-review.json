@@ -7,7 +7,7 @@
     "Ashen journal restoration plus Highkeep status",
     "Independent Keeper and story dispatch"
   ],
-  "focused_tests": 55,
+  "focused_tests": 56,
   "standalone_heal_targeting_checks": 149,
   "passed": true,
   "source_sha256": {
@@ -15,6 +15,12 @@
     "server-mods/code/zone/attack.cpp": "c6f450a686700c74245bff9b75997d3c69135a3adb1b24cae5c0d5ea38707174",
     "server-mods/code/zone/spells.cpp": "aed7a2ec804a078d53905528d9adf8676222b7af548e95deb8e1a3ab7b6f9bd6"
   },
-  "native_build": "pending final combined rebuild",
-  "production_changed": false
+  "native_build": "passed; final overlay source hashes verified",
+  "production_changed": false,
+  "native_binaries": {
+    "world": "869cb91bfd7211df31c9ef6085555a6c1fec40e3fef6fe2a52f2f9c3b8571dff",
+    "zone": "23842e3231dd33348ee749ac536d6f3f73caba63fbc3d2612cb01058231e1c4b",
+    "shared_memory": "761e377fa5a81d1ca2537110a32e614fd7dac48530031bada95b3e569ea118ca"
+  },
+  "calibration": "24 boss kills, four lower-progression control deaths; full route not accepted"
 }

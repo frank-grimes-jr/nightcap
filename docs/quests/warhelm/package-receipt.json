@@ -1,0 +1,10 @@
+{
+  "status": "Review-only package verified; not installed",
+  "file": "ashen-compact-client-candidate.zip",
+  "sha256": "2cd6f89a507cce049c33bc6437c60619fe30184382a63acf5f0190cc7b636907",
+  "bytes": 12460260,
+  "archive_outputs": {
+    "global_chr.s3d": "a20eaecaf0bb0e08342d600753fa013dafdc97b18691315245d9f5c1858822b5",
+    "global4_chr.s3d": "3be6dc0b70b502648045faa0e71f600140c053fe2b772ec77631ce1cb8cf8091"
+  }
+}

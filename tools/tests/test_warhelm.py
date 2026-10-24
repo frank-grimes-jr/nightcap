@@ -7,6 +7,22 @@ import test_free_trade as native
 import warhelm_content as content
 
 class Warhelm(unittest.TestCase):
+    def test_champions_use_kael_storm_giants_and_leave_interrupts_available(self):
+        import json
+        snapshot=json.loads((content.OUT/'local-content.json').read_text())
+        native_giant=next(n for n in snapshot['npc_types'] if n['id']==113001)
+        self.assertEqual(native_giant['name'],'#Watchman_Sunderthorn')
+        rows={n['id']:n for n in content.compile_rows()['npc_types']}
+        for npc in range(998861,998865):
+            row=rows[npc]
+            self.assertEqual((row['race'],row['bodytype']),(native_giant['race'],4))
+            abilities={int(a.split(',')[0]) for a in row['special_abilities'].split('^')}
+            self.assertTrue({14,17,21}<=abilities) # Native charm/fear/fleeing immunity.
+            self.assertNotIn(15,abilities) # Stun must remain an answer to warnings.
+        self.assertIn('5,1,5',rows[998864]['special_abilities']) # Native5-percent flurry.
+        self.assertEqual((rows[998876]['race'],rows[998876]['bodytype']),(85,3))
+        self.assertNotIn('17,1',rows[998876]['special_abilities'])
+
     def test_native_order_class_and_isolation(self):
         native.FreeTradeTests.compile_run(self,r'''
 #include "common/warhelm_policy.h"

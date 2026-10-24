@@ -18,6 +18,15 @@ earned chapters. A native NPC-death gate excludes guardian/war-soul IDs from the
 whole XP award block, including raid and leadership paths; exp_mod=0 alone was
 insufficient. The dynamic actors are outside the curated loot predicate.
 
+The actual native special-ability constants were checked:5is Flurry, not Enrage.
+The Echo retains the5-percent flurry, and its guide names that mechanic accurately.
+Champions have charm/fear/fleeing immunity14/17/21; stun remains available, and
+war souls remain controllable so SK crowd control still matters in the defense.
+Kael champions/knights use native StormGiant189, confirmed against captured
+Watchman Sunderthorn113001 and common/races.h;49is LavaDragon. War souls use
+Classic Spectre85/bodytype3. The guardian is human-sized6. Existing interaction
+markers retain the shared Keeper EyeOfZomm108 model; native visual QA remains open.
+
 Kael is appended after existing dungeon indices. Prior reward IDs remain stable;
 new final rewards occupy960420–960425. Existing budget tests cover the new designs.
 The contract includes all new content, schema and reward cache definitions.
@@ -41,7 +50,7 @@ remain explicit in-game acceptance items.
 The old Camil generator and candidate default generator produce identical archive
 bytes. The repository's older reviewed-candidate hash assertion fails identically
 on unmodified HEAD; see camil-preservation.json. Its expected hashes were not
-silently changed. The55focused checks exclude that preexisting assertion and include the integrated High Keep, healing, aggro-departure and saved-home regressions.
+silently changed. The 56 focused checks exclude that preexisting assertion and include the integrated High Keep, healing, aggro-departure and saved-home regressions.
 
 The wiki overlay is based on the verified published Hole revision66c7b843. It
 reviews all24maintained guides, preserves447existing generated routes, adds the
@@ -51,7 +60,9 @@ pending Linux execution before any publication.
 
 ## Acceptance still required
 
-Native combat measurements are a bounded diagnostic, not proof of optimal gear,
+The final world, zone and shared_memory build passes with all overlay sources
+matched to its manifest. Native combat measurements record 24 kills and four
+lower-progression control deaths (see BALANCE.md). They are a bounded diagnostic, not proof of optimal gear,
 every held-class combination or the complete scripted route. Follow QA.md for
 native client and full-route acceptance. The shared dungeon/attack hooks include dev1a8a4917; recheck subsequent branch changes before promotion. Release
 requires paired native binaries, schema/content/cache, exact scripts and signed

@@ -18,7 +18,12 @@ def maximum():
     # Only this isolated synthetic row is changed; the diagnostic verifies it.
     sql('UPDATE character_data SET class=5 WHERE id=90022; UPDATE character_multiclass SET class2=2,class3=7 WHERE character_id=90022;')
     for item in b['equipment']:
-        if item['slot']==13:item.update(id=605403,augments=[])
+        # The inherited Indicolite hands/feet require Warrior. Darkforge is
+        # legal SK armor with the same socket type. Keep the proc-free Tonfa
+        # through held Monk;605403 is Paladin-only Ghoulbane, not a control.
+        if item['slot']==12:item['id']=603144
+        if item['slot']==19:item['id']=603146
+        if item['slot']==13:item.update(id=662038,augments=[])
     probe=copy.deepcopy(base);probe.pop('encounter');probe['export_aa_catalog']=True
     result=execute('sk-catalog',probe)
     ranks=result['builds'][0]['aa_catalog']
@@ -32,7 +37,7 @@ def maximum():
 
 def run():
     base,p=maximum();cases=[]
-    report=dict(scope='Level50 Human SK/CLR/MNK, maximum legal purchased AA, inherited strong current-drop gear with non-undead weapon605403. Native melee/Monk buttons/Mend, Lifedraw and Superior Healing. Valor/Symbol preparation. Fixed controller excludes SK pet, Life Leech, optimal activated SK AAs, quest Perl/adds and Kael movement; no claim of global BiS or full encounter acceptance.',
+    report=dict(scope='Level50 Human SK/CLR/MNK, maximum legal purchased AA, inherited strong gear with class-legal Darkforge hands603144/feet603146 and proc-free Balanced Tonfa662038 through held Monk. Native melee/Monk buttons/Mend, Lifedraw and Superior Healing. Valor/Symbol preparation. Fixed controller excludes SK pet, Life Leech, optimal activated SK AAs, quest Perl/adds and Kael movement; no claim of global BiS or full encounter acceptance.',
         public_content='October23 Camil synthetic capture; source receipt retained in docs/quests/camil-chapterhouse',aa_spent=p.spent,cases=cases)
     bosses=[n for n in compile_rows()['npc_types'] if 998861<=n['id']<=998864]
     for boss in bosses:
