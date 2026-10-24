@@ -1,0 +1,1147 @@
+{
+  "status": "structurally validated candidate; not installed; in-game QA pending",
+  "material": 91,
+  "source_eqg_sha1": "fd99da9998c8f13a592912e4e476261bc714a583",
+  "archives": {
+    "global_chr.s3d": {
+      "source_sha256": "8cb7f1e2cb7e702fbe0039053cae33e230515b7f2a1105714aab9a74f9b667ab",
+      "output_sha256": "a20eaecaf0bb0e08342d600753fa013dafdc97b18691315245d9f5c1858822b5",
+      "models": [
+        {
+          "code": "HUM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.3075474330357142,
+            0.8962209601151314,
+            1.6428301411290323
+          ],
+          "fit_shift": [
+            0.0040283203125,
+            -0.2996826171875,
+            -0.12841796875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.1949462890625,
+                -0.44775390625,
+                -0.12841796875
+              ],
+              [
+                0.2030029296875,
+                -0.151611328125,
+                0.483642578125
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HUF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.33642578125,
+            1.4100887900904602,
+            1.7306723014888337
+          ],
+          "fit_shift": [
+            0.00732421875,
+            -0.06390380859375,
+            -0.05810546875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.196044921875,
+                -0.296875,
+                -0.05810546875
+              ],
+              [
+                0.210693359375,
+                0.1690673828125,
+                0.58935546875
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "BAM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.8678676060267856,
+            2.110884817023026,
+            2.1726092392990073
+          ],
+          "fit_shift": [
+            0.00189208984375,
+            -0.119384765625,
+            -0.1591796875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.2823486328125,
+                -0.4681396484375,
+                -0.1591796875
+              ],
+              [
+                0.2861328125,
+                0.2293701171875,
+                0.6663818359375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "BAF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.3035365513392856,
+            1.5028140419407894,
+            1.5059175325682381
+          ],
+          "fit_shift": [
+            0.0069580078125,
+            -0.0791015625,
+            -0.091552734375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.19140625,
+                -0.327392578125,
+                -0.091552734375
+              ],
+              [
+                0.205322265625,
+                0.169189453125,
+                0.46533203125
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ERM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.7728097098214286,
+            1.8168238589638157,
+            1.8827301101116625
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            -0.1827392578125,
+            -0.148681640625
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.27783203125,
+                -0.48291015625,
+                -0.148681640625
+              ],
+              [
+                0.26171875,
+                0.117431640625,
+                0.56005859375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ERF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.2927071707589286,
+            1.2357209858141445,
+            1.8112447658188586
+          ],
+          "fit_shift": [
+            0.00689697265625,
+            -0.11907958984375,
+            -0.03857421875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.1898193359375,
+                -0.3232421875,
+                -0.03857421875
+              ],
+              [
+                0.20361328125,
+                0.0850830078125,
+                0.641357421875
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ELM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.7583705357142856,
+            2.110884817023026,
+            1.8188173658498759
+          ],
+          "fit_shift": [
+            0.0020751953125,
+            -0.119384765625,
+            -0.1591796875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.2655029296875,
+                -0.4681396484375,
+                -0.1591796875
+              ],
+              [
+                0.2696533203125,
+                0.2293701171875,
+                0.5238037109375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ELF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.3817487444196428,
+            1.4902536492598681,
+            1.706439981389578
+          ],
+          "fit_shift": [
+            0.00701904296875,
+            -0.08349609375,
+            -0.0380859375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.2032470703125,
+                -0.3297119140625,
+                -0.0380859375
+              ],
+              [
+                0.21728515625,
+                0.1627197265625,
+                0.599609375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HIM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.8887241908482142,
+            2.2575458727384867,
+            1.6531288771712158
+          ],
+          "fit_shift": [
+            0.00201416015625,
+            -0.10992431640625,
+            -0.140625
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.285400390625,
+                -0.48291015625,
+                -0.140625
+              ],
+              [
+                0.2894287109375,
+                0.2630615234375,
+                0.4755859375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HIF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.5377720424107142,
+            1.78985595703125,
+            1.494407180521092
+          ],
+          "fit_shift": [
+            0.0069580078125,
+            -0.02752685546875,
+            -0.040283203125
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.22705078125,
+                -0.3232421875,
+                -0.040283203125
+              ],
+              [
+                0.240966796875,
+                0.2681884765625,
+                0.511962890625
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "DAM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            2.254917689732143,
+            2.4189838610197367,
+            2.092339678970223
+          ],
+          "fit_shift": [
+            -0.0118408203125,
+            -0.083251953125,
+            -0.3157958984375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.35498046875,
+                -0.48291015625,
+                -0.3157958984375
+              ],
+              [
+                0.331298828125,
+                0.31640625,
+                0.4774169921875
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "DAF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.9681396484374998,
+            1.5164827045641447,
+            1.5858841888957818
+          ],
+          "fit_shift": [
+            0.00457763671875,
+            -0.06854248046875,
+            -0.05078125
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.294921875,
+                -0.319091796875,
+                -0.05078125
+              ],
+              [
+                0.3040771484375,
+                0.1820068359375,
+                0.538330078125
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HAM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.5145089285714286,
+            1.9897139699835524,
+            1.6676682692307692
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            -0.1541748046875,
+            -0.1292724609375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.238525390625,
+                -0.48291015625,
+                -0.1292724609375
+              ],
+              [
+                0.222412109375,
+                0.174560546875,
+                0.4927978515625
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HAF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.6857735770089286,
+            1.6675768400493418,
+            1.7867095417183623
+          ],
+          "fit_shift": [
+            0.00677490234375,
+            -0.0477294921875,
+            -0.0374755859375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.249755859375,
+                -0.3232421875,
+                -0.0374755859375
+              ],
+              [
+                0.2633056640625,
+                0.227783203125,
+                0.632568359375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "DWM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            4.067836216517857,
+            3.5560688219572367,
+            2.798106001861042
+          ],
+          "fit_shift": [
+            -0.0277099609375,
+            -0.2740478515625,
+            -0.56005859375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.646728515625,
+                -0.861572265625,
+                -0.56005859375
+              ],
+              [
+                0.59130859375,
+                0.3134765625,
+                0.517578125
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "DWF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            3.5295758928571432,
+            3.761837607935855,
+            3.1588646673387095
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            -0.10052490234375,
+            -0.128173828125
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.545166015625,
+                -0.7220458984375,
+                -0.128173828125
+              ],
+              [
+                0.529052734375,
+                0.52099609375,
+                1.0948486328125
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "TRM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 4,
+          "fit_scale": [
+            7.088832310267857,
+            6.892700195312499,
+            4.206609607630273
+          ],
+          "fit_shift": [
+            -0.0003662109375,
+            -0.5638427734375,
+            -0.533935546875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -1.0791015625,
+                -1.70263671875,
+                -0.533935546875
+              ],
+              [
+                1.078369140625,
+                0.574951171875,
+                1.111328125
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "TRF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 4,
+          "fit_scale": [
+            4.970284598214286,
+            4.977609734786184,
+            3.5153826767990073
+          ],
+          "fit_shift": [
+            -0.000244140625,
+            -0.5509033203125,
+            -0.4248046875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.756591796875,
+                -1.373291015625,
+                -0.4248046875
+              ],
+              [
+                0.756103515625,
+                0.271484375,
+                0.94189453125
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "OGM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 4,
+          "fit_scale": [
+            4.600481305803571,
+            5.608584755345395,
+            2.6914837934243176
+          ],
+          "fit_shift": [
+            -0.0072021484375,
+            -0.4996337890625,
+            -0.419677734375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.707275390625,
+                -1.42626953125,
+                -0.419677734375
+              ],
+              [
+                0.69287109375,
+                0.427001953125,
+                0.614990234375
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "OGF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 4,
+          "fit_scale": [
+            5.520577566964286,
+            5.215518349095395,
+            3.1010100031017367
+          ],
+          "fit_shift": [
+            -0.018798828125,
+            -0.3167724609375,
+            -0.16259765625
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.85888671875,
+                -1.178466796875,
+                -0.16259765625
+              ],
+              [
+                0.8212890625,
+                0.544921875,
+                1.037109375
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "HOM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            2.6038643973214284,
+            2.3262586091694075,
+            2.4952020006203472
+          ],
+          "fit_shift": [
+            -0.0001220703125,
+            -0.30938720703125,
+            -0.1993408203125
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.3963623046875,
+                -0.6937255859375,
+                -0.1993408203125
+              ],
+              [
+                0.3961181640625,
+                0.074951171875,
+                0.7562255859375
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "HOF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            2.7522670200892856,
+            3.430834318462171,
+            2.6823966733870965
+          ],
+          "fit_shift": [
+            0.0,
+            -0.22479248046875,
+            -0.10302734375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.4188232421875,
+                -0.7916259765625,
+                -0.10302734375
+              ],
+              [
+                0.4188232421875,
+                0.342041015625,
+                0.927978515625
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "GNM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            5.277919224330357,
+            4.057376259251645,
+            3.0985867710918114
+          ],
+          "fit_shift": [
+            -6.103515625e-05,
+            -0.22491455078125,
+            -0.2742919921875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.80322265625,
+                -0.895263671875,
+                -0.2742919921875
+              ],
+              [
+                0.8031005859375,
+                0.4454345703125,
+                0.9244384765625
+              ]
+            ]
+          },
+          "front": "+X"
+        },
+        {
+          "code": "GNF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            3.0193917410714284,
+            3.3850258275082235,
+            2.9029107862903225
+          ],
+          "fit_shift": [
+            0.0,
+            -0.24114990234375,
+            -0.1776123046875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.45947265625,
+                -0.8004150390625,
+                -0.1776123046875
+              ],
+              [
+                0.45947265625,
+                0.318115234375,
+                0.9422607421875
+              ]
+            ]
+          },
+          "front": "+X"
+        }
+      ],
+      "retained_head_variants": {
+        "HUM": [
+          "HUM01_DMSPRITEDEF",
+          "HUMHE00_DMSPRITEDEF",
+          "HUMHE01_DMSPRITEDEF",
+          "HUMHE02_DMSPRITEDEF",
+          "HUMHE03_DMSPRITEDEF",
+          "HUMHE90_DMSPRITEDEF",
+          "HUM_DMSPRITEDEF"
+        ],
+        "HUF": [
+          "HUF01_DMSPRITEDEF",
+          "HUFHE00_DMSPRITEDEF",
+          "HUFHE01_DMSPRITEDEF",
+          "HUFHE02_DMSPRITEDEF",
+          "HUFHE03_DMSPRITEDEF",
+          "HUFHE90_DMSPRITEDEF",
+          "HUF_DMSPRITEDEF"
+        ],
+        "BAM": [
+          "BAM01_DMSPRITEDEF",
+          "BAMHE00_DMSPRITEDEF",
+          "BAMHE01_DMSPRITEDEF",
+          "BAMHE02_DMSPRITEDEF",
+          "BAMHE03_DMSPRITEDEF",
+          "BAMHE90_DMSPRITEDEF",
+          "BAM_DMSPRITEDEF"
+        ],
+        "BAF": [
+          "BAF01_DMSPRITEDEF",
+          "BAFHE00_DMSPRITEDEF",
+          "BAFHE01_DMSPRITEDEF",
+          "BAFHE02_DMSPRITEDEF",
+          "BAFHE03_DMSPRITEDEF",
+          "BAFHE90_DMSPRITEDEF",
+          "BAF_DMSPRITEDEF"
+        ],
+        "ERM": [
+          "ERM01_DMSPRITEDEF",
+          "ERMHE00_DMSPRITEDEF",
+          "ERMHE01_DMSPRITEDEF",
+          "ERMHE02_DMSPRITEDEF",
+          "ERMHE03_DMSPRITEDEF",
+          "ERMHE90_DMSPRITEDEF",
+          "ERM_DMSPRITEDEF"
+        ],
+        "ERF": [
+          "ERF01_DMSPRITEDEF",
+          "ERFHE00_DMSPRITEDEF",
+          "ERFHE01_DMSPRITEDEF",
+          "ERFHE02_DMSPRITEDEF",
+          "ERFHE03_DMSPRITEDEF",
+          "ERFHE90_DMSPRITEDEF",
+          "ERF_DMSPRITEDEF"
+        ],
+        "ELM": [
+          "ELM01_DMSPRITEDEF",
+          "ELMHE00_DMSPRITEDEF",
+          "ELMHE01_DMSPRITEDEF",
+          "ELMHE02_DMSPRITEDEF",
+          "ELMHE03_DMSPRITEDEF",
+          "ELMHE90_DMSPRITEDEF",
+          "ELM_DMSPRITEDEF"
+        ],
+        "ELF": [
+          "ELF01_DMSPRITEDEF",
+          "ELFHE00_DMSPRITEDEF",
+          "ELFHE01_DMSPRITEDEF",
+          "ELFHE02_DMSPRITEDEF",
+          "ELFHE03_DMSPRITEDEF",
+          "ELFHE90_DMSPRITEDEF",
+          "ELF_DMSPRITEDEF"
+        ],
+        "HIM": [
+          "HIM01_DMSPRITEDEF",
+          "HIMHE00_DMSPRITEDEF",
+          "HIMHE01_DMSPRITEDEF",
+          "HIMHE02_DMSPRITEDEF",
+          "HIMHE03_DMSPRITEDEF",
+          "HIMHE90_DMSPRITEDEF",
+          "HIM_DMSPRITEDEF"
+        ],
+        "HIF": [
+          "HIF01_DMSPRITEDEF",
+          "HIFHE00_DMSPRITEDEF",
+          "HIFHE01_DMSPRITEDEF",
+          "HIFHE02_DMSPRITEDEF",
+          "HIFHE03_DMSPRITEDEF",
+          "HIFHE90_DMSPRITEDEF",
+          "HIF_DMSPRITEDEF"
+        ],
+        "DAM": [
+          "DAM01_DMSPRITEDEF",
+          "DAMHE00_DMSPRITEDEF",
+          "DAMHE01_DMSPRITEDEF",
+          "DAMHE02_DMSPRITEDEF",
+          "DAMHE03_DMSPRITEDEF",
+          "DAMHE90_DMSPRITEDEF",
+          "DAM_DMSPRITEDEF"
+        ],
+        "DAF": [
+          "DAF01_DMSPRITEDEF",
+          "DAFHE00_DMSPRITEDEF",
+          "DAFHE01_DMSPRITEDEF",
+          "DAFHE02_DMSPRITEDEF",
+          "DAFHE03_DMSPRITEDEF",
+          "DAFHE90_DMSPRITEDEF",
+          "DAF_DMSPRITEDEF"
+        ],
+        "HAM": [
+          "HAM01_DMSPRITEDEF",
+          "HAMHE00_DMSPRITEDEF",
+          "HAMHE01_DMSPRITEDEF",
+          "HAMHE02_DMSPRITEDEF",
+          "HAMHE03_DMSPRITEDEF",
+          "HAMHE90_DMSPRITEDEF",
+          "HAM_DMSPRITEDEF"
+        ],
+        "HAF": [
+          "HAF01_DMSPRITEDEF",
+          "HAFHE00_DMSPRITEDEF",
+          "HAFHE01_DMSPRITEDEF",
+          "HAFHE02_DMSPRITEDEF",
+          "HAFHE03_DMSPRITEDEF",
+          "HAFHE90_DMSPRITEDEF",
+          "HAF_DMSPRITEDEF"
+        ],
+        "DWM": [
+          "DWM01_DMSPRITEDEF",
+          "DWMHE00_DMSPRITEDEF",
+          "DWMHE01_DMSPRITEDEF",
+          "DWMHE02_DMSPRITEDEF",
+          "DWMHE03_DMSPRITEDEF",
+          "DWMHE90_DMSPRITEDEF",
+          "DWM_DMSPRITEDEF"
+        ],
+        "DWF": [
+          "DWF01_DMSPRITEDEF",
+          "DWFHE00_DMSPRITEDEF",
+          "DWFHE01_DMSPRITEDEF",
+          "DWFHE02_DMSPRITEDEF",
+          "DWFHE03_DMSPRITEDEF",
+          "DWFHE90_DMSPRITEDEF",
+          "DWF_DMSPRITEDEF"
+        ],
+        "TRM": [
+          "TRM01_DMSPRITEDEF",
+          "TRMHE00_DMSPRITEDEF",
+          "TRMHE01_DMSPRITEDEF",
+          "TRMHE02_DMSPRITEDEF",
+          "TRMHE03_DMSPRITEDEF",
+          "TRMHE90_DMSPRITEDEF",
+          "TRM_DMSPRITEDEF"
+        ],
+        "TRF": [
+          "TRF01_DMSPRITEDEF",
+          "TRFHE00_DMSPRITEDEF",
+          "TRFHE01_DMSPRITEDEF",
+          "TRFHE02_DMSPRITEDEF",
+          "TRFHE03_DMSPRITEDEF",
+          "TRFHE90_DMSPRITEDEF",
+          "TRF_DMSPRITEDEF"
+        ],
+        "OGM": [
+          "OGM01_DMSPRITEDEF",
+          "OGMHE00_DMSPRITEDEF",
+          "OGMHE01_DMSPRITEDEF",
+          "OGMHE02_DMSPRITEDEF",
+          "OGMHE03_DMSPRITEDEF",
+          "OGMHE90_DMSPRITEDEF",
+          "OGM_DMSPRITEDEF"
+        ],
+        "OGF": [
+          "OGF01_DMSPRITEDEF",
+          "OGFHE00_DMSPRITEDEF",
+          "OGFHE01_DMSPRITEDEF",
+          "OGFHE02_DMSPRITEDEF",
+          "OGFHE03_DMSPRITEDEF",
+          "OGFHE90_DMSPRITEDEF",
+          "OGF_DMSPRITEDEF"
+        ],
+        "HOM": [
+          "HOM01_DMSPRITEDEF",
+          "HOMHE00_DMSPRITEDEF",
+          "HOMHE01_DMSPRITEDEF",
+          "HOMHE02_DMSPRITEDEF",
+          "HOMHE03_DMSPRITEDEF",
+          "HOMHE90_DMSPRITEDEF",
+          "HOM_DMSPRITEDEF"
+        ],
+        "HOF": [
+          "HOF01_DMSPRITEDEF",
+          "HOFHE00_DMSPRITEDEF",
+          "HOFHE01_DMSPRITEDEF",
+          "HOFHE02_DMSPRITEDEF",
+          "HOFHE03_DMSPRITEDEF",
+          "HOFHE90_DMSPRITEDEF",
+          "HOF_DMSPRITEDEF"
+        ],
+        "GNM": [
+          "GNM01_DMSPRITEDEF",
+          "GNMHE00_DMSPRITEDEF",
+          "GNMHE01_DMSPRITEDEF",
+          "GNMHE02_DMSPRITEDEF",
+          "GNMHE03_DMSPRITEDEF",
+          "GNMHE04_DMSPRITEDEF",
+          "GNMHE90_DMSPRITEDEF",
+          "GNM_DMSPRITEDEF"
+        ],
+        "GNF": [
+          "GNF01_DMSPRITEDEF",
+          "GNFHE00_DMSPRITEDEF",
+          "GNFHE01_DMSPRITEDEF",
+          "GNFHE02_DMSPRITEDEF",
+          "GNFHE03_DMSPRITEDEF",
+          "GNFHE04_DMSPRITEDEF",
+          "GNFHE90_DMSPRITEDEF",
+          "GNF_DMSPRITEDEF"
+        ]
+      }
+    },
+    "global4_chr.s3d": {
+      "source_sha256": "da5f127ec87a0da6ef0131bb041f01d3e29a0785f59d96ec5abcd81ad37c433d",
+      "output_sha256": "3be6dc0b70b502648045faa0e71f600140c053fe2b772ec77631ce1cb8cf8091",
+      "models": [
+        {
+          "code": "BAM",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 17,
+          "fit_scale": [
+            1.8678676060267856,
+            2.110884817023026,
+            2.1726092392990073
+          ],
+          "fit_shift": [
+            0.00189208984375,
+            -0.119384765625,
+            -0.1591796875
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.2823486328125,
+                -0.4681396484375,
+                -0.1591796875
+              ],
+              [
+                0.2861328125,
+                0.2293701171875,
+                0.6663818359375
+              ]
+            ]
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "BAF",
+          "head_material": 91,
+          "vertices": 556,
+          "triangles": 652,
+          "stock_face_triangles": 0,
+          "head_bone": 13,
+          "fit_scale": [
+            1.3035365513392856,
+            1.5028140419407894,
+            1.5059175325682381
+          ],
+          "fit_shift": [
+            0.0069580078125,
+            -0.0791015625,
+            -0.091552734375
+          ],
+          "lateral_fit": {
+            "method": "native head bounds; visible race/face fit QA pending",
+            "face_bounds": [
+              [
+                -0.19140625,
+                -0.327392578125,
+                -0.091552734375
+              ],
+              [
+                0.205322265625,
+                0.169189453125,
+                0.46533203125
+              ]
+            ]
+          },
+          "front": "-Y"
+        }
+      ],
+      "retained_head_variants": {
+        "BAM": [
+          "BAM01_DMSPRITEDEF",
+          "BAMHE00_DMSPRITEDEF",
+          "BAMHE01_DMSPRITEDEF",
+          "BAMHE02_DMSPRITEDEF",
+          "BAMHE03_DMSPRITEDEF",
+          "BAMHE90_DMSPRITEDEF",
+          "BAM_DMSPRITEDEF"
+        ],
+        "BAF": [
+          "BAF01_DMSPRITEDEF",
+          "BAFHE00_DMSPRITEDEF",
+          "BAFHE01_DMSPRITEDEF",
+          "BAFHE02_DMSPRITEDEF",
+          "BAFHE03_DMSPRITEDEF",
+          "BAFHE90_DMSPRITEDEF",
+          "BAF_DMSPRITEDEF"
+        ]
+      }
+    }
+  },
+  "visual_review": "Decoded candidate03 inspected across24Classic race/gender fits in Blender. Closed-head variant removes face intersections. DDS-to-BMP V corrected; skull and first-frame mouth flame visible on all24fits. Native neck seams and flame animation/equip acceptance pending.",
+  "baseline_regression": "Original HEAD and new default Camil generators produce identical bytes for both archives; see camil-preservation.json. The existing reviewed-candidate hash test also fails on unmodified HEAD, so it is recorded as a pre-existing reproducibility discrepancy, not silently rebaselined.",
+  "uv_reference": "https://github.com/Zaela/EQGModelImporter/blob/master/src/viewer.cpp",
+  "preview_sha256": "4af57042b5b9ade28ac5b763d775b31f41f4beffb84179d43605b40419428f3f"
+}

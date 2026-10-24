@@ -30,8 +30,8 @@ class ClassicRewards(unittest.TestCase):
             self.assertTrue(all(v[k]==0 for k in v if k.startswith('heroic_')))
             for k in ('haste','regen','manaregen','enduranceregen'):self.assertEqual(v[k],0)
             for k in ('proceffect','worneffect','focuseffect'):self.assertEqual(v[k],-1)
-        self.assertEqual(len(names),90)
-        self.assertEqual(set(DESIGNS),{d[0] for d in DUNGEONS[7:]}|{'chapterhouse'})
+        self.assertEqual(len(names),96)
+        self.assertEqual(set(DESIGNS),{d[0] for d in DUNGEONS[7:]}|{'chapterhouse','kael'})
 
     def test_planar_utility_is_equipped_and_tiers_share_cooldown(self):
         data=items()[330:]
@@ -46,7 +46,8 @@ class ClassicRewards(unittest.TestCase):
                 self.assertEqual((v['casttime'],v['casttime_'],v['maxcharges']),(10000,10000,-1))
                 self.assertGreaterEqual(100+group,100);self.assertLessEqual(100+group,200)
                 self.assertEqual(v['loregroup'],0)
-        self.assertEqual(len({r['values']['lore'] for r in data if r['source']!='chapterhouse'}),42)
+        self.assertEqual(len({r['values']['lore'] for r in data if r['source'] not in ('chapterhouse','kael')}),42)
         self.assertEqual(len({r['values']['lore'] for r in data if r['source']=='chapterhouse'}),3)
+        self.assertEqual(len({r['values']['lore'] for r in data if r['source']=='kael'}),3)
 
 if __name__=='__main__':unittest.main()

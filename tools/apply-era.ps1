@@ -41,6 +41,13 @@ if ($Era.zone_exception_policy) {
     Write-Output 'Chapterhouse candidate policy verified. Activation is a separate paired content release.'
 }
 
+if ($Era.additional_zone_exception_policies) {
+    if (@($Era.additional_zone_exception_policies).Count -ne 1 -or $Era.additional_zone_exception_policies[0] -ne 'config/warhelm-access.json') { throw 'Unsupported additional zone policy.' }
+    python -B -c "import sys; sys.path.insert(0, sys.argv[1]); from warhelm_content import access_policy; access_policy()" $PSScriptRoot
+    if ($LASTEXITCODE -ne 0) { throw 'Invalid Warhelm policy; no era changes applied.' }
+    Write-Output 'Warhelm policy verified. Activation requires its paired content and client release.'
+}
+
 if ($Check) {
     $drift = 0
     $live = @{}

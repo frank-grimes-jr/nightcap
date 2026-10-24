@@ -38,6 +38,13 @@ def refresh():
     contract['content']+=json.loads(vigil.read_text())
     contract['schema']=[c for c in contract['schema'] if not c['label'].startswith('nightcap_vigil_')]
     contract['schema']+=json.loads((vigil.parent/'schema-checks.json').read_text())
+    from warhelm_content import compile_rows as warhelm_rows
+    ashen=ROOT/'docs/quests/warhelm'
+    custom += [dict(values=r) for r in warhelm_rows()['items']]
+    contract['content']=[c for c in contract['content'] if not c['label'].startswith('compact/')]
+    contract['content']+=json.loads((ashen/'runtime-checks.json').read_text())
+    contract['schema']=[c for c in contract['schema'] if not c['label'].startswith('nightcap_ashen_')]
+    contract['schema']+=json.loads((ashen/'schema-checks.json').read_text())
     path.write_text(json.dumps(contract,indent=2)+'\n',encoding='utf-8',newline='\n')
     (ROOT/'server-mods/code/common/dungeon_contract.h').write_text(
         render_header(contract['schema'],contract['content'],definitions+custom),encoding='utf-8',newline='\n')

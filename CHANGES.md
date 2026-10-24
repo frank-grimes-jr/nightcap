@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-24 — Shadow Knight Ashen Compact candidate
+
+Adds a separate level50 Shadow Knight campaign following Camil's fourteen-step
+structure: curated Kael expedition, four bosses, standards, three-wave defense,
+oathbound knights, altar and one-time personal Warhelm claim. Durable chapters,
+journal recovery and receipt-gated delivery remain independent of the Vigil.
+The scoped Kael exception preserves Classic50. New bounded loot and a STA/INT
+augment family use existing budgets. A staged Classic HE91 conversion of the
+Warhelm of Rallos Zek preserves Camil HE90. Native/client pairing, complete route,
+appearance and owner balance acceptance are required before release; nothing is
+deployed by this candidate. [Evidence and operations](docs/quests/warhelm/RUNBOOK.md).
+
 ## 2026-10-24 — Hole entrance key requirement removed live
 
 Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: docs/ops/hole-keyless-passage-20261024/deployed.json.

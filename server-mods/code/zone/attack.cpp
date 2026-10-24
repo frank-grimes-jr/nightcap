@@ -1,4 +1,5 @@
 #include "zone/dungeon_service.h"
+#include "common/warhelm_policy.h"
 #include "zone/zone_hunt.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemulator.net)
@@ -2884,7 +2885,8 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 	}
 
 
-	if (give_exp_client && !IsCorpse()) {
+	// Temporary Compact actors grant neither ordinary nor raid/leadership XP.
+	if (give_exp_client && !IsCorpse() && !NightcapAshen::Transient(GetNPCTypeID())) {
 		Group* killer_group = entity_list.GetGroupByClient(give_exp_client);
 		Raid*  killer_raid  = entity_list.GetRaidByClient(give_exp_client);
 

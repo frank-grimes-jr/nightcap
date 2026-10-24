@@ -1,0 +1,12 @@
+{
+  "status": "passed isolated MariaDB rehearsal",
+  "database": "nightcap_dungeon_rehearsal_514e70c760ce",
+  "content_checks": 32,
+  "task_reference_collision": true,
+  "item_reference_collision": true,
+  "mid_transaction_rollback": true,
+  "repeat_refused": true,
+  "campaign_progress_preserved": true,
+  "production_changed": false,
+  "migration_sha256": "ac80fe603c1110f2551ec0a30519e19ad40133f5c386e5356bc9ccafb37fa68c"
+}

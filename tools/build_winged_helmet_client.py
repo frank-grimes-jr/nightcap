@@ -135,7 +135,7 @@ def snug_fit(w, code, face, head_bone, scale, shift):
                 forehead_depth_shift=shift[1]-previous_depth_shift)
 
 
-def add_helmet(raw, game, codes):
+def add_helmet(raw, game, codes, head_material=HEAD_MATERIAL, fit_function=snug_fit):
     if struct.unpack_from('<I',raw,4)[0] != 0x15500:
         raise ValueError('Only pinned Classic WLD is supported')
     nv=len(game['vertices'])
@@ -145,7 +145,7 @@ def add_helmet(raw, game, codes):
         if any(len(p)!=width or any(not math.isfinite(v) for v in p) for p in game[field]):
             raise ValueError('Nonfinite or malformed game '+field)
     for mat,a,b,c in game['triangles']:
-        if mat not in (0,1,2) or len({a,b,c})!=3 or any(not 0<=i<nv for i in (a,b,c)):
+        if not 0<=mat<len(game.get('material_frames',[0,1,2])) or len({a,b,c})!=3 or any(not 0<=i<nv for i in (a,b,c)):
             raise ValueError('Invalid game triangle index or material')
     w=_Wld(raw);fragments=list(w.fragments);strings=bytearray(w.strings);audit=[]
     before_fragment={};after_block={};used_blocks=set();modified_palettes={}
@@ -158,7 +158,7 @@ def add_helmet(raw, game, codes):
         fragments.append(struct.pack('<I',len(body)-4)+body)
         return len(fragments)
     for code in codes:
-        target=f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF'
+        target=f'{code}HE{head_material:02d}_DMSPRITEDEF'
         if target in w.by_name:raise ValueError('Helmet head already exists: '+target)
         source_id=w.by_name[code+'HE00_DMSPRITEDEF'][0]
         first,last=mesh_block(w,source_id)
@@ -177,24 +177,40 @@ def add_helmet(raw, game, codes):
             raise ValueError('Actor meshes do not share the stock material palette')
         # Existing human plate metal bitmap, unmodified. These archives retain
         # the native full-global loader and original cross-race materials.
-        texname=(game['texture']+'\0').encode('ascii')
-        bitmap=append(3,code+'_WING_BITMAP',struct.pack('<IH',0,len(texname))+crypt(texname))
-        bitmap_info=append(4,'',struct.pack('<III',0,1,bitmap))
-        bitmap_ref=append(5,'',struct.pack('<II',bitmap_info,0))
         new_refs=[]
         sample=w.fragments[old_refs[0]-1]
-        for suffix in ('SILVER','GOLD','IVORY'):
-            payload=bytearray(sample[12:]);struct.pack_into('<I',payload,20,bitmap_ref)
-            new_refs.append(append(0x30,code+'_WING_'+suffix,payload))
+        if 'material_frames' not in game:
+            texname=(game['texture']+'\0').encode('ascii')
+            bitmap=append(3,code+'_WING_BITMAP',struct.pack('<IH',0,len(texname))+crypt(texname))
+            bitmap_info=append(4,'',struct.pack('<III',0,1,bitmap))
+            bitmap_ref=append(5,'',struct.pack('<II',bitmap_info,0))
+            for suffix in ('SILVER','GOLD','IVORY'):
+                payload=bytearray(sample[12:]);struct.pack_into('<I',payload,20,bitmap_ref)
+                new_refs.append(append(0x30,code+'_WING_'+suffix,payload))
+        else:
+            for material,frames in enumerate(game['material_frames']):
+                if not frames or len(frames)>64:raise ValueError('Invalid animation frame count')
+                bitmaps=[]
+                for frame,name in enumerate(frames):
+                    if not name.isascii() or '/' in name or '\\' in name:raise ValueError('Unsafe bitmap name')
+                    texname=(name+'\0').encode('ascii')
+                    bitmaps.append(append(3,f'{code}_HE{head_material}_{material}_{frame}',struct.pack('<IH',0,len(texname))+crypt(texname)))
+                animated=len(frames)>1
+                payload=struct.pack('<II',8 if animated else 0,len(frames))
+                if animated:payload+=struct.pack('<I',game['frame_ms'])
+                bitmap_info=append(4,'',payload+struct.pack('<'+'I'*len(bitmaps),*bitmaps))
+                bitmap_ref=append(5,'',struct.pack('<II',bitmap_info,0))
+                payload=bytearray(sample[12:]);struct.pack_into('<I',payload,20,bitmap_ref)
+                new_refs.append(append(0x30,f'{code}_HE{head_material}_M{material}',payload))
         # Classic actors select the FIRST mesh's palette for every variant.
         # A private palette on HE90 leaves its new material indices invisible.
         # Extend the shared stock palette; keep all original slots in place.
         expanded=bytearray(palette)
         if len(expanded)!=20+4*len(old_refs):
             raise ValueError('Unsupported stock material palette layout')
-        expanded.extend(struct.pack('<3I',*new_refs))
+        expanded.extend(struct.pack('<'+'I'*len(new_refs),*new_refs))
         struct.pack_into('<I',expanded,0,len(expanded)-8)
-        struct.pack_into('<I',expanded,16,len(old_refs)+3)
+        struct.pack_into('<I',expanded,16,len(old_refs)+len(new_refs))
         modified_palettes[palette_id]=bytes(expanded)
         fragments[palette_id-1]=bytes(expanded)
         head_bone=max(original['bones'])[1]
@@ -208,7 +224,13 @@ def add_helmet(raw, game, codes):
         scale=[(highs[0]-lows[0])*1.15/.35,(highs[1]-lows[1])*1.15/.38,(highs[2]-lows[2]+.05)/.403]
         shift=[(highs[0]+lows[0])/2,(highs[1]+lows[1])/2,lows[2]]
         if code in ('HIM','ELM'):scale=[2.3]*3;shift=[0,-.03,-.19]
-        fit=snug_fit(w,code,m,head_bone,scale,shift)
+        fit=fit_function(w,code,m,head_bone,scale,shift)
+        if game.get('replace_head',False):
+            # A fully enclosed helm replaces the selected head variant. Keeping
+            # the face surface underneath causes clipping on wide Classic heads.
+            for key in ('vertices','normals','uv','polygons','polygon_materials'):
+                m[key]=[]
+            bone_labels=[]
         start=len(m['vertices'])
         for p,n,uv in zip(game['vertices'],game['normals'],game['uv']):
             m['vertices'].append(to_native_axes(code,[p[k]*scale[k]+shift[k] for k in range(3)]))
@@ -229,10 +251,10 @@ def add_helmet(raw, game, codes):
         newmesh=encode_mesh(m,name_ref(target),palette_id)
         fragments.append(newmesh)
         mesh_id=len(fragments)
-        append(0x2d,f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITE',struct.pack('<II',len(fragments),0))
+        append(0x2d,f'{code}HE{head_material:02d}_DMSPRITE',struct.pack('<II',len(fragments),0))
         before_fragment[palette_id]=list(range(added_start,mesh_id))
         after_block[last]=[mesh_id,len(fragments)]
-        audit.append(dict(code=code,head_material=HEAD_MATERIAL,vertices=len(m['vertices']),triangles=len(m['polygons']),stock_face_triangles=len(m['polygons'])-len(game['triangles']),head_bone=head_bone,fit_scale=scale,fit_shift=shift,lateral_fit=fit,front='+X' if code in POSITIVE_X_FRONT else '-Y'))
+        audit.append(dict(code=code,head_material=head_material,vertices=len(m['vertices']),triangles=len(m['polygons']),stock_face_triangles=len(m['polygons'])-len(game['triangles']),head_bone=head_bone,fit_scale=scale,fit_shift=shift,lateral_fit=fit,front='+X' if code in POSITIVE_X_FRONT else '-Y'))
     strings.extend(bytes((-len(strings))%4))
     header=bytearray(w.header)
     struct.pack_into('<I',header,8,len(fragments));struct.pack_into('<I',header,20,len(strings))
@@ -251,11 +273,11 @@ def add_helmet(raw, game, codes):
     output=reorder(output,order)
     after=_Wld(output)
     for code in codes:
-        if f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF' not in registered_meshes(after,code):
+        if f'{code}HE{head_material:02d}_DMSPRITEDEF' not in registered_meshes(after,code):
             raise AssertionError('Helmet is outside the native actor mesh block')
         actor=after.by_name[registered_meshes(after,code)[0]][0]
         actor_palette=struct.unpack_from('<I',after.fragments[actor-1],16)[0]
-        head=after.fragments[after.by_name[f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF'][0]-1]
+        head=after.fragments[after.by_name[f'{code}HE{head_material:02d}_DMSPRITEDEF'][0]-1]
         if struct.unpack_from('<I',head,16)[0]!=actor_palette:
             raise AssertionError('Helmet materials are outside the native actor palette')
         if any(mat>=len(after.references(actor_palette)) for _,mat in decode_mesh(head)['polygon_materials']):

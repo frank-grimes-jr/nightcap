@@ -1,6 +1,7 @@
 #include "zone/dungeon_service.h"
 #include "common/dungeon_catalog.h"
 #include "common/chapterhouse_policy.h"
+#include "common/warhelm_policy.h"
 #include "common/dungeon_contract.h"
 #include "common/content/world_content_service.h"
 #include "common/json/json.hpp"
@@ -231,10 +232,12 @@ void ShowChecklist(Client *c, const Run &run) {
 }
 
 #include "zone/chapterhouse_vigil.inc"
-void Process() { Vigil::Tick(); }
+#include "zone/warhelm_compact.inc"
+void Process() { Vigil::Tick(); Ashen::Tick(); }
 
 void ConfigureJournalTask(int task_id, TaskInformation &task) {
 	Vigil::Configure(task_id,task);
+	Ashen::Configure(task_id,task);
 	if (task_id<9700 || task_id>=9700+static_cast<int>(DungeonCount*2)) { return; }
 	const auto &d=Dungeons[(task_id-9700)/2];
 	if (task.type!=TaskType::Quest || task.activity_count!=static_cast<int>(d.count+1)) { return; }
@@ -270,6 +273,7 @@ bool Managed() { return !current.id.empty(); }
 std::string RunID() { return current.id; }
 bool Boot() {
 	Vigil::defense={};
+	Ashen::defense={};
 	current={}; healthy=true; deaths.clear(); objectives.clear(); respawns.clear(); death_times.clear(); confirmations.clear();
 	if (!zone || !zone->GetInstanceID() || !FindDungeon(zone->GetZoneID())) { return true; }
 	try {
@@ -336,7 +340,7 @@ void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 			return s.spawngroupID!=999231 && s.spawngroupID!=999240;
 		}),spawns.end());
 	}
-	if (current.dungeon->zone==760) { spawns.clear(); }
+	if (current.dungeon->zone==760 || current.dungeon->zone==113) { spawns.clear(); }
 	try {
 		auto rows=Query(fmt::format("SELECT spawn_id,group_id,npc_id,x,y,z,heading,respawn,grid_id FROM nightcap_dungeon_spawns WHERE zone_id={}",current.dungeon->zone));
 		for (auto r=rows.begin();r!=rows.end();++r) {
@@ -379,6 +383,22 @@ bool PrepareLoot(NPC *npc, bool owned) {
 			}
 			npc->SetEntityVariable("nightcap:vigil-loot",run.id);
 		}
+		if (run.dungeon->zone==113 && !owned && npc->GetSpawnPointID() && NightcapAshen::Combat(npc->GetNPCTypeID()) &&
+			npc->GetEntityVariable("nightcap:ashen-loot").empty()) {
+			const auto spawn=npc->GetSpawnPointID();
+			const auto seed=Mix(run.seed^death_times[spawn]);
+			auto add=[&](uint32_t item) {
+				const auto before=npc->GetLootItems().size(); npc->AddItem(item,1,false);
+				if (npc->GetLootItems().size()!=before+1) { throw std::runtime_error("Kael loot materialization failed"); }
+			};
+			const auto mini=NightcapAshen::MiniReward(npc->GetNPCTypeID());
+			if (mini && Roll(seed,spawn,301,10000)<3500) { add(mini); }
+			if (Roll(seed,spawn,302,10000)<50) {
+				const auto quality=Roll(seed,spawn,303,10000);
+				add(NightcapAshen::Augment+(quality<6000 ? 0 : quality<9000 ? 1 : quality<9800 ? 2 : 3));
+			}
+			npc->SetEntityVariable("nightcap:ashen-loot",run.id);
+		}
 		if (current.mode!=Mode::Raid) { return true; }
 		const auto boss=Objective(npc->GetSpawnPointID(),npc->GetNPCTypeID());
 		if (boss && boss->final && !owned) {
@@ -403,7 +423,7 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 	if (!Managed() || npc->IsQueuedForCorpse()) { return true; }
 	if (!npc->GetEntityVariable("nightcap:dungeon-death-committed").empty()) { return false; }
 	if (!healthy || current.expiry<=Now()) { return false; }
-	if (!Vigil::DynamicDeath(npc,killer,owned)) { return false; }
+	if (!Vigil::DynamicDeath(npc,killer,owned) || !Ashen::DynamicDeath(npc,killer,owned)) { return false; }
 	const auto spawn=npc->GetSpawnPointID();
 	if (!spawn) { return true; }
 	const auto boss=Objective(spawn,npc->GetNPCTypeID());
@@ -431,7 +451,7 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 				if (completion.RowsAffected()==1) { completed.push_back(c); }
 			}
 		}
-		if (boss && !owned) { Vigil::Death(run,credit); }
+		if (boss && !owned) { Vigil::Death(run,credit); Ashen::Death(run,credit); }
 		if (corpse) {
 				Json legacy={{"copper",corpse->GetCopper()},{"silver",corpse->GetSilver()},{"gold",corpse->GetGold()},{"platinum",corpse->GetPlatinum()},{"entries",Json::array()}};
 				const auto loot=NightcapLoot::SaveCorpseState(corpse,legacy.dump());
@@ -446,7 +466,7 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 		if (run.mode==Mode::Raid) { deaths.insert(spawn); }
 		else { respawns[spawn]=respawn_at; death_times[spawn]=died_at; }
 		if (boss && !owned) { objectives.insert(boss->objective); }
-		if (boss) { for (auto c : credit) { Journal(c); if (run.dungeon->zone==760) { Vigil::Project(c); } } }
+		if (boss) { for (auto c : credit) { Journal(c); if (run.dungeon->zone==760) { Vigil::Project(c); } else if (run.dungeon->zone==113) { Ashen::Project(c); } } }
 		for (auto c : completed) {
 			c->Message(Chat::Yellow,"Dungeon complete: %s - %s. All %u required bosses credited. Your personal reward is earned. Keeper Status records your permanent completion count.",
 				run.dungeon->name,run.mode==Mode::Raid ? "Raid" : "Grind",run.dungeon->count);
@@ -528,11 +548,15 @@ void Connected(Client *c) {
 		Query(fmt::format("UPDATE nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id SET m.inside_instance=0 "
 			"WHERE m.character_id={} AND r.instance_id<>{}",c->CharacterID(),zone->GetInstanceID()));
 		if (Managed()) {
+			if (current.dungeon->zone==113 && !Ashen::HasJournalRoom(c,9700+current.dungeon->index*2+unsigned(current.mode))) {
+				throw std::runtime_error("Make room for the dungeon journal and unfinished Ashen Compact in Tasks.");
+			}
 			Query(fmt::format("UPDATE nightcap_dungeon_members SET inside_instance=1 WHERE run_id={} AND character_id={}",Q(current.id),c->CharacterID()));
 		}
 		tx.Commit();
 		JournalHistory(c);
 		Vigil::Connected(c);
+		Ashen::Connected(c);
 		if (Managed()) { Journal(c); ShowChecklist(c,current); }
 	} catch (const std::exception &e) {
 		LogError("Dungeon presence update failed [{}]",e.what());
@@ -542,9 +566,9 @@ void Connected(Client *c) {
 
 bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 	if (!zone || !keeper) { return false; }
-	if (Vigil::Action(c,keeper,action)) { return true; }
+	if (Vigil::Action(c,keeper,action) || Ashen::Action(c,keeper,action)) { return true; }
 	const auto d=KeeperDungeon(zone->GetZoneID(),zone->GetInstanceID(),keeper->GetNPCTypeID());
-	if (!d) { return keeper->GetNPCTypeID()==998812 || keeper->GetNPCTypeID()==998820; }
+	if (!d) { return keeper->GetNPCTypeID()==998812 || keeper->GetNPCTypeID()==998820 || keeper->GetNPCTypeID()==998860; }
 	// False means the Perl legacy implementation may mutate instance_list.
 	// Invalid input must be consumed, never translated into legacy permission.
 	if (!c || !c->Connected() || !c->ClientDataLoaded()) { return true; }
@@ -554,6 +578,9 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 	try {
 		if (d->zone==760 && action!="claim rewards" && (!Vigil::Installed() || c->GetLevel()<50)) {
 			throw std::runtime_error("Chapterhouse requires level 50 and an active curated expedition release.");
+		}
+		if (d->zone==113 && action!="claim rewards" && (!Ashen::Installed() || c->GetLevel()<50)) {
+			throw std::runtime_error("Kael requires level 50 and an active Ashen Compact release.");
 		}
 		// Reject entry before managed or legacy allocation/enrollment can write.
 		if ((action=="raid" || action=="grind" || action=="enter" || action=="join" || action=="confirm reset") &&
@@ -568,7 +595,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		}
 		auto table=database.QueryDatabase(std::string("SELECT enabled FROM nightcap_dungeon_state WHERE id=1"),false);
 		if (!table.Success() || !table.RowCount()) {
-			if (d->zone==760) { throw std::runtime_error("Curated Chapterhouse storage is unavailable."); }
+			if (d->zone==760 || d->zone==113) { throw std::runtime_error("Curated campaign storage is unavailable."); }
 			if (native_managed || Managed()) { throw std::runtime_error("Managed dungeon storage is unavailable."); }
 			auto installed=Query("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_state'");
 			if (std::string(installed.begin()[0])!="0") { throw std::runtime_error("Dungeon feature state is unavailable."); }
@@ -588,19 +615,19 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		};
 		if (run.id.empty() && action!="claim rewards") {
 			if (legacy(c->CharacterID())) {
-				if (d->zone==760) { throw std::runtime_error("An old Chapterhouse allocation must expire before a curated run can begin."); }
+				if (d->zone==760 || d->zone==113) { throw std::runtime_error("An old curated-zone allocation must expire before a curated run can begin."); }
 				return false;
 			}
 			if (!native_managed && action=="join" && c->GetGroup()) {
 				auto leader=Query("SELECT id FROM character_data WHERE name="+Q(c->GetGroup()->GetLeaderName()));
 				if (leader.RowCount()==1 && legacy(Strings::ToUnsignedInt(leader.begin()[0]))) {
-					if (d->zone==760) { throw std::runtime_error("The leader's old Chapterhouse allocation must expire before a curated run can begin."); }
+					if (d->zone==760 || d->zone==113) { throw std::runtime_error("The leader's old curated-zone allocation must expire before a curated run can begin."); }
 					return false;
 				}
 			}
 		}
 		if (!enabled && run.id.empty() && !native_managed && action!="claim rewards") {
-			if (d->zone==760) { throw std::runtime_error("New curated dungeon runs are paused."); }
+			if (d->zone==760 || d->zone==113) { throw std::runtime_error("New curated dungeon runs are paused."); }
 			return false;
 		}
 		if (action=="claim rewards") { Claim(c); return true; }
@@ -693,6 +720,9 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 			}
 			if (d->zone==760 && !Vigil::HasJournalRoom(c,9700+d->index*2+unsigned(run.mode))) {
 				throw std::runtime_error("Make room for both the dungeon journal and any unfinished Vigil quest in Tasks.");
+			}
+			if (d->zone==113 && !Ashen::HasJournalRoom(c,9700+d->index*2+unsigned(run.mode))) {
+				throw std::runtime_error("Make room for the dungeon journal and unfinished Ashen Compact in Tasks.");
 			}
 			Query(fmt::format("UPDATE nightcap_dungeon_members SET inside_instance=1 WHERE run_id={} AND character_id={}",Q(run.id),c->CharacterID()));
 			tx.Commit();
