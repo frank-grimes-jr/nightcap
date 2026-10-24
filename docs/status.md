@@ -6,7 +6,8 @@ The candidate adds an entrance confrontation, guard alarm, compact prison route,
 zone-wide story dialogue and an Osargen escort back to the entrance. Three waves
 attack the prisoner; death/retry preserves defeated bosses, while personal rewards
 require extraction. Isolated coordinator/healing, database and bidirectional
-navigation checks pass. Full native build status is in the release manifest.
+navigation checks pass. Full native zone build692cacd6852857fc also passes;
+its retained source manifest matches all final changed native files.
 Not activated or published; manual navigation, pacing and maximum-legal-power
 balance remain open. [Exact QA](dungeons/highkeep-rescue/QA.md) and
 [paired installation/recovery](dungeons/highkeep-rescue/RUNBOOK.md).

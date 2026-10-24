@@ -71,8 +71,9 @@ escorts return to the cell after reboot; alarm and boss deaths remain. Death or
 - `navigation.json`: native FindRoute connects all four legs in both directions
   using normal path flags, with no partial paths or teleport links. Actual
   movement through doors and combat remains an in-game check.
-- `native-build-manifest.json`: retained source and final candidate hash when
-  the full build completes; build artifacts are isolated and never installed.
+- `native-build-manifest.json`: full zone build passed, SHA-256
+  `692cacd6852857fce1b0ac6f4e125f2d0267cde8a7c3728446ee6c4345fadba4`;
+  retained source matches the final changed files. Isolated; never installed.
 
 `tools/build_highkeep_candidate.py` verifies the retained Chapterhouse source
 manifest before building. All seven edited pre-existing native files also match

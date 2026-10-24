@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-24",
+  "implementation_revision": "517f75fa19b294dc86204343521968349555830b",
+  "status": "automated validation passed; manual gameplay and balance QA open",
+  "native_build": {
+    "status": "passed",
+    "zone_sha256": "692cacd6852857fce1b0ac6f4e125f2d0267cde8a7c3728446ee6c4345fadba4",
+    "changed_source_files_verified": 9,
+    "installed": false
+  },
+  "checks": [
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_highkeep_rescue.py -v",
+      "passed": 2,
+      "scope": "Actual policy and coordinator compiled with explicit engine/storage doubles"
+    },
+    {
+      "command": "python tools/tests/test_heal_targeting.py --common work/spdat.cpp --container akk-stack-eqemu-server-1",
+      "passed": 149,
+      "scope": "Actual heal classifiers and cast prefixes, including implied targeting"
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p 'test_*dungeon*.py' -v",
+      "passed": 26
+    },
+    {
+      "command": "python tools/tests/rehearse_highkeep_rescue.py",
+      "status": "passed",
+      "scope": "Isolated disposable MariaDB; actual migration and completion transaction; container removed"
+    },
+    {
+      "evidence": "terrain.json",
+      "passed_samples": 35
+    },
+    {
+      "evidence": "navigation.json",
+      "passed_route_legs": 8,
+      "scope": "Actual native FindRoute with normal flags; all four legs in both directions"
+    },
+    {
+      "command": "python wiki/build.py",
+      "pages": 476,
+      "status": "passed",
+      "source_revision": "63ab77158aaf97a2161ced0810f6ee8e03ba585f"
+    },
+    {
+      "command": "python -m unittest discover -s wiki -p test_wiki.py -v",
+      "passed": 12,
+      "source_revision": "63ab77158aaf97a2161ced0810f6ee8e03ba585f"
+    }
+  ],
+  "independent_review": "Corrections verified; no remaining concrete findings in reviewed corrections",
+  "additional_model_review": "Owner chose to continue with current review",
+  "manual_checks": [
+    "Real doors, stairs and following under combat",
+    "Dialogue, Tasks and reward presentation",
+    "Level-40 progression and maximum legal multiclass/AA/gear encounter balance"
+  ],
+  "production_changed": false,
+  "wiki_published": false
+}

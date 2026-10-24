@@ -1,6 +1,8 @@
 # High Keep: The Prison Break
 
 Candidate, 2026-10-24. Source baseline origin/main ebeb6591; not deployed.
+Integrated main7fe3a783's subsequent Hole release evidence; the native baseline
+is unchanged. Final full zone build and scoped tests pass; gameplay QA is open.
 
 The entrance must explain the raid before combat. Hail the Gate Sergeant, claim
 to be a relief detail, then insist on seeing Osargen. Suspicion escalates through

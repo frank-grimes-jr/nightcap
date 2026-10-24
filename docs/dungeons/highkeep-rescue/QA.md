@@ -61,8 +61,9 @@ The actual SQL rehearsal proves disabled default, transaction rollback, personal
 four-kill gating, replay refusal, uniqueness/constraints and progress preservation.
 Thirty-five terrain samples have ground and at least approximately12units of
 headroom. Native FindRoute connects all four escape legs in both directions,
-without partial paths or teleport links. Full native compilation is recorded
-separately in its manifest.
+without partial paths or teleport links. Full native zone compilation passes;
+its manifest matches all final changed native sources. The separate wiki
+candidate builds476pages and passes12content/link/package checks.
 
 Fresh-context native review identified and corrected follow guard-point drift,
 missing idle prisoner recovery, permanent faction writes, heal redirection, raid/

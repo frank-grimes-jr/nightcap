@@ -13,5 +13,6 @@ rewards, arbitrary teleport recovery, live deployment and a new client patch.
 Remaining uncertainty: in-game doors/following, dialogue readability, encounter
 pacing and combined maximum-legal-power balance. Initial tuning is explicit in
 BALANCE.md. This phase creates a reviewable candidate; it does not establish live
-availability or owner acceptance. Full native build evidence is recorded when
-complete; main/server and wiki publication remain separate approval boundaries.
+availability or owner acceptance. Full native build692cacd6852857fc passes with
+the final source manifest; main/server and wiki publication remain separate
+approval boundaries.
