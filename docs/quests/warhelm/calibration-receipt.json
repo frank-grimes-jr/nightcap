@@ -1,5 +1,5 @@
 {
-  "status": "Final native build and final diagnostic calibration passed; not installed",
+  "status": "Pre-relocation combat calibration passed; retained exact native provenance. Entrance-only revision does not change combat definitions.",
   "overlay_source_files_verified": 129,
   "native_binaries": {
     "world": "869cb91bfd7211df31c9ef6085555a6c1fec40e3fef6fe2a52f2f9c3b8571dff",
@@ -8,12 +8,12 @@
   },
   "diagnostic_binary_sha256": "d6f8196768e4e6ed2cf80eb68db0c35432dac6a10ebf6de2333afc98bb3ab079",
   "evidence_sha256": {
-    "native-build-manifest.json": "faa400aef579eda7567f586d03bda43a1580f8f60f0a04d662b39a4584f26dce",
     "balance-build-manifest.json": "686b608d7f655f5ec20f627fbdbe6cf193eb4aa50addec39a51b6944c4f4a65b",
     "sk-results.json": "0eb2c65d75992bae5b8c795a5f8deb69f45384600843026b9e590a8e4f9a30f4",
     "sk-controls.json": "f1fc025f8076e068854036d753d17fb88018d06bab4217eac83f22920bd6c2a5",
     "sk-aa.json": "fd3b29f5ccc1010f2a0b8eb0ec2d2001de439dd42f8fe342bc1b58c3e9db42c5",
-    "balance-setup.json": "fd5130ac5f7339b4a77f49cbb0d5bac4ddf9ca5cb0dade2fa839c088fe5a048b"
+    "balance-setup.json": "fd5130ac5f7339b4a77f49cbb0d5bac4ddf9ca5cb0dade2fa839c088fe5a048b",
+    "calibration-native-build-manifest.json": "faa400aef579eda7567f586d03bda43a1580f8f60f0a04d662b39a4584f26dce"
   },
   "input_sha256": {
     "sk-998861-grind-101-input.json": "ab5af5ff277c8f103a5c6a9af688004c85eee16933db59817843d0e4247942e7",
@@ -51,5 +51,6 @@
   "progression_controls": 4,
   "control_player_deaths": 4,
   "full_route_and_native_client_acceptance": "pending",
-  "production_changed": false
+  "production_changed": false,
+  "entrance_revision": "Read EVERFROST.md and current native-build-manifest.json for the separately rebuilt Everfrost host."
 }

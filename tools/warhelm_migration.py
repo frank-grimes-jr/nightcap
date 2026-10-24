@@ -1,7 +1,7 @@
 """Generate guarded candidate installation and explicit runtime content checks."""
 import json
 from pathlib import Path
-from warhelm_content import OUT, ROOT, ENTRANCE, compile_rows, access_policy
+from warhelm_content import OUT, ROOT, ENTRANCE, HOST_ZONE, HOST_SHORT, compile_rows, access_policy
 from dungeon_catalog import items
 from dungeon_contract import predicate as strict_predicate
 from dungeon_migration import insert, ITEM_REFERENCES
@@ -77,16 +77,16 @@ def compile_migration():
     checks.append(dict(label='compact/zone',sql='SELECT COUNT(*) FROM zone WHERE '+predicate(newzone),expected='1'))
     out.append("UPDATE spawn2 SET min_expansion=2,content_flags='nightcap_kael_stock_disabled' WHERE zone='kael';")
     # Original doors remain geometry; every original outbound portal returns to
-    # Classic commons. Key requirements cannot introduce later-era item errands.
+    # The hidden Classic Everfrost passage. Key requirements cannot introduce later-era item errands.
     x,y,z,h=ENTRANCE
-    out.append(f"UPDATE doors SET keyitem=0,lockpick=0,dest_zone=IF(dest_zone<>'NONE','commons','NONE'),dest_x=IF(dest_zone='commons',{x},dest_x),dest_y=IF(dest_zone='commons',{y},dest_y),dest_z=IF(dest_zone='commons',{z},dest_z),dest_heading=IF(dest_zone='commons',{h},dest_heading) WHERE zone='kael';")
+    out.append(f"UPDATE doors SET keyitem=0,lockpick=0,dest_zone=IF(dest_zone<>'NONE','{HOST_SHORT}','NONE'),dest_x=IF(dest_zone='{HOST_SHORT}',{x},dest_x),dest_y=IF(dest_zone='{HOST_SHORT}',{y},dest_y),dest_z=IF(dest_zone='{HOST_SHORT}',{z},dest_z),dest_heading=IF(dest_zone='{HOST_SHORT}',{h},dest_heading) WHERE zone='kael';")
     for t,entries in hazards.items():
         w={'zone_points':"zone='kael'",'ground_spawns':'zoneid=113','fishing':'zoneid=113','forage':'zoneid=113',
            'traps':"zone='kael'",'object':'zoneid=113'}[t]
         require(f'(SELECT COUNT(*) FROM `{t}` WHERE {w})={len(entries)}','Secondary source count '+t)
         for r in entries:require(f'EXISTS(SELECT 1 FROM `{t}` WHERE {predicate(r)})','Secondary source drift '+t)
         if t=='zone_points':
-            out.append(f"UPDATE zone_points SET target_zone_id=21,target_x={x},target_y={y},target_z={z},target_heading={h},target_instance=0 WHERE zone='kael';")
+            out.append(f"UPDATE zone_points SET target_zone_id={HOST_ZONE},target_x={x},target_y={y},target_z={z},target_heading={h},target_instance=0 WHERE zone='kael';")
         else:out.append(f'DELETE FROM `{t}` WHERE {w};')
     for t,values in rows.items():
         out.extend(insert(t,r) for r in values)
@@ -96,8 +96,8 @@ def compile_migration():
     checks.extend([
         dict(label='compact/stock-flag-disabled',sql="SELECT COUNT(*) FROM content_flags WHERE flag_name='nightcap_kael_stock_disabled' AND enabled<>0",expected='0'),
         dict(label='compact/no-stock-spawns',sql="SELECT COUNT(*) FROM spawn2 WHERE zone='kael' AND spawngroupID NOT IN (998860,999240) AND (min_expansion<2 OR NOT(content_flags <=> 'nightcap_kael_stock_disabled'))",expected='0'),
-        dict(label='compact/no-later-exits',sql="SELECT COUNT(*) FROM doors WHERE zone='kael' AND dest_zone NOT IN ('NONE','commons')",expected='0'),
-        dict(label='compact/no-later-zonepoints',sql="SELECT COUNT(*) FROM zone_points WHERE zone='kael' AND target_zone_id<>21",expected='0')])
+        dict(label='compact/no-later-exits',sql=f"SELECT COUNT(*) FROM doors WHERE zone='kael' AND dest_zone NOT IN ('NONE','{HOST_SHORT}')",expected='0'),
+        dict(label='compact/no-later-zonepoints',sql=f"SELECT COUNT(*) FROM zone_points WHERE zone='kael' AND target_zone_id<>{HOST_ZONE}",expected='0')])
     for t,w in [('ground_spawns','zoneid=113'),('fishing','zoneid=113'),('forage','zoneid=113'),('traps',"zone='kael'"),('object','zoneid=113')]:
         checks.append(dict(label='compact/no-secondary-'+t,sql=f'SELECT COUNT(*) FROM `{t}` WHERE {w}',expected='0'))
     for c in checks:require('('+c['sql']+')='+c['expected'],'Postcondition '+c['label'])

@@ -52,6 +52,13 @@ Bosses have charm/fear/fleeing immunity, remain interruptible by stun, and use
 living Storm Giant model 189. The Echo's special ability 5 is a 5% flurry.
 Defense war souls use Spectre model 85 and remain controllable.
 
+
+The later Everfrost entrance revision leaves all NPC definitions, private Kael
+spawns, items and combat logic unchanged. These measurements retain their exact
+pre-relocation build in calibration-native-build-manifest.json; they were not
+rerun or relabeled as a new combat measurement. The current entrance build has
+its own native-build-manifest.json. See EVERFROST.md for the verified comparison.
+
 ## Reproduction and evidence
 
 Follow RUNBOOK.md. The final diagnostic was linked after the full candidate

@@ -1,5 +1,6 @@
 test_actual_defense_tick_enforces_cadence_and_cleans_failed_attempts (test_warhelm.Warhelm.test_actual_defense_tick_enforces_cadence_and_cleans_failed_attempts) ... ok
 test_champions_use_kael_storm_giants_and_leave_interrupts_available (test_warhelm.Warhelm.test_champions_use_kael_storm_giants_and_leave_interrupts_available) ... ok
+test_kael_entrance_uses_public_everfrost_and_preserves_camil (test_warhelm.Warhelm.test_kael_entrance_uses_public_everfrost_and_preserves_camil) ... ok
 test_native_order_class_and_isolation (test_warhelm.Warhelm.test_native_order_class_and_isolation) ... ok
 test_preservation_registration_animation_and_native_block_capacity (test_warhelm_client.WarhelmClient.test_preservation_registration_animation_and_native_block_capacity) ... ok
 test_warning_interrupt_escape_and_owned_add_cleanup (test_warhelm_encounters.Encounters.test_warning_interrupt_escape_and_owned_add_cleanup) ... ok
@@ -56,6 +57,6 @@ test_departure_cannot_replay_feign_memory_onto_reused_entity_id (test_aggro_depa
 test_saved_pull_location_does_not_become_stationary_home (test_zone_state_home_native.ZoneStateHomeTests.test_saved_pull_location_does_not_become_stationary_home) ... ok
 
 ----------------------------------------------------------------------
-Ran 56 tests in 88.664s
+Ran 57 tests in 89.597s
 
 OK

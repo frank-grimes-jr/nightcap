@@ -50,13 +50,14 @@ remain explicit in-game acceptance items.
 The old Camil generator and candidate default generator produce identical archive
 bytes. The repository's older reviewed-candidate hash assertion fails identically
 on unmodified HEAD; see camil-preservation.json. Its expected hashes were not
-silently changed. The 56 focused checks exclude that preexisting assertion and include the integrated High Keep, healing, aggro-departure and saved-home regressions.
+silently changed. The 57 focused checks exclude that preexisting assertion and include the integrated High Keep, healing, aggro-departure and saved-home regressions.
 
-The wiki overlay is based on the verified published Hole revision66c7b843. It
-reviews all24maintained guides, preserves447existing generated routes, adds the
-story, Kael and14item pages, and labels every new surface Not released. Windows
-content/link/package checks pass; nine POSIX publication/recovery cases are
-pending Linux execution before any publication.
+The wiki overlay now uses published custom-Features source a0bd0faa. All 24
+maintained guides are reviewed; Home and Features remain byte-identical and
+existing preview anchors remain reachable. Fourteen current content/link/package/
+history tests pass. POSIX publication/recovery cases remain a separate release
+gate; no website was published. EVERFROST.md records the entrance-only revision,
+its native routing regression, preserved combat definitions and exact placement.
 
 ## Acceptance still required
 

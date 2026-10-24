@@ -1,0 +1,12 @@
+{
+  "database": "nightcap_dungeon_rehearsal_101e5962dfd6",
+  "sql": {
+    "portal_exit_positions": "SELECT COUNT(*) FROM doors WHERE zone='kael' AND dest_zone<>'NONE' AND (dest_zone<>'everfrost' OR ABS(dest_x-(-6974))>0.001 OR ABS(dest_y-(2174))>0.001 OR ABS(dest_z-(-61.0625))>0.001 OR ABS(dest_heading-(0))>0.001)",
+    "zone_line_exit_positions": "SELECT COUNT(*) FROM zone_points WHERE zone='kael' AND (target_zone_id<>30 OR target_instance<>0 OR ABS(target_x-(-6974))>0.001 OR ABS(target_y-(2174))>0.001 OR ABS(target_z-(-61.0625))>0.001 OR ABS(target_heading-(0))>0.001)"
+  },
+  "mismatches": {
+    "portal_exit_positions": "0",
+    "zone_line_exit_positions": "0"
+  },
+  "status": "All generated Kael outbound destinations match the probed Everfrost Keeper position"
+}

@@ -1684,8 +1684,8 @@
     "map_sha256": "4d0af7dba6d7331fde51f7edf148a18c8b8a64f606d70617878ab5b4af2c719a",
     "rejected": []
   },
-  "commons": {
-    "map": "/home/eqemu/server/maps/base/commons.map",
+  "everfrost": {
+    "map": "/home/eqemu/server/maps/base/everfrost.map",
     "points": [
       {
         "label": "9230099",
@@ -1694,41 +1694,41 @@
             "dx": 0.0,
             "dy": 0.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.041969299316406
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": 4.0,
             "dy": 0.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.015241622924805
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": -4.0,
             "dy": 0.0,
             "ground_hit": true,
-            "ground_z": -42.274837493896484,
-            "headroom": 14.142923355102539
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": 0.0,
             "dy": 4.0,
             "ground_hit": true,
-            "ground_z": -42.27925109863281,
-            "headroom": 14.090476989746094
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": 0.0,
             "dy": -4.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.015241622924805
+            "ground_z": -61.0625,
+            "headroom": 24.0
           }
         ],
-        "x": 556,
-        "y": -1140,
-        "z": -40.28125
+        "x": -6974,
+        "y": 2174,
+        "z": -61.0625
       },
       {
         "label": "9230098",
@@ -1737,45 +1737,45 @@
             "dx": 0.0,
             "dy": 0.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.0
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": 4.0,
             "dy": 0.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.0
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": -4.0,
             "dy": 0.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.00187873840332
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": 0.0,
             "dy": 4.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.00187873840332
+            "ground_z": -61.0625,
+            "headroom": 24.0
           },
           {
             "dx": 0.0,
             "dy": -4.0,
             "ground_hit": true,
-            "ground_z": -42.28125,
-            "headroom": 14.0
+            "ground_z": -61.0625,
+            "headroom": 24.0
           }
         ],
-        "x": 556,
-        "y": -1150,
-        "z": -40.28125
+        "x": -6974,
+        "y": 2158,
+        "z": -61.0625
       }
     ],
     "segments": [],
-    "map_sha256": "3c05f50d69db462a9726469f251819c5dfdfbe2045439732b00a9bbcdfca6f14",
+    "map_sha256": "0d0d7e9892973d76f44f0d99a070fbec8b0295196f8818f0f2b5ee78b2bc5435",
     "rejected": []
   }
 }

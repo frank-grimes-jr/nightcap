@@ -6,7 +6,7 @@ from dungeon_capture import query, rows
 OUT=Path(__file__).resolve().parents[1]/'docs/quests/warhelm'
 
 def capture():
-    data={'environment':'local','zone':rows('zone',"short_name IN ('kael','commons') AND version=0"),
+    data={'environment':'local','zone':rows('zone',"short_name IN ('kael','everfrost') AND version=0"),
           'spawn2':rows('spawn2',"zone='kael'"),'doors':rows('doors',"zone='kael'"),
           'helmet':rows('items','id=990500')}
     groups=','.join(str(s['spawngroupID']) for s in data['spawn2'])
