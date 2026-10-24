@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-24",
-  "reviewed_revision": "517f75fa19b294dc86204343521968349555830b",
+  "reviewed_revision": "0303c53106c6a2c094903dc970831f6f5e9cbbec",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -83,6 +83,7 @@
     "Final Chapterhouse delivery records through main PR314/ebeb6591 reviewed: 91 saved-state tables, exact waypoint-only reconciliation, five operator test groups, published483-file verification and installed knowledge. Original holds remain recorded; no additional gameplay or public payload change. Full encounter and owner acceptance remain open.",
     "October24 Hole entrance deployed via owner-approved main7f126acb/PR318. All24 maintained guides and447 generated reward routes reviewed. Travel, Features, home, dungeon guide, Hole zone and Recent changes reflect installed keyless access with owner gameplay acceptance pending. Commands, item stats, encounters and rewards unchanged. Fresh backup, exact two-field mutation,398 other doors preserved, native/service lifetimes and health verified. Publication receipt tracked with the gameplay evidence.",
     "October24 High Keep rescue candidate: all maintained articles and generated reward guidance reviewed. Seven guides/home/Features/commands/Recent changes and generated High Keep guidance carry Not released notices. Dungeon route, escort healing and personal extraction explained; item stats, ordinary Hunt acquisition, travel, launcher and other systems unchanged. See docs/dungeons/highkeep-rescue/wiki-review.json in the gameplay candidate. No publication or gameplay acceptance.",
-    "Reviewed source drift from7f126acb through517f75f: the Hole delivery/preservation/wiki receipts confirm the already-published keyless guidance and add no new public behavior. High Keep source, tests, lore, design and runbook are the explicit unreleased candidate scope; all24 guides and447 reward routes reviewed. Native build evidence and owner gameplay acceptance remain separate."
+    "Reviewed source drift from7f126acb through517f75f: the Hole delivery/preservation/wiki receipts confirm the already-published keyless guidance and add no new public behavior. High Keep source, tests, lore, design and runbook are the explicit unreleased candidate scope; all24 guides and447 reward routes reviewed. Native build evidence and owner gameplay acceptance remain separate.",
+    "Final High Keep evidence through0303c531 reviewed: successful full native build and source manifest, automated check counts, QA/runbook and status updates. No further public mechanics or catalog changes; the candidate remains Not released. Gameplay, balance and publication approval remain open."
   ]
 }
