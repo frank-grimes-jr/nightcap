@@ -15,7 +15,7 @@ def main():
  native=json.loads((HERE/'native-build-manifest.json').read_text())
  old=json.loads(Path('C:/Users/verre/.codex/worktrees/rogue-tome-learning/EQ_Local_Dev/docs/releases/rogue-tomes-20261024/native-build-manifest.json').read_text())
  assert p['base_hashes']['bin/zone']==old['zone_sha256']==native['base_zone_sha256']
- touched={n.removeprefix('server-mods/code/') for n in subprocess.check_output(['git','diff','--name-only','origin/main','HEAD','--','server-mods/code'],cwd=ROOT,text=True).splitlines()}
+ touched={n.removeprefix('server-mods/code/') for n in subprocess.check_output(['git','diff','--name-only','ddd16e029074ee766971cab3037022d908ab7c1e','HEAD','--','server-mods/code'],cwd=ROOT,text=True).splitlines()}
  changes={n for n,h in native['source_files'].items() if old['source_files'].get(n)!=h}
  assert changes==touched,('Unexpected native source delta',sorted(changes-touched),sorted(touched-changes))
  for n in touched:assert hashlib.sha256((ROOT/'server-mods/code'/n).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==native['source_files'][n],n

@@ -148,10 +148,10 @@ class WikiTests(unittest.TestCase):
             self.assertIn(target+'.html',features)
         self.assertIn('Raid &amp; Grind dungeons',features)
         self.assertIn('Custom helmet quests',features)
-        self.assertIn('unreleased.html#ashen-compact',features)
+        self.assertIn('ashen-compact.html',features)
         preview=self.articles['unreleased']['body'].split('id="ashen-compact"')[1].split('<h2')[0]
-        self.assertIn('not released',preview)
-        self.assertIn('not installed or accepted',preview)
+        self.assertIn('live testing',preview)
+        self.assertIn('acceptance remain open',preview)
         self.assertNotIn('class="notice"',features)
         self.assertEqual(self.articles['recent-changes']['title'],'Change Log')
         self.assertIn('Earlier release detail',self.articles['recent-changes']['body'])
@@ -165,7 +165,10 @@ class WikiTests(unittest.TestCase):
     def test_old_guide_anchors_and_moved_notices_remain_reachable(self):
         import subprocess
         history=self.articles['recent-changes']['body']
-        for path in (build.ROOT/'articles').glob('*.json'):
+        historical=subprocess.check_output(['git','ls-tree','--name-only','66c7b843:wiki/articles'],cwd=build.ROOT.parent,text=True,encoding='utf-8').splitlines()
+        for filename in historical:
+            path=build.ROOT/'articles'/filename
+            self.assertTrue(path.is_file(),filename)
             old=json.loads(subprocess.check_output(['git','show','66c7b843:wiki/articles/'+path.name],cwd=build.ROOT.parent,text=True,encoding='utf-8'))
             old_ids=set(re.findall(r'\bid="([^"]+)"',old['body']))
             self.assertTrue(old_ids<=set(self.pages[path.stem+'.html'].ids),path.stem)

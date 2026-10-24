@@ -24,6 +24,8 @@ def catalog_articles():
         for i in rows:
             body += f'<tr><td><a href="item-{i["id"]}.html">{html.escape(i["name"])}</a></td><td>{i["kind"]}</td><td>{QUALITIES[i["tier"]]}</td><td>{i["required_level"]}</td></tr>'
         body += '</tbody></table></div><h2 id="finding-rewards">Finding these rewards</h2><p>Eligible native enemies have an independent 0.5% roll for the augment family and 0.5% for the gear family. Both may drop together. A successful family roll then chooses Base (60%), Polished (30%), Exalted (8%), or Ascension (2%). Ordinary loot remains.</p><p>Only the zone’s approved native enemies qualify. Pets, merchants, hub residents, summoned copies and city services do not. There is no guaranteed drop or pity timer.</p>'
+        if z['slug'] == 'highkeep':
+            body += '<h2 id="prison-break">High Keep prison break</h2><p>New managed Raid runs use the <a href="dungeon-modes.html#highkeep-rescue">Osargen rescue route</a>. Hunt item values and ordinary acquisition remain unchanged. Live testing; native escort acceptance remains open.</p>'
         if z['slug'] == 'hole':
             body += '<h2 id="entrance">Entrance access</h2><p>See <a href="travel.html#hole-entrance">the Paineel passage access note</a> for the installed keyless entrance update and its release status.</p>'
         if z['slug'] == 'kithicor':
@@ -53,4 +55,5 @@ def catalog_articles():
         from chapterhouse_catalog import articles as chapterhouse_articles
         articles.extend(chapterhouse_articles(data['chapterhouse']))
         next(a for a in articles if a['slug']=='zones')['body'] += '<h2 id="chapterhouse">Custom expedition</h2><p><a href="zone-chapterhouse.html">Chapterhouse of the Fallen</a> has a separate curated capstone reward pool. Its scoped access exception does not expand the 48 Classic Hunt zones.</p>'
+    next(a for a in articles if a['slug']=='zones')['body'] += '<h2 id="ashen-compact">The Ashen Compact</h2><p><a href="zone-kael.html">Kael: The Ashen Compact</a> is a separate curated campaign in live testing.</p>'
     return articles

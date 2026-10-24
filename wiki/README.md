@@ -47,7 +47,7 @@ links into their Change Log entry. Do not remove those links.
 The guide index lists maintained guides and directory entrances, while individual
 item/zone pages remain in their dedicated catalogs and global search. Home keeps
 the four compact goal paths; its release digest and duplicate directory lists are
-retired. All476HTML pages/483public files and the public asset allowlist remain.
+retired. All492HTML pages/499public files and the public asset allowlist remain.
 One-time migration and audit: `tools/wiki_clarity_migration.py` and
 `docs/releases/wiki-clarity-20261024/`. Future edits belong in article JSON.
 
@@ -69,8 +69,10 @@ One-time migration and audit: `tools/wiki_clarity_migration.py` and
 - `assets/traders-at-dusk.png` and `moon.svg` are unchanged approved site artwork.
   CSS and browser search are local. No third-party trackers or dependencies.
 
-The current Chapterhouse release contains 473 articles plus All articles,
-Search, and 404 pages (476 HTML pages and 483 public files).
+The coordinated October24 release contains 489 articles plus All articles,
+Search, and 404 pages (492 HTML pages and 499 public files). Ashen Compact
+adds its campaign guide, Kael page and fourteen exact item pages; High Keep
+rescue and pending gameplay acceptance are described in the owning guides.
 `items.html` is the Equipment catalog: 96 item families with their four qualities
 together, type/slot/level/zone/name filters, sorting and 12-family pagination.
 The URL preserves filters; all item links remain in static HTML without JavaScript.

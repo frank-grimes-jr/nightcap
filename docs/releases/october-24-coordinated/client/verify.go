@@ -41,7 +41,7 @@ func main() {
 	trust.HighestRelease = old.Release
 	envelope := read(*expected)
 	candidate := verify(envelope)
-	if old.Release != 2026102301 || candidate.Release != 2026102401 || len(candidate.Files) != 140 || !reflect.DeepEqual(candidate.PatchNotes[1:], old.PatchNotes) || !reflect.DeepEqual(candidate.Tombstones, old.Tombstones) {
+	if old.Release != 2026102401 || candidate.Release != 2026102402 || len(candidate.Files) != 140 || !reflect.DeepEqual(candidate.PatchNotes[1:], old.PatchNotes) || !reflect.DeepEqual(candidate.Tombstones, old.Tombstones) {
 		panic("release history/inventory drift")
 	}
 	before := map[string]manifest.File{}
@@ -52,7 +52,7 @@ func main() {
 	seen := map[string]bool{}
 	for _, f := range candidate.Files {
 		seen[f.Path] = true
-		if pins[f.Path] != "" && f.URL != "https://play.nightcapgame.org/release/2026102401/"+f.Path {
+		if pins[f.Path] != "" && f.URL != "https://play.nightcapgame.org/release/2026102402/"+f.Path {
 			panic("URL drift")
 		}
 		prior, ok := before[f.Path]

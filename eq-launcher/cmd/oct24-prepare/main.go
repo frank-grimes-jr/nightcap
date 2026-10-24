@@ -45,14 +45,14 @@ func main() {
 		Retired:       map[string]bool{"nektulos.eqg": true, "lavastorm.eqg": true},
 		RetiredSHA256: map[string]string{"nektulos.eqg": "de487c2820595b753ccdb5c38d87769f396dc345cb5699b8b109b949b01b8885", "lavastorm.eqg": "86988d368570e218022c420a4fa4e9d67e258356295d6bb4419a2d5834ef0b3a"}}
 	baseline := read(*previous)
-	if manifest.Digest(baseline) != "1e6edaaea728c447ac074fcd3c6da1155c2f14514f10ff44c5ca74624dcba8d2" {
+	if manifest.Digest(baseline) != "5a37d32b336a87506ec6488fb26cb19e1672c5a20df7df94bd8637f6a80c6d56" {
 		panic("baseline drift")
 	}
 	raw, sig, err := manifest.DecodeEnvelope(baseline)
 	must(err)
 	old, err := manifest.Verify(raw, sig, trust)
 	must(err)
-	if old.Release != 2026102301 || len(old.Files) != 140 {
+	if old.Release != 2026102401 || len(old.Files) != 140 {
 		panic("unexpected baseline")
 	}
 
@@ -85,10 +85,10 @@ func main() {
 		replacements[name] = b
 	}
 	m := old
-	m.Release = 2026102401
+	m.Release = 2026102402
 	m.Expires = time.Now().UTC().Add(30 * 24 * time.Hour).Truncate(time.Second)
 	m.Files = append([]manifest.File(nil), old.Files...)
-	m.PatchNotes = append([]manifest.PatchNote{{Release: m.Release, Date: "2026-10-24", Changes: []manifest.PatchChange{{Kind: "fix", Text: "Live testing: Earn two AA per level. AA +/− controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."}}}}, old.PatchNotes...)
+	m.PatchNotes = append([]manifest.PatchNote{{Release: m.Release, Date: "2026-10-24", Changes: []manifest.PatchChange{{Kind: "fix", Text: "Adds the Warhelm of the Ashen Compact appearance; Camil and existing models are preserved. Close EQ and use Play to update. Corrects patch 2026102401 notes. Server activation is announced separately."}}}}, old.PatchNotes...)
 
 	changed := 0
 	for i := range m.Files {
@@ -96,7 +96,7 @@ func main() {
 		if b, ok := replacements[f.Path]; ok {
 			f.SHA256 = manifest.Digest(b)
 			f.Size = int64(len(b))
-			f.URL = "https://play.nightcapgame.org/release/2026102401/" + f.Path
+			f.URL = "https://play.nightcapgame.org/release/2026102402/" + f.Path
 			changed++
 		}
 	}

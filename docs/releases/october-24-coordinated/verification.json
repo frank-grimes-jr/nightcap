@@ -1,5 +1,5 @@
 {
-  "client_release": 2026102401,
+  "client_release": 2026102402,
   "changed_client_assets": 2,
   "preserved_client_assets": 138,
   "production_gameplay_baseline_preserved_after_client_publication": true,
@@ -15,5 +15,7 @@
     "deployment_groups_windows_linux": 7,
     "client_publisher_linux": 14,
     "wiki_content": 14
-  }
+  },
+  "client_hosted_files": 140,
+  "client_patch_note_correction": "2026102402 corrects 2026102401 notes; identical archive payloads, append-only history"
 }

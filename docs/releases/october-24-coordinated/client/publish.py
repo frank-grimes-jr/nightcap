@@ -11,10 +11,10 @@ import os
 from pathlib import Path
 import subprocess
 
-OLD = '1e6edaaea728c447ac074fcd3c6da1155c2f14514f10ff44c5ca74624dcba8d2'
-NEW = '5a37d32b336a87506ec6488fb26cb19e1672c5a20df7df94bd8637f6a80c6d56'
-RELEASE = 2026102401
-PREVIOUS = 2026102301
+OLD = '5a37d32b336a87506ec6488fb26cb19e1672c5a20df7df94bd8637f6a80c6d56'
+NEW = '0cc3708d19d663e20d56d579324afe4e85586930ef6cbadaa95b5032cdaac167'
+RELEASE = 2026102402
+PREVIOUS = 2026102401
 PINS = {'global4_chr.s3d': '3be6dc0b70b502648045faa0e71f600140c053fe2b772ec77631ce1cb8cf8091', 'global_chr.s3d': 'a20eaecaf0bb0e08342d600753fa013dafdc97b18691315245d9f5c1858822b5'}
 ADDED = set()
 PUBLIC = Path('/opt/nightcap/deploy/production/data/public')
