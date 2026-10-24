@@ -7,6 +7,33 @@ import test_free_trade as native
 import warhelm_content as content
 
 class Warhelm(unittest.TestCase):
+    def test_kael_entrance_uses_public_everfrost_and_preserves_camil(self):
+        native.FreeTradeTests.compile_run(self,r'''
+#include "common/dungeon_policy.h"
+#include <cassert>
+int main(){
+ using namespace NightcapDungeon;
+ assert(KeeperDungeon(30,0,998860)->zone==113);
+ assert(!KeeperDungeon(30,1,998860));
+ assert(!KeeperDungeon(21,0,998860));
+ assert(KeeperDungeon(113,0,998860)->zone==113);
+ assert(KeeperDungeon(113,100,998860)->zone==113);
+ assert(KeeperDungeon(21,0,998820)->zone==760);
+ assert(KeeperDungeon(22,0,998812)->zone==76);
+}
+''')
+        rows=content.compile_rows()
+        hosts=[r for r in rows['spawn2'] if r['spawngroupID'] in (998860,998877) and r['zone']!='kael']
+        self.assertEqual({r['zone'] for r in hosts},{'everfrost'})
+        self.assertEqual(len(hosts),2)
+        self.assertTrue(all(-7000<r['x']<-6970 and 2140<r['y']<2190 for r in hosts))
+        self.assertEqual(content.access_policy()['public_exit_zone'],30)
+        final=next(r for r in rows['task_activities'] if r['taskid']==9801 and r['activityid']==13)
+        self.assertEqual(final['zones'],'30')
+        for npc in (998860,998877):
+            self.assertTrue((content.ROOT/f'server-mods/quests/everfrost/{npc}.pl').exists())
+            self.assertFalse((content.ROOT/f'server-mods/quests/commons/{npc}.pl').exists())
+
     def test_champions_use_kael_storm_giants_and_leave_interrupts_available(self):
         import json
         snapshot=json.loads((content.OUT/'local-content.json').read_text())

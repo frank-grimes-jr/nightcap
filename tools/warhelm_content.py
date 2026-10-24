@@ -11,8 +11,10 @@ AUGMENT=961020
 COMBAT=set(range(998861,998867))|{998876}
 SERVICES={KEEPER,999240,*range(998867,998875)}
 ARRIVAL=(1281,351,-126.125,0)
-# Explicit Classic West Commonlands host. Native map probe is required before activation.
-ENTRANCE=(556, -1140, -40.28125, 0)
+# Hidden Everfrost bypass before Permafrost, verified against native collision.
+HOST_ZONE=30
+HOST_SHORT="everfrost"
+ENTRANCE=(-6974, 2174, -61.0625, 0)
 BOSSES=[(998861,'Herald_of_the_Iron_Oath',50,200000,450,1100,23604),
         (998862,'Marshal_Kharzug',51,275000,500,1250,23678),
         (998863,'General_Vhalek',52,350000,575,1400,23641),
@@ -27,7 +29,7 @@ def access_policy():
     p=json.loads((ROOT/'config/warhelm-access.json').read_text())
     assert (p['zone_id'],p['short_name'],p['version'],p['source_expansion'])==(113,'kael',0,2)
     assert era['expansion']==0 and era['max_level']==50
-    assert p['min_level']==50 and p['bypass_expansion_check']==1 and p['public_exit_zone']==21
+    assert p['min_level']==50 and p['bypass_expansion_check']==1 and p['public_exit_zone']==HOST_ZONE
     assert not p['stock_spawn_flag_enabled'] and not p['campaign_enabled_on_install']
     assert p['stock_spawn_flag']=='nightcap_kael_stock_disabled'
     return p
@@ -83,7 +85,7 @@ def compile_rows():
         hp=50000,always_aggro=0,aggroradius=0,assistradius=0,special_abilities=PROTECTED)
     spawn(KEEPER,pose=(1281,331,-126.125,128),public=True)
     # Public host shares the exact Keeper identity; no random or unbound legacy destination.
-    rows['spawn2'].append(dict(rows['spawn2'][-1],id=9230099,zone='commons',
+    rows['spawn2'].append(dict(rows['spawn2'][-1],id=9230099,zone=HOST_SHORT,
                              x=ENTRANCE[0],y=ENTRANCE[1],z=ENTRANCE[2],heading=ENTRANCE[3]))
     # Waypoint recall lands in the empty public foyer; entering a run still uses the Keeper.
     spawn(999240,pose=ARRIVAL,public=True)
@@ -119,7 +121,7 @@ def compile_rows():
         item.update(id=961030+i,Name=name,lore=name,reqlevel=50,reclevel=50,magic=1)
         rows['items'].append(item)
     rows['tasks'].append(dict(id=9801,type=2,duration=0,title='The Ashen Compact',
-        description='Drazhul challenges a level-50 Shadow Knight to master the stolen war-fire of Kael. Accept before creating a run at the nearby Keeper in West Commonlands. Earn personal credit while alive and nearby. Completed duties survive resets; Drazhul or a war-rite service restores this journal.',
+        description='Drazhul challenges a level-50 Shadow Knight to master the stolen war-fire of Kael. Accept before creating a run at the nearby Keeper in the hidden Everfrost passage before Permafrost. Earn personal credit while alive and nearby. Completed duties survive resets; Drazhul or a war-rite service restores this journal.',
         reward_text='Warhelm of the Ashen Compact - claim once from Drazhul.',repeatable=0,enabled=1))
     objectives=[(0,5,'Enter your Ashen Compact expedition'),(1,2,'Defeat the Herald of the Iron Oath'),
         (2,4,'Claim the Standard of Conquest'),(2,4,'Claim the Standard of Dread'),(2,4,'Claim the Standard of Dominion'),
@@ -129,7 +131,7 @@ def compile_rows():
         (8,4,'Temper the Warhelm at the War Altar'),(9,4,'Return to Drazhul and claim your helm')]
     for i,(step,kind,description) in enumerate(objectives):
         rows['task_activities'].append(dict(taskid=9801,activityid=i,step=step,activitytype=kind,
-            target_name=description,description_override=description,goalcount=1,zones='21' if i==13 else '113',
+            target_name=description,description_override=description,goalcount=1,zones=str(HOST_ZONE) if i==13 else '113',
             goalmethod=2,req_activity_id=-1))
     for mode in range(2):
         task=9744+mode
@@ -142,8 +144,8 @@ def compile_rows():
             description_override='Full dungeon clear: earn all four boss credits.',goalcount=1,zones='113',goalmethod=2,req_activity_id=-1))
     npc(998877,'Drazhul_Blackmantle',race=6,gender=0,bodytype=1,size=6,
         hp=50000,always_aggro=0,aggroradius=0,assistradius=0,special_abilities=PROTECTED)
-    rows['spawn2'].append(dict(rows['spawn2'][0],id=9230098,zone='commons',spawngroupID=998877,
-        x=ENTRANCE[0],y=ENTRANCE[1]-10,z=ENTRANCE[2],heading=ENTRANCE[3]))
+    rows['spawn2'].append(dict(rows['spawn2'][0],id=9230098,zone=HOST_SHORT,spawngroupID=998877,
+        x=ENTRANCE[0],y=ENTRANCE[1]-16,z=ENTRANCE[2],heading=ENTRANCE[3]))
     helm=base_item(990510,'Warhelm of the Ashen Compact')
     helm.update(lore='War-fire yields to the knight who commands it.',classes=16,races=4095,slots=4,
         material=91,color=0,ac=18,hp=25,mana=25,asta=5,aint=7,mr=10,fr=5,cr=5,icon=746,

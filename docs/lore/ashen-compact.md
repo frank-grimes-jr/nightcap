@@ -4,6 +4,12 @@ Original Nightcap story for the level50 Shadow Knight helmet campaign. Kael
 Drakkel's storm giants and Rallos Zek temple provide the established setting;
 Drazhul, Veyra, the war cult and its artifacts are newly authored fiction.
 
+Drazhul waits inside Everfrost's hidden approach to Permafrost, where the ice
+giants concealed a frostbound crossing to Kael's war halls. Accepting the Compact
+seals the challenger's pledge; the nearby Keeper guides the expedition across.
+This magical passage is original Nightcap fiction, not a claim that Everfrost
+and Kael are geographically adjacent. The return brings the player back here.
+
 Drazhul Blackmantle refuses the cult's claim that a commander earns strength by
 hoarding captive souls. He sends the player into its private war halls to take
 three standards of Conquest, Dread and Dominion. Soulbinder Veyra turns their

@@ -2,7 +2,7 @@
   "status": "fresh native build passed; not installed",
   "binaries": {
     "world": "869cb91bfd7211df31c9ef6085555a6c1fec40e3fef6fe2a52f2f9c3b8571dff",
-    "zone": "23842e3231dd33348ee749ac536d6f3f73caba63fbc3d2612cb01058231e1c4b",
+    "zone": "b1bbb4accc04920660d8bcbfe08fa62a14f42d433ee59a00dfb42cc1294c16b2",
     "shared_memory": "761e377fa5a81d1ca2537110a32e614fd7dac48530031bada95b3e569ea118ca"
   },
   "source_files": {
@@ -68,7 +68,7 @@
     "common/eqdb.h": "aaf8109fc461de8c9975c1718ee29769ae0379453507bc945ded980e1010b974",
     "common/fixed_memory_variable_hash_set.h": "5863b0ba0e658219d23a2f167838eab3d6de8e005861dd963bd5d051485c0fbd",
     "common/data_bucket.cpp": "00be127da77de996443694734bbbff3875d71b3c85a82f08416751bd88b993c7",
-    "common/dungeon_contract.h": "f9ffad201780b5b8198c6c8094ea3b02aa234792e3d988f20840b997711fd9af",
+    "common/dungeon_contract.h": "0eee5190af6c7ac8d1b2361857e771192ea623ff146f18ec08362d24f4cbb21f",
     "common/eq_constants.h": "b58dea600b9f57398b096b70cf6d396457fb22554257eae603d030176b37e78b",
     "common/eqemu_logsys.cpp": "699fd7da871b9721cda9389aa315098d94d77749e69e26774399a4d79950ccc8",
     "common/zone_store.cpp": "4ab76c6ddf3f82d442201deb7f19168af34e5a35077fdeca0146f342edcffcf8",
@@ -117,7 +117,7 @@
     "common/data_bucket.h": "2d2982bcf16f1cff81d67672fefae604e9ac529e7f3c7428945d0d3af9f56a90",
     "common/timeoutmgr.cpp": "c39c47f0fd6a7793d40eda7eb383faa1fd11760c232ae72867b6cd4601d3d255",
     "common/op_codes.h": "591f2c52c42a88ed9df339f2b3044d8178085cd83a60e9fd56a97a0a0fe215e0",
-    "common/dungeon_policy.h": "01f6f06817fd5f79ea2da37122fcccdef5ad9ccf5430428450bcca5518705456",
+    "common/dungeon_policy.h": "d708370f97ae6a6d790a41118770fb03734bc74a516b50b7c6a742c48831f72a",
     "common/timer.h": "41992b357e2e516327e7e45cbf454f8c66dddaa530e67b3c50184e6c54614e20",
     "common/emu_opcodes.cpp": "087daa66d60dcd6d35035bc3c0f786b929947fdfa263e0bbe9a47663e476b2da",
     "common/seperator.h": "afa7b202493b8d1c47c34c235de87d4190f8a9c0bcc687b4b9c0a3178a69d371",
@@ -958,7 +958,7 @@
     "zone/zone_save_state.cpp": "f995f8abe7fb0539184963190f065c1d470f93fe90c3eaf7523f32f1531121ee",
     "zone/lua_database.h": "303870858d682259396bde0a72fb3dcbe9e243ad56c4efc7df5d1464350b1019",
     "zone/client.h": "8a132d23140006e26b8f67140f07eeb56a82a2c9b74b9053e28eb20a56e4aa7f",
-    "zone/warhelm_compact.inc": "51c6688290db2f6d40df492181c9e70f3a903a323419ea9920a942fbf2e5bde7",
+    "zone/warhelm_compact.inc": "775493c00b75c576f5eca60e5f328ddf62a3b647a94c1d4ad86de3a87e55829a",
     "zone/advanced_loot_saved_state.cpp": "27231dec120fccc55874081db930f2391ec77b0157716b0ce1697796692c69ee",
     "zone/corpse.cpp": "7b7a17a02b82d235b7164344c2bd0069ef75e001c556b0e429e8ba57b5ee6530",
     "zone/advanced_loot_preferences.h": "c13d575f542652e84fbb9d6d9cf1b297f6316d78e29e53ce2e4885e921af6452",

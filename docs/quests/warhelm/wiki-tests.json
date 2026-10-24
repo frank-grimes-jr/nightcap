@@ -1,12 +1,8 @@
 {
   "status": "passed",
-  "candidate": "warhelm-wiki-04",
+  "candidate": "warhelm-wiki-everfrost-03",
   "pages": 492,
-  "latest_content_link_tests": 12,
-  "previous_full_windows_suite": {
-    "run": 33,
-    "passed": 24,
-    "posix_skipped": 9
-  },
-  "publication": "not performed"
+  "latest_content_link_package_history_tests": 14,
+  "publication": "not performed; POSIX publication/recovery checks still required",
+  "historical_test_context": "GIT_DIR points to read-only E:/EQ_Local_Dev/.git"
 }

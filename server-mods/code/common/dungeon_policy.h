@@ -20,7 +20,7 @@ inline bool IsReward(uint32_t id) { return id >= ItemBegin && id < ItemEnd; }
 inline const Dungeon *KeeperDungeon(uint32_t host, uint32_t instance, uint32_t keeper) {
 	if (host==22 && instance==0 && keeper==998812) { return FindDungeon(76); }
 	if (host==21 && instance==0 && keeper==998820) { return FindDungeon(760); }
-	if (host==21 && instance==0 && keeper==998860) { return FindDungeon(113); }
+	if (host==30 && instance==0 && keeper==998860) { return FindDungeon(113); }
 	const auto d=FindDungeon(host);
 	return d && d->keeper==keeper ? d : nullptr;
 }

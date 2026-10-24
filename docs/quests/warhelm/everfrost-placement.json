@@ -1,0 +1,67 @@
+{
+  "scope": "Everfrost hidden approach to Permafrost; unpublished candidate",
+  "requested_location": "Hidden pathway before entering Permafrost; bypass of the ice-giant guard area",
+  "positions": [
+    {
+      "id": 9230099,
+      "spawngroupID": 998860,
+      "zone": "everfrost",
+      "version": 0,
+      "x": -6974,
+      "y": 2174,
+      "z": -61.0625,
+      "heading": 0,
+      "respawntime": 300,
+      "variance": 0,
+      "pathgrid": 0,
+      "path_when_zone_idle": 0,
+      "_condition": 0,
+      "cond_value": 0,
+      "animation": 0,
+      "min_expansion": 0,
+      "max_expansion": -1,
+      "content_flags": null,
+      "content_flags_disabled": null
+    },
+    {
+      "id": 9230098,
+      "spawngroupID": 998877,
+      "zone": "everfrost",
+      "version": 0,
+      "x": -6974,
+      "y": 2158,
+      "z": -61.0625,
+      "heading": 0,
+      "respawntime": 300,
+      "variance": 0,
+      "pathgrid": 0,
+      "path_when_zone_idle": 0,
+      "_condition": 0,
+      "cond_value": 0,
+      "animation": 0,
+      "min_expansion": 0,
+      "max_expansion": -1,
+      "content_flags": null,
+      "content_flags_disabled": null
+    }
+  ],
+  "eq_loc_order": "Y, X, Z",
+  "geometry": {
+    "everfrost_points": 2,
+    "kael_points": 39,
+    "samples_per_point": 5,
+    "host_headroom": 24,
+    "map_sha256": "0d0d7e9892973d76f44f0d99a070fbec8b0295196f8818f0f2b5ee78b2bc5435"
+  },
+  "preserved_tables": [
+    "npc_types",
+    "nightcap_dungeon_spawns",
+    "items",
+    "spawngroup",
+    "spawnentry",
+    "nightcap_waypoints"
+  ],
+  "comparison_commit": "fe15aaae84dc1f07239a3eb6d71dcf6bf7bea596",
+  "native_visual_acceptance": "pending; map/collision checks are not an in-game observation",
+  "production_changed": false
+}

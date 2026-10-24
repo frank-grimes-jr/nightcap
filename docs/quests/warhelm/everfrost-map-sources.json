@@ -1,0 +1,10 @@
+{
+  "source": "E:\\Nightcap\\maps",
+  "files": {
+    "everfrost.txt": "c9fc87d7637914346881960e96b0128c55cee80d8b2792ee3c52a137bee1bc55",
+    "everfrost_1.txt": "0a43b02bbab354d4aeeb33ba8f30b43cdcab6062a078ccfbc2711b84ea416258",
+    "everfrost_2.txt": "98ba9ffbb2b67a594a620a71c6302c20c45f29ef0a1ad9780eda341777088280"
+  },
+  "coordinates": "Server X/Y; client map L coordinates negated",
+  "visual": "Map diagram, not an in-game screenshot"
+}

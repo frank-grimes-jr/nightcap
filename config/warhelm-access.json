@@ -14,6 +14,6 @@
   "safe_heading": 0,
   "stock_spawn_flag": "nightcap_kael_stock_disabled",
   "stock_spawn_flag_enabled": false,
-  "public_exit_zone": 21,
+  "public_exit_zone": 30,
   "campaign_enabled_on_install": false
 }
