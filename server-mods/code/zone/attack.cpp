@@ -1,4 +1,5 @@
 #include "zone/dungeon_service.h"
+#include "common/warhelm_policy.h"
 #include "zone/zone_hunt.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemulator.net)
@@ -2888,8 +2889,9 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 	}
 
 
-	// Zero exp_mod still grants raid/leadership XP; exclude temporary rescue actors.
-	if (give_exp_client && !IsCorpse() && !NightcapDungeon::HighkeepTransient(this)) {
+	// Zero exp_mod still grants raid/leadership XP; exclude both campaigns' temporary actors.
+	if (give_exp_client && !IsCorpse() && !NightcapDungeon::HighkeepTransient(this) &&
+		!NightcapAshen::Transient(GetNPCTypeID())) {
 		Group* killer_group = entity_list.GetGroupByClient(give_exp_client);
 		Raid*  killer_raid  = entity_list.GetRaidByClient(give_exp_client);
 

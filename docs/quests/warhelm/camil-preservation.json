@@ -1,0 +1,12 @@
+{
+  "global_chr.s3d": {
+    "old_sha256": "46005b3a546848f7f57e7b5a952c363bf7bcdee851fe3c51029273aab8834366",
+    "new_sha256": "46005b3a546848f7f57e7b5a952c363bf7bcdee851fe3c51029273aab8834366",
+    "identical": true
+  },
+  "global4_chr.s3d": {
+    "old_sha256": "b19bffaa522637d66757de8a4e6f2a2f688dcedb078e537c674f6a78f29b2edc",
+    "new_sha256": "b19bffaa522637d66757de8a4e6f2a2f688dcedb078e537c674f6a78f29b2edc",
+    "identical": true
+  }
+}

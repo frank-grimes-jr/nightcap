@@ -1,0 +1,228 @@
+{
+  "builds": [
+    {
+      "profile": "sk-clr-mnk",
+      "classes": [
+        5,
+        2,
+        7
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Bertoxxulous",
+      "tier": "monk/shield/0/specials-True",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": true,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 602630,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 480382
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 604504,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 680394
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 601547,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 651907
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 402630,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 451903
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 607767,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 280394
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 615841,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 479870
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 668251,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 680379
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 601551,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 679622
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 662022,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 451907
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 662292,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 679870
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 608332,
+          "augments": []
+        },
+        {
+          "slot": 12,
+          "id": 603144,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 651904
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 662038,
+          "augments": []
+        },
+        {
+          "slot": 14,
+          "id": 601555,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 651903
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 609959,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 479622
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 614679,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 480379
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 662034,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 451904
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 662025,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 679626
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 603146,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 680382
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 601550,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 480394
+            }
+          ]
+        }
+      ],
+      "creation": {
+        "str": 85,
+        "sta": 100,
+        "dex": 75,
+        "agi": 75,
+        "int": 85,
+        "wis": 75,
+        "cha": 80
+      },
+      "test_character_id": 90022,
+      "aa_budget": 0,
+      "aa_rank_ids": [],
+      "aa_stage": "earned_max",
+      "aa_policy": "current native legal purchases",
+      "gear_control": "monk_shield"
+    }
+  ],
+  "export_equipment": true,
+  "wpm_state": true,
+  "export_aa_catalog": true
+}

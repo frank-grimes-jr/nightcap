@@ -1,0 +1,302 @@
+{
+  "builds": [
+    {
+      "profile": "sk-clr-mnk",
+      "classes": [
+        5,
+        2,
+        7
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Bertoxxulous",
+      "tier": "monk/shield/0/specials-True",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": true,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 202630,
+          "augments": []
+        },
+        {
+          "slot": 2,
+          "id": 204504,
+          "augments": []
+        },
+        {
+          "slot": 3,
+          "id": 201547,
+          "augments": []
+        },
+        {
+          "slot": 4,
+          "id": 2630,
+          "augments": []
+        },
+        {
+          "slot": 5,
+          "id": 207767,
+          "augments": []
+        },
+        {
+          "slot": 6,
+          "id": 215841,
+          "augments": []
+        },
+        {
+          "slot": 7,
+          "id": 268251,
+          "augments": []
+        },
+        {
+          "slot": 8,
+          "id": 201551,
+          "augments": []
+        },
+        {
+          "slot": 9,
+          "id": 262022,
+          "augments": []
+        },
+        {
+          "slot": 10,
+          "id": 262292,
+          "augments": []
+        },
+        {
+          "slot": 11,
+          "id": 208332,
+          "augments": []
+        },
+        {
+          "slot": 12,
+          "id": 203144,
+          "augments": []
+        },
+        {
+          "slot": 13,
+          "id": 262038,
+          "augments": []
+        },
+        {
+          "slot": 14,
+          "id": 201555,
+          "augments": []
+        },
+        {
+          "slot": 15,
+          "id": 209959,
+          "augments": []
+        },
+        {
+          "slot": 16,
+          "id": 214679,
+          "augments": []
+        },
+        {
+          "slot": 17,
+          "id": 262034,
+          "augments": []
+        },
+        {
+          "slot": 18,
+          "id": 262025,
+          "augments": []
+        },
+        {
+          "slot": 19,
+          "id": 203146,
+          "augments": []
+        },
+        {
+          "slot": 20,
+          "id": 201550,
+          "augments": []
+        }
+      ],
+      "creation": {
+        "str": 85,
+        "sta": 100,
+        "dex": 75,
+        "agi": 75,
+        "int": 85,
+        "wis": 75,
+        "cha": 80
+      },
+      "test_character_id": 90022,
+      "aa_budget": 500,
+      "aa_rank_ids": [
+        1000,
+        12636,
+        22200,
+        7800,
+        12637,
+        7801,
+        8445,
+        7802,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421,
+        2,
+        7,
+        12,
+        17,
+        22,
+        27,
+        32,
+        37,
+        42,
+        47,
+        52,
+        57,
+        62,
+        68,
+        71,
+        74,
+        77,
+        80,
+        83,
+        86,
+        92,
+        101,
+        104,
+        107,
+        110,
+        113,
+        116,
+        122,
+        125,
+        128,
+        130,
+        132,
+        147,
+        196,
+        198,
+        206,
+        208,
+        210,
+        233,
+        237,
+        240,
+        247,
+        273,
+        278,
+        279,
+        283,
+        288,
+        412,
+        418,
+        426,
+        459,
+        507,
+        526,
+        561,
+        564,
+        577,
+        599,
+        602,
+        611,
+        625,
+        634,
+        658,
+        661,
+        678,
+        683,
+        686,
+        691,
+        692,
+        734,
+        746,
+        749,
+        767,
+        807,
+        810,
+        815,
+        820,
+        823,
+        828,
+        834,
+        852,
+        855,
+        895,
+        952,
+        962,
+        1388,
+        979,
+        982,
+        985,
+        988,
+        991,
+        994,
+        997,
+        1006,
+        1021,
+        1026,
+        1071,
+        1072,
+        1093,
+        12652,
+        1181,
+        1186,
+        1192,
+        1195,
+        1209,
+        12706,
+        1255,
+        1272,
+        1284,
+        1287,
+        1313,
+        1352,
+        1355,
+        1358,
+        1592,
+        1404,
+        12893,
+        1527,
+        1528,
+        1549,
+        1383,
+        1588,
+        4675,
+        4698,
+        4699,
+        4836,
+        4739,
+        4742,
+        13134,
+        13165,
+        50000
+      ],
+      "aa_stage": "bounded500AA control",
+      "aa_policy": "current native legal purchases",
+      "gear_control": "monk_shield"
+    }
+  ],
+  "encounter": {
+    "npc_id": 32040,
+    "npc_position": [
+      -871,
+      -1395,
+      104.879997,
+      45
+    ],
+    "duration_ms": 300000,
+    "return_to_melee": true,
+    "combat_policy": "skm",
+    "melee_specials": true,
+    "active_aa_policy": "burst_regeneration",
+    "preparation": {
+      "spell_ids": [
+        312,
+        487
+      ],
+      "recover": true
+    }
+  },
+  "export_equipment": true,
+  "wpm_state": true
+}

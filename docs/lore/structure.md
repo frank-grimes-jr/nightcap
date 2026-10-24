@@ -1,5 +1,14 @@
 # Nightcap local character notes
 
+## Drazhul and the Ashen Compact
+
+October24 candidate, not deployed: Drazhul challenges a Shadow Knight to master
+the stolen war-fire of a renegade cult in Kael. Its standards, Veyra's binding,
+oathbound knights, General Vhalek and Echo of Endless War follow Camil's personal
+campaign structure. The story is original Nightcap fiction in Rallos Zek's
+established giant city. [Lore](ashen-compact.md),
+[quest scope](../quests/warhelm/SPEC.md).
+
 ## Camil and the Vigil of the Dawn
 
 Deployed for live testing on October 23: Camil led civilians to safety while

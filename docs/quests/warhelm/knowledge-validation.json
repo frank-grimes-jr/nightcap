@@ -1,0 +1,283 @@
+{
+  "creator_format_validator": "passed with isolated PyYAML6.0.3",
+  "candidate_pins": {
+    "world": 11,
+    "client": 4,
+    "balance": 7,
+    "wiki": 3
+  },
+  "topics": {
+    "world": {
+      "reviewed_entries": 262,
+      "unrelated_drift": [],
+      "candidate_pins": "all unchanged"
+    },
+    "client": {
+      "reviewed_entries": 242,
+      "unrelated_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-launcher\\patch-notes.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\build_classic_robes.py",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\classic_robe_geometry.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\classic-robes-requirements.txt",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\client_gameplay_assets.py",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\preview_classic_robes.py",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\tests\\test_classic_robes.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\eq-client-dll\\tests\\classic-robes-native.cpp",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\adr\\0065-classic-race-robe-assets.md",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\README.md",
+          "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\QA.md",
+          "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\evidence.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\robe-audit.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\README.md",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\prepare.go",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\verify.go",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\publish.py",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\test_publish.py",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\deployment.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\hosted-verification.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\recovery.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\deployment\\release-record.json",
+          "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\README.md",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\evidence.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\robe-audit.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\README.md",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\prepare.go",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\verify.go",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\publish.py",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\test_publish.py",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\deployment.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\hosted-verification.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\recovery.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\release-record.json",
+          "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\tests\\classic_robes_skinning_native.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\README.md",
+          "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\evidence.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\native-checks.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\native-loader-disassembly.txt",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\preservation.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\README.md",
+          "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\prepare.go",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\verify.go",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\publish.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\test_publish.py",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\deployment.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\hosted-verification.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\recovery.json",
+          "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\release-record.json",
+          "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+          "state": "missing: select the correct checkout"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\native-skinning\\owner-acceptance\\owner-confirmation.json",
+          "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+          "state": "missing: select the correct checkout"
+        }
+      ],
+      "candidate_pins": "all unchanged"
+    },
+    "balance": {
+      "reviewed_entries": 145,
+      "unrelated_drift": [],
+      "candidate_pins": "all unchanged"
+    },
+    "wiki": {
+      "reviewed_entries": 273,
+      "unrelated_drift": [],
+      "candidate_pins": "all unchanged"
+    }
+  },
+  "status": "All Ashen Compact source/evidence pins match; unrelated historical pins preserved"
+}

@@ -1,0 +1,7 @@
+{
+  "database": "nightcap_warhelm_balance_20261024",
+  "source_database": "nightcap_chapterhouse_balance_20261023",
+  "runtime": "/tmp/nightcap-balance-warhelm-20261024",
+  "scope": "Synthetic fixture clone only; October23 captured public definitions and strong gear; current candidate formulas",
+  "production_changed": false
+}

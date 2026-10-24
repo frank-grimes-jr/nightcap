@@ -211,6 +211,9 @@ namespace NightcapDungeon {
 namespace Vigil { constexpr unsigned Task=9800;
 '''+native.body((ROOT/'server-mods/code/zone/chapterhouse_vigil.inc').read_text(),'void Configure(')+r'''
 }
+namespace Ashen { constexpr unsigned Task=9801;
+'''+native.body((ROOT/'server-mods/code/zone/warhelm_compact.inc').read_text(),'void Configure(')+r'''
+}
 '''+function+r'''
 }
 int main() {

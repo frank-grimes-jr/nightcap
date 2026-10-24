@@ -4,6 +4,10 @@ from copy import deepcopy
 # zone: (title, shared design, role, resistance, inspect lore). Lore is authored
 # Nightcap fiction inspired by the zone, not a claim these were original EQ loot.
 DESIGNS = {
+    'kael': (
+        ('Blade of the Ashen Compact',11,'melee','dr','The war-fire answers the will that conquered it.'),
+        ('Mantle of the Iron Oath',20,'guardian','fr','A broken oath reforged by its victor.'),
+        ('Seal of Commanded Souls',17,'caster','mr','Stolen souls are bound to a new command.')),
     'chapterhouse': (
         ('Blade of the Released Dawn',11,'melee','mr','An oath released from the knight who would not yield.'),
         ('Mantle of the First Dawn',20,'guardian','dr','The fallen order remembers those who kept the vigil.'),

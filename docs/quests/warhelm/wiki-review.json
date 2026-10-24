@@ -1,0 +1,154 @@
+{
+  "status": "Unpublished overlay; rebase against then-current published source before any authorized publication",
+  "basis": "E:\\EQ_Local_Dev\\_worktrees\\hole-keyless-wiki\\wiki",
+  "base_commit": "66c7b8437a613a05387c1982706bc2e32ca2fb96",
+  "articles": [
+    {
+      "path": "articles/about.json",
+      "title": "About this wiki",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/advanced-loot.json",
+      "title": "Advanced loot",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/ascension.json",
+      "title": "Ascension quest",
+      "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/build-lab.json",
+      "title": "Build Lab",
+      "sha256": "3e8a167eb258a3c385797e2cdd2f55a117fc76b7ffc712f823455808f400c157",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/camil-vigil.json",
+      "title": "The Vigil of the Dawn",
+      "sha256": "253bc539246f5e44968e450b49e378cdd5f1c167512e607ea4c5c70963e23779",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/combat.json",
+      "title": "Combat, buffs & recovery",
+      "sha256": "bb5d4a86d609eb3f2296c22281dd21e3be116307663b56f98df6a17ba824fc38",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/commands.json",
+      "title": "Command reference",
+      "sha256": "03e4a07314bbd83e2c88f1ad58070d5a647b459fdc93cafff6d04ccab92d7fd7",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "sha256": "c16e0f651fee77f35962abd1eedcbce8a9414364b48e39cebb2167e85cfbf3ef",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/equipment.json",
+      "title": "Equipment & trading",
+      "sha256": "b5d086f31ef10a42cde93056be3491ce99fa9bdd21c8a9c0f6d06b29882a6b68",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/features.json",
+      "title": "Features",
+      "sha256": "9707c2182a6e19d298a64ddfa0dfc4cd97a821a8d64dd845f7e3bcb19d32dcec",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/getting-started.json",
+      "title": "Getting started",
+      "sha256": "9bd7a7bbcdb0d5dc83e19be6de2c745ce04092bc537215ba57fa720edc81260e",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "sha256": "6ce5e7ed2b4674cb3575523181e11b6eb72c674326680c29ecf1a16f92b1d3f0",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/item-upgrades.json",
+      "title": "Item upgrades",
+      "sha256": "1edca6b5be292227b1bf689e0a8b2f735f835862cdf35027d9f0fd3393c92dc6",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/launcher.json",
+      "title": "Launcher & interface",
+      "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/loot-finder.json",
+      "title": "Loot finder",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/multiclass.json",
+      "title": "Multiclass & progression",
+      "sha256": "a74a69ae507b6bc6a3b545bf3f777562382bd6b7ea58ea39568f8d47da145620",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/pets.json",
+      "title": "Pets & pet armor",
+      "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/recent-changes.json",
+      "title": "Recent changes",
+      "sha256": "21468a44f6a8fc6d21408b4dd31c5f66496995ddb331af47d2349924bc9ed298",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/travel.json",
+      "title": "Travel & instances",
+      "sha256": "2d121f8e5bbb48994f6093efd83399113a99df1f6e9f74093054a9ea771dfedd",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/tunnel.json",
+      "title": "East Commonlands tunnel",
+      "sha256": "1f481a5eb4e3662827f7f77c033732ef8e636286b7bac8c1fc69f73bd9cb7dd2",
+      "decision": "No change: separate campaign does not alter this guide\u2019s behavior."
+    },
+    {
+      "path": "articles/unreleased.json",
+      "title": "In development",
+      "sha256": "1adc2bea9e5721ed46e2e63a5f043db47654b50118e4786aadfbaf361d87fa9e",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/waypoints.json",
+      "title": "Waypoint Explorer",
+      "sha256": "c7c8c3a2559f7a7ecb3e5592eecadefd04bd7a7a2ff6b9d01cfc30a3370bf514",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    },
+    {
+      "path": "articles/zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "sha256": "33bc45152b588ac0a592206c1f4719f76658c876ebc389ff680fb1cee7bc1fc9",
+      "decision": "Append explicitly unreleased campaign guidance; preserve all existing released content."
+    }
+  ],
+  "generated_routes": "Existing447 unchanged; 14new item pages and Kael route added, separate from48ClassicHunt pools",
+  "new_story": "ashen-compact",
+  "production_changed": false
+}

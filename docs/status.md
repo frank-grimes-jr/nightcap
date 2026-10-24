@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## 2026-10-24 — Ashen Compact prepared, not deployed
+
+The Shadow Knight counterpart to Camil's Vigil has fourteen personal objectives
+in a curated Kael expedition, high-difficulty SK-main tuning, isolated campaign
+state and one-time Warhelm delivery. Guarded SQL starts disabled. A separate
+Classic HE91 client package and an unpublished guide overlay are staged. These
+are candidate artifacts; production, client release2026102301 and the published
+Hole wiki remain unchanged. [Runbook](quests/warhelm/RUNBOOK.md),
+[acceptance checks](quests/warhelm/QA.md), [design](quests/warhelm/SPEC.md).
+
 ## 2026-10-24 — High Keep rescue prepared for testing
 
 The candidate adds an entrance confrontation, guard alarm, compact prison route,
