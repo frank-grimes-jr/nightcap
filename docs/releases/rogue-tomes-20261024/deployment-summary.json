@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-24",
+  "main_pr": 330,
+  "main_revision": "2441215231859f217e49e15a07f0d5d5e1ef0fef",
+  "result": "PASS",
+  "zone_workers": 12,
+  "runtime_restart_count": 0,
+  "runtime_errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "saved_state_tables": 93,
+  "contract_checks": {
+    "schema": 45,
+    "content": 532
+  },
+  "fresh_stopped_backup_integrity": "passed",
+  "native_noncorpse_cache_expiry_rows": 1612,
+  "market_startup_rotation_verified": true,
+  "gateway_open": true,
+  "player_snapshot_restored": false,
+  "client_update_required": false,
+  "owner_gameplay_accepted": false,
+  "preserved": [
+    "Current earned player state except exact native seven-day noncorpse cache expiry",
+    "World, loginserver, UCS",
+    "Quest/plugin files, item/spell caches, signed client",
+    "Content and rules; db/web/tunnel lifetimes"
+  ],
+  "private_evidence": "Detailed deployment receipts and source/binary inventory are retained privately and ignored by Git.",
+  "wiki": {
+    "release": "20261024-rogue-tomes-v1",
+    "files_verified": 483,
+    "changed_files": 3,
+    "linux_publisher_tests": 16,
+    "public_manifest_sha256": "60a0be9d62137dc5cb7b4d36783be6adec708ec4f4607412bf0d7c1674173f66",
+    "private_routes_denied": 5
+  }
+}

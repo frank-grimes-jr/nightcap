@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-24 — Multiclass tome learning repair candidate
+## 2026-10-24 — Multiclass tome learning repair deployed
 
 Tomes now use canonical held-class eligibility, fixing secondary/third Rogue
 learning (including caster primaries). Right-click failures preserve the original
@@ -8,8 +8,9 @@ item; duplicate scanning covers the whole list and failed discipline saves do no
 update the profile or consume the tome. Consumed trainer/quest callers retain the
 refund API. Discipline levels and the level1 AA catalog stay unchanged. Native
 43-case Windows/Linux tests and adjacent spell/cooldown regressions pass; main
-and server deployment are owner-authorized, with full build/delivery and native
-player QA tracked in [release evidence](docs/releases/rogue-tomes-20261024/README.md).
+and server release PR330 is verified: 12 workers, 93 saved-state tables, fresh
+backup and 577 contract checks. Full native build passes; player QA remains
+pending in [release evidence](docs/releases/rogue-tomes-20261024/README.md).
 
 ## 2026-10-24 — Hole entrance key requirement removed live
 
