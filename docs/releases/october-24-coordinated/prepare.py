@@ -17,6 +17,14 @@ def main():
  assert p['base_hashes']['bin/zone']==old['zone_sha256']==native['base_zone_sha256']
  touched={n.removeprefix('server-mods/code/') for n in subprocess.check_output(['git','diff','--name-only','ddd16e029074ee766971cab3037022d908ab7c1e','HEAD','--','server-mods/code'],cwd=ROOT,text=True).splitlines()}
  changes={n for n,h in native['source_files'].items() if old['source_files'].get(n)!=h}
+ normalization=json.loads((HERE/'source-normalization.json').read_text())
+ assert set(normalization)=={'common/nightcap_aa_policy.h','common/nightcap_thj_behaviors.h','common/shareddb.cpp','zone/spell_effects.cpp'}
+ for n,proof in normalization.items():
+  data=subprocess.check_output(['docker','exec',CONTAINER,'cat','/tmp/nightcap-rogue-tomes-20261024-v1/source/'+n])
+  assert hashlib.sha256(data).hexdigest()==old['source_files'][n]==proof['retained_raw_sha256']
+  assert hashlib.sha256(data.replace(b'\r\n',b'\n')).hexdigest()==native['source_files'][n]==proof['normalized_sha256']
+ assert not set(normalization)&touched
+ changes-=set(normalization)
  assert changes==touched,('Unexpected native source delta',sorted(changes-touched),sorted(touched-changes))
  for n in touched:assert hashlib.sha256((ROOT/'server-mods/code'/n).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==native['source_files'][n],n
  local=json.loads((ROOT/'docs/quests/warhelm/local-content.json').read_text())
