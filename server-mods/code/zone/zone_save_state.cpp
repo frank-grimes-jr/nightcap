@@ -487,7 +487,7 @@ bool Zone::LoadZoneState(
 		}
 
 		// find spawn 2 by id
-		Spawn2Repository::Spawn2 spawn2;
+		Spawn2Repository::Spawn2 spawn2{};
 		for (auto &sp: spawn2s) {
 			if (sp.id == s.spawn2_id) {
 				spawn2 = sp;
