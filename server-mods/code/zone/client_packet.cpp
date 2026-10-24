@@ -9531,8 +9531,10 @@ void Client::Handle_OP_ItemVerifyRequest(const EQApplicationPacket *app)
 					Strings::BeginsWith(item->Name, "Skill: ")
 				)
 			) {
-				DeleteItemInInventory(slot_id, 1, true);
-				TrainDiscipline(item->ID);
+				if (LearnDisciplineFromItem(item->ID)) {
+					DeleteItemInInventory(slot_id, 1, true);
+				}
+				return;
 			}
 			else if (item->ItemType == EQ::item::ItemTypeSpell)
 			{
