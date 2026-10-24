@@ -10,11 +10,13 @@ Updated October 24, 2026.
   [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 24, 2026 (EDT).
-- **Active OVH origin release:** `20261024-wiki-custom-features-v1`; previous
-  `20261024-wiki-clarity-v1` and `20261024-hole-keyless-v1` are retained for recovery.
-  Editorial source: `E:/EQ_Local_Dev/_worktrees/wiki-clarity`. Publication/recovery:
-  `docs/releases/wiki-custom-features-20261024/`. Clarity-v2 is also retained;
-  its shared editorial structure is preserved. The JSON reader is unchanged.
+- **Active OVH origin release:** `20261024-rogue-tomes-v1`; previous
+  `20261024-wiki-custom-features-v1` is retained for recovery.
+  Editorial source: `C:/Users/verre/.codex/worktrees/rogue-tomes-wiki/EQ_Local_Dev`,
+  branch `feature/rogue-tomes-wiki`. Publication/recovery:
+  `docs/releases/rogue-tomes-20261024/wiki-publication.md`. All 483 HTTPS files
+  verify; only Multiclass, Change Log and search changed. Custom Features,
+  clarity structure, reader and unreleased candidate labels remain intact.
 - **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
   required and the GM access restriction removed. Private Hate retains its
   entrance Keeper. Main PR299/server and466-file wiki publication are verified;

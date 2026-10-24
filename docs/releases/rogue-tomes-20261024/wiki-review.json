@@ -16,6 +16,28 @@
     "Generated item/zone pages and catalog: no content/stat/acquisition changes",
     "Other guides: no changed mechanics; existing releases and unpublished candidate labels retained"
   ],
-  "source_review": "Inherited main drift is documented by existing Chapterhouse/AA/Hole release reviews; the only new gameplay changes are the three tome learning files. Operational/test documents change no public mechanics. Actual main reference and verified deployment evidence will be reconciled before publication.",
-  "qa": "Native player acceptance pending; no AA policy or discipline level changes."
+  "source_review": "Inherited279-path source drift reviewed by group against already-published Chapterhouse/AA/Hole/reader/handbook/Build Lab/editorial records. New gameplay changes are the three tome learning files in main PR330. Operational/test documents change no public mechanics. The newer wiki source absent from gameplay main is retained from a0bd0faa. Complete native build verified; activation and access-open receipts pass; public publication and all483 HTTPS hashes/security headers/five private denials pass.",
+  "qa": "Native player acceptance pending; no AA policy or discipline level changes.",
+  "reviewed_gameplay_revision": "2441215231859f217e49e15a07f0d5d5e1ef0fef",
+  "gameplay_deployment": {
+    "main_pr": 330,
+    "main_revision": "2441215231859f217e49e15a07f0d5d5e1ef0fef",
+    "gateway_open": true,
+    "workers": 12,
+    "saved_state_tables": 93,
+    "contract_checks": 577,
+    "owner_gameplay_accepted": false
+  },
+  "reviewed_closeout_revision": "ddd16e029074ee766971cab3037022d908ab7c1e",
+  "publication": {
+    "release": "20261024-rogue-tomes-v1",
+    "files": 483,
+    "changed_files": [
+      "multiclass.html",
+      "recent-changes.html",
+      "search-index.json"
+    ],
+    "linux_publisher_tests": 16,
+    "public_manifest_sha256": "60a0be9d62137dc5cb7b4d36783be6adec708ec4f4607412bf0d7c1674173f66"
+  }
 }
