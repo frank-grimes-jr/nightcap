@@ -31,7 +31,13 @@
     {
       "check": "Independent source review and focused rerun",
       "result": "no remaining actionable findings; 3 tests passed",
-      "resolved": ["shared XTarget counters", "unrelated movement delays", "ground normalization", "roambox preservation", "fresh isolated build output"]
+      "resolved": [
+        "shared XTarget counters",
+        "unrelated movement delays",
+        "ground normalization",
+        "roambox preservation",
+        "fresh isolated build output"
+      ]
     },
     {
       "check": "Current wiki check_refresh against candidate HEAD including working changes",
@@ -39,12 +45,24 @@
       "publication": "not performed"
     }
   ],
-  "native_build": "pending; see native-build-manifest.json only after successful completion",
+  "native_build": {
+    "status": "passed; not installed",
+    "manifest": "native-build-manifest.json",
+    "zone_sha256": "c14912b6463c794f9fdd5592ebce0bf111ca9fa16e656d2a18266a60c43b98e8",
+    "source_inventory": "exactly five intended files differ from authenticated retained baseline",
+    "same_verified_directory_resumed_with_workers": 4
+  },
   "limits": [
     "Fixtures execute extracted methods with explicit dependency fakes, not full client networking or ID allocation",
     "Managed=true fixture exercises restoration loops, not checkpoint SQL selection or persistence transactions",
     "Native SendTo and SaveGuardSpot are authenticated retained-source excerpts; map/water/rule responses are fakes",
     "No nav-mesh travel, client-visible behavior, full dungeon replay or live reproduction is claimed",
     "Independent source inspection confirms Raid checkpoints feed the same restoration path"
-  ]
+  ],
+  "skill_maintenance": {
+    "installed": true,
+    "world_source_fingerprints": "all match",
+    "skill_validator": "passed",
+    "receipt": "skill-update/receipt.json"
+  }
 }
