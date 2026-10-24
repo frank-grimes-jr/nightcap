@@ -1,5 +1,5 @@
 """Bounded SK-main native arena calibration; no live database or service writes."""
-import copy,gzip,hashlib,json,sys
+import argparse,copy,gzip,hashlib,json,sys
 from warhelm_balance import OUT,ROOT,sql,remote,RUNTIME,execute
 from warhelm_content import compile_rows
 from dungeon_migration import insert
@@ -54,4 +54,34 @@ def run():
                 (OUT/'sk-results.json').write_text(json.dumps(report,indent=2)+'\n')
                 print(name,json.dumps({k:row[k] for k in ('result','seconds','hp_floor_pct','mana_floor_pct','npc_remaining')}),flush=True)
 
-if __name__=='__main__':run()
+def controls():
+    base,p=maximum()
+    q=Purchases(list(p.ranks.values()));q.free_closure()
+    for rank_id in p.ids:
+        rank=q.ranks[rank_id]
+        if not q.reasons(rank) and q.spent+rank['cost']<=500:q.buy(rank)
+    b=base['builds'][0];b.update(aa_budget=q.spent,aa_rank_ids=q.ids,aa_stage='bounded500AA control')
+    seen=set()
+    for item in b['equipment']:
+        item['id']=item['id']%200000+200000
+        if item['id'] in seen:item['id']%=200000
+        seen.add(item['id']);item['augments']=[]
+    rows=[]
+    for boss in [n for n in compile_rows()['npc_types'] if n['id'] in (998861,998864)]:
+        enemy=dict(boss,id=32040);sql(insert('npc_types',enemy).replace('INSERT INTO','REPLACE INTO',1))
+        for seed in (101,2718):
+            name=f'sk-control-{boss["id"]}-{seed}'
+            output=execute(name,base,seed)
+            row=dict(case=name,boss=boss['id'],mode='Grind',seed=seed,stats=enemy,**compact(output));rows.append(row)
+            for suffix in ('-result.json','.log'):
+                path=OUT/(name+suffix);raw=path.read_bytes();packed=gzip.compress(raw,mtime=0)
+                assert gzip.decompress(packed)==raw
+                path.with_name(path.name+'.gz').write_bytes(packed);path.unlink()
+                row[suffix+'_sha256']=hashlib.sha256(raw).hexdigest()
+            (OUT/'sk-controls.json').write_text(json.dumps(dict(scope='Same SK/CLR/MNK controller; at most500legal AA, Polished gear, no augments. Progression contrast, not a minimum-entry recommendation.',cases=rows),indent=2)+'\n')
+            print(name,json.dumps({k:row[k] for k in ('result','seconds','hp_floor_pct','mana_floor_pct','npc_remaining')}),flush=True)
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--controls',action='store_true');args=parser.parse_args()
+    if args.controls:controls()
+    else:run()

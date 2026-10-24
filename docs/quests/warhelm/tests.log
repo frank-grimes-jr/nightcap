@@ -48,8 +48,13 @@ test_unexpected_template_power_rejected (test_winged_helmet_item.ItemTests.test_
 test_large_actor_data_remains_readable_with_native_block_capacity (test_classic_model_pfs.ClassicModelPfsCompatibility.test_large_actor_data_remains_readable_with_native_block_capacity) ... ok
 test_large_filename_table_also_uses_native_sized_blocks (test_classic_model_pfs.ClassicModelPfsCompatibility.test_large_filename_table_also_uses_native_sized_blocks) ... ok
 test_validator_rejects_oversized_version_2_block (test_classic_model_pfs.ClassicModelPfsCompatibility.test_validator_rejects_oversized_version_2_block) ... ok
+test_native_coordinator (test_highkeep_rescue.HighkeepRescue.test_native_coordinator) ... ok
+test_policy (test_highkeep_rescue.HighkeepRescue.test_policy) ... ok
+test_cleanup_is_after_death_veto_and_before_entity_id_transfer (test_aggro_departure_native.AggroDepartureTests.test_cleanup_is_after_death_veto_and_before_entity_id_transfer) ... ok
+test_departure_cannot_replay_feign_memory_onto_reused_entity_id (test_aggro_departure_native.AggroDepartureTests.test_departure_cannot_replay_feign_memory_onto_reused_entity_id) ... ok
+test_saved_pull_location_does_not_become_stationary_home (test_zone_state_home_native.ZoneStateHomeTests.test_saved_pull_location_does_not_become_stationary_home) ... ok
 
 ----------------------------------------------------------------------
-Ran 50 tests in 112.265s
+Ran 55 tests in 104.188s
 
 OK

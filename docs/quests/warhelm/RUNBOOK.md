@@ -36,8 +36,8 @@ protected reference client or copy these archives manually into installed client
 
 ## Future authorized release
 
-1. Rebase against then-current main and review concurrent High Keep changes,
-   especially shared dungeon/attack hooks. Take fresh production public preimages,
+1. Rebase against the then-current integration branch and review any new High Keep changes,
+   especially shared dungeon/attack hooks (dev1a8a4917 is already reconciled). Take fresh production public preimages,
    reservation/reference/engine/trigger checks and a verified full backup. The
    local capture is not production evidence; regenerate and rehearse target SQL.
 2. Account for active Kael instances, saved public spawn state, corpses and all

@@ -1,0 +1,20 @@
+{
+  "basis": "1a8a4917",
+  "merge_commit": "6c79f36",
+  "combined_hooks": [
+    "Vigil/Ashen/Highkeep tick, boot and death hooks",
+    "Both temporary-actor XP exclusions",
+    "Ashen journal restoration plus Highkeep status",
+    "Independent Keeper and story dispatch"
+  ],
+  "focused_tests": 55,
+  "standalone_heal_targeting_checks": 149,
+  "passed": true,
+  "source_sha256": {
+    "server-mods/code/zone/dungeon_service.cpp": "7ca7881613e9c80029a3df01d192f73c892ae689fd4ac5d5bcca1b00094eef06",
+    "server-mods/code/zone/attack.cpp": "c6f450a686700c74245bff9b75997d3c69135a3adb1b24cae5c0d5ea38707174",
+    "server-mods/code/zone/spells.cpp": "aed7a2ec804a078d53905528d9adf8676222b7af548e95deb8e1a3ab7b6f9bd6"
+  },
+  "native_build": "pending final combined rebuild",
+  "production_changed": false
+}

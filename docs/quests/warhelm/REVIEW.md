@@ -1,6 +1,6 @@
 # Candidate review
 
-Reviewed against main7fe3a783 in an isolated feature checkout. No deployment,
+Reviewed from main7fe3a783, then reconciled with dev1a8a4917 in an isolated feature checkout. The merged hooks preserve High Keep rescue and aggro cleanup. No deployment,
 installed-client mutation, production player write or wiki publication performed.
 
 ## Correctness and isolation
@@ -41,7 +41,7 @@ remain explicit in-game acceptance items.
 The old Camil generator and candidate default generator produce identical archive
 bytes. The repository's older reviewed-candidate hash assertion fails identically
 on unmodified HEAD; see camil-preservation.json. Its expected hashes were not
-silently changed. The fifty focused checks exclude that preexisting assertion.
+silently changed. The55focused checks exclude that preexisting assertion and include the integrated High Keep, healing, aggro-departure and saved-home regressions.
 
 The wiki overlay is based on the verified published Hole revision66c7b843. It
 reviews all24maintained guides, preserves447existing generated routes, adds the
@@ -53,7 +53,6 @@ pending Linux execution before any publication.
 
 Native combat measurements are a bounded diagnostic, not proof of optimal gear,
 every held-class combination or the complete scripted route. Follow QA.md for
-native client and full-route acceptance. Rebase shared dungeon/attack changes
-against any concurrently promoted High Keep release before integration. Release
+native client and full-route acceptance. The shared dungeon/attack hooks include dev1a8a4917; recheck subsequent branch changes before promotion. Release
 requires paired native binaries, schema/content/cache, exact scripts and signed
 Classic archives, with fresh target-specific preimages and owner authorization.
