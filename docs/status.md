@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## 2026-10-24 — Tome learning repair under release verification
+
+The owner authorized main/server release after the Rogue audit. Canonical
+held-class learning, full duplicate detection and failed-save/item preservation
+are implemented;43native cases pass on Windows/Linux plus adjacent spell/cooldown
+checks. The full zone build and guarded rollout are tracked in
+[the release record](releases/rogue-tomes-20261024/README.md). No deployment or
+player acceptance is claimed yet. Discipline use levels and AA policy remain.
+
 ## 2026-10-24 — Hole entrance key requirement removed live
 
 Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: ops/hole-keyless-passage-20261024/deployed.json.
