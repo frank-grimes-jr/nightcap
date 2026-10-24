@@ -60,6 +60,14 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **High Keep rescue candidate (October24, not deployed):** new opted-in Raid runs
+  use `zone/highkeep_rescue.inc` and additive `nightcap_highkeep_*` storage. Pair
+  zone/schema; keep the activation flag off until verified. Completion requires
+  personal four-boss credit plus Osargen extraction. Preserve run/receipt state;
+  never downgrade to old completion code over active rescue runs. Scope, exact
+  player QA and recovery: `docs/dungeons/highkeep-rescue/`.
+
+
 - **Cooldown identities (deployed October 18 via PR223; gameplay QA open):** AA reuse belongs
   to an ability family, projected into the native client's 100 slots independently
   of purchases. Internal timer keys now use disjoint positive 24-bit-compatible

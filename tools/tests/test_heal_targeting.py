@@ -59,6 +59,12 @@ def harness(source, common):
 #include <iostream>
 #include <stdexcept>
 using uint16=uint16_t; using uint32=uint32_t;
+using int32=int32_t;
+enum class CastingSlot {AltAbility};
+namespace Chat {constexpr int SpellFailure=0;}
+namespace NightcapTHJ {
+int ResourcePercent(int){return 0;} int PercentMana(int,int){return 0;} bool ManaBurn(int){return false;}
+}
 constexpr int EFFECT_COUNT=12, SPDAT_RECORDS=3000;
 constexpr int SPELL_COMPLETE_HEAL=13, SPELL_MINOR_HEALING=200, SPELL_NATURES_RECOVERY=2520;
 constexpr int MAX_FAST_HEAL_CASTING_TIME=2000, MAX_VERY_FAST_HEAL_CASTING_TIME=1000;
@@ -91,6 +97,8 @@ struct Mob {
     Mob* GetNightcapPetOwner() { return !client && owner && owner->client ? owner : nullptr; }
     Mob* GetTarget() { return target; }
     uint16 GetID() { return id; }
+    int GetMaxMana(){return 100;} int GetMana(){return 100;} bool FindBuff(int){return false;}
+    template<class...T>void Message(int,const char*,T...){}
     void ZeroCastingVars() { casting_spell_id=0; }
     void StopCastSpell(int,bool) {}
     bool DoCastingChecksOnCaster(int,int) { return true; }
@@ -106,11 +114,14 @@ struct Entities {
     Mob* entries[8]{};
     Mob* GetMobID(uint16 id) { return id<8 ? entries[id] : nullptr; }
 } entity_list;
+Mob* rescue_target=nullptr;
+namespace NightcapDungeon {bool HighkeepHealTarget(Mob* mob){return mob==rescue_target;}}
 ''' + helper + r'''
 bool Mob::CastTarget(uint16 spell_id,uint16& target_id) {
     int slot=0, cast_time=-1, aa_id=0; uint32 item_slot=UINT32_MAX;
 ''' + cast + "return true;\n}\n" + r'''
 bool Mob::FinishTarget(uint16 spell_id,Mob*& spell_target) {
+    bool isproc=false; CastingSlot slot=CastingSlot::AltAbility;
 ''' + finish + "return true;\n}\n" + r'''
 int checks=0, failures=0;
 void check(bool result,const char* label) {
@@ -203,6 +214,21 @@ int main() {
     check(!caster.FinishTarget(UINT16_MAX,target) && target==&npc, "invalid spell is safe");
     target=nullptr;
     check(caster.FinishTarget(201,target) && !target, "null target is safe");
+    rescue_target=&npc;
+    for (bool implied_on : {false,true}) {
+        implied=implied_on;
+        for (int id : {200,201,202,203,13,204,206,213,217,218,222,223}) {
+            target_id=npc.id; target=&npc;
+            check(caster.CastTarget(id,target_id) && target_id==npc.id && caster.checked==&npc,
+                  "rescue escort retains direct healing recipient at cast start");
+            check(caster.FinishTarget(id,target) && target==&npc,
+                  "rescue escort retains direct healing recipient at cast finish");
+        }
+    }
+    reject_npc=true; target_id=npc.id;
+    check(!caster.CastTarget(201,target_id), "rescue exception still runs native target validation");
+    reject_npc=false; rescue_target=nullptr; implied=false; target_id=npc.id;
+    check(caster.CastTarget(201,target_id) && target_id==caster.id, "public/unmanaged Osargen keeps normal NPC heal redirection");
     std::cout << checks-failures << '/' << checks << " heal-targeting checks passed\n";
     return failures ? 1 : 0;
 }
