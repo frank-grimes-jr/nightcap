@@ -1,172 +1,37 @@
 --- references/world.md
 +++ references/world.md
-@@ -1,4 +1,44 @@
- # Quests, tunnel services and travel
-+
-+## Aggro departure and stationary homes — October24 candidate
-+
-+Source5116f9b in E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup corrects two
-+reproduced defects; it is not installed or owner-accepted. Palwar's Lower Guk
-+Raid bedroom report used no Feign Death and matches the Thursday run whose
-+checkpoint retained clustered knights. The owner returned over an hour later,
-+consistent with the logged natural unload; in-game resolution remains unproved.
-+Ordinary hate removal does not erase feign memory's recyclable entity IDs.
-+Client::ClearFeignMemoryOnDeparture removes only matching NPC memory after
-+accepted death and at the end of client destruction. Do not substitute broad
-+ClearZoneFeignAggro: shared XTarget counters and unrelated return delays change.
-+
-+Saved stationary positions formerly became guard homes during NPC::AI_Start.
-+Spawn2::Process now normalizes the canonical guard using native SendTo rules,
-+then restores the pre-publication pose. It preserves heading, construction spawn
-+point, loot/resources, grid/roambox roaming and quest movement; the canonical-row
-+lookup is value-initialized for missing-row fallback. Raw canonical Z is unsafe:
-+fresh AI_Start corrects ground/water Z before saving its guard.
-+
-+Managed Raid/Grind checkpoints DO use this loader: LoadZoneState consumes
-+NightcapDungeon::LoadCheckpoint, keyed by run UUID. The managed bypass in
-+LoadZoneVariablesState is only for zone variables. Query dungeon checkpoints,
-+not just zone_state_spawns. An older Raid checkpoint contained two stationary
-+knights at one point over200units from home in the owner-confirmed incident run;
-+re-entry causality is still unconfirmed.
-+Empty zones pause normal NPC processing after their settle window (Lower Guk60s);
-+long logout alone does not guarantee all displaced NPCs have walked home.
-+
-+Tests: test_aggro_departure_native.py and test_zone_state_home_native.py execute
-+extracted native paths with pinned entity/mob_ai/xtarget/waypoints helpers.
-+Nine Windows and three Linux checks pass; independent review resolved shared
-+counters, unrelated delays and ground normalization. Fixtures are not nav-mesh,
-+checkpoint-SQL or owner gameplay proof. Build status and exact QA are recorded
-+in docs/releases/aggro-zone-cleanup-20261024/{README.md,verification.json,QA.md}.
-+Zone rebuild required; no SQL, world-rule, cache or client change. Whole-runtime
-+production restart needs current owner authorization; never kill a zone child,
-+repop a live dungeon or erase checkpoints/player progress to demonstrate the fix.
-+Whole current wiki reviewed; no publication/current-player mechanics change from
-+this uninstalled candidate. Preserve the concurrent deployed Hole release.
+@@ -4,9 +4,10 @@
  
- ## Hole passage — October24 deployed for live testing
+ Source5116f9b in E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup corrects two
+ reproduced defects; it is not installed or owner-accepted. Palwar's Lower Guk
+-Raid bedroom report used no Feign Death and matches the Thursday run whose
+-checkpoint retained clustered knights. The owner returned over an hour later,
+-consistent with the logged natural unload; in-game resolution remains unproved.
++Raid bedroom report used no Feign Death and recalled a return over an hour later.
++Later local client-log correlation records fresh Raid101 Thursday19:45 and fresh
++Raid103 Saturday07:15, with no post-unload return to101. These fixes are not the
++proved cause/resolution of those fresh-Raid trains; fresh assist/pathing needs QA.
+ Ordinary hate removal does not erase feign memory's recyclable entity IDs.
+ Client::ClearFeignMemoryOnDeparture removes only matching NPC memory after
+ accepted death and at the end of client destruction. Do not substitute broad
+@@ -23,8 +24,7 @@
+ NightcapDungeon::LoadCheckpoint, keyed by run UUID. The managed bypass in
+ LoadZoneVariablesState is only for zone variables. Query dungeon checkpoints,
+ not just zone_state_spawns. An older Raid checkpoint contained two stationary
+-knights at one point over200units from home in the owner-confirmed incident run;
+-re-entry causality is still unconfirmed.
++knights at one point over200units from home; no logged return consumed that state.
+ Empty zones pause normal NPC processing after their settle window (Lower Guk60s);
+ long logout alone does not guarantee all displaced NPCs have walked home.
  
 --- references/sources.json
 +++ references/sources.json
-@@ -95,7 +95,8 @@
-     "wiki_loot_finder_candidate_20261022": "37ef4a9aabfcf16a96089010c6a5456f10f3ff78",
-     "wiki_loot_finder_published_20261022": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
-     "aa_level_progression_20261023": "main00f90e9; deployed image5e501da8; client2026102301; wiki20261023-aa-level-v1; owner QA open",
--    "chapterhouse_deployed_20261023": "main ebeb6591; gameplay c0c9896e; production db570029; wiki20261023-camil-chapterhouse-v1; owner QA open"
-+    "chapterhouse_deployed_20261023": "main ebeb6591; gameplay c0c9896e; production db570029; wiki20261023-camil-chapterhouse-v1; owner QA open",
-+    "aggro_cleanup_candidate_20261024": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)"
-   },
-   "topics": {
-     "operations": [
-@@ -4585,18 +4586,18 @@
-         "sha256": "f26eea5fdb2ddfcae849eceb0b806aa8f31645c8255671e686001f7e75471bce"
+@@ -5934,7 +5934,7 @@
+         "path": "docs/releases/aggro-zone-cleanup-20261024/README.md",
+         "role": "candidate evidence, incident uncertainty, reload and wiki impact; October24 candidate, not deployed",
+         "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
+-        "sha256": "db22f00c1f684af556dab9778d2dbcda9971c2720de8b69c3c35afa5ece58a43"
++        "sha256": "86c053324ea601dfcd98ec444e4972047cf3383ebd288cfb891e8af0690507c5"
        },
        {
--        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-         "path": "server-mods/code/zone/spawn2.cpp",
--        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
--        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
--        "sha256": "8e8153fde89960b57132653fd5b495608fee71b2a436af08714a4d70e6d0270d"
--      },
--      {
--        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
-+        "role": "canonical ground-corrected stationary guard; saved publication pose and roamers retained; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "5d55fd4b2dececf2a61a4182af347d77edd65887662e776bd212721c15466281"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-         "path": "server-mods/code/zone/zone_save_state.cpp",
--        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
--        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
--        "sha256": "fc8ec9a75e16e2992da21c57ea9f7cda225d3cbe3ecb28ac42b8c3792c575d34"
-+        "role": "managed and native restoration; defined missing canonical-row fallback; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "13559dcbbc7239bb66b71e0da4e48ea89b752dfc03f5542f098c9431bc785fd7"
-       },
-       {
-         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
-@@ -5864,6 +5865,83 @@
-         "revision": "6c135230",
-         "sha256": "059cb6353931369166100d3ccf3118fe344c9c145eed5029c7e6d2639754474a",
-         "role": "Hole keyless release deployed/published October24; owner gameplay acceptance pending"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "server-mods/code/zone/attack.cpp",
-+        "role": "accepted death removes departed feign memory before corpse ID transfer; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "61486d322fe6abc330687eba23dd8a88d22ac38ad10a2399d6d2044f64310105"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "server-mods/code/zone/client.cpp",
-+        "role": "membership-only feign cleanup after all client destructor bookkeeping; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "037ab0e72513038f8a20769421fc7de105a17b75d611cb1a450256fa4e7c97d2"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "server-mods/code/zone/client.h",
-+        "role": "departure cleanup declaration; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "8a132d23140006e26b8f67140f07eeb56a82a2c9b74b9053e28eb20a56e4aa7f"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "tools/tests/test_aggro_departure_native.py",
-+        "role": "native departure/ID-reuse, XTarget and unrelated-delay regression; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "76d525291723f2ef2799f7eac820c602978f4537326255da6cd2633e59ebf31d"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "tools/tests/aggro_departure_fixture.cpp",
-+        "role": "lifecycle dependency fakes and shared-XTarget assertions; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "3959b22ec5a12645c567a315956e9a09ca1d9e04f9d8ec68d08bb45e70617294"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "tools/tests/aggro_departure_upstream_fixture.cpp",
-+        "role": "authenticated retained native entity/AI/XTarget excerpts; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "b4ee880a3ae215d1ab745fd2fc452993e333b57f752004d1408f4763b7300de1"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "tools/tests/test_zone_state_home_native.py",
-+        "role": "native saved-spawn and state method extraction; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "12d1bbab83d03e6d49d12ad332ffb63d85582885afb6c7ae57cb0b0bbe42cdad"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "tools/tests/zone_state_home_fixture.cpp",
-+        "role": "public/managed restoration, normalized guard, publication pose and roaming controls; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "5ada4e6a785f67f48cd1428855c95eac3647e9affd79c6f24522dbc163a21dec"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "tools/tests/zone_state_position_upstream_fixture.cpp",
-+        "role": "authenticated native SendTo/SaveGuardSpot excerpts; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "9082d9a81cccac77271db9aa805eeb6ecf61d11b02b1432161526a29bf024527"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "docs/releases/aggro-zone-cleanup-20261024/README.md",
-+        "role": "candidate evidence, incident uncertainty, reload and wiki impact; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "db22f00c1f684af556dab9778d2dbcda9971c2720de8b69c3c35afa5ece58a43"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
-+        "path": "docs/releases/aggro-zone-cleanup-20261024/QA.md",
-+        "role": "exact owner gameplay gate; not completed; October24 candidate, not deployed",
-+        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
-+        "sha256": "3cff9dfba4737234715241a03e63ee0bd719ce9483b4ddecd7a0297fd29a333f"
-       }
-     ],
-     "client": [
+         "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",

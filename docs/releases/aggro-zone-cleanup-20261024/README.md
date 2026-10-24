@@ -8,12 +8,13 @@ Extended Targets at arrival. The owner confirmed **no Feign Death** was used,
 so the separate feign-memory defect does not explain this encounter. The owner
 subsequently identified **Thursday evening's run**, matching the older Raid
 checkpoint described below, and said the return was **more than an hour later**.
-That matches the instance's natural unload window and supports the checkpoint
-restoration explanation. This observation does not establish persistent hate:
+That initially suggested checkpoint restoration. Later client-log evidence,
+below, records fresh Raid entries rather than a return to the saved run.
+This observation does not establish persistent hate:
 fresh proximity/social aggro, displaced NPCs and remembered targets must be
 distinguished. Two native defects are reproduced and corrected here; neither is
-claimed as a completed in-game resolution. Saved-home restoration is the supported
-explanation for this report; feign memory is a separate reproduced defect.
+claimed as a completed in-game resolution or the cause of the logged fresh-Raid
+trains. Both remain separately reproduced native defects.
 
 ## Evidence and corrected behavior
 
@@ -76,6 +77,26 @@ preceded the particular re-entry. The owner's report of returning more than an
 hour later is consistent with the logged one-hour unload. Today's
 fresh Raid had no checkpoint at the time of capture. No return/reload sequence
 for the reported encounter has been established.
+
+### Later client-log correlation
+
+Read-only inspection of `E:/Nightcap/Logs/eqlog_Palwar_Nightcap.txt` identifies:
+
+- Thursday 19:25:34 local: public Lower Guk entry, followed by combat.
+- Thursday 19:45:21: Raid101 entry; the journal says 719 minutes remain,
+  confirming a fresh run. First recorded Raid attacker is a froglok shin knight
+  at 19:49:25; gargoyles join at 19:50:02; a deadly black widow kills Palwar at
+  19:50:29. This agrees with the retained server log.
+- The next recorded Lower Guk entries are Saturday 07:15:14 public and
+  07:15:38 fresh Raid103. Frogs begin attacking at 07:15:55, followed by gargoyles
+  at 07:16:54; a tal ghoul wizard kills Palwar at 07:17:28.
+
+There is no recorded post-unload return to Raid101 in this client log. This
+limits the earlier checkpoint inference despite the owner's recollection of a
+later return: the logged fights cannot be attributed to restored Raid101 hate
+or home positions. Normal fresh proximity/assist chains and pathing still need
+observation if those fights are the reported symptom. Do not claim this candidate
+resolves them. The full client log remains private and outside the repository.
 
 Raw character/location/network logs are retained only in ignored local
 `artifacts/aggro-zone-cleanup/`. No database rows, running services or client
