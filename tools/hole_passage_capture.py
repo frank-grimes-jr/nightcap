@@ -35,4 +35,4 @@ def capture():
 
 
 if __name__ == '__main__':
-    print(json.dumps(capture(), indent=2) + '\n')
+    print(json.dumps(capture(), indent=2))
