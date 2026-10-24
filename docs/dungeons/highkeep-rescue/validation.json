@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-24",
+  "implementation_revision": "517f75fa19b294dc86204343521968349555830b",
+  "integration_revision": "89766032",
+  "integrated_dev_revision": "06899051b3b990c34b5747d3afb5c6c8d353e6f4",
+  "status": "automated validation passed; manual gameplay and balance QA open",
+  "native_build": {
+    "status": "passed",
+    "zone_sha256": "dad1c575286b2dd40bf5ec775f50a703fb39613aa2f934950c8a32b60b1d3b50",
+    "changed_source_files_verified": 12,
+    "installed": false,
+    "retained_source_unchanged_outside_overlay": true,
+    "total_source_files": 2834
+  },
+  "checks": [
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_highkeep_rescue.py -v",
+      "passed": 2,
+      "scope": "Actual policy and coordinator compiled with explicit engine/storage doubles"
+    },
+    {
+      "command": "python tools/tests/test_heal_targeting.py --common work/spdat.cpp --container akk-stack-eqemu-server-1",
+      "passed": 149,
+      "scope": "Actual heal classifiers and cast prefixes, including implied targeting"
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p 'test_*dungeon*.py' -v",
+      "passed": 26
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_aggro_departure_native.py -v",
+      "passed": 2
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_zone_state_home_native.py -v",
+      "passed": 1
+    },
+    {
+      "command": "python tools/tests/rehearse_highkeep_rescue.py",
+      "status": "passed",
+      "scope": "Isolated disposable MariaDB; actual migration and completion transaction; container removed"
+    },
+    {
+      "evidence": "terrain.json",
+      "passed_samples": 35
+    },
+    {
+      "evidence": "navigation.json",
+      "passed_route_legs": 8,
+      "scope": "Actual native FindRoute with normal flags; all four legs in both directions"
+    },
+    {
+      "command": "python wiki/build.py",
+      "pages": 476,
+      "status": "passed",
+      "source_revision": "bac53706db231bd3d65ec70834666de42e09cf5b"
+    },
+    {
+      "command": "python -m unittest discover -s wiki -p test_wiki.py -v",
+      "passed": 12,
+      "source_revision": "bac53706db231bd3d65ec70834666de42e09cf5b"
+    }
+  ],
+  "independent_review": "Corrections verified; no remaining concrete findings in reviewed corrections",
+  "integration_review": "Independent reviewer found no concrete regressions in canonical-home restoration, High Keep layout projection, dynamic actor reset or departure cleanup at 89766032",
+  "additional_model_review": "Owner chose to continue with current review",
+  "manual_checks": [
+    "Real doors, stairs and following under combat",
+    "Dialogue, Tasks and reward presentation",
+    "Level-40 progression and maximum legal multiclass/AA/gear encounter balance"
+  ],
+  "production_changed": false,
+  "wiki_published": false
+}

@@ -2530,7 +2530,8 @@ void NPC::Damage(Mob* other, int64 damage, uint16 spell_id, EQ::skills::SkillTyp
 
 	attacked_timer.Start(CombatEventTimer_expire);
 
-	if (!IsEngaged())
+	// The non-combat escort never enters hate, so it cannot balance this counter.
+	if (!IsEngaged() && !NightcapDungeon::HighkeepHealTarget(this))
 		zone->AddAggroMob();
 
 	if (GetClass() == Class::LDoNTreasure)
@@ -2881,12 +2882,14 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 	}
 
 	//do faction hits even if we are a merchant, so long as a player killed us
-	if (!IsCharmed() && give_exp_client && !RuleB(NPC, EnableMeritBasedFaction)) {
+	const bool keep_faction=NightcapDungeon::HighkeepNoFaction(this);
+	if (!keep_faction && !IsCharmed() && give_exp_client && !RuleB(NPC, EnableMeritBasedFaction)) {
 		hate_list.DoFactionHits(GetNPCFactionID(), GetPrimaryFaction(), GetFactionAmount());
 	}
 
 
-	if (give_exp_client && !IsCorpse()) {
+	// Zero exp_mod still grants raid/leadership XP; exclude temporary rescue actors.
+	if (give_exp_client && !IsCorpse() && !NightcapDungeon::HighkeepTransient(this)) {
 		Group* killer_group = entity_list.GetGroupByClient(give_exp_client);
 		Raid*  killer_raid  = entity_list.GetRaidByClient(give_exp_client);
 
@@ -2924,7 +2927,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 				}
 
 				if (m.member) {
-					if (RuleB(NPC, EnableMeritBasedFaction)) {
+					if (!keep_faction && RuleB(NPC, EnableMeritBasedFaction)) {
 						m.member->SetFactionLevel(
 							m.member->CharacterID(),
 							GetNPCFactionID(),
@@ -2957,7 +2960,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 				if (m && m->IsClient()) {
 					Client* c = m->CastToClient();
 
-					if (RuleB(NPC, EnableMeritBasedFaction)) {
+					if (!keep_faction && RuleB(NPC, EnableMeritBasedFaction)) {
 						c->SetFactionLevel(
 							c->CharacterID(),
 							GetNPCFactionID(),
@@ -2991,7 +2994,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 				}
 			}
 
-			if (RuleB(NPC, EnableMeritBasedFaction)) {
+			if (!keep_faction && RuleB(NPC, EnableMeritBasedFaction)) {
 				give_exp_client->SetFactionLevel(
 					give_exp_client->CharacterID(),
 					GetNPCFactionID(),

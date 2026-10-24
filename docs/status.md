@@ -1,5 +1,17 @@
 # Current Nightcap status
 
+## 2026-10-24 — High Keep rescue prepared for testing
+
+The candidate adds an entrance confrontation, guard alarm, compact prison route,
+zone-wide story dialogue and an Osargen escort back to the entrance. Three waves
+attack the prisoner; death/retry preserves defeated bosses, while personal rewards
+require extraction. Isolated coordinator/healing, database and bidirectional
+navigation checks pass. Full native zone builddad1c575286b2dd4 also passes;
+its retained source manifest matches all final changed native files.
+Not activated or published; manual navigation, pacing and maximum-legal-power
+balance remain open. [Exact QA](dungeons/highkeep-rescue/QA.md) and
+[paired installation/recovery](dungeons/highkeep-rescue/RUNBOOK.md).
+
 ## 2026-10-24 — Aggro departure/return-home correction in verification
 
 Source candidate fixes stale feign-memory entity IDs after death/departure and

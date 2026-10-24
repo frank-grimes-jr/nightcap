@@ -1,0 +1,65 @@
+{
+  "status": "native FindRoute connectivity passed",
+  "legs": [
+    {
+      "leg": 0,
+      "nodes": 5,
+      "length": 99.68,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 1,
+      "nodes": 12,
+      "length": 256.58,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 2,
+      "nodes": 16,
+      "length": 462.33,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 3,
+      "nodes": 3,
+      "length": 43.43,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 4,
+      "nodes": 5,
+      "length": 99.68,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 5,
+      "nodes": 12,
+      "length": 256.58,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 6,
+      "nodes": 17,
+      "length": 462.18,
+      "partial": false,
+      "teleports": 0
+    },
+    {
+      "leg": 7,
+      "nodes": 3,
+      "length": 43.43,
+      "partial": false,
+      "teleports": 0
+    }
+  ],
+  "nav_sha256": "f88eb95d03722bd50e974fbbac9b8b0146a71c8bc678511ae0087f90520f702a",
+  "native_source_sha256": "7b9eaee28ca21b1f310ce73fd30b89feba0ad3fba727fb724413f7c0f41c6a88",
+  "limitation": "Static navmesh route only; actual follow movement, doors and client visibility require gameplay QA.",
+  "production_changed": false
+}
