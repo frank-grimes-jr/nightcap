@@ -1,4 +1,4 @@
-# Keyless passage into The Hole — prepared, not deployed
+# Keyless passage into The Hole — deployed October24
 
 The owner requested removal of the key requirement for the passage into The
 Hole. Production read-only capture on October 24 identifies Paineel's entrance
@@ -39,8 +39,15 @@ Confirm the deployed retained-source counterpart before activating reload.
 
 ## Activation and recovery
 
-Main promotion/live activation require owner sign-off under AGENTS.md. This
-candidate does not claim deployment or in-game acceptance.
+Owner approved main/live activation. PR318 merged as7f126acb; deployed.json
+records the successful two-field production update at11:51UTC October24. Fresh
+45.4MB compressed full PEQ backup was verified by decompression/hash. Paineel
+was unloaded immediately before and after the commit, so its next normal boot
+loads the new door values. All398 other captured doors, keys, native/service
+lifetimes and health are preserved. No restart, static reload or client patch
+was needed. Backups and exact before/after receipts are retained privately in
+/opt/nightcap/backups/hole-keyless-passage-20261024. Owner gameplay acceptance
+is still pending. The steps below remain the guarded recovery/refresh contract.
 
 1. Take the shared deployment/GM locks and a fresh database backup. Hold entrance
    use during application/reload. Capture all Paineel/Hole doors again and compare
@@ -80,8 +87,15 @@ Current wiki authority: feature/chapterhouse-wiki405aa570, with the candidate in
 `E:/EQ_Local_Dev/_worktrees/hole-keyless-wiki` / feature/hole-keyless-wiki.
 All24 maintained articles and447 generated reward routes were reviewed for scope.
 Travel, Features, home, dungeon guidance, The Hole zone page and Recent changes
-receive explicitly Not released notes. Commands, items, rewards, catalog values,
+receive Live testing notes after verified activation. Commands, items, rewards, catalog values,
 class guides and other zones have no changed behavior. No new gameplay command.
 `check_refresh.py --repo .../hole-keyless-passage --ref HEAD --include-worktree`
 correctly reports this candidate's sources as requiring review. Do not advance
-the old source ledger to hide unrelated drift. Wiki publication is pending.
+the old source ledger to hide unrelated drift. Wiki20261024-hole-keyless-v1 is published:483 files verified,476 unchanged and
+seven intended guide/search outputs updated. Publication rollback was rehearsed;
+private downloads, configuration and all service lifetimes are preserved.
+All68 Linux wiki tests pass. The build reproduces the published Windows HTML
+newlines and exact shared asset bytes, including the existing CRLF build-lab.js;
+normalizing those bytes changes every page asset hash. Both mismatched packages
+were rejected before upload/publication. See wiki-package-review.json and
+wiki-publication.json.
