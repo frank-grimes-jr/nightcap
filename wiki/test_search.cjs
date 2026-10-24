@@ -26,6 +26,12 @@ async function search(q, fail = false) {
   assert.equal(result.results.length, 6);
   result = await search('hillside ascension');
   assert.equal(result.results[0].children[0].href, 'item-940027.html');
+  for(const query of ['AA','classes']) {
+    result=await search(query);
+    assert.equal(result.results[0].children[0].href,'multiclass.html');
+  }
+  result=await search('fixes');
+  assert.equal(result.results[0].children[0].href,'recent-changes.html');
   result = await search('<script>alert(1)</script>');
   assert.equal(result.results.length, 0);
   assert.match(result.status, /No results/);

@@ -1,0 +1,8 @@
+{
+  "result": "APPLIED",
+  "files": {
+    "wiki.md": "0e4be0db81cbb5ca7947e4c998afb32d72a9036347c615ca32ebcfa94dfb64f9",
+    "sources.json": "c53d77c96ee8e1d67dcb495f98e24b39200c62417172cb859dfd3b1e6c825725"
+  },
+  "historical_relocation": "relocation.json; exact-byte copies only, superseded candidate review retired"
+}

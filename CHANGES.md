@@ -94,6 +94,23 @@ with3319 legal AAs, Ascended Ghoulbane, Slay/proc/crit stacking and native Raid
 scaling:48 maximum-power arena cases pass; complete encounter QA remains open.
 Paired native/schema/cache install and owner gameplay/balance
 QA remain required. [Specification and evidence](docs/quests/camil-chapterhouse/SPEC.md).
+## 2026-10-24 — Custom content on Features
+
+Features now explicitly lists Raid/Grind dungeons and helmet quests, grouped with
+Zone Hunt, epic reforging, class-armor quests, crafting, exploration and custom
+character/world systems. Every entry links to its guide; minor fixes stay in
+Change Log. Ashen Compact is an unavailable preview, not an activated reward.
+No gameplay/catalog change. Evidence: `docs/releases/wiki-custom-features-20261024/`.
+
+## 2026-10-24 — Clearer wiki structure
+
+Reduced Features to eight defining departures from standard EQ. Home and guides
+now prioritize orientation and current instructions; dated fixes and repeated
+announcements are collected in Change Log. Added consistent section tabs, type
+sizes and compact contents; long references expand when needed. Old article URLs
+and anchors remain usable, and gear values, gameplay labels, Loot finder and
+Build Lab remain intact. Whole-site review and publication evidence:
+`docs/releases/wiki-clarity-20261024/`.
 
 ## 2026-10-23 — Level-scaled AA and level-1 allocation controls (deployed)
 
@@ -111,6 +128,45 @@ its signed catalog. Main PR305/00f90e9 and production image5e501da8 are verified
 verifies all140assets. Wiki467/private guide5files are published and verified. Native reward/transition and
 exact-client controls pass; owner gameplay/balance QA remains open.
 [Evidence and QA](docs/releases/aa-level-progression-20261023/README.md).
+
+## 2026-10-22 — Production-backed wiki loot finder
+
+Added current-era equipment search for up to three held classes, defaulting to
+any held class with optional all-class matching. Item links show stats, source
+mobs/zones, spawn locations/conditions and calculated per-kill drop chances. A
+fixed read-only production content capture and guarded fifteen-minute publisher
+are installed; immutable public snapshots keep index/details paired and preserve
+the last good capture after failures. No game/database/client mutation. Native
+loot-roll comparisons, Linux recovery checks and browser filters verified.
+Owner-approved reader/timer/JSON route and wiki `20261022-loot-finder-v2` are live.
+Gzip-only snapshots reduce 327 MB canonical JSON to 23.34 MB payloads; the publisher
+checks staging allocation plus a 256 MiB disk reserve before switching. Both
+identity/gzip clients retain canonical JSON URLs and hashes. All467public files,
+route/private-service preservation and actual rollback are verified. A Windows
+UTF-8 prose correction is included in v2; no gameplay or acceptance labels changed.
+Evidence, limitations and recovery: `docs/releases/wiki-loot-finder-20261022/`.
+
+## 2026-10-22 — Experimental Build Lab
+
+Added a visual wiki workbench for two saved Classic50 builds, supported spell
+benefits, Hunt item stat differences, resolved abilities, mana/cast timelines and
+exhaustive priority-order testing. Twelve captured native landed-value controls
+anchor the narrow spell model. Full gear/AA/pet derivation and native encounter
+simulation remain outside this diagnostic tool; limits and dated fixtures are
+visible. No game, database or client changes. Evidence and publication state:
+`docs/releases/build-lab-20261022/`; design/provenance: `docs/build-lab/`.
+Published `20261022-build-lab-v1`,466public files verified with rollback and
+private-service preservation.
+
+## 2026-10-22 — Interactive wiki handbook
+
+Reworked the public wiki around four adventure paths, instant quick search,
+browser-local saved guides, light/dark reading modes, responsive navigation and
+reading progress. Original home release notices remain intact in an expandable
+section. All 458 HTML pages, catalog values, gameplay labels and equipment filters
+are preserved. No new dependencies or hosting policy changes. Tests and guarded
+publication evidence: `docs/releases/wiki-interactive-20261022/`. Published as
+`20261022-interactive-handbook-v1`; all 465 public hashes and preservation checks pass.
 
 ## 2026-10-22 — Hate Keeper moved to Commonlands
 

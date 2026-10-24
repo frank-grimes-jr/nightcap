@@ -1,0 +1,15 @@
+{
+  "stage": "/opt/nightcap/wiki-loot-staging/20261022-v1",
+  "files": 9,
+  "hashes": {
+    "deploy.py": "61287b87b690d5071020dd687f222c5e10d9cfac8789e703938dadc7601a5837",
+    "update.py": "5abac3f6c22f6bb1b19be74ddc3cdc0e7a3638cb570920459e5e620ee8fa1680",
+    "loot_install.py": "82d301c861e72a528128f2231a80a5296a7a56745beb2c4d66b540e880b831cc",
+    "loot_capture.py": "903d2f3716e0b0d6dd35dd314d71163d0df5e16a6d9e3d0ed3d982db5550d0d0",
+    "loot_model.py": "0a0c35e431c7cf02ad3a2e2296549e5b2a661137c16671986b00e10b157bf4aa",
+    "loot_refresh.py": "c8188ed7ccb6ce8506b42d2a30287b38a0397037599fcfcfec9659252a7c0bd5",
+    "loot-nginx.conf": "13ff1c7c19d172270810be2aec3809be08d73a63917ae513c52dde403d154410",
+    "nightcap-wiki-loot.service": "b4b17b6fd51865d1788b5f111863cba4848ab3ac0683a4c399fd2423daea8f1c",
+    "nightcap-wiki-loot.timer": "245fbf2fa94acae7d67ffe2617c047c49d70be32ee94aea765c28506851a72c9"
+  }
+}

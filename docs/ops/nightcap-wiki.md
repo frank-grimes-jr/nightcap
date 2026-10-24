@@ -1,25 +1,59 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 22, 2026.
+Updated October 24, 2026.
 
 ## Current state
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
-- **Active OVH origin release:** `20261022-classic-dungeons-v1`; previous release
-  `20261022-classic-robes-native-waist-v1` is retained for recovery.
+- **Loot finder live:** read-only production capture, any-held-class default,
+  active-era item/source/rate filtering and fifteen-minute automatic refresh.
+  Owner-approved reader/timer/JSON route and HTML publication are verified.
+  [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
+
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 24, 2026 (EDT).
+- **Active OVH origin release:** `20261024-rogue-tomes-v1`; previous
+  `20261024-wiki-custom-features-v1` is retained for recovery.
+  Editorial source: `C:/Users/verre/.codex/worktrees/rogue-tomes-wiki/EQ_Local_Dev`,
+  branch `feature/rogue-tomes-wiki`. Publication/recovery:
+  `docs/releases/rogue-tomes-20261024/wiki-publication.md`. All 483 HTTPS files
+  verify; only Multiclass, Change Log and search changed. Custom Features,
+  clarity structure, reader and unreleased candidate labels remain intact.
+- **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
+  required and the GM access restriction removed. Private Hate retains its
+  entrance Keeper. Main PR299/server and466-file wiki publication are verified;
+  owner confirmed relocation, Commonlands visibility and Hate travel; broader dungeon balance/full-clear QA remains separate. Evidence:
+  `docs/ops/hate-keeper-commonlands-20261022/` in the gameplay release checkout.
+- **Build Lab:** experimental A/B builds, supported spell/stat benefits, item differences,
+  resolved abilities and priority-order testing; scope and dated fixtures are explicit.
+  Verified publication: `docs/releases/build-lab-20261022/`. No gameplay changes.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
+- **Content structure:** Features groups14 custom adventures/systems, explicitly
+  including Raid/Grind and helmet quests, with short guide links; Guides owns
+  current instructions; Change Log owns minor changes, fixes and dated releases.
+  Keep announcements out of guide prefixes and retain old anchors. Shared compact
+  type sizes and expandable references apply across the complete site.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- 455 articles: 21 maintained guides, 48 enabled zone pages, 384 item pages and
-  two catalog indexes. All articles, Search and 404 bring the build to 458 pages.
-- The exact publication contains 465 files. Player access uses the current personal-code
+- 473 articles: 24 maintained guides, 447 generated Hunt/Chapterhouse routes and
+  two catalog indexes. Guides, Search and 404 bring the build to 476 pages.
+- The exact publication contains 483 files. Player access uses the current personal-code
   policy; wiki updates preserve it. October 9 IP-only descriptions below are historical.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## October 22 interactive handbook
+
+Four adventure paths, instant quick search, browser-local saved guides, dark/light
+reading modes, mobile navigation and reading progress now run across all 458 HTML
+pages. Release notices remain intact in a home-page disclosure, including their
+deep links. About documents storage/shortcuts; Recent changes announces the UI.
+All 465 HTTPS hashes/security headers and five private-route denials pass.
+Sixteen Linux recovery tests and actual rollback rehearsal preserve configuration,
+private downloads and all service identities. No Nginx reload is needed.
+[Source, verification and recovery](../releases/wiki-interactive-20261022/README.md).
 
 ## October22 Classic dungeon options and rewards
 

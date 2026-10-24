@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-22",
+  "python": {
+    "passed": 23,
+    "skipped": 9,
+    "total": 32,
+    "reason_for_skips": "POSIX recovery tests run on publication host"
+  },
+  "node": {
+    "search_scenarios": 6,
+    "equipment_cases": 7,
+    "experience": "paths/Back, save/remove/restore, unsafe and blocked storage, theme, search relevance/cache/empty/error/retry/stale-response"
+  },
+  "browser": {
+    "engine": "Codex in-app browser",
+    "widths": [
+      320,
+      768,
+      1024,
+      1440
+    ],
+    "routes": [
+      "index.html",
+      "getting-started.html",
+      "items.html",
+      "item-940024.html",
+      "dungeon-modes.html"
+    ],
+    "checks": 20,
+    "overflow_failures": 0,
+    "console_warnings_errors": 0,
+    "interactions": [
+      "path switch and Back",
+      "command quick search",
+      "unsafe/no-result text",
+      "save + reload persistence",
+      "saved-guide dialog",
+      "light/dark mode",
+      "equipment name filter",
+      "deep-link opens release digest",
+      "slash opens focused modal",
+      "Shift+Tab and Escape"
+    ],
+    "public_smoke": "Published home, four paths and quick search rendered without console errors."
+  },
+  "review": "Author reviewed behavior/regression, privacy/CSP, and requested design. No independent-agent review claimed. Fixed hidden-section contents tracking; preserved existing asset allowlist and release prose.",
+  "linux_recovery": {
+    "passed": 16,
+    "skipped": 0
+  },
+  "publication": "All465 HTTPS hashes/security headers and five private-route denials PASS; origin rollback and service/private-download preservation verified."
+}

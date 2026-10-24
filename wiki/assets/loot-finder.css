@@ -1,0 +1,44 @@
+#loot-finder { margin-block: 1.5rem 2rem; }
+.loot-intro { border-left: 3px solid var(--gold, #ba985b); padding-left: 1rem; margin-bottom: 1.5rem; }
+.loot-intro p:first-child { font-size: 1.12rem; }
+#loot-freshness { font-size: .85rem; }
+#loot-filters fieldset { border: 1px solid var(--line, #426055); padding: 1rem; margin: 0 0 1rem; min-width: 0; }
+#loot-filters legend { padding-inline: .4rem; font-weight: 700; }
+#loot-filters legend small { display: inline; font-weight: 400; margin-left: .5rem; }
+.loot-classes { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .5rem; }
+.loot-class { display: flex; align-items: center; gap: .4rem; padding: .5rem; border: 1px solid var(--line, #426055); cursor: pointer; font-size: .85rem; }
+.loot-class:has(input:checked) { background: var(--gold); color: var(--accent-ink); border-color: currentColor; }
+.loot-class input { width: 1rem; height: 1rem; flex: 0 0 auto; margin: 0; accent-color: #163e2c; }
+#loot-class-hint { font-size: .85rem; margin-bottom: 0; }
+.loot-controls { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.loot-controls label { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; font-weight: 700; }
+.loot-controls input,.loot-controls select { min-width: 0; width: 100%; box-sizing: border-box; padding: .65rem; border: 1px solid var(--line, #426055); background: var(--paper); color: var(--ink); border-radius: .2rem; font: inherit; }
+.loot-filter-actions,.loot-result-heading,.loot-pagination { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; margin-block: 1rem; }
+.loot-filter-actions span { font-size: .85rem; }
+.loot-result-heading h2,.loot-result-heading p { margin: 0; }
+.loot-results-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.loot-results-table th,.loot-results-table td { padding: .7rem .5rem; text-align: left; border-bottom: 1px solid var(--line, #426055); }
+.loot-results-table small { display: block; font-size: .78rem; font-weight: 400; }
+.loot-results-table a { font-weight: 700; overflow-wrap: anywhere; }
+.loot-results-table .loot-number { text-align: right; white-space: nowrap; }
+.loot-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .5rem; margin: 1rem 0; }
+.loot-stats div { padding: .65rem; border: 1px solid var(--line, #426055); }
+.loot-stats dt { font-size: .75rem; }
+.loot-stats dd { margin: .15rem 0 0; font-weight: 700; }
+.loot-source { padding-block: 1rem; border-top: 1px solid var(--line, #426055); }
+.loot-source h3 { margin-top: 0; }
+.loot-source .loot-rate { font-size: 1.2rem; font-weight: 700; }
+.loot-source summary { cursor: pointer; }
+.loot-source ul { padding-left: 1.2rem; font-size: .85rem; }
+.loot-source code { white-space: normal; overflow-wrap: anywhere; }
+.loot-conditions { font-size: .85rem; }
+#loot-finder button { min-height: 2.5rem; }
+#loot-finder [hidden] { display: none !important; }
+@media (max-width: 600px) {
+ .loot-classes { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .loot-controls { grid-template-columns: minmax(0,1fr); }
+ .loot-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .loot-results-table th:nth-child(3),.loot-results-table td:nth-child(3) { display:none; }
+ .loot-results-table th,.loot-results-table td { padding-inline: .25rem; }
+ .loot-results-table { font-size: .82rem; }
+}

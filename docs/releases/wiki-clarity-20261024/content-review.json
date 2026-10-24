@@ -1,0 +1,104 @@
+{
+  "source": "66c7b843",
+  "guides": 24,
+  "moved_notice_guides": [
+    "ascension",
+    "combat",
+    "dungeon-modes",
+    "equipment",
+    "features",
+    "getting-started",
+    "index",
+    "item-upgrades",
+    "launcher",
+    "multiclass",
+    "pets",
+    "travel",
+    "tunnel",
+    "unreleased",
+    "waypoints"
+  ],
+  "preserved_anchor_aliases": {
+    "ascension": [
+      "thj-behavior-candidate"
+    ],
+    "combat": [
+      "thj-behavior-candidate",
+      "cooldown-corrections"
+    ],
+    "dungeon-modes": [
+      "hole-entrance",
+      "hate-commonlands-candidate"
+    ],
+    "equipment": [
+      "loot-finder-preview",
+      "classic-robes"
+    ],
+    "features": [
+      "hole-entrance",
+      "loot-finder-preview",
+      "hate-commonlands-candidate",
+      "quest-ingredients-candidate",
+      "thj-behavior-candidate",
+      "tools",
+      "updates",
+      "october-improvements",
+      "thj-scaling",
+      "chapterhouse-candidate"
+    ],
+    "getting-started": [
+      "thj-behavior-candidate",
+      "travel-files"
+    ],
+    "index": [
+      "hole-entrance",
+      "loot-finder-preview",
+      "hate-commonlands-candidate",
+      "quest-ingredients-candidate",
+      "thj-behavior-candidate",
+      "chapterhouse-candidate"
+    ],
+    "item-upgrades": [
+      "quest-ingredients-candidate",
+      "thj-behavior-candidate"
+    ],
+    "launcher": [
+      "classic-robes-candidate",
+      "startup-repairs",
+      "animation-repairs",
+      "october-release"
+    ],
+    "multiclass": [
+      "loot-finder-preview",
+      "thj-behavior-candidate"
+    ],
+    "pets": [
+      "thj-behavior-candidate"
+    ],
+    "travel": [
+      "hate-commonlands-candidate"
+    ],
+    "tunnel": [
+      "experience-blessing"
+    ],
+    "unreleased": [
+      "hate-commonlands-candidate",
+      "quest-ingredients",
+      "crystal-markers",
+      "classic-robes",
+      "befallen-keeper",
+      "thj-behavior-candidate",
+      "all-class-aa",
+      "thj-parity",
+      "wpm-melee",
+      "quest-quality",
+      "chapterhouse-candidate"
+    ],
+    "waypoints": [
+      "crystal-markers"
+    ]
+  },
+  "catalog_values": "unchanged",
+  "gameplay_changes": false,
+  "highkeep_candidate": "not activated or included"
+}

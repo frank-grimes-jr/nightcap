@@ -1,0 +1,17 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-22",
+  "source_ref": "HEAD",
+  "changed_sources": [
+    "docs/milestones/phase-70-report.md",
+    "docs/releases/wiki-interactive-20261022/README.md",
+    "docs/releases/wiki-interactive-20261022/publish.py",
+    "docs/releases/wiki-interactive-20261022/verification.json",
+    "docs/releases/wiki-interactive-20261022/verify_public.py",
+    "docs/releases/wiki-interactive-20261022/wiki-before.json",
+    "docs/releases/wiki-interactive-20261022/wiki-publication.json",
+    "docs/releases/wiki-interactive-20261022/wiki-review.json",
+    "docs/status.md"
+  ],
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
+}

@@ -68,6 +68,25 @@ Wiki20261023-camil-chapterhouse-v1/all483files verifies. Full encounters, other
 maximum-power combinations and owner acceptance remain open.
 [Delivery/recovery](quests/camil-chapterhouse/deployment/README.md);
 [exact in-game checks](quests/camil-chapterhouse/QA.md).
+## 2026-10-24 — Custom Features directory
+
+Published `20261024-wiki-custom-features-v1` over clarity-v2. Features explicitly
+groups14 custom systems/adventures, including Raid/Grind and helmet quests, with
+guide links and separate unavailable previews. Paladin Vigil remains live testing;
+Ashen Compact remains not released. No gameplay, item values or reader changes.
+Guarded publication/recovery and HTTPS evidence:
+[release](releases/wiki-custom-features-20261024/README.md).
+
+## 2026-10-24 — Wiki clarity
+
+Features, Guides and Change Log now have distinct purposes: major differences,
+current instructions, and dated releases/fixes. All24maintained guides and447
+generated reward routes reviewed; no gameplay/catalog changes. Responsive and
+deep-link verification and separate publication state:
+[wiki clarity release](releases/wiki-clarity-20261024/README.md).
+Published as `20261024-wiki-clarity-v2`, preserving the live Hole, Chapterhouse,
+AA and tool guidance.483public files verify; rollback and private-service
+preservation pass. Source merging and gameplay acceptance remain separate.
 
 ## 2026-10-23 — Two-AA progression and level-1 controls deployed
 
@@ -80,6 +99,40 @@ verifies140hosted assets, preserving138. Close the game and use launcher Play.
 Wiki20261023-aa-level-v1/all467 and private-guide5files verify over HTTPS.
 Owner native control/persistence/reward/balance acceptance remains open.
 [Release evidence, matrix and exact QA](releases/aa-level-progression-20261023/README.md).
+
+## 2026-10-22 — Wiki loot finder published
+
+The live finder uses read-only production content to filter current-era
+equipment for any held class, with item links to source mobs, zones, locations
+and calculated drop rates. The owner requested automatic refresh; a guarded
+fifteen-minute service/timer and narrow public JSON route are installed after
+explicit approval. Wiki `20261022-loot-finder-v2` serves467verified public files.
+The reader preserves the last successful capture after failures and displays its
+age. Compression and a disk reserve bound storage; private downloads and all game
+service identities are preserved. No game/client changes or gameplay acceptance.
+[Evidence and QA](releases/wiki-loot-finder-20261022/README.md),
+[installation and rollback](ops/wiki-loot-reader.md).
+
+## 2026-10-22 — Build Lab
+
+The experimental wiki workbench compares A/B stat inputs and gear differences,
+spell priorities and resolved abilities, showing DPS, healing, mana and cast
+timelines. Model controls and browser tests pass. Full equipment/AA/pet derivation,
+native encounter behavior and owner balance acceptance are separate. Publication
+state: [Build Lab release](releases/build-lab-20261022/README.md).
+Published `20261022-build-lab-v1`; all466HTTPS hashes/security headers and five
+private-route denials pass.16Linux recovery checks and pointer rollback pass.
+
+## 2026-10-22 — Interactive wiki interface
+
+The redesigned handbook adds adventure paths, quick search, saved guides and
+light/dark reading modes across the existing HTML wiki. Gameplay content, labels,
+commands and catalog values remain unchanged. Local verification and publication
+receipts: [wiki interface release](releases/wiki-interactive-20261022/README.md).
+Published as `20261022-interactive-handbook-v1`: all 465 HTTPS hashes/security
+headers and five private-route denials pass; rollback and service preservation
+are verified. No gameplay acceptance status changed.
+
 
 ## 2026-10-22 — Hate Keeper relocation deployed
 

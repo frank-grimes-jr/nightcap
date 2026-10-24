@@ -7597,5 +7597,282 @@
         "Heroic poison resist": 2
       }
     }
-  ]
+  ],
+  "chapterhouse": {
+    "updated": "2026-10-23",
+    "status": "Live testing",
+    "items": [
+      {
+        "id": 961000,
+        "name": "Ember of the First Dawn",
+        "kind": "Augment",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Head, Arms, Hands, Chest, Legs, Feet",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 2,
+          "HP": 60,
+          "Mana": 60,
+          "Heroic STA": 5,
+          "Heroic WIS": 5
+        },
+        "source": "Eligible curated static Chapterhouse enemies"
+      },
+      {
+        "id": 961001,
+        "name": "Ember of the First Dawn (Polished)",
+        "kind": "Augment",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Head, Arms, Hands, Chest, Legs, Feet",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 3,
+          "HP": 87,
+          "Mana": 87,
+          "Heroic STA": 6,
+          "Heroic WIS": 6
+        },
+        "source": "Eligible curated static Chapterhouse enemies"
+      },
+      {
+        "id": 961002,
+        "name": "Ember of the First Dawn (Exalted)",
+        "kind": "Augment",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Head, Arms, Hands, Chest, Legs, Feet",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 5,
+          "HP": 114,
+          "Mana": 114,
+          "Heroic STA": 8,
+          "Heroic WIS": 8
+        },
+        "source": "Eligible curated static Chapterhouse enemies"
+      },
+      {
+        "id": 961003,
+        "name": "Ember of the First Dawn (Ascension)",
+        "kind": "Augment",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Head, Arms, Hands, Chest, Legs, Feet",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 6,
+          "HP": 144,
+          "Mana": 144,
+          "Heroic STA": 10,
+          "Heroic WIS": 10
+        },
+        "source": "Eligible curated static Chapterhouse enemies"
+      },
+      {
+        "id": 961010,
+        "name": "Sered's Memorial Chain",
+        "kind": "Miniboss reward",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Neck",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 20,
+          "HP": 46,
+          "Mana": 46,
+          "INT": 6,
+          "WIS": 6,
+          "Magic resist": 6
+        },
+        "source": "Vicar Sered the Bellkeeper"
+      },
+      {
+        "id": 961011,
+        "name": "Halvyr's Unbroken Mantle",
+        "kind": "Miniboss reward",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Shoulders",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 21,
+          "HP": 46,
+          "Mana": 46,
+          "INT": 6,
+          "WIS": 6,
+          "Magic resist": 6
+        },
+        "source": "Warden Halvyr"
+      },
+      {
+        "id": 961012,
+        "name": "Vaelen's Last Oath",
+        "kind": "Miniboss reward",
+        "required_level": 50,
+        "recommended_level": 50,
+        "slot": "Primary, Secondary",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "HP": 23,
+          "Mana": 23,
+          "Endurance": 23,
+          "DEX": 6,
+          "STR": 6,
+          "Damage": 16,
+          "Delay": 28
+        },
+        "source": "Sir Vaelen Ashen Dawn"
+      },
+      {
+        "id": 960414,
+        "name": "Polished Blade of the Released Dawn",
+        "kind": "Final Raid reward",
+        "required_level": 0,
+        "recommended_level": 50,
+        "slot": "Primary",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "HP": 23,
+          "Mana": 23,
+          "Endurance": 23,
+          "DEX": 6,
+          "STR": 6,
+          "Damage": 29,
+          "Delay": 42
+        },
+        "source": "The Unbroken Shadow in Raid mode"
+      },
+      {
+        "id": 960415,
+        "name": "Ascended Blade of the Released Dawn",
+        "kind": "Final Raid reward",
+        "required_level": 0,
+        "recommended_level": 50,
+        "slot": "Primary",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "HP": 27,
+          "Mana": 27,
+          "Endurance": 27,
+          "DEX": 7,
+          "STR": 7,
+          "Damage": 35,
+          "Delay": 42
+        },
+        "source": "The Unbroken Shadow in Raid mode"
+      },
+      {
+        "id": 960416,
+        "name": "Polished Mantle of the First Dawn",
+        "kind": "Final Raid reward",
+        "required_level": 0,
+        "recommended_level": 50,
+        "slot": "Back",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 21,
+          "HP": 46,
+          "Mana": 46,
+          "AGI": 6,
+          "STA": 6,
+          "Disease resist": 6
+        },
+        "source": "The Unbroken Shadow in Raid mode"
+      },
+      {
+        "id": 960417,
+        "name": "Ascended Mantle of the First Dawn",
+        "kind": "Final Raid reward",
+        "required_level": 0,
+        "recommended_level": 50,
+        "slot": "Back",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 25,
+          "HP": 54,
+          "Mana": 54,
+          "AGI": 7,
+          "STA": 7,
+          "Disease resist": 7
+        },
+        "source": "The Unbroken Shadow in Raid mode"
+      },
+      {
+        "id": 960418,
+        "name": "Polished Seal of the Rekindled Chapel",
+        "kind": "Final Raid reward",
+        "required_level": 0,
+        "recommended_level": 50,
+        "slot": "Finger",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 16,
+          "HP": 46,
+          "Mana": 46,
+          "STA": 6,
+          "WIS": 6,
+          "Magic resist": 6
+        },
+        "source": "The Unbroken Shadow in Raid mode"
+      },
+      {
+        "id": 960419,
+        "name": "Ascended Seal of the Rekindled Chapel",
+        "kind": "Final Raid reward",
+        "required_level": 0,
+        "recommended_level": 50,
+        "slot": "Finger",
+        "classes": "All",
+        "magic": true,
+        "stats": {
+          "AC": 18,
+          "HP": 54,
+          "Mana": 54,
+          "STA": 7,
+          "WIS": 7,
+          "Magic resist": 7
+        },
+        "source": "The Unbroken Shadow in Raid mode"
+      },
+      {
+        "id": 990500,
+        "name": "Winged Helm of the Dawn",
+        "kind": "Quest helmet",
+        "required_level": 0,
+        "recommended_level": 0,
+        "slot": "Head",
+        "classes": "Paladin",
+        "magic": true,
+        "stats": {
+          "AC": 18,
+          "HP": 25,
+          "Mana": 25,
+          "STA": 5,
+          "WIS": 7,
+          "Cold resist": 5,
+          "Fire resist": 5,
+          "Magic resist": 10
+        },
+        "source": "Camil Silvermist, after completing The Vigil of the Dawn"
+      }
+    ],
+    "sources": [
+      "docs/quests/camil-chapterhouse/install-rows.json",
+      "docs/quests/camil-chapterhouse/deployment/README.md"
+    ]
+  }
 }

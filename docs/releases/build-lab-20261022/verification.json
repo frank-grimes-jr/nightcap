@@ -1,0 +1,60 @@
+{
+  "python": {
+    "run": 35,
+    "passed": 26,
+    "skipped": 9,
+    "skip_reason": "POSIX publisher tests run on publication host"
+  },
+  "node": [
+    "10 Build Lab scenario groups including 12 captured native controls",
+    "6 search scenarios",
+    "7 equipment tests",
+    "experience history/storage/search/race scenarios"
+  ],
+  "browser": {
+    "engine": "IAB real Chromium",
+    "widths": [
+      320,
+      768,
+      1024,
+      1440
+    ],
+    "overflow": false,
+    "console_errors": [],
+    "flows": [
+      "stat edits recalculate on input",
+      "healing/incoming damage comparison",
+      "priority search",
+      "local save and reload",
+      "invalid import rejected, valid import restored",
+      "class filtering",
+      "custom ability add/edit",
+      "gear difference applied once",
+      "keyboard timeline scrub"
+    ],
+    "csp": "Production script-src self and style-src self; charts and timelines render, no violations"
+  },
+  "review": {
+    "passes": [
+      "correctness and model limits",
+      "input/privacy/CSP",
+      "wiki preservation and scope"
+    ],
+    "fixed": [
+      "input events recalculate without blur",
+      "Healing Amount catalog key",
+      "canonical spell identity prevents duplicate cooldown imports",
+      "reserved passive identifier",
+      "trace records post-spend mana",
+      "CSSOM geometry respects strict style policy",
+      "optimizer normalizes default enabled flags",
+      "casts interrupted at death are clipped and labeled"
+    ]
+  },
+  "native_scope": "Replayed captured landed value controls only; no fresh native combat execution, owner gameplay or balance acceptance.",
+  "optimizer_stress": {
+    "orders": 720,
+    "duration_seconds": 600,
+    "elapsed_ms": 1521
+  }
+}

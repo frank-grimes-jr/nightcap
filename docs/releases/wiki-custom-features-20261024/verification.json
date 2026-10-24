@@ -1,0 +1,35 @@
+{
+  "source_base": "7f5f3331",
+  "python": {
+    "run": 19,
+    "passed": 19,
+    "scope": "test_wiki test_refresh; rerun passed with workspace TEMP after sandbox temporary-directory access failure"
+  },
+  "node": [
+    "Search ranking/failure suite passed",
+    "Experience navigation/storage/search suite passed"
+  ],
+  "browser": {
+    "engine": "IAB Chromium",
+    "widths": [
+      320,
+      768,
+      1024,
+      1440
+    ],
+    "horizontal_overflow": false,
+    "console_errors": [],
+    "flows": [
+      "14 named feature rows",
+      "4 jump groups",
+      "Shadow Knight preview links to clearly unreleased candidate"
+    ]
+  },
+  "content": {
+    "maintained_guides_reviewed": 24,
+    "generated_routes_reviewed": 447,
+    "catalog_values": "unchanged",
+    "old_anchors": "preserved",
+    "native_qa": "unchanged"
+  }
+}

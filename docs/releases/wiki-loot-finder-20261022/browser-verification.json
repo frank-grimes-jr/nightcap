@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "Local preview with read-only production capture; not public installation",
+  "capture": "2026-10-23T00:33:41.070662+00:00",
+  "filter_widths": [
+    {
+      "page": "Page 1 of 311",
+      "scrollWidth": 305,
+      "width": 320
+    },
+    {
+      "page": "Page 1 of 311",
+      "scrollWidth": 753,
+      "width": 768
+    },
+    {
+      "page": "Page 1 of 311",
+      "scrollWidth": 1009,
+      "width": 1024
+    },
+    {
+      "page": "Page 1 of 311",
+      "scrollWidth": 1425,
+      "width": 1440
+    }
+  ],
+  "item_widths": [
+    {
+      "scrollWidth": 305,
+      "width": 320
+    },
+    {
+      "scrollWidth": 753,
+      "width": 768
+    },
+    {
+      "scrollWidth": 1009,
+      "width": 1024
+    },
+    {
+      "scrollWidth": 1425,
+      "width": 1440
+    }
+  ],
+  "checks": [
+    "any held class default",
+    "three-class limit",
+    "all class mode: 1440 vs 4926 any matches",
+    "unsafe/no-results text",
+    "reset",
+    "pagination and browser Back",
+    "item reload",
+    "FBSS item1365: frenzied ghoul #66146,59.04%,three spawns",
+    "light/dark modes",
+    "no horizontal overflow",
+    "empty warning/error console"
+  ],
+  "screenshot": "artifacts/wiki-loot/fbss-detail.png"
+}
