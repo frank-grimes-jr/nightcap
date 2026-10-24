@@ -284,12 +284,24 @@ bool Spawn2::Process() {
 		}
 
 		// zone state restore
-		if (m_stored_location != glm::vec4(0, 0, -1000, 0)) {
+		const bool restoring_location = m_stored_location != glm::vec4(0, 0, -1000, 0);
+		if (restoring_location) {
 			loc = m_stored_location;
 			m_stored_location = glm::vec4(0, 0, -1000, 0);
 		}
 
 		NPC *npc = new NPC(tmp, this, loc, GravityBehavior::Water);
+		if (restoring_location && grid_ == 0 && spawn_group->roamdist == 0) {
+			// AI_Start uses the construction position as home. A suspended pull
+			// must resume there without turning that temporary position into home.
+			// Use the same ground/water rules as a fresh spawn, before publication.
+			const auto restored_position = npc->GetPosition();
+			// SetPosition first prevents SendTo from firing area transition events.
+			npc->SetPosition(x, y, z);
+			npc->SendTo(x, y, z);
+			npc->SaveGuardSpot(glm::vec4(npc->GetX(), npc->GetY(), npc->GetZ(), heading));
+			npc->SetPosition(restored_position.x, restored_position.y, restored_position.z);
+		}
 		if (NightcapDungeon::RaidNPC(npc)) { npc->SetHP(npc->GetMaxHP()); }
 
 		npcthis = npc;

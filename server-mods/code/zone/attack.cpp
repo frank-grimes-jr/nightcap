@@ -2020,6 +2020,8 @@ bool Client::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::Skil
 	}
 
 	entity_list.RemoveFromTargets(this, true);
+	// Clear remembered feign targets before the corpse takes our entity ID.
+	ClearFeignMemoryOnDeparture();
 	hate_list.RemoveEntFromHateList(this);
 	RemoveAutoXTargets();
 
