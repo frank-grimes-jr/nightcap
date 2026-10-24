@@ -62,7 +62,9 @@ def main():
   '-- Production preimages captured '+'2026-10-24'+' and proven identical to reviewed guarded inputs.'))
  scripts={}
  names=sorted((ROOT/'server-mods/quests/everfrost').glob('9988*.pl'))+sorted((ROOT/'server-mods/quests/kael').glob('9988*.pl'))
- assert len(names)==16
+ expected={'everfrost/998860.pl','everfrost/998877.pl'}|{'kael/'+str(i)+'.pl' for i in [*range(998860,998865),*range(998867,998875)]}
+ assert {p.relative_to(ROOT/'server-mods/quests').as_posix() for p in names}==expected
+ assert len(names)==15
  for path in names:
   relative=path.relative_to(ROOT/'server-mods').as_posix();copy(path,relative);scripts[relative]=p['runtime_files'].get(relative)
  shadows=[]

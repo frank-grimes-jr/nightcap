@@ -13,7 +13,7 @@ Older NPC Admin PR122 and superseded historical PRs are separate from this queue
 
 ## Pairing and activation
 
-Build from the fingerprinted retained Rogue tome source; exactly the reviewed current native overlay may differ. Ship world, zone, shared_memory, three guarded SQL components, sixteen exact-ID scripts, the regenerated item cache and signed client2026102402 together. Classic50 remains; only curated zone113 access is added.
+Build from the fingerprinted retained Rogue tome source; exactly the reviewed current native overlay may differ. Ship world, zone, shared_memory, three guarded SQL components, fifteen exact-ID scripts, the regenerated item cache and signed client2026102402 together. Classic50 remains; only curated zone113 access is added.
 
 The guarded operator rehearses the actual production public schema/content in a temporary clone, validates51 schema/565 content checks, exact four new table definitions and441 reward-cache definitions, and preserves all prior cache records. It refuses existing Kael instances/saved spawns and colliding reservations rather than clearing them. Full native restart is required.
 
