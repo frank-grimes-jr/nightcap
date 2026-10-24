@@ -1,0 +1,14 @@
+{
+  "installed": true,
+  "production_changed": false,
+  "files": {
+    "world.md": {
+      "before": "10d28078ec0533cc9c4491e011a08af1ac1f6e23e6603acd13eff8163fe9bbe0",
+      "after": "0b7125f7a47695b5a452fe24c9917208b57bdda33f9fbd034c80c4bb890ddaab"
+    },
+    "sources.json": {
+      "before": "4e8f869609fe89d1a21de97119d191ae4eee6b80acb7efd69b95cf68cbf6c4f7",
+      "after": "f451a142959e07bcd62c1d53650b5592a9eef0da174c521d040f4c98ff146ce7"
+    }
+  }
+}

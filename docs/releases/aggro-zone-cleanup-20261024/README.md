@@ -5,11 +5,15 @@ Status: source candidate; no production installation or owner acceptance.
 Palwar reported that gargoyles, skeletons and frogs regrouped on returning to the
 Lower Guk bedroom area in a **Raid** run after death, zoning and logout. They were not already in
 Extended Targets at arrival. The owner confirmed **no Feign Death** was used,
-so the separate feign-memory defect does not explain this encounter.
-This observation does not establish persistent hate:
+so the separate feign-memory defect does not explain this encounter. The owner
+subsequently identified **Thursday evening's run**, matching the older Raid
+checkpoint described below, and said the return was **more than an hour later**.
+That matches the instance's natural unload window and supports the checkpoint
+restoration explanation. This observation does not establish persistent hate:
 fresh proximity/social aggro, displaced NPCs and remembered targets must be
 distinguished. Two native defects are reproduced and corrected here; neither is
-claimed as the demonstrated cause of that particular encounter.
+claimed as a completed in-game resolution. Saved-home restoration is the supported
+explanation for this report; feign memory is a separate reproduced defect.
 
 ## Evidence and corrected behavior
 
@@ -67,7 +71,9 @@ saved position, 226/249 units from their canonical homes. Another stationary
 shin ghoul knight (9964) was nearby, 54 units from home. Two additional large
 3D differences were height-only and are not evidence of a pull. Thirty-six
 roamers were displaced by over 50 units. This establishes a saved cluster,
-not that it was the owner's reported re-entry or that hate persisted. Today's
+in the owner-confirmed incident run, not that hate persisted or that a reload
+preceded the particular re-entry. The owner's report of returning more than an
+hour later is consistent with the logged one-hour unload. Today's
 fresh Raid had no checkpoint at the time of capture. No return/reload sequence
 for the reported encounter has been established.
 

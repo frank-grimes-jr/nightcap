@@ -5,7 +5,7 @@
   "baseline_zone_sha256": "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6",
   "production_changed": false,
   "owner_gameplay_acceptance": "pending",
-  "incident_causality": "not established; no Feign Death; saved Raid cluster observed but encounter/re-entry chronology unconfirmed",
+  "incident_causality": "owner confirms Thursday Raid, no Feign Death, and return more than an hour later; matches clustered checkpoint and one-hour natural unload; saved-home restoration is supported, full re-entry trace and in-game resolution remain unverified",
   "red_before_green": [
     "Death/departure leaves feign entity-ID memory that native AI can replay onto a replacement client",
     "Restored stationary NPC guard becomes its saved pull position",
