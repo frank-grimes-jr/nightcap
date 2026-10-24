@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## 2026-10-24 — Coordinated release in preparation
+
+Owner authorized pending gameplay promotion and production activation. Integrated source includes High Keep, aggro cleanup, Ashen Compact and the current published wiki. Fresh native build, release rehearsals and pairing checks precede activation. No new gameplay activation is claimed yet. [Release](releases/october-24-coordinated/README.md) and [exact QA](releases/october-24-coordinated/QA.md).
+
 ## 2026-10-24 - Tome learning repaired on main and production
 
 Owner-authorized PR330/main24412152 is deployed. Canonical held-class learning

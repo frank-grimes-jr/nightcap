@@ -1,5 +1,6 @@
 """Check the staged HE91 package through independent archive and graph readers."""
 import struct
+import os
 import unittest
 import sys
 from pathlib import Path
@@ -12,7 +13,7 @@ from build_winged_helmet_client import CLASSIC_ARCHIVES
 from test_classic_model_pfs import read_with_native_block_capacity
 
 ROOT=Path(__file__).resolve().parents[2]
-CANDIDATE=ROOT.parent/'warhelm-client-candidate-03'
+CANDIDATE=Path(os.environ.get('NIGHTCAP_WARHELM_CANDIDATE', ROOT.parent/'warhelm-client-candidate-03'))
 
 class WarhelmClient(unittest.TestCase):
     def test_preservation_registration_animation_and_native_block_capacity(self):

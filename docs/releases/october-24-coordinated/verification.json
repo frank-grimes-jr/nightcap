@@ -1,0 +1,19 @@
+{
+  "client_release": 2026102401,
+  "changed_client_assets": 2,
+  "preserved_client_assets": 138,
+  "production_gameplay_baseline_preserved_after_client_publication": true,
+  "live_kael_instances": 0,
+  "live_kael_saved_spawns": 0,
+  "new_tables_absent": true,
+  "target_preimages_match_reviewed_candidate": true,
+  "native_gameplay_acceptance": "pending",
+  "focused_tests": {
+    "combined_tome_dungeon_rewards_healing": 60,
+    "ashen_including_client": 7,
+    "independent_gameplay": 11,
+    "deployment_groups_windows_linux": 7,
+    "client_publisher_linux": 14,
+    "wiki_content": 14
+  }
+}

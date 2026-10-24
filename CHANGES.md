@@ -1,5 +1,9 @@
 # CHANGES
 
+## 2026-10-24 — Coordinated pending release
+
+Integrate High Keep rescue, aggro cleanup and the Ashen Compact with the deployed Rogue tome lineage and current published wiki. Pair guarded schema/content, native binaries, cache, quests and HE91 client assets; preserve earned state and Classic50. Deployment verification is in docs/releases/october-24-coordinated/. Gameplay acceptance remains open.
+
 ## 2026-10-24 — Multiclass tome learning repair deployed
 
 Tomes now use canonical held-class eligibility, fixing secondary/third Rogue
