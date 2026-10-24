@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-24",
-  "reviewed_revision": "d105d293bc99cbc8f8a0e085b42a3a4a5e961591",
+  "reviewed_revision": "db92def0",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -82,6 +82,7 @@
     "October23 Chapterhouse main PR311/c0c9896e and paired deployment were reviewed across all24guides/447generated reward routes. Twelve guides plus Chapterhouse zone/14item pages preserve384Hunt values, Build Lab, loot finder/timer and private guide. Current AA wiki source remains authoritative where gameplay-main history lacks newer wiki files. Deployment includes an audited waypoint-only saved-state reconciliation, never player restoration. Full native encounter and owner acceptance remain open. Exact reviewed drift: docs/quests/camil-chapterhouse/deployment/wiki-source-review.json; publication evidence recorded separately.",
     "Final Chapterhouse delivery records through main PR314/ebeb6591 reviewed: 91 saved-state tables, exact waypoint-only reconciliation, five operator test groups, published483-file verification and installed knowledge. Original holds remain recorded; no additional gameplay or public payload change. Full encounter and owner acceptance remain open.",
     "October24 Hole entrance deployed via owner-approved main7f126acb/PR318. All24 maintained guides and447 generated reward routes reviewed. Travel, Features, home, dungeon guide, Hole zone and Recent changes reflect installed keyless access with owner gameplay acceptance pending. Commands, item stats, encounters and rewards unchanged. Fresh backup, exact two-field mutation,398 other doors preserved, native/service lifetimes and health verified. Publication receipt tracked with the gameplay evidence.",
-    "October24 editorial reorganization: all24guides/447generated reward routes reviewed against published66c7b843/Hole baseline. Inherited ledger drift grouped and assessed in docs/releases/wiki-clarity-20261024/source-review.json, retaining published reader,Chapterhouse,AA,Hole and QA boundaries. Features/Guides/Change Log separated; current mechanics, catalog values, commands and tools retained. Clarity-v2 verifies all483HTTPS hashes/security headers and private denials with16Linux recovery checks. No gameplay promotion or High Keep candidate activation."
+    "October24 editorial reorganization: all24guides/447generated reward routes reviewed against published66c7b843/Hole baseline. Inherited ledger drift grouped and assessed in docs/releases/wiki-clarity-20261024/source-review.json, retaining published reader,Chapterhouse,AA,Hole and QA boundaries. Features/Guides/Change Log separated; current mechanics, catalog values, commands and tools retained. Clarity-v2 verifies all483HTTPS hashes/security headers and private denials with16Linux recovery checks. No gameplay promotion or High Keep candidate activation.",
+    "Final clarity-v2 closeout: reviewed source grouping, shared editorial guidance, search aliases, both guarded publication receipts and complete483-file HTTPS verification. These evidence updates make no further public payload or gameplay changes."
   ]
 }
