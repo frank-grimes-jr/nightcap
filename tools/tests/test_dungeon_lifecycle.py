@@ -61,6 +61,7 @@ uint64_t Now() { return 10; }
 uint32_t delay=0;
 uint32_t RespawnDelay(uint32_t) { return delay; }
 bool Managed() { return managed; }
+namespace Highkeep { bool rescue=false; bool Active() { return rescue; } }
 '''+function+r'''
 int main() {
  for (const auto &d : Dungeons) {
@@ -90,6 +91,9 @@ int main() {
   current.mode=Mode(mode);id=71032;assert(!SelectSpawn(2666,id));
   id=SkyKeyService;assert(SelectSpawn(9200005,id) && id==SkyKeyService);
  }
+ current.dungeon=FindDungeon(6);current.mode=Mode::Raid;Highkeep::rescue=true;
+ for (auto spawn:{10156u,10109u,10210u,10132u}) {id=6051;assert(!SelectSpawn(spawn,id));}
+ Highkeep::rescue=false;id=6051;assert(SelectSpawn(10156,id));
  managed=false;id=73092;assert(SelectSpawn(679,id) && id==73092);
 }
 ''')

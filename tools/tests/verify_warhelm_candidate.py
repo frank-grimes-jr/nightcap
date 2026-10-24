@@ -3,7 +3,7 @@ import json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'));sys.path.insert(0,str(ROOT/'tools/tests'))
-patterns=['test_warhelm*.py','test_chapterhouse*.py','test_dungeon*.py','test_classic_dungeon*.py','test_zone_hunt*.py','test_winged_helmet_item.py','test_classic_model_pfs.py']
+patterns=['test_warhelm*.py','test_chapterhouse*.py','test_dungeon*.py','test_classic_dungeon*.py','test_zone_hunt*.py','test_winged_helmet_item.py','test_classic_model_pfs.py','test_highkeep_rescue.py','test_heal_targeting.py','test_aggro_departure_native.py','test_zone_state_home_native.py']
 suite=unittest.TestSuite()
 for pattern in patterns:suite.addTests(unittest.defaultTestLoader.discover(str(ROOT/'tools/tests'),pattern=pattern))
 out=ROOT/'docs/quests/warhelm'

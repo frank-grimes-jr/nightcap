@@ -48,3 +48,13 @@ not new claims about EverQuest canon. Implementation and appearance choices:
 
 Other hail lines are light implementation flavor, not approved extended
 backstories. No unfinished character arcs or additional canon are implied.
+
+## High Keep prison break — candidate, October24
+
+The owner's raid premise is a break-in to rescue Osargen. A relief-detail bluff
+fails at the gate, the keep raises the alarm, the captains try to hold the prison,
+and McCabe confronts the intruders near the cells. Osargen then relies on the
+player to escort him to the entrance against pursuing guards. This is Nightcap's
+instance story, not a claim about a new canonical EverQuest quest. Failed escapes
+return him to his cell without restoring defeated bosses. Extended backstory and
+post-rescue quest chains are outside this change. See the High Keep release spec.

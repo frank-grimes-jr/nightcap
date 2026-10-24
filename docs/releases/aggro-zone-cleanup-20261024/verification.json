@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-24",
+  "source_commit": "5116f9b02120fff8d375ecad29687af6d65e81bd",
+  "baseline_commit": "ebeb6591",
+  "baseline_zone_sha256": "2c9323e43c7287780acf6183b54bbd5800ed4a1e19c7655e1fd6f828de861eb6",
+  "production_changed": false,
+  "owner_gameplay_acceptance": "pending",
+  "incident_causality": "owner recalls Thursday Raid, no Feign Death, and later return; client log instead records fresh Raid101 Thursday then fresh Raid103 Saturday, with no post-unload Raid101 return. Saved-home and feign defects are reproduced but do not explain those logged fresh-Raid trains; fresh proximity/assist/pathing remain unverified alternatives",
+  "red_before_green": [
+    "Death/departure leaves feign entity-ID memory that native AI can replay onto a replacement client",
+    "Restored stationary NPC guard becomes its saved pull position",
+    "Broad feign cleanup incorrectly decrements another player's shared XTarget contribution; final implementation only removes matching memory",
+    "Unguarded memory removal resets unrelated NPC custom movement delays; final implementation checks membership",
+    "Raw canonical guard bypasses fresh-spawn ground normalization; final implementation reuses native SendTo with unchanged old/new coordinates"
+  ],
+  "checks": [
+    {
+      "platform": "Windows MSVC C++17 /W4 /WX",
+      "command": "python -m unittest test_aggro_departure_native test_zone_state_home_native test_dungeon_lifecycle test_classic_dungeon_private test_dungeon_policy",
+      "result": "passed",
+      "tests": 9,
+      "seconds": 44.345
+    },
+    {
+      "platform": "Linux Clang C++17 -Wall -Wextra -Werror",
+      "command": "python3 -m unittest test_aggro_departure_native test_zone_state_home_native",
+      "result": "passed",
+      "tests": 3,
+      "seconds": 7.133
+    },
+    {
+      "check": "Independent source review and focused rerun",
+      "result": "no remaining actionable findings; 3 tests passed",
+      "resolved": [
+        "shared XTarget counters",
+        "unrelated movement delays",
+        "ground normalization",
+        "roambox preservation",
+        "fresh isolated build output"
+      ]
+    },
+    {
+      "check": "Current wiki check_refresh against candidate HEAD including working changes",
+      "result": "REVIEW REQUIRED (expected); reviewed current Hole/Chapterhouse wiki, no public mechanics change from an uninstalled candidate",
+      "publication": "not performed"
+    }
+  ],
+  "native_build": {
+    "status": "passed; not installed",
+    "manifest": "native-build-manifest.json",
+    "zone_sha256": "c14912b6463c794f9fdd5592ebce0bf111ca9fa16e656d2a18266a60c43b98e8",
+    "source_inventory": "exactly five intended files differ from authenticated retained baseline",
+    "same_verified_directory_resumed_with_workers": 4
+  },
+  "limits": [
+    "Fixtures execute extracted methods with explicit dependency fakes, not full client networking or ID allocation",
+    "Managed=true fixture exercises restoration loops, not checkpoint SQL selection or persistence transactions",
+    "Native SendTo and SaveGuardSpot are authenticated retained-source excerpts; map/water/rule responses are fakes",
+    "No nav-mesh travel, client-visible behavior, full dungeon replay or live reproduction is claimed",
+    "Independent source inspection confirms Raid checkpoints feed the same restoration path"
+  ],
+  "skill_maintenance": {
+    "installed": true,
+    "world_source_fingerprints": "all match",
+    "skill_validator": "passed",
+    "receipt": "skill-update/receipt.json"
+  }
+}

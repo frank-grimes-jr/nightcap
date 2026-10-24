@@ -32,6 +32,13 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse);
 bool Keeper(Client *client, NPC *keeper, const std::string &action);
 void Connected(Client *client);
 void Journal(Client *client);
+// Native prison-break interaction and temporary instance-only faction policy.
+bool HighkeepSay(Client *client, NPC *npc, const std::string &text);
+int HighkeepFaction(Mob *subject, Mob *observer); // -1: ordinary faction policy
+bool HighkeepProtected(Mob *attacker, Mob *target);
+bool HighkeepNoFaction(Mob *npc);
+bool HighkeepHealTarget(Mob *npc);
+bool HighkeepTransient(Mob *npc);
 // Adapt the installed v1 journal definitions for visible RoF2 objectives.
 void ConfigureJournalTask(int task_id, TaskInformation &task);
 bool LoadCheckpoint(std::vector<SavedSpawn> &spawns);

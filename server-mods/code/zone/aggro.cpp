@@ -21,6 +21,7 @@
 #include "common/rulesys.h"
 #include "common/spdat.h"
 #include "zone/bot.h"
+#include "zone/dungeon_service.h"
 #include "zone/client.h"
 #include "zone/entity.h"
 #include "zone/map.h"
@@ -490,6 +491,9 @@ bool Mob::CheckWillAggro(Mob *mob) {
 	//Image: Get their current target and faction value now that its required
 	//this function call should seem backwards
 	FACTION_VALUE faction_value = mob->GetReverseFactionCon(this);
+	// The raid alarm also applies to guards that a high-level player sees as gray.
+	// Earlier range, visibility, feign, immunity and GM checks still apply.
+	if (NightcapDungeon::HighkeepFaction(mob,this)==FACTION_SCOWLS) { return CheckLosFN(mob); }
 
 	// Make sure they're still in the zone
 	// Are they in range?
@@ -736,6 +740,7 @@ bool Mob::IsAttackAllowed(Mob *target, bool isSpellAttack)
 	if (!target) {
 		return false;
 	}
+	if (NightcapDungeon::HighkeepProtected(this,target)) { return false; }
 
 	if (this == target) {    // you can attack yourself
 		return true;

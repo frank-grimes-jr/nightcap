@@ -1,0 +1,187 @@
+{
+  "status": "candidate only; not published",
+  "source_root": "C:\\Users\\verre\\Documents\\Codex\\2026-10-24\\go\\work\\highkeep-rescue-wiki",
+  "published_baseline": "66c7b843 / 20261024-hole-keyless-v1",
+  "articles": [
+    {
+      "slug": "about",
+      "title": "About this wiki",
+      "changed": false,
+      "sha256_before": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "advanced-loot",
+      "title": "Advanced loot",
+      "changed": false,
+      "sha256_before": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "ascension",
+      "title": "Ascension quest",
+      "changed": false,
+      "sha256_before": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "build-lab",
+      "title": "Build Lab",
+      "changed": false,
+      "sha256_before": "3e8a167eb258a3c385797e2cdd2f55a117fc76b7ffc712f823455808f400c157",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "camil-vigil",
+      "title": "The Vigil of the Dawn",
+      "changed": false,
+      "sha256_before": "253bc539246f5e44968e450b49e378cdd5f1c167512e607ea4c5c70963e23779",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "combat",
+      "title": "Combat, buffs & recovery",
+      "changed": true,
+      "sha256_before": "bb5d4a86d609eb3f2296c22281dd21e3be116307663b56f98df6a17ba824fc38",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "commands",
+      "title": "Command reference",
+      "changed": true,
+      "sha256_before": "03e4a07314bbd83e2c88f1ad58070d5a647b459fdc93cafff6d04ccab92d7fd7",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "dungeon-modes",
+      "title": "Raid & Grind dungeons",
+      "changed": true,
+      "sha256_before": "b756d30a2135a352e2456467643ee583a9767f223db144757ce92c5a433601d6",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "equipment",
+      "title": "Equipment & trading",
+      "changed": false,
+      "sha256_before": "b5d086f31ef10a42cde93056be3491ce99fa9bdd21c8a9c0f6d06b29882a6b68",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "features",
+      "title": "Features",
+      "changed": true,
+      "sha256_before": "cb18bd2fd17225e83839f41dca3029d3dce67a82583c0e86cecb29d3dc0af14c",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "getting-started",
+      "title": "Getting started",
+      "changed": false,
+      "sha256_before": "9bd7a7bbcdb0d5dc83e19be6de2c745ce04092bc537215ba57fa720edc81260e",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "index",
+      "title": "Welcome to the Nightcap Wiki",
+      "changed": true,
+      "sha256_before": "d0183841f10d5158e04673f6d9b98cb9b9a83b762c6476f0d4f07829f8409f7f",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "item-upgrades",
+      "title": "Item upgrades",
+      "changed": false,
+      "sha256_before": "1edca6b5be292227b1bf689e0a8b2f735f835862cdf35027d9f0fd3393c92dc6",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "launcher",
+      "title": "Launcher & interface",
+      "changed": false,
+      "sha256_before": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "loot-finder",
+      "title": "Loot finder",
+      "changed": false,
+      "sha256_before": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "multiclass",
+      "title": "Multiclass & progression",
+      "changed": false,
+      "sha256_before": "a74a69ae507b6bc6a3b545bf3f777562382bd6b7ea58ea39568f8d47da145620",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "pets",
+      "title": "Pets & pet armor",
+      "changed": false,
+      "sha256_before": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "recent-changes",
+      "title": "Recent changes",
+      "changed": true,
+      "sha256_before": "f702ae3008339b028fcca080f364a5a5bf7ad6af431e00cec9a4a6ae53778219",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "tradeskills",
+      "title": "Tradeskills & Craft All",
+      "changed": false,
+      "sha256_before": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "travel",
+      "title": "Travel & instances",
+      "changed": false,
+      "sha256_before": "d72d054fc8b4e1658864161aa42e2b85b1a96f3cf1f88659b37990fe89b58f11",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "tunnel",
+      "title": "East Commonlands tunnel",
+      "changed": false,
+      "sha256_before": "1f481a5eb4e3662827f7f77c033732ef8e636286b7bac8c1fc69f73bd9cb7dd2",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "unreleased",
+      "title": "In development",
+      "changed": true,
+      "sha256_before": "1adc2bea9e5721ed46e2e63a5f043db47654b50118e4786aadfbaf361d87fa9e",
+      "decision": "Candidate guidance added; existing live guidance retained"
+    },
+    {
+      "slug": "waypoints",
+      "title": "Waypoint Explorer",
+      "changed": false,
+      "sha256_before": "c7c8c3a2559f7a7ecb3e5592eecadefd04bd7a7a2ff6b9d01cfc30a3370bf514",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    },
+    {
+      "slug": "zone-hunt",
+      "title": "Zone hunt & forging",
+      "changed": false,
+      "sha256_before": "33bc45152b588ac0a592206c1f4719f76658c876ebc389ff680fb1cee7bc1fc9",
+      "decision": "No change: entry travel, client, class progression, item stats, crafting and other encounters retain their rules"
+    }
+  ],
+  "catalog": {
+    "item_count": 384,
+    "zone_count": 48,
+    "values_changed": false,
+    "sha256": "d794c88fd9e36321a59c63e0aaa0b9c2c7d69eed6b68c428c8080dc0a774e0a5",
+    "impact": "Only generated High Keep zone page adds an explicitly unreleased rescue link; reward and other generated pages retain their data"
+  },
+  "private_site": "No access, downloads, Nginx, services, launcher or publication changes",
+  "candidate_revision": "bac53706db231bd3d65ec70834666de42e09cf5b",
+  "build_pages": 476,
+  "tests_passed": 12,
+  "published": false
+}

@@ -2,6 +2,8 @@
 #include "common/dungeon_catalog.h"
 #include "common/chapterhouse_policy.h"
 #include "common/warhelm_policy.h"
+#include "common/highkeep_policy.h"
+#include "common/faction.h"
 #include "common/dungeon_contract.h"
 #include "common/content/world_content_service.h"
 #include "common/json/json.hpp"
@@ -15,6 +17,7 @@
 #include "zone/task_client_state.h"
 #include "zone/zone.h"
 #include "zone/spawn2.h"
+#include "zone/zonedump.h"
 #include <algorithm>
 #include <chrono>
 #include <ctime>
@@ -233,7 +236,8 @@ void ShowChecklist(Client *c, const Run &run) {
 
 #include "zone/chapterhouse_vigil.inc"
 #include "zone/warhelm_compact.inc"
-void Process() { Vigil::Tick(); Ashen::Tick(); }
+#include "zone/highkeep_rescue.inc"
+void Process() { Vigil::Tick(); Ashen::Tick(); Highkeep::Tick(); }
 
 void ConfigureJournalTask(int task_id, TaskInformation &task) {
 	Vigil::Configure(task_id,task);
@@ -264,6 +268,14 @@ void ConfigureJournalTask(int task_id, TaskInformation &task) {
 	summary.activity_type=TaskActivityType::Kill;
 	summary.goal_method=METHODQUEST;
 	summary.description_override="Full dungeon clear: receive credit for every required boss.";
+	if (task_id==9705) {
+		task.description+=" New Prison Break runs begin by hailing the Gate Sergeant at the entrance. "
+			"Follow the entrance passage to Boshinko, then the prison stairs to Bosec, Dyrna and McCabe. "
+			"Hail Osargen in his cell after their defeat. Escort him through three guard waves to the entrance; "
+			"stay close and defend him. Keeper Status and zone shouts explain your current objective. "
+			"Older runs keep their original four-boss completion rules.";
+		summary.description_override="Finish the four-boss clear; new Prison Break runs also require rescuing Osargen.";
+	}
 	summary.step=1; summary.req_activity_id=-1;
 	task.selector_ids.clear();
 	for (unsigned i=0;i<d.count;++i) { task.selector_ids.push_back(i); }
@@ -274,6 +286,7 @@ std::string RunID() { return current.id; }
 bool Boot() {
 	Vigil::defense={};
 	Ashen::defense={};
+	Highkeep::state={};
 	current={}; healthy=true; deaths.clear(); objectives.clear(); respawns.clear(); death_times.clear(); confirmations.clear();
 	if (!zone || !zone->GetInstanceID() || !FindDungeon(zone->GetZoneID())) { return true; }
 	try {
@@ -285,6 +298,7 @@ bool Boot() {
 		if (!StorageReady() || !CatalogReady()) { return false; }
 		current=ReadRun(fmt::format("r.instance_id={} AND r.zone_id={}",zone->GetInstanceID(),zone->GetZoneID()));
 		if (!Managed() || current.expiry<=Now()) { return false; }
+		Highkeep::Boot();
 		for (auto r : Query("SELECT spawn_id FROM nightcap_dungeon_deaths WHERE run_id="+Q(current.id))) { deaths.insert(Strings::ToUnsignedInt(r[0])); }
 		for (auto r : Query("SELECT boss_id FROM nightcap_dungeon_kills WHERE character_id=0 AND run_id="+Q(current.id))) { objectives.insert(Strings::ToUnsignedInt(r[0])); }
 		for (auto r : Query("SELECT spawn_id,respawn_at,died_at FROM nightcap_dungeon_respawns WHERE run_id="+Q(current.id))) {
@@ -302,6 +316,7 @@ bool RaidNPC(Mob *mob) {
 bool SelectSpawn(uint32_t spawn, uint32_t &npc) {
 	if (!Managed()) { return true; }
 	if (!healthy || current.expiry<=Now() || (current.mode==Mode::Raid && deaths.count(spawn))) { return false; }
+	if (Highkeep::Active() && (spawn==10156 || spawn==10109 || spawn==10210 || spawn==10132)) { return false; }
 	if (current.mode==Mode::Grind && RespawnDelay(spawn)>0) { return false; }
 	for (const auto &b : Bosses) {
 		if (b.zone!=current.dungeon->zone) { continue; }
@@ -332,6 +347,7 @@ void RestoreTimers(std::unordered_map<uint32_t,uint32_t> &timers) {
 }
 void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 	if (!Managed()) { return; }
+	Highkeep::Layout(spawns);
 	for (auto &s : spawns) { if (RequiredSpawn(s.id)) { s._condition=0; s.cond_value=0; } }
 	const auto private_count=PrivateSpawnCount(current.dungeon->zone);
 	if (!private_count) { return; }
@@ -362,6 +378,10 @@ void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 bool PrepareLoot(NPC *npc, bool owned) {
 	if (!Managed() || npc->IsQueuedForCorpse()) { return true; }
 	if (!healthy || current.expiry<=Now()) { return false; }
+	if (Highkeep::Active() && npc->GetEntityVariable("highkeep-run")==current.id) {
+		npc->ClearLootItems(); npc->SetCopper(0); npc->SetSilver(0); npc->SetGold(0); npc->SetPlatinum(0);
+		return true;
+	}
 	try {
 		const auto &run=current;
 		// Chapterhouse has no original/global loot. Named relics and the zone
@@ -424,6 +444,7 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 	if (!npc->GetEntityVariable("nightcap:dungeon-death-committed").empty()) { return false; }
 	if (!healthy || current.expiry<=Now()) { return false; }
 	if (!Vigil::DynamicDeath(npc,killer,owned) || !Ashen::DynamicDeath(npc,killer,owned)) { return false; }
+	if (!Highkeep::Death(npc)) { return false; }
 	const auto spawn=npc->GetSpawnPointID();
 	if (!spawn) { return true; }
 	const auto boss=Objective(spawn,npc->GetNPCTypeID());
@@ -446,9 +467,11 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 			Query(fmt::format("INSERT IGNORE INTO nightcap_dungeon_kills VALUES ({},0,{})",Q(run.id),boss->objective));
 			for (auto c : credit) {
 				Query(fmt::format("INSERT IGNORE INTO nightcap_dungeon_kills SELECT run_id,character_id,{} FROM nightcap_dungeon_members WHERE run_id={} AND character_id={}",boss->objective,Q(run.id),c->CharacterID()));
-				auto completion=Query(fmt::format("UPDATE nightcap_dungeon_members m SET completed_at={} WHERE run_id={} AND character_id={} AND completed_at=0 AND "
-					"(SELECT COUNT(*) FROM nightcap_dungeon_kills k WHERE k.run_id=m.run_id AND k.character_id=m.character_id)={}",Now(),Q(run.id),c->CharacterID(),run.dungeon->count));
-				if (completion.RowsAffected()==1) { completed.push_back(c); }
+				if (!Highkeep::Active()) {
+					auto completion=Query(fmt::format("UPDATE nightcap_dungeon_members m SET completed_at={} WHERE run_id={} AND character_id={} AND completed_at=0 AND "
+						"(SELECT COUNT(*) FROM nightcap_dungeon_kills k WHERE k.run_id=m.run_id AND k.character_id=m.character_id)={}",Now(),Q(run.id),c->CharacterID(),run.dungeon->count));
+					if (completion.RowsAffected()==1) { completed.push_back(c); }
+				}
 			}
 		}
 		if (boss && !owned) { Vigil::Death(run,credit); Ashen::Death(run,credit); }
@@ -466,6 +489,7 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 		if (run.mode==Mode::Raid) { deaths.insert(spawn); }
 		else { respawns[spawn]=respawn_at; death_times[spawn]=died_at; }
 		if (boss && !owned) { objectives.insert(boss->objective); }
+		if (boss && !owned) { Highkeep::BossDeath(boss); }
 		if (boss) { for (auto c : credit) { Journal(c); if (run.dungeon->zone==760) { Vigil::Project(c); } else if (run.dungeon->zone==113) { Ashen::Project(c); } } }
 		for (auto c : completed) {
 			c->Message(Chat::Yellow,"Dungeon complete: %s - %s. All %u required bosses credited. Your personal reward is earned. Keeper Status records your permanent completion count.",
@@ -557,7 +581,7 @@ void Connected(Client *c) {
 		JournalHistory(c);
 		Vigil::Connected(c);
 		Ashen::Connected(c);
-		if (Managed()) { Journal(c); ShowChecklist(c,current); }
+		if (Managed()) { Journal(c); ShowChecklist(c,current); Highkeep::Status(c); }
 	} catch (const std::exception &e) {
 		LogError("Dungeon presence update failed [{}]",e.what());
 		if (Managed()) { c->Disconnect(); }
@@ -566,6 +590,7 @@ void Connected(Client *c) {
 
 bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 	if (!zone || !keeper) { return false; }
+	if (Highkeep::Action(c,keeper,action)) { return true; }
 	if (Vigil::Action(c,keeper,action) || Ashen::Action(c,keeper,action)) { return true; }
 	const auto d=KeeperDungeon(zone->GetZoneID(),zone->GetInstanceID(),keeper->GetNPCTypeID());
 	if (!d) { return keeper->GetNPCTypeID()==998812 || keeper->GetNPCTypeID()==998820 || keeper->GetNPCTypeID()==998860; }
@@ -638,6 +663,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 				Saylink::Silent("join","Join").c_str(),Saylink::Silent("status","Status").c_str(),Saylink::Silent("claim rewards","Claim Rewards").c_str(),Saylink::Silent("reset","Reset").c_str());
 			if (!run.id.empty()) {
 				ShowChecklist(c,run);
+				Highkeep::Status(c);
 				JournalForRun(c,&run);
 			}
 			auto history=Query(fmt::format("SELECT r.mode,COUNT(*) FROM nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0 AND r.zone_id={} GROUP BY r.mode",c->CharacterID(),d->zone));
@@ -708,6 +734,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 					run.instance,d->zone,run.start,Duration,run.expiry,Q("nc-dungeon:"+run.id)));
 				Query(fmt::format("INSERT INTO nightcap_dungeon_runs(run_id,instance_id,instance_start,zone_id,owner_id,mode,seed,revision,expires_at) VALUES ({},{},{},{},{},{},{},{},{})",
 					Q(run.id),run.instance,run.start,d->zone,run.owner,unsigned(run.mode),run.seed,Revision,run.expiry));
+				Highkeep::Create(run);
 				Enroll(run,c->CharacterID());
 				if (run.mode==Mode::Raid) {
 					const auto order=BossOrder(run.seed); const auto count=BossCount(Roll(run.seed,0,3,10000));
@@ -830,6 +857,11 @@ bool LoadCheckpoint(std::vector<SavedSpawn> &spawns) {
 			for (const auto &j : payload) {
 				auto s=Decode(j);
 				if (s.zone_id!=current.dungeon->zone || s.instance_id!=current.instance) { throw std::runtime_error("checkpoint generation mismatch"); }
+				if (Highkeep::Active() && !s.is_corpse && !s.is_zone) {
+					if (!s.spawn2_id || s.spawn2_id==10156 || s.spawn2_id==10109 || s.spawn2_id==10210 || s.spawn2_id==10132) { continue; }
+					const auto p=s.spawn2_id==10145 ? &NightcapHighkeep::Boshinko : s.spawn2_id==10117 ? &NightcapHighkeep::McCabe : nullptr;
+					if (p) { s.x=p->x; s.y=p->y; s.z=p->z; s.heading=p->h; s.grid=0; }
+				}
 				if (s.is_corpse) {
 					const auto end=uint64_t(s.created_at)+std::max(0,s.decay_in_seconds);
 					if (end<=Now()) { continue; }

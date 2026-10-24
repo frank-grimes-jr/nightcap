@@ -1,4 +1,5 @@
 #include "../common/nightcap_thj_behaviors.h"
+#include "zone/dungeon_service.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 
@@ -117,7 +118,7 @@ static Mob* ResolvePlayerHealTarget(Mob* caster, uint16 spell_id, Mob* spell_tar
 
 	// Friendly player pets retain their intended heal recipient. Native spell
 	// permission, range and target-type checks still run after this resolver.
-	if (spell_target->GetNightcapPetOwner()) { return spell_target; }
+	if (spell_target->GetNightcapPetOwner() || NightcapDungeon::HighkeepHealTarget(spell_target)) { return spell_target; }
 
 	// Classify healing effects directly: the AI classifier omits some instant,
 	// regeneration, target-type and triggered-heal variants.
@@ -243,7 +244,7 @@ bool Mob::CastSpell(uint16 spell_id, uint16 target_id, CastingSlot slot,
 	//Goal of Spells:UseSpellImpliedTargeting is to replicate the EQ2 feature where spells will 'pass through' invalid targets to target's target to try to find a valid target.
 	if (RuleB(Spells,UseSpellImpliedTargeting) && IsOfClientBot()) {
 		Mob* spell_target = entity_list.GetMobID(target_id);
-		if (spell_target) {
+		if (spell_target && !(IsBeneficialSpell(spell_id) && NightcapDungeon::HighkeepHealTarget(spell_target))) {
 			Mob* targets_target = spell_target->GetTarget();
 			if (targets_target) {
 				// If either this is beneficial and the target is not a player or player's pet or vis versa

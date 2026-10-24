@@ -12,6 +12,32 @@ Warhelm of Rallos Zek preserves Camil HE90. Native/client pairing, complete rout
 appearance and owner balance acceptance are required before release; nothing is
 deployed by this candidate. [Evidence and operations](docs/quests/warhelm/RUNBOOK.md).
 
+## 2026-10-24 — High Keep prison-break candidate
+
+Adds an entrance bluff that raises a durable, temporary guard alarm, a shorter
+ground-floor/prison boss route, zone-wide encounter dialogue and a healable
+Osargen escort with three pursuer waves. Personal Raid completion now requires
+extraction in newly enrolled rescue runs; old runs, Grind and public High Keep
+retain their rules. Attempt retries preserve boss progress and earned receipts.
+Full native zone build, coordinator/healing, SQL and navigation checks pass.
+Build evidence and exact owner gameplay/balance QA live in [the release folder](docs/dungeons/highkeep-rescue/RUNBOOK.md).
+Requires paired zone/schema installation; defaults disabled. Not deployed.
+
+## 2026-10-24 — Aggro departure and stationary NPC return-home candidate
+
+Accepted death and final client departure now erase only that entity's NPC feign
+memory, preventing stale ID reuse from restoring hate. Group/raid Extended Target
+counters retain existing cleanup semantics. Restored stationary NPCs keep their
+ground-corrected canonical home instead of treating a saved pull position as home;
+this includes managed Raid/Grind checkpoint restoration. Their saved
+location, resources and loot are preserved. Missing canonical spawn rows use a
+defined fallback; grid and roambox roaming remain unchanged. Native regressions
+reproduce both defects. The owner ruled out feign death for the Lower Guk Raid
+report; its cause remains a live reproduction/QA question. No production change is
+claimed. Zone rebuild required; no SQL, world-rule, cache or client update.
+[Evidence and rollout boundary](docs/releases/aggro-zone-cleanup-20261024/README.md);
+[exact owner QA](docs/releases/aggro-zone-cleanup-20261024/QA.md).
+
 ## 2026-10-24 — Hole entrance key requirement removed live
 
 Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: docs/ops/hole-keyless-passage-20261024/deployed.json.
