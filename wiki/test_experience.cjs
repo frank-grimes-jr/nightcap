@@ -18,7 +18,7 @@ class Element {
   showModal() { this.open = true; }
   close() { this.open = false; }
 }
-function setup({ stored = [], blocked = false, failFetch = false, fetcher } = {}) {
+function setup({ stored = [], blocked = false, failFetch = false, fetcher, anchor } = {}) {
   const selectors = ['#wiki-feedback', '[data-save-page]', 'h1', '[data-saved-list]', '[data-saved-home]',
     '[data-saved-links]', '.article-tools', 'article', '.reading-time', '[data-theme-toggle]', '.personal-tools',
     '.path-picker', '.navigation', '.reading-progress', '#quick-search', '#saved-guides', '#quick-query',
@@ -34,10 +34,10 @@ function setup({ stored = [], blocked = false, failFetch = false, fetcher } = {}
     'article h2[id]': [], '.contents a': [], '[data-saved-list] button': []
   };
   const storage = new Map([['nightcap.saved', JSON.stringify(stored)]]), events = {}, timeouts = [];
-  const location = { search: '?path=gear', href: 'https://wiki.test/index.html?path=gear', hash: '' };
+  const location = { search: '?path=gear', href: 'https://wiki.test/index.html?path=gear', hash: anchor?'#reference':'' };
   const document = { body: { dataset: { page: 'getting-started' } }, documentElement: { dataset: {}, scrollHeight: 1200 },
     querySelector: selector => elements[selector] || null, querySelectorAll: selector => groups[selector] || [],
-    createElement: () => new Element(), getElementById: () => null, addEventListener: (name, fn) => { events[name] = fn; } };
+    createElement: () => new Element(), getElementById: () => anchor||null, addEventListener: (name, fn) => { events[name] = fn; } };
   let calls = 0;
   vm.runInNewContext(code, { document, location, URL, URLSearchParams,
     localStorage: { getItem: key => { if (blocked) throw Error(); return storage.get(key); }, setItem: (key, value) => { if (blocked) throw Error(); storage.set(key, value); } },
@@ -52,6 +52,10 @@ function setup({ stored = [], blocked = false, failFetch = false, fetcher } = {}
   };
 }
 (async () => {
+  const reference={tagName:'DETAILS',open:false,parentElement:null,scrollIntoView(){this.scrolled=true;}};
+  setup({anchor:reference});
+  assert.equal(reference.open,true,'A deep link to a reference disclosure must open the disclosure itself.');
+  assert.equal(reference.scrolled,true);
   let env = setup();
   assert.equal(env.groups['[data-path]'][1].attrs['aria-pressed'], 'true');
   env.groups['[data-path]'][0].click();

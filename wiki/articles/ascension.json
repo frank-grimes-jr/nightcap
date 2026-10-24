@@ -2,14 +2,15 @@
   "slug": "ascension",
   "title": "Ascension quest",
   "summary": "Reforge a supported original class epic.",
-  "body": "<h2 id=\"thj-behavior-candidate\">THJ behavior and stock gear — live testing</h2><p>The custom AA, spell focus and stock-derived gear update is installed for live testing. Scaling uses 131 researched Legendary items and matching standard EverQuest baselines. Classic level 50 and starter progression are preserved. Reopen the normal launcher for game 2026101902 before testing. See <a href=\"unreleased.html#thj-behavior-candidate\">behavior details and open testing limits</a>.</p>\n<p>Turn an existing class epic into its Ascended version.</p>\n        <ul class=\"quest-facts\"><li><strong>Start:</strong> Epic Forgemaster, in the tunnel’s tradeskill workshop.</li><li><strong>Bring:</strong> Your supported class epic, unequipped in inventory, plus exactly 8 Essence of Ascension and 100,000 platinum.</li><li><strong>Finish:</strong> Hand in the essence and platinum together. The forge consumes the original epic and grants its Ascended version.</li><li><strong>Know before you go:</strong> Eligibility uses your starting class, not your extra classes. It supports the fourteen original class-epic weapon sets, excluding Beastlord and Berserker. If a Ranger carries both supported epics, both are reforged. You must already have the epic and materials; this does not provide the original epic quest.</li></ul><p>See <a href=\"tunnel.html\">the tunnel guide</a> for services and <a href=\"travel.html\">travel options</a> for your next destination.</p>",
+  "body": "<p>Turn an existing class epic into its Ascended version.</p>\n        <ul class=\"quest-facts\"><li><strong>Start:</strong> Epic Forgemaster, in the tunnel’s tradeskill workshop.</li><li><strong>Bring:</strong> Your supported class epic, unequipped in inventory, plus exactly 8 Essence of Ascension and 100,000 platinum.</li><li><strong>Finish:</strong> Hand in the essence and platinum together. The forge consumes the original epic and grants its Ascended version.</li><li><strong>Know before you go:</strong> Eligibility uses your starting class, not your extra classes. It supports the fourteen original class-epic weapon sets, excluding Beastlord and Berserker. If a Ranger carries both supported epics, both are reforged. You must already have the epic and materials; this does not provide the original epic quest.</li></ul><p>See <a href=\"tunnel.html\">the tunnel guide</a> for services and <a href=\"travel.html\">travel options</a> for your next destination.</p><aside class=\"archived-update\" id=\"thj-behavior-candidate\"><p>This update is in <a href=\"recent-changes.html#ascension--thj-behavior-candidate\">Change Log →</a></p></aside>",
   "category": "Quests",
   "status": "Live testing",
-  "updated": "2026-10-19",
+  "updated": "2026-10-24",
   "sources": [
     "index.html at origin/main 19951a8",
     "docs/status.md at origin/main 19951a8",
     "docs/releases/thj-behaviors-20261019/; candidate only, not deployed or owner accepted",
-    "docs/releases/thj-behaviors-20261019/deployment: owner-authorized main/server release; signed game 2026101902; gameplay and balance acceptance pending"
+    "docs/releases/thj-behaviors-20261019/deployment: owner-authorized main/server release; signed game 2026101902; gameplay and balance acceptance pending",
+    "docs/releases/wiki-clarity-20261024/README.md"
   ]
 }

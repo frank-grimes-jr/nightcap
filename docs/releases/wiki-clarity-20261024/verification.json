@@ -1,0 +1,9 @@
+{
+  "source_base": "66c7b843",
+  "python": {"run":70,"passed":43,"skipped":27,"scope":"Complete local wiki suite; POSIX publisher/reader cases skip on Windows. Publisher recovery cases run on Linux before release."},
+  "node": ["Search ranking and failures","7 equipment scenarios","Experience history/storage/search plus direct-disclosure regression","Build Lab model and 12 native controls","14 Loot finder filter, class, URL and safety cases"],
+  "browser": {"engine":"Real IAB Chromium","pages":["index","features","all-pages","multiclass","dungeon-modes","recent-changes","build-lab","items"],"widths":[320,768,1024,1440],"layouts_checked":32,"horizontal_overflow":false,"console_errors":[],"verified_flows":["Home goal selection","Direct boss-list link opens the reference","Old equipment robe link displays its Change Log route","Change Log deep link expands the correct archived entry"]},
+  "content": {"maintained_guides_reviewed":24,"generated_reward_routes_reviewed":447,"feature_topics":8,"old_article_anchors_preserved":true,"catalog_values":"unchanged","gameplay_labels":"preserved","private_sources":"excluded"},
+  "review_fixes": ["Guide directory uses maintained membership rather than excluding item-upgrades and zone-hunt by prefix","Deep links open a disclosure itself as well as its parents","Current custom AA mechanics stay in an expandable class guide","Change Log is sorted by release date; earlier detail is explicitly historical"],
+  "gameplay_or_balance_acceptance": "unchanged"
+}

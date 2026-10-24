@@ -36,6 +36,6 @@
       results.append(li);
     }
   }).catch(() => {
-    status.textContent = 'Search could not load. Please try again or use All articles in the navigation.';
+    status.textContent = 'Search could not load. Please try again or open Guides in the navigation.';
   });
 })();

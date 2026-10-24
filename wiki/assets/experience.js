@@ -125,14 +125,14 @@
   navigation.open = !mobile.matches;
   mobile.addEventListener('change', event => { navigation.open = !event.matches; });
 
-  // Deep links into the release digest still reveal their original content.
+  // Deep links open the reference itself as well as any enclosing disclosure.
   function revealAnchor() {
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
     if (!id) return;
     const target = document.getElementById(id);
     if (!target) return;
-    let parent = target.parentElement;
+    let parent = target;
     let revealed = false;
     while (parent) {
       if (parent.tagName === 'DETAILS' && !parent.open) { parent.open = true; revealed = true; }

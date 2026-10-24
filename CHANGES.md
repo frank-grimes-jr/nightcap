@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-24 — Clearer wiki structure
+
+Reduced Features to eight defining departures from standard EQ. Home and guides
+now prioritize orientation and current instructions; dated fixes and repeated
+announcements are collected in Change Log. Added consistent section tabs, type
+sizes and compact contents; long references expand when needed. Old article URLs
+and anchors remain usable, and gear values, gameplay labels, Loot finder and
+Build Lab remain intact. Whole-site review and publication evidence:
+`docs/releases/wiki-clarity-20261024/`.
+
 ## 2026-10-23 — Level-scaled AA and level-1 allocation controls (deployed)
 
 Adds the owner-selected two passive AA per level of eligible XP while retaining

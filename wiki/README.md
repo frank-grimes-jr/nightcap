@@ -25,6 +25,28 @@ contents and links are static HTML and remain readable without it. The Linux-onl
 recovery test is deliberately skipped on Windows and must run on the host before
 deployment. Packaging emits an exact SHA256 manifest alongside the immutable tar.
 
+## Clear content structure
+
+Features is a short overview of the defining differences from standard EQ.
+Guides owns current instructions, requirements and restrictions. Change Log
+(`recent-changes.html`, retained for existing links) owns dated releases, fixes,
+version numbers and resolved incidents. Do not prepend release announcements to
+Home, Features or every affected guide. Update the actual instruction in its
+owning guide and add the dated history once in Change Log.
+
+Use the common heading/body scale in `assets/clarity.css`; avoid per-guide hero
+titles. Keep long boss lists and advanced references in labeled `guide-topic`
+disclosures. Every disclosure needs an ID and a useful summary; Contents/deep
+links open it automatically. Existing anchors for moved notices remain contextual
+links into their Change Log entry. Do not remove those links.
+
+The guide index lists maintained guides and directory entrances, while individual
+item/zone pages remain in their dedicated catalogs and global search. Home keeps
+the four compact goal paths; its release digest and duplicate directory lists are
+retired. All476HTML pages/483public files and the public asset allowlist remain.
+One-time migration and audit: `tools/wiki_clarity_migration.py` and
+`docs/releases/wiki-clarity-20261024/`. Future edits belong in article JSON.
+
 ## Maintain content
 
 - Edit `articles/*.json`: title, summary, category, body (reviewed HTML), release
