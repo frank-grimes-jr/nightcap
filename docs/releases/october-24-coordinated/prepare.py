@@ -29,7 +29,13 @@ def main():
  for n in touched:assert hashlib.sha256((ROOT/'server-mods/code'/n).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==native['source_files'][n],n
  local=json.loads((ROOT/'docs/quests/warhelm/local-content.json').read_text())
  normalize=lambda x:sorted(json.dumps(row,sort_keys=True) for row in x)
- for n in ('zone','spawn2','spawnentry','npc_types','doors','helmet'):assert normalize(local[n])==normalize(p['content'][n]),n
+ for n in ('zone','spawn2','spawnentry','npc_types','doors'):assert normalize(local[n])==normalize(p['content'][n]),n
+ # The local capture lacks Camil's already-deployed helmet. It is not an Ashen
+ # migration input: compare its reviewed production projection, then require
+ # every existing item-cache byte to remain unchanged in target rehearsal.
+ helmet=json.loads((ROOT/'docs/quests/camil-chapterhouse/production-helmet.json').read_text())
+ assert local['helmet']==[] and len(p['content']['helmet'])==1
+ assert all(p['content']['helmet'][0].get(k)==v for k,v in helmet.items())
  assert local['templates']==p['content']['templates']
  assert json.loads((ROOT/'docs/quests/warhelm/secondary-content.json').read_text())==p['secondary_content']
  assert not any(p['content']['reservations'].values()) and not p['saved_kael'] and p['kael_instances']=='0' and not p['existing_tables']
