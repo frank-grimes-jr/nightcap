@@ -1,0 +1,10 @@
+# Private production captures, source/build inventory and host receipts.
+production-before.json
+startup-check.json
+native-build-manifest.json
+manifest.json
+preflight-receipt.json
+*-receipt.json
+retained-helper-base64.json
+source-review.patch
+private/

@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-24 — Multiclass tome learning repair candidate
+
+Tomes now use canonical held-class eligibility, fixing secondary/third Rogue
+learning (including caster primaries). Right-click failures preserve the original
+item; duplicate scanning covers the whole list and failed discipline saves do not
+update the profile or consume the tome. Consumed trainer/quest callers retain the
+refund API. Discipline levels and the level1 AA catalog stay unchanged. Native
+43-case Windows/Linux tests and adjacent spell/cooldown regressions pass; main
+and server deployment are owner-authorized, with full build/delivery and native
+player QA tracked in [release evidence](docs/releases/rogue-tomes-20261024/README.md).
+
 ## 2026-10-24 — Hole entrance key requirement removed live
 
 Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: docs/ops/hole-keyless-passage-20261024/deployed.json.
