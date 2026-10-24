@@ -43,6 +43,7 @@
 #include "zone/bot.h"
 #include "zone/client.h"
 #include "zone/entity.h"
+#include "zone/dungeon_service.h"
 #include "zone/groups.h"
 #include "zone/npc_scale_manager.h"
 #include "zone/quest_parser_collection.h"
@@ -3306,6 +3307,8 @@ bool NPC::CanTalk()
 //iOther the mob who is doing the looking. It should figure out
 //what iOther thinks about 'this'
 FACTION_VALUE NPC::GetReverseFactionCon(Mob* iOther) {
+	const auto rescue_faction=NightcapDungeon::HighkeepFaction(this,iOther);
+	if (rescue_faction>=0) { return static_cast<FACTION_VALUE>(rescue_faction); }
 	iOther = iOther->GetOwnerOrSelf();
 	int primaryFaction= iOther->GetPrimaryFaction();
 

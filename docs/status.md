@@ -1,5 +1,17 @@
 # Current Nightcap status
 
+## 2026-10-24 — High Keep rescue prepared for testing
+
+The candidate adds an entrance confrontation, guard alarm, compact prison route,
+zone-wide story dialogue and an Osargen escort back to the entrance. Three waves
+attack the prisoner; death/retry preserves defeated bosses, while personal rewards
+require extraction. Isolated coordinator/healing, database and bidirectional
+navigation checks pass. Full native build status is in the release manifest.
+Not activated or published; manual navigation, pacing and maximum-legal-power
+balance remain open. [Exact QA](dungeons/highkeep-rescue/QA.md) and
+[paired installation/recovery](dungeons/highkeep-rescue/RUNBOOK.md).
+
+
 ## 2026-10-24 — Hole entrance key requirement removed live
 
 Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: ops/hole-keyless-passage-20261024/deployed.json.

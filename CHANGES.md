@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-24 — High Keep prison-break candidate
+
+Adds an entrance bluff that raises a durable, temporary guard alarm, a shorter
+ground-floor/prison boss route, zone-wide encounter dialogue and a healable
+Osargen escort with three pursuer waves. Personal Raid completion now requires
+extraction in newly enrolled rescue runs; old runs, Grind and public High Keep
+retain their rules. Attempt retries preserve boss progress and earned receipts.
+Native coordinator/healing, SQL and navigation checks pass; full build evidence
+and exact owner gameplay/balance QA live in [the release folder](docs/dungeons/highkeep-rescue/RUNBOOK.md).
+Requires paired zone/schema installation; defaults disabled. Not deployed.
+
+
 ## 2026-10-24 — Hole entrance key requirement removed live
 
 Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: docs/ops/hole-keyless-passage-20261024/deployed.json.

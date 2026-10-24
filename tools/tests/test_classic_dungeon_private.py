@@ -46,6 +46,7 @@ struct {void LoadSpawnGroupsByID(uint32_t id,Groups *g){g->ids.insert(id);}} con
 struct {const Dungeon *dungeon=FindDungeon(71);} current;
 bool managed=true,healthy=true;
 bool Managed(){return managed;}
+namespace Highkeep {void Layout(std::vector<Spawn2Repository::Spawn2>&){}}
 bool RequiredSpawn(uint32_t id){for(const auto &b:Bosses)if(b.zone==71 && b.spawn==id)return true;return false;}
 '''+function+'\nint main(){result.rows={'+values+r'''};
  // Checkpoint may have no dynamic Sirran (normal native managed reload).

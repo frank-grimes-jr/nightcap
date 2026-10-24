@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "database": "owned disposable MariaDB; removed after test",
+  "default_disabled": true,
+  "personal_credit": true,
+  "completion_replay_refused": true,
+  "transaction_rollback": true,
+  "repeated_install_refused": true,
+  "pause_preserves_progress": true,
+  "constraints": true,
+  "production_changed": false,
+  "migration_sha256": "6e34137e29114c72fb58b3652fab633f4a54886b46a5260b037295cd85ada964",
+  "coordinator_sha256": "a6ee90ef38bca85d3806423c139ceee80dfdcec0907dbf3b6c2bb0e5d4b25f11"
+}

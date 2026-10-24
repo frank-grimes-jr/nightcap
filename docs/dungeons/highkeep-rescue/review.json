@@ -1,0 +1,23 @@
+{
+  "reviewed_at": "2026-10-24",
+  "scope": "Independent fresh-context review of coordinator and native integration; follow-up verification of corrections",
+  "final_reviewer_result": "No remaining concrete problems found in the reviewed corrections.",
+  "additional_model": "Offered; owner chose to continue with the current review",
+  "findings": [
+    {"issue": "Stopping native follow returns the NPC to its original guard point", "disposition": "Fixed: save current guard spot before pausing; actual coordinator fixture checks the idle movement consequence"},
+    {"issue": "A missing idle prisoner leaves the rescue stuck", "disposition": "Fixed: validate prisoner before the no-leader return and retry after cooldown"},
+    {"issue": "Native kill code still writes permanent guard faction", "disposition": "Fixed: scoped guard predicate gates all four ordinary/merit faction paths"},
+    {"issue": "Existing heal target policy redirects Osargen heals to the caster", "disposition": "Fixed: scoped exception at resolution and implied targeting;149 actual native classifier/cast-prefix checks pass"},
+    {"issue": "Zero exp_mod still awards native raid and leadership XP", "disposition": "Fixed: tagged dynamic actors are excluded before native task/XP split/award paths, including after attempt cleanup"},
+    {"issue": "Aggro-immune prisoner damage increments an unbalanced zone aggro counter", "disposition": "Fixed: narrow NPC::Damage counter exception; explicitly disable OOC regeneration"},
+    {"issue": "Point terrain checks do not prove route connectivity", "disposition": "Added native FindRoute checks for four legs in both directions with normal flags; actual movement and combat remain manual QA"}
+  ],
+  "author_final_checks": [
+    "Resolve temporary/swarm pet owners for harmful targeting and guard alarm",
+    "Expired gate choices restart at a usable first response",
+    "Guards do not acquire the protected prisoner before escort release",
+    "Lost acknowledgement after committed completion suspends without replay and reloads the durable outcome"
+  ],
+  "open_acceptance": ["Native movement and doors", "Visible dialogue and journal", "Encounter pacing", "Combined maximum-legal-power balance", "Main/server promotion and deployment", "Wiki publication"],
+  "production_changed": false
+}

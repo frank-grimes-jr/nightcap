@@ -50,6 +50,7 @@
 #include "zone/cheat_manager.h"
 #include "zone/command.h"
 #include "zone/dialogue_window.h"
+#include "zone/dungeon_service.h"
 #include "zone/dynamic_zone.h"
 #include "zone/expedition_request.h"
 #include "zone/guild_mgr.h"
@@ -1859,6 +1860,7 @@ void Client::ChannelMessageReceived(uint8 chan_num, uint8 language, uint8 lang_s
 		}
 
 		Mob* t = GetTarget();
+		if (t && t->IsNPC() && NightcapDungeon::HighkeepSay(this,t->CastToNPC(),message)) { break; }
 
 		if (
 			t &&
@@ -8438,6 +8440,8 @@ void Client::GarbleMessage(char *message, uint8 variance)
 
 // returns what Other thinks of this
 FACTION_VALUE Client::GetReverseFactionCon(Mob* iOther) {
+	const auto rescue_faction=NightcapDungeon::HighkeepFaction(this,iOther);
+	if (rescue_faction>=0) { return static_cast<FACTION_VALUE>(rescue_faction); }
 	if (GetOwnerID()) {
 		return GetOwnerOrSelf()->GetReverseFactionCon(iOther);
 	}
@@ -8469,6 +8473,8 @@ bool Client::ReloadCharacterFaction(Client *c, uint32 facid, uint32 charid)
 //o--------------------------------------------------------------
 FACTION_VALUE Client::GetFactionLevel(uint32 char_id, uint32 npc_id, uint32 p_race, uint32 p_class, uint32 p_deity, int32 pFaction, Mob* tnpc)
 {
+	const auto rescue_faction=NightcapDungeon::HighkeepFaction(this,tnpc);
+	if (rescue_faction>=0) { return static_cast<FACTION_VALUE>(rescue_faction); }
 	if (pFaction < 0)
 		return GetSpecialFactionCon(tnpc);
 	FACTION_VALUE fac = FACTION_INDIFFERENTLY;
