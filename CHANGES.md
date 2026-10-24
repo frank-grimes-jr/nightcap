@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-24 — Multiclass tome learning repair candidate
+
+Tomes now use canonical held-class eligibility, fixing secondary/third Rogue
+learning (including caster primaries). Right-click failures preserve the original
+item; duplicate scanning covers the whole list and failed discipline saves do not
+update the profile or consume the tome. Consumed trainer/quest callers retain the
+refund API. Discipline levels and the level1 AA catalog stay unchanged. Native
+43-case Windows/Linux tests and adjacent spell/cooldown regressions pass; main
+and server deployment are owner-authorized, with full build/delivery and native
+player QA tracked in [release evidence](docs/releases/rogue-tomes-20261024/README.md).
+
 ## 2026-10-24 — Ashen Compact hidden Everfrost entrance
 
 Moves the unreleased Shadow Knight quest's patron, Kael entrance and return into
