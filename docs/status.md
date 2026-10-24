@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## 2026-10-24 — Custom Features directory
+
+Published `20261024-wiki-custom-features-v1` over clarity-v2. Features explicitly
+groups14 custom systems/adventures, including Raid/Grind and helmet quests, with
+guide links and separate unavailable previews. Paladin Vigil remains live testing;
+Ashen Compact remains not released. No gameplay, item values or reader changes.
+Guarded publication/recovery and HTTPS evidence:
+[release](releases/wiki-custom-features-20261024/README.md).
+
 ## 2026-10-24 — Wiki clarity
 
 Features, Guides and Change Log now have distinct purposes: major differences,

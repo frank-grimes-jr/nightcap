@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-10-24 — Custom content on Features
+
+Features now explicitly lists Raid/Grind dungeons and helmet quests, grouped with
+Zone Hunt, epic reforging, class-armor quests, crafting, exploration and custom
+character/world systems. Every entry links to its guide; minor fixes stay in
+Change Log. Ashen Compact is an unavailable preview, not an activated reward.
+No gameplay/catalog change. Evidence: `docs/releases/wiki-custom-features-20261024/`.
+
 ## 2026-10-24 — Clearer wiki structure
 
 Reduced Features to eight defining departures from standard EQ. Home and guides

@@ -10,10 +10,11 @@ Updated October 24, 2026.
   [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 24, 2026 (EDT).
-- **Active OVH origin release:** `20261024-wiki-clarity-v2`; previous
+- **Active OVH origin release:** `20261024-wiki-custom-features-v1`; previous
   `20261024-wiki-clarity-v1` and `20261024-hole-keyless-v1` are retained for recovery.
   Editorial source: `E:/EQ_Local_Dev/_worktrees/wiki-clarity`. Publication/recovery:
-  `docs/releases/wiki-clarity-20261024/`. The JSON reader is unchanged.
+  `docs/releases/wiki-custom-features-20261024/`. Clarity-v2 is also retained;
+  its shared editorial structure is preserved. The JSON reader is unchanged.
 - **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
   required and the GM access restriction removed. Private Hate retains its
   entrance Keeper. Main PR299/server and466-file wiki publication are verified;
@@ -23,7 +24,8 @@ Updated October 24, 2026.
   resolved abilities and priority-order testing; scope and dated fixtures are explicit.
   Verified publication: `docs/releases/build-lab-20261022/`. No gameplay changes.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
-- **Content structure:** Features highlights eight major differences; Guides owns
+- **Content structure:** Features groups14 custom adventures/systems, explicitly
+  including Raid/Grind and helmet quests, with short guide links; Guides owns
   current instructions; Change Log owns minor changes, fixes and dated releases.
   Keep announcements out of guide prefixes and retain old anchors. Shared compact
   type sizes and expandable references apply across the complete site.

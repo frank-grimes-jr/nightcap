@@ -27,7 +27,11 @@ deployment. Packaging emits an exact SHA256 manifest alongside the immutable tar
 
 ## Clear content structure
 
-Features is a short overview of the defining differences from standard EQ.
+Features is the grouped directory of custom adventures and systems: explicitly
+name Raid/Grind, helmet quests, hunt/epic/class-armor rewards, character systems,
+crafting and exploration. Keep each description short and link its owning guide.
+Use Adventures, Character, Gear/world and Tools/previews groups; unavailable
+content must say Not released. Do not reduce the directory to abstract slogans.
 Guides owns current instructions, requirements and restrictions. Change Log
 (`recent-changes.html`, retained for existing links) owns dated releases, fixes,
 version numbers and resolved incidents. Do not prepend release announcements to

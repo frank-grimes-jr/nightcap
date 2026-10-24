@@ -141,7 +141,17 @@ class WikiTests(unittest.TestCase):
 
     def test_features_guides_and_change_log_are_distinct_destinations(self):
         features=self.articles['features']['body']
-        self.assertEqual(features.count('class="feature-row"'),8)
+        self.assertEqual(features.count('class="feature-row"'),14)
+        for group in ['custom-adventures','custom-builds','custom-world','custom-tools']:
+            self.assertIn(group,self.pages['features.html'].ids)
+        for target in ['dungeon-modes','camil-vigil','zone-hunt','ascension','waypoints','tunnel']:
+            self.assertIn(target+'.html',features)
+        self.assertIn('Raid &amp; Grind dungeons',features)
+        self.assertIn('Custom helmet quests',features)
+        self.assertIn('unreleased.html#ashen-compact',features)
+        preview=self.articles['unreleased']['body'].split('id="ashen-compact"')[1].split('<h2')[0]
+        self.assertIn('not released',preview)
+        self.assertIn('not installed or accepted',preview)
         self.assertNotIn('class="notice"',features)
         self.assertEqual(self.articles['recent-changes']['title'],'Change Log')
         self.assertIn('Earlier release detail',self.articles['recent-changes']['body'])

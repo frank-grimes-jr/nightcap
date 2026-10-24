@@ -701,7 +701,9 @@ recovery. Website deployment does not promote gameplay.
 
 ### Wiki maintenance with every change
 
-Keep Features focused on the major differences from standard EQ. Guides own
+Keep Features a grouped directory of custom content and major differences from
+standard EQ, explicitly including Raid/Grind and custom helmet quests. Link short
+entries to their guides and mark unavailable previews Not released. Guides own
 current instructions and restrictions; Change Log (`recent-changes.html`) owns
 dated releases, minor improvements and fixes. Do not prepend repeated release
 announcements to Home, Features or the guides. Use the shared text scale and
