@@ -55,6 +55,21 @@ unverified or uncertain activation cannot be blessed as a fresh recovery baselin
 The revised source/operator has no remaining required findings. Full native build
 and actual deployment evidence remain pending; owner gameplay QA remains open.
 
+## AA and high-level tome audit
+
+The production read-only audit matched all 530 released Rogue-accessible AA
+ranks across 96 families to level-1 purchase requirements. All 1,845 compiled
+policy ranks also return level 1. No generic AA purchase/activation gate above
+60 was found. The reported AA problem still needs its exact name and error.
+Assassinate's level-60 combat rule is separate; the Anatomy execute effect is
+excluded from the released pool, and Assassin's Wrath is a different modifier.
+
+Canonical Rogue tomes comprise 193 item records for 189 disciplines; 178 item
+records require levels above 60. Widened item masks are not eligibility proof.
+This repair preserves those discipline gates and fixes learning for eligible
+held classes. Sneak Attack is a level-20 discipline and is a valid level-30
+SK/Shaman/Rogue test. No AA or discipline-level rebalance was performed.
+
 ## Exact owner QA
 
 - Karl, level30 SK/Shaman/Rogue: right-click Tome of Sneak Attack66390 from its
