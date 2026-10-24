@@ -1,13 +1,16 @@
 # Current Nightcap status
 
-## 2026-10-24 — Tome learning repair under release verification
+## 2026-10-24 - Tome learning repaired on main and production
 
-The owner authorized main/server release after the Rogue audit. Canonical
-held-class learning, full duplicate detection and failed-save/item preservation
-are implemented;43native cases pass on Windows/Linux plus adjacent spell/cooldown
-checks. The full zone build and guarded rollout are tracked in
-[the release record](releases/rogue-tomes-20261024/README.md). No deployment or
-player acceptance is claimed yet. Discipline use levels and AA policy remain.
+Owner-authorized PR330/main24412152 is deployed. Canonical held-class learning
+fixes secondary/third Rogue and caster primaries; failed right-clicks preserve
+the original tome. All 12 zone workers, 93 saved-state tables, 577 schema/content
+checks, retained client/cache/quest/content and fresh stopped backup verify.
+Access is open, with no native/quest/database errors. All 43 native-path tests
+pass on Windows/Linux; full zone build and independent review pass. Discipline
+levels and AA policy remain unchanged. Wiki20261024-rogue-tomes-v1 verifies all
+483 public files, changing only three. Karl's in-game QA is still open.
+[Release and exact QA](releases/rogue-tomes-20261024/README.md).
 
 ## 2026-10-24 — Ashen Compact prepared, not deployed
 

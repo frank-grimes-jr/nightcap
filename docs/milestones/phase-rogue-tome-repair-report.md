@@ -13,7 +13,11 @@ changes, inventory persistence redesign and automatic player grants/refunds.
 All released rogue AA purchase levels are1; the unnamed client AA report remains
 unresolved pending its exact name/error.
 
-Open: actual client right-click/activation/relog QA, broader inventory crash/write
-atomicity, and deployment/publication verification until recorded by receipts.
+Delivered: scoped main PR330 and verified production activation; 12 workers,
+93 saved-state tables, 577 contract checks and fresh backup pass; access is open.
+
+Open: actual client right-click/activation/relog QA and broader inventory
+crash/write atomicity. Wiki20261024-rogue-tomes-v1 verifies all 483 public files;
+16 Linux publisher/recovery tests pass and only three files changed.
 The user explicitly authorized main/server deployment; this is not gameplay
 acceptance. Never restore player snapshots during recovery.
