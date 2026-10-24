@@ -17,5 +17,9 @@
     "docs/releases/thj-behaviors-20261019/; candidate only, not deployed or owner accepted",
     "docs/releases/thj-behaviors-20261019/deployment: owner-authorized main/server release; signed game 2026101902; gameplay and balance acceptance pending",
     "docs/releases/wiki-clarity-20261024/README.md"
+  ],
+  "keywords": [
+    "pet",
+    "pets"
   ]
 }

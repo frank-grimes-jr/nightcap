@@ -32,3 +32,20 @@ and privacy rules pass, and real layouts at320/768/1024/1440 remain readable.
 Publish with the current pointer/config guards, rollback rehearsal, public hash
 and private-service preservation checks. Publication and owner acceptance are
 recorded separately; local edits alone are not a public release.
+
+## Published result
+
+`20261024-wiki-clarity-v2` is the final public release. V1 supplied the editorial
+reorganization; V2 refines common search aliases so AA/classes find Multiclass
+first and fixes finds Change Log. Existing paths remain, including
+`recent-changes.html`. No gameplay or unpublished High Keep content was activated.
+
+`wiki-publication.json` records V1; `wiki-publication-v2.json` records the final
+guarded update. Both run16Linux recovery checks, rehearse the old/new pointer and
+preserve private downloads, service identities and configuration. Complete HTTPS
+verification is recorded in `wiki-public-verification.json`.
+
+Local70Python cases pass43/skip27POSIX cases; Node search/tool suites pass.
+32real browser layouts, disclosure and historical links, home goal selection,
+AA search, keyboard search close and both themes verify. Whole-site link checks
+preserve every old maintained-guide anchor and all generated reward routes.

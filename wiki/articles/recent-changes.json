@@ -56,5 +56,10 @@
     "docs/quests/camil-chapterhouse/deployment/README.md",
     "Deployed October24 via main7f126acb/PR318; docs/ops/hole-keyless-passage-20261024/deployed.json. keyitem=0 and lockpick=0; all398 other captured doors unchanged; no restart. Owner gameplay acceptance pending.",
     "docs/releases/wiki-clarity-20261024/README.md"
+  ],
+  "keywords": [
+    "fixes",
+    "change log",
+    "patch notes"
   ]
 }

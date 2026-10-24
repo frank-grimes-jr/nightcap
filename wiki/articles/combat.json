@@ -27,5 +27,10 @@
     "docs/releases/aa-pacing-million-20261021/README.md",
     "docs/build-lab/README.md",
     "docs/releases/wiki-clarity-20261024/README.md"
+  ],
+  "keywords": [
+    "buffs",
+    "healing",
+    "death"
   ]
 }

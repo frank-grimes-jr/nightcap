@@ -169,6 +169,8 @@ def main():
 
     for slug,body in bodies.items():
         a=dict(old[slug]);a['body']=body
+        aliases={'multiclass':['AA','classes','class','AA progression'],'combat':['buffs','healing','death'],'equipment':['gear','loot','qualities'],'dungeon-modes':['dungeons','bosses','raid','grind'],'pets':['pet','pets'],'item-upgrades':['reforging','upgrades','forge'],'recent-changes':['fixes','change log','patch notes'],'travel':['teleport','travel']}
+        if slug in aliases:a['keywords']=list(dict.fromkeys(a.get('keywords',[])+aliases[slug]))
         if slug in summaries:a['summary']=summaries[slug]
         if slug=='recent-changes':a['title']='Change Log'
         if slug=='index':a['title']='Nightcap Wiki'

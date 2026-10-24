@@ -7,8 +7,8 @@ import subprocess
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 ART=Path('E:/EQ_Local_Dev/artifacts/wiki-clarity-20261024')
-RELEASE='20261024-wiki-clarity-v1'
-PREVIOUS='20261024-hole-keyless-v1'
+RELEASE='20261024-wiki-clarity-v2'
+PREVIOUS='20261024-wiki-clarity-v1'
 SSH=['C:/Windows/System32/OpenSSH/ssh.exe','-i','C:/Users/verre/.ssh/nightcap_ovh','-o','BatchMode=yes','-o','ConnectTimeout=10','-o','StrictHostKeyChecking=yes','ubuntu@135.148.47.202']
 
 
@@ -19,7 +19,7 @@ def remote(code):
 
 
 def main():
-    assert not (HERE/'wiki-publication.json').exists(),'Inspect existing publication receipt before any replay'
+    assert not (HERE/'wiki-publication-v2.json').exists(),'Inspect existing publication receipt before any replay'
     before=remote('''from pathlib import Path
 import json,hashlib
 base=Path('/opt/nightcap/deploy/production')
@@ -28,7 +28,7 @@ release=pointer.readlink().name
 print(json.dumps({'release':release,'manifest':json.loads((base/'website-history'/release/'manifest.json').read_text()),'config_sha256':hashlib.sha256((base/'nginx.conf').read_bytes()).hexdigest()}))
 ''')
     assert before['release']==PREVIOUS,'Concurrent publication: reconcile current content before proceeding'
-    baseline=json.loads(Path('E:/EQ_Local_Dev/artifacts/hole-keyless-wiki-20261024-matched.tar.json').read_text())
+    baseline=json.loads((ART/(PREVIOUS+'.tar.json')).read_text())
     assert baseline==before['manifest'],'Starting release differs from its reviewed published manifest'
     files=[ART/(RELEASE+'.tar.gz'),ART/(RELEASE+'.tar.json')]
     files += [ROOT/'wiki'/name for name in ['update.py','deploy.py','test_update.py','test_deploy.py','nginx.conf']]
@@ -37,10 +37,10 @@ print(json.dumps({'release':release,'manifest':json.loads((base/'website-history
     changed={n for n,h in manifest.items() if baseline[n]!=h}
     allowed={n for n in manifest if n.endswith('.html')}|{'assets/wiki.css','assets/search.js','search-index.json'}
     assert changed<=allowed,changed-allowed
-    (HERE/'wiki-before.json').write_text(json.dumps(before,indent=2)+'\n')
+    (HERE/'wiki-before-v2.json').write_text(json.dumps(before,indent=2)+'\n')
     pins={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
-    upload='/home/ubuntu/wiki-clarity-20261024-v1'
-    stage='/opt/nightcap/releases/wiki-clarity-20261024-v1'
+    upload='/home/ubuntu/wiki-clarity-20261024-v2'
+    stage='/opt/nightcap/releases/wiki-clarity-20261024-v2'
     subprocess.run(SSH+['mkdir -m 700 '+upload],check=True,timeout=30)
     subprocess.run(['C:/Windows/System32/OpenSSH/scp.exe',*SSH[1:-1],*map(str,files),SSH[-1]+':'+upload+'/'],check=True,timeout=120)
     report=remote(f'''from pathlib import Path
@@ -60,7 +60,7 @@ result['linux_tests']=tests.stderr;print(json.dumps(result))
     report['changed_files']=sorted(changed)
     report['baseline_source']='66c7b843'
     report['package_sha256']=pins[files[0].name]
-    (HERE/'wiki-publication.json').write_text(json.dumps(report,indent=2)+'\n')
+    (HERE/'wiki-publication-v2.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({'result':report['result'],'release':RELEASE,'files':483,'changed':len(changed)}))
 
 

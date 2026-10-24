@@ -7,6 +7,9 @@ current instructions, and dated releases/fixes. All24maintained guides and447
 generated reward routes reviewed; no gameplay/catalog changes. Responsive and
 deep-link verification and separate publication state:
 [wiki clarity release](releases/wiki-clarity-20261024/README.md).
+Published as `20261024-wiki-clarity-v2`, preserving the live Hole, Chapterhouse,
+AA and tool guidance.483public files verify; rollback and private-service
+preservation pass. Source merging and gameplay acceptance remain separate.
 
 ## 2026-10-23 — Two-AA progression and level-1 controls deployed
 

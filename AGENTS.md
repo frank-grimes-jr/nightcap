@@ -701,6 +701,12 @@ recovery. Website deployment does not promote gameplay.
 
 ### Wiki maintenance with every change
 
+Keep Features focused on the major differences from standard EQ. Guides own
+current instructions and restrictions; Change Log (`recent-changes.html`) owns
+dated releases, minor improvements and fixes. Do not prepend repeated release
+announcements to Home, Features or the guides. Use the shared text scale and
+labeled disclosures for long references, preserving existing deep links.
+
 Every Nightcap feature, fix, tuning/content change, deployment and accepted player
 correction requires a wiki impact review before completion. Update affected guides,
 Features (major departures from Classic), home summaries, commands, generated
