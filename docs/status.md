@@ -1,5 +1,22 @@
 # Current Nightcap status
 
+## 2026-10-24 — Aggro departure/return-home correction in verification
+
+Source candidate fixes stale feign-memory entity IDs after death/departure and
+stationary NPC homes after zone-state restore. Shared group/raid XTarget counters,
+saved NPC state, corpses, roaming and dungeon progress are preserved by the
+scoped changes. Nine Windows checks, three Linux native checks, independent review
+and the full isolated zone build pass (zone `c14912b6`). Owner Lower Guk Raid QA
+is recorded separately in the release evidence.
+The reported bedroom encounter's cause is not proven. No live runtime, database
+or client was changed. Main/deployment approval and gameplay acceptance remain
+open. [Release](releases/aggro-zone-cleanup-20261024/README.md);
+[QA](releases/aggro-zone-cleanup-20261024/QA.md).
+
+## 2026-10-24 — Hole entrance key requirement removed live
+
+Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: ops/hole-keyless-passage-20261024/deployed.json.
+
 ## 2026-10-24 — Keyless Hole passage prepared
 
 The Paineel entrance patch is prepared and SQL-tested, not deployed. Existing live key access remains until authorized activation and supported Paineel static reload. Owner in-game QA and wiki publication remain pending. See [evidence and exact QA](ops/hole-keyless-passage-20261024/README.md).
