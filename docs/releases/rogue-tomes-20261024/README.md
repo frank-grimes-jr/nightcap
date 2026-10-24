@@ -52,8 +52,10 @@ IO are isolated fakes; simulated reload does not establish live client acceptanc
 All43 also pass on Linux. Adjacent early-scribing1, canonical spell-access2 and
 cooldown27 tests pass. Independent review found and closed a rollback guard gap:
 unverified or uncertain activation cannot be blessed as a fresh recovery baseline.
-The revised source/operator has no remaining required findings. Full native build
-and actual deployment evidence remain pending; owner gameplay QA remains open.
+The revised source/operator has no remaining required findings. The full Linux
+zone build and dynamic dependency check pass; authenticated retained objects
+reproduce the deployed predecessor exactly. All three compiled source inputs
+match this release. Actual deployment remains pending; owner gameplay QA is open.
 
 ## AA and high-level tome audit
 
