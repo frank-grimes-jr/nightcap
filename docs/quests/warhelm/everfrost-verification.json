@@ -1,0 +1,26 @@
+{
+  "status": "Final Everfrost entrance candidate verified; not installed",
+  "native_overlay_files": 129,
+  "native_binaries": {
+    "world": "869cb91bfd7211df31c9ef6085555a6c1fec40e3fef6fe2a52f2f9c3b8571dff",
+    "zone": "b1bbb4accc04920660d8bcbfe08fa62a14f42d433ee59a00dfb42cc1294c16b2",
+    "shared_memory": "761e377fa5a81d1ca2537110a32e614fd7dac48530031bada95b3e569ea118ca"
+  },
+  "tests": 57,
+  "wiki_tests": 14,
+  "sql_postconditions": 32,
+  "placement_points": 41,
+  "return_coordinate_mismatches": 0,
+  "evidence_sha256": {
+    "native-build-manifest.json": "a0f60193c345496357c82d5072b6464b2e187cee12efa21f591c07adb4b9a3a1",
+    "tests.json": "557826ddebc52be1d341e14b5eeeb18a6c3c0329ca4efdb4a0128bd6e498735d",
+    "rehearsal.json": "467343041f2f521e5b3a507cd531b7024a63d04122db5ea2c590c899714a7fb5",
+    "everfrost-return-rehearsal.json": "947b4b76020c9937a5db90f9dff98c9c1dec6e28f4bd6b4cde0a20bfc98b6709",
+    "authored-geometry.json": "bfdbe412f48e7c9841ecb1f9076c2c05411839fba038dfdefd3988ba9ef858a1",
+    "everfrost-placement.json": "f78f4a9acb31f7cb8c3b6077e63f1882c49e2eed67997b1917c1886e5d88d407",
+    "wiki-review.json": "084636c663e0552d2810e9829f7b60e5e4cbcc06f91b829bbf3e7a6099b5d8a3",
+    "wiki-tests.json": "49557ec469108cdfd609760584c6c6b46a96f32a17aee0bab25b9ce6a0ae6814"
+  },
+  "production_changed": false,
+  "native_visual_acceptance": "pending"
+}

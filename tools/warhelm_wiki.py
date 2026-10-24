@@ -1,5 +1,5 @@
 """Prepare an unpublished overlay from the current published wiki; never publish."""
-import argparse,copy,difflib,hashlib,html,json,shutil,subprocess,sys
+import argparse,copy,difflib,hashlib,html,json,re,shutil,subprocess,sys
 from pathlib import Path
 from warhelm_content import ROOT,OUT,compile_rows
 from dungeon_catalog import items
@@ -13,12 +13,15 @@ def prepare(source,target):
     def save(name,title,summary,body,category='World'):
         data=dict(slug=name,title=title,summary=summary,body=body,category=category,status='Not released',updated='2026-10-24',sources=['docs/quests/warhelm/SPEC.md','docs/quests/warhelm/install-rows.json','docs/quests/warhelm/QA.md'])
         (article/(name+'.json')).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-    common='<h2 id="ashen-compact">The Ashen Compact — not released</h2><p><a href="ashen-compact.html">The Ashen Compact</a> is a prepared level-50 Shadow Knight helmet campaign in a curated Kael expedition. It is not yet installed. Client appearance and complete encounters still require in-game acceptance.</p>'
-    additions={name:common for name in ('index','features','recent-changes','unreleased')}
+    common='<h2 id="ashen-compact">The Ashen Compact — not released</h2><p><a href="ashen-compact.html">The Ashen Compact</a> is a prepared level-50 Shadow Knight helmet campaign in a curated Kael expedition. Its rewards, encounters and appearance are not installed or accepted in game.</p>'
+    # Current Features already links the unavailable preview. Keep Home and the
+    # feature directory concise; update its owning guide and one dated log entry.
+    additions={'unreleased':common,
+        'recent-changes':'<h2 id="ashen-compact-everfrost">October 24 — Ashen Compact entrance preview</h2><p>The unreleased <a href="ashen-compact.html">Shadow Knight campaign</a> now starts in the hidden Everfrost passage before Permafrost. Its frostbound crossing and return connect to curated Kael. This remains a test candidate, not an activated journey.</p>'}
     additions.update({
         'dungeon-modes':common+'<p>Four bosses, personal credit and Raid/Grind journals follow the existing expedition system. The separate story has fourteen objectives and durable progress. Temporary war souls give no loot or XP.</p>',
         'equipment':common+'<p>The Warhelm of the Ashen Compact uses the Paladin helm budget with INT replacing WIS. It requires a held Shadow Knight class. Its new enclosed Classic appearance requires the paired client update.</p>',
-        'travel':common+'<p>Drazhul and the Kael Keeper stand together near Befallen in West Commonlands. The public Kael foyer contains services; its Keeper controls private runs. The scoped exception does not unlock Velious globally.</p>',
+        'travel':common+'<p>Drazhul and the Kael Keeper stand together in the hidden Everfrost passage before Permafrost. The public Kael foyer contains services; its Keeper controls private runs. The scoped exception does not unlock Velious globally.</p>',
         'waypoints':common+'<p>The Kael waypoint recalls to its public foyer. It does not enter someone else’s private expedition.</p>',
         'zone-hunt':common+'<p>Cinder of the Ashen Compact is a separate type-22 STA/INT augment family, with the existing 0.5% static-enemy roll and 60/30/8/2 quality weights. The ordinary 48-zone Hunt pools are unchanged.</p>',
         'item-upgrades':common+'<p>Cinder forging uses three identical Base copies, then four Polished or Exalted copies. The helmet and other Kael equipment do not use that augment recipe.</p>',
@@ -29,11 +32,17 @@ def prepare(source,target):
         raw=path.read_bytes();data=json.loads(raw);name=path.stem
         entry=dict(path='articles/'+path.name,title=data['title'],sha256=hashlib.sha256(raw).hexdigest(),decision='No change: separate campaign does not alter this guide’s behavior.')
         if name in additions:
-            data['body']+=additions[name];data['updated']='2026-10-24';data['sources'].append('docs/quests/warhelm/SPEC.md')
+            if name=='unreleased':
+                pattern=r'<h2 id="ashen-compact">.*?(?=<h2|$)'
+                data['body'],count=re.subn(pattern,additions[name],data['body'],count=1,flags=re.S)
+                assert count==1,'Expected the published Ashen preview section'
+            elif name=='recent-changes':data['body']=additions[name]+data['body']
+            else:data['body']+=additions[name]
+            data['updated']='2026-10-24';data['sources'].append('docs/quests/warhelm/SPEC.md')
             (article/path.name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-            entry['decision']='Append explicitly unreleased campaign guidance; preserve all existing released content.'
+            entry['decision']='Update owning guide or dated log with unreleased campaign guidance; preserve current editorial structure and released content.'
         review.append(entry)
-    body='<h2 id="availability">Not released</h2><p>This candidate is built for testing, not yet available on the live server.</p><h2 id="start">A warlord’s challenge</h2><p>At level 50, with Shadow Knight in any held class slot, speak to Drazhul Blackmantle near Befallen in West Commonlands. Accept before creating a run at the adjacent Kael Keeper. Difficulty is intended for a developed Shadow Knight main; reaching level 50 alone does not establish readiness.</p><h2 id="story">The stolen war-fire</h2><p>A renegade war cult in Rallos Zek’s giant city binds stolen souls into its standards. Break its claim and temper its war-fire into your own helm. These characters and events are original Nightcap fiction; you do not kill Rallos Zek or the original Avatar of War.</p><h2 id="route">Fourteen duties</h2><ol>'
+    body='<h2 id="availability">Not released</h2><p>This candidate is built for testing, not yet available on the live server.</p><h2 id="start">A warlord’s challenge</h2><p>At level 50, with Shadow Knight in any held class slot, speak to Drazhul Blackmantle in the hidden Everfrost passage before Permafrost. Accept the Compact to seal your pledge, then use the adjacent Kael Keeper to cross the ice giants’ frostbound passage. The return brings you back to this Everfrost passage. Difficulty is intended for a developed Shadow Knight main; reaching level 50 alone does not establish readiness.</p><h2 id="story">The stolen war-fire</h2><p>A renegade war cult in Rallos Zek’s giant city binds stolen souls into its standards. Break its claim and temper its war-fire into your own helm. These characters and events are original Nightcap fiction; you do not kill Rallos Zek or the original Avatar of War.</p><h2 id="route">Fourteen duties</h2><ol>'
     for r in compile_rows()['task_activities']:
         if r['taskid']==9801:body+='<li>'+html.escape(r['description_override'])+'</li>'
     body+='</ol><h2 id="counterplay">Survive the Compact</h2><p>The Herald warns before his warcry: interrupt or leave its radius. Protect Veyra and control three waves. Kharzug summons two owned war souls at half health. Vhalek and the Echo mark your position with three seconds to move more than ten paces or interrupt. Named champions resist charm and fear; their war souls remain controllable. The final Echo can flurry. Full route and build-specific balance still require player testing.</p><h2 id="progress">Keep your progress</h2><p>Be alive, enrolled and nearby for personal boss credit. Pet kills credit eligible owners. Completed duties survive reconnects and run resets; removing the Tasks display does not erase them. Make room for both story and dungeon journals. Return to Drazhul after tempering the helm. A full inventory leaves delivery pending; a durable receipt prevents duplicate claims.</p><h2 id="rewards">The Warhelm</h2><p><a href="item-990510.html">Warhelm of the Ashen Compact</a> is a one-time custom reward based on the Warhelm of Rallos Zek appearance. Camil’s item remains separate. <a href="zone-kael.html">Browse all fourteen proposed Kael rewards</a>. The enclosed Classic model package is staged; native rendering and animation acceptance remain pending.</p>'
@@ -52,9 +61,17 @@ def prepare(source,target):
         source_text='Drazhul, once after the story' if id==990510 else 'Eligible static custom enemies: 0.5% family roll, then Base60/Polished30/Exalted8/Ascension2 percent' if kind=='Augment' else 'The corresponding first, second or third named boss: 35% custom-item roll' if kind=='Miniboss relic' else 'The Echo of Endless War in Raid mode, under the existing final Raid loot rules'
         save('item-'+str(id),r['Name'],kind+' · Kael · Not released.',table+'<h2 id="source">Source</h2><p>'+source_text+'. See <a href="zone-kael.html">Kael reward rules</a>.</p>','Equipment')
         links.append(f'<li><a href="item-{id}.html">{html.escape(r["Name"])}</a> · {kind}</li>')
-    save('zone-kael','Kael Drakkel — The Ashen Compact','Curated level-50 Shadow Knight expedition · Not released.','<p>Enter through the Keeper near Befallen. <a href="ashen-compact.html">Start the Compact with Drazhul first</a>. Stock Velious enemies, drops and exits are excluded from this private campaign.</p><h2 id="rewards">Proposed rewards</h2><ul>'+''.join(links)+'</ul><p>Temporary encounter actors yield no loot or XP. Cinder augments follow the existing type-22 forging recipe; other equipment does not. Full encounter and appearance acceptance remain pending.</p>')
+    save('zone-kael','Kael Drakkel — The Ashen Compact','Curated level-50 Shadow Knight expedition · Not released.','<p>Enter through the Keeper in the hidden Everfrost passage before Permafrost. <a href="ashen-compact.html">Start the Compact with Drazhul first</a>. Stock Velious enemies, drops and exits are excluded from this private campaign.</p><h2 id="rewards">Proposed rewards</h2><ul>'+''.join(links)+'</ul><p>Temporary encounter actors yield no loot or XP. Cinder augments follow the existing type-22 forging recipe; other equipment does not. Full encounter and appearance acceptance remain pending.</p>')
     catalog=target/'catalog.py';code=catalog.read_text();needle='    return articles\n';assert code.count(needle)==1
     code=code.replace(needle,"    next(a for a in articles if a['slug']=='zones')['body'] += '<h2 id=\"ashen-compact\">In development</h2><p><a href=\"zone-kael.html\">Kael: The Ashen Compact</a> is a separate curated campaign, not released.</p>'\n"+needle);catalog.write_text(code)
+    # Historical-anchor preservation must enumerate historical articles: new
+    # campaign/item pages did not exist at that revision. Still require every
+    # historical article and all its old anchors to survive.
+    test=target/'test_wiki.py';code=test.read_text(encoding='utf8')
+    needle="        history=self.articles['recent-changes']['body']\n        for path in (build.ROOT/'articles').glob('*.json'):"
+    assert code.count(needle)==1
+    code=code.replace(needle,"        history=self.articles['recent-changes']['body']\n        historical=subprocess.check_output(['git','ls-tree','--name-only','66c7b843:wiki/articles'],cwd=build.ROOT.parent,text=True,encoding='utf-8').splitlines()\n        for filename in historical:\n            path=build.ROOT/'articles'/filename\n            self.assertTrue(path.is_file(),filename)")
+    test.write_text(code,encoding='utf8')
     patch=[]
     for path in sorted(target.rglob('*')):
         if not path.is_file():continue

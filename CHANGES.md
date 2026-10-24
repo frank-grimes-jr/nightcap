@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-24 — Ashen Compact hidden Everfrost entrance
+
+Moves the unreleased Shadow Knight quest's patron, Kael entrance and return into
+the hidden Everfrost side passage before Permafrost. Drazhul explains the
+ice giants' frostbound crossing. Native access, exact quest bindings, journal
+destination, guarded content and player guidance agree on Everfrost; the former
+Commonlands route is removed. The fourteen objectives, combat, rewards and helmet
+assets are unchanged. Native placement and isolated SQL checks pass; visible
+placement and travel acceptance remain open. [Placement and QA](docs/quests/warhelm/EVERFROST.md).
+
 ## 2026-10-24 — Shadow Knight Ashen Compact candidate
 
 Adds a separate level50 Shadow Knight campaign following Camil's fourteen-step

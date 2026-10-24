@@ -198,7 +198,7 @@ void ClaimHelmet(Client *c) {
 }
 bool Action(Client *c,NPC *npc,const std::string &action) {
 	const auto type=npc->GetNPCTypeID();
-	const bool drazhul=type==998877 && zone->GetZoneID()==21 && !zone->GetInstanceID();
+	const bool drazhul=type==998877 && zone->GetZoneID()==30 && !zone->GetInstanceID();
 	const bool service=type>=998867 && type<=998874;
 	if (!drazhul && !service) { return false; }
 	const bool hail=action=="hail" || action.rfind("hail,",0)==0 || action.rfind("hail ",0)==0;
@@ -218,10 +218,11 @@ bool Action(Client *c,NPC *npc,const std::string &action) {
 				}
 				Query(fmt::format("INSERT IGNORE INTO nightcap_ashen_characters(character_id,progress,accepted_at,completed_at,helmet_drop_id) VALUES ({},0,{},0,{})",c->CharacterID(),Now(),Q(NightcapLoot::NewDropID())));
 				tx.Commit(); Project(c);
+				c->Message(Chat::White,"Your pledge is sealed. Speak with the Kael Keeper beside me to cross the frostbound passage.");
 			} else if (action=="claim helm") { ClaimHelmet(c); }
 			else {
 				Project(c);
-				c->Message(Chat::White,"The war cult of Kael binds stolen souls into its banners. Break its champions, master its war-fire, and make that strength your own. Accept %s, then speak with the Kael Keeper beside me. %s | %s",
+				c->Message(Chat::White,"The ice giants concealed a frostbound passage here, linking this mountain to the war halls of Kael. Their war cult binds stolen souls into its banners. Accept %s and pledge to break its champions; the Keeper beside me will guide you through the crossing. %s | %s",
 					Saylink::Silent("accept compact","The Ashen Compact").c_str(),Saylink::Silent("compact status","Compact Status").c_str(),Saylink::Silent("claim helm","Claim Helm").c_str());
 			}
 			return true;
@@ -255,7 +256,7 @@ bool Action(Client *c,NPC *npc,const std::string &action) {
 			"The Knight of Hunger kneels: 'Kharzug has fallen. My oath is yours to command.'",
 			"The Knight of Ruin lowers his blade: 'You have earned the command my marshal lost.'",
 			"The Knight of Defiance bows: 'My oath is yours. Take our strength against Vhalek.'",
-			"The altar seals the Echo's war-fire into your helm. Return to Drazhul near Befallen to claim it."
+			"The altar seals the Echo's war-fire into your helm. Return to Drazhul in the hidden Everfrost passage before Permafrost to claim it."
 		};
 		c->Message(Chat::White,advanced ? answered[type-998868] : "Consult your Compact journal; another duty must come first, or this duty is already complete.");
 		Project(c); return true;

@@ -3,6 +3,15 @@
 Candidate only. Automated checks and Blender previews are not in-game acceptance.
 Use a disposable test character and the paired staged client/runtime/content.
 
+Entrance revision: reach Everfrost's hidden side passage that bypasses the ice
+giants before Permafrost. Drazhul is at `/loc 2158, -6974, -61`; the Kael Keeper
+is at `/loc 2174, -6974, -61`. Confirm both appear inside the passage, are easy
+to hail, and leave room to walk past. The ordinary Permafrost route must still
+work. There should be no Ashen NPCs at the former Commonlands/Befallen location.
+Hail Drazhul, accept the Compact, and follow the Keeper's existing expedition
+menu. Verify its ritual-crossing dialogue, private-run entry and return to this
+Everfrost spot, including Kael's public outbound zone lines and portal doors.
+
 1. At level49, Drazhul and the Kael Keeper refuse access without creating a run.
    At50, accept with Shadow Knight main, then verify a held secondary SK follows
    Camil's any-slot eligibility. A non-SK can join dungeon combat but cannot claim
@@ -10,7 +19,7 @@ Use a disposable test character and the paired staged client/runtime/content.
 2. Fill Tasks. Admission must leave no new allocation or transfer reservation.
    Free space for both journals and enter. Public Kael has only its foyer services;
    private Kael has35 authored static spawns, no stock giants or later-era drops.
-   Verify arrival, all doors, Keeper/waypoint meshes and return to Commonlands.
+   Verify arrival, all doors, Keeper/waypoint meshes and return to the hidden Everfrost passage.
 3. Confirm fourteen story rows. Later interactions cannot skip prerequisites.
    Earn the Herald, standards, defense, Marshal, knights, General, Echo and altar
    in order. A player arriving after a kill gets no retrospective personal credit.

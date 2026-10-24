@@ -3,6 +3,16 @@
 This work does not authorize main promotion, deployment, client signing or wiki
 publication. Production remains on its separately recorded released sources.
 
+The entrance now belongs to Everfrost's hidden Permafrost approach, not the
+former Commonlands candidate. Install exact-ID scripts 998860.pl and 998877.pl
+under `quests/everfrost`; remove any superseded copies from a prior candidate
+staging area. Pair the new native Keeper/Drazhul host gates with regenerated
+content/contracts, the final journal zone and Kael return exits (zone 30).
+The disabled installation SQL supersedes the uninstalled candidate; it is not
+an upgrade script for an already-installed Ashen database. The original
+reservation guards deliberately refuse that case. No new client archive or
+combat retuning is needed for this relocation. See EVERFROST.md and QA.md.
+
 ## Reproduce the candidate
 
 `warhelm_capture.py` reads only public local content. Regenerate the disabled
@@ -47,7 +57,7 @@ protected reference client or copy these archives manually into installed client
    binaries and regenerated item cache together. The new dungeon contract requires
    the Ashen tables and items; replacing only the zone executable is insufficient.
    Stock Kael flag and Ashen state start disabled. Preserve the global Classic50
-   era; use only the scoped zone113 exception and Commonlands exits.
+   era; use only the scoped zone113 exception and Everfrost exits.
 4. Verify all51schema/565content checks and every generated reward-cache definition.
    Publish a new signed paired client release with both archives and matching
    manifest/release history, following the existing launcher workflow. Preserve

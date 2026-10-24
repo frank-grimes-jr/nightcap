@@ -1,10 +1,10 @@
 """Probe every authored point against native server maps without editing client files."""
 import hashlib,json,subprocess
-from warhelm_content import OUT, compile_rows
+from warhelm_content import OUT, HOST_SHORT, compile_rows
 
 def main():
     rows=compile_rows();report={}
-    for short in ('kael','commons'):
+    for short in ('kael',HOST_SHORT):
         points=[]
         entries=rows['nightcap_dungeon_spawns'] if short=='kael' else [s for s in rows['spawn2'] if s['zone']==short]
         for s in entries:points.append(dict(label=str(s.get('spawn_id',s.get('id'))),**{k:s[k] for k in ('x','y','z')}))

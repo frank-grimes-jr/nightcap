@@ -1,14 +1,14 @@
 {
   "creator_format_validator": "passed with isolated PyYAML6.0.3",
   "candidate_pins": {
-    "world": 11,
+    "world": 16,
     "client": 4,
     "balance": 7,
     "wiki": 3
   },
   "topics": {
     "world": {
-      "reviewed_entries": 262,
+      "reviewed_entries": 267,
       "unrelated_drift": [],
       "candidate_pins": "all unchanged"
     },

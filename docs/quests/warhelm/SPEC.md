@@ -2,6 +2,15 @@
 
 Candidate implementation, 2026-10-24. Not deployed or accepted in game.
 
+The owner rejected the Commonlands entrance and selected Everfrost's hidden
+pathway immediately before Permafrost. The candidate now places Drazhul at
+server XYZ (-6974, 2158, -61.0625) and the Keeper/return at
+(-6974, 2174, -61.0625), inside the side passage bypassing the giant guards.
+The opening pledge and frostbound crossing supply the story connection without
+adding a fifteenth objective or changing combat/reward progression. Native host
+routing, exact quest bindings, final journal destination and Kael exits use
+Everfrost (zone 30). Normal Everfrost/Permafrost content is preserved.
+
 The owner requested Camil's Paladin quest structure for Shadow Knights, with high difficulty for a Shadow Knight main and lore-connected zones permitted. This campaign mirrors the fourteen-row Vigil structure, personal ledger, managed Raid/Grind runs, three-wave defense, recovery and atomic one-time helmet delivery. Eligibility remains level 50 with Shadow Knight in any slot; calibration targets Shadow Knight as the main class. No deity restriction is added.
 
 Kael Drakkel is the home of Rallos Zek's storm giants and has his temple ([official zone history](https://www.everquest.com/news/imported-eq-enus-51649)). The Ashen Compact, its characters and relic history are original Nightcap fiction. The player challenges a renegade war cult's claim that stolen souls make a worthy general, and takes command of its war-fire by defeating its champions. Rallos himself is not killed and the original Avatar of War is not repurposed as a level-50 boss.
