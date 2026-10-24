@@ -72,10 +72,17 @@ escorts return to the cell after reboot; alarm and boss deaths remain. Death or
   using normal path flags, with no partial paths or teleport links. Actual
   movement through doors and combat remains an in-game check.
 - `native-build-manifest.json`: full zone build passed, SHA-256
-  `692cacd6852857fce1b0ac6f4e125f2d0267cde8a7c3728446ee6c4345fadba4`;
+  `dad1c575286b2dd40bf5ec775f50a703fb39613aa2f934950c8a32b60b1d3b50`;
   retained source matches the final changed files. Isolated; never installed.
 
 `tools/build_highkeep_candidate.py` verifies the retained Chapterhouse source
 manifest before building. All seven edited pre-existing native files also match
 the tracked ebeb6591 baseline after newline normalization. Final deployment must
 repeat this comparison against its then-current live source.
+
+The final candidate includes reviewed dev06899051's aggro departure and canonical
+stationary-home fixes (PR320). The builder overlays all twelve candidate native
+files, including client.h, spawn2.cpp and zone_save_state.cpp. Rescue/dungeon and
+aggro/home regressions pass together; independent integration review found no
+concrete regressions. The inherited fix's manual QA remains in
+`docs/releases/aggro-zone-cleanup-20261024/QA.md`.

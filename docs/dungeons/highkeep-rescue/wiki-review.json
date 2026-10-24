@@ -180,7 +180,7 @@
     "impact": "Only generated High Keep zone page adds an explicitly unreleased rescue link; reward and other generated pages retain their data"
   },
   "private_site": "No access, downloads, Nginx, services, launcher or publication changes",
-  "candidate_revision": "63ab77158aaf97a2161ced0810f6ee8e03ba585f",
+  "candidate_revision": "bac53706db231bd3d65ec70834666de42e09cf5b",
   "build_pages": 476,
   "tests_passed": 12,
   "published": false

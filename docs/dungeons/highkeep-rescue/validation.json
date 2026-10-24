@@ -1,12 +1,16 @@
 {
   "date": "2026-10-24",
   "implementation_revision": "517f75fa19b294dc86204343521968349555830b",
+  "integration_revision": "89766032",
+  "integrated_dev_revision": "06899051b3b990c34b5747d3afb5c6c8d353e6f4",
   "status": "automated validation passed; manual gameplay and balance QA open",
   "native_build": {
     "status": "passed",
-    "zone_sha256": "692cacd6852857fce1b0ac6f4e125f2d0267cde8a7c3728446ee6c4345fadba4",
-    "changed_source_files_verified": 9,
-    "installed": false
+    "zone_sha256": "dad1c575286b2dd40bf5ec775f50a703fb39613aa2f934950c8a32b60b1d3b50",
+    "changed_source_files_verified": 12,
+    "installed": false,
+    "retained_source_unchanged_outside_overlay": true,
+    "total_source_files": 2834
   },
   "checks": [
     {
@@ -22,6 +26,14 @@
     {
       "command": "python -m unittest discover -s tools/tests -p 'test_*dungeon*.py' -v",
       "passed": 26
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_aggro_departure_native.py -v",
+      "passed": 2
+    },
+    {
+      "command": "python -m unittest discover -s tools/tests -p test_zone_state_home_native.py -v",
+      "passed": 1
     },
     {
       "command": "python tools/tests/rehearse_highkeep_rescue.py",
@@ -41,15 +53,16 @@
       "command": "python wiki/build.py",
       "pages": 476,
       "status": "passed",
-      "source_revision": "63ab77158aaf97a2161ced0810f6ee8e03ba585f"
+      "source_revision": "bac53706db231bd3d65ec70834666de42e09cf5b"
     },
     {
       "command": "python -m unittest discover -s wiki -p test_wiki.py -v",
       "passed": 12,
-      "source_revision": "63ab77158aaf97a2161ced0810f6ee8e03ba585f"
+      "source_revision": "bac53706db231bd3d65ec70834666de42e09cf5b"
     }
   ],
   "independent_review": "Corrections verified; no remaining concrete findings in reviewed corrections",
+  "integration_review": "Independent reviewer found no concrete regressions in canonical-home restoration, High Keep layout projection, dynamic actor reset or departure cleanup at 89766032",
   "additional_model_review": "Owner chose to continue with current review",
   "manual_checks": [
     "Real doors, stairs and following under combat",
