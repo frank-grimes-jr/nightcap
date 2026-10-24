@@ -1,0 +1,14 @@
+{
+  "environment": "isolated local MariaDB schema",
+  "door_rows": 399,
+  "checks": [
+    "forward changes only entrance keyitem and lockpick across all captured doors",
+    "repeat forward rejects without mutation",
+    "inverse restores every captured door exactly",
+    "key, pick skill, case-sensitive identity and position drift all reject atomically",
+    "unexpected trigger rejects without mutation",
+    "nontransactional engine rejects without mutation"
+  ],
+  "passed": true,
+  "production_writes": false
+}

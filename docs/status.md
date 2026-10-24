@@ -12,6 +12,14 @@ or client was changed. Main/deployment approval and gameplay acceptance remain
 open. [Release](releases/aggro-zone-cleanup-20261024/README.md);
 [QA](releases/aggro-zone-cleanup-20261024/QA.md).
 
+## 2026-10-24 — Hole entrance key requirement removed live
+
+Owner-approved PR318/main7f126acb is deployed: Paineel rock10599 now has keyitem=0 and lockpick=0. Fresh full backup verified;398 other doors and native/service lifetimes preserved; health passes. Paineel was unloaded throughout, so its next normal boot reads the update. No restart or client patch. Wiki20261024-hole-keyless-v1 verified all483files;68Linux tests pass. In-game acceptance pending. Evidence: ops/hole-keyless-passage-20261024/deployed.json.
+
+## 2026-10-24 — Keyless Hole passage prepared
+
+The Paineel entrance patch is prepared and SQL-tested, not deployed. Existing live key access remains until authorized activation and supported Paineel static reload. Owner in-game QA and wiki publication remain pending. See [evidence and exact QA](ops/hole-keyless-passage-20261024/README.md).
+
 ## 2026-10-23 — Chapterhouse deployed for live testing
 
 Main PR311/c0c9896e and paired production image db570029 are verified. Camil’s
