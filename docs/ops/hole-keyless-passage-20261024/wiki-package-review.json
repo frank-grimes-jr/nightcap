@@ -1,0 +1,16 @@
+{
+  "previous": "20261023-camil-chapterhouse-v1",
+  "release": "20261024-hole-keyless-v1",
+  "files": 483,
+  "added": [],
+  "changed": [
+    "dungeon-modes.html",
+    "features.html",
+    "index.html",
+    "recent-changes.html",
+    "search-index.json",
+    "travel.html",
+    "zone-hole.html"
+  ],
+  "preserved": 476
+}
