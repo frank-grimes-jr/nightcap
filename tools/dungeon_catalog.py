@@ -136,7 +136,7 @@ def items():
     from classic_dungeon_rewards import added_rewards
     result=existing_items()
     for row in result:row['values']['magic']=1
-    return result+added_rewards(result,DUNGEONS+[('chapterhouse',760,998820,50,[])])
+    return result+added_rewards(result,DUNGEONS+[('chapterhouse',760,998820,50,[]),('kael',113,998860,50,[])])
 
 def objectives(snapshot):
     result=[]
@@ -171,6 +171,8 @@ def main():
     dungeons[4]['bosses']=adapted['roster']
     from chapterhouse_content import dungeon, compile_rows
     dungeons.append(dungeon())
+    from warhelm_content import dungeon as warhelm_dungeon, compile_rows as warhelm_rows
+    dungeons.append(warhelm_dungeon())
     data={'revision':REVISION,'era':'Classic','items':items(),'dungeons':dungeons,'excluded_npcs':EXCLUDED_NPCS,
           'content_sha256':hashlib.sha256((ROOT/'docs/dungeons/local-content.json').read_bytes()).hexdigest(),
           'status':'candidate; automated integration and all gameplay acceptance pending'}
@@ -189,7 +191,7 @@ def main():
     header+=['};','struct ExcludedNPC { uint32_t zone, npc; };','inline constexpr ExcludedNPC ExcludedNPCs[] = {']
     header += ['\t{%d,%d},'%(r['zone_id'],r['npc_id']) for r in EXCLUDED_NPCS]
     header+=['};',f'inline constexpr uint32_t SkyKeyService = {SKY_KEY_SERVICE};',
-      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : zone==76 ? 1 : zone==760 ? {len(compile_rows()["nightcap_dungeon_spawns"])} : 0; }}',
+      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : zone==76 ? 1 : zone==760 ? {len(compile_rows()["nightcap_dungeon_spawns"])} : zone==113 ? {len(warhelm_rows()["nightcap_dungeon_spawns"])} : 0; }}',
       'inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
     (ROOT/'server-mods/code/common/dungeon_catalog.h').write_text('\n'.join(header)+'\n')
     print(f'{len(data["items"])} item definitions; {sum(len(d["bosses"]) for d in data["dungeons"])} objectives')

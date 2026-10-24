@@ -132,11 +132,11 @@ BEGIN
     (out/'install.sql').write_text('\n'.join(stmts)+'\n')
     (out/'activate.sql').write_text(f'-- Matching binary and shared item cache required; reload zones after changing this flag.\nUPDATE nightcap_zone_hunt_state SET enabled=1 WHERE id=1 AND revision={REVISION};\n')
     (out/'rollback.sql').write_text('-- Safe after player activity: retain definitions, sockets, ownership and forge receipts.\nUPDATE nightcap_zone_hunt_state SET enabled=0 WHERE id=1;\n-- Reload zones with the current receipt-capable binary. Never restore old player rows.\n')
-    header=['#pragma once','#include <cstdint>','namespace NightcapHunt {','inline bool IsAugment(uint32_t id) { if (id>=961000 && id<=961003) { return true; } switch (id) {']
+    header=['#pragma once','#include <cstdint>','namespace NightcapHunt {','inline bool IsAugment(uint32_t id) { if ((id>=961000 && id<=961003) || (id>=961020 && id<=961023)) { return true; } switch (id) {']
     header += [f'case {i["id"]}:' for i in data if i['kind']=='Augment']
-    header += ['return true; default: return false; } }','inline uint32_t NextTier(uint32_t id) { if (id>=961000 && id<961003) { return id+1; } switch (id) {']
+    header += ['return true; default: return false; } }','inline uint32_t NextTier(uint32_t id) { if ((id>=961000 && id<961003) || (id>=961020 && id<961023)) { return id+1; } switch (id) {']
     header += [f'case {i["id"]}: return {i["id"]+1};' for i in data if i['tier']<3]
-    header += ['default: return 0; } }','inline bool IsReward(uint32_t id) { if (id>=961000 && id<=961003) { return true; } switch (id) {']
+    header += ['default: return 0; } }','inline bool IsReward(uint32_t id) { if ((id>=961000 && id<=961003) || (id>=961020 && id<=961023)) { return true; } switch (id) {']
     header += [f'case {i["id"]}:' for i in data]
     header += ['return true; default: return false; } }','}']
     h=ROOT/'server-mods/code/common/zone_hunt_catalog.h';h.parent.mkdir(parents=True,exist_ok=True);h.write_text('\n'.join(header)+'\n')

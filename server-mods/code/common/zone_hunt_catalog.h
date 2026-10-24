@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 namespace NightcapHunt {
-inline bool IsAugment(uint32_t id) { if (id>=961000 && id<=961003) { return true; } switch (id) {
+inline bool IsAugment(uint32_t id) { if ((id>=961000 && id<=961003) || (id>=961020 && id<=961023)) { return true; } switch (id) {
 case 940024:
 case 940025:
 case 940026:
@@ -227,7 +227,7 @@ case 940609:
 case 940610:
 case 940611:
 return true; default: return false; } }
-inline uint32_t NextTier(uint32_t id) { if (id>=961000 && id<961003) { return id+1; } switch (id) {
+inline uint32_t NextTier(uint32_t id) { if ((id>=961000 && id<961003) || (id>=961020 && id<961023)) { return id+1; } switch (id) {
 case 940024: return 940025;
 case 940025: return 940026;
 case 940026: return 940027;
@@ -565,7 +565,7 @@ case 940612: return 940613;
 case 940613: return 940614;
 case 940614: return 940615;
 default: return 0; } }
-inline bool IsReward(uint32_t id) { if (id>=961000 && id<=961003) { return true; } switch (id) {
+inline bool IsReward(uint32_t id) { if ((id>=961000 && id<=961003) || (id>=961020 && id<=961023)) { return true; } switch (id) {
 case 940024:
 case 940025:
 case 940026:

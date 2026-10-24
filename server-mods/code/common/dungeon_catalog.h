@@ -26,6 +26,7 @@ inline constexpr Dungeon Dungeons[] = {
 	{76,998812,3,4,19,"hateplane"},
 	{71,998813,3,9,20,"airplane"},
 	{760,998820,3,4,21,"chapterhouse"},
+	{113,998860,3,4,22,"kael"},
 };
 inline constexpr unsigned DungeonCount = sizeof(Dungeons)/sizeof(Dungeons[0]);
 inline constexpr Boss Bosses[] = {
@@ -180,6 +181,10 @@ inline constexpr Boss Bosses[] = {
 	{760,9220001,998822,2,false,"Warden Halvyr"},
 	{760,9220002,998823,3,false,"Sir Vaelen Ashen Dawn"},
 	{760,9220003,998824,4,true,"The Unbroken Shadow"},
+	{113,9230000,998861,1,false,"Herald of the Iron Oath"},
+	{113,9230001,998862,2,false,"Marshal Kharzug"},
+	{113,9230002,998863,3,false,"General Vhalek"},
+	{113,9230003,998864,4,true,"Echo of Endless War"},
 };
 struct ExcludedNPC { uint32_t zone, npc; };
 inline constexpr ExcludedNPC ExcludedNPCs[] = {
@@ -188,6 +193,6 @@ inline constexpr ExcludedNPC ExcludedNPCs[] = {
 	{73,73092},
 };
 inline constexpr uint32_t SkyKeyService = 998814;
-inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : zone==760 ? 35 : 0; }
+inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : zone==760 ? 35 : zone==113 ? 35 : 0; }
 inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }
 }

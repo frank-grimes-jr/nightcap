@@ -5,5 +5,8 @@
   "aa_open": true,
   "aa_policy": "config/aa-policy.json",
   "zone_exception_policy": "config/chapterhouse-access.json",
-  "luclin_models": false
+  "luclin_models": false,
+  "additional_zone_exception_policies": [
+    "config/warhelm-access.json"
+  ]
 }

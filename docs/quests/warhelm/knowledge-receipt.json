@@ -1,0 +1,19 @@
+{
+  "status": "Installed world/client/balance/wiki references and candidate source pins updated",
+  "revision": "93d2ad02e678f6113170a2ff66843436a784424a",
+  "source_root": "C:/Users/verre/Documents/Codex/2026-10-24/i-wou/work/warhelm-quest",
+  "production_changed": false,
+  "pins": {
+    "world": 11,
+    "client": 4,
+    "balance": 7,
+    "wiki": 3
+  },
+  "references": {
+    "world.md": "fbf4de79e9561481cc88b0c18a789c920b99268fb6eff82d5b4a69c81c83adf2",
+    "client.md": "8757c38f3ac24586de44916cc5e45f9458019ea038239a5f8387669cde86f614",
+    "balance.md": "0f3a396bf9c80e45ecc34aa5dec6c9f46bb2fc751739c5362a81173ea18b10bb",
+    "wiki.md": "bebed4281667f79ec1e2f55e3e240a763a3225f99bd2b2485b866387fc70e7c0",
+    "sources.json": "b9f10ecabc708ac6189372eeddccd8e8b21772ba80bf8296054447a2dbd954ac"
+  }
+}

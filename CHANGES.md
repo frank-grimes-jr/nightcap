@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-10-24 — Shadow Knight Ashen Compact candidate
+
+Adds a separate level50 Shadow Knight campaign following Camil's fourteen-step
+structure: curated Kael expedition, four bosses, standards, three-wave defense,
+oathbound knights, altar and one-time personal Warhelm claim. Durable chapters,
+journal recovery and receipt-gated delivery remain independent of the Vigil.
+The scoped Kael exception preserves Classic50. New bounded loot and a STA/INT
+augment family use existing budgets. A staged Classic HE91 conversion of the
+Warhelm of Rallos Zek preserves Camil HE90. The final paired native build, 56 focused
+regressions, 149 healing checks and isolated SQL rehearsal pass. Bounded SK-main
+calibration records 24 boss kills and four weaker-control deaths; the Raid finale
+reached a 14.1% HP low point. Native/client pairing, complete route,
+appearance and owner balance acceptance are required before release; nothing is
+deployed by this candidate. [Evidence and operations](docs/quests/warhelm/RUNBOOK.md).
+
 ## 2026-10-24 — High Keep prison-break candidate
 
 Adds an entrance bluff that raises a durable, temporary guard alarm, a shorter

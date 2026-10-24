@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "candidate": "warhelm-wiki-04",
+  "pages": 492,
+  "latest_content_link_tests": 12,
+  "previous_full_windows_suite": {
+    "run": 33,
+    "passed": 24,
+    "posix_skipped": 9
+  },
+  "publication": "not performed"
+}
