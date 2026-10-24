@@ -153,3 +153,17 @@ Combat/Travel/Dungeon guidance and Recent changes together, review Features/home
 for release visibility, retain normal fresh-aggro expectations, and verify any
 authorized publication separately. No private incident data belongs in public
 articles or generated pages.
+
+## Fresh-instance train follow-up
+
+Independent review found no additional custom defect in `CheckWillAggro` or
+`AIYellForHelp`. Raid changes HP/damage, not assistance range. Existing assistance
+checks range and LOS from helper to calling NPC, rather than helper to player.
+A moving attacker can therefore recruit NPCs distant from the player; periodic
+checks and replenishing caller limits permit later joins. This is a mechanism,
+not a claim that the available logs establish each recruitment.
+
+Before another gameplay change, capture the first hate-add trigger, NPC spawn
+IDs, caller/helper/player coordinates, faction/range values and native LOS at
+recruitment in a controlled fresh Lower Guk Raid. Do not alter difficulty,
+assistance, leashing or idle timing merely to make the observed train disappear.

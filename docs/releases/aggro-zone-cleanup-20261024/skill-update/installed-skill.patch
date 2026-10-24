@@ -1,37 +1,51 @@
 --- references/world.md
 +++ references/world.md
-@@ -4,9 +4,10 @@
- 
- Source5116f9b in E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup corrects two
- reproduced defects; it is not installed or owner-accepted. Palwar's Lower Guk
--Raid bedroom report used no Feign Death and matches the Thursday run whose
--checkpoint retained clustered knights. The owner returned over an hour later,
--consistent with the logged natural unload; in-game resolution remains unproved.
-+Raid bedroom report used no Feign Death and recalled a return over an hour later.
-+Later local client-log correlation records fresh Raid101 Thursday19:45 and fresh
-+Raid103 Saturday07:15, with no post-unload return to101. These fixes are not the
-+proved cause/resolution of those fresh-Raid trains; fresh assist/pathing needs QA.
+@@ -8,6 +8,8 @@
+ Later local client-log correlation records fresh Raid101 Thursday19:45 and fresh
+ Raid103 Saturday07:15, with no post-unload return to101. These fixes are not the
+ proved cause/resolution of those fresh-Raid trains; fresh assist/pathing needs QA.
++Normal help checks helper-to-caller range/LOS, not helper-to-player; Raid changes
++HP/damage only. Capture first hate-add cause and all three positions before tuning.
  Ordinary hate removal does not erase feign memory's recyclable entity IDs.
  Client::ClearFeignMemoryOnDeparture removes only matching NPC memory after
  accepted death and at the end of client destruction. Do not substitute broad
-@@ -23,8 +24,7 @@
- NightcapDungeon::LoadCheckpoint, keyed by run UUID. The managed bypass in
- LoadZoneVariablesState is only for zone variables. Query dungeon checkpoints,
- not just zone_state_spawns. An older Raid checkpoint contained two stationary
--knights at one point over200units from home in the owner-confirmed incident run;
--re-entry causality is still unconfirmed.
-+knights at one point over200units from home; no logged return consumed that state.
- Empty zones pause normal NPC processing after their settle window (Lower Guk60s);
- long logout alone does not guarantee all displaced NPCs have walked home.
- 
 --- references/sources.json
 +++ references/sources.json
-@@ -5934,7 +5934,7 @@
+@@ -5013,10 +5013,10 @@
+         "sha256": "dc2a236ce419bba2292207980fd20c545e37792d5ea74738edb59676e64e2735"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
++        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
+         "path": "server-mods/code/zone/npc.cpp",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
++        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
++        "role": "reviewed helper-to-caller assist range/LOS and periodic recruitment; unchanged behavior; October24 candidate, not deployed",
+         "sha256": "a0494e064f6a42b00363bb35414aa847e07b45cbc7cc5a8b1a124b991f06c50e"
+       },
+       {
+@@ -5934,14 +5934,21 @@
          "path": "docs/releases/aggro-zone-cleanup-20261024/README.md",
          "role": "candidate evidence, incident uncertainty, reload and wiki impact; October24 candidate, not deployed",
          "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
--        "sha256": "db22f00c1f684af556dab9778d2dbcda9971c2720de8b69c3c35afa5ece58a43"
-+        "sha256": "86c053324ea601dfcd98ec444e4972047cf3383ebd288cfb891e8af0690507c5"
+-        "sha256": "86c053324ea601dfcd98ec444e4972047cf3383ebd288cfb891e8af0690507c5"
++        "sha256": "ef22088e273f61faca48aa8fff5c1398a9c6b1b1a82b6cb5ede3d2165b34d240"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
+         "path": "docs/releases/aggro-zone-cleanup-20261024/QA.md",
+         "role": "exact owner gameplay gate; not completed; October24 candidate, not deployed",
+         "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
+-        "sha256": "3cff9dfba4737234715241a03e63ee0bd719ce9483b4ddecd7a0297fd29a333f"
++        "sha256": "1a831b4d8ab7d2e010092230a1392ae829c696537720e35c43767b52acfbf0c6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aggro-zone-cleanup",
++        "path": "server-mods/code/zone/aggro.cpp",
++        "role": "reviewed ordinary proximity aggro and memory helpers; no Raid-specific detection change; October24 candidate, not deployed",
++        "revision": "5116f9b02120fff8d375ecad29687af6d65e81bd (reviewed source candidate; not installed)",
++        "sha256": "cba44e52345c52da4a640d4f7185dcaeedc9769ac0ffb69c62e92a4e4276dc6c"
+       }
+     ],
+     "client": [

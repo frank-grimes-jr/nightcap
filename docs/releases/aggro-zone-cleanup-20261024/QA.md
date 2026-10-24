@@ -38,6 +38,13 @@ completed owner gameplay or balance acceptance.
    and observe resumed movement. This candidate does not extend idle processing
    or instantly send trains home. Record long or blocked return routes as a
    separate pathing/settling issue rather than claiming stale hate from proximity.
+6. **Fresh-Raid diagnostic control:** record a new run's instance ID, 719-minute
+   entry journal and first pull time. At the first unexpected add, capture NPC
+   spawn IDs and caller/helper/player coordinates, assist range/faction, native
+   LOS and first hate-add cause with an authorized observer. A helper may see
+   the calling NPC while not seeing Palwar. Compare this new fight separately
+   from restoration of a displaced checkpoint; do not count either fixture as
+   proof of this live recruitment path.
 
 Acceptance remains open until the owner reports these results. Main promotion
 and production deployment require current owner approval under AGENTS.md.
