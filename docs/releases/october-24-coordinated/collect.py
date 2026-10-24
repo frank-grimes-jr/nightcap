@@ -17,6 +17,7 @@ op=importlib.util.module_from_spec(spec);spec.loader.exec_module(op)
 with contextlib.redirect_stdout(sys.stderr):
  op.initialize();m=op.manifest();b=op.base;r=op.r
  p=b.load('preflight.json');a=b.load('deployed.json')
+ assert p['manifest_sha256']==op.sha(stage/'manifest.json')
  assert a['gateway_open'] and not a['database_restored']
  assert not list((stage/'evidence').glob('held-*.json'))
  current=r.running(p['new_image_id'],m['binaries'])
@@ -29,11 +30,13 @@ with contextlib.redirect_stdout(sys.stderr):
  assert {n:op.sha(op.ROOT/'data/server/shared'/n) for n in a['caches']}==a['caches']
  assert op.sha(op.ROOT/'data/public/channel.json')==m['client_channel_sha256']
  evidence={f.name:json.loads(f.read_text()) for f in (stage/'evidence').glob('*.json')}
+ backup=evidence['backup.json']
+ assert backup['gzip_integrity']=='passed' and op.sha(Path(backup['path']))==backup['sha256']
  summary={'result':'PASS','verified_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
   'source_revision':m['source_revision'],'runtime':current,'gateway_open':True,
   'checks':checks,'state_tables':a['state_tables'],'cache':a['cache'],
   'cache_comparison':evidence['generated-cache.json']['comparison'],
-  'stopped_backup_verified':bool(evidence['backup.json']),
+  'stopped_backup_verified':True,
   'native_shutdown':evidence['native-shutdown.json'],
   'native_expired_noncorpse_rows':evidence['native-expiry.json']['expired_noncorpse_rows'],
   'campaign_flags_enabled':True,'client_channel_sha256':m['client_channel_sha256'],
