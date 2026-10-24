@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-24",
+  "recorded_by": "independent tome regression testing agent",
+  "native": {
+    "test": "tools/tests/test_tome_learning.py",
+    "baseline": {
+      "platform": "Windows MSVC",
+      "total": 43,
+      "failed_expected": 34,
+      "passing_controls": 9,
+      "result": "reproduced before implementation"
+    },
+    "fixed_windows": {
+      "compiler": "MSVC /std:c++17",
+      "passed": 43,
+      "failed": 0,
+      "seconds": 7.437
+    },
+    "fixed_linux": {
+      "container": "akk-stack-eqemu-server-1",
+      "source_root": "/tmp/nightcap-rogue-tomes-20261024-v1/source",
+      "compiler": "g++ -std=c++17",
+      "passed": 43,
+      "failed": 0,
+      "seconds": 3.409
+    },
+    "scope": "Actual TrainDiscipline/LearnDisciplineFromItem, GetMulticlassList, GetSpellMinLevel, canonical catalog and packet tome dispatch compiled with fake database/inventory/message IO. Covers held-class eligibility, levels, widened data, duplicates/holes, capacity, persistence failure, compatibility refunds and right-click consumption.",
+    "limitations": "Saved-state reload is simulated. No real database round trip, native client session or in-game acceptance is established. This is not a full-zone build test."
+  },
+  "operator": {
+    "test": "docs/releases/rogue-tomes-20261024/test_rollout.py",
+    "windows": {"passed_groups": 24, "failed": 0, "seconds": 1.861},
+    "linux": {
+      "container": "akk-stack-eqemu-server-1",
+      "test_directory": "/tmp/nightcap-rogue-tome-ops-tests",
+      "passed_groups": 24,
+      "failed": 0,
+      "seconds": 0.481
+    },
+    "scope": "Strict file/helper/contract authentication, local image layers and binary guards, preflight preservation, backup-before-image-selection, stop errors, saved-state and market verification, separate guarded opening, replay prevention, and recovery preserving current earned state with a fresh stopped snapshot/backup. Unverified activation, uncertain opening, unexplained state loss and market drift cannot become a new recovery baseline.",
+    "limitations": "Runtime, SQL, image operations and service control are mocks/fakes. Temporary files, exclusive receipt creation and manifest SHA-256 checks are real. Both Windows and Linux lifecycle tests replace the receipt writer with a portable writer; POSIX directory fsync/durability is not exercised. No actual production operation was executed by this suite."
+  },
+  "adjacent_main_agent_reported": {
+    "executed_by_this_agent": false,
+    "early_scribing": {"passed": 1},
+    "spell_access": {"passed": 2},
+    "cooldown": {"passed": 27},
+    "result": "all passed as reported by main agent"
+  },
+  "sha256": {
+    "tools/tests/test_tome_learning.py": "083a3a64f4fc1d9b04028df1723ce08440c9e41d0d1510be4931ec9a26bd6ade",
+    "docs/releases/rogue-tomes-20261024/test_rollout.py": "de88b86a4c10ac76fdf1f3029235736937d7d02937dccd91f4b469b931286d69",
+    "docs/releases/rogue-tomes-20261024/rollout.py": "412d69ab2173662184cba5c9d239cdcb87a9490d10511c20912ccf2db7dab8e9"
+  },
+  "production_changed_by_tests": false,
+  "owner_gameplay_accepted": false
+}

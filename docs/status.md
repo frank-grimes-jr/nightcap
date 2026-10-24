@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## 2026-10-24 — Tome learning repair under release verification
+
+The owner authorized main/server release after the Rogue audit. Canonical
+held-class learning, full duplicate detection and failed-save/item preservation
+are implemented;43native cases pass on Windows/Linux plus adjacent spell/cooldown
+checks. The full zone build and guarded rollout are tracked in
+[the release record](releases/rogue-tomes-20261024/README.md). No deployment or
+player acceptance is claimed yet. Discipline use levels and AA policy remain.
+
 ## 2026-10-24 — Ashen Compact prepared, not deployed
 
 The Shadow Knight counterpart to Camil's Vigil has fourteen personal objectives
