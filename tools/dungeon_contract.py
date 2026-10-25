@@ -58,6 +58,14 @@ def content_checks():
             checks.append(dict(label='spawn/'+str(b['spawn_id']),sql='SELECT COUNT(*) FROM spawn2 WHERE '+predicate({k:b['spawn'][k] for k in fields}),expected='1'))
     return checks
 
+def loaded_races(v):
+    # Mirror NightcapEquipment::ApplyRacePolicy: wearable player gear loads with every
+    # race. SQL rows and their predicates keep the stored mask.
+    if (v.get('itemclass',0)==0 and v.get('classes',0)&0xffff and v.get('races',0)&0xffff
+            and (v.get('slots',0)&0x7fffff or v.get('augtype',0))):
+        return 0xffff
+    return v.get('races',0)
+
 def render_header(checks, content, items):
     out=['#pragma once','#include "common/item_data.h"','#include <cstring>','namespace NightcapDungeon {','struct ContractCheck { const char *label, *sql, *expected; };']
     for name,rows in [('SchemaChecks',checks),('ContentChecks',content)]:
@@ -84,7 +92,7 @@ def render_header(checks, content, items):
         v=item['values']
         conditions=['std::strcmp(i.Name,'+json.dumps(v['Name'])+')==0','std::strcmp(i.IDFile,'+json.dumps(v['idfile'])+')==0',
                     'std::strcmp(i.Lore,'+json.dumps(v['lore'])+')==0']
-        conditions += ['i.'+native+'=='+str(v.get(sql,0)) for sql,native in fields.items()]
+        conditions += ['i.'+native+'=='+str(loaded_races(v) if sql=='races' else v.get(sql,0)) for sql,native in fields.items()]
         for key,native in {'clicktype':'Click.Type','clicklevel':'Click.Level','clicklevel2':'Click.Level2',
                            'casttime':'CastTime','casttime_':'CastTime_','maxcharges':'MaxCharges',
                            'recastdelay':'RecastDelay','recasttype':'RecastType'}.items():
