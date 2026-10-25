@@ -1,8 +1,8 @@
 # Current Nightcap status
 
-## 2026-10-24 — Coordinated release in preparation
+## 2026-10-25 — Coordinated October 24 release deployed
 
-Owner authorized pending gameplay promotion and production activation. Integrated source includes High Keep, aggro cleanup, Ashen Compact and the current published wiki. Fresh native build, release rehearsals and pairing checks precede activation. No new gameplay activation is claimed yet. [Release](releases/october-24-coordinated/README.md) and [exact QA](releases/october-24-coordinated/QA.md).
+Owner-authorized v2 (main c3823297, source ad7a4206) is live on OVH as of 11:41 UTC: High Keep Raid rescue, aggro/feign cleanup, the Ashen Compact with Everfrost entrance and every-race Warhelm, the Rogue tome lineage and client 2026102402. Receipt PASS: 12 zone workers on the v2 binary, 0 native/quest/database errors, 51 schema/565 content checks, 441-item reward cache, 309,857 items preserved, verified stopped backup, campaign flags enabled, access open. v1 stopped in preflight on a contract race-mask bug, fixed in v2. The disk was 98% full; 1.5 GB of build cache was pruned and about 1.9 GB remains free. In-game acceptance is pending. [Release](releases/october-24-coordinated/README.md) and [exact QA](releases/october-24-coordinated/QA.md).
 
 ## 2026-10-24 - Tome learning repaired on main and production
 

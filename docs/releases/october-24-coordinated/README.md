@@ -25,6 +25,10 @@ The independent review found and closed an opening guard gap: campaign/schema fa
 
 The v1 preflight stopped in `cache_check`: Warhelm 990510 stores races=4095, but `ApplyRacePolicy` loads wearable player gear with every race (65535) and the contract copied the SQL mask. The owner confirmed every race may equip it, matching Camil's Winged Helm. `tools/dungeon_contract.py` now projects loaded races; only the 990510 case changed. Natives were rebuilt and packaged as v2 (`private/v2/`, host stage `october-24-coordinated-20261024-v2`). v1 package, stage and `preflight-v1.log` are retained. After pruning 1.545 GB of unused Docker build cache (the disk was 98% full), the v2 preflight passed with the full cache contract (441 items, 882 drift rejections) and 0 changed existing items.
 
+## Deployed
+
+v2 was activated on 2026-10-25 at 11:41 UTC and access reopened. [`open-receipt.json`](open-receipt.json) records the PASS: v2 image `a2a40ce1c2d9`, world/zone/shared_memory matching `native-build-manifest.json`, 12 zone workers, restart count 0, 0 native/quest/database errors, 92 state tables, verified stopped backup, campaign flags enabled, client 2026102402, no database restore. Owner gameplay acceptance (QA.md) is open.
+
 ## Recovery
 
 Never restore an old player snapshot, replay uncertain SQL, or downgrade to old dungeon completion code after new rescue/campaign runs exist. Pause new enrollment by setting both new flags disabled in a reviewed guarded operation; retain compatible schema, content, items, receipts and native runtime for earned delivery. Any uncertain activation stays closed pending receipt-aware diagnosis and tested continuation. A fresh recovery needs a fresh stopped backup and the current signed client/wiki pointers.

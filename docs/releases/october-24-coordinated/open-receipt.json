@@ -1,0 +1,108 @@
+{
+  "result": "PASS",
+  "verified_at": "2026-10-25T11:47:40.894159+00:00",
+  "source_revision": "ad7a42069b28eb47dbcd6c061c2640c68aafe580",
+  "runtime": {
+    "image_id": "sha256:a2a40ce1c2d9b62f8f474310af9dcd3ddb9f63b6c8c4bab21b7494b6c6a5cc64",
+    "started_at": "2026-10-25T11:41:39.510280134Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "e8e225a109d78f340ae4cc756360729f417d46abe02d750a3d13ed19da5c318c"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ],
+      [
+        "zone",
+        "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "checks": {
+    "schema": 51,
+    "content": 565
+  },
+  "state_tables": 92,
+  "cache": {
+    "items": 441,
+    "drift_rejections": 882,
+    "item_bytes": 1332
+  },
+  "cache_comparison": {
+    "preserved_items": 309857,
+    "new_items": 14,
+    "existing_changed": 0
+  },
+  "stopped_backup_verified": true,
+  "native_shutdown": {
+    "seconds": 1.3436552211642265,
+    "supervisor_force_kill_deadline": 75,
+    "game_exit_code": 0,
+    "oom_killed": false,
+    "deadline_not_reached": true
+  },
+  "native_expired_noncorpse_rows": 624,
+  "campaign_flags_enabled": true,
+  "client_channel_sha256": "0cc3708d19d663e20d56d579324afe4e85586930ef6cbadaa95b5032cdaac167",
+  "client_release": 2026102402,
+  "database_restored": false,
+  "owner_gameplay_accepted": false,
+  "free_bytes": 2050678784
+}
