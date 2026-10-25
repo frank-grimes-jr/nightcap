@@ -20,10 +20,12 @@
   "client_patch_note_correction": "2026102402 corrects 2026102401 notes; identical archive payloads, append-only history",
   "native_build": "world/zone/shared_memory passed from authenticated retained source",
   "native_binary_hashes": {
-    "world": "a94c6e18eabd7b534c97c09f3baa0c4fb8324386dc71b421a5d1b2e04c1cdebd",
-    "zone": "a139726f72960c8966df235088b52d77aca6ac3b6e0d01b50dfae4cba1f1e35b",
-    "shared_memory": "edb41d3133f347aa21daa732b27cddefc51ea18de6548d6f1386862780e84e77"
+    "world": "e8e225a109d78f340ae4cc756360729f417d46abe02d750a3d13ed19da5c318c",
+    "zone": "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744",
+    "shared_memory": "15cbca82d174d3abb353397338f0ee5d1dbe2f4631e57c6dcdf22c76c5a660cc"
   },
+  "v1_preflight": "failed: cache_check rejected 990510 (contract Races 4095, loaded 65535)",
+  "v2_package": "contract projects loaded races; staged 24 files on OVH; preflight pending",
   "native_semantic_changes": 18,
   "proved_crlf_only_normalizations": 4,
   "quest_scripts": 15,

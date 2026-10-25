@@ -1,6 +1,6 @@
 {
-  "archive_sha256": "92982068aa7a3f9bcc3dcf37cdeb95c478efeaa0834c09a309690df48bcb48d9",
-  "archive_bytes": 185500173,
+  "archive_sha256": "f0991fdaa76ea04bb74492bab794d8a273a3d562e5e9ce98060320fb2e12ea99",
+  "archive_bytes": 185500142,
   "files": 24,
   "source_base_matches_production": true,
   "fresh_preimages_match_reviewed_inputs": true
