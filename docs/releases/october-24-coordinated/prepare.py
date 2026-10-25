@@ -3,10 +3,10 @@ import hashlib,json,shutil,subprocess,tarfile
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
-ARTIFACTS=HERE/'private'
+ARTIFACTS=HERE/'private/v2'
 STAGE=ARTIFACTS/'package'
 CONTAINER='akk-stack-eqemu-server-1'
-BUILD='/tmp/nightcap-october24-integrated-v1'
+BUILD='/tmp/nightcap-october24-integrated-v2'
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -87,7 +87,7 @@ def main():
  with tarfile.open(archive,'x:gz',compresslevel=1) as out:
   for f in STAGE.rglob('*'):
    if f.is_file():out.add(f,arcname=f.relative_to(STAGE).as_posix(),filter=mode)
- (HERE/'private/package-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+ (ARTIFACTS/'package-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
  receipt={'archive_sha256':sha(archive),'archive_bytes':archive.stat().st_size,'files':len(files),'source_base_matches_production':True,'fresh_preimages_match_reviewed_inputs':True}
  (HERE/'package-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 

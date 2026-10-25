@@ -2,9 +2,9 @@
   "base_zone_sha256": "75e0c7c3a8dbc42b87e09cd60ba350ce0c37b2a2c31771934665aa88fc3061df",
   "status": "fresh native build passed; not installed",
   "binaries": {
-    "world": "a94c6e18eabd7b534c97c09f3baa0c4fb8324386dc71b421a5d1b2e04c1cdebd",
-    "zone": "a139726f72960c8966df235088b52d77aca6ac3b6e0d01b50dfae4cba1f1e35b",
-    "shared_memory": "edb41d3133f347aa21daa732b27cddefc51ea18de6548d6f1386862780e84e77"
+    "world": "e8e225a109d78f340ae4cc756360729f417d46abe02d750a3d13ed19da5c318c",
+    "zone": "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744",
+    "shared_memory": "15cbca82d174d3abb353397338f0ee5d1dbe2f4631e57c6dcdf22c76c5a660cc"
   },
   "source_files": {
     ".gitattributes": "4b59001fcefbe640902134c3debc1fe0300432cf744d299c2e9e4d4e95e51bf3",
@@ -69,7 +69,7 @@
     "common/eqdb.h": "aaf8109fc461de8c9975c1718ee29769ae0379453507bc945ded980e1010b974",
     "common/fixed_memory_variable_hash_set.h": "5863b0ba0e658219d23a2f167838eab3d6de8e005861dd963bd5d051485c0fbd",
     "common/data_bucket.cpp": "00be127da77de996443694734bbbff3875d71b3c85a82f08416751bd88b993c7",
-    "common/dungeon_contract.h": "0eee5190af6c7ac8d1b2361857e771192ea623ff146f18ec08362d24f4cbb21f",
+    "common/dungeon_contract.h": "9e11f9467b9ddefbd6fb1dcccbabe3c801f6591aa8bbdef842c76e2bce97110f",
     "common/eq_constants.h": "b58dea600b9f57398b096b70cf6d396457fb22554257eae603d030176b37e78b",
     "common/eqemu_logsys.cpp": "699fd7da871b9721cda9389aa315098d94d77749e69e26774399a4d79950ccc8",
     "common/zone_store.cpp": "4ab76c6ddf3f82d442201deb7f19168af34e5a35077fdeca0146f342edcffcf8",

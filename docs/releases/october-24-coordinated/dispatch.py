@@ -5,8 +5,8 @@ import importlib.util
 HERE=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('release_remote',HERE.parents[1]/'quests/camil-chapterhouse/deployment/remote.py')
 remote_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(remote_module);SSH=remote_module.SSH
-STAGE='/opt/nightcap/releases/october-24-coordinated-20261024'
-ARCHIVE=HERE/'private/release.tar.gz'
+STAGE='/opt/nightcap/releases/october-24-coordinated-20261024-v2'
+ARCHIVE=HERE/'private/v2/release.tar.gz'
 
 def remote(script):
  r=subprocess.run(SSH+['sudo -n python3 -'],input=script,text=True,capture_output=True,timeout=1800)
@@ -35,7 +35,7 @@ manifest=json.loads((root/'manifest.json').read_text())
 for name,digest in manifest['files'].items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,name
 print(json.dumps({'staged_files':len(manifest['files']),'stage':str(root),'archive_sha256':DIGEST}))
 '''.replace('ARCHIVE',repr(dest)).replace('STAGE',repr(STAGE)).replace('DIGEST',repr(receipt['archive_sha256']))
- result=json.loads(remote(script));(HERE/'private/staging-receipt.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
+ result=json.loads(remote(script));(HERE/'private/v2/staging-receipt.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 
 def action(name):
  path=HERE/(name+'.log')

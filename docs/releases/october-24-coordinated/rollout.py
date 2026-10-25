@@ -6,7 +6,7 @@ No player restoration or automatic down-migration. Retain earned receipts/runs.
 import argparse,fcntl,hashlib,importlib.util,json,mmap,os,re,shutil,struct,time
 from pathlib import Path
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/october-24-coordinated-20261024')
+STAGE=Path('/opt/nightcap/releases/october-24-coordinated-20261024-v2')
 EVIDENCE=STAGE/'evidence'
 PRIOR=Path('/opt/nightcap/releases/aa-level-progression-20261023-v3/rollout.py')
 NEW_ITEMS=set(range(960420,960426))|set(range(961020,961024))|set(range(961030,961033))|{990510}

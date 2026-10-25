@@ -3,7 +3,7 @@ import io,json,subprocess,tarfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'docs/releases/october-24-coordinated'
-DEST='/tmp/nightcap-october24-integrated-v1'
+DEST='/tmp/nightcap-october24-integrated-v2'
 FILES=sorted(p.relative_to(ROOT/'server-mods/code').as_posix() for p in (ROOT/'server-mods/code').rglob('*') if p.is_file())
 archive=io.BytesIO()
 with tarfile.open(fileobj=archive,mode='w') as tar:
@@ -23,7 +23,7 @@ subprocess.run(['docker','exec','-i','akk-stack-eqemu-server-1','python3','-c',e
 build=r'''
 import hashlib,json,shutil,subprocess
 from pathlib import Path
-root=Path('/tmp/nightcap-october24-integrated-v1');base=Path('/tmp/nightcap-rogue-tomes-20261024-v1')
+root=Path('/tmp/nightcap-october24-integrated-v2');base=Path('/tmp/nightcap-rogue-tomes-20261024-v1')
 manifest=json.loads((base/'manifest.json').read_text());source=root/'source'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 source.mkdir(exist_ok=False)
