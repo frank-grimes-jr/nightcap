@@ -25,7 +25,15 @@
     "shared_memory": "15cbca82d174d3abb353397338f0ee5d1dbe2f4631e57c6dcdf22c76c5a660cc"
   },
   "v1_preflight": "failed: cache_check rejected 990510 (contract Races 4095, loaded 65535)",
-  "v2_package": "contract projects loaded races; staged 24 files on OVH; preflight pending",
+  "v2_package": "contract projects loaded races; staged 24 files on OVH",
+  "v2_preflight": {
+    "result": "passed",
+    "cache": {"items": 441, "drift_rejections": 882, "item_bytes": 1332},
+    "checks": {"schema": 51, "content": 565},
+    "comparison": {"preserved_items": 309857, "new_items": 14, "existing_changed": 0},
+    "candidate_image": "sha256:a2a40ce1c2d9",
+    "headroom": "pruned 1.545GB unused Docker build cache first (owner-approved); 2020MiB free after preflight"
+  },
   "native_semantic_changes": 18,
   "proved_crlf_only_normalizations": 4,
   "quest_scripts": 15,

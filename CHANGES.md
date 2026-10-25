@@ -2,7 +2,7 @@
 
 ## 2026-10-24 — Coordinated release v2: reward cache race mask
 
-The v1 preflight stopped in `cache_check`: Warhelm of the Ashen Compact (990510) stores races=4095, but `NightcapEquipment::ApplyRacePolicy` loads wearable player gear with every race (65535), and the contract renderer copied the SQL mask. `tools/dungeon_contract.py` now projects races the way the loader does; SQL predicates keep stored masks, and only the 990510 case changed. Owner decision: every race may equip the Warhelm, as with Camil's Winged Helm. world/zone/shared_memory rebuilt and packaged/staged as `-v2`; v1 artifacts retained. Gotcha: future race-restricted rewards are now handled automatically, but a hand-edited contract would reintroduce the failure. Preflight v2 and activation pending.
+The v1 preflight stopped in `cache_check`: Warhelm of the Ashen Compact (990510) stores races=4095, but `NightcapEquipment::ApplyRacePolicy` loads wearable player gear with every race (65535), and the contract renderer copied the SQL mask. `tools/dungeon_contract.py` now projects races the way the loader does; SQL predicates keep stored masks, and only the 990510 case changed. Owner decision: every race may equip the Warhelm, as with Camil's Winged Helm. world/zone/shared_memory rebuilt and packaged/staged as `-v2`; v1 artifacts retained. Gotcha: future race-restricted rewards are now handled automatically, but a hand-edited contract would reintroduce the failure. The production disk was 98% full, so 1.545 GB of unused Docker build cache was pruned (owner-approved) before preflight. v2 preflight passed: cache 441/882, 51 schema/565 content checks, 309,857 items preserved, 14 new, 0 changed. Activation pending.
 
 ## 2026-10-24 — Coordinated pending release
 

@@ -23,7 +23,7 @@ The independent review found and closed an opening guard gap: campaign/schema fa
 
 ## v2 package
 
-The v1 preflight stopped in `cache_check`: Warhelm 990510 stores races=4095, but `ApplyRacePolicy` loads wearable player gear with every race (65535) and the contract copied the SQL mask. The owner confirmed every race may equip it, matching Camil's Winged Helm. `tools/dungeon_contract.py` now projects loaded races; only the 990510 case changed. Natives were rebuilt and packaged as v2 (`private/v2/`, host stage `october-24-coordinated-20261024-v2`). v1 package, stage and `preflight-v1.log` are retained.
+The v1 preflight stopped in `cache_check`: Warhelm 990510 stores races=4095, but `ApplyRacePolicy` loads wearable player gear with every race (65535) and the contract copied the SQL mask. The owner confirmed every race may equip it, matching Camil's Winged Helm. `tools/dungeon_contract.py` now projects loaded races; only the 990510 case changed. Natives were rebuilt and packaged as v2 (`private/v2/`, host stage `october-24-coordinated-20261024-v2`). v1 package, stage and `preflight-v1.log` are retained. After pruning 1.545 GB of unused Docker build cache (the disk was 98% full), the v2 preflight passed with the full cache contract (441 items, 882 drift rejections) and 0 changed existing items.
 
 ## Recovery
 
