@@ -43,12 +43,12 @@
     "exact_source_overlay_verified": true,
     "missing_dynamic_libraries": false,
     "details": "native-build.json",
-    "installed": false
+    "installed": true
   },
-  "deployed": false,
+  "deployed": true,
   "client_verified": false,
   "owner_accepted": false,
-  "wiki_published": false,
+  "wiki_published": true,
   "native_fixture_provenance": {
     "verified_against": "retained current coordinated v2 source",
     "exact_functions": [
@@ -61,10 +61,10 @@
   },
   "knowledge": {
     "installed_references_updated": true,
-    "candidate_fingerprints_unchanged": 20,
     "unrelated_items_drift": 5,
     "unrelated_drift_not_accepted": true,
-    "skill_validator": "passed"
+    "skill_validator": "passed",
+    "scope": "Reviewed bazaar source, deployment and wiki evidence; unrelated topic drift retained"
   },
   "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/335",
   "owner_live_qa_authorized": true,
@@ -72,12 +72,28 @@
   "deployment_operator": {
     "tests": "28 pass on Windows and Linux; POSIX receipt durability verified",
     "review": "No blocking findings; uncertain disable receipt/hold/replay gap fixed",
-    "production_preflight": "pending",
-    "production_current_zone_matches_baseline": true,
+    "production_preflight": "passed; original reserve failure preserved, scoped build-context reclamation and reviewed one-shot continuation",
     "storage_engines_verified": [
       "inventory:InnoDB",
       "character_currency:InnoDB"
     ],
-    "existing_bazaar_tables": false
-  }
+    "continuation_tests": "6 fault tests passed; independent review found no blockers",
+    "preflight_zone_matched_baseline": true,
+    "preflight_existing_bazaar_tables": false
+  },
+  "main_promotion": {
+    "pull_request": 339,
+    "revision": "29e4e84b",
+    "authorized": true
+  },
+  "deployment_receipts": [
+    "deployed.json",
+    "deployment-receipt.json",
+    "preflight-receipt.json"
+  ],
+  "owner_qa": "Owner will test later; no native RoF2 or seller/buyer acceptance claimed",
+  "wiki_receipts": [
+    "deployment/wiki-publication.json",
+    "deployment/wiki-public-verification.json"
+  ]
 }
