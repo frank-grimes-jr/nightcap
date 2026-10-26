@@ -55,6 +55,7 @@ class EscrowTests(unittest.TestCase):
         cls.lib = ctypes.CDLL(str(cls.library))
         cls.lib.bazaar_run.argtypes = [CALLBACK]+[ctypes.c_uint]*5+[ctypes.c_int,ctypes.c_char_p,ctypes.c_char_p]
         cls.lib.bazaar_run.restype = ctypes.c_char_p
+        cls.lib.bazaar_view.argtypes=[CALLBACK,ctypes.c_uint,ctypes.c_uint];cls.lib.bazaar_view.restype=ctypes.c_char_p
         cls.lib.bazaar_race_sql.argtypes=[ctypes.c_uint];cls.lib.bazaar_race_sql.restype=ctypes.c_char_p
         cls.lib.bazaar_effective_races.argtypes=[ctypes.c_uint]*5;cls.lib.bazaar_effective_races.restype=ctypes.c_uint
         inspected = subprocess.run(['docker','inspect','akk-stack-mariadb-1'],capture_output=True,text=True,check=True)
@@ -160,6 +161,10 @@ class EscrowTests(unittest.TestCase):
             except Exception as e:
                 self.errors.append((sql,type(e).__name__,str(e)))
                 reply.contents.ok=0
+        if op==4:
+            raw=self.lib.bazaar_view(execute,who,listing)
+            lines=raw.decode().splitlines();status,enabled,total,page,credit=map(int,lines[0].split('\t'))
+            return dict(status=status,enabled=enabled,total=total,page=page,credit=credit,rows=[list(map(int,x.split('\t'))) for x in lines[1:]],trace=trace,fired=fired)
         raw=self.lib.bazaar_run(execute,op,who,listing,price,quantity,int(stackable),
              '\t'.join(map(str,wallet)).encode(),''.join('\t'.join(row)+'\n' for row in cursor).encode())
         lines=raw.decode().splitlines()
@@ -175,6 +180,34 @@ class EscrowTests(unittest.TestCase):
 
     def snapshot(self):
         return {t:self.sql('SELECT * FROM '+t+' ORDER BY 1,2') for t in TABLES}
+
+    def test_panel_view_is_owner_scoped_paged_and_non_mutating(self):
+        ids=[self.post() for _ in range(10)]
+        self.post(who=2,cursor=self.item(who=2))
+        self.sql('INSERT INTO nightcap_bazaar_credits VALUES(1,1234)')
+        before=self.snapshot();view=self.run_engine(4)
+        self.assertEqual((view['status'],view['total'],view['page'],view['credit']),(COMMITTED,10,0,1234))
+        self.assertEqual([r[0] for r in view['rows']],ids[:8])
+        page=self.run_engine(4,listing=12)
+        self.assertEqual(page['page'],1);self.assertEqual([r[0] for r in page['rows']],ids[8:])
+        self.assertEqual(self.snapshot(),before);self.assertEqual(self.sql('SELECT @@in_transaction'),((0,),))
+
+    def test_panel_disabled_market_still_exposes_recoverable_ownership(self):
+        listing=self.post();self.sql('UPDATE nightcap_bazaar_state SET enabled=0')
+        view=self.run_engine(4);self.assertEqual(view['status'],COMMITTED);self.assertFalse(view['enabled'])
+        self.assertEqual(view['rows'][0][0],listing)
+        self.assertEqual(self.run_engine(4,who=3)['rows'],[])
+
+    def test_panel_read_failures_never_leak_partial_snapshot_or_leave_locks(self):
+        self.post();before=self.snapshot();healthy=self.run_engine(4)
+        for query in healthy['trace']:
+            with self.subTest(query=query):
+                out=self.run_engine(4,fault=(query,'before'))
+                self.assertNotEqual(out['status'],COMMITTED);self.assertEqual(out['rows'],[])
+                self.assertEqual(self.snapshot(),before)
+                self.sql('ROLLBACK')
+        out=self.run_engine(4,fault=('ROLLBACK','after'))
+        self.assertEqual(out['status'],UNCERTAIN);self.assertEqual(out['rows'],[])
 
     def test_disabled_post_preserves_item(self):
         cursor=self.item(); self.sql('UPDATE nightcap_bazaar_state SET enabled=0'); before=self.snapshot()

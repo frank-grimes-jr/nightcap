@@ -143,7 +143,47 @@ int main(){
 }
 '''
 
+
+POST_FIXTURE=r"""
+#include "common/bazaar_escrow.h"
+#include <cassert>
+#include <string>
+using uint32=uint32_t;using uint64=uint64_t;
+uint64 clock_value=100;uint64 Now(){return clock_value;}
+namespace Chat {constexpr int Yellow=1;}
+namespace EQ {namespace invslot {constexpr int slotCursor=33;}}
+namespace NightcapLoot {std::string NewDropID(){return "abcd-1234";}}
+struct Item {const char *Name="Dagger";};
+struct Instance {Item data;int charges=3;bool stackable=true;bool IsStackable()const{return stackable;}int GetCharges()const{return charges;}const Item *GetItem()const{return &data;}};
+struct Inventory {Instance item;const Instance *GetItem(int)const{return &item;}};
+struct Client {
+ Inventory m_inv;NightcapBazaar::Request m_bazaar_post;std::string m_bazaar_confirmation;uint64 m_bazaar_confirmation_deadline=0;
+ bool eligible=true,commit=true;unsigned completed=0,messages=0;
+ unsigned CharacterID()const{return 23;}
+ template<class... A>void Message(int,const char*,A...){++messages;}
+ bool CompleteBazaarRequest(const NightcapBazaar::Request &){++completed;return commit;}
+ bool PrepareBazaarPost(uint64,bool quiet=false);bool ConfirmBazaarPost(const std::string&);
+};
+bool CursorSnapshot(Client *client,NightcapBazaar::Rows &rows){if(!client->eligible)return false;rows={{"exact cursor snapshot"}};return true;}
+"""
+POST_CASES=r"""
+int main(){
+ {Client c;assert(c.PrepareBazaarPost(1,true));assert(!c.messages&&!c.completed);assert(c.m_bazaar_post.unit_price==1000&&c.m_bazaar_post.quantity==3&&c.m_bazaar_post.character==23);assert(c.m_bazaar_confirmation_deadline==160);
+ assert(!c.ConfirmBazaarPost("wrong")&&!c.completed);assert(c.ConfirmBazaarPost("abcd-1234")&&c.completed==1);assert(!c.ConfirmBazaarPost("abcd-1234")&&c.completed==1);}
+ {Client c;assert(c.PrepareBazaarPost(1));assert(c.messages==1);clock_value=161;assert(!c.ConfirmBazaarPost("abcd-1234")&&!c.completed);clock_value=100;}
+ for(unsigned mode=0;mode<5;++mode){Client c;assert(c.PrepareBazaarPost(1,true));uint64 price=1;
+ switch(mode){case 0:price=0;break;case 1:price=4294968;break;case 2:c.eligible=false;break;case 3:c.m_inv.item.charges=0;break;case 4:price=2000000;break;}
+ assert(!c.PrepareBazaarPost(price,true));assert(c.m_bazaar_confirmation.empty());assert(!c.ConfirmBazaarPost("abcd-1234")&&!c.completed);}
+ {Client c;c.commit=false;assert(c.PrepareBazaarPost(1,true));assert(!c.ConfirmBazaarPost("abcd-1234"));assert(c.completed==1&&c.m_bazaar_confirmation.empty());assert(!c.ConfirmBazaarPost("abcd-1234")&&c.completed==1);}
+ {Client c;c.m_inv.item.stackable=false;c.m_inv.item.charges=0;assert(c.PrepareBazaarPost(4294967,true));assert(c.m_bazaar_post.quantity==1);}
+}
+"""
+
 class NativeGuards(unittest.TestCase):
+    def test_native_post_quote_confirmation(self):
+        source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
+        self.compile_run(POST_FIXTURE+'\n'+function(source,'bool Client::PrepareBazaarPost(')+'\n'+function(source,'bool Client::ConfirmBazaarPost(')+POST_CASES)
+
     def test_exact_instance_reconstruction(self):
         source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
         code=RESTORE_FIXTURE+'\n'+(ROOT/'tools/tests/fixtures/bazaar_custom_data.inc').read_text(encoding='utf-8')+'\n'+'\n'.join(function(source,x) for x in ['std::string Hex(','std::string Unhex(','Row Snapshot(','std::unique_ptr<EQ::ItemInstance> Restore(','bool CursorSnapshot('])+RESTORE_CASES

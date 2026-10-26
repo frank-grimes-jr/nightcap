@@ -1,3 +1,4 @@
+#include "common/bazaar_panel_query.h"
 // Bridge compiles the production transaction engine; Python supplies a real DB session.
 #include "common/bazaar_escrow.h"
 #include "common/bazaar_search_policy.h"
@@ -48,5 +49,18 @@ __declspec(dllexport)
 unsigned bazaar_effective_races(unsigned races,unsigned classes,unsigned slots,unsigned augtype,unsigned itemclass) {
  struct Item {unsigned Races,Classes,Slots,AugType,ItemClass;};Item item{races,classes,slots,augtype,itemclass};
  NightcapEquipment::ApplyRacePolicy(item);return item.Races;
+}
+}
+
+extern "C" {
+#ifdef _WIN32
+__declspec(dllexport)
+#endif
+const char *bazaar_view(Callback callback,unsigned character,unsigned page){
+ static thread_local std::string result;NightcapBazaarPanel::Snapshot snapshot;
+ auto status=NightcapBazaarPanel::ReadSeller([&](const std::string &sql){WireReply w{};callback(sql.c_str(),&w);return Reply{w.ok!=0,w.affected,w.id,Parse(w.rows)};},character,page,33,snapshot);
+ result=std::to_string(static_cast<unsigned>(status))+"\t"+std::to_string(snapshot.enabled)+"\t"+std::to_string(snapshot.total)+"\t"+std::to_string(snapshot.page)+"\t"+std::to_string(snapshot.credit)+"\n";
+ for(const auto &r:snapshot.rows)result+=std::to_string(r.id)+"\t"+std::to_string(r.item)+"\t"+std::to_string(r.quantity)+"\t"+std::to_string(r.price)+"\n";
+ return result.c_str();
 }
 }

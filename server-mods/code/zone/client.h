@@ -964,6 +964,10 @@ public:
 	void QuestReadBook(const char* text, uint8 type);
 	void SendMoneyUpdate();
 	void BazaarCommand(const Seperator *sep);
+	void BazaarPanelCommand(const Seperator *sep);
+	bool PrepareBazaarPost(uint64 platinum, bool quiet = false);
+	bool ConfirmBazaarPost(const std::string &nonce);
+	uint64 m_bazaar_panel_next_request = 0;
 	bool BazaarSessionReady();
 	bool BazaarStorageReady();
 	bool CompleteBazaarRequest(const NightcapBazaar::Request &request);
