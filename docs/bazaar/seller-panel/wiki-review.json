@@ -211,15 +211,20 @@
   "built_delta": {
     "files": 499,
     "changed": [
+      "ascension.html",
       "commands.html",
+      "equipment.html",
       "features.html",
+      "item-upgrades.html",
       "recent-changes.html",
       "search-index.json",
-      "tunnel.html"
+      "tunnel.html",
+      "unreleased.html"
     ],
+    "preserved": 490,
+    "status": "verified local package, not published",
     "added": [],
     "removed": [],
-    "preserved": 494,
     "published": false
   },
   "status": "Combined authorized release publication draft; publish only after runtime/client receipts",

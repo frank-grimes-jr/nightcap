@@ -6,7 +6,7 @@ SKILL=Path('C:/Users/verre/.codex/skills/nightcap-development')
 REF=SKILL/'references'
 revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 evidence=json.loads((ROOT/'docs/bazaar/seller-panel/evidence.json').read_text())
-state='Full isolated zone build passed.' if evidence.get('zone_build',{}).get('status')=='PASS' else 'Full isolated zone build remains pending.'
+state='Full integrated zone/world/shared_memory build passed.' if evidence.get('integrated_build',{}).get('status')=='PASS' else 'Integrated build and authorized deployment remain in progress.'
 blocks={
 'items':"""## Bazaar seller panel — October26 unpublished candidate
 
@@ -19,8 +19,8 @@ ReadSeller uses a coherent owner-only read under the escrow lock and ends ROLLBA
 Uncertain rollback quarantines; incomplete snapshots never enable actions.
 
 Source: common/bazaar_panel_{protocol,query}.h, zone/client_bazaar.cpp/client.h;
-25disposable MariaDB cases and3production native guard groups pass. Pair a rebuilt
-zone with proxy/catalog0.13.0, config and Bazaar XML. Graceful whole-runtime restart
+26disposable MariaDB cases and4production native guard groups pass, including
+current weapon-grip restore and40buy/cancel metadata cases. Pair integrated world/zone/shared_memory with proxy/catalog0.13.0, config and Bazaar XML. Graceful whole-runtime restart
 is required on OVH; never kill one zone, drop escrow or restore old player data.
 Earlier command-only deployment/approval remains scoped to zone84b6b9ff.
 """,
@@ -44,7 +44,7 @@ Source: eq-client-dll/src/bazaar_panel_{state,controller,hooks}.h, ui_hooks.h,
 tools/client_bazaar_ui.py and generated contracts.10x86runtime groups,115exact
 client guards,3XML cases,288native animation cases and invisible regression pass.
 Actual signed baseline2026102402 preserves137assets/history; candidate141inventory
-changes proxy/catalog/config and adds Bazaar XML. Candidate is unsigned/unpublished;
+changes proxy/catalog/config and adds Bazaar XML. Signed2026102601 candidate is locally verified but unpublished;
 protected reference and installed player clients remain untouched. No launcher build.
 
 Actual candidate pairing caught a linker-layout bug: hash text followed a pointer,
@@ -58,9 +58,9 @@ end-to-end search/offline purchase still require player QA.
 
 Source: managed commonlands-bazaar checkout, feature/bazaar-seller-panel. Entire
 40article-source wiki and generated catalogs/Home/Features/commands/release labels
-reviewed. Four articles add an explicit Not released seller-panel preview; current
-live commands stay intact. Built499files changes tunnel/commands/features/Change
-Log and search index only, preserving494exact files with no additions/removals.
+reviewed. Eight articles prepare combined Bazaar and Paladin grip live-testing guidance;
+publish only after verified runtime/client receipts. Built499files changes nine
+files, preserving490exact files with no additions/removals.
 No item/reward/acquisition or Home changes.19content/refresh tests pass.
 
 Current public release remains20261026-commonlands-bazaar-v1. This candidate wiki
@@ -68,7 +68,7 @@ is not published. CurrentHEAD plus worktree check_refresh retains REVIEW REQUIRE
 for the historical global ledger; reviewed scoped evidence does not authorize blind
 advancement. Reconcile any later public/source changes before authorized publication.
 """}
-common='\n'+state+' Evidence and exact QA: docs/bazaar/seller-panel/{README.md,QA.md,evidence.json}.\nNew main/live deployment approval and native player acceptance remain pending.\n'
+common='\n'+state+' Evidence and exact QA: docs/bazaar/seller-panel/{README.md,QA.md,evidence.json}.\nOwner October26 instruction authorizes the coordinated main/server/client/wiki release;\nweapon chat holds writes while this chat owns deployment. Native player acceptance remains open.\n'
 for topic,block in blocks.items():
  p=REF/(topic+'.md');text=p.read_text(encoding='utf8');heading=block.split('\n')[0]
  if heading in text:
@@ -82,7 +82,7 @@ manifest_path=REF/'sources.json';manifest=json.loads(manifest_path.read_text(enc
 for topic,names in paths.items():
  names+=['docs/bazaar/seller-panel/README.md','docs/bazaar/seller-panel/QA.md','docs/bazaar/seller-panel/evidence.json']
  manifest['topics'][topic]=[e for e in manifest['topics'][topic] if e['path'] not in names]
- entries=[{'root':ROOT.as_posix(),'path':name,'role':'Reviewed Bazaar seller panel candidate; paired deployment and native acceptance pending','revision':revision+' plus reviewed candidate evidence','sha256':hashlib.sha256((ROOT/name).read_bytes()).hexdigest()} for name in names]
+ entries=[{'root':ROOT.as_posix(),'path':name,'role':'Reviewed combined Bazaar/weapon QA release; authorized deployment in progress, native acceptance pending','revision':revision+' plus reviewed candidate evidence','sha256':hashlib.sha256((ROOT/name).read_bytes()).hexdigest()} for name in names]
  manifest['topics'][topic]+=entries;scoped['topics'][topic]=entries
 manifest['observed_revisions']['bazaar_panel_candidate_20261026']=revision+'; unpublished candidate; '+state
 manifest_path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')
