@@ -1,8 +1,9 @@
 # Commonlands bazaar: in-game acceptance
 
-Candidate only. No deployment, RoF2 UI acceptance or player approval recorded.
+Deployed October26 with owner approval; access is open. RoF2 UI and complete
+seller/buyer acceptance remain unverified. Owner will test later.
 Use two ordinary test characters with backed-up/reconcilable test stock and money.
-Run on the paired candidate server/schema in public East Commonlands (zone 22,
+Run on the paired deployed server/schema in public East Commonlands (zone 22,
 instance 0), with the currently signed RoF2 client. A GM-only result is insufficient.
 
 1. Seller: put one inexpensive permanent tradable item on an otherwise empty

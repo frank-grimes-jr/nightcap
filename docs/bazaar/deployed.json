@@ -1,0 +1,115 @@
+{
+  "runtime": {
+    "image_id": "sha256:87849fcb1b45354e1e62b1ee334a0d60e9c148bd01181ad74939224da98e93fb",
+    "started_at": "2026-10-26T17:19:48.529626785Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "e8e225a109d78f340ae4cc756360729f417d46abe02d750a3d13ed19da5c318c"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ],
+      [
+        "zone",
+        "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "game": {
+    "id": "29529828812b4986aa645c882ef46c967f055d017df2df5f1703850c91733f1c",
+    "image_id": "sha256:87849fcb1b45354e1e62b1ee334a0d60e9c148bd01181ad74939224da98e93fb",
+    "started_at": "2026-10-26T17:19:48.529626785Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "97",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-25 11:41:54"
+    ],
+    "after": [
+      "1",
+      "1",
+      "98",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-26 17:20:03"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "state_tables": 97,
+  "checks": {
+    "schema": 51,
+    "content": 565
+  },
+  "recovery": false,
+  "gateway_open": true,
+  "database_restored": false,
+  "owner_gameplay_accepted": false,
+  "client_update_required": false
+}
