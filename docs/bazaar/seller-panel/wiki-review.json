@@ -205,8 +205,7 @@
   ],
   "home": "Unchanged: current available systems, no candidate release announcement",
   "generated_catalog": "No stat/reward/acquisition changes; all generated item/zone pages retained",
-  "published": false,
-  "public_release_unchanged": "20261026-commonlands-bazaar-v1",
+  "published": true,
   "global_ledger": "Retained historical scope; check_refresh drift requires review, never blind advancement",
   "built_delta": {
     "files": 499,
@@ -222,12 +221,12 @@
       "unreleased.html"
     ],
     "preserved": 490,
-    "status": "verified local package, not published",
+    "status": "Published and verified",
     "added": [],
     "removed": [],
-    "published": false
+    "published": true
   },
-  "status": "Combined authorized release publication draft; publish only after runtime/client receipts",
+  "status": "Combined publication and all499publicfiles verified; owner gameplay acceptance open",
   "catalog_assessment": "No item identity/stats/acquisition or base2HS catalog change; instance1HS projection documented with generic-link and Bazaar-type-filter limits. Home goal paths and generated reward/zone pages remain applicable.",
   "package": {
     "files": 499,
@@ -243,6 +242,7 @@
       "unreleased.html"
     ],
     "preserved": 490,
-    "status": "verified local package, not published"
-  }
+    "status": "Published and verified"
+  },
+  "public_release": "20261026-bazaar-grip-v1"
 }

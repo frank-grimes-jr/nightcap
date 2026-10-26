@@ -1,7 +1,9 @@
-# Paladin weapon grip — October 26 candidate
+# Paladin weapon grip — October26 live QA
 
 Status: implemented on `feature/paladin-weapon-toggle` from main `465003f6`.
-Not deployed or accepted in the game. Wiki edits are an unpublished candidate.
+Integrated main PR345/e43f2d4b and the combined Bazaar runtime/client/wiki release
+are verified in docs/bazaar/seller-panel/deployed.json and evidence.json. Owner
+native gameplay and balance acceptance remain open.
 The user explicitly chose to replace SoulFire's Complete Heal click with the toggle.
 
 ## Behavior and scope
@@ -99,6 +101,6 @@ Never restore an old player snapshot or clear unrelated custom data.
 October26 coordination: the owner authorized the Bazaar chat to push its paired
 release to server/main for QA and coordinate these weapon conversions. That chat
 (01a16f3a-3aa6-7e12-877d-5718a276f184) owns the combined promotion, integrated build,
-server/client and wiki release. This candidate has performed no production writes.
+server/client and wiki release. The combined release is deployed; no separate weapon runtime installation occurred.
 Preserve this isolated build manifest and binaries before adding the merged Bazaar
 delta; retain both source changes. Actual native gameplay acceptance remains open.

@@ -10,7 +10,11 @@ Use strip --strip-debug only on new runtime copies: elf_runtime_identity.py must
 prove identical PT_LOAD bytes (except section-table header location/count), all
 program headers, allocated sections, entry, permissions and ELF identity. Four
 negative/positive tests cover code redirection, mapped padding and header changes.
-This reduces transfer/disk use without deleting any production asset or reserve.
+This reduces transfer/disk use. The exact unmounted previous Bazaar staging zone
+was additionally archived losslessly with a decompressed-hash proof to retain the
+reserve. Its adjacent zone.bazaar-grip-debug-preserved.gz and receipt preserve every
+byte; restore and authenticate it before reusing its old staging operator. Active
+images, player data and DBbackups were not removed.
 
 ship.py authenticates the current source, retained baseline, all three runtime
 identity reports, package and established helper/contract hashes. It stages only

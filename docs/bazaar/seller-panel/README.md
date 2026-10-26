@@ -1,4 +1,9 @@
-# Bazaar seller panel candidate — October26
+# Bazaar seller panel — live QA — October26
+
+Main PR345/e43f2d4b and the paired runtime/client/wiki release are verified.
+All12workers,51schema/565content checks and102saved-state tables pass; access is open.
+Signed client2026102601 and wiki20261026-bazaar-grip-v1 are published.
+Native player acceptance remains open. See deployed.json and evidence.json.
 
 Adds Search and Sell / My Listings tabs to the native Bazaar window. Posting uses
 an exact server quote and Confirm Post; owned listings have paged selection and
@@ -11,7 +16,7 @@ Source baseline main465003f6; feature/bazaar-seller-panel. Public client baselin
 calling game2026102301 current describe the retained proxy only. Candidate0.13.0
 changes DLL/catalog/config and adds uifiles/nightcap/equi_bazaarsearchwnd.xml.
 All137other asset descriptors, patch notes and tombstones are retained (141total).
-Assets live under docs/bazaar/private/seller-panel/client-v2; signed local2026102601 candidate; publication awaits verified integrated runtime.
+Assets live under docs/bazaar/private/seller-panel/client-v2; signed2026102601 is published and all141HTTPSassets/signature/pairing verify.
 The protected reference and installed player clients were not modified.
 
 [Generated layout preview](layout-preview.png) (illustrative; not an in-game capture).

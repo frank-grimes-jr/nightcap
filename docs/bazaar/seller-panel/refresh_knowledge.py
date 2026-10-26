@@ -43,7 +43,7 @@ handles fast tab switches. Close/zone/character/UI teardown invalidates selectio
 Source: eq-client-dll/src/bazaar_panel_{state,controller,hooks}.h, ui_hooks.h,
 tools/client_bazaar_ui.py and generated contracts.10x86runtime groups,115exact
 client guards,3XML cases,288native animation cases and invisible regression pass.
-Actual signed baseline2026102402 preserves137assets/history; candidate141inventory
+Actual signed baseline2026102402 preserves137assets/history; release141inventory
 changes proxy/catalog/config and adds Bazaar XML. Signed2026102601 candidate is locally verified but unpublished;
 protected reference and installed player clients remain untouched. No launcher build.
 
@@ -118,7 +118,9 @@ quests, content/rules and other services. Signed client2026102601 plus wiki
 20261026-bazaar-grip-v1 are published. Native owner acceptance remains open.
 Runtime copies use strip-debug with full PT_LOAD/header/section identity proofs;
 original debug binaries and authenticated manifests remain locally. No production
-files/backups/images were pruned. Maintain reserve and independent preflight.
+backups/images were pruned. The exact unmounted prior Bazaar staging zone84b6
+was losslessly archived with decompressed-hash proof and a restoration receipt;
+restore its authenticated original before old stage use. Maintain the disk reserve.
 Recovery must keep grip-aware binaries after1HS metadata exists. Never replay an
 uncertain action or restore old player data. After public channel/wiki updates,
 a continuation must authenticate those new preimages without relaxing other guards.
@@ -130,16 +132,17 @@ paths={
 'client':['eq-client-dll/src/bazaar_panel_state.h','eq-client-dll/src/bazaar_panel_controller.h','eq-client-dll/src/bazaar_panel_hooks.h','eq-client-dll/src/ui_hooks.h','eq-client-dll/src/dllmain.cpp','eq-client-dll/config/patch-sites.json','eq-client-dll/config/nightcap-patches.cfg','eq-client-dll/src/runtime_contract.h','eq-client-dll/tests/bazaar-panel.cpp','eq-client-dll/tests/bazaar-panel-native.cpp','eq-client-dll/tests/test_runtime.py','tools/client_bazaar_ui.py','tools/client_gameplay_assets.py','tools/generate-client-patch-catalog.py','tools/tests/test_client_bazaar_ui.py','eq-launcher/internal/preflight/bazaar_panel_candidate_test.go'],
 'wiki':['wiki/articles/tunnel.json','wiki/articles/commands.json','wiki/articles/features.json','wiki/articles/recent-changes.json','docs/bazaar/seller-panel/wiki-review.json']}
 if live:
- paths['operations']=['docs/bazaar/seller-panel/deployed.json','docs/bazaar/seller-panel/deployment/rollout.py','docs/bazaar/seller-panel/deployment/README.md','tools/elf_runtime_identity.py','tools/tests/test_elf_runtime_identity.py']
- paths['items'] += ['server-mods/code/common/paladin_weapon_grip.h','server-mods/code/common/item_instance.cpp','server-mods/code/common/item_instance.h','server-mods/code/common/patches/rof2.cpp','server-mods/code/zone/inventory.cpp','server-mods/code/zone/client_packet.cpp','tools/tests/test_paladin_weapon_grip.py','docs/items/paladin-weapon-grip/README.md']
+ paths['operations']=['docs/status.md','CHANGES.md','docs/bazaar/RUNBOOK.md','docs/bazaar/deployment/README.md','docs/bazaar/seller-panel/deployed.json','docs/bazaar/seller-panel/deployment/rollout.py','docs/bazaar/seller-panel/deployment/ship.py','docs/bazaar/seller-panel/deployment/preserve_previous_stage.py','docs/bazaar/seller-panel/deployment/README.md','tools/elf_runtime_identity.py','tools/tests/test_elf_runtime_identity.py']
+ paths['items'] += ['docs/bazaar/RUNBOOK.md','server-mods/code/common/paladin_weapon_grip.h','server-mods/code/common/item_instance.cpp','server-mods/code/common/item_instance.h','server-mods/code/common/patches/rof2.cpp','server-mods/code/zone/inventory.cpp','server-mods/code/zone/client_packet.cpp','tools/tests/test_paladin_weapon_grip.py','docs/items/paladin-weapon-grip/README.md']
+ paths['client'] += ['docs/bazaar/seller-panel/client/publish.py','docs/bazaar/seller-panel/client/test_publish.py','docs/bazaar/seller-panel/client/public-verification.json']
  paths['wiki'] += ['wiki/articles/ascension.json','wiki/articles/equipment.json','wiki/articles/item-upgrades.json','wiki/articles/unreleased.json','docs/bazaar/seller-panel/deployment/wiki-publication.json','docs/bazaar/seller-panel/deployment/wiki-public-verification.json']
 manifest_path=REF/'sources.json';manifest=json.loads(manifest_path.read_text(encoding='utf8'));scoped={'audited_at':'2026-10-26','topics':{}}
 for topic,names in paths.items():
  names+=['docs/bazaar/seller-panel/README.md','docs/bazaar/seller-panel/QA.md','docs/bazaar/seller-panel/evidence.json']
  manifest['topics'][topic]=[e for e in manifest['topics'][topic] if e['path'] not in names]
- entries=[{'root':ROOT.as_posix(),'path':name,'role':('Reviewed combined live QA deployment; native acceptance pending' if live else 'Reviewed combined authorized candidate; native acceptance pending'),'revision':revision+' plus reviewed candidate evidence','sha256':hashlib.sha256((ROOT/name).read_bytes()).hexdigest()} for name in names]
+ entries=[{'root':ROOT.as_posix(),'path':name,'role':('Reviewed combined live QA deployment; native acceptance pending' if live else 'Reviewed combined authorized candidate; native acceptance pending'),'revision':revision+' plus reviewed release evidence','sha256':hashlib.sha256((ROOT/name).read_bytes()).hexdigest()} for name in names]
  manifest['topics'][topic]+=entries;scoped['topics'][topic]=entries
 manifest['observed_revisions']['bazaar_panel_candidate_20261026']=revision+'; '+state
 manifest_path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')
 (ROOT/'docs/bazaar/private/seller-panel/reviewed-sources.json').write_text(json.dumps(scoped,indent=2)+'\n')
-print('Updated items/client/wiki references and',sum(map(len,scoped['topics'].values())),'reviewed fingerprints')
+print('Updated items/client/wiki/operations references and',sum(map(len,scoped['topics'].values())),'reviewed fingerprints')
