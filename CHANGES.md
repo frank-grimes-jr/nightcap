@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-26 — Paladin weapon grip candidate
+
+SoulFire, Fiery Avenger and Fiery Defender (ten existing definitions) gain an
+unlimited right-click 1HS/2HS toggle. SoulFire’s heal click is replaced, as requested.
+The saved instance retains identity, stats, procs, augments and charges; returning
+to 2HS removes the customization key for existing reforging rules. Offhand/augment
+and safe-session checks precede an atomic saved-row update. Native packet routing
+prevents double toggles or casting. No content/cache/client migration. Candidate
+only; no production installation or wiki publication. [Design and evidence](docs/items/paladin-weapon-grip/README.md),
+[owner QA](docs/items/paladin-weapon-grip/QA.md).
+
 ## 2026-10-26 — Persistent Commonlands bazaar live testing
 
 Added independent player-item escrow, offline seller credits and native `/bazaar`

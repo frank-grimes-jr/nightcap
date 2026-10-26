@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## 2026-10-26 — Paladin grip candidate, not deployed
+
+Right-click switching between 1HS and 2HS is implemented for SoulFire, Fiery
+Avenger and Fiery Defender, replacing SoulFire’s heal click. Saved metadata keeps
+the original item identity and charge count. Automated native/SQL verification
+and isolated build evidence are tracked in [the candidate record](items/paladin-weapon-grip/README.md).
+Full owner RoF2 QA, main promotion, production deployment and wiki publication
+remain pending. [Exact game checks](items/paladin-weapon-grip/QA.md).
+
 ## 2026-10-26 — Commonlands bazaar deployed for live QA
 
 Owner-approved main PR339/29e4e84b is deployed. Persistent listings and offline

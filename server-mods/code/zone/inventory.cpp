@@ -23,6 +23,7 @@
 #include "common/evolving_items.h"
 #include "common/repositories/character_corpse_items_repository.h"
 #include "common/strings.h"
+#include "common/paladin_weapon_grip.h"
 #include "zone/bot.h"
 #include "zone/queryserv.h"
 #include "zone/quest_parser_collection.h"
@@ -31,6 +32,61 @@
 
 extern WorldServer worldserver;
 extern QueryServ  *QServ;
+
+bool Client::TogglePaladinWeaponGrip(int32 slot_id)
+{
+	using namespace NightcapPaladinGrip;
+	// Validate before InventoryProfile's int16 slot conversion.
+	if (slot_id < 0 || slot_id > 32767) { return false; }
+	auto *inst = m_inv.GetItem(static_cast<int16>(slot_id));
+	if (!inst || !Supported(inst->GetID())) { return false; }
+	if (!client_data_loaded || !m_pet_armor_transfer_valid || !m_inv.SupportsClickCasting(static_cast<int16>(slot_id)) ||
+		IsDead() || IsEngaged() || GetAggroCount() > 0 || auto_attack || IsCasting() || IsStunned() || IsMezzed() || IsFeared() || IsAIControlled() ||
+		(trade && trade->With()) || GetTradeskillObject() || IsTrader() || IsBuyer()) {
+		Message(Chat::Yellow, "Change your weapon grip from your equipment or inventory while safely out of combat and trading.");
+		return true;
+	}
+	if (inst->IsEvolving() || inst->IsScaling() || !PlainMetadata(inst->GetCustomDataString())) {
+		Message(Chat::Yellow, "This customized weapon cannot change grip.");
+		return true;
+	}
+	const bool one_handed = inst->GetItem()->ItemType == EQ::item::ItemType2HSlash;
+	const auto destination_type = one_handed ? EQ::item::ItemType1HSlash : EQ::item::ItemType2HSlash;
+	if (!one_handed && (slot_id == EQ::invslot::slotSecondary ||
+		(slot_id == EQ::invslot::slotPrimary && m_inv.GetItem(EQ::invslot::slotSecondary)))) {
+		Message(Chat::Yellow, "Empty your offhand before changing an equipped weapon to 2HS.");
+		return true;
+	}
+	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
+		const auto *augment = inst->GetAugment(i);
+		if (augment && IsAugmentRestricted(destination_type, augment->GetItem()->AugRestrict)) {
+			Message(Chat::Yellow, "Remove augments that do not support the other weapon skill before changing grip.");
+			return true;
+		}
+	}
+	try {
+		const auto sql = UpdateSQL(CharacterID(), static_cast<int16>(slot_id), *inst, one_handed);
+		if (sql.empty()) { return true; }
+		const auto result = database.QueryDatabase(sql, false); // never retry an uncertain toggle
+		if (!result.Success() || result.RowsAffected() != 1) {
+			QuarantineItemTransfer("Your weapon grip could not be confirmed. Reconnect to reload your inventory.");
+			return true;
+		}
+		// Publish only after the exact saved instance has committed successfully.
+		if (one_handed) { inst->SetCustomData(Key, std::string("1")); }
+		else { inst->DeleteCustomData(Key); }
+		SendItemPacket(static_cast<int16>(slot_id), inst, ItemPacketTrade);
+		if (slot_id == EQ::invslot::slotPrimary) {
+			CalcBonuses();
+			SetAttackTimer();
+			SendWearChange(EQ::textures::weaponPrimary);
+		}
+		Message(Chat::Green, "Your %s now uses %s.", inst->GetItem()->Name, one_handed ? "1H Slashing" : "2H Slashing");
+	} catch (...) {
+		QuarantineItemTransfer("Your weapon grip needs to be reloaded. Reconnect before using it again.");
+	}
+	return true;
+}
 
 // @merth: this needs to be touched up
 uint32 Client::NukeItem(uint32 itemnum, uint8 where_to_check) {
