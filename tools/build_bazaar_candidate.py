@@ -9,7 +9,7 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 DEST='/tmp/nightcap-bazaar-20261024-v1'
-BASE='/tmp/nightcap-rogue-tomes-20261024-v1'
+BASE='/tmp/nightcap-october24-integrated-v2'
 FILES=['common/bazaar.cpp','common/bazaar.h','common/bazaar_escrow.h','common/bazaar_search_policy.h','zone/client_bazaar.cpp',
        'zone/trading.cpp','zone/client.h','zone/client_packet.cpp','zone/command.cpp','zone/command.h','zone/CMakeLists.txt']
 probe=subprocess.run(['docker','exec','akk-stack-eqemu-server-1','pgrep','-af','^(/usr/bin/)?cmake --build '+DEST+'/build'],capture_output=True,text=True)
@@ -33,17 +33,20 @@ subprocess.run(['docker','exec','-i','akk-stack-eqemu-server-1','python3','-c',e
 build=r"""
 import hashlib,json,shutil,subprocess
 from pathlib import Path
-root=Path('/tmp/nightcap-bazaar-20261024-v1');base=Path('/tmp/nightcap-rogue-tomes-20261024-v1')
+root=Path('/tmp/nightcap-bazaar-20261024-v1');base=Path('/tmp/nightcap-october24-integrated-v2')
 manifest=json.loads((base/'manifest.json').read_text());source=root/'source'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-expected='75e0c7c3a8dbc42b87e09cd60ba350ce0c37b2a2c31771934665aa88fc3061df'
-assert sha(base/'build/bin/zone')==manifest['zone_sha256']==expected
+expected='4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744'
+assert sha(base/'build/bin/zone')==manifest['binaries']['zone']==expected
+earlier=json.loads(Path('/tmp/nightcap-rogue-tomes-20261024-v1/manifest.json').read_text())
 source.mkdir(exist_ok=True)
 for name,digest in manifest['source_files'].items():
  p=base/'source'/name;assert sha(p)==digest,'Retained source drift: '+name
  target=source/name;target.parent.mkdir(parents=True,exist_ok=True)
  if not target.exists():shutil.copy2(p,target)
- elif not (root/'input'/name).exists():assert sha(target)==digest,'Unexpected candidate drift: '+name
+ elif not (root/'input'/name).exists():
+  assert sha(target) in (digest,earlier['source_files'].get(name)),'Unexpected candidate drift: '+name
+  if sha(target)!=digest:shutil.copy2(p,target)
 changed={}
 for p in (root/'input').rglob('*'):
  if p.is_file():
@@ -61,7 +64,7 @@ for label,command in zip(('configure','build'),commands):
 assert all(sha(source/n)==h for n,h in pins.items())
 assert all(sha(base/'source'/n)==h for n,h in manifest['source_files'].items())
 ldd=subprocess.check_output(['ldd',str(root/'build/bin/zone')],text=True);assert 'not found' not in ldd
-report=dict(status='complete zone build passed; not installed',baseline_zone_sha256=expected,zone_sha256=sha(root/'build/bin/zone'),source_files=pins,changed_sources=changed,production_changed=False,client_verified=False,owner_accepted=False)
+report=dict(status='complete zone build passed; not installed',baseline_zone_sha256=expected,baseline_source='ad7a42069b28eb47dbcd6c061c2640c68aafe580',zone_sha256=sha(root/'build/bin/zone'),source_files=pins,changed_sources=changed,production_changed=False,client_verified=False,owner_accepted=False)
 (root/'manifest.json').write_text(json.dumps(report,indent=2)+'\n');print({k:v for k,v in report.items() if k!='source_files'},flush=True)
 """
 subprocess.run(['docker','exec','-i','akk-stack-eqemu-server-1','python3','-c',build],check=True)

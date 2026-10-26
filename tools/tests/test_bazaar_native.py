@@ -91,6 +91,7 @@ struct ItemInstance {
  unsigned id=1001,color=0,icon=0,file=0;int charges=1,hero=0;bool attuned=false;
  std::array<unsigned,6> aug{};std::map<std::string,std::string> m_custom_data;
  bool IsClassBag()const{return false;}
+ bool IsStackable()const{return id==1002;}
  const ItemInstance *GetItem(unsigned)const{return nullptr;}
  unsigned GetID()const{return id;}int GetCharges()const{return charges;}unsigned GetColor()const{return color;}
  unsigned GetAugmentItemID(unsigned i)const{return aug[i];}bool IsAttuned()const{return attuned;}
@@ -134,6 +135,10 @@ int main(){
  assert(client.inv.cursor.front().GetCustomDataString()=="a^1^^b^2^");
  assert(!Restore(Snapshot(1,33,client.inv.cursor.front())));
  assert(!CursorSnapshot(&client,cursor)); // never escrow unreconstructible metadata
+ client.inv.cursor.front()=EQ::ItemInstance{};client.inv.cursor.front().id=1002;
+ client.inv.cursor.front().charges=32766;cursor.clear();assert(CursorSnapshot(&client,cursor));
+ client.inv.cursor.front().charges=32767;cursor.clear();assert(!CursorSnapshot(&client,cursor));
+ client.inv.cursor.front().charges=0;cursor.clear();assert(!CursorSnapshot(&client,cursor));
 
 }
 '''

@@ -61,6 +61,8 @@ std::unique_ptr<EQ::ItemInstance> Restore(const Row &row)
 		Number(row[5]), Number(row[6]), Number(row[7]), Number(row[8]), Number(row[9]), Number(row[10])));
 	if (!item) { return {}; }
 	item->SetCharges(Number(row[3]) == 32767 ? -1 : Number(row[3]));
+	// 32767 is the native saved sentinel for unlimited charges, never a stack.
+	if (item->IsStackable() && item->GetCharges() <= 0) { return {}; }
 	item->SetColor(Number(row[4])); item->SetAttuned(Number(row[11]) != 0);
 	item->SetCustomDataString(Unhex(row[12])); item->SetOrnamentIcon(Number(row[13]));
 	item->SetOrnamentationIDFile(Number(row[14])); item->SetOrnamentHeroModel(std::stoll(row[15]));
@@ -185,7 +187,7 @@ void Client::BazaarCommand(const Seperator *sep)
 				Message(Chat::White, "Listing %s: %s x%s at %llu platinum each. Cancel: #bazaar cancel %s", row[0].c_str(), item ? item->Name : "Unknown item", row[3].c_str(), static_cast<unsigned long long>(Number(row[2]) / 1000), row[0].c_str());
 			}
 			auto credits = BazaarQuery("SELECT copper FROM nightcap_bazaar_credits WHERE character_id=" + std::to_string(CharacterID()));
-			if (credits.ok && credits.rows.size() == 1) { Message(Chat::White, "Uncollected proceeds: %llu platinum. Use #bazaar collect.", static_cast<unsigned long long>(Number(credits.rows[0][0]) / 1000)); }
+			if (credits.ok && credits.rows.size() == 1) { Message(Chat::White, "Uncollected proceeds: %llu platinum and %u copper. Use #bazaar collect.", static_cast<unsigned long long>(Number(credits.rows[0][0]) / 1000), static_cast<unsigned>(Number(credits.rows[0][0]) % 1000)); }
 			Message(Chat::White, "Showing up to 100 active listings. Use /bazaar to search the market."); return;
 		}
 	} catch (...) { Message(Chat::Yellow, "Use whole positive numbers for prices and listing IDs."); return; }
