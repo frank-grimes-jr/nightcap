@@ -1532,6 +1532,7 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     const bool advanced_loot_ok = nightcap::client_ui::InstallAdvancedLoot([](const char* event) { Log("ADVLOOT %s", event); });
     if (!advanced_loot_ok) Log("Advanced loot initialization failed at %s", nightcap::client_ui::install_failure);
     RequirePatch(nightcap::Feature_advanced_loot,advanced_loot_ok);
+    RequirePatch(nightcap::Feature_bazaar_panel,nightcap::client_ui::InstallBazaarPanel());
     // Guard every accessor before installing any multiclass redirection.
     bool spell_access_ok = false;
     __try {
