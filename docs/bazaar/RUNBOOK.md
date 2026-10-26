@@ -1,6 +1,8 @@
 # Commonlands market: pairing and recovery
 
-Candidate only. No activation or main promotion authorized by this runbook.
+Candidate prepared. The owner authorized main promotion and live QA deployment
+on October26; see [the exact authorization](deployment/AUTHORIZATION.md). Actual
+activation and player acceptance are still separate.
 
 ## Before a release
 

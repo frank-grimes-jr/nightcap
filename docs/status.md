@@ -5,8 +5,9 @@
 Implementation in feature/commonlands-bazaar adds persistent player listings,
 offline credits and native search/purchase in East Commonlands. Disposable MariaDB
 transaction/fault tests and native guard tests pass; full native zone build passes with all11 source fingerprints matched.
-Schema is disabled by default. No live deployment, client-window acceptance or
-owner sign-off is claimed. [Design](bazaar/SPEC.md) and [exact QA](bazaar/QA.md).
+Schema is disabled by default. Owner approved main/live QA deployment on October26;
+28 Windows/Linux rollout tests and independent operator review pass. Actual live
+deployment and client-window/player acceptance remain pending. [Design](bazaar/SPEC.md) and [exact QA](bazaar/QA.md).
 
 ## 2026-10-25 — Coordinated October 24 release deployed
 

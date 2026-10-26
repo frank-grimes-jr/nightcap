@@ -10,7 +10,9 @@ evolving/scaling items and metadata that cannot roundtrip native loading are rej
 before posting; exact supported instance metadata is retained. Migration starts
 disabled. Full current-baseline zone build,22 database tests,2 native guard groups
 and independent review pass. Not deployed: [design and evidence](docs/bazaar/SPEC.md),
-[exact player QA](docs/bazaar/QA.md). Existing live behavior is unchanged.
+[exact player QA](docs/bazaar/QA.md). Owner approved main/live QA deployment on
+October26; the guarded operator has28 passing Windows/Linux failure tests and
+independent review. Existing live behavior is unchanged until activation.
 
 ## 2026-10-24 — Coordinated release v2: reward cache race mask
 

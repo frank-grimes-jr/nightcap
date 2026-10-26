@@ -66,5 +66,18 @@
     "unrelated_drift_not_accepted": true,
     "skill_validator": "passed"
   },
-  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/335"
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/335",
+  "owner_live_qa_authorized": true,
+  "authorization": "deployment/AUTHORIZATION.md",
+  "deployment_operator": {
+    "tests": "28 pass on Windows and Linux; POSIX receipt durability verified",
+    "review": "No blocking findings; uncertain disable receipt/hold/replay gap fixed",
+    "production_preflight": "pending",
+    "production_current_zone_matches_baseline": true,
+    "storage_engines_verified": [
+      "inventory:InnoDB",
+      "character_currency:InnoDB"
+    ],
+    "existing_bazaar_tables": false
+  }
 }
