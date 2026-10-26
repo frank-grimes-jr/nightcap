@@ -1,5 +1,23 @@
 # Current Nightcap status
 
+## 2026-10-26 — Bazaar Sell / My Listings candidate
+
+Native posting, own-listing cancellation and proceeds collection controls are built
+as a paired client/server candidate. The currently deployed command market remains
+the live QA baseline; this panel has not been published or accepted in game.
+[Candidate evidence and exact GUI QA](bazaar/seller-panel/README.md).
+
+## 2026-10-26 — Paladin grip candidate, not deployed
+
+Right-click switching between 1HS and 2HS is implemented for SoulFire, Fiery
+Avenger and Fiery Defender, replacing SoulFire’s heal click. Saved metadata keeps
+the original item identity and charge count. Automated native/SQL verification
+and the complete zone/world/shared_memory build passed; evidence is tracked in
+[the candidate record](items/paladin-weapon-grip/README.md). The owner-authorized
+Bazaar chat owns the combined promotion and deployment.
+Full owner RoF2 QA, main promotion, production deployment and wiki publication
+remain pending. [Exact game checks](items/paladin-weapon-grip/QA.md).
+
 ## 2026-10-26 — Commonlands bazaar deployed for live QA
 
 Owner-approved main PR339/29e4e84b is deployed. Persistent listings and offline
