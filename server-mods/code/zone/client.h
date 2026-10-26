@@ -40,6 +40,7 @@ namespace EQ
 
 #include "zone/pet_armor.h"
 #include "zone/living_economy.h"
+#include "common/bazaar_escrow.h"
 #include "zone/aggromanager.h"
 #include "zone/bot_structs.h"
 #include "zone/cheat_manager.h"
@@ -962,6 +963,18 @@ public:
 	void ReadBookByName(std::string book_name, uint8 book_type);
 	void QuestReadBook(const char* text, uint8 type);
 	void SendMoneyUpdate();
+	void BazaarCommand(const Seperator *sep);
+	bool BazaarSessionReady();
+	bool BazaarStorageReady();
+	bool CompleteBazaarRequest(const NightcapBazaar::Request &request);
+	bool HandleBazaarPurchase(const EQApplicationPacket *app);
+	bool HandleBazaarInspect(uint32 listing_id);
+	void RememberBazaarResults(const std::vector<BazaarSearchResultsFromDB_Struct> &results);
+	NightcapBazaar::Request m_bazaar_post;
+	std::string m_bazaar_confirmation;
+	uint64 m_bazaar_confirmation_deadline = 0;
+	struct BazaarQuote { uint32 price, item_id, quantity; uint64 deadline; };
+	std::map<uint32, BazaarQuote> m_bazaar_quotes;
 	void LivingEconomy(uint32 npc_entity_id, const std::string &text);
 	void MarketAnnouncement(uint32 npc_entity_id, uint32 variant);
 	void TunnelChatter(uint32 npc_entity_id, const std::string &message);

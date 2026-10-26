@@ -1565,7 +1565,7 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 	// calls CanUseAlternateAdvancementRank() per AA, which gates on GetClassMask().
 	// That mask is 0 until LoadMulticlassMask() runs (otherwise only set later in
 	// CompleteConnect/SendZoneInPackets). With a 0 mask every owned AA fails the class
-	// check and is silently dropped on zone-in — the AA disappears and its spent points
+	// check and is silently dropped on zone-in â€” the AA disappears and its spent points
 	// are not refunded. Build the mask here so loaded AAs survive.
 	LoadMulticlassMask();
 
@@ -3875,6 +3875,7 @@ void Client::Handle_OP_BazaarInspect(const EQApplicationPacket *app)
 	}
 
 	BazaarInspect_Struct* bis = (BazaarInspect_Struct*)app->pBuffer;
+	if (bis->trader_id == NightcapBazaar::BrokerID) { HandleBazaarInspect(bis->serial_number); return; }
 
 	const EQ::ItemData* item = database.GetItem(bis->item_id);
 
@@ -3895,10 +3896,12 @@ void Client::Handle_OP_BazaarInspect(const EQApplicationPacket *app)
 
 void Client::Handle_OP_BazaarSearch(const EQApplicationPacket *app)
 {
+	if (app->size < sizeof(uint32)) { return; }
 	uint32 action = *(uint32 *) app->pBuffer;
 
 	switch (action) {
 		case BazaarSearch: {
+			if (app->size != sizeof(BazaarSearchCriteria_Struct)) { return; }
 			BazaarSearchCriteria_Struct *bss = (BazaarSearchCriteria_Struct *) app->pBuffer;
 			BazaarSearchCriteria_Struct search_details{};
 
@@ -3924,6 +3927,7 @@ void Client::Handle_OP_BazaarSearch(const EQApplicationPacket *app)
 			break;
 		}
 		case BazaarInspect: {
+			if (app->size != sizeof(BazaarInspect_Struct)) { return; }
 			auto in = (BazaarInspect_Struct *) app->pBuffer;
 			DoBazaarInspect(*in);
 			break;
@@ -15474,6 +15478,8 @@ void Client::Handle_OP_Trader(const EQApplicationPacket *app)
 
 void Client::Handle_OP_TraderBuy(const EQApplicationPacket *app)
 {
+	if (app->size != sizeof(TraderBuy_Struct)) { return; }
+	if (HandleBazaarPurchase(app)) { return; }
 	// Bazaar Trader:
 	//
 	// Client has elected to buy an item from a Trader
