@@ -9,5 +9,5 @@
   "bazaar_standalone_zone": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
   "production_writes": false,
   "integrated_source": "7de660fe",
-  "integrated_build": "active"
+  "integrated_build": "PASS, allthree paired binaries and immutable standalone source/binary backup authenticated"
 }

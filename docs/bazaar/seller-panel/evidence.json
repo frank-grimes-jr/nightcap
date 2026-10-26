@@ -1,6 +1,6 @@
 {
   "date": "2026-10-26",
-  "status": "standalone Bazaar full build passed; coordinated integrated build pending",
+  "status": "Integrated full native build and all release checks passed; authorized deployment in progress",
   "source_baseline": "465003f60a3181317e5a8c123675b05bd63ef114",
   "deployment": false,
   "owner_accepted": false,
@@ -65,5 +65,16 @@
     "sha256": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
     "source_manifest": "docs/bazaar/private/seller-panel/native-build-manifest.json"
   },
-  "authorized": "Owner October26 combined main/server/client/wiki QA release; single deployment owner, weapon chat holds writes"
+  "authorized": "Owner October26 combined main/server/client/wiki QA release; single deployment owner, weapon chat holds writes",
+  "integrated_build": {
+    "status": "PASS",
+    "source_revision": "7de660fee0e3539a3596d1a439fafdf11a8e1f99",
+    "binaries": {
+      "zone": "68b88c7f25e53d45356d7e1400a699490eac89b6a45c56bd8c28eef66fea82c6",
+      "world": "a0f8f2c8f4e58815dc786eb046e472ee3695e2cacf3df40a202b0d3cbfa69ffa",
+      "shared_memory": "39c889cf19dd8a5273ad544466f7b2c6ae199f2525312e9d61c59fa7a21dfbc9"
+    },
+    "source_count": 2842,
+    "preserved_weapon_manifest_sha256": "e735da5af64bdee27c72d2f82943a290c8ae68d508ff7458bab11d9b6a4261fc"
+  }
 }
