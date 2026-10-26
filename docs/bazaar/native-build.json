@@ -60,5 +60,6 @@
   "logs": [
     "/tmp/nightcap-bazaar-20261024-v1/build-1793030297099582206.log",
     "/tmp/nightcap-bazaar-20261024-v1/build-1793032322096218773.log"
-  ]
+  ],
+  "record_scope": "Build-time result, before installation. Subsequent authorized production installation is verified by deployed.json and deployment-receipt.json."
 }

@@ -1,6 +1,6 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 24, 2026.
+Updated October 26, 2026.
 
 ## Current state
 
@@ -9,14 +9,16 @@ Updated October 24, 2026.
   Owner-approved reader/timer/JSON route and HTML publication are verified.
   [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 24, 2026 (EDT).
-- **Active OVH origin release:** `20261024-rogue-tomes-v1`; previous
-  `20261024-wiki-custom-features-v1` is retained for recovery.
-  Editorial source: `C:/Users/verre/.codex/worktrees/rogue-tomes-wiki/EQ_Local_Dev`,
-  branch `feature/rogue-tomes-wiki`. Publication/recovery:
-  `docs/releases/rogue-tomes-20261024/wiki-publication.md`. All 483 HTTPS files
-  verify; only Multiclass, Change Log and search changed. Custom Features,
-  clarity structure, reader and unreleased candidate labels remain intact.
+- **Public URL: https://wiki.nightcapgame.org/** — verified October26,2026.
+- **Active OVH origin release:** `20261026-commonlands-bazaar-v1`; previous
+  `20261024-rogue-tomes-v1` is retained for recovery. Source: managed
+  commonlands-bazaar checkout, branch `feature/commonlands-bazaar`.
+  [Publication and recovery](../bazaar/deployment/README.md):499HTTPS hashes and
+  security headers plus five private denials pass.35files change,464remain exact,
+  none removed. Publishes already-deployed High Keep/Ashen guidance and bazaar
+  live-testing instructions; preserves Rogue tome content and unrelated candidates.
+ 16Linux publisher tests, rollback rehearsal and private/service/config preservation
+  pass. Native gameplay acceptance remains separate.
 - **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
   required and the GM access restriction removed. Private Hate retains its
   entrance Keeper. Main PR299/server and466-file wiki publication are verified;

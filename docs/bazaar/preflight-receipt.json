@@ -1,0 +1,10 @@
+{
+  "image": "sha256:87849fcb1b45354e1e62b1ee334a0d60e9c148bd01181ad74939224da98e93fb",
+  "checks": {
+    "schema": 51,
+    "content": 565
+  },
+  "free_bytes": 975822848,
+  "services_unchanged": true,
+  "activated": false
+}
