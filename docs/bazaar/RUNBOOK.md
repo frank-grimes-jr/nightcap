@@ -1,8 +1,10 @@
-# Commonlands market: pairing and recovery
+# Commonlands bazaar operations
 
-Candidate prepared. The owner authorized main promotion and live QA deployment
-on October26; see [the exact authorization](deployment/AUTHORIZATION.md). Actual
-activation and player acceptance are still separate.
+Owner-approved main PR339/29e4e84b and live activation are verified October26.
+Gateway open; zone84b6b9ff and additive escrow are installed. No client update.
+Player acceptance remains deferred. See [deployment evidence](deployment/README.md)
+and [exact QA](QA.md). Preserve this deployment boundary when applying the general
+release/recovery instructions below.
 
 ## Before a release
 
@@ -63,6 +65,6 @@ requires a separately reviewed drain/reconciliation after all ownership is retur
 ## Documentation
 
 Record source, build, deployment and owner acceptance separately in evidence.json,
-CHANGES/status and installed Nightcap knowledge. Six wiki articles have explicitly
-unreleased candidate guidance; reconcile current published content and verify every
-public file only as part of an authorized publication. No publication is claimed.
+CHANGES/status and installed Nightcap knowledge. Six bazaar guides describe live testing and unresolved native acceptance. Wiki
+publication is recorded separately in deployment/wiki-publication.json and
+wiki-public-verification.json; local edits alone never establish publication.

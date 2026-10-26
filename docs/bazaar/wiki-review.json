@@ -1,9 +1,9 @@
 {
   "date": "2026-10-26",
-  "source_revision": "96f6f231423cc13aaa8ccbfff0cd5e9aa055320e",
+  "source_revision": "main29e4e84b plus reviewed deployment/wiki working changes",
   "source_base": "8db6dd95",
-  "published_baseline": "20261024-rogue-tomes-v1 last recorded wiki publication; integrated October24 main content retained, not independently republished here",
-  "publication": "pending; local candidate only",
+  "published_baseline": "Actual production capture:20261024-rogue-tomes-v1,483files",
+  "publication": "Verified20261026-commonlands-bazaar-v1:499HTTPS file hashes/headers and5private denials;16Linux publisher tests and rollback rehearsal",
   "articles": [
     {
       "path": "wiki/articles/about.json",
@@ -42,7 +42,7 @@
     },
     {
       "path": "wiki/articles/commands.json",
-      "assessment": "Candidate market instructions/availability; no live claim",
+      "assessment": "Live-testing market instructions/availability with native player acceptance explicitly open",
       "changed": true
     },
     {
@@ -52,12 +52,12 @@
     },
     {
       "path": "wiki/articles/equipment.json",
-      "assessment": "Candidate market instructions/availability; no live claim",
+      "assessment": "Live-testing market instructions/availability with native player acceptance explicitly open",
       "changed": true
     },
     {
       "path": "wiki/articles/features.json",
-      "assessment": "Candidate market instructions/availability; no live claim",
+      "assessment": "Live-testing market instructions/availability with native player acceptance explicitly open",
       "changed": true
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "path": "wiki/articles/index.json",
-      "assessment": "Home remains available-system orientation; candidate discoverable from Features/In development without a release announcement",
+      "assessment": "Home remains available-system orientation; live-testing bazaar discoverable through Features/Guides without a duplicated release announcement",
       "changed": false
     },
     {
@@ -167,7 +167,7 @@
     },
     {
       "path": "wiki/articles/recent-changes.json",
-      "assessment": "Candidate market instructions/availability; no live claim",
+      "assessment": "Live-testing market instructions/availability with native player acceptance explicitly open",
       "changed": true
     },
     {
@@ -182,12 +182,12 @@
     },
     {
       "path": "wiki/articles/tunnel.json",
-      "assessment": "Candidate market instructions/availability; no live claim",
+      "assessment": "Live-testing market instructions/availability with native player acceptance explicitly open",
       "changed": true
     },
     {
       "path": "wiki/articles/unreleased.json",
-      "assessment": "Candidate market instructions/availability; no live claim",
+      "assessment": "Live-testing market instructions/availability with native player acceptance explicitly open",
       "changed": true
     },
     {
@@ -207,7 +207,10 @@
     }
   ],
   "catalog": "All generated item/zone routes retain definitions, acquisition and stats; escrow adds no stock, loot source, quality, reward or catalog value. No regeneration input changes.",
-  "scope": "Six guide/directory/history updates, explicit Not released labels. Home, tools, generated routes and all unrelated guides unchanged.",
-  "outside_git": "October25 native/client activation is evidenced by coordinated open-receipt.json; no bazaar SQL/runtime/client activation exists.",
-  "source_ledger": "Do not advance global content-review revision; changed native inputs and candidate documentation require review, not proof of publication."
+  "scope": "Six bazaar guide/directory/history updates with Live testing labels and native acceptance pending. Home/tools/catalog inputs unchanged by escrow; combined coordinated-publication scope recorded separately.",
+  "outside_git": "October25 coordinated native/client activation:coordinated open-receipt.json. October26 bazaar SQL/runtime activation and gateway opening:deployed.json/deployment-receipt.json. Existing signed client retained; native player QA deferred.",
+  "source_ledger": "Bazaar and coordinated deployment/publication evidence reviewed; global historical content-review revision retained rather than accepting unrelated drift.",
+  "combined_scope": "Reviewed already-deployed coordinated High Keep/Ashen guides and16new pages plus6bazaar live-testing articles;35changed files,464identical,none removed",
+  "owner_qa": "Deferred by owner; Native RoF2/seller-buyer acceptance open",
+  "refresh": "Actual HEAD plus worktree:REVIEW REQUIRED; reviewed bazaar source and deployed coordinated evidence, retained unrelated ledger drift"
 }

@@ -1,0 +1,25 @@
+{
+  "stage": "/opt/nightcap/releases/commonlands-bazaar-20261026",
+  "source_revision": "8e8ef65a428bd5cf5e2164df03f752644baa3e05",
+  "backup": {
+    "sha256": "b935254b49f56596afee30a786dc7509b532e1b558d85c3c23c4ffcc671cc867",
+    "compressed_bytes": 64890623,
+    "uncompressed_bytes": 462418343,
+    "gzip_integrity": "passed"
+  },
+  "command_permissions": {
+    "existing_rows_preserved": 170,
+    "added": [
+      "bazaar",
+      0,
+      ""
+    ],
+    "exact_rows_verified": true
+  },
+  "schema_installed": true,
+  "market_enabled": true,
+  "gateway_open": true,
+  "database_restored": false,
+  "free_bytes": 910577664,
+  "native_expiry": "Authenticated native expiry modeled against the stopped state; exact cache records retained privately"
+}

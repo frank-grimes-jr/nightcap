@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-26 — Persistent Commonlands bazaar candidate
+## 2026-10-26 — Persistent Commonlands bazaar live testing
 
 Added independent player-item escrow, offline seller credits and native `/bazaar`
 search/purchase routing for public East Commonlands. Cursor posting uses an explicit
@@ -9,10 +9,17 @@ and funds together. No auctioneer character is needed. Filled bags, temporary,
 evolving/scaling items and metadata that cannot roundtrip native loading are rejected
 before posting; exact supported instance metadata is retained. Migration starts
 disabled. Full current-baseline zone build,22 database tests,2 native guard groups
-and independent review pass. Not deployed: [design and evidence](docs/bazaar/SPEC.md),
+and independent review pass. Deployed with owner approval via main PR339:  [design and evidence](docs/bazaar/SPEC.md),
 [exact player QA](docs/bazaar/QA.md). Owner approved main/live QA deployment on
 October26; the guarded operator has28 passing Windows/Linux failure tests and
-independent review. Existing live behavior is unchanged until activation.
+independent review. The installed zone and additive escrow schema passed12-worker,
+51schema/565content,97state-table and170command-permission checks; gateway is open.
+A verified stopped backup is retained. Initial preflight hit its disk reserve; only
+the exact task build-context cache was reclaimed, then a reviewed continuation
+passed without rebuilding. Native client/player acceptance remains deferred.
+[Deployment and recovery](docs/bazaar/deployment/README.md). Related wiki release
+20261026-commonlands-bazaar-v1 verifies499public files, preserving Rogue tome
+content and publishing already-deployed High Keep/Ashen plus bazaar guidance.
 
 ## 2026-10-24 — Coordinated release v2: reward cache race mask
 
