@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "stage": "/opt/nightcap/releases/bazaar-grip-20261026",
+  "image": "sha256:8b6ce6198541aac03f9d618b6f1161c206398a9867d7b3a98e3f0455003b2741",
+  "checks": {
+    "schema": 51,
+    "content": 565
+  },
+  "manifest_sha256": "b45f034648049e6be6a9b93d49d52c2a01b02d7b63e64c41e91a8b0d681286a3",
+  "free_bytes": 749625344,
+  "production_activated": false
+}

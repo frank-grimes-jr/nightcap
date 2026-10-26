@@ -1,5 +1,13 @@
 # Commonlands bazaar — October26 live QA deployment
 
+Historical command-only deployment. It is superseded by the coordinated seller-panel
+and Paladin grip release in ../seller-panel/deployment/. Its unmounted staging
+bin/zone is preserved as zone.bazaar-grip-debug-preserved.gz beside a verified
+restoration receipt; decompress to an exclusive temporary file, verify84b6b9ff's
+full recorded SHA, set755, and atomically restore before using this old stage.
+This is archive recovery only: after1HS metadata exists, live recovery must retain
+grip-aware binaries and current earned player data.
+
 Owner approval: AUTHORIZATION.md. Main PR339/29e4e84b contains the reviewed
 feature and28-test operator. Source8e8ef65a; zone SHA256
 84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1.

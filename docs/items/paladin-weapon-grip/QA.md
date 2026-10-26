@@ -1,6 +1,6 @@
 # Owner QA — not yet run
 
-Use a candidate test server with matching native binaries and current signed
+Use the deployed live QA server with matching native binaries and signed2026102601
 RoF2 client. Record each weapon ID, grip, saved instance fields and observations.
 
 1. In East Commonlands, inspect and right-click each of the ten IDs in README.md

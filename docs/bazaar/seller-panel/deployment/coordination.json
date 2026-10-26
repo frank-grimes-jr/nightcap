@@ -7,7 +7,9 @@
   "weapon_build": "Terminal PASS; original source/binaries retained at standalone-weapon before integrated rebuild",
   "bazaar_source": "427ed8ea",
   "bazaar_standalone_zone": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
-  "production_writes": false,
+  "production_writes": true,
   "integrated_source": "7de660fe",
-  "integrated_build": "PASS, allthree paired binaries and immutable standalone source/binary backup authenticated"
+  "integrated_build": "PASS, allthree paired binaries and immutable standalone source/binary backup authenticated",
+  "status": "One combined main/server/client/wiki release completed; owner QA open",
+  "main_revision": "e43f2d4b8d7d0665ac0465fad20c91fb26b7e383"
 }
