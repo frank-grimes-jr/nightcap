@@ -7,10 +7,13 @@
 #include "advanced_loot_ui.h"
 #include "advanced_loot_icons.h"
 #include "tradeskill_repeat.h"
+#include "bazaar_panel_controller.h"
 
 namespace nightcap {
 namespace client_ui {
 inline void ResetMonkReuse();
+inline bool ConsumeBazaarReply(const char *message);
+inline void ResetBazaarPanel();
 // All offsets and instruction boundaries belong to the pinned May 2013 RoF2
 // executable. They are also guarded by the generated signed patch catalog.
 struct EqString { void* rep; };
@@ -414,6 +417,7 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
 inline void __fastcall ChatHook(void* self, void*, const char* message, int color, bool log, bool convert) {
     LootPulse();
     if (ConsumeCraftReply(message)) return;
+    if (ConsumeBazaarReply(message)) return;
     if (message && AdvancedLootUI::Consume(message)) return;
     if (pet_management.Consume(message)) { management_received = GetTickCount64(); return; }
     if (state.Consume(message)) {
@@ -425,6 +429,7 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
     if (next != 5) ResetMonkReuse();
+    if (next != 5) ResetBazaarPanel();
     if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
     if (next != 5) AdvancedLootUI::Reset();
     if (next != 5) { state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
@@ -438,6 +443,8 @@ inline void* AAChild(void* window, const char* name) {
     void* child = reinterpret_cast<Child>(base+kUIChildRva)(window,&id);
     assign(&id,""); return child;
 }
+#include "bazaar_panel_hooks.h"
+inline void ResetBazaarPanel(){bazaar_panel.Close();bazaar_next_render=0;}
 inline bool AARecommendedChecked(void* window) {
     __try {
         auto button=AAChild(window,"NC_AARecommended");

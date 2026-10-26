@@ -1,6 +1,7 @@
 #include "zone/dungeon_service.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/item_upgrade_policy.h"
+#include "common/paladin_weapon_grip.h"
 #include "zone/advanced_loot_inventory.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
@@ -4395,6 +4396,20 @@ void Client::Handle_OP_CastSpell(const EQApplicationPacket *app)
 
 	LogSpells("OP CastSpell: slot [{}] spell [{}] target [{}] inv [{}]", castspell->slot, castspell->spell_id, castspell->target_id, (unsigned long)castspell->inventoryslot);
 	CastingSlot slot = static_cast<CastingSlot>(castspell->slot);
+	if (slot == CastingSlot::Item || slot == CastingSlot::PotionBelt) {
+		// Reject before InventoryProfile can narrow a hostile slot to int16.
+		if (static_cast<uint64>(castspell->inventoryslot) > 32767) {
+			SendSpellBarEnable(castspell->spell_id);
+			return;
+		}
+		const auto *grip_item = m_inv.GetItem(static_cast<int16>(castspell->inventoryslot));
+		if (grip_item && NightcapPaladinGrip::Supported(grip_item->GetID())) {
+			// RoF2 follows ItemVerifyReply with CastSpell. Conversion already ran
+			// in ItemVerifyRequest; never toggle twice or cast the click token/heal.
+			SendSpellBarEnable(castspell->spell_id);
+			return;
+		}
+	}
 
 	if (RuleB(Spells, RequireMnemonicRetention)) {
 		if (EQ::ValueWithin(castspell->slot, 8, 11) && GetAA(aaMnemonicRetention) < (castspell->slot - 7)) {
@@ -9413,11 +9428,11 @@ void Client::Handle_OP_ItemVerifyRequest(const EQApplicationPacket *app)
 		MessageString(Chat::Red, NOT_IN_CONTROL);
 		return;
 	}
-
-	if (slot_id < 0) {
+	if (slot_id < 0 || slot_id > 32767) {
 		LogDebug("Unknown slot being used by [{}] slot being used is [{}]", GetName(), request->slot);
 		return;
 	}
+	if (TogglePaladinWeaponGrip(slot_id)) { return; }
 
 	const EQ::ItemInstance* inst = m_inv[slot_id];
 	if (!inst) {

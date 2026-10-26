@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-26",
+  "status": "Integrated full native build and all release checks passed; authorized deployment in progress",
+  "source_baseline": "465003f60a3181317e5a8c123675b05bd63ef114",
+  "deployment": false,
+  "owner_accepted": false,
+  "checks": {
+    "database": "26 real MariaDB tests PASS, including40weapon grip buy/cancel combinations; disposable tmpfs only",
+    "native_server": "4 extracted production guard groups PASS, including current grip projection through Bazaar Restore",
+    "runtime": "10 x86 runtime groups PASS including seller controller/native hooks, health/startup failure gates and existing feature regressions",
+    "native_models": "288 animation cases and invisible-model native regression PASS",
+    "ui_assets": "3 Bazaar XML tests including pinned stock preservation; 11 existing gameplay asset tests PASS",
+    "catalog": "115 exact executable guards and generated catalog check PASS",
+    "launcher": "preflight/package/manifest tests PASS; actual unsigned candidate pair test PASS against signed public baseline2026102402",
+    "wiki": "19 content/refresh tests PASS; historical global source ledger remains REVIEW REQUIRED",
+    "review": "Independent security/correctness/native-ABI review; cooldown/reopen and price-notification findings fixed and re-reviewed; no remaining actionable findings",
+    "release": "21 Linux rollout fault-injection cases,17 Linux client publisher cases,4 ELF identity negative/positive cases PASS; independent packaging findings fixed"
+  },
+  "client": {
+    "status": "signed2026102601 local candidate;141files,137retained,actual runtime pairing/preflight and signature verified; not published",
+    "baseline_release": 2026102402,
+    "baseline_channel_sha256": "0cc3708d19d663e20d56d579324afe4e85586930ef6cbadaa95b5032cdaac167",
+    "assets": {
+      "dinput8.dll": {
+        "sha256": "d2b54d097f1b5843252221b03e0515412ca130ea64ddaea55984ff7560731327",
+        "size": 649728
+      },
+      "nightcap-patch-sites.json": {
+        "sha256": "2434e6b3aa8d9ecfac2412ec159d61401dd61a9d43a690fe62691b54554fb564",
+        "size": 10179
+      },
+      "nightcap-patches.cfg": {
+        "sha256": "3db23a1e5da1ea42b8a26b3a6d1d0c7d81e668f655f2ebf917313aa28aa969ab",
+        "size": 333
+      },
+      "uifiles/nightcap/equi_bazaarsearchwnd.xml": {
+        "sha256": "d936f54ac4d6d83d52dfe10d8502e4e26e1b552f0251e1cdbc8f47ebfa0edad4",
+        "size": 35874
+      }
+    },
+    "replaced": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json",
+      "nightcap-patches.cfg"
+    ],
+    "added": [
+      "uifiles/nightcap/equi_bazaarsearchwnd.xml"
+    ],
+    "complete_inventory_count": 141,
+    "published": false,
+    "native_rendered": false,
+    "release": 2026102601,
+    "channel_sha256": "a7b4235a6d2641224293d372b2f66a1f4d4c7e3e8bba1ac366455bab89409f44"
+  },
+  "visual": "Generated XML geometry preview inspected; actual native game rendering not performed",
+  "remaining": [
+    "integrated build including weapon conversion",
+    "promote authorized combined release to main",
+    "publish paired client and runtime",
+    "native gameplay QA"
+  ],
+  "zone_build": {
+    "status": "PASS",
+    "scope": "standalone Bazaar source f35107df before weapon integration",
+    "sha256": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
+    "source_manifest": "docs/bazaar/private/seller-panel/native-build-manifest.json"
+  },
+  "authorized": "Owner October26 combined main/server/client/wiki QA release; single deployment owner, weapon chat holds writes",
+  "integrated_build": {
+    "status": "PASS",
+    "source_revision": "7de660fee0e3539a3596d1a439fafdf11a8e1f99",
+    "binaries": {
+      "zone": "68b88c7f25e53d45356d7e1400a699490eac89b6a45c56bd8c28eef66fea82c6",
+      "world": "a0f8f2c8f4e58815dc786eb046e472ee3695e2cacf3df40a202b0d3cbfa69ffa",
+      "shared_memory": "39c889cf19dd8a5273ad544466f7b2c6ae199f2525312e9d61c59fa7a21dfbc9"
+    },
+    "source_count": 2842,
+    "preserved_weapon_manifest_sha256": "e735da5af64bdee27c72d2f82943a290c8ae68d508ff7458bab11d9b6a4261fc"
+  }
+}

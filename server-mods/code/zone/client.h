@@ -529,6 +529,7 @@ public:
 	bool ReprojectEarnedAAs();
 	bool LoadPetArmor();
 	void QuarantineItemTransfer(const char *message);
+	bool TogglePaladinWeaponGrip(int32 slot_id);
 	void ZoneForge(const std::string &request_id);
 	std::map<std::string, std::vector<std::pair<int16_t, uint32_t>>> m_zone_forge_quotes;
 	NPC *GetArmorPet(uint8 pet_class);
@@ -964,6 +965,10 @@ public:
 	void QuestReadBook(const char* text, uint8 type);
 	void SendMoneyUpdate();
 	void BazaarCommand(const Seperator *sep);
+	void BazaarPanelCommand(const Seperator *sep);
+	bool PrepareBazaarPost(uint64 platinum, bool quiet = false);
+	bool ConfirmBazaarPost(const std::string &nonce);
+	uint64 m_bazaar_panel_next_request = 0;
 	bool BazaarSessionReady();
 	bool BazaarStorageReady();
 	bool CompleteBazaarRequest(const NightcapBazaar::Request &request);

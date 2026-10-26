@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-26",
+  "scope": "Read-only local development content, not a production probe",
+  "items": [
+    {
+      "id": 5504,
+      "Name": "SoulFire",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 23,
+      "delay": 45,
+      "maxcharges": 5,
+      "clickeffect": 13,
+      "clicktype": 5,
+      "proceffect": -1
+    },
+    {
+      "id": 10099,
+      "Name": "Fiery Defender",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 35,
+      "delay": 40,
+      "maxcharges": 0,
+      "clickeffect": -1,
+      "clicktype": 0,
+      "proceffect": 1957
+    },
+    {
+      "id": 11050,
+      "Name": "Fiery Avenger",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 33,
+      "delay": 44,
+      "maxcharges": 0,
+      "clickeffect": -1,
+      "clicktype": 0,
+      "proceffect": 6862
+    },
+    {
+      "id": 205504,
+      "Name": "SoulFire (Polished)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 25,
+      "delay": 45,
+      "maxcharges": 5,
+      "clickeffect": 13,
+      "clicktype": 5,
+      "proceffect": -1
+    },
+    {
+      "id": 211050,
+      "Name": "Fiery Avenger (Polished)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 36,
+      "delay": 44,
+      "maxcharges": 0,
+      "clickeffect": -1,
+      "clicktype": 0,
+      "proceffect": 6862
+    },
+    {
+      "id": 405504,
+      "Name": "SoulFire (Exalted)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 28,
+      "delay": 45,
+      "maxcharges": 5,
+      "clickeffect": 13,
+      "clicktype": 5,
+      "proceffect": -1
+    },
+    {
+      "id": 411050,
+      "Name": "Fiery Avenger (Exalted)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 40,
+      "delay": 44,
+      "maxcharges": 0,
+      "clickeffect": -1,
+      "clicktype": 0,
+      "proceffect": 6862
+    },
+    {
+      "id": 605504,
+      "Name": "SoulFire (Ascended)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 31,
+      "delay": 45,
+      "maxcharges": 5,
+      "clickeffect": 13,
+      "clicktype": 5,
+      "proceffect": -1
+    },
+    {
+      "id": 611050,
+      "Name": "Fiery Avenger (Ascended)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 45,
+      "delay": 44,
+      "maxcharges": 0,
+      "clickeffect": -1,
+      "clicktype": 0,
+      "proceffect": 6862
+    },
+    {
+      "id": 810099,
+      "Name": "Fiery Defender (Ascended)",
+      "itemtype": 1,
+      "slots": 8192,
+      "damage": 47,
+      "delay": 40,
+      "maxcharges": 0,
+      "clickeffect": -1,
+      "clicktype": 0,
+      "proceffect": 1957
+    }
+  ],
+  "client_click_token": [
+    {
+      "id": 200,
+      "name": "Minor Healing",
+      "targettype": 5
+    },
+    {
+      "id": 210,
+      "name": "Yaulp",
+      "targettype": 6
+    },
+    {
+      "id": 288,
+      "name": "Minor Shielding",
+      "targettype": 6
+    },
+    {
+      "id": 30666,
+      "name": "Yaulp",
+      "targettype": 6
+    },
+    {
+      "id": 40816,
+      "name": "Yaulp",
+      "targettype": 6
+    },
+    {
+      "id": 41099,
+      "name": "Yaulp",
+      "targettype": 6
+    }
+  ]
+}

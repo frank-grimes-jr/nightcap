@@ -1,0 +1,248 @@
+{
+  "date": "2026-10-26",
+  "source": "7de660fe plus reviewed Bazaar/grip release worktree",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "changed": true,
+      "assessment": "Combined live-testing instructions and release labels; publish after paired activation. Preserve all other systems."
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "changed": false,
+      "assessment": "No change to availability, item values, rewards, acquisition, gameplay power or this guide workflow"
+    }
+  ],
+  "home": "Unchanged: current available systems, no candidate release announcement",
+  "generated_catalog": "No stat/reward/acquisition changes; all generated item/zone pages retained",
+  "published": false,
+  "public_release_unchanged": "20261026-commonlands-bazaar-v1",
+  "global_ledger": "Retained historical scope; check_refresh drift requires review, never blind advancement",
+  "built_delta": {
+    "files": 499,
+    "changed": [
+      "ascension.html",
+      "commands.html",
+      "equipment.html",
+      "features.html",
+      "item-upgrades.html",
+      "recent-changes.html",
+      "search-index.json",
+      "tunnel.html",
+      "unreleased.html"
+    ],
+    "preserved": 490,
+    "status": "verified local package, not published",
+    "added": [],
+    "removed": [],
+    "published": false
+  },
+  "status": "Combined authorized release publication draft; publish only after runtime/client receipts",
+  "catalog_assessment": "No item identity/stats/acquisition or base2HS catalog change; instance1HS projection documented with generic-link and Bazaar-type-filter limits. Home goal paths and generated reward/zone pages remain applicable.",
+  "package": {
+    "files": 499,
+    "changed": [
+      "ascension.html",
+      "commands.html",
+      "equipment.html",
+      "features.html",
+      "item-upgrades.html",
+      "recent-changes.html",
+      "search-index.json",
+      "tunnel.html",
+      "unreleased.html"
+    ],
+    "preserved": 490,
+    "status": "verified local package, not published"
+  }
+}

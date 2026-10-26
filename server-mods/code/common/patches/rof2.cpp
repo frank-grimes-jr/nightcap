@@ -34,6 +34,7 @@
 #include "common/raid.h"
 #include "common/rulesys.h"
 #include "common/strings.h"
+#include "common/paladin_weapon_grip.h"
 
 #include <cassert>
 #include <cinttypes>
@@ -6505,6 +6506,12 @@ namespace RoF2
 			? 0xFFFFFFFF
 			: inst->GetCharges()));
 		hdr.inst_nodrop    = (inst->IsAttunedForTrade() ? 1 : 0);
+		if (NightcapPaladinGrip::Supported(item->ID)) {
+			// The grip action is unlimited even on a spent SoulFire. Retain its
+			// actual saved charges and recast timestamp for inventory integrity.
+			hdr.charges = 0xFFFFFFFF;
+			hdr.last_cast_time = 0;
+		}
 		hdr.unknown044     = 0;
 		hdr.unknown048     = 0;
 		hdr.unknown052     = 0;
@@ -6760,7 +6767,9 @@ namespace RoF2
 		ices.level2 = item->Click.Level2;
 		ices.type = item->Click.Type;
 		ices.level = item->Click.Level;
-		ices.max_charges = item->MaxCharges;
+		// Native MaxCharges controls quantity-based deletion; only the client
+		// click presentation is unlimited for the grip action.
+		ices.max_charges = NightcapPaladinGrip::Supported(item->ID) ? -1 : item->MaxCharges;
 		ices.cast_time = item->CastTime;
 		ices.recast = item->RecastDelay;
 		ices.recast_type = item->RecastType;

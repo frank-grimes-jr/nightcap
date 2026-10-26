@@ -12,6 +12,7 @@ import xml.etree.ElementTree as ET
 from client_pet_armor_ui import add_pet_page
 from client_pet_management_ui import add_pet_management
 from client_merchant_ui import add_sell_all
+from client_bazaar_ui import add_bazaar_panel
 from client_tradeskill_ui import add_crafting
 from client_advanced_loot_ui import add_advanced_loot
 from client_hub_models import add_models, MODELS
@@ -123,6 +124,8 @@ def ui_xml(raw, kind):
         add_advanced_loot(root)
     elif kind == 'tradeskill':
         add_crafting(root)
+    elif kind == 'bazaar':
+        add_bazaar_panel(root)
     elif kind == 'merchant':
         add_sell_all(root)
     elif kind == 'aa':
@@ -233,7 +236,7 @@ def main():
     from client_zone_archives import zone_files
     files.update(zone_files(client))
     files.update(lavastorm_files(args.lavastorm,client))
-    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets'),('EQUI_MerchantWnd.xml','merchant'),('EQUI_TradeskillWnd.xml','tradeskill')]:
+    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets'),('EQUI_MerchantWnd.xml','merchant'),('EQUI_TradeskillWnd.xml','tradeskill'),('EQUI_BazaarSearchWnd.xml','bazaar')]:
         files['uifiles/nightcap/'+filename.lower()] = ui_xml((client/'uifiles/default'/filename).read_bytes(),kind)
     files['poknowledge_chr.txt'] = add_models((client/'poknowledge_chr.txt').read_bytes())
     for model in MODELS.values():
