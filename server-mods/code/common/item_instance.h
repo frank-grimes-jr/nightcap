@@ -191,6 +191,7 @@ namespace EQ
 		void SetCustomData(const std::string &identifier, float value);
 		void SetCustomData(const std::string &identifier, bool value);
 		void DeleteCustomData(const std::string& identifier);
+		void RefreshPaladinWeaponGrip();
 
 		// Allows treatment of this object as though it were a pointer to m_item
 		operator bool() const { return (m_item != nullptr); }

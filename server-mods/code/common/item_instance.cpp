@@ -23,8 +23,10 @@
 #include "common/rulesys.h"
 #include "common/shareddb.h"
 #include "common/strings.h"
+#include "common/paladin_weapon_grip.h"
 
 #include <climits>
+#include <cstring>
 
 int32 next_item_serial_number = 1;
 std::unordered_set<uint64> guids{};
@@ -63,6 +65,7 @@ EQ::ItemInstance::ItemInstance(const ItemData* item, int16 charges) {
 	if (item) {
 		m_item = new ItemData(*item);
 	}
+	RefreshPaladinWeaponGrip();
 
 	m_charges = charges;
 
@@ -84,6 +87,7 @@ EQ::ItemInstance::ItemInstance(SharedDatabase *db, uint32 item_id, int16 charges
 	if (m_item) {
 		m_item = new ItemData(*m_item);
 	}
+	RefreshPaladinWeaponGrip();
 
 	m_charges = charges;
 
@@ -830,7 +834,7 @@ void EQ::ItemInstance::SetCustomDataString(const std::string& str)
 	auto components = Strings::Split(str, "^");
 	auto value_count = components.size() / 2;
 
-	for (auto i = 0; i < value_count; i++) {
+	for (size_t i = 0; i < value_count; i++) {
 		auto identifier = components[i * 2];
 		auto value = components[(i * 2) + 1];
 
@@ -850,6 +854,7 @@ std::string EQ::ItemInstance::GetCustomData(const std::string& identifier) {
 void EQ::ItemInstance::SetCustomData(const std::string& identifier, const std::string& value) {
 	DeleteCustomData(identifier);
 	m_custom_data[identifier] = value;
+	if (identifier == NightcapPaladinGrip::Key) { RefreshPaladinWeaponGrip(); }
 }
 
 void EQ::ItemInstance::SetCustomData(const std::string& identifier, int value) {
@@ -857,6 +862,7 @@ void EQ::ItemInstance::SetCustomData(const std::string& identifier, int value) {
 	std::stringstream ss;
 	ss << value;
 	m_custom_data[identifier] = ss.str();
+	if (identifier == NightcapPaladinGrip::Key) { RefreshPaladinWeaponGrip(); }
 }
 
 void EQ::ItemInstance::SetCustomData(const std::string& identifier, float value) {
@@ -864,6 +870,7 @@ void EQ::ItemInstance::SetCustomData(const std::string& identifier, float value)
 	std::stringstream ss;
 	ss << value;
 	m_custom_data[identifier] = ss.str();
+	if (identifier == NightcapPaladinGrip::Key) { RefreshPaladinWeaponGrip(); }
 }
 
 void EQ::ItemInstance::SetCustomData(const std::string& identifier, bool value) {
@@ -871,12 +878,36 @@ void EQ::ItemInstance::SetCustomData(const std::string& identifier, bool value) 
 	std::stringstream ss;
 	ss << value;
 	m_custom_data[identifier] = ss.str();
+	if (identifier == NightcapPaladinGrip::Key) { RefreshPaladinWeaponGrip(); }
 }
 
 void EQ::ItemInstance::DeleteCustomData(const std::string& identifier) {
 	auto iter = m_custom_data.find(identifier);
 	if (iter != m_custom_data.end()) {
 		m_custom_data.erase(iter);
+	}
+	if (identifier == NightcapPaladinGrip::Key) { RefreshPaladinWeaponGrip(); }
+}
+
+void EQ::ItemInstance::RefreshPaladinWeaponGrip()
+{
+	if (!m_item || !NightcapPaladinGrip::Supported(m_item->ID)) { return; }
+	const auto grip = m_custom_data.find(NightcapPaladinGrip::Key);
+	const bool one_handed = grip != m_custom_data.end() && grip->second == "1";
+	// Both constructors and the copy constructor own their ItemData allocation;
+	// this never mutates the shared item cache. Keep the ID, slots and power.
+	for (auto item : {const_cast<ItemData *>(m_item), m_scaledItem}) {
+		if (!item) { continue; }
+		item->ItemType = one_handed ? 0 : 1; // native 1HS / 2HS
+		item->Click.Effect = NightcapPaladinGrip::ClickSpell;
+		item->Click.Type = 5; // inventory click, not expendable or equip-only
+		item->Click.Level = 1;
+		item->Click.Level2 = 1;
+		std::memcpy(item->ClickName, "Toggle Weapon Grip", sizeof("Toggle Weapon Grip"));
+		item->CastTime = 0;
+		item->CastTime_ = 0;
+		item->RecastDelay = 0;
+		item->RecastType = 0;
 	}
 }
 

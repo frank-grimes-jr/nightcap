@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-26",
+  "scope": "Independent adversarial review of the candidate diff, surrounding native inventory/click paths, and tests",
+  "cycles": 3,
+  "second_model": "User explicitly declined; same-model independent reviewer used",
+  "findings": [
+    {
+      "issue": "Changing native MaxCharges to -1 retained noncharged swords after quantity-based deletion",
+      "resolution": "Preserve native MaxCharges; project unlimited charges only in RoF2 serialization",
+      "evidence": "Actual InventoryProfile::DeleteItem regression reproduced the failure and passes for all six Avenger/Defender definitions in both grips"
+    },
+    {
+      "issue": "Oversized packet inventory slots could alias a carried slot through int16 narrowing",
+      "resolution": "Reject invalid slots before both ItemVerifyRequest and item/potion CastSpell normal paths",
+      "evidence": "Actual packet guard blocks execute against negative/oversized aliases, supported/unsupported valid items and unaffected spell-gem casts"
+    },
+    {
+      "issue": "IsEngaged alone did not detect a player on hostile NPC hate lists with autoattack disabled",
+      "resolution": "Require GetAggroCount()==0 in addition to existing session guards",
+      "evidence": "Actual handler test reproduced the failure with aggro positive, engagement false and autoattack false; corrected handler rejects before DB access"
+    }
+  ],
+  "final_review": "No remaining substantive blockers within the reviewed changes and contract",
+  "remaining_boundary": "Native RoF2 packet/rendering, persistence through player workflows, balance and owner acceptance require in-game QA; no live deployment or wiki publication"
+}

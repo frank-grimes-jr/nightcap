@@ -1,6 +1,6 @@
 {
   "date": "2026-10-26",
-  "status": "client verified; isolated full zone build pending",
+  "status": "standalone Bazaar full build passed; coordinated integrated build pending",
   "source_baseline": "465003f60a3181317e5a8c123675b05bd63ef114",
   "deployment": false,
   "owner_accepted": false,
@@ -51,9 +51,15 @@
   },
   "visual": "Generated XML geometry preview inspected; actual native game rendering not performed",
   "remaining": [
-    "complete isolated zone build",
-    "main/deployment approval",
-    "sign and publish paired client only after approval",
-    "native rendered/search/offline purchase/seller acceptance in QA.md"
-  ]
+    "integrated build including weapon conversion",
+    "promote authorized combined release to main",
+    "publish paired client and runtime",
+    "native gameplay QA"
+  ],
+  "zone_build": {
+    "status": "PASS",
+    "scope": "standalone Bazaar source f35107df before weapon integration",
+    "sha256": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
+    "source_manifest": "docs/bazaar/private/seller-panel/native-build-manifest.json"
+  }
 }
