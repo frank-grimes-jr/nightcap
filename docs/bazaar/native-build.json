@@ -1,0 +1,64 @@
+{
+  "status": "complete zone build passed; not installed",
+  "baseline_zone_sha256": "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744",
+  "baseline_source": "ad7a42069b28eb47dbcd6c061c2640c68aafe580",
+  "zone_sha256": "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1",
+  "changed_sources": {
+    "common/bazaar.cpp": {
+      "before": "82150ebfa86d166ecc700151c407c80abaac7ff190ee31b2de980eab27ca44bf",
+      "after": "4969b4634f4720924d253f5c57037b9bd34e188a94f62dd8a44b801de3d9782f"
+    },
+    "common/bazaar.h": {
+      "before": "40ccb8b5a4db0e89042b3f03b30caa5afbde584ee4a3d9ff8aa31bc0ae2dd8f6",
+      "after": "eae17f65d1c45389ff1abc3881296a9bcef2d934ff3105f18c5b6cba8eddd953"
+    },
+    "common/bazaar_escrow.h": {
+      "before": null,
+      "after": "0af14cd778ed878da69e49487c117c0b7a2ee3123af758b14031e0b193cb3aef"
+    },
+    "common/bazaar_search_policy.h": {
+      "before": null,
+      "after": "dfc7d3d4ca65c5282c3747a7f5bb88607ba4c3f4e07397d571d33ba15cd1d8b4"
+    },
+    "zone/client_packet.cpp": {
+      "before": "c9795c20c39646f45158e267b99391561c86c6494f6d55648f613faa1e67a513",
+      "after": "2bff7303c0e0fd8d48190ac6a28aec038a37f79346df81b7b1571d0276745447"
+    },
+    "zone/client.h": {
+      "before": "1796b90a1344f718f4bd01d6d1bb92c165e962d53f554e77a400ad2f25321f04",
+      "after": "b6dbc8e29abf93b212da543046a9e4b9776a2d44f7f96f10bda4cd008932ab39"
+    },
+    "zone/command.h": {
+      "before": "ed08815adb2517e51936846ddda7b580caa6e14f3fb21fb3b9458a23a74e275e",
+      "after": "7226f4738a9331856d0dcf3a622a34185611db7aab1bba481deeea40b192e2ee"
+    },
+    "zone/trading.cpp": {
+      "before": "ab0c593eadf35545b3d2b055e78649b6dfdd200da8282e939e983429fb4a11e0",
+      "after": "28f3bb9a1f632b0b4cd7937e99fd3ba3e8672add304c173361de031b01acb505"
+    },
+    "zone/client_bazaar.cpp": {
+      "before": null,
+      "after": "1fe77d9d0279e9377cbab44aab4129c80e964c986ef104254c6367a22dbc295b"
+    },
+    "zone/command.cpp": {
+      "before": "5190ac345576fa6824f4f850af990dc4d23c53a232be1bb1cbaa0c1a560a1556",
+      "after": "9b2c7adb40f3aed32b7d8d205273fa4af94cdb74497f7d5451f1cd7bb151ab3c"
+    },
+    "zone/CMakeLists.txt": {
+      "before": "d43b56b7ef3dfd69ea16babc43dfb18a2a0f05076057584d4731edfb7579b59d",
+      "after": "74dc9be884fbcc7ecd58dc9444eeb968eeebdab0d2fb0a7f963de8a228e533ad"
+    }
+  },
+  "production_changed": false,
+  "client_verified": false,
+  "owner_accepted": false,
+  "date": "2026-10-26",
+  "source_manifest_sha256": "a5f5691cd1cf76e47771b3bf2d206f35c8cfb890e4adfb2d27f2e8f5b2ed7a1c",
+  "source_file_count": 2839,
+  "exact_overlay_matches_checkout": true,
+  "unchanged_baseline_sources_verified": true,
+  "logs": [
+    "/tmp/nightcap-bazaar-20261024-v1/build-1793030297099582206.log",
+    "/tmp/nightcap-bazaar-20261024-v1/build-1793032322096218773.log"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-26",
+  "source_base": "8db6dd95",
+  "baseline_zone": "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744",
+  "tests": [
+    {
+      "command": "python tools/tests/test_bazaar_escrow.py",
+      "result": "22 passed",
+      "environment": "isolated tmpfs MariaDB using actual C++ engine; no production/player writes",
+      "coverage": "concurrent buy/cancel, partial stacks, offline credits, reconnect, stale preimages, overflow, schema triggers/engine, every purchase statement failure, lost commit acknowledgment,128-case effective race equivalence"
+    },
+    {
+      "command": "python tools/tests/test_bazaar_native.py",
+      "result": "2 groups passed",
+      "coverage": "actual quote/purchase guards, exact native reconstruction with real custom-data serializer/parser fixture; unsupported multi-key and unlimited-stack sentinel refuse posting"
+    },
+    {
+      "command": "python -B -m unittest test_wiki test_refresh",
+      "cwd": "wiki",
+      "result": "19 passed",
+      "coverage": "content, links, package and refresh behavior"
+    }
+  ],
+  "review": {
+    "independent": "bazaar_review, correctness/security/native integration",
+    "resolved": [
+      "cancellation permits owner recovery after tradeability policy changes",
+      "inspect only active remaining quantity",
+      "race filters use effective equipment race policy",
+      "exact item reconstruction and posting preflight",
+      "credit display retains fractional-platinum remainder",
+      "EC zero delivery fee confirmed; prior finding withdrawn"
+    ],
+    "known_limitations": [
+      "native wire fixtures do not establish visible client behavior",
+      "legacy multi-key custom metadata rejected; global native persistence format is unchanged"
+    ],
+    "verdict": "No blocking findings; final source review approves metadata admission, stack sentinel rejection and exact credit display. Build/client/player acceptance remain separate."
+  },
+  "native_build": {
+    "status": "full zone build and final incremental adapter build passed",
+    "zone_sha256": "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1",
+    "exact_source_overlay_verified": true,
+    "missing_dynamic_libraries": false,
+    "details": "native-build.json",
+    "installed": false
+  },
+  "deployed": false,
+  "client_verified": false,
+  "owner_accepted": false,
+  "wiki_published": false,
+  "native_fixture_provenance": {
+    "verified_against": "retained current coordinated v2 source",
+    "exact_functions": [
+      "common/strings.cpp: std::vector<std::string> Strings::Split(const std::string &s,",
+      "common/item_instance.cpp: std::string EQ::ItemInstance::GetCustomDataString()",
+      "common/item_instance.cpp: void EQ::ItemInstance::SetCustomDataString(",
+      "common/item_instance.cpp: void EQ::ItemInstance::SetCustomData(const std::string& identifier, const std::string& value)",
+      "common/item_instance.cpp: void EQ::ItemInstance::DeleteCustomData("
+    ]
+  },
+  "knowledge": {
+    "installed_references_updated": true,
+    "candidate_fingerprints_unchanged": 20,
+    "unrelated_items_drift": 5,
+    "unrelated_drift_not_accepted": true,
+    "skill_validator": "passed"
+  },
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/335",
+  "owner_live_qa_authorized": true,
+  "authorization": "deployment/AUTHORIZATION.md",
+  "deployment_operator": {
+    "tests": "28 pass on Windows and Linux; POSIX receipt durability verified",
+    "review": "No blocking findings; uncertain disable receipt/hold/replay gap fixed",
+    "production_preflight": "pending",
+    "production_current_zone_matches_baseline": true,
+    "storage_engines_verified": [
+      "inventory:InnoDB",
+      "character_currency:InnoDB"
+    ],
+    "existing_bazaar_tables": false
+  }
+}

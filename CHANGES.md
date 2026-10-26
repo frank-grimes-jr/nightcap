@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-10-26 — Persistent Commonlands bazaar candidate
+
+Added independent player-item escrow, offline seller credits and native `/bazaar`
+search/purchase routing for public East Commonlands. Cursor posting uses an explicit
+price confirmation; partial-stack buys, cancellation and collection commit ownership
+and funds together. No auctioneer character is needed. Filled bags, temporary,
+evolving/scaling items and metadata that cannot roundtrip native loading are rejected
+before posting; exact supported instance metadata is retained. Migration starts
+disabled. Full current-baseline zone build,22 database tests,2 native guard groups
+and independent review pass. Not deployed: [design and evidence](docs/bazaar/SPEC.md),
+[exact player QA](docs/bazaar/QA.md). Owner approved main/live QA deployment on
+October26; the guarded operator has28 passing Windows/Linux failure tests and
+independent review. Existing live behavior is unchanged until activation.
+
 ## 2026-10-24 — Coordinated release v2: reward cache race mask
 
 The v1 preflight stopped in `cache_check`: Warhelm of the Ashen Compact (990510) stores races=4095, but `NightcapEquipment::ApplyRacePolicy` loads wearable player gear with every race (65535), and the contract renderer copied the SQL mask. `tools/dungeon_contract.py` now projects races the way the loader does; SQL predicates keep stored masks, and only the 990510 case changed. Owner decision: every race may equip the Warhelm, as with Camil's Winged Helm. world/zone/shared_memory rebuilt and packaged/staged as `-v2`; v1 artifacts retained. Gotcha: future race-restricted rewards are now handled automatically, but a hand-edited contract would reintroduce the failure. The production disk was 98% full, so 1.545 GB of unused Docker build cache was pruned (owner-approved) before preflight. v2 preflight passed: cache 441/882, 51 schema/565 content checks, 309,857 items preserved, 14 new, 0 changed. Deployed 2026-10-25 11:41 UTC with access reopened; collect PASS (12 zones on the v2 binary, 0 native/quest/database errors, verified stopped backup, no database restore). In-game acceptance pending; receipt in `docs/releases/october-24-coordinated/open-receipt.json`.

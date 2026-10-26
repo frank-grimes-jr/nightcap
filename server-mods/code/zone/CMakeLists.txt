@@ -34,6 +34,7 @@ set(zone_sources
     client_mods.cpp
     client_packet.cpp
     client_process.cpp
+    client_bazaar.cpp
     client_living_economy.cpp
     living_economy.cpp
     zone_hunt.cpp
