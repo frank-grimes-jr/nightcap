@@ -1,0 +1,26 @@
+{
+  "common/nightcap_aa_policy.h": {
+    "retained_raw_sha256": "e0b52b7c3cecd43ec4c17a0af0c9b9124675c0949c8894ca641e75b6b3d80273",
+    "normalized_sha256": "bed1570a57a2dc61f3a90b280cd0635a57e23419f8c78552c3221f3e8ac3e400",
+    "crlf_sequences": 1865,
+    "only_crlf_normalization": true
+  },
+  "common/nightcap_thj_behaviors.h": {
+    "retained_raw_sha256": "65bfb4caef01ffd84806825ad081357c8e313ee246f4a158c82d3d7d7a2bdf77",
+    "normalized_sha256": "1df9e9a378459728ce208f0fc1aceef455b20038860810e3570277cc1069de55",
+    "crlf_sequences": 53,
+    "only_crlf_normalization": true
+  },
+  "common/shareddb.cpp": {
+    "retained_raw_sha256": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461",
+    "normalized_sha256": "51263660ef8a2f2f887da6cf343541ccdff0547766fbdef2ba431f196ffe30ca",
+    "crlf_sequences": 1905,
+    "only_crlf_normalization": true
+  },
+  "zone/spell_effects.cpp": {
+    "retained_raw_sha256": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51",
+    "normalized_sha256": "7a4f68e648a13cb35c88d108db0ae8e277f5eddf46fb08559cdd450f061d6f83",
+    "crlf_sequences": 10795,
+    "only_crlf_normalization": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "scope": "Public HTTPS v2, agent browser QA",
+  "verified_at": "2026-10-23T01:42:08.271663+00:00",
+  "url": "https://wiki.nightcapgame.org/loot-finder.html",
+  "classes": [
+    "Warrior",
+    "Cleric",
+    "Enchanter"
+  ],
+  "any_matching_items": 4926,
+  "all_matching_items": 1440,
+  "default": "any",
+  "era": "Classic",
+  "item": 1365,
+  "name": "Flowing Black Silk Sash",
+  "mob": "a frenzied ghoul",
+  "zone": "The Ruins of Old Guk",
+  "npc_level": 42,
+  "chance_percent": 59.04,
+  "locations_yxz": [
+    [
+      1072,
+      -1073,
+      -193
+    ],
+    [
+      1072,
+      -1042,
+      -193
+    ],
+    [
+      1077,
+      -1057,
+      -192
+    ]
+  ],
+  "spawn_weight_not_percentage": 10,
+  "haste": 21,
+  "back_and_reload": "PASS",
+  "mobile_320_no_horizontal_overflow": true,
+  "desktop_light_dark": "PASS",
+  "console_warnings_errors": [],
+  "unicode_prose_corrected": true,
+  "owner_acceptance": "Not inferred from agent checks",
+  "screenshots": {
+    "live-fbss.png": "17e88e47f79a58d385f2841012dd7ab5ecfe460df43cf71c9a093ffafcaf648a",
+    "live-fbss-full.png": "f0a94d2326e7dc67fcdc44c156f091d881b7547d6b3d7adf85a478dd9593bc32"
+  }
+}

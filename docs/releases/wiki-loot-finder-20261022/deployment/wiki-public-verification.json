@@ -1,0 +1,94 @@
+{
+  "result": "PASS",
+  "release": "20261022-loot-finder-v2",
+  "verified_at": "2026-10-23T01:36:27.289727+00:00",
+  "static_files": 467,
+  "hashes_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/loot-finder.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html",
+    "loot-data/current/item-1.json",
+    "loot-data/current/index.json.gz",
+    "loot-data/current/.manifest.json",
+    "loot-data/current/content.json.gz"
+  ],
+  "snapshot": "c7da22524ad022f9",
+  "captured_at": "2026-10-23T01:23:58.399340+00:00",
+  "items": 6293,
+  "era": "Classic",
+  "identity_gzip_json_match": true,
+  "fbss": {
+    "id": 1365,
+    "sources": [
+      {
+        "npc_id": 66146,
+        "npc": "a frenzied ghoul",
+        "level": [
+          42,
+          42
+        ],
+        "zone": "gukbottom",
+        "zone_name": "The Ruins of Old Guk",
+        "zone_id": 66,
+        "rate": [
+          59.03999999999999,
+          59.03999999999999
+        ],
+        "locations": [
+          {
+            "id": 10013,
+            "x": -1073.0,
+            "y": 1072.0,
+            "z": -193.0,
+            "respawn": 1740,
+            "variance": 0,
+            "path": 0,
+            "condition": 0,
+            "condition_value": 1,
+            "entry_filter": 1,
+            "min_time": 0,
+            "max_time": 0,
+            "spawn_weight": 10,
+            "version": 0
+          },
+          {
+            "id": 10014,
+            "x": -1042.0,
+            "y": 1072.0,
+            "z": -193.0,
+            "respawn": 1740,
+            "variance": 0,
+            "path": 0,
+            "condition": 0,
+            "condition_value": 1,
+            "entry_filter": 1,
+            "min_time": 0,
+            "max_time": 0,
+            "spawn_weight": 10,
+            "version": 0
+          },
+          {
+            "id": 76478,
+            "x": -1057.0,
+            "y": 1077.0,
+            "z": -192.0,
+            "respawn": 1740,
+            "variance": 0,
+            "path": 0,
+            "condition": 0,
+            "condition_value": 1,
+            "entry_filter": 1,
+            "min_time": 0,
+            "max_time": 0,
+            "spawn_weight": 10,
+            "version": 0
+          }
+        ],
+        "looter_levels": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "item-961020",
+  "title": "Cinder of the Ashen Compact",
+  "summary": "Augment · Kael · Live testing.",
+  "body": "<table><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th>Item ID</th><td>961020</td></tr><tr><th>Family</th><td>Augment</td></tr><tr><th>Required level</th><td>50</td></tr><tr><th>Recommended level</th><td>50</td></tr><tr><th>Slots</th><td>Head, Arms, Hands, Chest, Legs, Feet</td></tr><tr><th>Classes</th><td>All held classes</td></tr><tr><th>AC</th><td>2</td></tr><tr><th>HP</th><td>60</td></tr><tr><th>Mana</th><td>60</td></tr><tr><th>Heroic STA</th><td>5</td></tr><tr><th>Heroic INT</th><td>5</td></tr><tr><th>Socket type</th><td>22</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>Eligible static custom enemies: 0.5% family roll, then Base60/Polished30/Exalted8/Ascension2 percent. See <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
+  "category": "Equipment",
+  "status": "Live testing",
+  "updated": "2026-10-24",
+  "sources": [
+    "docs/quests/warhelm/SPEC.md",
+    "docs/quests/warhelm/install-rows.json",
+    "docs/quests/warhelm/QA.md"
+  ]
+}

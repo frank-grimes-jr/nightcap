@@ -1,0 +1,14 @@
+{
+  "slug": "item-960420",
+  "title": "Polished Blade of the Ashen Compact",
+  "summary": "Final Raid reward · Kael · Live testing.",
+  "body": "<table><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th>Item ID</th><td>960420</td></tr><tr><th>Family</th><td>Final Raid reward</td></tr><tr><th>Required level</th><td>0</td></tr><tr><th>Recommended level</th><td>50</td></tr><tr><th>Slots</th><td>Primary</td></tr><tr><th>Classes</th><td>All held classes</td></tr><tr><th>HP</th><td>23</td></tr><tr><th>Mana</th><td>23</td></tr><tr><th>STR</th><td>6</td></tr><tr><th>DEX</th><td>6</td></tr><tr><th>Damage</th><td>29</td></tr><tr><th>Delay</th><td>42</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>The Echo of Endless War in Raid mode, under the existing final Raid loot rules. See <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
+  "category": "Equipment",
+  "status": "Live testing",
+  "updated": "2026-10-24",
+  "sources": [
+    "docs/quests/warhelm/SPEC.md",
+    "docs/quests/warhelm/install-rows.json",
+    "docs/quests/warhelm/QA.md"
+  ]
+}

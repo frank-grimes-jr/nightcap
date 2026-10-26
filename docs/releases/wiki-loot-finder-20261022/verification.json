@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "deployment": "INSTALLED AND PUBLISHED: 20261022-loot-finder-v2",
+  "windows_python": {
+    "tests": 50,
+    "skipped_linux_only": 17
+  },
+  "linux_suite": {
+    "tests": 62,
+    "skipped": 0
+  },
+  "final_installer_tests": 10,
+  "node": {
+    "loot_filter_checks": 14,
+    "search_checks": 6,
+    "equipment_checks": 7,
+    "build_lab_scenarios": 10,
+    "native_landed_controls": 12,
+    "handbook": "PASS"
+  },
+  "public_build": {
+    "html": 460,
+    "files": 467
+  },
+  "independent_review": "All actionable earlier findings corrected; final installer and compressed snapshot fresh-context reviews have no substantive findings. Owner requested current review/tests only.",
+  "gameplay_changes": false,
+  "raw_capture_public": false,
+  "final_focused_windows_tests": 28,
+  "compression_http_integration": "PASS: identity/gzip canonical bytes; denied raw paths and POST",
+  "public_https_files": 467,
+  "scheduled_refresh": "PASS: 01:40:27 UTC trigger, 01:41:15 UTC completion; snapshot 56ccc0c7378abfae"
+}

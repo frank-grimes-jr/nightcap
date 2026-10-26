@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-22",
+  "source_revision": "c6c210085a20ed206a729f4b06ae2a5002ba65b4",
+  "includes_worktree": true,
+  "decision": "Presentation-only interface refresh. All original home release notices preserved byte-for-byte. About and Recent changes gain interface/privacy instructions. Features, commands, gameplay labels, catalog values and acquisition unchanged.",
+  "source_drift_review": "Only final Classic dungeon publication/deployment and scoped robe-waist owner-acceptance records since 3af85bb. Inspected release README, independent review, public verification, owner confirmation and wiki-impact decision. Current origin is classic-dungeons-v1; baseline source must reproduce every public hash before update. No new gameplay behavior from this documentation drift.",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "sha256": "b526ff624aa3f0ab47d52d5fbcf34b07b4ddd55dd8549446b966f3378e35e782",
+      "impact": "Interface help/release note"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "sha256": "49cb58dd0e987dcf187fec419a9128d121996faa583d795f1b5c6e1000db68e2",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "sha256": "8a73347d76ab38ac2f94da7d807e77731d0cd9e83b59f64bba6e230d98c28483",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "sha256": "fa163fda460e533e27d74c59bc5854dffee9cca550faddf8bf6c09032045b9fc",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "sha256": "1f20b30fd17be61f1ed053d94599b64d30e117d1744887723c41252741604618",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "sha256": "d4a38567c7c4ec592abafaf2e83ccb3765047f3dd1af0af03b90fa2026195148",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "sha256": "5423f7152ca220e854785fc287b886606e19147d503ee0ed37327404faf66766",
+      "impact": "Interface help/release note"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "sha256": "aeca83d5778c538f9c0f0747cbb30d0b3e64081ca2096e964a0092045c2ce6f0",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "sha256": "a277625ca2d2df3827532716f053204996b06130500bb147004c17cf1df6f318",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "impact": "Existing prose/status retained; shared shell presentation updated"
+    }
+  ],
+  "generated_routes": 432,
+  "catalog_items": 384,
+  "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae",
+  "publication": "Separate origin and HTTPS receipts required; native acceptance unchanged"
+}

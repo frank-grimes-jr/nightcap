@@ -1,0 +1,25 @@
+{
+  "byte_identical_relocated": [
+    "docs/releases/classic-robes-20261022/deployment/wiki-review.json",
+    "docs/releases/classic-robes-20261022/deployment/publish_wiki.py",
+    "docs/releases/classic-robes-20261022/deployment/verify_wiki.py",
+    "docs/releases/classic-robes-20261022/deployment/wiki-publication.json",
+    "docs/releases/classic-robes-20261022/deployment/wiki-public-verification.json",
+    "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-review.json",
+    "docs/releases/classic-robes-20261022/waist-correction/deployment/publish_wiki.py",
+    "docs/releases/classic-robes-20261022/waist-correction/deployment/verify_wiki.py",
+    "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-publication.json",
+    "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-public-verification.json",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-review.json",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/concurrent-wiki-reconciliation.json",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/publish_wiki.py",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/verify_wiki.py",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-publication.json",
+    "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-public-verification.json",
+    "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/wiki-impact.json"
+  ],
+  "superseded_candidate_pin_retired": [
+    "docs/releases/classic-robes-20261022/wiki-review.json"
+  ],
+  "reason": "Original robe worktree removed. Exact-byte deployment receipts retained; final deployment review supersedes historical candidate review."
+}

@@ -1,0 +1,16 @@
+{
+  "wiki": {
+    "exit": 0,
+    "entries": 189,
+    "drift": []
+  },
+  "balance": {
+    "exit": 0,
+    "entries": 131,
+    "drift": []
+  },
+  "validator": {
+    "exit": 0,
+    "output": "Skill is valid!"
+  }
+}

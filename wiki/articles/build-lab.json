@@ -1,0 +1,26 @@
+{
+  "slug": "build-lab",
+  "title": "Build Lab",
+  "summary": "Try a build. Test a rotation. See what changes — and what it costs.",
+  "category": "Character",
+  "status": "Reference",
+  "updated": "2026-10-24",
+  "keywords": [
+    "build planner",
+    "DPS calculator",
+    "rotations",
+    "simulator",
+    "THJ spreadsheets",
+    "mana",
+    "gear comparison"
+  ],
+  "sources": [
+    "docs/build-lab/README.md",
+    "docs/build-lab/data-provenance.json",
+    "server-mods/code/zone/effects.cpp",
+    "server-mods/code/common/nightcap_spell_scaling.h",
+    "docs/releases/thj-parity-20261018/COMPARISON.md",
+    "docs/releases/wiki-clarity-20261024/README.md"
+  ],
+  "body": "<details class=\"guide-topic\" id=\"model-scope\"><summary>Know what you are testing</summary><div class=\"topic-body\"><p>The Build Lab is an experimental, browser-local model for Classic level 50. The two starting profiles use selected stats from October 18 diagnostic controls, not complete legal equipment sets or current character imports. The eight-spell library uses September 12 content and original class access, with October 18 native value controls for Frost Bolt, Heat Blood and Light Healing. Current source formulas were reviewed October 22. These dated fixtures are not a fresh live-server measurement.</p><p>Direct Spell Damage is additive. Ordinary DoTs receive half effective SD per tick, rounded down. Direct heals use percentage Heal Amount. SD and HA each cap at 750; heroic INT/WIS add 0.1% per point to direct damage/healing, respectively. The primary Cleric gets its base 5% healing focus. Other focus, critical, specialization, AA, pet, buff and equipment effects are not automatically derived. Enter a resolved ability to test an effect that already includes those modifiers; it will not be scaled a second time.</p></div></details><details class=\"guide-topic\" id=\"rotation-model\"><summary>How the rotation test works</summary><div class=\"topic-body\"><p>The model schedules in 100 ms steps, with a fixed six-second mana/DoT tick phase. Mana is paid when a cast starts; reuse and recovery begin on completion. Healing takes priority below the chosen HP threshold and may use reserved mana. Damage abilities follow their listed priority. Same-family DoTs do not stack, refresh waits for the last tick, and nothing lands after the fight ends. A death stops the simulation; sustained DPS still divides by the full requested fight length.</p><p>The expected landed percentage scales spell damage; it does not calculate resists from an NPC. DoTs are an expected-value approximation, without random application failures or retries. Resolved passive melee/pet DPS and incoming damage are constant rates. Movement, interruptions, fizzles, threat, boss AI, critical variance, damage shields and full buff stacking are outside this model. It is not a substitute for the native combat harness or actual gameplay testing.</p><p>Find best priority order tries every ordering of up to six enabled damage actions, keeping healing priority fixed. It favors surviving longer, then dealing more damage. It does not search ability subsets, intentional waiting, gear, class or AA allocations. A best-found result is specific to these inputs, not a universal optimal rotation.</p></div></details><h2 id=\"using-the-lab\">Make a useful comparison</h2><ol><li>Copy one build to the other and change one thing: a stat, item difference or ability priority.</li><li>Enter the effective HP, mana and combat values you want to test. Keep the same encounter for both builds.</li><li>Compare opening burst with sustained DPS and mana. Raise incoming damage to see the cost of healing.</li><li>Scrub the timeline and inspect the cast log to understand the result. Check the prediction against your own combat measurements.</li></ol><p>Gear comparison covers published Hunt rewards, not the whole game database. Applying a difference adjusts only the displayed supported raw stats. It does not resolve primary-stat HP/mana conversions, AC mitigation, sockets, item effects, recommended-level scaling or equipment legality. AAs and full pet builds are not auto-planned in this first version. See <a href=\"multiclass.html\">Multiclass</a>, <a href=\"combat.html\">Combat</a>, <a href=\"pets.html\">Pets</a> and <a href=\"items.html\">Equipment</a> for the current gameplay guides.</p><details class=\"guide-topic\" id=\"privacy\"><summary>Your builds stay with you</summary><div class=\"topic-body\"><p>Save keeps both builds and conditions in this browser. Export / import lets you copy the setup as text. Nothing is submitted to the server; no character account or combat log is accessed. Clearing browser storage removes saved builds. The lab changes no game rules or characters, and model tests do not establish gameplay or balance acceptance.</p></div></details>"
+}

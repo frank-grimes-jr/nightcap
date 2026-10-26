@@ -1,0 +1,50 @@
+{
+  "tests": {
+    "returncode": 0,
+    "output": ".............................................................\n----------------------------------------------------------------------\nRan 61 tests in 3.451s\n\nOK\n"
+  },
+  "native": {
+    "native_method_sha256": "fdcb5283533b725a922bc07da4c49379a1dcd8d020173b93604e8ff66702e061",
+    "samples_per_case": 200000,
+    "maximum_absolute_error": 0.0016306369790674013,
+    "cases": [
+      {
+        "expected": 0.9375,
+        "observed": 0.93692
+      },
+      {
+        "expected": 0.09999999999999998,
+        "observed": 0.10013
+      },
+      {
+        "expected": 0.5475,
+        "observed": 0.54882
+      },
+      {
+        "expected": 0.4425143630209326,
+        "observed": 0.444145
+      },
+      {
+        "expected": 0.039403990000000055,
+        "observed": 0.039275
+      },
+      {
+        "expected": 0.7345910272953126,
+        "observed": 0.73578
+      }
+    ]
+  },
+  "projection": {
+    "snapshot": "9cb193845f14d210",
+    "items": 6293,
+    "public_files": 6294,
+    "bytes": 327229465,
+    "captured_at": "2026-10-23T00:33:41.070662+00:00",
+    "unprivileged_readable": true
+  },
+  "peak_rss_kib": 634468,
+  "nginx": {
+    "returncode": 0,
+    "output": "nginx: the configuration file /tmp/verify-nginx.conf syntax is ok\nnginx: configuration file /tmp/verify-nginx.conf test is successful\n"
+  }
+}

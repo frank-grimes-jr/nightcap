@@ -1,0 +1,11 @@
+[Unit]
+Description=Refresh Nightcap wiki loot every fifteen minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=15min
+RandomizedDelaySec=30s
+Unit=nightcap-wiki-loot.service
+
+[Install]
+WantedBy=timers.target
