@@ -1,7 +1,7 @@
 # Sell / My Listings: native acceptance
 
 Candidate only. These steps require the paired zone build and proxy/catalog0.13.0,
-config and Bazaar XML delivered through the launcher after deployment approval.
+config and Bazaar XML delivered through the launcher after the authorized combined deployment.
 The existing command-only market remains live; this panel is not yet published.
 
 ## Main offline-seller test

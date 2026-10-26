@@ -181,6 +181,21 @@ class EscrowTests(unittest.TestCase):
     def snapshot(self):
         return {t:self.sql('SELECT * FROM '+t+' ORDER BY 1,2') for t in TABLES}
 
+    def test_paladin_grip_metadata_survives_buy_and_cancel(self):
+        for item_id in (5504,205504,405504,605504,11050,211050,411050,611050,10099,810099):
+            for metadata in ('','nightcap_paladin_grip^1^'):
+                for operation,who in ((BUY,2),(CANCEL,1)):
+                    with self.subTest(item=item_id,metadata=metadata,operation=operation):
+                        self.sql('TRUNCATE TABLE inventory')
+                        self.sql('UPDATE character_currency SET platinum=100,gold=0,silver=0,copper=0')
+                        before=self.item(item=item_id,charges=0,custom=metadata)
+                        listing=self.post(cursor=before)
+                        result=self.run_engine(operation,who=who,listing=listing)
+                        self.assertEqual(result['status'],COMMITTED,self.errors)
+                        after=self.cursor(who)
+                        self.assertEqual(len(after),1)
+                        self.assertEqual(after[0][1:],before[0][1:])
+
     def test_panel_view_is_owner_scoped_paged_and_non_mutating(self):
         ids=[self.post() for _ in range(10)]
         self.post(who=2,cursor=self.item(who=2))

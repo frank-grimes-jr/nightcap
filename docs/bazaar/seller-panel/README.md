@@ -11,14 +11,14 @@ Source baseline main465003f6; feature/bazaar-seller-panel. Public client baselin
 calling game2026102301 current describe the retained proxy only. Candidate0.13.0
 changes DLL/catalog/config and adds uifiles/nightcap/equi_bazaarsearchwnd.xml.
 All137other asset descriptors, patch notes and tombstones are retained (141total).
-Assets live under docs/bazaar/private/seller-panel/client-v2; no signed publication.
+Assets live under docs/bazaar/private/seller-panel/client-v2; signed local2026102601 candidate; publication awaits verified integrated runtime.
 The protected reference and installed player clients were not modified.
 
 [Generated layout preview](layout-preview.png) (illustrative; not an in-game capture).
 
 [Design](SPEC.md), [exact in-game QA](QA.md), [evidence](evidence.json).
 Native fixtures and source checks are not a rendered-game acceptance record.
-Prior command-only market approval does not authorize this paired release.
+The October26 owner instruction explicitly authorizes this combined main/server/client QA release; see deployment/AUTHORIZATION.md. Native acceptance remains open.
 
 ## Build and validation
 
@@ -38,15 +38,15 @@ Prior command-only market approval does not authorize this paired release.
 
 ## Promotion and recovery
 
-Promote through dev/test with explicit GUI QA. Main, signed client publication and
-production activation require owner approval for this new paired release. Recheck
+Promote through dev/test with explicit GUI QA. The owner authorized main, signed client publication and
+production activation for this combined Bazaar/Paladin grip QA release. Recheck
 current public inventory and runtime baseline before packaging a signed successor;
 never overwrite newer unrelated changes. No new desktop launcher build is needed.
 A zone binary deployment requires a graceful full game-runtime restart under the
 production supervisor, with the current backup/preservation/receipt controls.
-Never kill a single production zone. Existing world/cache/schema stay paired.
+Never kill a single production zone. Deploy the integrated world/zone/shared_memory set; existing cache/schema stay paired.
 
 Rollback the panel using a compatible complete client pair at a higher signed
-counter and the compatible previous zone. Keep all five escrow tables, receipts,
+counter. Retain grip-aware native code after weapon metadata exists; never roll back blindly to old binaries. Keep all five escrow tables, receipts,
 owned items and earned balances. Never restore old player data to undo a UI release.
 A rule or quest reload cannot install this C++/client change.

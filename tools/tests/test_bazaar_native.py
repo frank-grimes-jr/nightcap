@@ -184,6 +184,35 @@ class NativeGuards(unittest.TestCase):
         source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
         self.compile_run(POST_FIXTURE+'\n'+function(source,'bool Client::PrepareBazaarPost(')+'\n'+function(source,'bool Client::ConfirmBazaarPost(')+POST_CASES)
 
+    def test_current_grip_projection_through_bazaar_restore(self):
+        source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
+        instance=(ROOT/'server-mods/code/common/item_instance.cpp').read_text()
+        fixture=RESTORE_FIXTURE.replace('#include <array>', '#include <array>\n#include <cstring>\n#include "common/paladin_weapon_grip.h"')
+        fixture=fixture.replace('struct ItemInstance {', '''struct ItemData {unsigned ID=5504;int ItemType=1;struct {int Effect=13,Type=3,Level=1,Level2=1;} Click;char ClickName[65]={};int CastTime=0,CastTime_=0,RecastDelay=0,RecastType=0;};
+struct ItemInstance {
+ ItemData owned;const ItemData *m_item=&owned;ItemData *m_scaledItem=nullptr;void RefreshPaladinWeaponGrip();
+''')
+        fixture=fixture.replace('item->id=id;item->charges=', 'item->id=id;item->owned.ID=id;item->RefreshPaladinWeaponGrip();item->charges=')
+        split=function((ROOT/'tools/tests/fixtures/bazaar_custom_data.inc').read_text(), 'std::vector<std::string> Strings::Split(')
+        methods='\n'.join(function(instance,x) for x in ['std::string EQ::ItemInstance::GetCustomDataString(', 'void EQ::ItemInstance::SetCustomDataString(', 'void EQ::ItemInstance::SetCustomData(const std::string& identifier, const std::string& value)', 'void EQ::ItemInstance::DeleteCustomData(', 'void EQ::ItemInstance::RefreshPaladinWeaponGrip('])
+        restore='\n'.join(function(source,x) for x in ['std::string Hex(', 'std::string Unhex(', 'Row Snapshot(', 'std::unique_ptr<EQ::ItemInstance> Restore('])
+        cases=r'''
+int main(){
+ for(unsigned id:{5504u,205504u,405504u,605504u,11050u,211050u,411050u,611050u,10099u,810099u})for(bool grip:{false,true}){
+  const std::string metadata=grip?"nightcap_paladin_grip^1^":"";
+  Row row={"1","33",std::to_string(id),"0","123","201","0","0","0","0","0","1",Hex(metadata),"72","73","-7","123456"};
+  auto restored=Restore(row);assert(restored);assert(restored->GetID()==id&&restored->GetCharges()==0);
+  assert(restored->GetCustomDataString()==metadata&&restored->m_item->ItemType==(grip?0:1));
+  assert(SameItems({row},{Snapshot(1,33,*restored)}));
+  row[0]="2";auto buyer=Restore(row);assert(buyer&&buyer->m_item->ItemType==(grip?0:1));
+  assert(SameItems({row},{Snapshot(2,33,*buyer)}));
+  buyer->SetCustomData(NightcapPaladinGrip::Key,std::string("1"));assert(buyer->m_item->ItemType==0);
+  buyer->DeleteCustomData(NightcapPaladinGrip::Key);assert(buyer->m_item->ItemType==1&&buyer->GetCustomDataString().empty());
+ }
+}
+'''
+        self.compile_run(fixture+split+methods+restore+cases)
+
     def test_exact_instance_reconstruction(self):
         source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
         code=RESTORE_FIXTURE+'\n'+(ROOT/'tools/tests/fixtures/bazaar_custom_data.inc').read_text(encoding='utf-8')+'\n'+'\n'.join(function(source,x) for x in ['std::string Hex(','std::string Unhex(','Row Snapshot(','std::unique_ptr<EQ::ItemInstance> Restore(','bool CursorSnapshot('])+RESTORE_CASES

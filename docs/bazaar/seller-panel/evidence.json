@@ -5,18 +5,19 @@
   "deployment": false,
   "owner_accepted": false,
   "checks": {
-    "database": "25 real MariaDB tests PASS, disposable tmpfs only",
-    "native_server": "3 extracted production guard groups PASS (quote/confirmation, purchase, exact reconstruction)",
+    "database": "26 real MariaDB tests PASS, including40weapon grip buy/cancel combinations; disposable tmpfs only",
+    "native_server": "4 extracted production guard groups PASS, including current grip projection through Bazaar Restore",
     "runtime": "10 x86 runtime groups PASS including seller controller/native hooks, health/startup failure gates and existing feature regressions",
     "native_models": "288 animation cases and invisible-model native regression PASS",
     "ui_assets": "3 Bazaar XML tests including pinned stock preservation; 11 existing gameplay asset tests PASS",
     "catalog": "115 exact executable guards and generated catalog check PASS",
     "launcher": "preflight/package/manifest tests PASS; actual unsigned candidate pair test PASS against signed public baseline2026102402",
     "wiki": "19 content/refresh tests PASS; historical global source ledger remains REVIEW REQUIRED",
-    "review": "Independent security/correctness/native-ABI review; cooldown/reopen and price-notification findings fixed and re-reviewed; no remaining actionable findings"
+    "review": "Independent security/correctness/native-ABI review; cooldown/reopen and price-notification findings fixed and re-reviewed; no remaining actionable findings",
+    "release": "21 Linux rollout fault-injection cases,17 Linux client publisher cases,4 ELF identity negative/positive cases PASS; independent packaging findings fixed"
   },
   "client": {
-    "status": "local unsigned candidate; signed baseline and actual runtime pairs verified",
+    "status": "signed2026102601 local candidate;141files,137retained,actual runtime pairing/preflight and signature verified; not published",
     "baseline_release": 2026102402,
     "baseline_channel_sha256": "0cc3708d19d663e20d56d579324afe4e85586930ef6cbadaa95b5032cdaac167",
     "assets": {
@@ -47,7 +48,9 @@
     ],
     "complete_inventory_count": 141,
     "published": false,
-    "native_rendered": false
+    "native_rendered": false,
+    "release": 2026102601,
+    "channel_sha256": "a7b4235a6d2641224293d372b2f66a1f4d4c7e3e8bba1ac366455bab89409f44"
   },
   "visual": "Generated XML geometry preview inspected; actual native game rendering not performed",
   "remaining": [
@@ -61,5 +64,6 @@
     "scope": "standalone Bazaar source f35107df before weapon integration",
     "sha256": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
     "source_manifest": "docs/bazaar/private/seller-panel/native-build-manifest.json"
-  }
+  },
+  "authorized": "Owner October26 combined main/server/client/wiki QA release; single deployment owner, weapon chat holds writes"
 }
