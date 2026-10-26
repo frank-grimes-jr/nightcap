@@ -1,8 +1,8 @@
 {
   "date": "2026-10-26",
-  "status": "Integrated full native build and all release checks passed; authorized deployment in progress",
+  "status": "Deployed on main for live QA; paired client/wiki verified; owner gameplay acceptance open",
   "source_baseline": "465003f60a3181317e5a8c123675b05bd63ef114",
-  "deployment": false,
+  "deployment": true,
   "owner_accepted": false,
   "checks": {
     "database": "26 real MariaDB tests PASS, including40weapon grip buy/cancel combinations; disposable tmpfs only",
@@ -12,12 +12,12 @@
     "ui_assets": "3 Bazaar XML tests including pinned stock preservation; 11 existing gameplay asset tests PASS",
     "catalog": "115 exact executable guards and generated catalog check PASS",
     "launcher": "preflight/package/manifest tests PASS; actual unsigned candidate pair test PASS against signed public baseline2026102402",
-    "wiki": "19 content/refresh tests PASS; historical global source ledger remains REVIEW REQUIRED",
+    "wiki": "19 content/refresh tests and16Linux publication tests PASS; all499HTTPSfiles/hash/securityheaders and5private-route denials verified",
     "review": "Independent security/correctness/native-ABI review; cooldown/reopen and price-notification findings fixed and re-reviewed; no remaining actionable findings",
     "release": "21 Linux rollout fault-injection cases,17 Linux client publisher cases,4 ELF identity negative/positive cases PASS; independent packaging findings fixed"
   },
   "client": {
-    "status": "signed2026102601 local candidate;141files,137retained,actual runtime pairing/preflight and signature verified; not published",
+    "status": "Signed2026102601 published; all141HTTPSassets/signature/pairing verified",
     "baseline_release": 2026102402,
     "baseline_channel_sha256": "0cc3708d19d663e20d56d579324afe4e85586930ef6cbadaa95b5032cdaac167",
     "assets": {
@@ -47,17 +47,14 @@
       "uifiles/nightcap/equi_bazaarsearchwnd.xml"
     ],
     "complete_inventory_count": 141,
-    "published": false,
+    "published": true,
     "native_rendered": false,
     "release": 2026102601,
     "channel_sha256": "a7b4235a6d2641224293d372b2f66a1f4d4c7e3e8bba1ac366455bab89409f44"
   },
   "visual": "Generated XML geometry preview inspected; actual native game rendering not performed",
   "remaining": [
-    "integrated build including weapon conversion",
-    "promote authorized combined release to main",
-    "publish paired client and runtime",
-    "native gameplay QA"
+    "Owner native gameplay/visual/balance QA for Bazaar and Paladin grips"
   ],
   "zone_build": {
     "status": "PASS",
@@ -76,5 +73,16 @@
     },
     "source_count": 2842,
     "preserved_weapon_manifest_sha256": "e735da5af64bdee27c72d2f82943a290c8ae68d508ff7458bab11d9b6a4261fc"
+  },
+  "main_revision": "e43f2d4b8d7d0665ac0465fad20c91fb26b7e383",
+  "publication": {
+    "client_release": 2026102601,
+    "wiki_release": "20261026-bazaar-grip-v1",
+    "zone_workers": 12,
+    "checks": {
+      "schema": 51,
+      "content": 565
+    },
+    "state_tables": 102
   }
 }

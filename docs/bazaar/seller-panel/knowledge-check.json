@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-26",
+  "installed_skill_validator": "PASS",
+  "reviewed_scoped_fingerprints": 69,
+  "scoped_status": "PASS; all69match this checkout",
+  "historical_global_checks": {
+    "items": {
+      "unchanged": 170,
+      "changed: review implementation and evidence": 88,
+      "missing: select the correct checkout": 21
+    },
+    "client": {
+      "unchanged": 182,
+      "changed: review implementation and evidence": 72,
+      "missing: select the correct checkout": 2
+    },
+    "wiki": {
+      "unchanged": 225,
+      "changed: review implementation and evidence": 59,
+      "missing: select the correct checkout": 3
+    },
+    "operations": {
+      "changed: review implementation and evidence": 63,
+      "missing: select the correct checkout": 4,
+      "unchanged": 108
+    }
+  },
+  "assessment": "Global checks against one integrated checkout also cover unrelated historical/candidate worktrees. Preserve their review/missing signals; no blind ledger advancement. Reviewed current Bazaar/grip/runtime/client/wiki scope is updated.",
+  "wiki_check_refresh": "REVIEW REQUIRED,143changedsources against retained global ledger; current full wiki impact and actual499file publication reviewed separately"
+}

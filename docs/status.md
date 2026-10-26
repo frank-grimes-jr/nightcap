@@ -1,22 +1,20 @@
 # Current Nightcap status
 
-## 2026-10-26 — Bazaar Sell / My Listings candidate
+## 2026-10-26 — Bazaar seller panel and Paladin grips deployed for live QA
 
-Native posting, own-listing cancellation and proceeds collection controls are built
-as a paired client/server candidate. The currently deployed command market remains
-the live QA baseline; this panel has not been published or accepted in game.
-[Candidate evidence and exact GUI QA](bazaar/seller-panel/README.md).
+Owner-authorized main PR345/e43f2d4b and one combined runtime release are verified.
+All12zone workers and matching world/shared_memory run the integrated candidate;
+51schema/565content checks, fresh stopped backup and102saved-state tables including
+all5Bazaar tables pass. Gateway reopened; quests, cache, content and other services
+are preserved. Signed client2026102601 publishes the Sell / My Listings tab and
+all141assets verify. Wiki20261026-bazaar-grip-v1 verifies all499files.
 
-## 2026-10-26 — Paladin grip candidate, not deployed
-
-Right-click switching between 1HS and 2HS is implemented for SoulFire, Fiery
-Avenger and Fiery Defender, replacing SoulFire’s heal click. Saved metadata keeps
-the original item identity and charge count. Automated native/SQL verification
-and the complete zone/world/shared_memory build passed; evidence is tracked in
-[the candidate record](items/paladin-weapon-grip/README.md). The owner-authorized
-Bazaar chat owns the combined promotion and deployment.
-Full owner RoF2 QA, main promotion, production deployment and wiki publication
-remain pending. [Exact game checks](items/paladin-weapon-grip/QA.md).
+Post, cancel and collect with the Bazaar buttons after exiting EQ and using launcher
+Play. SoulFire, Fiery Avenger and Fiery Defender also gain right-click1HS/2HS grips,
+replacing SoulFire's heal click. Retain grip-aware binaries for forward recovery;
+never restore old player data. Native rendering, offline buying and weapon-grip
+behavior/balance are still owner QA gates. [Release evidence](bazaar/seller-panel/evidence.json),
+[Bazaar steps](bazaar/seller-panel/QA.md), [weapon steps](items/paladin-weapon-grip/QA.md).
 
 ## 2026-10-26 — Commonlands bazaar deployed for live QA
 
