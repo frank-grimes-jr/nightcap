@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-26",
+  "status": "complete native build passed; not installed",
+  "baseline_manifest_sha256": "a5f5691cd1cf76e47771b3bf2d206f35c8cfb890e4adfb2d27f2e8f5b2ed7a1c",
+  "baseline_zone_sha256": "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1",
+  "changed_sources": {
+    "common/item_instance.cpp": "f62292cdde7200d8ad357ee31e12c09bc8b9072de734e25aee48e9ce49e30198",
+    "common/item_instance.h": "74b5af74995eabe13e20c1139ad30c8208dd8f68bccd5c5b47927fe570b1ddb4",
+    "common/patches/rof2.cpp": "dc6bc51da38e5bc74149d19240f7094f53e37094b2e3eecfd3126c5526272308",
+    "common/paladin_weapon_grip.h": "a4ed30f58a77579e4c6ca325ca9cf4165c7f659069288c4947759888ac43422e",
+    "zone/client.h": "791cef94083423344af7ea439376081ec030e10a2c6df6af1bb5c2e109b4e954",
+    "zone/client_packet.cpp": "e8dfa0147c338f0e4ee76995bb001abb89523a35e24e1cdff23abd38cd69931d",
+    "zone/inventory.cpp": "bbebb092010377ffdc153665de269f7a8ac28308083f59d4251f371c601f7d09"
+  },
+  "binaries": {
+    "zone": "aca1f83cad3b1dde9e143282bee0e2d0c1823e50f44c5a1f8b91ba44ee9b112e",
+    "world": "1f2cdd133c4988cf0fb622446364143c83450f3e0e8d53deb3c1c48fd2f18103",
+    "shared_memory": "9ac7aa89bb8b627b073841460064e68b52009825363c0fff794c3e255722a373"
+  },
+  "logs": [
+    "/tmp/nightcap-paladin-grip-20261026-v1/configure-1793045895693851541.log",
+    "/tmp/nightcap-paladin-grip-20261026-v1/build-1793045900709432349.log"
+  ],
+  "production_changed": false,
+  "client_verified": false,
+  "owner_accepted": false,
+  "source_file_count": 2840
+}

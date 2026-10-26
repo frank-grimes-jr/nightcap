@@ -79,7 +79,10 @@ created from the actual inventory schema. No player rows are read or written.
 probe. `tools/build_paladin_grip_candidate.py` verifies the retained deployed
 bazaar source manifest and touched-file preimages, builds isolated zone/world/
 shared_memory targets, and records `native-build.json` only on success. It does
-not install, restart, migrate, or publish. See `QA.md` for the owner game checks.
+not install, restart, migrate, or publish. The complete zone/world/shared_memory
+build passed; final source and binary hashes are in `native-build.json`. Focused
+native/SQL tests, related regressions and independent review passed. See `QA.md`
+for the still-pending native client and owner game checks.
 
 No SQL migration, cache format/layout, rules, quest scripts or client files change.
 Release uses the reviewed rebuilt native binaries with the then-current unchanged
@@ -91,5 +94,11 @@ Fresh backup and release preimages still belong to authorized deployment.
 For rollback retain grip-aware native code and earned metadata until all 1HS
 instances have been safely handled. An old binary ignores the grip key and could
 load 2HS beside an equipped shield; a blind binary rollback is not supported.
-Never restore an old player snapshot or clear unrelated custom data. No production
-deployment or wiki publication is authorized by this development request.
+Never restore an old player snapshot or clear unrelated custom data.
+
+October26 coordination: the owner authorized the Bazaar chat to push its paired
+release to server/main for QA and coordinate these weapon conversions. That chat
+(01a16f3a-3aa6-7e12-877d-5718a276f184) owns the combined promotion, integrated build,
+server/client and wiki release. This candidate has performed no production writes.
+Preserve this isolated build manifest and binaries before adding the merged Bazaar
+delta; retain both source changes. Actual native gameplay acceptance remains open.

@@ -5,7 +5,9 @@
 Right-click switching between 1HS and 2HS is implemented for SoulFire, Fiery
 Avenger and Fiery Defender, replacing SoulFire’s heal click. Saved metadata keeps
 the original item identity and charge count. Automated native/SQL verification
-and isolated build evidence are tracked in [the candidate record](items/paladin-weapon-grip/README.md).
+and the complete zone/world/shared_memory build passed; evidence is tracked in
+[the candidate record](items/paladin-weapon-grip/README.md). The owner-authorized
+Bazaar chat owns the combined promotion and deployment.
 Full owner RoF2 QA, main promotion, production deployment and wiki publication
 remain pending. [Exact game checks](items/paladin-weapon-grip/QA.md).
 
