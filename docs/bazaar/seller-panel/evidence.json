@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-26",
+  "status": "client verified; isolated full zone build pending",
+  "source_baseline": "465003f60a3181317e5a8c123675b05bd63ef114",
+  "deployment": false,
+  "owner_accepted": false,
+  "checks": {
+    "database": "25 real MariaDB tests PASS, disposable tmpfs only",
+    "native_server": "3 extracted production guard groups PASS (quote/confirmation, purchase, exact reconstruction)",
+    "runtime": "10 x86 runtime groups PASS including seller controller/native hooks, health/startup failure gates and existing feature regressions",
+    "native_models": "288 animation cases and invisible-model native regression PASS",
+    "ui_assets": "3 Bazaar XML tests including pinned stock preservation; 11 existing gameplay asset tests PASS",
+    "catalog": "115 exact executable guards and generated catalog check PASS",
+    "launcher": "preflight/package/manifest tests PASS; actual unsigned candidate pair test PASS against signed public baseline2026102402",
+    "wiki": "19 content/refresh tests PASS; historical global source ledger remains REVIEW REQUIRED",
+    "review": "Independent security/correctness/native-ABI review; cooldown/reopen and price-notification findings fixed and re-reviewed; no remaining actionable findings"
+  },
+  "client": {
+    "status": "local unsigned candidate; signed baseline and actual runtime pairs verified",
+    "baseline_release": 2026102402,
+    "baseline_channel_sha256": "0cc3708d19d663e20d56d579324afe4e85586930ef6cbadaa95b5032cdaac167",
+    "assets": {
+      "dinput8.dll": {
+        "sha256": "d2b54d097f1b5843252221b03e0515412ca130ea64ddaea55984ff7560731327",
+        "size": 649728
+      },
+      "nightcap-patch-sites.json": {
+        "sha256": "2434e6b3aa8d9ecfac2412ec159d61401dd61a9d43a690fe62691b54554fb564",
+        "size": 10179
+      },
+      "nightcap-patches.cfg": {
+        "sha256": "3db23a1e5da1ea42b8a26b3a6d1d0c7d81e668f655f2ebf917313aa28aa969ab",
+        "size": 333
+      },
+      "uifiles/nightcap/equi_bazaarsearchwnd.xml": {
+        "sha256": "d936f54ac4d6d83d52dfe10d8502e4e26e1b552f0251e1cdbc8f47ebfa0edad4",
+        "size": 35874
+      }
+    },
+    "replaced": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json",
+      "nightcap-patches.cfg"
+    ],
+    "added": [
+      "uifiles/nightcap/equi_bazaarsearchwnd.xml"
+    ],
+    "complete_inventory_count": 141,
+    "published": false,
+    "native_rendered": false
+  },
+  "visual": "Generated XML geometry preview inspected; actual native game rendering not performed",
+  "remaining": [
+    "complete isolated zone build",
+    "main/deployment approval",
+    "sign and publish paired client only after approval",
+    "native rendered/search/offline purchase/seller acceptance in QA.md"
+  ]
+}

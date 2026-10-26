@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-26 — Bazaar seller panel candidate (not deployed)
+
+Added native Search / Sell & My Listings tabs, cursor-item price/quote/confirmation,
+paged owned listings with confirmed cancellation, and proceeds collection. Server
+owns all item/currency decisions; bounded identity/request snapshots reject stale or
+incomplete replies. Timeouts never replay mutations. Native hooks preserve Search
+handling and clear state across character/window changes. Proxy/catalog0.13.0,
+config, Bazaar XML and rebuilt zone must ship together. Explicit compiled identity
+boundaries fix a linker-layout-dependent launcher pair rejection. No schema or
+power changes. [Candidate and QA](docs/bazaar/seller-panel/README.md).
+
 ## 2026-10-26 — Persistent Commonlands bazaar live testing
 
 Added independent player-item escrow, offline seller credits and native `/bazaar`

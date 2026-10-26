@@ -1,5 +1,12 @@
 # Current Nightcap status
 
+## 2026-10-26 — Bazaar Sell / My Listings candidate
+
+Native posting, own-listing cancellation and proceeds collection controls are built
+as a paired client/server candidate. The currently deployed command market remains
+the live QA baseline; this panel has not been published or accepted in game.
+[Candidate evidence and exact GUI QA](bazaar/seller-panel/README.md).
+
 ## 2026-10-26 — Commonlands bazaar deployed for live QA
 
 Owner-approved main PR339/29e4e84b is deployed. Persistent listings and offline
