@@ -1,0 +1,30 @@
+{
+  "baseline": "coordinated v2 ad7a4206, zone4f37ee33",
+  "note": "Previously untracked mirror files appear as additions in Git. Semantic review normalizes CRLF; raw retained hashes preserved separately.",
+  "files": [
+    {
+      "path": "common/bazaar.cpp",
+      "baseline_raw_sha256": "82150ebfa86d166ecc700151c407c80abaac7ff190ee31b2de980eab27ca44bf",
+      "baseline_normalized_sha256": "8f752db4cacffaf2537f8217358e4e1553b4b13a838da68890572e9b58c0d952",
+      "candidate_sha256": "4969b4634f4720924d253f5c57037b9bd34e188a94f62dd8a44b801de3d9782f",
+      "added_lines": 35,
+      "removed_lines": 7
+    },
+    {
+      "path": "common/bazaar.h",
+      "baseline_raw_sha256": "40ccb8b5a4db0e89042b3f03b30caa5afbde584ee4a3d9ff8aa31bc0ae2dd8f6",
+      "baseline_normalized_sha256": "0fda25e93c45db071561d93decca2db142b80e7fe5114af8a430c3c8f4ead49e",
+      "candidate_sha256": "eae17f65d1c45389ff1abc3881296a9bcef2d934ff3105f18c5b6cba8eddd953",
+      "added_lines": 1,
+      "removed_lines": 1
+    },
+    {
+      "path": "zone/trading.cpp",
+      "baseline_raw_sha256": "ab0c593eadf35545b3d2b055e78649b6dfdd200da8282e939e983429fb4a11e0",
+      "baseline_normalized_sha256": "086eef0e356c7d9dc398290dd1635864320e55d32c6420a0754f039eda699e72",
+      "candidate_sha256": "28f3bb9a1f632b0b4cd7937e99fd3ba3e8672add304c173361de031b01acb505",
+      "added_lines": 23,
+      "removed_lines": 1
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "client_release": 2026102402,
+  "changed_client_assets": 2,
+  "preserved_client_assets": 138,
+  "production_gameplay_baseline_preserved_after_client_publication": true,
+  "live_kael_instances": 0,
+  "live_kael_saved_spawns": 0,
+  "new_tables_absent": true,
+  "target_preimages_match_reviewed_candidate": true,
+  "native_gameplay_acceptance": "pending",
+  "focused_tests": {
+    "combined_tome_dungeon_rewards_healing": 60,
+    "ashen_including_client": 7,
+    "independent_gameplay": 11,
+    "deployment_groups_windows_linux": 7,
+    "client_publisher_linux": 14,
+    "wiki_content": 14
+  },
+  "client_hosted_files": 140,
+  "client_patch_note_correction": "2026102402 corrects 2026102401 notes; identical archive payloads, append-only history",
+  "native_build": "world/zone/shared_memory passed from authenticated retained source",
+  "native_binary_hashes": {
+    "world": "e8e225a109d78f340ae4cc756360729f417d46abe02d750a3d13ed19da5c318c",
+    "zone": "4f37ee330f43bf2f6f5aea7883f314ca4803c3583d032915415ed833d365c744",
+    "shared_memory": "15cbca82d174d3abb353397338f0ee5d1dbe2f4631e57c6dcdf22c76c5a660cc"
+  },
+  "v1_preflight": "failed: cache_check rejected 990510 (contract Races 4095, loaded 65535)",
+  "v2_package": "contract projects loaded races; staged 24 files on OVH",
+  "v2_preflight": {
+    "result": "passed",
+    "cache": {"items": 441, "drift_rejections": 882, "item_bytes": 1332},
+    "checks": {"schema": 51, "content": 565},
+    "comparison": {"preserved_items": 309857, "new_items": 14, "existing_changed": 0},
+    "candidate_image": "sha256:a2a40ce1c2d9",
+    "headroom": "pruned 1.545GB unused Docker build cache first (owner-approved); 2020MiB free after preflight"
+  },
+  "native_semantic_changes": 18,
+  "proved_crlf_only_normalizations": 4,
+  "quest_scripts": 15,
+  "camil_helmet": "Local capture lacked deployed990500; reviewed production projection matches, full old-cache preservation required in rehearsal"
+}

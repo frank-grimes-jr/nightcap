@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-26",
+  "source_revision": "96f6f231423cc13aaa8ccbfff0cd5e9aa055320e",
+  "source_base": "8db6dd95",
+  "published_baseline": "20261024-rogue-tomes-v1 last recorded wiki publication; integrated October24 main content retained, not independently republished here",
+  "publication": "pending; local candidate only",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "assessment": "Candidate market instructions/availability; no live claim",
+      "changed": true
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "assessment": "Candidate market instructions/availability; no live claim",
+      "changed": true
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "assessment": "Candidate market instructions/availability; no live claim",
+      "changed": true
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "assessment": "Home remains available-system orientation; candidate discoverable from Features/In development without a release announcement",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "assessment": "Candidate market instructions/availability; no live claim",
+      "changed": true
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "assessment": "Candidate market instructions/availability; no live claim",
+      "changed": true
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "assessment": "Candidate market instructions/availability; no live claim",
+      "changed": true
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "assessment": "No mechanics, access, item values, acquisition, guide workflow or status changed by player escrow",
+      "changed": false
+    }
+  ],
+  "catalog": "All generated item/zone routes retain definitions, acquisition and stats; escrow adds no stock, loot source, quality, reward or catalog value. No regeneration input changes.",
+  "scope": "Six guide/directory/history updates, explicit Not released labels. Home, tools, generated routes and all unrelated guides unchanged.",
+  "outside_git": "October25 native/client activation is evidenced by coordinated open-receipt.json; no bazaar SQL/runtime/client activation exists.",
+  "source_ledger": "Do not advance global content-review revision; changed native inputs and candidate documentation require review, not proof of publication."
+}

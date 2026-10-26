@@ -1,0 +1,45 @@
+"""Presentation-only helpers for the handbook. Article prose remains authoritative."""
+import html
+
+
+PATHS = [
+    ('begin', 'Start here', 'Your first evening in Nightcap', 'A little preparation. A whole world ahead.',
+     ['getting-started', 'launcher', 'features', 'tunnel']),
+    ('build', 'Build a character', 'Make the adventure your own', 'Explore the choices behind your next character.',
+     ['build-lab', 'multiclass', 'combat', 'pets']),
+    ('gear', 'Find better gear', 'Something worth the next fight', 'Find a reward, understand its quality, then plan your upgrade.',
+     ['items', 'equipment', 'item-upgrades', 'tradeskills']),
+    ('explore', 'Go adventuring', 'Take the long way home', 'Find a destination and learn what is waiting there.',
+     ['dungeon-modes', 'zones', 'waypoints', 'travel']),
+]
+
+
+def home(body, articles):
+    """Keep home focused on orientation; dated updates belong in Change Log."""
+    _, original = body.split('<div class="welcome">', 1)
+    welcome, handbook = ('<div class="welcome">' + original).split('<p class="feature-entry">', 1)
+    buttons, panels = [], []
+    for key, label, title, description, slugs in PATHS:
+        buttons.append(f'<button type="button" data-path="{key}" aria-controls="path-{key}" aria-pressed="false">{label}</button>')
+        entries = []
+        for number, slug in enumerate(slugs, 1):
+            article = articles[slug]
+            entries.append(f'<a class="journey-link" href="{slug}.html">'
+                           f'<span><strong>{html.escape(article["title"])}</strong><small>{html.escape(article["summary"])}</small></span>'
+                           '<span class="arrow" aria-hidden="true">↗</span></a>')
+        panels.append(f'<section class="journey-panel" id="path-{key}" aria-labelledby="heading-{key}">'
+                      f'<div class="journey-intro"><p class="eyebrow">YOUR NEXT CHAPTER</p><h3 id="heading-{key}">{title}</h3><p>{description}</p>'
+                      '</div><div class="journey-links">' + ''.join(entries) + '</div></section>')
+    return welcome + '''<section class="explorer" aria-labelledby="explore-title">
+<div class="section-heading"><div><h2 id="explore-title">Find a guide</h2></div><a href="all-pages.html">All guides →</a></div><span id="handbook"></span>
+<div class="path-picker" role="group" aria-label="Choose your adventure" hidden>''' + ''.join(buttons) + '</div>' + ''.join(panels) + '''</section>
+<section class="saved-home" data-saved-home hidden aria-labelledby="saved-heading"><div class="section-heading"><div><p class="eyebrow">YOUR FIELD NOTES</p><h2 id="saved-heading">Saved for your next adventure</h2></div><button type="button" data-open-saved>Manage saved guides</button></div><div data-saved-links></div></section>
+<p class="feature-entry">''' + handbook
+
+
+def dialogs():
+    return '''<dialog id="quick-search" aria-labelledby="quick-title"><div class="dialog-heading"><h2 id="quick-title">What are you looking for?</h2><button type="button" data-close-dialog aria-label="Close search">✕</button></div>
+<form action="search.html" role="search"><label class="sr-only" for="quick-query">Search guides, items and zones</label><input id="quick-query" name="q" type="search" placeholder="Try multiclass, Befallen, or #zoneforge…" maxlength="160" autocomplete="off"><button type="submit">All results ↗</button></form>
+<p class="dialog-status" id="quick-status" role="status">Search the handbook. Find your next adventure.</p><ul id="quick-results" class="quick-results"></ul><p class="dialog-foot">Tab to a result · Enter to open · Esc to close</p></dialog>
+<dialog id="saved-guides" aria-labelledby="saved-title"><div class="dialog-heading"><h2 id="saved-title">Your saved guides</h2><button type="button" data-close-dialog aria-label="Close saved guides">✕</button></div><p>Keep useful pages close. Saved on this browser, with no account needed.</p><div data-saved-list></div><p id="saved-status" role="status"></p></dialog>
+<div class="toast" id="wiki-feedback" role="status" aria-live="polite"></div>'''

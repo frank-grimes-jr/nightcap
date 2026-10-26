@@ -1,7 +1,9 @@
 # Multiclass tome learning — October 24, 2026
 
-Owner authorized main and server deployment after the rogue audit. Candidate is
-under verification; no deployment or native player acceptance is claimed yet.
+Owner-authorized main PR330 (24412152) and production activation are complete.
+All 12 zone workers verify; access is open. Native player acceptance remains
+pending. Dev PR331/test PR332 integrate the repair, while this main deployment
+excludes their other unreleased candidates.
 
 Production snapshots, image/service fingerprints, build inventory, package
 manifests and detailed receipts remain private and are excluded by this release's
@@ -49,11 +51,34 @@ Independent tests compile real GetSpellMinLevel/GetMulticlassList, the canonical
 catalog, learning methods and tome packet branch. Original source: 34 failures,
 9 controls passing. Fixed source: all 43 pass on Windows/MSVC. Database/inventory
 IO are isolated fakes; simulated reload does not establish live client acceptance.
-All43 also pass on Linux. Adjacent early-scribing1, canonical spell-access2 and
-cooldown27 tests pass. Independent review found and closed a rollback guard gap:
+All 43 also pass on Linux. Adjacent early-scribing (1), canonical spell-access (2)
+and cooldown (27) tests pass. Independent review found and closed a rollback guard gap:
 unverified or uncertain activation cannot be blessed as a fresh recovery baseline.
-The revised source/operator has no remaining required findings. Full native build
-and actual deployment evidence remain pending; owner gameplay QA remains open.
+The revised source/operator has no remaining required findings. The full Linux
+zone build and dynamic dependency check pass; authenticated retained objects
+reproduce the deployed predecessor exactly. All three compiled source inputs
+match this release. Activation and access-open receipts pass for all 12 workers,
+93 saved-state tables and 577 schema/content checks. Fresh stopped backup and
+exact native expiry of 1,612 noncorpse cache rows were verified; one expected
+market startup rotation reconciles. No database snapshot was restored.
+The retained world/client/cache/content/quest/service checks pass, with no native,
+quest or database errors and no extra runtime restart. Owner gameplay QA is open.
+See deployment-summary.json; detailed machine evidence remains private.
+
+## AA and high-level tome audit
+
+The production read-only audit matched all 530 released Rogue-accessible AA
+ranks across 96 families to level-1 purchase requirements. All 1,845 compiled
+policy ranks also return level 1. No generic AA purchase/activation gate above
+60 was found. The reported AA problem still needs its exact name and error.
+Assassinate's level-60 combat rule is separate; the Anatomy execute effect is
+excluded from the released pool, and Assassin's Wrath is a different modifier.
+
+Canonical Rogue tomes comprise 193 item records for 189 disciplines; 178 item
+records require levels above 60. Widened item masks are not eligibility proof.
+This repair preserves those discipline gates and fixes learning for eligible
+held classes. Sneak Attack is a level-20 discipline and is a valid level-30
+SK/Shaman/Rogue test. No AA or discipline-level rebalance was performed.
 
 ## Exact owner QA
 
@@ -81,3 +106,18 @@ market reconciliation, worker/content/cache/client checks, then access reopening
 Never kill a single production zone or restore an old database/player snapshot.
 An uncertain action must be inspected through its immutable receipts before any
 continuation; do not blindly replay activation.
+
+After a subsequent wiki publication, this original preflight is stale and its
+rollback command is intentionally unusable. A newly reviewed recovery
+continuation must authenticate the current wiki pointer and exact manifest,
+preserve every non-wiki safeguard, capture current earned state and take a fresh
+stopped backup. Verify the prior runtime before reopening access. Do not weaken
+the original checks, replay activation or reuse the old player snapshot.
+
+Wiki20261024-rogue-tomes-v1 is published: all 483 HTTPS hashes/security headers
+and five private-route denials verify; 16 Linux publisher/recovery tests pass.
+Only Multiclass, Change Log and search changed. All 24 guides and 447 generated
+routes were reviewed; other catalog values, commands and candidate labels stay.
+The exact new public manifest digest is in deployment-summary.json. Future
+recovery must reconcile this publication as described above. Current guide:
+https://wiki.nightcapgame.org/multiclass.html#learning-tomes

@@ -1,0 +1,14 @@
+{
+  "slug": "item-960425",
+  "title": "Ascended Seal of Commanded Souls",
+  "summary": "Final Raid reward · Kael · Live testing.",
+  "body": "<table><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th>Item ID</th><td>960425</td></tr><tr><th>Family</th><td>Final Raid reward</td></tr><tr><th>Required level</th><td>0</td></tr><tr><th>Recommended level</th><td>50</td></tr><tr><th>Slots</th><td>Finger</td></tr><tr><th>Classes</th><td>All held classes</td></tr><tr><th>AC</th><td>18</td></tr><tr><th>HP</th><td>54</td></tr><tr><th>Mana</th><td>54</td></tr><tr><th>STA</th><td>7</td></tr><tr><th>INT</th><td>7</td></tr><tr><th>Magic resist</th><td>7</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>The Echo of Endless War in Raid mode, under the existing final Raid loot rules. See <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
+  "category": "Equipment",
+  "status": "Live testing",
+  "updated": "2026-10-24",
+  "sources": [
+    "docs/quests/warhelm/SPEC.md",
+    "docs/quests/warhelm/install-rows.json",
+    "docs/quests/warhelm/QA.md"
+  ]
+}

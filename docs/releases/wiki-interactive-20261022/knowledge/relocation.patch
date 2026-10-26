@@ -1,0 +1,156 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -8732,13 +8732,6 @@
+         "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "docs/releases/classic-robes-20261022/wiki-review.json",
+-        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+-        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+-        "sha256": "3d6573652b90802ea138dad471ab8ee4004f7c5cc31eb89cc927c45137345217"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+         "path": "docs/ops/waypoint-crystal-20261022/wiki-review.json",
+         "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -8753,35 +8746,35 @@
+         "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/deployment/wiki-review.json",
+         "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+         "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+         "sha256": "b7864e97de95d0edad627d87e50b82f6c0a6275aa5a0d163440d30b12fab7163"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/deployment/publish_wiki.py",
+         "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+         "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+         "sha256": "f2ff3946e642b853b47b1813f2f66f22a92ee48cdb593e9523cafe0514bedb3b"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/deployment/verify_wiki.py",
+         "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+         "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+         "sha256": "a18a7d01c2263e9da011ac4fef8a32f2dd3150577d3dabb061f127aabbe28a8e"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/deployment/wiki-publication.json",
+         "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+         "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+         "sha256": "8fade5703053e88d7c86bdd1b51e0bf28f96ab34c9c64365a6b4ecc69564e913"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/deployment/wiki-public-verification.json",
+         "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+         "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+@@ -8858,35 +8851,35 @@
+         "sha256": "b0715d02165875b1198432bb231bd7a754201826a862c4adb3f783135bad58df"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-review.json",
+         "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+         "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+         "sha256": "e63ae43366f77040d83f2206dd3b94c172e42ddf47793ce868b608015b612d83"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/publish_wiki.py",
+         "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+         "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+         "sha256": "74075e028662700d02793861e0f686abfff49bb3e442c4819fc46cc6968d9474"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/verify_wiki.py",
+         "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+         "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+         "sha256": "337e88a4353dfa8f6902578bf692fdf887d2b3bdc1ad95ef9756a47fb4b89d58"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-publication.json",
+         "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+         "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+         "sha256": "ad3fc5eeab97027debac65da9d7151c2240c602f226d159f25f1ad3b57554681"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-public-verification.json",
+         "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+         "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+@@ -8949,42 +8942,42 @@
+         "sha256": "6739445a9e28c1cd6e3fdd0da49b4009f4dfe21a4116e6e03195494a6cc062f9"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-review.json",
+         "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+         "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+         "sha256": "29e2189277d63da74b5d06eedba91a3dabcec3a9f4d48e9d45b44a573c37f67a"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/concurrent-wiki-reconciliation.json",
+         "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+         "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+         "sha256": "d5fd13f4d2b6550f5570dd2baff61876ad5056a247fa2be404b21a611bf282d1"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/publish_wiki.py",
+         "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+         "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+         "sha256": "9bf8e015f4f0935c6d947b41e9383224834f5014184e7747f0692a99d31f2fdb"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/verify_wiki.py",
+         "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+         "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+         "sha256": "5496ab51911e30be1d8a3909979b06bb27c86ea4625c5f569a6b2a0b938bfd59"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-publication.json",
+         "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+         "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+         "sha256": "c5b41ce20cd46e24316349b630488c76f480a8b5081b812a953c56d7363b5d3c"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-public-verification.json",
+         "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+         "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+@@ -9082,7 +9075,7 @@
+         "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/wiki-impact.json",
+         "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+         "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",

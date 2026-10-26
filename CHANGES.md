@@ -1,6 +1,26 @@
 # CHANGES
 
-## 2026-10-24 — Multiclass tome learning repair candidate
+## 2026-10-26 — Persistent Commonlands bazaar candidate
+
+Added independent player-item escrow, offline seller credits and native `/bazaar`
+search/purchase routing for public East Commonlands. Cursor posting uses an explicit
+price confirmation; partial-stack buys, cancellation and collection commit ownership
+and funds together. No auctioneer character is needed. Filled bags, temporary,
+evolving/scaling items and metadata that cannot roundtrip native loading are rejected
+before posting; exact supported instance metadata is retained. Migration starts
+disabled. Full current-baseline zone build,22 database tests,2 native guard groups
+and independent review pass. Not deployed: [design and evidence](docs/bazaar/SPEC.md),
+[exact player QA](docs/bazaar/QA.md). Existing live behavior is unchanged.
+
+## 2026-10-24 — Coordinated release v2: reward cache race mask
+
+The v1 preflight stopped in `cache_check`: Warhelm of the Ashen Compact (990510) stores races=4095, but `NightcapEquipment::ApplyRacePolicy` loads wearable player gear with every race (65535), and the contract renderer copied the SQL mask. `tools/dungeon_contract.py` now projects races the way the loader does; SQL predicates keep stored masks, and only the 990510 case changed. Owner decision: every race may equip the Warhelm, as with Camil's Winged Helm. world/zone/shared_memory rebuilt and packaged/staged as `-v2`; v1 artifacts retained. Gotcha: future race-restricted rewards are now handled automatically, but a hand-edited contract would reintroduce the failure. The production disk was 98% full, so 1.545 GB of unused Docker build cache was pruned (owner-approved) before preflight. v2 preflight passed: cache 441/882, 51 schema/565 content checks, 309,857 items preserved, 14 new, 0 changed. Deployed 2026-10-25 11:41 UTC with access reopened; collect PASS (12 zones on the v2 binary, 0 native/quest/database errors, verified stopped backup, no database restore). In-game acceptance pending; receipt in `docs/releases/october-24-coordinated/open-receipt.json`.
+
+## 2026-10-24 — Coordinated pending release
+
+Integrate High Keep rescue, aggro cleanup and the Ashen Compact with the deployed Rogue tome lineage and current published wiki. Pair guarded schema/content, native binaries, cache, quests and HE91 client assets; preserve earned state and Classic50. Deployment verification is in docs/releases/october-24-coordinated/. Gameplay acceptance remains open.
+
+## 2026-10-24 — Multiclass tome learning repair deployed
 
 Tomes now use canonical held-class eligibility, fixing secondary/third Rogue
 learning (including caster primaries). Right-click failures preserve the original
@@ -8,8 +28,9 @@ item; duplicate scanning covers the whole list and failed discipline saves do no
 update the profile or consume the tome. Consumed trainer/quest callers retain the
 refund API. Discipline levels and the level1 AA catalog stay unchanged. Native
 43-case Windows/Linux tests and adjacent spell/cooldown regressions pass; main
-and server deployment are owner-authorized, with full build/delivery and native
-player QA tracked in [release evidence](docs/releases/rogue-tomes-20261024/README.md).
+and server release PR330 is verified: 12 workers, 93 saved-state tables, fresh
+backup and 577 contract checks. Full native build passes; player QA remains
+pending in [release evidence](docs/releases/rogue-tomes-20261024/README.md).
 
 ## 2026-10-24 — Ashen Compact hidden Everfrost entrance
 
@@ -93,6 +114,23 @@ with3319 legal AAs, Ascended Ghoulbane, Slay/proc/crit stacking and native Raid
 scaling:48 maximum-power arena cases pass; complete encounter QA remains open.
 Paired native/schema/cache install and owner gameplay/balance
 QA remain required. [Specification and evidence](docs/quests/camil-chapterhouse/SPEC.md).
+## 2026-10-24 — Custom content on Features
+
+Features now explicitly lists Raid/Grind dungeons and helmet quests, grouped with
+Zone Hunt, epic reforging, class-armor quests, crafting, exploration and custom
+character/world systems. Every entry links to its guide; minor fixes stay in
+Change Log. Ashen Compact is an unavailable preview, not an activated reward.
+No gameplay/catalog change. Evidence: `docs/releases/wiki-custom-features-20261024/`.
+
+## 2026-10-24 — Clearer wiki structure
+
+Reduced Features to eight defining departures from standard EQ. Home and guides
+now prioritize orientation and current instructions; dated fixes and repeated
+announcements are collected in Change Log. Added consistent section tabs, type
+sizes and compact contents; long references expand when needed. Old article URLs
+and anchors remain usable, and gear values, gameplay labels, Loot finder and
+Build Lab remain intact. Whole-site review and publication evidence:
+`docs/releases/wiki-clarity-20261024/`.
 
 ## 2026-10-23 — Level-scaled AA and level-1 allocation controls (deployed)
 
@@ -110,6 +148,45 @@ its signed catalog. Main PR305/00f90e9 and production image5e501da8 are verified
 verifies all140assets. Wiki467/private guide5files are published and verified. Native reward/transition and
 exact-client controls pass; owner gameplay/balance QA remains open.
 [Evidence and QA](docs/releases/aa-level-progression-20261023/README.md).
+
+## 2026-10-22 — Production-backed wiki loot finder
+
+Added current-era equipment search for up to three held classes, defaulting to
+any held class with optional all-class matching. Item links show stats, source
+mobs/zones, spawn locations/conditions and calculated per-kill drop chances. A
+fixed read-only production content capture and guarded fifteen-minute publisher
+are installed; immutable public snapshots keep index/details paired and preserve
+the last good capture after failures. No game/database/client mutation. Native
+loot-roll comparisons, Linux recovery checks and browser filters verified.
+Owner-approved reader/timer/JSON route and wiki `20261022-loot-finder-v2` are live.
+Gzip-only snapshots reduce 327 MB canonical JSON to 23.34 MB payloads; the publisher
+checks staging allocation plus a 256 MiB disk reserve before switching. Both
+identity/gzip clients retain canonical JSON URLs and hashes. All467public files,
+route/private-service preservation and actual rollback are verified. A Windows
+UTF-8 prose correction is included in v2; no gameplay or acceptance labels changed.
+Evidence, limitations and recovery: `docs/releases/wiki-loot-finder-20261022/`.
+
+## 2026-10-22 — Experimental Build Lab
+
+Added a visual wiki workbench for two saved Classic50 builds, supported spell
+benefits, Hunt item stat differences, resolved abilities, mana/cast timelines and
+exhaustive priority-order testing. Twelve captured native landed-value controls
+anchor the narrow spell model. Full gear/AA/pet derivation and native encounter
+simulation remain outside this diagnostic tool; limits and dated fixtures are
+visible. No game, database or client changes. Evidence and publication state:
+`docs/releases/build-lab-20261022/`; design/provenance: `docs/build-lab/`.
+Published `20261022-build-lab-v1`,466public files verified with rollback and
+private-service preservation.
+
+## 2026-10-22 — Interactive wiki handbook
+
+Reworked the public wiki around four adventure paths, instant quick search,
+browser-local saved guides, light/dark reading modes, responsive navigation and
+reading progress. Original home release notices remain intact in an expandable
+section. All 458 HTML pages, catalog values, gameplay labels and equipment filters
+are preserved. No new dependencies or hosting policy changes. Tests and guarded
+publication evidence: `docs/releases/wiki-interactive-20261022/`. Published as
+`20261022-interactive-handbook-v1`; all 465 public hashes and preservation checks pass.
 
 ## 2026-10-22 — Hate Keeper moved to Commonlands
 

@@ -167,6 +167,7 @@ void command_save(Client *c, const Seperator *sep);
 void command_scale(Client *c, const Seperator *sep);
 void command_scribespell(Client *c, const Seperator *sep);
 void command_scribespells(Client *c, const Seperator *sep);
+void command_bazaar(Client *c, const Seperator *sep);
 void command_sell_all(Client *c, const Seperator *sep);
 void command_sendzonespawns(Client *c, const Seperator *sep);
 void command_sensetrap(Client *c, const Seperator *sep);

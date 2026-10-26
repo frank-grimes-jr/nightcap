@@ -77,10 +77,11 @@ class WikiTests(unittest.TestCase):
         self.assertIn('selectFamilies', (self.out/'assets/search.js').read_text(encoding='utf-8'))
 
     def test_current_mechanics_and_unreleased_labels(self):
-        self.assertIn('<strong>10%',self.articles['multiclass']['body'])
-        self.assertIn('1,000,000 AA experience',self.articles['multiclass']['body'])
+        self.assertIn('<strong>two AA per level-equivalent</strong>',self.articles['multiclass']['body'])
+        self.assertIn('<strong>100% to pause normal leveling</strong>',self.articles['multiclass']['body'])
+        self.assertIn('98 AA by reaching level 50',self.articles['multiclass']['body'])
         self.assertNotIn('plus 1%',self.articles['multiclass']['body'])
-        self.assertIn('10%',self.articles['commands']['body'])
+        self.assertIn('#aaexp 0–100',self.articles['commands']['body'])
         self.assertNotIn('40%',self.articles['commands']['body'])
         self.assertEqual(self.articles['unreleased']['status'],'Not released')
         self.assertIn('not installed',self.articles['unreleased']['body'])
@@ -100,17 +101,93 @@ class WikiTests(unittest.TestCase):
         self.assertNotIn('all 72',self.articles['waypoints']['body'])
 
     def test_generated_reward_pages_use_current_upgrade_costs(self):
-        rewards = [a for slug,a in self.articles.items() if re.fullmatch(r'item-\d+|zone-(?!hunt$)[a-z0-9-]+',slug)]
+        catalog = json.loads((Path(__file__).parent/'catalog.json').read_text(encoding='utf-8'))
+        hunt_slugs = {'item-'+str(i['id']) for i in catalog['items']} | {'zone-'+z['slug'] for z in catalog['zones']}
+        rewards = [a for slug,a in self.articles.items() if slug in hunt_slugs]
         self.assertEqual(len(rewards),432)
         for a in rewards:
             self.assertRegex(a['body'],r'[Ff]our (?:identical )?Polished',a['slug'])
             self.assertNotIn('exchange three identical eligible copies',a['body'])
+
+    def test_chapterhouse_separates_augments_equipment_and_quest_delivery(self):
+        self.assertIn('0.5%',self.articles['zone-chapterhouse']['body'])
+        self.assertIn('35%',self.articles['zone-chapterhouse']['body'])
+        for item in range(961000,961004):
+            page=self.articles['item-'+str(item)]
+            self.assertEqual(page['status'],'Live testing')
+            self.assertIn('type-22',page['body'])
+            self.assertIn('four Polished or Exalted',page['body'])
+        for item in list(range(960414,960420))+list(range(961010,961013)):
+            self.assertIn('does not use the Ember',self.articles['item-'+str(item)]['body'])
+        self.assertIn('Delivered once by Camil',self.articles['item-990500']['body'])
+        self.assertIn('balance acceptance remain open',self.articles['camil-vigil']['body'])
 
     def test_search_index_has_all_articles_without_internal_sources(self):
         index = json.loads((self.out/'search-index.json').read_text(encoding='utf-8'))
         self.assertEqual({a['slug'] for a in index},set(self.articles))
         self.assertNotIn('sources',index[0])
         self.assertTrue(all(a['text'] for a in index))
+
+    def test_home_focuses_on_guides_and_progressive_navigation(self):
+        page = (self.out/'index.html').read_text(encoding='utf-8')
+        self.assertNotIn('class="release-digest"',page)
+        self.assertIn('What makes Nightcap different',page)
+        self.assertIn('Change Log',page)
+        for key, _, _, _, slugs in build.experience.PATHS:
+            self.assertIn(f'id="path-{key}"', page)
+            self.assertNotIn(f'id="path-{key}" hidden', page)
+            for slug in slugs:
+                self.assertIn(f'href="{slug}.html"', page)
+
+    def test_features_guides_and_change_log_are_distinct_destinations(self):
+        features=self.articles['features']['body']
+        self.assertEqual(features.count('class="feature-row"'),14)
+        for group in ['custom-adventures','custom-builds','custom-world','custom-tools']:
+            self.assertIn(group,self.pages['features.html'].ids)
+        for target in ['dungeon-modes','camil-vigil','zone-hunt','ascension','waypoints','tunnel']:
+            self.assertIn(target+'.html',features)
+        self.assertIn('Raid &amp; Grind dungeons',features)
+        self.assertIn('Custom helmet quests',features)
+        self.assertIn('ashen-compact.html',features)
+        preview=self.articles['unreleased']['body'].split('id="ashen-compact"')[1].split('<h2')[0]
+        self.assertIn('live testing',preview)
+        self.assertIn('acceptance remain open',preview)
+        self.assertNotIn('class="notice"',features)
+        self.assertEqual(self.articles['recent-changes']['title'],'Change Log')
+        self.assertIn('Earlier release detail',self.articles['recent-changes']['body'])
+        directory=(self.out/'all-pages.html').read_text(encoding='utf-8')
+        self.assertNotIn('href="zone-qeytoqrg.html"',directory)
+        self.assertIn('href="zones.html"',directory)
+        for name,page in self.pages.items():
+            self.assertIn('recent-changes.html',page.links,name)
+            self.assertIn('all-pages.html',page.links,name)
+
+    def test_old_guide_anchors_and_moved_notices_remain_reachable(self):
+        import subprocess
+        history=self.articles['recent-changes']['body']
+        historical=subprocess.check_output(['git','ls-tree','--name-only','66c7b843:wiki/articles'],cwd=build.ROOT.parent,text=True,encoding='utf-8').splitlines()
+        for filename in historical:
+            path=build.ROOT/'articles'/filename
+            self.assertTrue(path.is_file(),filename)
+            old=json.loads(subprocess.check_output(['git','show','66c7b843:wiki/articles/'+path.name],cwd=build.ROOT.parent,text=True,encoding='utf-8'))
+            old_ids=set(re.findall(r'\bid="([^"]+)"',old['body']))
+            self.assertTrue(old_ids<=set(self.pages[path.stem+'.html'].ids),path.stem)
+        for slug in ['multiclass','combat','pets','item-upgrades','getting-started']:
+            self.assertNotIn('thj-behavior-candidate',self.articles[slug]['body'].split('class="archived-update"')[0])
+            self.assertIn(slug+'--thj-behavior-candidate',history)
+        self.assertIn('<details class="guide-topic" id="required-bosses">',self.articles['dungeon-modes']['body'])
+        self.assertIn('skeleton Lrodd',self.articles['dungeon-modes']['body'])
+        self.assertIn('keyless',history)
+
+    def test_interactive_shell_and_public_asset_allowlist(self):
+        for page in self.pages.values():
+            self.assertIn('quick-search', page.ids)
+            self.assertIn('saved-guides', page.ids)
+        self.assertEqual({p.name for p in (self.out/'assets').iterdir()},
+                         {'wiki.css', 'search.js', 'moon.svg', 'traders-at-dusk.png'})
+        bundle = (self.out/'assets/search.js').read_text(encoding='utf-8')
+        self.assertIn('nightcap.saved', bundle)
+        self.assertIn('searchGeneration', bundle)
 
     def test_public_payload_excludes_private_material(self):
         forbidden = re.compile(r'135\.148\.47\.202|/opt/nightcap|C:/Users|\.ssh/|BEGIN .*PRIVATE KEY|scrypt|account_password|docs/releases/|github.com/frank-grimes',re.I)

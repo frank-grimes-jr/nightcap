@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "snapshot": "7e63a1baccbd3f1e",
+  "rollback_rehearsed": true,
+  "timer_minutes": 15,
+  "service_ids_preserved": true,
+  "private_downloads_preserved": true
+}

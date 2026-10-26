@@ -1,0 +1,14 @@
+{
+  "slug": "item-961032",
+  "title": "Vhalek's Soulcleaver",
+  "summary": "Miniboss relic · Kael · Live testing.",
+  "body": "<table><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th>Item ID</th><td>961032</td></tr><tr><th>Family</th><td>Miniboss relic</td></tr><tr><th>Required level</th><td>50</td></tr><tr><th>Recommended level</th><td>50</td></tr><tr><th>Slots</th><td>Primary, Secondary</td></tr><tr><th>Classes</th><td>All held classes</td></tr><tr><th>HP</th><td>23</td></tr><tr><th>Mana</th><td>23</td></tr><tr><th>STR</th><td>6</td></tr><tr><th>DEX</th><td>6</td></tr><tr><th>Damage</th><td>16</td></tr><tr><th>Delay</th><td>28</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>The corresponding first, second or third named boss: 35% custom-item roll. See <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
+  "category": "Equipment",
+  "status": "Live testing",
+  "updated": "2026-10-24",
+  "sources": [
+    "docs/quests/warhelm/SPEC.md",
+    "docs/quests/warhelm/install-rows.json",
+    "docs/quests/warhelm/QA.md"
+  ]
+}

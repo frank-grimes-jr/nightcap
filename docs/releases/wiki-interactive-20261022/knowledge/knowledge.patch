@@ -1,0 +1,917 @@
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,34 @@
+ # Official player wiki and Features
++
++## Interactive handbook — October 22 published
++
++Current public release is `20261022-interactive-handbook-v1`, following
++`20261022-classic-dungeons-v1`. Source: E:/EQ_Local_Dev/_worktrees/wiki-interactive.
++`wiki/experience.py` composes four paths from current article titles/summaries and
++moves home notices intact into a native disclosure. `assets/experience.css` and
++`experience.js` add dark/light reading, quick search (slash/Ctrl/Command+K), local
++bookmarks, path URL/Back state, mobile navigation, progress and contents tracking.
++The generator bundles them into the existing cache-versioned public CSS/JS files.
++No packages, server accounts, client pairing or gameplay reload are needed.
++
++All21 maintained guides/432 generated routes reviewed; gameplay Features, commands,
++384 catalog values and native QA labels stay unchanged. About explains local
++storage/shortcuts; Recent changes documents the UI. Existing release-note HTML and
++anchors remain intact; deep links expand their disclosure. No-JS paths and article
++links remain static. Storage accepts only safe local slugs and text; blocked
++storage degrades to the page visit. Search loads only when used, retries failures
++and rejects stale results. Recheck these contracts when changing the shell.
++
++23 Python checks pass/9 POSIX-only skips locally,16 recovery checks pass on Linux,
++6 search/7 equipment checks and the experience scenarios pass. Browser inspection
++covered20 layouts at320/768/1024/1440, keyboard/Back/bookmark/theme/search/deep-link
++flows with no overflow or console errors. All465 HTTPS hashes/security headers
++and five private-route denials verify. The guarded update reproduces the previous
++manifest first and rehearses pointer rollback, preserving config/private downloads
++and service identities without reload. Evidence: docs/releases/wiki-interactive-20261022/.
++Native gameplay/balance acceptance is unchanged. UI source is on its feature
++branch; publication is independent of gameplay/main promotion. Future publishers
++must preserve this release and reconcile its source before replacing the whole site.
+ 
+ ## Quest ingredient qualities — October22 deployed for live QA
+ 
+@@ -431,13 +461,11 @@
+ `test_deploy test_update` has sixteen recovery cases. Browser checks cover links,
+ keyboard navigation, clean console and 320/768/1024/1440 layouts.
+ 
+-Live public URL: https://wiki.nightcapgame.org/features.html. Active release
+-`20261018-reforge-colors-v1`, previous `20261018-client-zone-repair-v1`. October18 public verification
+-matches all465 SHA-256 values and headers and five denied wiki source/private routes.
+-Origin rehearsal preserves private downloads and all five service identities.
+-Current evidence: `docs/releases/reforge-colors-20261018/`; historical evidence:
+-`docs/releases/october-17-2026/` and `docs/releases/wiki-dungeons-20261016/`;
+-runbook `docs/ops/nightcap-wiki.md`; maintenance `wiki/README.md`.
++Live public URL: https://wiki.nightcapgame.org/. Current verified release is
++`20261022-interactive-handbook-v1`; previous is `20261022-classic-dungeons-v1`.
++The current publication/recovery evidence is in docs/releases/wiki-interactive-20261022/;
++older dated sections retain historical scope. Runbook: docs/ops/nightcap-wiki.md;
++maintenance: wiki/README.md. Native owner acceptance remains separately recorded.
+ 
+ `update.py` holds the shared website lock and atomically switches a guarded relative
+ wiki symlink, verifies every file, rehearses the previous release and reapplies.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -84,7 +84,8 @@
+     "quest_tier_handins_20261022": "228cab3ae2cfbc4606493a019e041c52b114b714",
+     "classic_dungeon_rewards_candidate_20261022": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
+     "quest_armor_deployed_20261022": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a; main PR285/7f97288;11quests/Palwar correction/wiki-v2 verified; native QA pending",
+-    "classic_dungeon_rewards_live_20261022": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7"
++    "classic_dungeon_rewards_live_20261022": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
++    "wiki_interactive_20261022": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa"
+   },
+   "topics": {
+     "operations": [
+@@ -8189,90 +8190,6 @@
+     ],
+     "wiki": [
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/build.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "6b21c805cafb6e661a8bd68be641bdae240f18642ee890ea2067385445eb498d"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/catalog.py",
+-        "role": "Reviewed current combined wiki content/recipe guidance, source ledger or publication runbook",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "736f504dc4b20dafce54450a9cc009b107a1038504acd69fe1c4d47d692078ac"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/equipment.py",
+-        "role": "Reviewed current combined wiki content/recipe guidance, source ledger or publication runbook",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "eb74fc9f60d3d60ec049ca7b5cdf2a7cbb1351c03618b4b0a0911c4e278d3b00"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/check_refresh.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "88bf2559f478f171a489860553e156168ba264acb8cd29e7fc28cbeffd0c0a26"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/test_refresh.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "e99c4d447f082fb423635cc097f2f99597e9f7acb414c495f3dd9446e92467cf"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/update.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "5abac3f6c22f6bb1b19be74ddc3cdc0e7a3638cb570920459e5e620ee8fa1680"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/test_update.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "a5ce9933b2131551c1cf661624da6f9580091d63ffaa09a8c6781997366f057e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/deploy.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "61287b87b690d5071020dd687f222c5e10d9cfac8789e703938dadc7601a5837"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/test_deploy.py",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "caae31d66dc0e04be819b64cae78d96824e68eb19b36be175168be07a8d1eeaf"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/test_search.cjs",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "1fb43a8485a590e901c2cb77364ece76f2f96cedaf874f7be7801c574d303d58"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/test_equipment.cjs",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "504ed8f9ed8485878c0a7aaa8ffe1c2bd6d7d0fbcd92043ae1ac770235dc51e6"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+-        "path": "wiki/assets/wiki.css",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+-        "sha256": "8a08286d86e82e366105422985a3a8290c63d6c19961092530e6ed3689f1cdf8"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+         "path": "docs/releases/wiki-features-20261016/README.md",
+         "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+@@ -8294,69 +8211,6 @@
+         "sha256": "794f55dc2ec7513a09cb4ed3e416c667c4cf5e64ca10fddc2f6b1859bff8c115"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/articles/about.json",
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/articles/advanced-loot.json",
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/ascension.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "25f56f021ed0348595bb92044d166baecbb2954c8fb9f3473c9b6096c1e22314"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/item-upgrades.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "c32e62bf91f78b6decbaba7647053901a33bcc2c7a15a3927942f90a0f08ae72"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/pets.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "4a79e038beaf44ec88fbb43976401c44ce4ae5742410db2f73fdcd597cff2234"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+-        "path": "wiki/articles/tradeskills.json",
+-        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+-        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+-        "sha256": "65456c81941b8300686776c4c06f52e6da515471f6147e07b3ebfb967836c5d7"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/articles/waypoints.json",
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/articles/zone-hunt.json",
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "3ace1f594f09ace75958f7e3f7465e4a6aec10a6ec8f591b5ab3cdef087d568c"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/dungeon-modes.json",
+-        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+-        "sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
+-        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+-      },
+-      {
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "docs/releases/wiki-dungeons-20261016/README.md",
+         "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+@@ -8504,13 +8358,6 @@
+         "sha256": "dcd9108583847ac394dd91c7825d3547fb8327fee074194349dd170b6de08dfc"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "path": "wiki/articles/travel.json",
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "f6fc37d18ec535c85fff900a5b622a0e80ea1d768a2692febcf3f622d0f0421e"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/client-zone-validation/EQ_Local_Dev",
+         "path": "docs/releases/client-zone-validation-20261018/wiki-review.json",
+         "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+@@ -8530,13 +8377,6 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+         "revision": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+         "sha256": "5cecd78ea2f237c7aa7a228033c4995dff2f95a952b3fd033d6d8df12f2f109a"
+-      },
+-      {
+-        "path": "wiki/catalog.json",
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+-        "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "role": "Reviewed current combined wiki content/recipe guidance, source ledger or publication runbook",
+-        "sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae"
+       },
+       {
+         "path": "docs/releases/reforge-colors-20261018/README.md",
+@@ -8858,20 +8698,6 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/README.md",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "decc2bf259d25a41ff4e5044373c725fd87e14b7411c3ea32dcff29b98ee9b37",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/test_wiki.py",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "a67a3fb01f9ce43f617336336acdf93bffd7457e9ffb63a6f713bd9b4c917463",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "index.html",
+         "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+         "sha256": "5c457778638756236842737fcd4ff9f139e9408b975749a666738feacdf245bf",
+@@ -8885,41 +8711,6 @@
+         "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "docs/ops/nightcap-wiki.md",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "3abada7e567d09b4d2e8b96380034322e333f9847eb302f1cba018641d2a9741",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/combat.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "7e3b75eda9afc46eae623955c79ea04c634bad4bb0abd64fced32fe60ded006b",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/commands.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "47b6d7b55635fe1ce47f95cba561254c69b056fc1f945f35704c6f2413b7df58",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/getting-started.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "ef0ff898bcbfaf0284e0533cdfdd2190b03f0976e3e0975ecc19bbd251e0d1db",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+-        "path": "wiki/articles/tunnel.json",
+-        "revision": "e64f5022be9aa498543d282bab4b882740660400 + verified deployment/publication evidence",
+-        "sha256": "07d243d84fc28a79d08872ff0be37b141f16632a2723f42bda95caca361d4da9",
+-        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
+         "path": "docs/ops/dungeon-keeper-visibility-20261022/wiki-review.json",
+         "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+@@ -8942,94 +8733,10 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "b9a661b89130666645024aed7b12ec1362b330f0abeb13042fcb68d5bb9f2df8"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/multiclass.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "d4a38567c7c4ec592abafaf2e83ccb3765047f3dd1af0af03b90fa2026195148"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/features.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "1dfd3b846873965a74815f41232baadb694dbfcc43fd544fa00eb49561536cf3"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/launcher.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/index.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "b9c580f45152a08e91dfa814d17562b127ce2e6dce8f0df4961d8bdbd65d9d53"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "cb745b497a2ca42ee487278e072470dfa9403e65bf36133a080a9f38583b8d3e"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "7de00efcd265e28d6e9d0cf27f484b3bc919594f03b234bebbbd9ac145bcbaed"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+-        "path": "wiki/content-review.json",
+-        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+-        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+-        "sha256": "cc8f3ab8ecfdb8f890f244feb47f4413b44f5a3a6b2e2ba8b16cd0e0b0a7313b"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/wiki-review.json",
+         "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+         "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+         "sha256": "3d6573652b90802ea138dad471ab8ee4004f7c5cc31eb89cc927c45137345217"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+-        "path": "wiki/articles/waypoints.json",
+-        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+-        "sha256": "d01f14fdd26557af49bd504829b4075e288d2f5e17c3211926b3908df81d26fb",
+-        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+-        "sha256": "8009538b4148900a58958d36d522af8525b54eaa519fb9e18044844dcf027acd",
+-        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+-        "sha256": "79d0c706b3df6244bf9bb83f8b5e1f95e9815fcabb44d9121e41ca2f4b6d2469",
+-        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+-        "path": "wiki/content-review.json",
+-        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+-        "sha256": "593211e9a61b9aa6ab6369c7a1f4752a2e7b69a3fb16b28af8c3895dd77abf32",
+-        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+@@ -9103,13 +8810,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+-        "path": "wiki/articles/tradeskills.json",
+-        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+-        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+-        "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "docs/releases/quest-armor-20261022/wiki-review.json",
+         "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
+         "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+@@ -9214,90 +8914,6 @@
+         "sha256": "d0b132a339e02c4e8c1b2cd616e3f7b3557ea0d07e85d2d2fcab350f0f8e5a9f"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+-        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+-        "sha256": "4152209b2dfc1c57dce1d7dde7afc60944ebbedb64f8ab294c12324697c7daea"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+-        "path": "wiki/articles/features.json",
+-        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+-        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+-        "sha256": "32e34ed9aac83dceafc2071b6fd323cead3215613c39252f0dda41baecee578f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+-        "path": "wiki/articles/index.json",
+-        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+-        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+-        "sha256": "92c81e4ac6842e494ef219a48771d0424e5291577da973fb8318c24264fc23f2"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+-        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+-        "sha256": "99ef25098af0575dc2cdfa330e3ecd9e8c6a2599fa58d1bf08c041495d0c6b31"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
+-        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+-        "sha256": "795998d2f7ec7ebcc9fce79fdc4e53014d62b1a24f1053b86ad2c48392934ff8"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/equipment.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "5fbb84655c096747393ace56a667fa2812b02cdca66dc2935e7e7cfc70a4b67e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/features.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "6dda6e32950a542dff88ba9304f33c3298ca7191b98b9ddae67a978fcb0637f0"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/index.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "1c51b02c42ec21ebe5dc87c5865ba8b62076905714772b3a485dcb1cc2d79596"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/item-upgrades.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/unreleased.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "57abec708b756c17ee1ca9d202c059028f32b79630769c52f6e2bc88f303403e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/articles/recent-changes.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "0690604d4b180665bafbd204011e9bc17b7b18b5c3c769397e2070d04f2d0531"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+-        "path": "wiki/content-review.json",
+-        "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+-        "role": "quest ingredient release deployed; owner gameplay QA pending",
+-        "sha256": "0eb48629d33c92abed97f0c8e9fe592ef4560df24d7c651539245e768245aceb"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-tier-handins",
+         "path": "docs/releases/quest-tier-handins-20261022/wiki-review.json",
+         "revision": "228cab3ae2cfbc4606493a019e041c52b114b714",
+@@ -9466,67 +9082,340 @@
+         "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/dungeon-modes.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "b56a6bf156ffd6c9e7b688f38f48dbd59f70aa57bfbc9e0f76a0d01784e81663",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/equipment.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "b3592e5a5061840e5da47274e1108b8eb946a8edeb1bf4e13aa1ec7d822650bc",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/features.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "bafbf8082378e4c68ef93a70b4faac81f7b98f9d4d4ba044ff94ba7c2c19f311",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/index.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "64af95cf7303e325846c0d8c1291a2b74dd1bb58f80306e804e7ac779b8dbcf1",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/recent-changes.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "7650de9fba20425421bd4e1a348d39aa3f3d392762ec152cc8e6ba41bb0bf1ba",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/travel.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "be843d91de648e5ff85885fefc0bd114a1935524d7e30de7aba4746e70fa8515",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/unreleased.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "e47c9c15545d44575da2da86120eda96f24005c93390dadb2f31b9639389b8a2",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/content-review.json",
+-        "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-        "sha256": "bafea63c86c7bbaebf3668963e51e8d8b1c602325fce7aeef8474bec66f00047",
+-        "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+         "path": "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/wiki-impact.json",
+         "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+         "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+         "sha256": "c4fa6d2ffb2a6f4bf4ad41ddd22d07f83cce6362cb917684cc9c018e8758aa0a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/ops/nightcap-wiki.md",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "da90359f970f3b9e9f923597ee0ab2c74002947df5e01811c6b30df5ac16f44e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/wiki-interactive-20261022/README.md",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "1bf45c1a86d4e9eeced7c724e35915587b3b424198f84335bfbc24511b83030e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/wiki-interactive-20261022/verification.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "5c877ae1e2fe5a4e4f088d67a483a1d88ae41ca5a7cf235723734cddc6de7ee1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/wiki-interactive-20261022/wiki-public-verification.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "002958da981c8b03d1f696da00bd925a25514886d6411fac32671036015bbe41"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/wiki-interactive-20261022/wiki-publication.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "197cc6e94fee8ead272991b0d8a067beb3c762ca17108309c0caf285e8de8c15"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/wiki-interactive-20261022/wiki-review.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "73209de48632f89a9850e4317ca05d09dfe2fdc416fad7f311ad6d2344d790e8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/README.md",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "fbac379f8297e03d7807a3622b7e85c16f7b89b1f71934d2b4c0538ac304f105"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/about.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "b526ff624aa3f0ab47d52d5fbcf34b07b4ddd55dd8549446b966f3378e35e782"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/advanced-loot.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/ascension.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/commands.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/dungeon-modes.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "49cb58dd0e987dcf187fec419a9128d121996faa583d795f1b5c6e1000db68e2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "8a73347d76ab38ac2f94da7d807e77731d0cd9e83b59f64bba6e230d98c28483"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "fa163fda460e533e27d74c59bc5854dffee9cca550faddf8bf6c09032045b9fc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/getting-started.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "1f20b30fd17be61f1ed053d94599b64d30e117d1744887723c41252741604618"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/item-upgrades.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/launcher.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/multiclass.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "d4a38567c7c4ec592abafaf2e83ccb3765047f3dd1af0af03b90fa2026195148"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/pets.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "5423f7152ca220e854785fc287b886606e19147d503ee0ed37327404faf66766"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/tradeskills.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/travel.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "aeca83d5778c538f9c0f0747cbb30d0b3e64081ca2096e964a0092045c2ce6f0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/tunnel.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "a277625ca2d2df3827532716f053204996b06130500bb147004c17cf1df6f318"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/waypoints.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/zone-hunt.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/experience.css",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "98b5cc2063cfb56d7496d30f0c0a37870a3f13d0b3a892de49aecbb847fdd04d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/experience.js",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "dd8628a54011eaa24bade26f2b6bfb931aee5cfd23d6823a91123083ef276717"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/wiki.css",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "8a08286d86e82e366105422985a3a8290c63d6c19961092530e6ed3689f1cdf8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/build.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "ebeb51bc60278d6e7cfb9ab65d9056b8e04ba81b3e8bdeeea1d29e197906d424"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/catalog.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/catalog.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "736f504dc4b20dafce54450a9cc009b107a1038504acd69fe1c4d47d692078ac"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/check_refresh.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "88bf2559f478f171a489860553e156168ba264acb8cd29e7fc28cbeffd0c0a26"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/content-review.json",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "c2d3c115dcfd7d0ad6e8a47f41b842ecb20e4672b375d3ebf6252e60453328c7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/deploy.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "61287b87b690d5071020dd687f222c5e10d9cfac8789e703938dadc7601a5837"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/equipment.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "c94d70b67f0ac136e46db24d231273e514050527615928ca4686a77b42018152"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/experience.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "7b4e7eae6cbf07aee0ef8fe5bab9d6b786684a05544ec9fb56bf8141a214d9dd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_deploy.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "caae31d66dc0e04be819b64cae78d96824e68eb19b36be175168be07a8d1eeaf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_equipment.cjs",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "504ed8f9ed8485878c0a7aaa8ffe1c2bd6d7d0fbcd92043ae1ac770235dc51e6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_experience.cjs",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "fd8296088dbfb811919b040e7b8415c4c1b9a2090516f66666e6ee99ce05a59a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_refresh.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "e99c4d447f082fb423635cc097f2f99597e9f7acb414c495f3dd9446e92467cf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_search.cjs",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "1fb43a8485a590e901c2cb77364ece76f2f96cedaf874f7be7801c574d303d58"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_update.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "a5ce9933b2131551c1cf661624da6f9580091d63ffaa09a8c6781997366f057e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_wiki.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "3cc2c2f6e8d9aaa8e626c07e544ee3f4b64f02a46af49420d9bcda8bb760155b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/update.py",
++        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
++        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
++        "sha256": "5abac3f6c22f6bb1b19be74ddc3cdc0e7a3638cb570920459e5e620ee8fa1680"
+       }
+     ]
+   }

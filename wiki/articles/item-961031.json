@@ -1,0 +1,14 @@
+{
+  "slug": "item-961031",
+  "title": "Kharzug's War Mantle",
+  "summary": "Miniboss relic · Kael · Live testing.",
+  "body": "<table><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th>Item ID</th><td>961031</td></tr><tr><th>Family</th><td>Miniboss relic</td></tr><tr><th>Required level</th><td>50</td></tr><tr><th>Recommended level</th><td>50</td></tr><tr><th>Slots</th><td>Shoulders</td></tr><tr><th>Classes</th><td>All held classes</td></tr><tr><th>AC</th><td>21</td></tr><tr><th>HP</th><td>46</td></tr><tr><th>Mana</th><td>46</td></tr><tr><th>INT</th><td>6</td></tr><tr><th>WIS</th><td>6</td></tr><tr><th>Magic resist</th><td>6</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>The corresponding first, second or third named boss: 35% custom-item roll. See <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
+  "category": "Equipment",
+  "status": "Live testing",
+  "updated": "2026-10-24",
+  "sources": [
+    "docs/quests/warhelm/SPEC.md",
+    "docs/quests/warhelm/install-rows.json",
+    "docs/quests/warhelm/QA.md"
+  ]
+}

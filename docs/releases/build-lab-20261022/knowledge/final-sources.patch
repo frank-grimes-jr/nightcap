@@ -1,0 +1,60 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -7979,11 +7979,11 @@
+         "sha256": "d3c6fb22b6ef5521cd17284d9fe5fa9fb8ba76793dedea1b0432808937631fa1"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "server-mods/code/common/ruletypes.h",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "54ff89881a60d053495d7cc6846759f0f9db9e02c6c87784b0b034733fc5f480"
++        "role": "Reviewed 750 caps and October19 THJ behavior rule; current header replaces superseded October18 pin",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b",
++        "sha256": "fcafc20cdafa44c5cf25a4f4202d37c71b96091aea01f4e1ba79b355133955d6"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -8185,8 +8185,8 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/build-lab/data-provenance.json",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "e709cb3abb08cd0343b240addf84e42748fa22861d56bad90507395ba2104f06"
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed ledger closeout",
++        "sha256": "c10dda1aad9a3b906edf4742de442b2c60c1d5f41287e297bb2b766f85be8ce4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+@@ -8206,8 +8206,8 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "tools/build_lab_data.py",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "d830a7fc1cfafa9c010f1084fd739610424749737a3114008c1a56be89c46df2"
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed ledger closeout",
++        "sha256": "94f3762396588f625035c997abe3e116a236dd64b18d4dc0998e6840c8326881"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+@@ -9401,8 +9401,8 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/build-lab/data-provenance.json",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "e709cb3abb08cd0343b240addf84e42748fa22861d56bad90507395ba2104f06"
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed ledger closeout",
++        "sha256": "c10dda1aad9a3b906edf4742de442b2c60c1d5f41287e297bb2b766f85be8ce4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+@@ -9534,7 +9534,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/content-review.json",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed ledger closeout",
+         "sha256": "408a936b0e3e8f850f8a535ea7b328649f2bd97347c0999fc34da0653f353faa"
+       },
+       {
