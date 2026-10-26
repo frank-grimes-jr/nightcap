@@ -1,0 +1,12 @@
+{
+  "source": "/opt/nightcap/releases/commonlands-bazaar-20261026/bin/zone",
+  "archive": "/opt/nightcap/releases/commonlands-bazaar-20261026/bin/zone.bazaar-grip-debug-preserved.gz",
+  "source_sha256": "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1",
+  "archive_sha256": "b4a8216e7502d00fa07283c27dc03e52398eb528a7eab48b7f5ac8b0d06a73b0",
+  "size": 319107696,
+  "archive_size": 102356926,
+  "restoration": "gunzip to exclusive temporary path, authenticate source_sha256, restore755, then rename to original before old staging operator use",
+  "runtime_unchanged": true,
+  "database_restored": false,
+  "free_bytes_after": 1111490560
+}

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-26",
+  "independent_review": "PASS; all actionable findings corrected",
+  "corrected": [
+    "Native notification routing, cooldown and reopen handling",
+    "Runtime-byte identity proof now hashes PT_LOAD padding, ELF identity and section offsets",
+    "Client publisher authenticates nested XML and repairs existing exact assets to0644 before switching",
+    "Bounded lossless archive of exact unmounted prior Bazaar staging file with decompressed-hash proof"
+  ],
+  "checks": {
+    "rollout_linux": 21,
+    "publisher_linux": 17,
+    "elf_identity": 4,
+    "wiki_content_refresh": 19
+  },
+  "source_tests": "4native Bazaar groups,26realMariaDB cases including40grip buy/cancel flows; weapon4groups/39realMariaDB cases",
+  "native_owner_acceptance": false
+}

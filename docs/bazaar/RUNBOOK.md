@@ -1,19 +1,25 @@
 # Commonlands bazaar operations
 
-Owner-approved main PR339/29e4e84b and live activation are verified October26.
-Gateway open; zone84b6b9ff and additive escrow are installed. No client update.
-Player acceptance remains deferred. See [deployment evidence](deployment/README.md)
-and [exact QA](QA.md). Preserve this deployment boundary when applying the general
-release/recovery instructions below.
+Current release: combined main PR345/e43f2d4b and the integrated world/zone/shared_memory
+runtime are deployed for live QA. Signed client2026102601 provides Sell / My Listings;
+existing commands remain available. All12workers,51schema/565content checks and
+102saved-state tables, including all5Bazaar tables, verify. Native owner QA remains
+open. See [current evidence](seller-panel/evidence.json), [release procedure](seller-panel/deployment/README.md)
+and [button-based QA](seller-panel/QA.md). The earlier command-only deployment below
+is historical evidence, not the current binary/client pairing.
 
 ## Before a release
 
-Reconcile current main and live binary/client/schema evidence again. This candidate
-is based on October24 coordinated v2 (deployed October25), not the older default
-checkout. Build tool `tools/build_bazaar_candidate.py --resume` authenticates the
-retained source, overlays only the selected bazaar sources and builds the complete
-zone target. Keep its private manifest and exact source/binary hashes. It never
-installs the binary. Never sync sources while its existing cmake process is live.
+Reconcile actual main, current runtime/client/schema and deployment ownership.
+The combined builder tools/build_bazaar_grip_integrated.py authenticates and preserves
+the weapon-only source/binaries before adding the four Bazaar panel inputs. Full
+source/binary manifests and ELF runtime-identity proofs retain exact provenance.
+Do not edit sources under an active build. Use the guarded operator and fresh
+stopped backup; never kill a production zone or replay an uncertain operation.
+Recovery must retain grip-aware code once1HS metadata exists; a blind rollback to
+pre-grip binaries can load2HS beside shields. Never restore old player snapshots.
+The exact prior unmounted Bazaar stage executable is losslessly archived with its
+restoration receipt; restore/authenticate it before old stage use, not as a live rollback.
 
 Run real-engine tests with `NIGHTCAP_TEST_DEPS` pointing to isolated PyMySQL and
 `python tools/tests/test_bazaar_escrow.py`; these use a disposable tmpfs MariaDB.

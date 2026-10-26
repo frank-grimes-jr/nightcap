@@ -1,8 +1,8 @@
 # Sell / My Listings: native acceptance
 
-Candidate only. These steps require the paired zone build and proxy/catalog0.13.0,
-config and Bazaar XML delivered through the launcher after the authorized combined deployment.
-The existing command-only market remains live; this panel is not yet published.
+Deployed for live QA with signed client2026102601 and the integrated server binaries.
+Fully exit EQ and use launcher Play before testing. These are acceptance steps,
+not completed owner observations.
 
 ## Main offline-seller test
 
