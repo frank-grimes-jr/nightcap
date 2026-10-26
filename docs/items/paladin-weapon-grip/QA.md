@@ -39,5 +39,6 @@ RoF2 client. Record each weapon ID, grip, saved instance fields and observations
    result, losing the weapon, altering unrelated slots or retrying an uncertain
    UPDATE. After reconnect, inspect the authoritative saved grip.
 
-These are acceptance steps, not completed native client observations. Owner
-sign-off and a separately authorized release are required before main/live use.
+These are acceptance steps, not completed native client observations. The owner
+has authorized the coordinated Bazaar release for live QA; its chat owns deployment.
+Passing source/build checks does not establish owner gameplay acceptance.
