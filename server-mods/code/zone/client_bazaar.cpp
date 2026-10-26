@@ -2,6 +2,7 @@
 #include "zone/command.h"
 #include "zone/advanced_loot_inventory.h"
 #include "common/say_link.h"
+#include "common/bazaar_panel_query.h"
 #include <chrono>
 #include <memory>
 
@@ -145,32 +146,93 @@ bool Client::CompleteBazaarRequest(const NightcapBazaar::Request &input)
 	}
 }
 
+bool Client::PrepareBazaarPost(uint64 platinum, bool quiet)
+{
+	using namespace NightcapBazaar;
+	m_bazaar_confirmation.clear(); m_bazaar_post = {};
+	if (!platinum || platinum > UINT32_MAX / 1000 || !CursorSnapshot(this, m_bazaar_post.cursor)) {
+		Message(Chat::Yellow, "Put one permanent tradeable item or stack on your cursor. Empty bags first; evolving/scaling items and unsupported saved metadata cannot be posted. Use a whole-platinum price from 1 to 4294967 per item."); return false;
+	}
+	const auto item = m_inv.GetItem(EQ::invslot::slotCursor);
+	m_bazaar_post.character = CharacterID(); m_bazaar_post.unit_price = platinum * 1000;
+	m_bazaar_post.stackable = item->IsStackable(); m_bazaar_post.quantity = item->IsStackable() ? item->GetCharges() : 1;
+	if (!m_bazaar_post.quantity || uint64(m_bazaar_post.unit_price) * m_bazaar_post.quantity > UINT32_MAX) { Message(Chat::Yellow, "That stack's total price exceeds the market limit."); return false; }
+	m_bazaar_confirmation = NightcapLoot::NewDropID(); m_bazaar_confirmation_deadline = Now() + 60;
+	if (!quiet) Message(Chat::Yellow, "Post %u x %s for %llu platinum EACH (%llu platinum total)? Confirm within 60 seconds with #bazaar confirm %s.",
+		m_bazaar_post.quantity, item->GetItem()->Name, static_cast<unsigned long long>(platinum),
+		static_cast<unsigned long long>(platinum * m_bazaar_post.quantity), m_bazaar_confirmation.c_str());
+	return true;
+}
+
+bool Client::ConfirmBazaarPost(const std::string &nonce)
+{
+	if (m_bazaar_confirmation.empty() || m_bazaar_confirmation != nonce || Now() > m_bazaar_confirmation_deadline) {
+		Message(Chat::Yellow, "That posting confirmation expired. Request a new quote."); return false;
+	}
+	m_bazaar_confirmation.clear(); return CompleteBazaarRequest(m_bazaar_post);
+}
+
+void Client::BazaarPanelCommand(const Seperator *sep)
+{
+	using namespace NightcapBazaar;
+	namespace Panel = NightcapBazaarPanel;
+	uint32 request_id = 0, page = 0;
+	if (sep->argnum != 5 || !NightcapLoot::Number(sep->arg[2], request_id) || !request_id ||
+		!NightcapLoot::Number(sep->arg[5], page) || page > 12) { return; }
+	const auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+	if (uint64(milliseconds) < m_bazaar_panel_next_request) { return; }
+	m_bazaar_panel_next_request = uint64(milliseconds) + 250;
+	const std::string action = sep->arg[3], value = sep->arg[4];
+	Panel::Snapshot snapshot;
+	snapshot.request = request_id; snapshot.spawn = GetID(); snapshot.name = GetName();
+	snapshot.message = "Use this market safely in public East Commonlands.";
+	if (BazaarSessionReady()) {
+		bool ok = false;
+		try {
+			if (action == "confirm") {
+				if (Panel::Nonce(value)) ok = ConfirmBazaarPost(value);
+			} else {
+				m_bazaar_confirmation.clear();
+				uint64 number = 0;
+				if (Panel::Unsigned(value, number)) {
+					if (action == "view" && number == 0) ok = true;
+					else if (action == "post") ok = PrepareBazaarPost(number, true);
+					else if ((action == "cancel" && number && number <= UINT32_MAX) || (action == "collect" && number == 0)) {
+						Request request; request.op = action == "cancel" ? Operation::Cancel : Operation::Collect;
+						request.listing = static_cast<uint32>(number); ok = CompleteBazaarRequest(request);
+					}
+				}
+			}
+			// Quarantined sessions must reconnect; never re-enable presentation actions.
+			if (!m_pet_armor_transfer_valid) { return; }
+			Panel::Snapshot read;
+			const auto status = Panel::ReadSeller(BazaarQuery, CharacterID(), page, EQ::invslot::slotCursor, read);
+			if (status == Status::Uncertain) { QuarantineItemTransfer("Market data could not be confirmed. Reconnect before trading again."); return; }
+			if (status == Status::Committed) {
+				read.request = snapshot.request; read.spawn = snapshot.spawn; read.name = snapshot.name;
+				read.message = ok ? (action == "post" ? "Review this item and price, then Confirm Post within 60 seconds." : action == "view" ? "Listings stay available while you adventure or log out." : "Done. Your listings and proceeds are refreshed.") : "Request was not completed. Check the chat message, cursor and price, then refresh.";
+				for (auto &row : read.rows) { const auto item = database.GetItem(row.item); row.name = item ? item->Name : "Unknown item"; }
+				if (ok && action == "post" && !m_bazaar_confirmation.empty()) {
+					const auto item = m_inv.GetItem(EQ::invslot::slotCursor);
+					read.quote.nonce = m_bazaar_confirmation;
+					read.quote.item = {0, item->GetID(), m_bazaar_post.quantity, m_bazaar_post.unit_price, item->GetItem()->Name};
+				}
+				snapshot = std::move(read);
+			} else snapshot.message = "Market data is unavailable. Refresh before another action.";
+		} catch (...) { snapshot.message = "Market data is unavailable. Refresh before another action."; }
+	}
+	for (const auto &message : Panel::Encode(snapshot)) { Message(Chat::White, "%s", message.c_str()); }
+}
+
 void Client::BazaarCommand(const Seperator *sep)
 {
 	using namespace NightcapBazaar;
+	if (std::string(sep->arg[1]) == "ui") { BazaarPanelCommand(sep); return; }
 	if (!BazaarSessionReady()) { return; }
 	try {
 		const std::string action = sep->arg[1];
-		if (action == "post" && sep->argnum == 2) {
-			m_bazaar_confirmation.clear(); m_bazaar_post = {};
-			const auto platinum = Number(sep->arg[2]);
-			if (!platinum || platinum > UINT32_MAX / 1000 || !CursorSnapshot(this, m_bazaar_post.cursor)) {
-				Message(Chat::Yellow, "Put one permanent tradeable item or stack on your cursor. Empty bags first; evolving/scaling items and unsupported saved metadata cannot be posted. Use a whole-platinum price from 1 to 4294967 per item."); return;
-			}
-			const auto item = m_inv.GetItem(EQ::invslot::slotCursor);
-			m_bazaar_post.character = CharacterID(); m_bazaar_post.unit_price = platinum * 1000;
-			m_bazaar_post.stackable = item->IsStackable(); m_bazaar_post.quantity = item->IsStackable() ? item->GetCharges() : 1;
-			if (!m_bazaar_post.quantity || uint64(m_bazaar_post.unit_price) * m_bazaar_post.quantity > UINT32_MAX) { Message(Chat::Yellow, "That stack's total price exceeds the market limit."); return; }
-			m_bazaar_confirmation = NightcapLoot::NewDropID(); m_bazaar_confirmation_deadline = Now() + 60;
-			Message(Chat::Yellow, "Post %u x %s for %llu platinum EACH (%llu platinum total)? Confirm within 60 seconds with #bazaar confirm %s.",
-				m_bazaar_post.quantity, item->GetItem()->Name, static_cast<unsigned long long>(platinum),
-				static_cast<unsigned long long>(platinum * m_bazaar_post.quantity), m_bazaar_confirmation.c_str());
-			return;
-		}
-		if (action == "confirm" && sep->argnum == 2) {
-			if (m_bazaar_confirmation.empty() || m_bazaar_confirmation != sep->arg[2] || Now() > m_bazaar_confirmation_deadline) { Message(Chat::Yellow, "That posting confirmation expired. Request a new quote."); return; }
-			m_bazaar_confirmation.clear(); CompleteBazaarRequest(m_bazaar_post); return;
-		}
+		if (action == "post" && sep->argnum == 2) { PrepareBazaarPost(Number(sep->arg[2])); return; }
+		if (action == "confirm" && sep->argnum == 2) { ConfirmBazaarPost(sep->arg[2]); return; }
 		if (action == "collect" && sep->argnum == 1) {
 			Request request; request.op = Operation::Collect; CompleteBazaarRequest(request); return;
 		}

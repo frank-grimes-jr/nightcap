@@ -1,0 +1,11 @@
+{
+  "result_before": "actual proxy/catalog pairing rejected",
+  "proxy_sha256": "3374fdda3ce018e951e30dd6ffcfc3b42df96c15171dfcbb510ecc073fe0c51f",
+  "hash_offset": "0x3dc18",
+  "preceding_bytes": "9cf50310b0f50310",
+  "hash_correct": true,
+  "version_correct": true,
+  "root_cause": "implicit leading NUL depended on linker placement; preceding required-features pointer ended in 0x10",
+  "fix": "explicit boundary char in generated read-only identity structs; keep launcher validation strict",
+  "guard": "TestBazaarPanelCandidate uses actual DLL and rejects mixed pair"
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-26",
+  "deployment_owner": "01a16f3a-3aa6-7e12-877d-5718a276f184",
+  "weapon_thread": "01a179a9-9d3b-7603-a030-a1fd3eccbe19",
+  "agreed": "Bazaar chat owns one combined main/server/client/wiki release; weapon chat holds production writes and separate promotion",
+  "weapon_source": "b4c1e5c42b3eebf4cd5ea2591a7f7798ef92d078",
+  "weapon_build": "Terminal PASS; original source/binaries retained at standalone-weapon before integrated rebuild",
+  "bazaar_source": "427ed8ea",
+  "bazaar_standalone_zone": "a5cc743e34e9b9ffcca27e9a94f6714e7ba8fa11596ef0b6af0676b9b988a2c4",
+  "production_writes": false,
+  "integrated_source": "7de660fe",
+  "integrated_build": "PASS, allthree paired binaries and immutable standalone source/binary backup authenticated"
+}
