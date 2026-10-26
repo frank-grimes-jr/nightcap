@@ -4,7 +4,7 @@
 
 Implementation in feature/commonlands-bazaar adds persistent player listings,
 offline credits and native search/purchase in East Commonlands. Disposable MariaDB
-transaction/fault tests and native guard tests pass; full native build is in progress.
+transaction/fault tests and native guard tests pass; full native zone build passes with all11 source fingerprints matched.
 Schema is disabled by default. No live deployment, client-window acceptance or
 owner sign-off is claimed. [Design](bazaar/SPEC.md) and [exact QA](bazaar/QA.md).
 

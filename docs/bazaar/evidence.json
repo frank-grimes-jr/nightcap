@@ -34,9 +34,17 @@
     "known_limitations": [
       "native wire fixtures do not establish visible client behavior",
       "legacy multi-key custom metadata rejected; global native persistence format is unchanged"
-    ]
+    ],
+    "verdict": "No blocking findings; final source review approves metadata admission, stack sentinel rejection and exact credit display. Build/client/player acceptance remain separate."
   },
-  "native_build": "active cmake PID74008 in akk-stack-eqemu-server-1; /tmp/nightcap-bazaar-20261024-v1/build-1793030297099582206.log; exec session86088. Final credit-display/stack-sentinel changes require sequential incremental rebuild after this handle becomes terminal.",
+  "native_build": {
+    "status": "full zone build and final incremental adapter build passed",
+    "zone_sha256": "84b6b9ff5a5ce598e0e583d948c945b79c7742ee1a9364ddd1ed05148b6c5bc1",
+    "exact_source_overlay_verified": true,
+    "missing_dynamic_libraries": false,
+    "details": "native-build.json",
+    "installed": false
+  },
   "deployed": false,
   "client_verified": false,
   "owner_accepted": false,
@@ -57,5 +65,6 @@
     "unrelated_items_drift": 5,
     "unrelated_drift_not_accepted": true,
     "skill_validator": "passed"
-  }
+  },
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/335"
 }

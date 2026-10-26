@@ -1,6 +1,6 @@
 # East Commonlands persistent bazaar
 
-Status: implemented candidate on feature/commonlands-bazaar, rebased onto main 8db6dd95 on October 26; not deployed. Native baseline is the deployed coordinated v2 source ad7a4206 / zone 4f37ee33. Full build and actual RoF2 acceptance remain separate release gates.
+Status: implemented candidate on feature/commonlands-bazaar, rebased onto main 8db6dd95 on October 26; not deployed. Native baseline is the deployed coordinated v2 source ad7a4206 / zone 4f37ee33. Full zone build and exact source verification pass. Actual RoF2 acceptance remains an open release gate.
 
 ## Required result
 

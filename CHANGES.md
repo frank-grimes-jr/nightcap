@@ -8,7 +8,8 @@ price confirmation; partial-stack buys, cancellation and collection commit owner
 and funds together. No auctioneer character is needed. Filled bags, temporary,
 evolving/scaling items and metadata that cannot roundtrip native loading are rejected
 before posting; exact supported instance metadata is retained. Migration starts
-disabled. Not deployed: [design and evidence](docs/bazaar/SPEC.md),
+disabled. Full current-baseline zone build,22 database tests,2 native guard groups
+and independent review pass. Not deployed: [design and evidence](docs/bazaar/SPEC.md),
 [exact player QA](docs/bazaar/QA.md). Existing live behavior is unchanged.
 
 ## 2026-10-24 — Coordinated release v2: reward cache race mask
