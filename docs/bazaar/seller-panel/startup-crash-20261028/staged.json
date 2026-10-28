@@ -1,0 +1,10 @@
+{
+  "stage": "/opt/nightcap/releases/bazaar-startup-2026102802",
+  "files": {
+    "channel.json": "ecd87afcefbdced73da41bc43943e44d4b788ab56eb288302bdd8a0cd47f42a1",
+    "previous-channel.json": "9eee0052b203db71a18bcc2bf1ce62089b50fbd34d95a77deb41134b74c6c709",
+    "uifiles/nightcap/equi_bazaarsearchwnd.xml": "c55c303fe2760a0c92a682de3a5e6e694468a58bb35a7c417d452589d821a94c",
+    "publish.py": "3b788f07f52ada1c7352a8a623a6ba6c79dfd18a99a6414b63c990dd4c8ed156"
+  },
+  "published": false
+}

@@ -1,0 +1,17 @@
+{
+  "focused_python_tests": 18,
+  "go_suites": 3,
+  "linux_publisher_tests": 20,
+  "wiki_content_refresh_tests": 19,
+  "linux_wiki_publisher_tests": 16,
+  "independent_reviews": [
+    "native root cause and XML fix",
+    "publisher fault/preservation scope",
+    "wiki publication scope"
+  ],
+  "native_owner_acceptance": "pending",
+  "raw_crash_data": "private; not committed",
+  "client_release": 2026102802,
+  "hosted_files_verified": 141,
+  "wiki_files_verified": 499
+}

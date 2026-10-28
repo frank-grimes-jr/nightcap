@@ -1,0 +1,199 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -58,30 +58,38 @@
+ installed matched zone/world/shared_memory and seven quests. Retain earned
+ items/grip metadata and paired client on recovery; old client restores the bug.
+ 
+-## Bazaar Sell / My Listings — October28 parser repair published
+-
+-October28 owner report and installed UIErrors prove release2026102601's Bazaar
+-XML fails ParseTag at line1208 on `&#8212;`, causing the entire Nightcap skin to
+-fall back to Default. Installed hashes match publication. Source fix
+-`a9072bdebf4466ab11e14c6c3e627174862c4c3f` in commonlands-bazaar,
+-`fix/bazaar-ui-parser`: ASCII heading and strict ASCII serialization in
+-`tools/client_gameplay_assets.py::ui_xml`; preserve lexical Schema namespaces.
+-Do not rely on standard XML validity for native compatibility. The observed
+-failure is the em-dash entity; ASCII-only generation conservatively avoids it.
+-Two RED/GREEN regressions in tools/tests/test_client_bazaar_ui.py, all16 related
+-tests and independent review pass. Five other generated UIs are byte-identical.
+-Corrected XML41fefb05f3c523ee70221329a23824834e376cf5afc2c2949deb2c33455b557e
+-is35862bytes and differs only by two entity-to-hyphen replacements. Evidence:
+-docs/bazaar/seller-panel/ui-parser-20261028/{README.md,public-verification.json}.
+-Signed2026102801 is published through the coordinated Paladin release: production
+-signature and corrected hosted XML hash/size independently verified October28.
+-Channel SHA9eee0052b203db71a18bcc2bf1ce62089b50fbd34d95a77deb41134b74c6c709.
+-Owner confirmed EQ closed; local atomic XML repair succeeded at15:53UTC and
+-matches hosted bytes. Backup retained; no ACL workaround. No server restart
+-needed specifically for XML. Broader runtime/admission release checks belong to
+-the coordinating Paladin chat. Update through launcher after full exit; if saved
+-skin remains Default, `/loadskin nightcap 1`. Fresh native log/display and
+-end-to-end owner acceptance remain pending.
++## Bazaar Sell / My Listings — October28 startup hotfix published
++
++The earlier ASCII repair in signed2026102801 removed ParseTag failure on
++`&#8212;`, allowing native skin construction and exposing missing TabBox borders.
++Owner's October28 startup dump faults at preferred0x88dc6d (runtime0xa8dc6d,
++imagebase0x600000): EAX0, read0x30 during native page insertion. Constructor
++0x88dd90 copies template+0xa8/+0xac to window+0x1d8/+0x1dc; insert0x88db60
++loads+0x1d8 then unconditionally reads template+0x30. These are separate from
++DrawTemplate. tools/client_bazaar_ui.py must supply FT_DefTabBorder and
++FT_DefPageBorder, as stock SIDL/AA/Options do. Retain ASCII-only serialization.
++
++Owner explicitly authorized this hotfix. Signed2026102802 is published with one
++XML delta and140 exact retained descriptors/URLs, including proxy0.13.1/catalog,
++history and tombstones. All141 HTTPS files/signature and actual runtime pair
++verify; allfive service IDs/start times/restarts remain unchanged. No server
++restart, installed-player-folder write or protected-reference modification.
++XML SHAc55c303fe2760a0c92a682de3a5e6e694468a58bb35a7c417d452589d821a94c,
++35979bytes. Channel SHAecd87afcefbdced73da41bc43943e44d4b788ab56eb288302bdd8a0cd47f42a1.
++
++Source: C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev,
++feature/bazaar-client-crash. tools/tests/test_client_bazaar_ui.py has two
++independently written RED/GREEN native-template regressions;7Bazaar+6asset+5UI
++tests,3Go suites,20Linux publisher fault/preservation tests pass. Independent
++native/source/publication reviews have no blocking finding. Evidence and exact
++QA: docs/bazaar/seller-panel/startup-crash-20261028/. Raw dumps stay private.
++
++Fully exit EQ and use normal launcher Play to install2802, retry world entry,
++then /bazaar tabs/resize/reopen/skin reload. Native login/rendering and seller
++transactions remain owner QA; tests and publication are not visible acceptance.
++Launcher hashes all managed assets, so an unsigned local XML swap is not a
++durable recovery. Future releases preserve the then-current entire inventory
++and paired runtime; never lower checkpoints or roll back player data.
+ 
+ Original implementation: managed commonlands-bazaar checkout, feature/bazaar-seller-panel. Native
+ Bazaar Search is the first TabBox page; seller controls occupy the second. Keep all
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -1,4 +1,17 @@
+ # Official player wiki and Features
++
++## Bazaar startup crash — October28 published hotfix guidance
++
++Client2026102802's one-XML native TabBox repair is published. The companion
++wiki20261028-bazaar-startup-hotfix-v1 changes only Launcher, Recent changes and
++search-index;496of499files retain exact bytes. All40article sources reviewed;
++Home/Features/commands/catalog/zone/item values and unrelated release labels
++remain.16Linux publication/recovery tests and locked rollback rehearsal pass;
++native login/Bazaar acceptance remains open. Source and receipts: managed
++bazaar-client-crash checkout, docs/bazaar/seller-panel/startup-crash-20261028/.
++Keep allfive runtime identities/start/restart states and exact signed channel
++guarded during publication. Global historical source drift remains review work;
++this scoped incident does not authorize advancing unrelated source pins.
+ 
+ ## Paladin progression — October28 published for live QA
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -113,7 +113,8 @@
+     "paladin_stat_assessment_20261027": "444e27dc + reviewed quantitative design assessment; numerical implementation unchanged/rejected, not deployed",
+     "highkeep_rescue_verified_live_20261027": "6ba7f152e5b14ef91e6461ef7fc9d6f23aae7951; current main/live runtime; native owner QA open",
+     "bazaar_ui_parser_candidate_20261028": "a9072bdebf4466ab11e14c6c3e627174862c4c3f",
+-    "bazaar_ui_parser_published_20261028": "0b6d42cd64691a70b6741228e8d2af971cffbc78"
++    "bazaar_ui_parser_published_20261028": "0b6d42cd64691a70b6741228e8d2af971cffbc78",
++    "bazaar_startup_hotfix_20261028": "a533305 + reviewed publication evidence; signed2026102802; native owner QA pending"
+   },
+   "topics": {
+     "operations": [
+@@ -8998,24 +8999,10 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/commonlands-bazaar/EQ_Local_Dev",
+-        "path": "tools/client_bazaar_ui.py",
+-        "role": "ASCII Bazaar heading; removes observed RoF2 parse failure",
+-        "revision": "a9072bdebf4466ab11e14c6c3e627174862c4c3f",
+-        "sha256": "b2fb4a6a5a18ac156cbc768c9b1ff875f86982298810990fde7efa695965857f"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/commonlands-bazaar/EQ_Local_Dev",
+         "path": "tools/client_gameplay_assets.py",
+         "role": "Strict ASCII serialization preserves namespace declarations and prevents implicit numeric escapes",
+         "revision": "a9072bdebf4466ab11e14c6c3e627174862c4c3f",
+         "sha256": "bab9e1a68eb65ddd00b5d29173f7e91fedf97eb07184f7799030baa2457dc350"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/commonlands-bazaar/EQ_Local_Dev",
+-        "path": "tools/tests/test_client_bazaar_ui.py",
+-        "role": "Five passing Bazaar tests including RED/GREEN parser regressions and real stock layout",
+-        "revision": "a9072bdebf4466ab11e14c6c3e627174862c4c3f",
+-        "sha256": "ba0f5e8a07b98417085890116c7d7d4baa3747733852fac139740dc9f6ec292f"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/commonlands-bazaar/EQ_Local_Dev",
+@@ -9352,6 +9339,48 @@
+         "role": "Verified October28 paired release receipt; owner gameplay QA open",
+         "revision": "074ae26742fb21ee5b247c92be07ca63a98e0085",
+         "sha256": "cddeb0cae667a46c247cee655516f380431622c87d04f38dfe5572cb0677509f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "tools/client_bazaar_ui.py",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "3ac169df96d616d0eeee7f13b2762b56b0d2bebf127beae81b9d9785f97479d2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "tools/tests/test_client_bazaar_ui.py",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "678e3fe954911eecb3c28d3f046d3bad3284e26ab0fed99a1736324822aacb9e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/README.md",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "bf5ebd17b47bfb94dc315f0c58be156ea35b065d18edda10fceddd676f6709c3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/candidate.json",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "468e7ea3c0ff921f66e05263ce05ddabd2134e41ead6d32279e9530463eaebf2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/hosted-verification.json",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "4347a83b59da6882fcc3c9a3efd3a8a019d2a10c968fa24e96ef5e7981ffa656"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/published.json",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "5b499d973034390d370cc05aef349ebbcbd4c0d349abcf6cf1bd69552d5658e6"
+       }
+     ],
+     "admin": [
+@@ -13159,6 +13188,27 @@
+         "role": "Verified October28 paired release receipt; owner gameplay QA open",
+         "revision": "074ae26742fb21ee5b247c92be07ca63a98e0085",
+         "sha256": "cddeb0cae667a46c247cee655516f380431622c87d04f38dfe5572cb0677509f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/wiki-review.json",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "92630c8fe6fd6b602a7a65b3c05d008b56564fdad0a1348fea21c189dff561c0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/wiki-publication.json",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "8faa66dbf3f2db31100ebfd5a005d23aba84ca6b49ff7eb0ec41282ba0f5e4cf"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/bazaar-client-crash/EQ_Local_Dev",
++        "path": "docs/bazaar/seller-panel/startup-crash-20261028/wiki-public-verification.json",
++        "role": "October28 reviewed Bazaar startup repair/publication; native owner QA pending",
++        "revision": "a533305 + reviewed publication evidence",
++        "sha256": "297632888a7ff6198bae358a4bed8d28edec9ac4a0bc12ae675338274573f8ca"
+       }
+     ]
+   }

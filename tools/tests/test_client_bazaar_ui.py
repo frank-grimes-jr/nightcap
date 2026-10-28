@@ -5,6 +5,27 @@ from client_bazaar_ui import add_bazaar_panel
 
 STOCK=b'<XML><Button item="BZR_QueryButton"><ScreenID>BZR_QueryButton</ScreenID><Text>Search</Text></Button><Listbox item="BZR_ItemList"><ScreenID>BZR_ItemList</ScreenID></Listbox><Button item="BZR_BuyButton"><ScreenID>BZR_BuyButton</ScreenID></Button><Screen item="BazaarSearchWnd"><Size><CX>700</CX><CY>600</CY></Size><Pieces>BZR_QueryButton</Pieces><Pieces>BZR_ItemList</Pieces><Pieces>BZR_BuyButton</Pieces></Screen></XML>'
 class BazaarUI(unittest.TestCase):
+ def test_tabs_supply_native_border_templates_before_pages_are_inserted(self):
+  # Native CTabWnd page insertion dereferences its frame template at +0x1d8;
+  # DrawTemplate alone leaves it null (2026-10-28 crash at preferred VA 0x88dc6d).
+  root=ET.fromstring(ui_xml(STOCK,'bazaar'))
+  tabs=root.find("TabBox[@item='NCBZ_Tabs']")
+  self.assertIsNotNone(tabs)
+  for tag,expected in [('TabBorderTemplate','FT_DefTabBorder'),('PageBorderTemplate','FT_DefPageBorder')]:
+   with self.subTest(template=tag):
+    self.assertEqual(tabs.findtext(tag),expected)
+ def test_border_template_references_resolve_in_pinned_native_skin(self):
+  path=os.environ.get('NIGHTCAP_BAZAAR_XML')
+  if not path:self.skipTest('Set NIGHTCAP_BAZAAR_XML to the read-only stock Bazaar XML')
+  skin=Path(path).parent
+  templates=ET.parse(skin/'EQUI_Templates.xml').getroot()
+  native_tabs=ET.parse(skin/'EQUI_AAWindow.xml').getroot().find("TabBox[@item='AAW_Subwindows']")
+  tabs=ET.fromstring(ui_xml(Path(path).read_bytes(),'bazaar')).find("TabBox[@item='NCBZ_Tabs']")
+  for tag in ('TabBorderTemplate','PageBorderTemplate'):
+   with self.subTest(template=tag):
+    name=tabs.findtext(tag)
+    self.assertEqual(name,native_tabs.findtext(tag))
+    self.assertIsNotNone(templates.find("FrameTemplate[@item='"+str(name)+"']"))
  def test_panel_preserves_native_controls_and_uses_separate_owned_rows(self):
   root=ET.fromstring(STOCK);before=[ET.tostring(x) for x in root if x.tag!='Screen'];add_bazaar_panel(root)
   self.assertEqual(before,[ET.tostring(x) for x in root if (x.get('item') or '').startswith('BZR_')])

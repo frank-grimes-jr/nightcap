@@ -230,6 +230,11 @@ docs/releases/quest-tier-handins-20261022/** -text whitespace=blank-at-eol,blank
 docs/releases/quest-tier-handins-20261022/skill-update/*.patch -text -whitespace
 
 # Stable bytes for the completed Paladin release receipt manifest.
+# Keep the signed Bazaar repair asset and reviewed fingerprints exact on Windows.
+tools/client_bazaar_ui.py text eol=lf
+tools/tests/test_client_bazaar_ui.py text eol=lf
+docs/bazaar/seller-panel/startup-crash-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/bazaar/seller-panel/startup-crash-20261028/*.patch -text -whitespace
 docs/items/paladin-weapon-grip/balance/release/deployed.json text eol=lf
 docs/items/paladin-weapon-grip/balance/release/preflight-receipt.json text eol=lf
 docs/items/paladin-weapon-grip/balance/release/client/published.json text eol=lf
