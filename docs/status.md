@@ -1,5 +1,18 @@
 # Current Nightcap status
 
+## October 28 — Bazaar startup crash hotfix published
+
+The owner reported client crashes after signed release2026102801. The preserved
+dump localizes the null read to native TabBox page insertion: the new Bazaar XML
+omits its TabBorderTemplate and PageBorderTemplate. The generator now supplies
+the two stock FrameTemplate references. Seven Bazaar regressions (including two
+RED/GREEN additions), six gameplay asset tests and five UI tests pass. The candidate
+changes only these two XML elements and retains the deployed SoulFire DLL/catalog.
+Owner-authorized signed client2026102802 is published with one changed XML and
+140 retained descriptors. A fresh login and native Bazaar acceptance remain pending.
+No server restart or player-data change is needed. Evidence and exact QA:
+docs/bazaar/seller-panel/startup-crash-20261028/README.md.
+
 ## October 28 — paired Paladin and Bazaar repair deployed
 
 Main PR352 (979ec08b0ed1d1e855040fdbab8a95d4a80d01fd) and the authorized OVH

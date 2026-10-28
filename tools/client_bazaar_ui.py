@@ -84,5 +84,9 @@ def add_bazaar_panel(root):
     value(tabs, 'ScreenID', 'NCBZ_Tabs'); value(tabs, 'RelativePosition', 'true')
     box(tabs, 0, 0, 694, 574); stretch(tabs)
     value(tabs, 'DrawTemplate', 'WDT_Def')
+    # Native CTabWnd::InsertPage dereferences the tab border without a null check.
+    # DrawTemplate does not populate either of these separate frame templates.
+    value(tabs, 'TabBorderTemplate', 'FT_DefTabBorder')
+    value(tabs, 'PageBorderTemplate', 'FT_DefPageBorder')
     value(tabs, 'Pages', 'Page:NCBZ_SearchPage'); value(tabs, 'Pages', 'Page:NCBZ_SellPage')
     value(screen, 'Pieces', 'NCBZ_Tabs')
