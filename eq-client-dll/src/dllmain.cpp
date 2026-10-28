@@ -12,6 +12,7 @@
 // =============================================================================
 
 #include <windows.h>
+#include "../../server-mods/code/common/paladin_weapon_grip.h"
 #include <bcrypt.h>
 #include <tlhelp32.h>
 #include <cstdarg>
@@ -1046,6 +1047,36 @@ static bool ApplyMonkAttackActivationPatches(
     return true;
 }
 
+// RoF2 interns incoming item definitions by item ID at the deserialize boundary.
+// Grip variants share their real ID but must retain distinct instance definitions.
+struct GripDefinitionRef {
+    volatile LONG* counts; // native control block: weak/total, then strong count
+    BYTE* definition;
+};
+extern "C" __declspec(noinline) GripDefinitionRef* __fastcall KeepPaladinGripDefinition(
+    void* cache, void*, GripDefinitionRef* output, const GripDefinitionRef* incoming)
+{
+    const auto id = *reinterpret_cast<const uint32_t*>(incoming->definition + 0xec);
+    if (NightcapPaladinGrip::Supported(id) && incoming->counts) {
+        // Match the native shared-reference copy (556736..556759), including
+        // both counters. The caller owns an uninitialized return slot and will
+        // release it normally. Never edit the cache or another item's data.
+        InterlockedIncrement(incoming->counts);
+        InterlockedIncrement(incoming->counts + 1);
+        *output = *incoming;
+        return output;
+    }
+    using Intern = GripDefinitionRef* (__thiscall*)(void*, GripDefinitionRef*, const GripDefinitionRef*);
+    return reinterpret_cast<Intern>(g_eq_base + kGripDefinitionInternRva)(cache, output, incoming);
+}
+static bool ApplyPaladinGripDefinitionPatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) return false;
+    return ApplyGuardedRelativeCall(eq_base, kGripDefinitionInternCallRva,
+        kExpectedGripDefinitionInternCall, reinterpret_cast<uintptr_t>(&KeepPaladinGripDefinition),
+        "Paladin per-instance weapon grip definition");
+}
+
 // The first redirect is neutral until the equip caller establishes an item
 // scope. Every non-class predicate and the final stock result remain native.
 extern "C" __declspec(noinline) uint32_t __fastcall EquipScopedItemClasses(
@@ -1520,6 +1551,7 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
         nightcap::client_ui::InstallMonkReuse() &&
         ApplyMonkAttackActivationPatches(eq_base,hotbutton_skill_ok));
     RequirePatch(nightcap::Feature_equipment,ApplyEquipSubmissionPatches(eq_base,size_ok && hash_ok));
+    RequirePatch(nightcap::Feature_paladin_grip,ApplyPaladinGripDefinitionPatch(eq_base,size_ok && hash_ok));
     const bool mana_hook_ok=ApplyMaxManaServerCacheHook(eq_base,size_ok && hash_ok);
     RequirePatch(nightcap::Feature_mana_cache,mana_hook_ok);
     RequirePatch(nightcap::Feature_mana_gauge,ApplyPlayerManaGaugePredicateHook(eq_base,mana_hook_ok));

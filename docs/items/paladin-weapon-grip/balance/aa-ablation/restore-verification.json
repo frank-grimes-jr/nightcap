@@ -1,0 +1,14 @@
+{
+  "synthetic_state_restored_exactly": {
+    "character_skills": 100,
+    "character_alternate_abilities": 122,
+    "character_spells": 41,
+    "character_memmed_spells": 9,
+    "character_buffs": 8
+  },
+  "synthetic_timers": 0,
+  "account_rows": 0,
+  "character_profile_rows": 0,
+  "binary_sha256": "88de63cddae472679f944f04df3662e508c4af125994d0f05adb03b20df8eb47",
+  "production_changed": false
+}

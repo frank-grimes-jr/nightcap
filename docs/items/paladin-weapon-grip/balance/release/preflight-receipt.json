@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "stage": "/opt/nightcap/releases/paladin-progression-20261028-v1",
+  "image": "sha256:2913f609ee2865fe9753269c633f13c7d484984842341ec4ffc35778c6cc5050",
+  "checks": {
+    "schema": 51,
+    "content": 565
+  },
+  "manifest_sha256": "bb596d4e43d59c714c109bc2c1e36911d3021223c095817cc1c7b17ddf715ebe",
+  "free_bytes": 1163788288,
+  "production_activated": false
+}

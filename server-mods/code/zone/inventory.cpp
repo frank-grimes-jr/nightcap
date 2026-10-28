@@ -33,6 +33,66 @@
 extern WorldServer worldserver;
 extern QueryServ  *QServ;
 
+bool Client::AscendPaladinEpic()
+{
+	using namespace NightcapPaladinGrip;
+	if (!client_data_loaded || !m_pet_armor_transfer_valid || IsDead() || IsEngaged() ||
+		GetAggroCount() > 0 || auto_attack || IsCasting() || IsStunned() || IsMezzed() || IsFeared() ||
+		IsAIControlled() || (trade && trade->With()) || GetTradeskillObject() || IsTrader() || IsBuyer()) {
+		Message(Chat::Yellow, "Ascend your Fiery Defender while safely out of combat and trading.");
+		return false;
+	}
+	const auto *definition = database.GetItem(810099);
+	if (!definition) { return false; }
+	for (int16 slot = EQ::invslot::GENERAL_BEGIN; slot <= EQ::invslot::GENERAL_END; ++slot) {
+		const auto *inst = m_inv.GetItem(slot);
+		if (!inst || inst->GetID() != 10099) { continue; }
+		if (inst->IsEvolving() || inst->IsScaling() || !PlainMetadata(inst->GetCustomDataString())) {
+			Message(Chat::Yellow, "This customized Fiery Defender cannot be exchanged automatically.");
+			return false;
+		}
+		try {
+			// A copy retains all instance fields and augment instances. Its definition
+			// is privately owned; the shared cache and original remain untouched.
+			EQ::ItemInstance replacement(*inst);
+			*const_cast<EQ::ItemData *>(replacement.GetItem()) = *definition;
+			const auto grip = inst->GetCustomDataString();
+			replacement.SetCustomDataString(grip);
+			// Empty metadata has no setters, so explicitly refresh the 2HS profile.
+			if (grip.empty()) { replacement.DeleteCustomData(Key); }
+			for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
+				if (inst->GetAugment(i)) {
+					// Preserve sockets only when the new definition has the same fit.
+					if (inst->GetItem()->AugSlotType[i] != definition->AugSlotType[i] ||
+						IsAugmentRestricted(replacement.GetItem()->ItemType, inst->GetAugment(i)->GetItem()->AugRestrict)) {
+						Message(Chat::Yellow, "Remove incompatible augments before ascending your Fiery Defender.");
+						return false;
+					}
+				}
+			}
+			const auto sql = AscendSQL(CharacterID(), slot, *inst);
+			if (sql.empty()) { return false; }
+			const auto result = database.QueryDatabase(sql, false);
+			if (!result.Success() || result.RowsAffected() != 1) {
+				QuarantineItemTransfer("Your epic exchange could not be confirmed. Reconnect to reload your inventory.");
+				return false;
+			}
+			if (m_inv.PutItem(slot, replacement) != slot) {
+				QuarantineItemTransfer("Your Ascended epic needs to be reloaded. Reconnect before using it.");
+				return false;
+			}
+			SendItemPacket(slot, m_inv.GetItem(slot), ItemPacketTrade);
+			Message(Chat::Green, "Your Fiery Defender is now Ascended. No essence or platinum is required.");
+			return true;
+		} catch (...) {
+			QuarantineItemTransfer("Your epic exchange needs to be reloaded. Reconnect before using it.");
+			return false;
+		}
+	}
+	Message(Chat::Yellow, "Place your original Fiery Defender in a top-level inventory slot, then ask to ascend it.");
+	return false;
+}
+
 bool Client::TogglePaladinWeaponGrip(int32 slot_id)
 {
 	using namespace NightcapPaladinGrip;
@@ -78,6 +138,7 @@ bool Client::TogglePaladinWeaponGrip(int32 slot_id)
 		SendItemPacket(static_cast<int16>(slot_id), inst, ItemPacketTrade);
 		if (slot_id == EQ::invslot::slotPrimary) {
 			CalcBonuses();
+			ApplyWeaponsStance();
 			SetAttackTimer();
 			SendWearChange(EQ::textures::weaponPrimary);
 		}

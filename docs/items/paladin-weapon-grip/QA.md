@@ -1,13 +1,22 @@
-# Owner QA — not yet run
+# Owner QA — deployed repair awaiting in-game confirmation
 
-Use the deployed live QA server with matching native binaries and signed2026102601
-RoF2 client. Record each weapon ID, grip, saved instance fields and observations.
+The October28 paired release is live on main/OVH with signed client2026102801.
+Fully exit EQ and update through launcher Play. Runtime, saved-state and public
+client/wiki verification pass; they do not prove the rendered swing or equipment
+acceptance. Earlier reports used the October26 runtime/client and remain a
+reproduced failure of that release. Native cache tests reproduce and repair the
+same-ID 2HS retention. Server animation selection passes80 cases; visible swing
+must still be observed. Current receipts: balance/release/README.md.
+
+First repeat Palwar's controlled case: SoulFire selected1HS, equipped in primary,
+empty offhand. Observe the swing, then equip a shield without zoning. Record
+client generation, weapon ID/grip and outcome; do not infer success from chat.
 
 1. In East Commonlands, inspect and right-click each of the ten IDs in README.md
    from primary, a main inventory slot and a carried bag. The Skill line changes
    2HS → 1HS → 2HS exactly once per click. Check the effect label, no spell/buff/
-   healing animation, no spell-bar lock and no target requirement. Confirm damage,
-   delay, stats, procs, quality and equipment slots stay unchanged.
+   healing animation, no spell-bar lock and no target requirement. Confirm damage/delay match the balance table and restore exactly in2HS;
+   other stats, procs, quality and equipment slots stay unchanged.
 2. Repeat with SoulFire at 5, 1 and 0 saved charges. Every click toggles; no charges
    are consumed or restored and no Complete Heal is cast. Spam/repeated click
    packets must not duplicate or delete items. Verify the CastSpell follow-up
@@ -29,7 +38,7 @@ RoF2 client. Record each weapon ID, grip, saved instance fields and observations
    still describe the base definition. Stop on metadata or item loss.
 7. Attack an appropriate training target with each grip. Confirm 1H/2H Slashing
    animations, skill gains, damage-bonus/AA handling and existing Avenger/Defender
-   procs; review shield-plus-1HS balance with the unchanged damage/delay.
+   procs; compare shield-plus-1HS against2HS with the new damage/delay profiles.
 8. Confirm a matching quest/task hand-in recognizes the same ID in either grip.
    Reforging rejects the 1HS customization. Toggle to 2HS, then verify the ordinary
    recipe accepts otherwise eligible plain copies and awards its usual 2HS item.
@@ -39,6 +48,6 @@ RoF2 client. Record each weapon ID, grip, saved instance fields and observations
    result, losing the weapon, altering unrelated slots or retrying an uncertain
    UPDATE. After reconnect, inspect the authoritative saved grip.
 
-These are acceptance steps, not completed native client observations. The owner
-has authorized the coordinated Bazaar release for live QA; its chat owns deployment.
+These are acceptance steps, not completed native client observations. The earlier coordinated Bazaar authorization covered October26 only; this extension
+is not yet deployed.
 Passing source/build checks does not establish owner gameplay acceptance.

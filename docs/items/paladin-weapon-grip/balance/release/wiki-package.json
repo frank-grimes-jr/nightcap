@@ -1,0 +1,16 @@
+{
+  "release": "20261028-paladin-bazaar-repair-v1",
+  "files": 499,
+  "changed": [
+    "ascension.html",
+    "equipment.html",
+    "features.html",
+    "item-upgrades.html",
+    "launcher.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ],
+  "unchanged": 491,
+  "publication": "verified; see wiki-publication.json and wiki-public-verification.json"
+}

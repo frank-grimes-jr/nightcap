@@ -69,11 +69,12 @@ int main(){
             queries = output.read_text().splitlines()
         self.verify_sql(queries)
 
-    def verify_sql(self, queries):
+    def verify_sql(self, queries, ascend=False):
         columns = ['character_id','slot_id','item_id','charges','color','augment_one','augment_two',
                    'augment_three','augment_four','augment_five','augment_six','instnodrop','custom_data',
                    'ornament_icon','ornament_idfile','ornament_hero_model','guid']
         row = [42,13,5504,32767,7,0,0,0,0,0,0,1,'',3,4,5,9]
+        if ascend: row[2] = 10099
         if os.environ.get('NIGHTCAP_GRIP_DB_TEST') == '1':
             import pymysql
             details = json.loads(subprocess.check_output(['docker','inspect','akk-stack-mariadb-1'], text=True))[0]
@@ -105,6 +106,9 @@ int main(){
             baseline[12] = '' if index==0 else 'nightcap_paladin_grip^1^'
             after = list(baseline)
             after[12] = 'nightcap_paladin_grip^1^' if index==0 else ''
+            if ascend:
+                after[2] = 810099
+                after[12] = baseline[12]
             seed(baseline)
             cur.execute(query); self.assertEqual(cur.rowcount, 1)
             cur.execute(select); self.assertEqual(tuple(cur.fetchone()), tuple(after))
@@ -116,6 +120,23 @@ int main(){
                 cur.execute(select);self.assertEqual(tuple(cur.fetchone()), tuple(drift))
         seed(row[:12]+[None]+row[13:])
         cur.execute(queries[0]);self.assertEqual(cur.rowcount, 1, 'legacy NULL metadata')
+
+    def test_epic_exchange_exact_saved_instance(self):
+        source=(native.ROOT/'tools/tests/fixtures/paladin_weapon_grip.cpp').read_text().split('// PRODUCTION_HANDLER')[0]
+        with tempfile.TemporaryDirectory() as tmp:
+            output=Path(tmp)/'exchange.sql'
+            self.compile_run('#include <fstream>\n'+source+r'''
+int main(){
+ Item item;item.id=10099;item.charges=-1;
+ std::ofstream out(R"PATH('''+output.as_posix()+r''')PATH");
+ out << NightcapPaladinGrip::AscendSQL(42,13,item) << '\n';
+ item.metadata="nightcap_paladin_grip^1^";
+ out << NightcapPaladinGrip::AscendSQL(42,13,item) << '\n';
+ item.id=810099;assert(NightcapPaladinGrip::AscendSQL(42,13,item).empty());
+ item.id=10099;item.metadata="foreign^data^";assert(NightcapPaladinGrip::AscendSQL(42,13,item).empty());
+}
+''')
+            self.verify_sql(output.read_text().splitlines(),ascend=True)
 
     def test_packet_routing_and_load_save_contract(self):
         source = (native.CODE/'zone/client_packet.cpp').read_text(encoding='utf-8')
@@ -164,6 +185,8 @@ using int16 = int16_t;
 namespace Strings {std::vector<std::string> Split(const std::string&,const std::string&);}
 namespace EQ {
 struct ItemData {
+ int Accuracy=0, Mana=0, AStr=0, AWis=0, HeroicStr=0, HeroicWis=0, HealAmt=0, SpellDmg=0;
+ struct {int Level2=50;} Proc;
  unsigned ID = 5504; int ItemType = 1, Damage = 23, Delay = 45;
  struct { int Effect = 13, Type = 3, Level = 1, Level2 = 1; } Click;
  char ClickName[65] = "Complete Heal";
@@ -195,22 +218,37 @@ struct InventoryProfile {
 ''' + split + methods + refresh + deletion + r'''
 int main() {
  using namespace NightcapPaladinGrip;
- for (unsigned base : {5504u,11050u}) {
-  for (unsigned offset : {0u,200000u,400000u,600000u}) {
-   assert(Supported(base+offset));
-   EQ::ItemData item; item.ID=base+offset;
+ struct Expected {unsigned id; int damage,delay,one_damage;};
+ for (auto row : {Expected{5504,23,45,13}, {205504,31,45,18}, {405504,38,45,22}, {605504,46,45,26},
+                  {11050,33,44,15}, {211050,44,44,20}, {411050,55,44,25}, {611050,66,44,30},
+                  {10099,64,40,32}, {810099,72,40,36}}) {
+   assert(Supported(row.id));
+   EQ::ItemData item; item.ID=row.id;item.Damage=row.damage;item.Delay=row.delay;
    EQ::ItemInstance inst{&item};
    inst.RefreshPaladinWeaponGrip();
-   assert(item.ItemType==1 && item.Damage==23 && item.Delay==45);
+   assert(item.ItemType==1 && item.Damage==row.damage && item.Delay==row.delay);
    assert(item.Click.Effect==ClickSpell && item.Click.Type==5 && item.MaxCharges==5);
    assert(std::strcmp(item.ClickName,"Toggle Weapon Grip")==0);
-   inst.SetCustomData(Key,std::string("1"));
-   assert(item.ItemType==0 && item.Damage==23 && item.Delay==45);
-   EQ::ItemData reload; reload.ID=base+offset;
-   EQ::ItemInstance loaded{&reload}; loaded.SetCustomDataString(inst.GetCustomDataString());
-   assert(reload.ItemType==0 && loaded.GetCustomDataString()==inst.GetCustomDataString());
-   inst.DeleteCustomData(Key); assert(item.ItemType==1 && inst.GetCustomDataString().empty());
-  }
+   assert(item.Accuracy==FindProfile(row.id)->accuracy);
+   if(row.id==10099) assert(item.Mana==50 && item.AStr==30 && item.AWis==30 && item.HeroicStr==8 && item.HeroicWis==8 && item.HealAmt==30 && item.SpellDmg==15 && item.Proc.Level2==45);
+   if(row.id==810099) assert(item.HeroicWis==10 && item.HealAmt==35 && item.Proc.Level2==45);
+   const auto original=item;
+   for (int cycle=0;cycle<25;++cycle) {
+    inst.SetCustomData(Key,std::string("1"));
+    inst.RefreshPaladinWeaponGrip();
+    assert(item.ItemType==0 && item.Damage==row.one_damage && item.Delay==30);
+    auto projected=original;projected.ItemType=0;projected.Damage=row.one_damage;projected.Delay=30;
+    assert(std::memcmp(&item,&projected,sizeof(item))==0);
+    EQ::ItemData reload=original;
+    EQ::ItemInstance loaded{&reload}; loaded.RefreshPaladinWeaponGrip();
+    loaded.SetCustomDataString(inst.GetCustomDataString()); // DB/Bazaar reconstruction
+    assert(reload.ItemType==0 && reload.Damage==row.one_damage && reload.Delay==30);
+    EQ::ItemData copied=item; EQ::ItemInstance clone{&copied}; clone.m_custom_data=inst.m_custom_data;
+    clone.DeleteCustomData(Key);
+    assert(std::memcmp(&copied,&original,sizeof(item))==0);
+    inst.DeleteCustomData(Key);
+    assert(std::memcmp(&item,&original,sizeof(item))==0 && inst.GetCustomDataString().empty());
+   }
  }
  assert(Supported(10099) && Supported(810099));
  for(unsigned id : {0u,5503u,5505u,210099u,410099u,610099u,810100u,805504u,811050u,1010099u,4294967295u}) assert(!Supported(id));

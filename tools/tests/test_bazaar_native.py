@@ -188,7 +188,7 @@ class NativeGuards(unittest.TestCase):
         source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
         instance=(ROOT/'server-mods/code/common/item_instance.cpp').read_text()
         fixture=RESTORE_FIXTURE.replace('#include <array>', '#include <array>\n#include <cstring>\n#include "common/paladin_weapon_grip.h"')
-        fixture=fixture.replace('struct ItemInstance {', '''struct ItemData {unsigned ID=5504;int ItemType=1;struct {int Effect=13,Type=3,Level=1,Level2=1;} Click;char ClickName[65]={};int CastTime=0,CastTime_=0,RecastDelay=0,RecastType=0;};
+        fixture=fixture.replace('struct ItemInstance {', '''struct ItemData {unsigned ID=5504,Damage=23;uint8_t Delay=45;int ItemType=1;struct {int Effect=13,Type=3,Level=1,Level2=1;} Click;char ClickName[65]={};int CastTime=0,CastTime_=0,RecastDelay=0,RecastType=0;int Accuracy=0,Mana=0,AStr=0,AWis=0,HeroicStr=0,HeroicWis=0,HealAmt=0,SpellDmg=0;struct {int Level2=50;} Proc;};
 struct ItemInstance {
  ItemData owned;const ItemData *m_item=&owned;ItemData *m_scaledItem=nullptr;void RefreshPaladinWeaponGrip();
 ''')
@@ -203,11 +203,15 @@ int main(){
   Row row={"1","33",std::to_string(id),"0","123","201","0","0","0","0","0","1",Hex(metadata),"72","73","-7","123456"};
   auto restored=Restore(row);assert(restored);assert(restored->GetID()==id&&restored->GetCharges()==0);
   assert(restored->GetCustomDataString()==metadata&&restored->m_item->ItemType==(grip?0:1));
+  const auto &profile=*NightcapPaladinGrip::FindProfile(id);
+  assert(restored->m_item->Damage==(grip?profile.one_hand_damage:profile.two_hand_damage));
+  assert(restored->m_item->Delay==(grip?profile.one_hand_delay:profile.two_hand_delay));
   assert(SameItems({row},{Snapshot(1,33,*restored)}));
   row[0]="2";auto buyer=Restore(row);assert(buyer&&buyer->m_item->ItemType==(grip?0:1));
   assert(SameItems({row},{Snapshot(2,33,*buyer)}));
   buyer->SetCustomData(NightcapPaladinGrip::Key,std::string("1"));assert(buyer->m_item->ItemType==0);
   buyer->DeleteCustomData(NightcapPaladinGrip::Key);assert(buyer->m_item->ItemType==1&&buyer->GetCustomDataString().empty());
+  assert(buyer->m_item->Damage==profile.two_hand_damage&&buyer->m_item->Delay==profile.two_hand_delay);
  }
 }
 '''

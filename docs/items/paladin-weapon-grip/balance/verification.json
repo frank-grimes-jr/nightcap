@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-27",
+  "status": "numerical balance rejected by follow-up review; implementation local and undeployed",
+  "source": "444e27dc plus fix/paladin-grip-client-refresh worktree",
+  "authorization": "User approved balance and named Ascended quest rewards; read-only production capture separately approved after automatic review initially rejected it. No production deployment approval.",
+  "tests": {
+    "grip_native_groups": 4,
+    "quest_lua51_groups": 4,
+    "release_preflight_groups": 3,
+    "bazaar_native_groups": 4,
+    "client_runtime_groups": 11,
+    "exact_catalog_guards": 117,
+    "native_function_diagnostic_cases": 300,
+    "wiki_content_refresh": 19,
+    "go": "preflight/manifest/package pass against actual rebuilt candidate"
+  },
+  "red_before_fix": [
+    "Native 1H projection retained original damage/delay; new profile assertion failed",
+    "Actual Lua terminal rewards were5504/11050 rather than605504/611050"
+  ],
+  "review": {
+    "agent": "grip_balance_review",
+    "findings_fixed": [
+      "fresh canonical ten-row baseline required",
+      "tier-aware helper exact digest/preimage required",
+      "capture freshness enforced within1hour",
+      "exclusive new capture outputs preserve reviewed evidence"
+    ],
+    "final": "Earlier implementation review passed; superseded for numerical balance by review-followup.md"
+  },
+  "blocked": [
+    "Full Linux paired native build: Docker engine unavailable after Secrets Engine socket failure",
+    "Fresh MariaDB rerun",
+    "Native encounter and owner gameplay/balance QA"
+  ],
+  "client": {
+    "status": "unsigned local candidate; signature/runtime checks required",
+    "baseline_release": 2026102601,
+    "baseline_channel_sha256": "a7b4235a6d2641224293d372b2f66a1f4d4c7e3e8bba1ac366455bab89409f44",
+    "assets": {
+      "dinput8.dll": {
+        "sha256": "662b705120f6032b5546a671c487e64ac14785adf9ab65ec75ccb4424b680606",
+        "size": 650240
+      },
+      "nightcap-patch-sites.json": {
+        "sha256": "b9fcd843ba30f3490bd42a735f14c103bb0bdaf574e9bbe88e237fba09eb4dc6",
+        "size": 10353
+      },
+      "nightcap-patches.cfg": {
+        "sha256": "2f837e4724c64beabc75786a1a095d847c22eff9144668fa29e1130d35cd3e0e",
+        "size": 349
+      }
+    },
+    "replaced": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json",
+      "nightcap-patches.cfg"
+    ],
+    "added": [],
+    "complete_inventory_count": 141,
+    "published": false,
+    "native_rendered": false
+  },
+  "preserved_client_descriptors": 138,
+  "wiki": "Six candidate articles; full40review; unpublished; historical global ledger remains review-required",
+  "profile_header_sha256": "2ddcff548f7e891e3df4a8fe5662393214a9699945318c96f8c4a3770b9ade3d",
+  "followup_review": {
+    "reviewer": "paladin_progression_review",
+    "result": "reject current numerical table",
+    "findings": [
+      "P1 missing same-tier1HS viability floor",
+      "P1 new Ascended Avenger to Normal Defender progression reversal unvalidated",
+      "P2 active native damage caps omitted from low-level diagnostic"
+    ],
+    "native_cap_reproduction": "pass; confirms level1/noAA and level20/100%shield ordering reversal",
+    "fixes": "not implemented in review-only turn"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-27",
+  "new_primary_runs": 720,
+  "reused_primary_baseline": 240,
+  "new_timestep_controls": 120,
+  "reused_timestep_baseline": 40,
+  "baseline_replays": 3,
+  "new_arm_replays": 3,
+  "pilots": 3,
+  "modified_stat_gates": 144,
+  "binary_sha256": "88de63cddae472679f944f04df3662e508c4af125994d0f05adb03b20df8eb47",
+  "input_hashes": {
+    "aa_ablation.py": "d21acb950e12e7885109e7ba16e54ec6b690b0fc7b0d7aebd922681922690da1",
+    "analyze_ablation.py": "cbd285d6a068ce00c413c8e0797b63c4d75a35906606f36d3ec69cf90815e502",
+    "run_matrix.py": "11fd932d2a21b8c97af1233738cb9216147f3f70445bb24b0345b7ad1914c78b",
+    "analyze_results.py": "1ba6aa102119d4b9faeacfbbbe81090e28261015497287a688f67218e355a036",
+    "setup_database.py": "60826783f5af7f5573f8207f3592af0dc208ab6348a952f609f2ac10791f82db",
+    "matrix-private.json": "29632b808224a6297d1b3e376e7235eca9e8a227b8bcc6f7dd3953cf1a00df22",
+    "palwar-private-reference.json": "4a8606c84ce1f6c2abbffe2e975831fda43c64b9d034267172b66d2b64958bb4",
+    "public-combat-reference.json.gz": "073ce2e6574428ca59b2de65533f125809c7e948c77ae6b1187c9c84bfd21141",
+    "public-replacement-reference.json": "bad34d9e9bfdbd944103ef222647047ded5394786859cc91163b861091950304"
+  },
+  "no_live_changes": true,
+  "scope": "Whole-AA removal from isolated synthetic ownership only; original captured inputs/engine reused",
+  "synthetic_restore": "See verification.json",
+  "duplicate_1h_pairs": {
+    "baseline": 70,
+    "wu_off": 70,
+    "steel_off": 70,
+    "both_off": 70
+  },
+  "exact_replays": {
+    "wu_off": true,
+    "steel_off": true,
+    "both_off": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-28",
+  "status": "implemented, tested and independently reviewed; not deployed or published",
+  "scope": "Ten Paladin profiles, direct Ascended rewards, free legacy Defender exchange; Monk AAs unchanged",
+  "tests": {
+    "grip_native_and_real_mariadb_temporary_tables": 5,
+    "progression_native": 3,
+    "lua51_quests": 5,
+    "preflight": 3,
+    "bazaar_native": 4,
+    "native_handin_and_task_delivery": 2,
+    "perl_forge_assertions": 16,
+    "wiki_content_and_refresh": 19
+  },
+  "build": {
+    "result": "PASS",
+    "kind": "isolated native relink of four changed translation units with retained unchanged objects",
+    "binaries": {
+      "zone": "b875362117a93b6ef24caf0e0458f4e911ed1854f682dce25f6608f14313619a",
+      "world": "7699f1ee74c32374b58fcef3ae7c2b0c40d8f11e9ff99f11c36e5360d871f74a",
+      "shared_memory": "493d18feb8b3ec321c8950d9c4af0e3c7254fee25d3b9ef4b60b2ef2e16120fe"
+    },
+    "overlay_matches_final_source": true
+  },
+  "review": {
+    "reviewer": "paladin_stat_assessment_review",
+    "result": "No blocking correctness defect",
+    "record": "review.md"
+  },
+  "production_changes": false,
+  "monk_aa_changes": false,
+  "boundaries": [
+    "No signed client publication or production deployment",
+    "Owner native shield/equipment, quest/exchange/relog and encounter acceptance pending",
+    "Native extracted-method tests and session-local DB tables do not establish complete live-client integration",
+    "Prior Vox experiments used fixture-only proposed stats, not this implementation",
+    "Global wiki refresh retains unrelated historical drift; scoped full40article review recorded"
+  ],
+  "source_sha256": {
+    "server-mods/code/common/paladin_weapon_grip.h": "4f8b5fc7f32688cc0418aafb77299805a04a09572dea9a9e9d5d10a12df5ce7b",
+    "server-mods/code/common/item_instance.cpp": "39610f139dca8d394a1ad2927e56dcfbf8dc01609a422cc09b45ad29d427f802",
+    "server-mods/code/zone/bonuses.cpp": "337ca3cd3a7df63e398d0daddf8e7364e9c8021506f3458a3e2651d675ff317c",
+    "server-mods/code/zone/inventory.cpp": "4d09d0a514d65bbc15902d1ec950b0a635779cece800e7ce1a95013286bbbfb4",
+    "server-mods/code/zone/client.h": "5aa8833017077543892cb6d51beee57edf81608ffba934b2cb408933bb9cb8cf",
+    "server-mods/code/zone/perl_client.cpp": "de368b9da2bdd8184f5c403f3ea1ff1b8e397b766154693e6c700dcd6f4f9116",
+    "server-mods/quests/fearplane/Irak_Altil.lua": "d68e937d33e53ed516b8d52342d852e1684d15662558c05006b3cd0de2ba6f40",
+    "server-mods/quests/hohonora/#Irak_Altil.lua": "57ca1056a216c7fbb3839fd9ed25d33fae756fdcfd115abf4a3430207585d748",
+    "server-mods/quests/ecommons/Epic_Forgemaster.pl": "378e4e60c1011793b1c44b8b3620ab2f3af1630ced0d82b6ef2e6d724756e0a9",
+    "server-mods/quests/poknowledge/Epic_Forgemaster.pl": "378e4e60c1011793b1c44b8b3620ab2f3af1630ced0d82b6ef2e6d724756e0a9",
+    "tools/tests/test_paladin_weapon_grip.py": "c0167773aa9ec34113131e43d62c8ea08495f0cbf924901d3d8fd4ed14754f1c",
+    "tools/tests/test_paladin_progression.py": "b9cfe6eec2e8dd34689a5c9b4ef48d2097cb32f1d358c720160c1fac46ff7dac",
+    "tools/tests/test_paladin_quest_rewards.py": "633acf56eb2b2f794eb0f7d0a502690d07b487b6cfa8d09433a16d78570c71ed",
+    "tools/tests/paladin_epic_quests.t": "4fb166ffb13fac3066a4507b552ef02c7d0cba958180992122834b67618b2b6e",
+    "tools/tests/fixtures/quest_handins.cpp": "40f19380315b235cb8d32508c9b887149a845e46ed9db4f7f67a5660f40d6470",
+    "tools/paladin_grip_preflight.py": "f08ac03f10722342cd348cb0b9e762f10934c804ff702db93020adb673cf105a",
+    "tools/capture_paladin_grip_balance.py": "c5564dddc77d7e28d855f7fca5eb4119beb4b6fe5daacf046b163a043e69c4c5"
+  }
+}

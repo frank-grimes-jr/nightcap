@@ -60,6 +60,17 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Paladin grip repair deployed October28, gameplay QA open.** Main PR352,
+  signed client2026102801/proxy0.13.1 and the paired OVH binaries/seven quests
+  repair native same-ID item cache retention. Fully exit EQ before launcher
+  update; packet tests do not prove visible swing or shield acceptance. Ten
+  owned-instance stat profiles, direct Ascended rewards and a free exact-instance
+  legacy Defender exchange are live; other classes keep paid recipes, Monk AAs
+  unchanged. Raw SQL/base catalogs and existing caches remain unchanged. Preserve
+  grip-aware code and earned items on recovery; never replay uncertain inventory
+  writes. Current receipts, preflight and owner QA:
+  `docs/items/paladin-weapon-grip/balance/release/README.md`.
+
 - **High Keep rescue deployed October25; reverified October27:** new opted-in Raid runs
   use `zone/highkeep_rescue.inc` and additive `nightcap_highkeep_*` storage. Pair
   zone/schema; revision2026102401 is enabled. Completion requires
@@ -472,6 +483,14 @@ publication as successful native acceptance or a permanent branch-policy change.
 - **main**: only after user sign-off on the manual QA.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+
+**October28 Paladin repair exception:** the owner explicitly approved main and
+paired OVH release for the grip cache repair, assessed weapon stats, direct
+Ascended rewards and free legacy Defender exchange, with signed client/wiki
+publication and a brief whole-game restart. Monk AAs remain unchanged. Native
+owner gameplay acceptance remains open. See
+`docs/items/paladin-weapon-grip/balance/release/AUTHORIZATION.md`; this is scoped
+release authorization, not a permanent branch-policy change.
 
 **October 16 dungeon release exception:** the owner explicitly requested main
 promotion and server deployment with matching binaries and item cache for

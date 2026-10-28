@@ -84,6 +84,23 @@ struct NPC {
 void require(bool ok, const char *message) { if (!ok) throw std::runtime_error(message); }
 int main() { try {
 	Client c;
+	{
+		// Paladin forge refuses payment: production trading seeds an empty recipe
+		// before EVENT_TRADE, then its processed flag suppresses catch-all return.
+		database.items.emplace(10099, Item{10099,"Fiery Defender"});
+		EQ::ItemInstance sword{&database.items.at(10099),5};
+		sword.custom="nightcap_paladin_grip^1^";
+		NPC n;
+		n.CheckHandin(&c, {{"10099",5},{"platinum",100000},{"gold",3},{"silver",2},{"copper",1}}, {}, {&sword});
+		n.ReturnHandinItems(&c);
+		require(n.m_has_processed_handin_return, "quest return did not suppress automatic second return");
+		require(c.returned.size()==1 && c.returned[0].GetID()==10099 && c.returned[0].GetCharges()==5 &&
+			c.returned[0].custom==sword.custom && c.returned[0].attuned && c.returned[0].GetAugmentIDs()==sword.GetAugmentIDs(),
+			"Paladin refusal lost original item state");
+		require(c.money_calls==1 && c.money.platinum==100000 && c.money.gold==3 && c.money.silver==2 && c.money.copper==1,
+			"Paladin refusal lost or duplicated mixed payment");
+		c.returned.clear();c.money={};c.money_calls=0;
+	}
 	for (auto [id, name] : std::map<uint32, std::string>{{13737,"Aviak Charm"},{213737,"Aviak Charm (Polished)"},
 		{413737,"Aviak Charm (Exalted)"},{613737,"Aviak Charm (Ascended)"},{813737,"Aviak Charm (Ascended)"},
 		{10032,"Star Ruby"},{13738,"Wrong Charm"},{213738,"Aviak Charm (Polished)"},{213739,"Wrong Charm (Polished)"},

@@ -1,0 +1,29 @@
+{
+  "reviewer": "paladin_stat_assessment_review",
+  "scope": "Fresh-context source, model, arithmetic and final report review",
+  "verdict": "No material misleading claim; candidate only, not release certification",
+  "incorporated": "Qualified SoulFire accuracy closes gap in this fixture; preserved comparator, cap, support/proc and conditional block limits",
+  "native_cases": 1248,
+  "comparison_cases": 5616,
+  "accuracy_cases": 243,
+  "block_cases": 18,
+  "skill_verification": {
+    "items": {
+      "assessment_entries": 5,
+      "assessment_mismatches": 0,
+      "other_historical_drift": 107
+    },
+    "balance": {
+      "assessment_entries": 5,
+      "assessment_mismatches": 0,
+      "other_historical_drift": 81
+    },
+    "wiki": {
+      "assessment_entries": 2,
+      "assessment_mismatches": 0,
+      "other_historical_drift": 59
+    }
+  },
+  "gameplay_changed": false,
+  "deployed": false
+}

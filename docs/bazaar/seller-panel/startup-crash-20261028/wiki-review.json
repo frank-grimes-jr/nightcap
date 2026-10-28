@@ -1,0 +1,168 @@
+{
+  "status": "published and all499HTTPS files/security headers verified; native owner acceptance pending",
+  "articles": [
+    {
+      "article": "about.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "advanced-loot.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "ascension.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "ashen-compact.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "build-lab.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "camil-vigil.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "combat.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "commands.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "equipment.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "features.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "getting-started.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "index.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-960420.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-960421.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-960422.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-960423.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-960424.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-960425.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961020.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961021.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961022.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961023.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961030.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961031.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-961032.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-990510.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "item-upgrades.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "launcher.json",
+      "assessment": "hotfix2802 update/login instructions; native acceptance still open"
+    },
+    {
+      "article": "loot-finder.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "multiclass.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "pets.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "recent-changes.json",
+      "assessment": "hotfix2802 update/login instructions; native acceptance still open"
+    },
+    {
+      "article": "tradeskills.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "travel.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "tunnel.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "unreleased.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "waypoints.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "zone-hunt.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    },
+    {
+      "article": "zone-kael.json",
+      "assessment": "reviewed; existing feature, command, reward, zone, catalog and release scope unchanged"
+    }
+  ],
+  "home_features_commands_catalog": "reviewed; no new feature or changed gameplay values; retained",
+  "generated_item_zone_pages": "no changed items, zones or rewards; retained",
+  "release_labels": "published client; pending native owner acceptance"
+}

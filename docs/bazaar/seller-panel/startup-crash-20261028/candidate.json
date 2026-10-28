@@ -1,0 +1,16 @@
+{
+  "status": "candidate_not_published_or_installed",
+  "baseline_release": 2026102801,
+  "asset": "uifiles/nightcap/equi_bazaarsearchwnd.xml",
+  "old_sha256": "41fefb05f3c523ee70221329a23824834e376cf5afc2c2949deb2c33455b557e",
+  "new_sha256": "c55c303fe2760a0c92a682de3a5e6e694468a58bb35a7c417d452589d821a94c",
+  "old_size": 35862,
+  "new_size": 35979,
+  "only_semantic_changes": [
+    "TabBorderTemplate=FT_DefTabBorder",
+    "PageBorderTemplate=FT_DefPageBorder"
+  ],
+  "dll_catalog": "retain existing 0.13.1 matched pair",
+  "server_restart": false,
+  "owner_login_and_bazaar_QA": "pending"
+}

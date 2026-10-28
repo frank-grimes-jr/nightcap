@@ -29,3 +29,7 @@ artifacts/aggro-zone-cleanup/
 /eq-solo-gm/scripts/thj-stock-bootstrap.sql
 /artifacts/wiki-loot/
 /artifacts/wiki-loot-probe.json
+
+# Unsigned local Paladin grip client QA assets (hashes are retained in docs).
+/artifacts/paladin-grip-refresh-20261027/
+/artifacts/paladin-grip-release-20261028/
