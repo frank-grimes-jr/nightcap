@@ -3,15 +3,15 @@
 #include <cstddef>
 #include <cstdint>
 namespace nightcap {
-enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor,Feature_auto_ui,Feature_multiclass_spell_access,Feature_classic_models,Feature_advanced_loot,Feature_merchant_sell_all,Feature_tradeskill_repeat,Feature_bazaar_panel};
-static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor","auto_ui","multiclass_spell_access","classic_models","advanced_loot","merchant_sell_all","tradeskill_repeat","bazaar_panel"};
+enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor,Feature_auto_ui,Feature_multiclass_spell_access,Feature_classic_models,Feature_advanced_loot,Feature_merchant_sell_all,Feature_tradeskill_repeat,Feature_bazaar_panel,Feature_paladin_grip};
+static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor","auto_ui","multiclass_spell_access","classic_models","advanced_loot","merchant_sell_all","tradeskill_repeat","bazaar_panel","paladin_grip"};
 static const size_t kRequiredFeatureCount = sizeof(kRequiredFeatures) / sizeof(kRequiredFeatures[0]);
 static const uint32_t kRequiredMask = (uint32_t(1) << kRequiredFeatureCount) - 1;
 static_assert(kRequiredFeatureCount > 0 && kRequiredFeatureCount < 32, "feature mask capacity");
 // Explicit leading boundaries make release-pair checks independent of linker layout.
-static const struct { char boundary; char text[65]; } kCatalogIdentity = {0,"2434e6b3aa8d9ecfac2412ec159d61401dd61a9d43a690fe62691b54554fb564"};
+static const struct { char boundary; char text[65]; } kCatalogIdentity = {0,"0d7d971e5fcb2d6b6ea43721ff02c033935d6d1f48bf19506c34f8bb4d1a1552"};
 static const char *const kCatalogSHA256 = kCatalogIdentity.text;
-static const struct { char boundary; char text[7]; } kProxyIdentity = {0,"0.13.0"};
+static const struct { char boundary; char text[7]; } kProxyIdentity = {0,"0.13.2"};
 static const char *const kProxyVersion = kProxyIdentity.text;
 static const unsigned kRuntimeSchema = 1;
 }

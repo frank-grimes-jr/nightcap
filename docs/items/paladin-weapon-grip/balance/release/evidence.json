@@ -1,0 +1,19 @@
+{
+  "status": "deployed; admissions open; owner gameplay QA pending",
+  "main_merge": "979ec08b0ed1d1e855040fdbab8a95d4a80d01fd",
+  "source_head": "703adec3cfee5f155a3f86cfaf1647b3199c8c99",
+  "client_generation": 2026102801,
+  "wiki_release": "20261028-paladin-bazaar-repair-v1",
+  "monk_aa_changes": false,
+  "receipts": {
+    "deployed.json": "010d20cf6dab07a0b7faaf13da3f15c4f7bc7b2b5ecba9e46dd24318b3fffcf1",
+    "preflight-receipt.json": "4a8b27a6caf0df10b5633747ebe08494270e776fb0c58de6fc51fbe01f99180f",
+    "client/published.json": "1d4cc289644095a502d6193cda3e7a3413d73ddf7fd5a14bb50ddc36f4920b6a",
+    "client/public-verification.json": "5115776c4762d174bbf78b6463836539d9d5e1cac680cf378a51c8ba31fb9567",
+    "wiki-publication.json": "62fd1d0ce361b854829cb0a567e1b72202dde1a18d01cbc64bfa4f078e32faed",
+    "wiki-public-verification.json": "5abb49c652dd3d7c7b7b171f760d86a1774b72507e32f86cae5ae3f3760d1eac",
+    "wiki-publication-review.json": "cddeb0cae667a46c247cee655516f380431622c87d04f38dfe5572cb0677509f",
+    "disk-preservation.json": "d7d0ee7be503093e3f087e6c6ac8b365e15b44e8f3b61949603f0b9f005ce4ed"
+  },
+  "review": "Independent rollout, client publication and wiki gate review complete; no outstanding blocker. Player rendering/equipment not yet accepted."
+}

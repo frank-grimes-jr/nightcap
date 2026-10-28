@@ -1,10 +1,12 @@
-# Paladin weapon grip — October26 live QA
+# Paladin weapon grip — October 28 live QA
 
-Status: implemented on `feature/paladin-weapon-toggle` from main `465003f6`.
-Integrated main PR345/e43f2d4b and the combined Bazaar runtime/client/wiki release
-are verified in docs/bazaar/seller-panel/deployed.json and evidence.json. Owner
-native gameplay and balance acceptance remain open.
-The user explicitly chose to replace SoulFire's Complete Heal click with the toggle.
+The same-ID client cache repair and approved progression are deployed on main
+PR352 and OVH, paired with signed client2026102801. Fully exit EQ and update
+through launcher Play. Runtime/publication checks pass; owner shield, swing and
+persistence acceptance remains open. The October26 client failed owner QA; its
+evidence remains historical. Current [release](balance/release/README.md),
+[profiles](balance/README.md), and [owner checks](QA.md).
+SoulFire Complete Heal is replaced by the unlimited grip toggle as requested.
 
 ## Behavior and scope
 
@@ -12,11 +14,11 @@ Right-click SoulFire, Fiery Avenger or Fiery Defender to switch between 1H
 Slashing and 2H Slashing. Existing/new weapons start in their original 2HS grip.
 This covers all ten existing definitions: SoulFire 5504/205504/405504/605504,
 Fiery Avenger 11050/211050/411050/611050, Fiery Defender 10099/810099.
-The last Defender is the separate Epic Forgemaster Ascended version.
+The last Defender is the new direct quest reward; the deployed release provides a free legacy-owner exchange.
 
-The same instance keeps its ID/name, quality, damage/delay, other combat stats,
+The same instance keeps its ID/name, quality, other combat stats,
 procs, equip/class/level restrictions, saved charges, binding, color, ornaments,
-augments, GUID and recast timestamp. Its weapon type changes, so normal native
+augments, GUID and recast timestamp. Its weapon type and reviewed damage/delay profile change, so normal native
 skill selection, skill gains, weapon AAs and damage-bonus rules follow that grip.
 The 1HS version remains primary-only; this does not add an offhand equipment slot.
 SoulFire no longer casts Complete Heal. Clicking is unlimited, including a spent

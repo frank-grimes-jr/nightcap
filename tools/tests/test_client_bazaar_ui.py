@@ -5,6 +5,39 @@ from client_bazaar_ui import add_bazaar_panel
 
 STOCK=b'<XML><Button item="BZR_QueryButton"><ScreenID>BZR_QueryButton</ScreenID><Text>Search</Text></Button><Listbox item="BZR_ItemList"><ScreenID>BZR_ItemList</ScreenID></Listbox><Button item="BZR_BuyButton"><ScreenID>BZR_BuyButton</ScreenID></Button><Screen item="BazaarSearchWnd"><Size><CX>700</CX><CY>600</CY></Size><Pieces>BZR_QueryButton</Pieces><Pieces>BZR_ItemList</Pieces><Pieces>BZR_BuyButton</Pieces></Screen></XML>'
 class BazaarUI(unittest.TestCase):
+ def test_seller_controls_have_readable_explicit_text_and_room(self):
+  root=ET.fromstring(ui_xml(STOCK,'bazaar'))
+  controls=[n for n in root if (n.get('item') or '').startswith('NCBZ_') and n.tag in ('Button','Label','Editbox')]
+  self.assertGreater(len(controls),20)
+  for n in controls:
+   with self.subTest(control=n.get('item')):
+    self.assertGreaterEqual(int(n.findtext('Font')),4)
+    for channel in ('R','G','B'):
+     self.assertGreaterEqual(int(n.findtext('TextColor/'+channel,'0')),220)
+    self.assertGreaterEqual(int(n.findtext('Size/CY')),28)
+  self.assertIn('East Commonlands',root.find("Label[@item='NCBZ_Help']").findtext('Text'))
+  self.assertGreaterEqual(int(root.find("Editbox[@item='NCBZ_Price']").findtext('Location/X')),160)
+ def test_tabs_supply_native_border_templates_before_pages_are_inserted(self):
+  # Native CTabWnd page insertion dereferences its frame template at +0x1d8;
+  # DrawTemplate alone leaves it null (2026-10-28 crash at preferred VA 0x88dc6d).
+  root=ET.fromstring(ui_xml(STOCK,'bazaar'))
+  tabs=root.find("TabBox[@item='NCBZ_Tabs']")
+  self.assertIsNotNone(tabs)
+  for tag,expected in [('TabBorderTemplate','FT_DefTabBorder'),('PageBorderTemplate','FT_DefPageBorder')]:
+   with self.subTest(template=tag):
+    self.assertEqual(tabs.findtext(tag),expected)
+ def test_border_template_references_resolve_in_pinned_native_skin(self):
+  path=os.environ.get('NIGHTCAP_BAZAAR_XML')
+  if not path:self.skipTest('Set NIGHTCAP_BAZAAR_XML to the read-only stock Bazaar XML')
+  skin=Path(path).parent
+  templates=ET.parse(skin/'EQUI_Templates.xml').getroot()
+  native_tabs=ET.parse(skin/'EQUI_AAWindow.xml').getroot().find("TabBox[@item='AAW_Subwindows']")
+  tabs=ET.fromstring(ui_xml(Path(path).read_bytes(),'bazaar')).find("TabBox[@item='NCBZ_Tabs']")
+  for tag in ('TabBorderTemplate','PageBorderTemplate'):
+   with self.subTest(template=tag):
+    name=tabs.findtext(tag)
+    self.assertEqual(name,native_tabs.findtext(tag))
+    self.assertIsNotNone(templates.find("FrameTemplate[@item='"+str(name)+"']"))
  def test_panel_preserves_native_controls_and_uses_separate_owned_rows(self):
   root=ET.fromstring(STOCK);before=[ET.tostring(x) for x in root if x.tag!='Screen'];add_bazaar_panel(root)
   self.assertEqual(before,[ET.tostring(x) for x in root if (x.get('item') or '').startswith('BZR_')])
@@ -34,6 +67,14 @@ class BazaarUI(unittest.TestCase):
   for page in after.findall('Page'):
    self.assertEqual(page.findtext('Style_VScroll'),'true');self.assertEqual(page.findtext('Style_HScroll'),'true')
    for piece in page.findall('Pieces'):self.assertIsNotNone(after.find("*[@item='"+piece.text+"']"))
+ def test_shipped_panel_uses_rof2_compatible_ascii_text(self):
+  output=ui_xml(STOCK,'bazaar')
+  self.assertNotIn(b'&#',output, 'RoF2 ParseTag rejects numeric character references and abandons the entire skin')
+  self.assertIn(b'My Listings - select an item',output)
+ def test_ui_serialization_rejects_non_ascii_instead_of_numeric_escapes(self):
+  raw=STOCK.replace(b'<Text>Search</Text>',b'<Text>Search &#8212; items</Text>')
+  with self.assertRaisesRegex(ValueError,'ASCII'):
+   ui_xml(raw,'bazaar')
  def test_duplicate_or_wrong_screen_rejected(self):
   with self.assertRaises(ValueError):add_bazaar_panel(ET.fromstring('<XML/>'))
   root=ET.fromstring(STOCK);add_bazaar_panel(root)

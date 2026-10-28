@@ -1,0 +1,12 @@
+{
+  "observed_utc": "2026-10-28T14:48:28.578316+00:00",
+  "authorization": "User explicitly approved read-only weapon/offhand grip and server-version check",
+  "read_only": true,
+  "scope": "Named SoulFire carried instances and equipped weapon/offhand; no account data",
+  "private_capture_sha256": "8db60e9118fd360cfbcd9e7e59106720f58c0959c8b5b953e2ad2d3ac8b8ed79",
+  "finding": "Controlled owner setup: primary SoulFire saved with1H grip; offhand empty. Owner reports two-handed visible swing. No second equipped weapon explains this report.",
+  "running_zone_sha256": "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4",
+  "matches": "October26 deployed Bazaar/grip release; not October28 local candidate",
+  "limits": "Saved state is not a live packet trace or rendered animation capture. Client binary on player PC was not inspected.",
+  "production_changes": false
+}

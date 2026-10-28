@@ -1,0 +1,20 @@
+{
+  "new_primary_executions": 720,
+  "reused_primary_baseline": 240,
+  "new_timestep_controls": 120,
+  "reused_timestep_baseline": 40,
+  "stat_gates": 144,
+  "baseline_exact_replays": 3,
+  "ablation_exact_replays": 3,
+  "pilot_executions": 3,
+  "retained_new_json_results": 993,
+  "independent_review": "Raw primary/timestep/replay evidence recomputed; no material issues remain",
+  "restored_synthetic_baseline": "Exact skill100/AA122/spell41/memmed9/buff8 rows; zero timers; accounts0/character_profiles0",
+  "no_live_changes": true,
+  "skill_validator": "passed",
+  "new_reviewed_source_entries_unchanged": 10,
+  "historical_unrelated_context_drift": 81,
+  "drift_action": "Preserved historical fingerprints; no unrelated drift silently accepted",
+  "report_links": "all resolved",
+  "diff_check": "passed"
+}

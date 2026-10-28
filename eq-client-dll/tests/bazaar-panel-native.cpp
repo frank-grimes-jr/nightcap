@@ -24,6 +24,7 @@ static BOOL WINAPI DenyProtect(LPVOID,SIZE_T,DWORD,PDWORD){return FALSE;}
 static BOOL WINAPI DenyFlush(HANDLE,LPCVOID,SIZE_T){return FALSE;}
 static void Jump(BYTE *where,void *target){DWORD old=0;assert(VirtualProtect(where,16,PAGE_EXECUTE_READWRITE,&old));where[0]=0xE9;const int32_t offset=int32_t(reinterpret_cast<BYTE *>(target)-(where+5));memcpy(where+1,&offset,4);assert(FlushInstructionCache(GetCurrentProcess(),where,5));}
 int main(){
+ _set_abort_behavior(0,_CALL_REPORTFAULT);
  // Exact pointer guards must honor image relocation and never adopt other patches.
  for(uint32_t image:{0x400000u,0xda0000u,0x200000u}){
   auto site=static_cast<uint32_t *>(VirtualAlloc(nullptr,4096,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));assert(site);
@@ -43,7 +44,7 @@ int main(){
  for(const char *name:{"SellPage","Price","Post","ConfirmPost","Dismiss","Balance","Collect","Preview","Status","Page","Previous","Next","Cancel","Refresh"})children[std::string("NCBZ_")+name];
  for(unsigned i=0;i<8;++i)children["NCBZ_Row"+std::to_string(i)];
  for(auto &pair:children){*reinterpret_cast<void ***>(pair.second.bytes.data())=table;pair.second.bytes[0x196]=1;}
- alignas(4) BYTE price[64]={};*reinterpret_cast<uint32_t *>(price+4)=40;*reinterpret_cast<uint32_t *>(price+8)=1;memcpy(price+0x14,"1",2);*reinterpret_cast<void **>(children["NCBZ_Price"].bytes.data()+0x1ec)=price;
+ alignas(4) BYTE price[96]={};*reinterpret_cast<uint32_t *>(price+4)=40;*reinterpret_cast<uint32_t *>(price+8)=1;memcpy(price+0x14,"1",2);*reinterpret_cast<void **>(children["NCBZ_Price"].bytes.data()+0x1ec)=price;
  send_request=reinterpret_cast<SendRequest>(&Send);original_bazaar_frame=reinterpret_cast<BazaarFrame>(&Frame);original_bazaar_notify=reinterpret_cast<InventoryNotify>(&Notify);original_bazaar_destroy=reinterpret_cast<BazaarDestroy>(&Destroy);
  bazaar_panel=nightcap::BazaarPanelController{};bazaar_panel.Bind(&ExecuteUIRequest);
  const auto frame=reinterpret_cast<BazaarFrame>(&BazaarFrameHook);const auto notify=reinterpret_cast<InventoryNotify>(&BazaarNotifyHook);
@@ -57,8 +58,43 @@ int main(){
  assert(notify(expected_window,children["NCBZ_Post"].bytes.data(),3,nullptr)==1&&requests.size()==1); // right click cannot post
  assert(notify(expected_window,children["NCBZ_Post"].bytes.data(),1,nullptr)==1&&requests.back()=="#bazaar ui 2 post 1 0");
  assert(notify(expected_window,children["NCBZ_Post"].bytes.data(),1,nullptr)==1&&requests.size()==2); // busy double-click
- char output[33]={};assert(BazaarPrice(expected_window,output)&&!strcmp(output,"1"));*reinterpret_cast<uint32_t *>(price+12)=1;assert(!BazaarPrice(expected_window,output));*reinterpret_cast<uint32_t *>(price+12)=0;
+ char output[33]={};assert(BazaarPrice(expected_window,output)&&!strcmp(output,"1"));
+ // Native CEditWnd can retain UTF16 even for ordinary whole-platinum digits.
+ *reinterpret_cast<uint32_t *>(price+12)=1;assert(BazaarPrice(expected_window,output)&&!strcmp(output,"1"));
+ *reinterpret_cast<uint16_t *>(price+0x14)=0x0100;assert(!BazaarPrice(expected_window,output));
+ *reinterpret_cast<uint16_t *>(price+0x14)='1';*reinterpret_cast<uint32_t *>(price+4)=3;assert(!BazaarPrice(expected_window,output));
+ *reinterpret_cast<uint32_t *>(price+4)=40;*reinterpret_cast<uint16_t *>(price+0x16)='2';assert(!BazaarPrice(expected_window,output));
+ *reinterpret_cast<uint16_t *>(price+0x16)=0;*reinterpret_cast<uint32_t *>(price+12)=0;
  *reinterpret_cast<uint32_t *>(price+8)=33;assert(!BazaarPrice(expected_window,output));*reinterpret_cast<uint32_t *>(price+8)=1;
+ // Full-length reads require room for the terminator in the native byte capacity.
+ for(uint32_t encoding:{0u,1u}){
+  const uint32_t stride=encoding+1;*reinterpret_cast<uint32_t *>(price+12)=encoding;
+  *reinterpret_cast<uint32_t *>(price+8)=32;
+  memset(price+0x14,0,66);for(unsigned i=0;i<32;++i)price[0x14+i*stride]='1';
+  *reinterpret_cast<uint32_t *>(price+4)=33*stride;assert(BazaarPrice(expected_window,output)&&strlen(output)==32);
+  *reinterpret_cast<uint32_t *>(price+4)=33*stride-1;assert(!BazaarPrice(expected_window,output));
+ }
+ memset(price,0,sizeof(price));*reinterpret_cast<uint32_t *>(price+8)=1;price[0x14]='1';
+ assert(!BazaarPrice(expected_window,output));*reinterpret_cast<uint32_t *>(price+4)=40;
+ // An unreadable price must produce visible feedback, never a silent click or request.
+ s.request=2;for(const auto &m:NightcapBazaarPanel::Encode(s))bazaar_panel.Consume(m,GetTickCount64()-500);
+ frame(expected_window);assert(bazaar_panel.CanPost());
+ const auto before_bad_price=requests.size();*reinterpret_cast<uint32_t *>(price+12)=99;
+ notify(expected_window,children["NCBZ_Post"].bytes.data(),1,nullptr);
+ assert(requests.size()==before_bad_price);assert(bazaar_panel.Feedback().find("price")!=std::string::npos);
+ // A valid UTF16 price must reach the real notify/controller request path.
+ *reinterpret_cast<uint32_t *>(price+12)=1;
+ notify(expected_window,children["NCBZ_Post"].bytes.data(),1,nullptr);
+ assert(requests.size()==before_bad_price+1&&requests.back()=="#bazaar ui 3 post 1 0");
+ // A failed confirmation read invalidates an existing quote without sending it.
+ s.request=3;s.quote={"abcd-1234",{0,1001,1,1000,"Dagger"}};
+ for(const auto &m:NightcapBazaarPanel::Encode(s))bazaar_panel.Consume(m,GetTickCount64()-500);
+ frame(expected_window);assert(bazaar_panel.HasQuote());
+ const auto before_bad_confirm=requests.size();*reinterpret_cast<uint32_t *>(price+12)=99;
+ notify(expected_window,children["NCBZ_ConfirmPost"].bytes.data(),1,nullptr);
+ assert(requests.size()==before_bad_confirm&&!bazaar_panel.HasQuote());
+ *reinterpret_cast<uint32_t *>(price+12)=0;
+ assert(bazaar_panel.Post("1"));
  // A character change before the next frame still invalidates the clicked state.
  *reinterpret_cast<uint32_t *>(player+0x148)=8;memcpy(player+0xa4,"Buyer",6);
  const auto before_switch=requests.size();notify(expected_window,children["NCBZ_Collect"].bytes.data(),1,nullptr);assert(requests.size()==before_switch&&!bazaar_panel.Ready());

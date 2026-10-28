@@ -1,0 +1,58 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -41,8 +41,14 @@
+ resend is not proof of visible refresh. Do not call this the proven cause.
+ Read client-refresh/animation/{README.md,evidence.json} and
+ tools/tests/test_paladin_grip_animation.py. Production Palwar inventory/runtime
+-probe was blocked before execution by automatic approval review; explicit approval
+-pending. Do not claim current live fingerprint or visual reproduction from tests.
++probe was initially blocked, then explicitly approved and completed October28
++14:07:56UTC. Saved SoulFire has1H metadata in a carried bag; owner reports client
++stuck2H despite1H message. Running zone ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4
++matches the October26 deployed build, not the candidate. This matches the known
++same-ID client-cache defect; no repair is deployed. production-check.json records
++scoped evidence; raw named-player equipment stays private outside Git. No live
++packet/rendering or player-PC client-binary inspection was performed; visual QA
++remains open. No further read permission is needed within this approved scope.
+ 
+ Docker is restored. October28 progression native build/relink and MariaDB tests
+ pass; balance/progression/ records final paired binaries and verified Perl unity
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -8969,16 +8969,16 @@
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "docs/items/paladin-weapon-grip/client-refresh/animation/README.md",
+-        "role": "October28 reviewed animation investigation; server selection passes, visual cause unresolved, production approval pending",
+-        "revision": "444e27dc plus local worktree",
+-        "sha256": "fbcce9a4b86428e4ec955475189374db75932fe54c8ef2b1e0c73bcec7940bac"
++        "role": "October28 approved read-only saved-grip/runtime proof; local repair undeployed and rendered QA open",
++        "revision": "444e27dc plus task worktree 2026-10-28",
++        "sha256": "5fcf7aa638a9a297da42efdb575abcd0b39019e4add930bf31e07383816cfa11"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "docs/items/paladin-weapon-grip/client-refresh/animation/evidence.json",
+-        "role": "October28 reviewed animation investigation; server selection passes, visual cause unresolved, production approval pending",
+-        "revision": "444e27dc plus local worktree",
+-        "sha256": "538a21bbe2a95610eefc52092f064825dbdc4d6b417d93e58dcaf52e9c559b9c"
++        "role": "October28 approved read-only saved-grip/runtime proof; local repair undeployed and rendered QA open",
++        "revision": "444e27dc plus task worktree 2026-10-28",
++        "sha256": "48ef84da09679947364c86059cfe7f948d23b57d14657d8ffde64cee0ec3e023"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-28/the-x20/work/hate-client",
+@@ -8986,6 +8986,13 @@
+         "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+         "revision": "5f3b25911cdf4a05a7943491083d19a5c88e1fe7",
+         "sha256": "0d596c3a930d1c3ac5c4ca44a21f96dff988efac980ed379fbfd336620919a2a"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/client-refresh/animation/production-check.json",
++        "role": "October28 approved read-only saved-grip/runtime proof; local repair undeployed and rendered QA open",
++        "revision": "444e27dc plus task worktree 2026-10-28",
++        "sha256": "ab40fe3554453965b6665808ffffeb878449f64e1be722c5a4995d53c5944ef9"
+       }
+     ],
+     "admin": [

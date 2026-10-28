@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-27",
+  "source_ref": "444e27dc plus fix/paladin-grip-client-refresh worktree",
+  "publication": "not published; current live wiki unchanged",
+  "reviewed_articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "title": "About this wiki",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "title": "Advanced loot",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "title": "Ascension quest",
+      "action": "candidate edit",
+      "reason": "Updated owning grip/reward instructions or linked summary with explicit unpublished status, preserving existing anchors.",
+      "sha256": "41b7e77b53df15e3c1c5f0fb196083a5562eb4112f7a59f5b61eeca25ad60d60"
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "title": "The Ashen Compact",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25"
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "title": "Build Lab",
+      "action": "no impact",
+      "reason": "Database base2HS stats remain; per-instance grip profiles do not change ordinary loot routes. Build Lab remains its documented experimental scope, no new authoritative grip simulator claim.",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58"
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "title": "The Vigil of the Dawn",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "title": "Combat, buffs & recovery",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "title": "Command reference",
+      "action": "no impact",
+      "reason": "No publication or new commands; Home goal paths and launcher instructions unchanged.",
+      "sha256": "a59bff2b99e4bd91bef45718a76f4e209e1cabf01cbd2baf993be8f9c805c4c1"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "4216e0b3aaa77bc5a9b28a7279e40b581ab467667cec3b5ec3e47e42b9ddbe52"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "title": "Equipment & trading",
+      "action": "candidate edit",
+      "reason": "Updated owning grip/reward instructions or linked summary with explicit unpublished status, preserving existing anchors.",
+      "sha256": "6f97e7baee2169fd5c8e3d5dc8db83ef3488311f5736f143a00635e44481583c"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "title": "Features",
+      "action": "candidate edit",
+      "reason": "Updated owning grip/reward instructions or linked summary with explicit unpublished status, preserving existing anchors.",
+      "sha256": "bca83c913f7bb014b619a80502661c2d5006c2a4f0192590e8a5454525ba25ad"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "title": "Getting started",
+      "action": "no impact",
+      "reason": "No publication or new commands; Home goal paths and launcher instructions unchanged.",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "title": "Nightcap Wiki",
+      "action": "no impact",
+      "reason": "No publication or new commands; Home goal paths and launcher instructions unchanged.",
+      "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "title": "Polished Blade of the Ashen Compact",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e"
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "title": "Ascended Blade of the Ashen Compact",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0"
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "title": "Polished Mantle of the Iron Oath",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c"
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "title": "Ascended Mantle of the Iron Oath",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb"
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "title": "Polished Seal of Commanded Souls",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d"
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "title": "Ascended Seal of Commanded Souls",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb"
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "title": "Cinder of the Ashen Compact",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d"
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "title": "Cinder of the Ashen Compact (Polished)",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530"
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "title": "Cinder of the Ashen Compact (Exalted)",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7"
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "title": "Cinder of the Ashen Compact (Ascension)",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364"
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "title": "Iron Oath Gorget",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9"
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "title": "Kharzug's War Mantle",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020"
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "title": "Vhalek's Soulcleaver",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d"
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "title": "Warhelm of the Ashen Compact",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "title": "Item upgrades",
+      "action": "candidate edit",
+      "reason": "Updated owning grip/reward instructions or linked summary with explicit unpublished status, preserving existing anchors.",
+      "sha256": "8a85ba4256f63fb0b0c981f25ce2c330c40bcca36de52f36add207a6208cc7d8"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "title": "Launcher & interface",
+      "action": "no impact",
+      "reason": "No publication or new commands; Home goal paths and launcher instructions unchanged.",
+      "sha256": "6582a3d8ec6d9252f3e46eab5922865b2a2a2295f6baf44a958c2c997a296491"
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "title": "Loot finder",
+      "action": "no impact",
+      "reason": "Database base2HS stats remain; per-instance grip profiles do not change ordinary loot routes. Build Lab remains its documented experimental scope, no new authoritative grip simulator claim.",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "title": "Multiclass & progression",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "title": "Pets & pet armor",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "title": "Change Log",
+      "action": "candidate edit",
+      "reason": "Updated owning grip/reward instructions or linked summary with explicit unpublished status, preserving existing anchors.",
+      "sha256": "2d098070519ae485b3c330ec652c03b2077ccf8e298edf7606d5de5f31b1aea4"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "title": "Travel & instances",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "1eb4c05d5c41af21737a6d304f59d31dd8ca1479c3a50bfa6d6f335a4c3d0c68"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "title": "East Commonlands tunnel",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "8b62a3f8a89c9a48b289605bc0c8ffbe7fc15a1ad36b370e5b5fa69aaaae11bf"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "title": "In development",
+      "action": "candidate edit",
+      "reason": "Updated owning grip/reward instructions or linked summary with explicit unpublished status, preserving existing anchors.",
+      "sha256": "d0a4376ae807fd3d22eace72b1925cf9c609894a94979cfbf395a44afd4fcb34"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "title": "Waypoint Explorer",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "9194cea399c35748c60e9e32b629f8f13f755879e387e1403e5749075fc964e9"
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "title": "Kael Drakkel \u2014 The Ashen Compact",
+      "action": "no impact",
+      "reason": "No change to this system, command, quest acquisition or release boundary.",
+      "sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada"
+    }
+  ],
+  "generated_routes": "All generated routes remain covered by content/link tests. No catalog IDs, base item stats, Hunt/dungeon rewards or drop acquisition changed; three named quest branches select existing definitions. Equipment/search base2HS policy unchanged."
+}

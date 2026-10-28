@@ -895,10 +895,29 @@ void EQ::ItemInstance::RefreshPaladinWeaponGrip()
 	const auto grip = m_custom_data.find(NightcapPaladinGrip::Key);
 	const bool one_handed = grip != m_custom_data.end() && grip->second == "1";
 	// Both constructors and the copy constructor own their ItemData allocation;
-	// this never mutates the shared item cache. Keep the ID, slots and power.
+	// this never mutates the shared item cache. Absolute profiles avoid repeated
+	// scaling on metadata reload, copies and Bazaar restoration.
+	const auto &profile = *NightcapPaladinGrip::FindProfile(m_item->ID);
 	for (auto item : {const_cast<ItemData *>(m_item), m_scaledItem}) {
 		if (!item) { continue; }
 		item->ItemType = one_handed ? 0 : 1; // native 1HS / 2HS
+		item->Damage = one_handed ? profile.one_hand_damage : profile.two_hand_damage;
+		item->Delay = one_handed ? profile.one_hand_delay : profile.two_hand_delay;
+		item->Accuracy = profile.accuracy;
+		if (item->ID == 10099) {
+			item->Mana = 50;
+			item->AStr = 30;
+			item->AWis = 30;
+			item->HeroicStr = 8;
+			item->HeroicWis = 8;
+			item->HealAmt = 30;
+			item->SpellDmg = 15;
+			item->Proc.Level2 = 45;
+		} else if (item->ID == 810099) {
+			item->HeroicWis = 10;
+			item->HealAmt = 35;
+			item->Proc.Level2 = 45;
+		}
 		item->Click.Effect = NightcapPaladinGrip::ClickSpell;
 		item->Click.Type = 5; // inventory click, not expendable or equip-only
 		item->Click.Level = 1;

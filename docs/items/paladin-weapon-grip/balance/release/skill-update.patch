@@ -1,0 +1,386 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -54,12 +54,17 @@
+ 
+ Docker is restored. October28 progression native build/relink and MariaDB tests
+ pass; balance/progression/ records final paired binaries and verified Perl unity
+-binding. The assessed stats/direct Ascended rewards/free legacy exchange are local.
+-Pair seven quests, native binaries/cache and signed proxy0.13.1 repair on an
+-authorized release. Earlier DLL662b7051 is unsigned retained candidate evidence,
+-not a signed publication receipt. Preserve current channel/assets and player
+-metadata. Owner immediate shield, animation, opposite-copy, relog/zone and Bazaar
+-QA remains open. Historical October26 live client fails the original shield case.
++binding. The final local bundle is in balance/release/: archive8bccc51b4c4dfeb4,
++DLLed2bc86a5bc02691, matched catalog/config and seven quests. All11runtime groups,
++117exact guards, three Go suites and80server animation selections pass. Stripped
++runtime copies have exact mapped-byte/header/section identity against originals.
++Earlier client-refresh evidence hashes are historical; final bundle.json owns
++the release candidate. No signing/publication/activation or main promotion yet.
++Preserve current full channel and player metadata on the paired whole-game release;
++no SQL/cache ABI change. Owner immediate shield, rendered animation, opposite-copy,
++quest/free-exchange and persistence QA remain open. October26 live client fails
++the original shield case. Seven-script dispatch preflight closes the release
++review finding; refresh its <=1hour evidence before activation.
+ 
+ ## Bazaar Sell / My Listings — October26 published for live QA
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\items.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\items.md
+@@ -52,7 +52,7 @@
+ Native ReturnHandinItems returns Paladin hand-ins and all coin; other paid routes
+ remain. No bulk inventory conversion or destructive player snapshot recovery.
+ 
+-Five native grip/MariaDB groups, three progression, five Lua5.1, three preflight,
++Five native grip/MariaDB groups, three progression, five Lua5.1, four preflight,
+ four Bazaar and two native hand-in/task groups plus16Perl assertions pass. Isolated native relink builds
+ four changed translation units and links zone/world/shared_memory using retained
+ unchanged inputs; see progression/native-build-manifest.json. Independent review
+@@ -60,7 +60,12 @@
+ Pair with the same-ID RoF2 proxy0.13.1 candidate, seven quest scripts and matched
+ binaries/cache via supported whole-game restart. Quest/rule reload alone cannot
+ activate this. Fresh preflight checks original SQL/support stats and quest/helper
+-preimages, including capture age <=1hour. Public publication, client/hand-in
++preimages, including capture age <=1hour. October28 release hardening checks all
++seven dispatch paths, including both Epic Forgemasters and Halls of Honor Irak.
++Follow GetQIByNPCQuest: versioned/local/global ID, name, name_ID, then defaults;
++reject ambiguous Lua/Perl peers. Paw v0 selects Hayle; v1 remains empty. Four
++preflight groups and fresh public capture pass. See balance/release/ for the
++independently reviewed local bundle; signing/main/production remain pending. Public publication, client/hand-in
+ integration and owner gameplay/balance acceptance remain open.
+ Perl bindings are in libperl_zone.a's generated unity_0_cxx.cxx.o, not a direct
+ zone link object. Rebuild/replace the actual unity member with its retained flags;
+--- C:\Users\verre\.codex\skills\nightcap-development\references\world.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\world.md
+@@ -43,7 +43,7 @@
+ Native ReturnHandinItems returns Paladin hand-ins and all coin; other paid routes
+ remain. No bulk inventory conversion or destructive player snapshot recovery.
+ 
+-Five native grip/MariaDB groups, three progression, five Lua5.1, three preflight,
++Five native grip/MariaDB groups, three progression, five Lua5.1, four preflight,
+ four Bazaar and two native hand-in/task groups plus16Perl assertions pass. Isolated native relink builds
+ four changed translation units and links zone/world/shared_memory using retained
+ unchanged inputs; see progression/native-build-manifest.json. Independent review
+@@ -51,7 +51,12 @@
+ Pair with the same-ID RoF2 proxy0.13.1 candidate, seven quest scripts and matched
+ binaries/cache via supported whole-game restart. Quest/rule reload alone cannot
+ activate this. Fresh preflight checks original SQL/support stats and quest/helper
+-preimages, including capture age <=1hour. Public publication, client/hand-in
++preimages, including capture age <=1hour. October28 release hardening checks all
++seven dispatch paths, including both Epic Forgemasters and Halls of Honor Irak.
++Follow GetQIByNPCQuest: versioned/local/global ID, name, name_ID, then defaults;
++reject ambiguous Lua/Perl peers. Paw v0 selects Hayle; v1 remains empty. Four
++preflight groups and fresh public capture pass. See balance/release/ for the
++independently reviewed local bundle; signing/main/production remain pending. Public publication, client/hand-in
+ integration and owner gameplay/balance acceptance remain open.
+ Perl bindings are in libperl_zone.a's generated unity_0_cxx.cxx.o, not a direct
+ zone link object. Rebuild/replace the actual unity member with its retained flags;
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -4718,13 +4718,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+-        "path": "docs/items/paladin-weapon-grip/client-refresh/README.md",
+-        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+-        "revision": "444e27dc72476e01e91b60d505634e61b5afed60 plus fix/paladin-grip-client-refresh worktree",
+-        "sha256": "9ca8ae65f92e8f79b943fcbccc269b5425adcd4b48657848cfcce1f65dc78d4b"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "docs/items/paladin-weapon-grip/client-refresh/evidence.json",
+         "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+         "revision": "444e27dc72476e01e91b60d505634e61b5afed60 plus fix/paladin-grip-client-refresh worktree",
+@@ -4809,20 +4802,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+-        "path": "tools/paladin_grip_preflight.py",
+-        "role": "October28 reviewed Paladin progression candidate; built/tested, not deployed; Monk AAs unchanged",
+-        "revision": "444e27dc + fix/paladin-grip-client-refresh worktree 2026-10-28",
+-        "sha256": "f08ac03f10722342cd348cb0b9e762f10934c804ff702db93020adb673cf105a"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+-        "path": "tools/tests/test_paladin_grip_preflight.py",
+-        "role": "Reviewed October27 Paladin balance/reward candidate; not deployed; full native build blocked",
+-        "revision": "444e27dc plus fix/paladin-grip-client-refresh worktree",
+-        "sha256": "3c5c3afc0fb14dec30259579085e7e77b5f702ae1c362bd8e80cb9dbcf8093ee"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "docs/items/paladin-weapon-grip/balance/review-followup.md",
+         "revision": "444e27dc plus rejected candidate worktree",
+         "role": "Reviewed October27 follow-up balance rejection; no code or deployment change",
+@@ -5002,6 +4981,76 @@
+         "role": "October28 reviewed Paladin progression candidate; built/tested, not deployed; Monk AAs unchanged",
+         "revision": "444e27dc + fix/paladin-grip-client-refresh worktree 2026-10-28",
+         "sha256": "365705d6fce459da74c8b90612426f5a304004db6b6737f5e5081a8f34804792"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/capture_paladin_grip_balance.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "cf64c00192f701237fc5c27692c26582c5857cf2bd8025ca69dd8d57d19842e3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/paladin_grip_preflight.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "593d52ba051a09045ccdff80323731e90e4dbbf8041d93d802b8a73f4af0fce3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/tests/test_paladin_grip_preflight.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "5063daa051f15314263a82576de0d7590d69d4c291cc990642cc0790105206a1"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/client-refresh/README.md",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "e9849ec808598a2518ca880c53fdd206e60b05efd8a6f5df136fbc0c8aa4ca5e"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/README.md",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "6a37ea27cdfa9487f231a663cf3e748f46cdc34c232da89df4392848e9de8708"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/prepare_bundle.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "d5aa78f70ed6d13c1a201de5a5006806276fdcf10fe165d48da748ddbe2cfcb9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/bundle.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "d796e824df76e428c7af6380dba7144a0aa43106a96cd377cbf022791310d606"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/verification.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "391e12c4a6819830e45d578d729aea0b446a498bfe516225fdc916c42dc2d325"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/wiki-review.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "f5a1c13785fb00b7b33a716a99024ca6748b02184bfd045d34876cb6c7524f02"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/production-reference-seven-dispatch-20261028.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "21de0363b26be80703ca5010335ab72d7abfb9848e4666d7cba0b48088b41e40"
+       }
+     ],
+     "world": [
+@@ -6939,13 +6988,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+-        "path": "tools/capture_paladin_grip_balance.py",
+-        "role": "Reviewed October27 Paladin balance/reward candidate; not deployed; full native build blocked",
+-        "revision": "444e27dc plus fix/paladin-grip-client-refresh worktree",
+-        "sha256": "9b71003505ca39fef7ee331fa2d24fe82b2034da43cda12b4eafb5abccd3a0e9"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "tools/tests/test_paladin_quest_rewards.py",
+         "role": "October28 reviewed Paladin progression candidate; built/tested, not deployed; Monk AAs unchanged",
+         "revision": "444e27dc + fix/paladin-grip-client-refresh worktree 2026-10-28",
+@@ -7079,13 +7121,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+-        "path": "tools/paladin_grip_preflight.py",
+-        "role": "October28 reviewed Paladin progression candidate; built/tested, not deployed; Monk AAs unchanged",
+-        "revision": "444e27dc + fix/paladin-grip-client-refresh worktree 2026-10-28",
+-        "sha256": "f08ac03f10722342cd348cb0b9e762f10934c804ff702db93020adb673cf105a"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "docs/items/paladin-weapon-grip/balance/progression/verification.json",
+         "role": "October28 reviewed Paladin progression candidate; built/tested, not deployed; Monk AAs unchanged",
+         "revision": "444e27dc + fix/paladin-grip-client-refresh worktree 2026-10-28",
+@@ -7111,6 +7146,76 @@
+         "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+         "revision": "5f3b25911cdf4a05a7943491083d19a5c88e1fe7",
+         "sha256": "0d596c3a930d1c3ac5c4ca44a21f96dff988efac980ed379fbfd336620919a2a"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/capture_paladin_grip_balance.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "cf64c00192f701237fc5c27692c26582c5857cf2bd8025ca69dd8d57d19842e3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/paladin_grip_preflight.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "593d52ba051a09045ccdff80323731e90e4dbbf8041d93d802b8a73f4af0fce3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/tests/test_paladin_grip_preflight.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "5063daa051f15314263a82576de0d7590d69d4c291cc990642cc0790105206a1"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/client-refresh/README.md",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "e9849ec808598a2518ca880c53fdd206e60b05efd8a6f5df136fbc0c8aa4ca5e"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/README.md",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "6a37ea27cdfa9487f231a663cf3e748f46cdc34c232da89df4392848e9de8708"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/prepare_bundle.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "d5aa78f70ed6d13c1a201de5a5006806276fdcf10fe165d48da748ddbe2cfcb9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/bundle.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "d796e824df76e428c7af6380dba7144a0aa43106a96cd377cbf022791310d606"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/verification.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "391e12c4a6819830e45d578d729aea0b446a498bfe516225fdc916c42dc2d325"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/wiki-review.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "f5a1c13785fb00b7b33a716a99024ca6748b02184bfd045d34876cb6c7524f02"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/production-reference-seven-dispatch-20261028.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "21de0363b26be80703ca5010335ab72d7abfb9848e4666d7cba0b48088b41e40"
+       }
+     ],
+     "client": [
+@@ -8828,13 +8933,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+-        "path": "docs/items/paladin-weapon-grip/client-refresh/README.md",
+-        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+-        "revision": "444e27dc72476e01e91b60d505634e61b5afed60 plus fix/paladin-grip-client-refresh worktree",
+-        "sha256": "9ca8ae65f92e8f79b943fcbccc269b5425adcd4b48657848cfcce1f65dc78d4b"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+         "path": "docs/items/paladin-weapon-grip/client-refresh/evidence.json",
+         "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+         "revision": "444e27dc72476e01e91b60d505634e61b5afed60 plus fix/paladin-grip-client-refresh worktree",
+@@ -8993,6 +9091,76 @@
+         "role": "October28 controlled equipped1H/empty-offhand observation; current runtime verified, client rendering unresolved, no live writes",
+         "revision": "444e27dc plus task worktree 2026-10-28",
+         "sha256": "19d5dd2a4829a79870b371896cd0fac8733298bc1311fae26a52f334ae23d88f"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/capture_paladin_grip_balance.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "cf64c00192f701237fc5c27692c26582c5857cf2bd8025ca69dd8d57d19842e3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/paladin_grip_preflight.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "593d52ba051a09045ccdff80323731e90e4dbbf8041d93d802b8a73f4af0fce3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/tests/test_paladin_grip_preflight.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "5063daa051f15314263a82576de0d7590d69d4c291cc990642cc0790105206a1"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/client-refresh/README.md",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "e9849ec808598a2518ca880c53fdd206e60b05efd8a6f5df136fbc0c8aa4ca5e"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/README.md",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "6a37ea27cdfa9487f231a663cf3e748f46cdc34c232da89df4392848e9de8708"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/prepare_bundle.py",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "d5aa78f70ed6d13c1a201de5a5006806276fdcf10fe165d48da748ddbe2cfcb9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/bundle.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "d796e824df76e428c7af6380dba7144a0aa43106a96cd377cbf022791310d606"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/verification.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "391e12c4a6819830e45d578d729aea0b446a498bfe516225fdc916c42dc2d325"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/wiki-review.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "f5a1c13785fb00b7b33a716a99024ca6748b02184bfd045d34876cb6c7524f02"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/balance/release/production-reference-seven-dispatch-20261028.json",
++        "role": "Reviewed October28 paired local bundle and seven-dispatch guard; not signed/promoted/deployed; rendered owner QA open",
++        "revision": "444e27dc plus reviewed task worktree",
++        "sha256": "21de0363b26be80703ca5010335ab72d7abfb9848e4666d7cba0b48088b41e40"
+       }
+     ],
+     "admin": [

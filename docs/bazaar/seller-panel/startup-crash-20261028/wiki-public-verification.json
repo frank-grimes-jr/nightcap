@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "release": "20261028-bazaar-startup-hotfix-v1",
+  "files": 499,
+  "sha256_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/features.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html"
+  ],
+  "verified_at": "2026-10-28T17:24:02.391228+00:00"
+}

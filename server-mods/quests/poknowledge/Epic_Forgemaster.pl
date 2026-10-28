@@ -24,7 +24,7 @@ my $LEG_OFFSET  = 800000;
 my %CLASS_EPIC = (
     1  => [10908],          # Warrior      - Jagged Blade of War
     2  => [5532],           # Cleric       - Water Sprinkler of Nem Ankh
-    3  => [10099],          # Paladin      - Fiery Defender
+    # Paladin: original quest grants Ascended directly; legacy exchange is free.
     4  => [20488, 20487],   # Ranger       - Earthcaller + Swiftwind
     5  => [14383],          # Shadowknight - Innoruuk's Curse
     6  => [20490],          # Druid        - Nature Walkers Scimitar
@@ -39,6 +39,14 @@ my %CLASS_EPIC = (
 );
 
 sub EVENT_SAY {
+    if ($text =~ /^ascend fiery defender$/i) {
+        $client->AscendPaladinEpic();
+        return;
+    }
+    if ($text =~ /hail/i) {
+        quest::say("The Paladin epic quest now awards Ascended Fiery Defender directly. If you own an original Fiery Defender, place it in a top-level inventory slot and say [ascend fiery defender]. The exchange is free; do not hand me the weapon or payment.");
+        return if $client->GetClass() == 3;
+    }
     if ($text =~ /hail/i) {
         quest::say(
             "I am the Epic Forgemaster. I can reforge a class epic into an Ascended relic. " .
@@ -49,6 +57,13 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
+    # Paladins no longer use the paid recipe. Native exchange occurs on SAY,
+    # before any trade; return original handed instances and all coin here.
+    if ($client->GetClass() == 3) {
+        $npc->ReturnHandinItems($client);
+        quest::say("No payment is needed for Fiery Defender. Keep it in your pack and say [ascend fiery defender].");
+        return;
+    }
     my @id = ($item1, $item2, $item3, $item4);
     my @ch = ($item1_charges, $item2_charges, $item3_charges, $item4_charges);
 

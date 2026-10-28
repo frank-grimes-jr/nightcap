@@ -1,0 +1,88 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -1,28 +1,34 @@
+ # RoF2 client, pets and buff effects
+ 
+-## Paladin item definition repair — October27 unpublished candidate
++## Paladin definition and animation QA — October28 unpublished
+ 
+ Source: C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle,
+-fix/paladin-grip-client-refresh over main444e27dc; uncommitted local candidate,
+-not deployed. Scope, exact tables, release preflight and player QA:
+-docs/items/paladin-weapon-grip/balance/{README.md,verification.json}.
+-
+-Owner SoulFire QA failed:1H message but still2H and shield refused; no zoning test.
+-Pinned RoF2 parser call0x555745 -> ID-only cache0x556610 discards incoming grip.
+-KeepPaladinGripDefinition in dllmain.cpp retains native shared definitions only for
+-the ten IDs in shared paladin_weapon_grip.h, preserving total/strong reference
+-counts/ret8 ABI and other cache entries. ID+0xec,ItemType+0x1d4. Actual-PE probe
+-executes parser/cache/getter/release;20direction cases, stock controls and10final
+-native destructions pass. Runtime11groups/117guards and rebuilt0.13.1pair pass.
+-
+-Balanced follow-on header adds absolute server damage/delay profiles, so the final
+-DLL is rebuilt against it. Unsigned balanced-client SHA662b705120f6032b5546a671c487e64ac14785adf9ab65ec75ccb4424b680606,
+-650240bytes; catalogb9fcd843/config2f837e47. Signed2026102601 baseline retained138of141
+-descriptors/notes/tombstones; final Go actualpair checks pass. No protected or installed
+-client edits, signing or publication. Earlier unbalanced24a23576 DLL is superseded
+-as a candidate only. Native full server build blocked by Docker; pair rebuiltcommon/
+-zone stance correction and3reward scripts. Exit EQ and launcher Play after approved
+-release; test damage/delay, immediate shield/no-zone and opposite-grip same-ID copies.
++fix/paladin-grip-client-refresh. The same-ID RoF2 repair remains an unpublished
++candidate. Exact parser/cache/getter/destruction proof is in client-refresh/;
++KeepPaladinGripDefinition retains incoming per-instance definitions for10IDs.
++ItemType+0x1d4 and ID+0xec; guarded parser call0x555745→0x556610. Other cache
++entries and reference counts/ret8 ABI remain. The equipped server also refreshes
++stance buffs; this is not a demonstrated rendered-animation refresh.
++
++October28 owner report: Palwar's SoulFire item window shows1HS while the visible
++swing looks two-handed. Cause unresolved. Two regression groups/80 selections
++execute real RefreshPaladinWeaponGrip/AttackAnimation:1HS→skill1HS/action5,
++2HS→skill2HS/action3. RoF2 encoder preserves action and DoAnim includes sender.
++Source WearChange deduplicates unchanged material/model/color, so a same-model
++resend is not proof of visible refresh. Do not call this the proven cause.
++Read client-refresh/animation/{README.md,evidence.json} and
++tools/tests/test_paladin_grip_animation.py. Production Palwar inventory/runtime
++probe was blocked before execution by automatic approval review; explicit approval
++pending. Do not claim current live fingerprint or visual reproduction from tests.
++
++Docker is restored. October28 progression native build/relink and MariaDB tests
++pass; balance/progression/ records final paired binaries and verified Perl unity
++binding. The assessed stats/direct Ascended rewards/free legacy exchange are local.
++Pair seven quests, native binaries/cache and signed proxy0.13.1 repair on an
++authorized release. Earlier DLL662b7051 is unsigned retained candidate evidence,
++not a signed publication receipt. Preserve current channel/assets and player
++metadata. Owner immediate shield, animation, opposite-copy, relog/zone and Bazaar
++QA remains open. Historical October26 live client fails the original shield case.
+ 
+ ## Bazaar Sell / My Listings — October26 published for live QA
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -8951,6 +8951,27 @@
+         "role": "Reviewed October27 Paladin balance/reward candidate; not deployed; full native build blocked",
+         "revision": "444e27dc plus fix/paladin-grip-client-refresh worktree",
+         "sha256": "94b9f81dcbf5cc47a5a7b364fd74b2caa8e8ab4c6fe9c2b20ef46f6e60220f09"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "tools/tests/test_paladin_grip_animation.py",
++        "role": "October28 reviewed animation investigation; server selection passes, visual cause unresolved, production approval pending",
++        "revision": "444e27dc plus local worktree",
++        "sha256": "52c59d66a2cd780172fddb161a75c06e38f88762d4468974999564bbdbb1b62b"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/client-refresh/animation/README.md",
++        "role": "October28 reviewed animation investigation; server selection passes, visual cause unresolved, production approval pending",
++        "revision": "444e27dc plus local worktree",
++        "sha256": "fbcce9a4b86428e4ec955475189374db75932fe54c8ef2b1e0c73bcec7940bac"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "path": "docs/items/paladin-weapon-grip/client-refresh/animation/evidence.json",
++        "role": "October28 reviewed animation investigation; server selection passes, visual cause unresolved, production approval pending",
++        "revision": "444e27dc plus local worktree",
++        "sha256": "538a21bbe2a95610eefc52092f064825dbdc4d6b417d93e58dcaf52e9c559b9c"
+       }
+     ],
+     "admin": [
