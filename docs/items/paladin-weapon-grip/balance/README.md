@@ -1,9 +1,9 @@
-# Paladin weapon progression — October 28 candidate
+# Paladin weapon progression — October 28 live QA
 
-Implemented and tested locally; **not deployed or published**. The owner approved
-the assessed weapon package, direct Ascended Fiery Defender and removal of its
-extra payment requirement. Monk AAs are unchanged. This supersedes the rejected
-October 27 numerical profiles and the earlier separate-Paladin-forge plan.
+Deployed through main PR352 and the paired OVH release. Signed client2026102801
+and wiki publication verified; owner gameplay acceptance remains open. See
+[release receipts and recovery](release/README.md). Monk AAs are unchanged.
+This supersedes the rejected October27 profiles and separate paid Paladin forge.
 
 ## Effective owned weapon profiles
 
@@ -65,12 +65,12 @@ absolute projections; `zone/bonuses.cpp` owns conditional block.
 `Client::AscendPaladinEpic` in inventory.cpp is bound in perl_client.cpp.
 No ItemData layout, rule, spell or content-SQL migration is needed. Raw SQL/base
 links and generated public catalogs retain old definitions; owning guidance
-states effective candidate values separately. A later publication must retain
-this distinction, not label raw catalog rows as updated item definitions.
+states effective owned values separately. Published guidance retains this
+distinction rather than labeling raw catalog rows as updated item definitions.
 
 Five grip/native groups (including session-local MariaDB exchange and toggle
 preimage/replay controls), three progression groups, five Lua 5.1 quest groups,
-three preflight groups, four Bazaar groups and two native hand-in/task groups
+four preflight groups, four Bazaar groups and two native hand-in/task groups
 and sixteen Perl forge assertions pass. Extracted native functions use bounded API fixtures; these are not live
 client acceptance. The isolated native relink builds the four changed translation
 units and links zone/world/shared_memory with retained unchanged object inputs.
@@ -90,8 +90,9 @@ the paired server binaries plus seven quest scripts. Use a fresh approved
 read-only capture and `tools/paladin_grip_preflight.py`; it verifies original
 SQL values separately from projected stats, quest/helper preimages and precedence.
 Never substitute the historical capture at release; freshness is limited to one hour.
-Use the supported whole-game restart, regenerate the paired item cache, and sign
-and publish the matching client. Quest/rule reload alone is insufficient.
+The supported whole-game restart and signed client publication are complete.
+Existing item/spell caches were retained: no ItemData ABI or raw content change
+required regeneration. Quest/rule reload alone cannot activate this repair.
 
 Hold or revert acquisition on rollback; preserve earned Ascended items, grip
 metadata and subsequent activity. Never restore an old player inventory snapshot.
@@ -103,5 +104,5 @@ proc level 45, and saved stats after relog/zone/Bazaar. Test both legacy grips,
 six augment sockets, charges, color, binding and ornaments through the free
 exchange; verify mixed currency/item returns exactly once and other classes'
 unchanged paid route. Repeat encounter checks without treating the Monk-heavy
-Vox pilot as a complete balance certification. Public publication and owner
-gameplay acceptance remain pending.
+Vox pilot as a complete balance certification. Publication is verified; owner
+gameplay acceptance remains pending.

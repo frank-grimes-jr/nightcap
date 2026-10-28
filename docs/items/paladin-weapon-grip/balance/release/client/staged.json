@@ -1,0 +1,13 @@
+{
+  "stage": "/opt/nightcap/releases/paladin-client-2026102801",
+  "files": {
+    "channel.json": "9eee0052b203db71a18bcc2bf1ce62089b50fbd34d95a77deb41134b74c6c709",
+    "previous-channel.json": "a7b4235a6d2641224293d372b2f66a1f4d4c7e3e8bba1ac366455bab89409f44",
+    "dinput8.dll": "ed2bc86a5bc026911bf41d9b21e5e74e68f862ab732f63121a50cc52ddc2db87",
+    "nightcap-patch-sites.json": "b9fcd843ba30f3490bd42a735f14c103bb0bdaf574e9bbe88e237fba09eb4dc6",
+    "nightcap-patches.cfg": "2f837e4724c64beabc75786a1a095d847c22eff9144668fa29e1130d35cd3e0e",
+    "uifiles/nightcap/equi_bazaarsearchwnd.xml": "41fefb05f3c523ee70221329a23824834e376cf5afc2c2949deb2c33455b557e",
+    "publish.py": "a4e92a5eae317a512a7b4e313849858ba983efa4b0d23c4650d2a012350d30a3"
+  },
+  "published": false
+}

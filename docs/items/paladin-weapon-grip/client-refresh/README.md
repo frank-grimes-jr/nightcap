@@ -1,7 +1,8 @@
-# Paladin grip client repair — October 27 candidate
+# Paladin grip client repair — October 28 live QA
 
-Status: implemented and locally tested on `fix/paladin-grip-client-refresh`, based
-on main `444e27dc72476e01e91b60d505634e61b5afed60`. Not signed, published or deployed.
+Status: deployed on main PR352 and OVH October28, paired with signed
+client2026102801 (proxy0.13.1). See ../balance/release/README.md for final receipts.
+Owner equipment and rendered-animation acceptance remain open.
 The owner reported that SoulFire printed both conversion messages but stayed 2H
 and could not equip with a shield. They had not zoned. This supersedes the earlier
 open acceptance status: the October 26 live client fails this use case.
@@ -55,18 +56,12 @@ historical candidates, not the final release bundle or a publication receipt.
 
 ## Release and exact player QA
 
-`prepare_client.py` stages an unsigned three-file replacement of signed game
-2026102601, preserving the other 138 descriptors, patch notes and tombstones.
-`TestPaladinGripCandidate` verifies actual binary/catalog/config pairing.
-`evidence.json` records candidate hashes. Reconcile the current public channel
-before release; do not overwrite a newer concurrent client release.
-
-Obtain owner authorization for the concrete paired deployment in
-`../balance/release/README.md`: matching proxy/catalog/config, paired native
-binaries and seven approved progression quests. No schema, SQL data,
-ItemData layout or rule change is introduced. OVH requires the supported graceful
-whole-runtime release, not a quest reload or individual zone kill. Client uptake
-requires fully exiting EQ and launching through the signed updater after release.
+The original three-file staging candidate was expanded to include the coordinated
+Bazaar XML repair. Published2026102801 replaces four assets and preserves137;
+all141 hosted files, signature and binary/catalog pairing verified. No schema,
+SQL, ItemData layout or rule change was introduced. OVH received the graceful
+whole-runtime release, three paired binaries and seven quests. Fully exit EQ
+and use launcher Play before running these acceptance checks.
 
 1. Right-click carried SoulFire to 1HS, inspect it, equip it and a shield without
    zoning. Repeat the equipped toggle with an empty offhand. Test all qualities.
@@ -81,5 +76,5 @@ requires fully exiting EQ and launching through the signed updater after release
 
 These player checks are pending. Do not describe native tests as gameplay
 acceptance. Preserve grip-aware server code and current player data on recovery;
-rolling the client back restores the known cache defect. Wiki candidate edits are
-unpublished and preserve the current published baseline and unrelated systems.
+rolling the client back restores the known cache defect. Wiki guidance is published with explicit live-testing status and preserves
+unrelated systems. See ../balance/release/wiki-public-verification.json.
