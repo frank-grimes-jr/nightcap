@@ -487,6 +487,14 @@ publication as successful native acceptance or a permanent branch-policy change.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
 
+**October28 Paladin repair exception:** the owner explicitly approved main and
+paired OVH release for the grip cache repair, assessed weapon stats, direct
+Ascended rewards and free legacy Defender exchange, with signed client/wiki
+publication and a brief whole-game restart. Monk AAs remain unchanged. Native
+owner gameplay acceptance remains open. See
+`docs/items/paladin-weapon-grip/balance/release/AUTHORIZATION.md`; this is scoped
+release authorization, not a permanent branch-policy change.
+
 **October 16 dungeon release exception:** the owner explicitly requested main
 promotion and server deployment with matching binaries and item cache for
 in-game testing. This authorizes the Raid/Grind release and controlled restart

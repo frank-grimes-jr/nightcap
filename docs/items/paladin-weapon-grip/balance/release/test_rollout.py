@@ -1,12 +1,13 @@
 """Offline rollout fault injection; all runtime/SQL/image operations are fakes.
 
-Receipt files, exclusive opens and manifest hashes are real. Directory fsync is
-replaced with a portable receipt writer; POSIX durability needs Linux validation.
+Receipt files, exclusive opens and manifest hashes are real. Windows substitutes
+ownership and directory fsync; Linux exercises the real POSIX operations.
 """
 import contextlib
 import copy
 import importlib.util
 import json
+import os
 import tempfile
 import types
 import unittest
@@ -110,7 +111,8 @@ def lifecycle(preflight=True):
             stack.enter_context(patch.object(op, name, value, create=True))
         stack.enter_context(patch.object(op, 'manifest', return_value=manifest))
         stack.enter_context(patch.object(op, 'sha', return_value='digest'))
-        stack.enter_context(patch.object(op, 'save', side_effect=receipt))
+        if os.name == 'nt':
+            stack.enter_context(patch.object(op, 'save', side_effect=receipt))
         public = {'channels': {'channel.json': 'digest', 'other.json': 'retained'}, 'wiki': 'current'}
         stack.enter_context(patch.object(op, 'publication', side_effect=lambda: copy.deepcopy(public)))
         stack.enter_context(patch.object(op, 'check_quest_preimages'))
@@ -168,7 +170,9 @@ class ManifestTests(unittest.TestCase):
     def test_manifest_rejects_tampering_and_scope_changes(self):
         for fault in ('missing', 'extra', 'traversal', 'helper_missing', 'helper_extra',
                       'helper_hash', 'relative_helper', 'contract_hash', 'zone', 'operator',
-                      'zone_binding', 'unchanged_zone'):
+                      'zone_binding', 'unchanged_zone', 'quest_missing', 'quest_extra',
+                      'quest_tampered', 'preimage_missing', 'owner_unauthorized',
+                      'same_client', 'invalid_client_hash'):
             with self.subTest(fault=fault), manifest_files() as (stage, manifest):
                 if fault == 'missing': del manifest['files']['rollout.py']
                 elif fault == 'extra': manifest['files']['extra.sql'] = 'hash'
@@ -181,6 +185,13 @@ class ManifestTests(unittest.TestCase):
                 elif fault == 'zone': (stage / 'bin/zone').write_text('drift')
                 elif fault == 'operator': (stage / 'rollout.py').write_text('drift')
                 elif fault == 'zone_binding': manifest['zone_sha256'] = 'wrong'
+                elif fault == 'quest_missing': del manifest['files']['quests/'+op.QUESTS[0]]
+                elif fault == 'quest_extra': manifest['files']['quests/extra.pl'] = 'hash'
+                elif fault == 'quest_tampered': (stage/'quests'/op.QUESTS[0]).write_text('drift')
+                elif fault == 'preimage_missing': del manifest['quest_preimages'][op.QUESTS[0]]
+                elif fault == 'owner_unauthorized': manifest['owner_live_qa_authorized'] = False
+                elif fault == 'same_client': manifest['client_channel_new_sha256'] = manifest['client_channel_sha256']
+                elif fault == 'invalid_client_hash': manifest['client_channel_new_sha256'] = 'short'
                 else: manifest['base_hashes']['bin/zone'] = manifest['zone_sha256']
                 (stage / 'manifest.json').write_text(json.dumps(manifest))
                 with self.assertRaises(AssertionError): op.manifest()
@@ -348,6 +359,7 @@ class LifecycleTests(unittest.TestCase):
     def test_uncertain_open_is_closed_and_cannot_replay(self):
         with lifecycle() as f:
             op.transition()
+            f.public['channels']['channel.json'] = 'new-client'
             def fail(args):
                 if args[0] == 'up' and args[-1] == 'gateway': raise RuntimeError('lost acknowledgment')
             f.runtime.fail = fail
@@ -373,6 +385,145 @@ class LifecycleTests(unittest.TestCase):
             held = op.read(next(folder.glob('held-*.json')))
             self.assertEqual(len(held['errors']), 2)
             self.assertFalse(held['database_restored'])
+
+
+class PairingTests(unittest.TestCase):
+    def test_open_requires_exact_new_client_and_preserves_other_publications(self):
+        for fault in ('old', 'wrong', 'other_channel', 'wiki'):
+            with self.subTest(fault=fault), lifecycle() as f:
+                op.transition()
+                f.public['channels']['channel.json'] = 'new-client'
+                if fault == 'old': f.public['channels']['channel.json'] = 'digest'
+                elif fault == 'wrong': f.public['channels']['channel.json'] = 'unapproved-client'
+                elif fault == 'other_channel': f.public['channels']['other.json'] = 'changed'
+                else: f.public['wiki'] = 'changed'
+                with self.assertRaisesRegex(AssertionError, 'Publication drift'): op.open_access()
+                self.assertFalse(f.runtime.opened)
+                self.assertFalse(any(f.runtime.running_services.values()))
+
+    def test_every_quest_and_unrelated_plugin_are_checked_before_open(self):
+        for name in (*op.QUESTS, 'unrelated.pl'):
+            with self.subTest(name=name), lifecycle() as f:
+                op.transition()
+                f.public['channels']['channel.json'] = 'new-client'
+                key = 'plugins/unrelated.pl' if name == 'unrelated.pl' else 'quests/'+name
+                f.runtime.quest_tree[key] = 'drift'
+                with self.assertRaisesRegex(AssertionError, 'Quest/plugin drift'): op.open_access()
+                self.assertFalse(f.runtime.opened)
+                self.assertFalse(any(f.runtime.running_services.values()))
+
+    def test_partial_quest_install_holds_without_boot_or_replay(self):
+        with lifecycle() as f:
+            before = copy.deepcopy(f.data)
+            def partial(folder):
+                f.runtime.quest_tree['quests/'+op.QUESTS[0]] = 'new-first'
+                raise OSError('fourth replacement failed')
+            op.install_quests.side_effect = partial
+            with self.assertRaises(OSError): op.transition()
+            self.assertFalse(any(f.runtime.running_services.values()))
+            self.assertFalse(any(e[0] in ('select', 'up') for e in f.runtime.events))
+            self.assertEqual(f.data, before)
+            self.assertTrue(list((f.evidence/'activation').glob('held-*.json')))
+            with self.assertRaisesRegex(AssertionError, 'Never replay'): op.transition()
+
+    def test_full_runtime_preimage_drift_is_rejected_before_build(self):
+        with lifecycle(False) as f, patch.object(op, 'build_image') as build:
+            f.runtime.quest_tree['plugins/unrelated.pl'] = 'drift'
+            with self.assertRaisesRegex(AssertionError, 'Captured script tree drift'): op.preflight()
+            build.assert_not_called()
+            self.assertFalse(f.evidence.exists())
+
+
+@contextlib.contextmanager
+def quest_files():
+    """Real copy/hash/replace; POSIX ownership and directory fsync are mocked on Windows."""
+    with tempfile.TemporaryDirectory() as directory, contextlib.ExitStack() as stack:
+        root = Path(directory).resolve()
+        stage = root/'stage'; stage.mkdir()
+        live = root/'data/server/quests'
+        evidence = stage/'evidence'; evidence.mkdir()
+        folder = evidence/'activation'; folder.mkdir()
+        old = {}; new = {}
+        for name in (*op.QUESTS, 'unrelated.pl'):
+            path = live/name; path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(('old '+name).encode())
+            old['quests/'+name] = op.sha(path)
+            if name in op.QUESTS:
+                candidate = stage/'quests'/name
+                candidate.parent.mkdir(parents=True, exist_ok=True)
+                candidate.write_bytes(('new '+name).encode())
+                new['quests/'+name] = op.sha(candidate)
+        receipt(evidence/'preflight.json', {'runtime': old})
+        manifest = {'files': new, 'quest_preimages': {n:old['quests/'+n] for n in op.QUESTS}}
+        runtime = types.SimpleNamespace(
+            state=Mock(return_value={'State': {'Running': False}}),
+            runtime=lambda: {'quests/'+str(p.relative_to(live)).replace('\\','/'):op.sha(p)
+                             for p in live.rglob('*') if p.is_file()})
+        for name, value in {'ROOT':root, 'STAGE':stage, 'EVIDENCE':evidence, 'r':runtime}.items():
+            stack.enter_context(patch.object(op, name, value, create=True))
+        stack.enter_context(patch.object(op, 'manifest', return_value=manifest))
+        if os.name == 'nt':
+            stack.enter_context(patch.object(op, 'save', side_effect=receipt))
+            stack.enter_context(patch.object(op.os, 'chown', create=True))
+            stack.enter_context(patch.object(op.os, 'O_DIRECTORY', 0, create=True))
+            stack.enter_context(patch.object(op.os, 'open', return_value=123456))
+            stack.enter_context(patch.object(op.os, 'close'))
+            stack.enter_context(patch.object(op.os, 'fsync'))
+        yield types.SimpleNamespace(root=root, stage=stage, live=live, folder=folder,
+                                    old=old, new=new, runtime=runtime, manifest=manifest)
+
+
+class QuestInstallationTests(unittest.TestCase):
+    def test_exact_seven_afterimages_original_backups_and_unrelated_preservation(self):
+        with quest_files() as f:
+            op.install_quests(f.folder)
+            self.assertEqual(f.runtime.runtime(), {**f.old, **f.new})
+            backup = f.folder/'quest-backup'
+            for name in op.QUESTS:
+                self.assertEqual(op.sha(backup/name), f.old['quests/'+name])
+                saved = op.read(backup/(name.replace('/','_')+'.receipt.json'))
+                self.assertEqual(saved['before'], f.old['quests/'+name])
+                self.assertEqual(saved['after'], f.new['quests/'+name])
+                self.assertEqual(saved['mode'], (f.live/name).stat().st_mode & 0o777)
+            self.assertEqual(len(list(backup.rglob('*.receipt.json'))), 7)
+            self.assertFalse(list(f.live.rglob('*pending')))
+
+    def test_each_preimage_drift_rejects_before_any_install(self):
+        for name in op.QUESTS:
+            with self.subTest(name=name), quest_files() as f:
+                (f.live/name).write_bytes(b'unexpected live edit')
+                before = f.runtime.runtime()
+                with self.assertRaises(AssertionError): op.install_quests(f.folder)
+                self.assertEqual(f.runtime.runtime(), before)
+                self.assertFalse((f.folder/'quest-backup').exists())
+
+    def test_candidate_drift_never_replaces_target(self):
+        with quest_files() as f:
+            name = op.QUESTS[0]
+            (f.stage/'quests'/name).write_bytes(b'corrupt staged content')
+            with self.assertRaises(AssertionError): op.install_quests(f.folder)
+            self.assertEqual(f.runtime.runtime()['quests/'+name], f.old['quests/'+name])
+            self.assertEqual(op.sha(f.folder/'quest-backup'/name), f.old['quests/'+name])
+
+    def test_failed_replace_leaves_only_complete_old_or_new_files(self):
+        with quest_files() as f:
+            replace = op.os.replace
+            calls = []
+            def fault(source, target):
+                calls.append(str(target))
+                if len(calls) == 4: raise OSError('injected disk failure')
+                replace(source, target)
+            with patch.object(op.os, 'replace', side_effect=fault):
+                with self.assertRaises(OSError): op.install_quests(f.folder)
+            for index, name in enumerate(op.QUESTS):
+                self.assertEqual(op.sha(f.live/name), (f.new if index < 3 else f.old)['quests/'+name])
+            self.assertEqual(op.sha(f.folder/'quest-backup'/op.QUESTS[3]), f.old['quests/'+op.QUESTS[3]])
+
+    def test_install_requires_both_services_stopped(self):
+        with quest_files() as f:
+            f.runtime.state.return_value = {'State': {'Running': True}}
+            with self.assertRaises(AssertionError): op.install_quests(f.folder)
+            self.assertEqual(f.runtime.runtime(), f.old)
 
 
 class ContractTests(unittest.TestCase):

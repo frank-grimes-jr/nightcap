@@ -1,8 +1,9 @@
 # Paired Paladin repair release — October28
 
-Prepared locally; not promoted to main, signed, published or deployed. The owner
-asked to get the live SoulFire failure fixed. This package includes the approved
-weapon progression; no Monk AA changes. Existing source/gameplay reviews stand.
+Owner-authorized main and live release is in preparation; see AUTHORIZATION.md.
+Signed client2026102801 is prepared locally, not yet published. Runtime activation
+has not occurred. This package includes the approved weapon progression and the
+coordinated Bazaar XML parser repair; no Monk AA changes.
 
 ## Exact candidate
 
