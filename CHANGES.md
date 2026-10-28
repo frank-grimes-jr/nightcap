@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-27 — High Keep live status reconciled
+
+Confirmed that the rescue shipped in the coordinated October25 release and
+remains enabled in the current October26 runtime. Fresh read-only verification
+passes all12 worker hashes, source/build pairing, rescue schema/flag, health and
+the tested map/navigation assets. No rescue runs have started, so gameplay and
+balance acceptance remain open. Corrected outdated candidate notes and refreshed
+Nightcap knowledge. No new deployment, restart, player-data change or wiki
+publication. Evidence: `docs/dungeons/highkeep-rescue/live-verification-20261027-v3.json`.
+
 ## 2026-10-26 — Bazaar seller panel deployed for live QA
 
 Added native Search / Sell & My Listings tabs, cursor-item price/quote/confirmation,

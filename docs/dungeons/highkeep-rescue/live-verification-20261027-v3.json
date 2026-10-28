@@ -1,0 +1,107 @@
+{
+  "result": "PASS",
+  "verified_at": "2026-10-28T01:32:11.266275+00:00",
+  "runtime": {
+    "image_id": "sha256:8b6ce6198541aac03f9d618b6f1161c206398a9867d7b3a98e3f0455003b2741",
+    "started_at": "2026-10-26T21:21:05.823895689Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "171b654e65b28c9551c678e98ae689c8e8ca50b64d7fa28ce843f126a12afee5"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ],
+      [
+        "zone",
+        "ac6656e2a692d3170bcde12ceebbec2c9cec45b7b97f5ef29455d5239dd4e5a4"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "rescue_revision": 2026102401,
+  "rescue_enabled": true,
+  "schema_checks": "exact native loader requirements passed",
+  "run_counts": {
+    "enrolled": 0,
+    "alarmed": 0,
+    "rescued": 0
+  },
+  "maps": {
+    "base/highkeep.map": "0640d5c11de83e128facb5b77331bf599b3d495e66974d22d8396527f9562a4b",
+    "nav/highkeep.nav": "f88eb95d03722bd50e974fbbac9b8b0146a71c8bc678511ae0087f90520f702a"
+  },
+  "wiki_pointer": "releases/20261026-bazaar-grip-v1",
+  "gateway_open": true,
+  "service_lifetimes_preserved": true,
+  "production_changed": false,
+  "owner_gameplay_accepted": false,
+  "reviewed_source_files": {
+    "common/highkeep_policy.h": "b1ae72658fdd8e652ca3b18286a07da2bbc06877164026b0943e0a9aa1b38414",
+    "zone/highkeep_rescue.inc": "a6ee90ef38bca85d3806423c139ceee80dfdcec0907dbf3b6c2bb0e5d4b25f11",
+    "zone/dungeon_service.cpp": "7ca7881613e9c80029a3df01d192f73c892ae689fd4ac5d5bcca1b00094eef06",
+    "zone/dungeon_service.h": "20da1a03b504c25f7d666d4e12e9e3afe2c0fbb1996f057a5f7781d580d27850",
+    "zone/aggro.cpp": "93cbdd40b6598fba348a6d982e2896aada1ac6d828e447f169be4c584cbcce0d",
+    "zone/attack.cpp": "c6f450a686700c74245bff9b75997d3c69135a3adb1b24cae5c0d5ea38707174",
+    "zone/client.cpp": "b55ca43af47598927eb78d1cb6b40d88585f6d6196994514d300992bd3ab48f4",
+    "zone/npc.cpp": "67e7ff2b4ac037d683abbf94e6eeac6f02c29f08e9659840998588497715f1ee",
+    "zone/spells.cpp": "aed7a2ec804a078d53905528d9adf8676222b7af548e95deb8e1a3ab7b6f9bd6"
+  },
+  "build_manifest_sha256": "8545207b580b3d8f87425acd1466570354063b17605afc409464e2f9fcb89390",
+  "runtime_identity_sha256": "ddf1cf8f238ed75226a609e122476ddc0870b009ce342d985df52d0501b5b4a7",
+  "source_revision": "444e27dc72476e01e91b60d505634e61b5afed60"
+}
