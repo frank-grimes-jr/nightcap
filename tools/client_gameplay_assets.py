@@ -207,7 +207,13 @@ def ui_xml(raw, kind):
         schema.set('xmlns', 'EverQuestData')
         schema.set('xmlns:dt', 'EverQuestDataTypes')
     ET.indent(root, space='\t')
-    return b'<?xml version="1.0" encoding="us-ascii" ?>\n' + ET.tostring(root, encoding='us-ascii', xml_declaration=False)
+    # RoF2 ParseTag rejects numeric character references (e.g. &#8212;).
+    # Encoding directly as us-ascii would silently create those references.
+    try:
+        body = ET.tostring(root, encoding='unicode', xml_declaration=False).encode('ascii')
+    except UnicodeEncodeError as error:
+        raise ValueError('RoF2 UI requires ASCII text; numeric character references are unsupported') from error
+    return b'<?xml version="1.0" encoding="us-ascii" ?>\n' + body
 
 
 def main():
