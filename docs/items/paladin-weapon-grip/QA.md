@@ -1,25 +1,16 @@
-# Owner QA — not yet run
+# Owner QA — deployed repair awaiting in-game confirmation
 
-## October28 — SoulFire animation investigation remains open
+The October28 paired release is live on main/OVH with signed client2026102801.
+Fully exit EQ and update through launcher Play. Runtime, saved-state and public
+client/wiki verification pass; they do not prove the rendered swing or equipment
+acceptance. Earlier reports used the October26 runtime/client and remain a
+reproduced failure of that release. Native cache tests reproduce and repair the
+same-ID 2HS retention. Server animation selection passes80 cases; visible swing
+must still be observed. Current receipts: balance/release/README.md.
 
-Owner confirms1HS inspection but two-handed-looking swing on Palwar. Two local
-regression groups pass (80 server skill/animation selections), without reproducing
-client rendering. No gameplay fix/deployment claimed. The subsequently approved production check confirms saved1H metadata and the
-October26 running server; the client still behaves as2H per owner. The local
-paired cache repair remains undeployed. No live writes occurred. Controlled14:48UTC check
-confirms SoulFire equipped1H with an empty offhand; rendered swing QA remains open.
-Evidence: docs/items/paladin-weapon-grip/client-refresh/animation/README.md.
-
-**Current October28 candidate:** [approved progression implementation and release QA](balance/README.md) supersedes the earlier unchanged-stats/separate-Defender-forge plan. Not deployed.
-
-**October 27 owner QA failed:** SoulFire printed the conversion messages but
-remained 2H and refused a shield; zoning was not tried. The client cache repair
-is implemented and locally tested, but is not deployed. See the
-[repair candidate and current QA](client-refresh/README.md). The October 26
-build/deployment evidence below is historical and does not validate the repair.
-
-After the new candidate is authorized and deployed, use its matching native binaries
-and signed RoF2 client;2026102601 alone does not contain the repair. Record each weapon ID, grip, saved instance fields and observations.
+First repeat Palwar's controlled case: SoulFire selected1HS, equipped in primary,
+empty offhand. Observe the swing, then equip a shield without zoning. Record
+client generation, weapon ID/grip and outcome; do not infer success from chat.
 
 1. In East Commonlands, inspect and right-click each of the ten IDs in README.md
    from primary, a main inventory slot and a carried bag. The Skill line changes

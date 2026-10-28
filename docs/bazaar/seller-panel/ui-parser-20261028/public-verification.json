@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-28T15:55:50.717Z",
+  "release": 2026102801,
+  "channel_sha256": "9eee0052b203db71a18bcc2bf1ce62089b50fbd34d95a77deb41134b74c6c709",
+  "signature": "valid against shipped production key",
+  "asset": {
+    "path": "uifiles/nightcap/equi_bazaarsearchwnd.xml",
+    "sha256": "41fefb05f3c523ee70221329a23824834e376cf5afc2c2949deb2c33455b557e",
+    "size": 35862,
+    "url": "https://play.nightcapgame.org/release/2026102801/uifiles/nightcap/equi_bazaarsearchwnd.xml",
+    "required": true
+  },
+  "public_download": "exact hash and size verified",
+  "local_installation": "same repaired XML verified after EQ exit",
+  "native_display_acceptance": "pending fresh launch"
+}

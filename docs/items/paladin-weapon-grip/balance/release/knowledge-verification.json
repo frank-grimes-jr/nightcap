@@ -1,0 +1,65 @@
+{
+  "client": {
+    "exit_code": 1,
+    "all_sources": {
+      "unchanged": 229,
+      "changed: review implementation and evidence": 2,
+      "missing: select the correct checkout": 56
+    },
+    "release_sources": {
+      "unchanged": 12
+    }
+  },
+  "items": {
+    "exit_code": 1,
+    "all_sources": {
+      "unchanged": 318,
+      "missing: select the correct checkout": 2,
+      "changed: review implementation and evidence": 5
+    },
+    "release_sources": {
+      "unchanged": 12
+    }
+  },
+  "world": {
+    "exit_code": 1,
+    "all_sources": {
+      "unchanged": 309,
+      "missing: select the correct checkout": 9
+    },
+    "release_sources": {
+      "unchanged": 12
+    }
+  },
+  "operations": {
+    "exit_code": 1,
+    "all_sources": {
+      "unchanged": 171,
+      "missing: select the correct checkout": 10,
+      "changed: review implementation and evidence": 2
+    },
+    "release_sources": {
+      "unchanged": 7
+    }
+  },
+  "wiki": {
+    "exit_code": 0,
+    "all_sources": {
+      "unchanged": 308
+    },
+    "release_sources": {
+      "unchanged": 7
+    }
+  },
+  "balance": {
+    "exit_code": 1,
+    "all_sources": {
+      "unchanged": 159,
+      "missing: select the correct checkout": 40,
+      "changed: review implementation and evidence": 1
+    },
+    "release_sources": {
+      "unchanged": 7
+    }
+  }
+}

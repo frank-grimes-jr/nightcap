@@ -1,0 +1,11 @@
+{
+  "changed_assets": 4,
+  "channel_sha256": "9eee0052b203db71a18bcc2bf1ce62089b50fbd34d95a77deb41134b74c6c709",
+  "existing_assets_preserved": 137,
+  "history_preserved": true,
+  "hosted": true,
+  "managed_files": 141,
+  "release": 2026102801,
+  "signature": "valid against shipped production key",
+  "verified_bytes": 281339742
+}

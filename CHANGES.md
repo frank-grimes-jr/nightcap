@@ -1,48 +1,22 @@
 # CHANGES
 
-## 2026-10-28 — Bazaar UI parser repair prepared
+## October 28 — paired Paladin and Bazaar repair deployed
 
-Player report and the installed RoF2 UIErrors log establish that the October26
-Bazaar XML failed at line1208 (`&#8212;`), causing the entire Nightcap skin to
-fall back to Default. Installed assets matched release2026102601. Replaced two
-em-dash numeric references with ASCII hyphens and made generated UI serialization
-reject non-ASCII text before writing output. Two regression tests failed before
-and pass after the fix; all16 relevant tests pass. Independent review confirms
-five unrelated UI outputs remain byte-identical. No server restart is required.
-Coordinated signed publication and fresh native-client acceptance remain pending.
-[Repair evidence](docs/bazaar/seller-panel/ui-parser-20261028/README.md).
+Main PR352 (979ec08b0ed1d1e855040fdbab8a95d4a80d01fd) and the authorized OVH
+release are complete. Admissions are open. All 12 zone workers, 51 schema checks,
+565 content checks and 102 saved-state tables verified; native, quest and database
+errors were zero. Seven quest replacements preserve their original backups.
+Signed client **2026102801** is published: four changed assets, 137 retained;
+all 141 public assets, signature and DLL/catalog pairing verified. Wiki release
+20261028-paladin-bazaar-repair-v1 changes seven guides plus search, preserving
+491 files; all 499 public files and security headers verified.
 
-## October28 — paired Paladin repair packaged locally
-
-The final proxy0.13.1 and matching three native binaries/seven quests are in a
-verified local release bundle. Client runtime11groups,117guards, three Go suites,
-80native animation selections and four preflight groups pass. Fresh production
-references verify all7quest dispatch paths, including free legacy exchange.
-Independent package review has no remaining blocker. No main promotion, signing,
-publication or deployment occurred; owner rendered/equipment QA remains open.
-Release scope, hashes and recovery: docs/items/paladin-weapon-grip/balance/release/README.md.
-
-## October28 — SoulFire animation investigation remains open
-
-Owner confirms1HS inspection but two-handed-looking swing on Palwar. Two local
-regression groups pass (80 server skill/animation selections), without reproducing
-client rendering. No gameplay fix/deployment claimed. The subsequently approved production check confirms saved1H metadata and the
-October26 running server; the client still behaves as2H per owner. The local
-paired cache repair remains undeployed. No live writes occurred. Controlled14:48UTC check
-confirms SoulFire equipped1H with an empty offhand; rendered swing QA remains open.
-Evidence: docs/items/paladin-weapon-grip/client-refresh/animation/README.md.
-
-## 2026-10-28 — Paladin Ascended quest progression candidate
-
-Implemented the assessed SoulFire/Avenger/Defender stats and direct Ascended
-Fiery Defender reward. Ascended 1HS: 26/30, 30/30, 36/30; 2HS: 46/45, 66/44,
-72/40; Accuracy 10/15/25; eligible 1H+shield block 0/1/3 points. Defender support
-and proc access preserve progression. Existing normal Defenders have a free,
-instance-preserving Epic Forgemaster exchange; other classes keep their recipe.
-Monk AAs are unchanged. Native, Lua, MariaDB, preflight and Bazaar checks pass;
-isolated zone/world/shared_memory relink succeeds. Not deployed or published;
-paired client repair and owner gameplay acceptance remain pending. Current
-scope/runbook: docs/items/paladin-weapon-grip/balance/README.md.
+The release includes the same-ID SoulFire grip cache repair, assessed weapon
+stats, direct Ascended SoulFire/Avenger/Defender rewards and free legacy Defender
+exchange. Monk AAs are unchanged. Fully exit EQ and use launcher Play to install
+2026102801. Visible swing, immediate shield equip, quests/exchange and persistence
+still require owner gameplay confirmation. No SQL or cache migration was needed.
+Evidence and recovery: docs/items/paladin-weapon-grip/balance/release/README.md.
 
 ## 2026-10-27 — Isolated Wu / Way of Steel removal and epic pacing assessment
 
