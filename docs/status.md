@@ -1,13 +1,14 @@
 # Current Nightcap status
 
-## 2026-10-28 — Bazaar price input and readability candidate
+## 2026-10-28 — Bazaar price input and readability published
 
 Fixed silent rejection of native UTF16 price fields, preserving bounded ASCII
 price validation and server confirmation. Unreadable input now gives feedback
 and invalidates stale quotes. Enlarged seller text and controls with explicit
 light colors; preserve both previous startup fixes and all native Search controls.
 Proxy0.13.2 pairs with its new catalog. Native regressions, full runtime suites,
-117guards and19UI/asset tests pass; signed delivery and player acceptance pending.
+117guards and19UI/asset tests pass. Main PR357 and signed2026102803 are
+published; player posting/readability acceptance remains pending.
 Evidence: `docs/bazaar/seller-panel/posting-readability-20261028/README.md`.
 
 ## October 28 — Bazaar startup crash hotfix published

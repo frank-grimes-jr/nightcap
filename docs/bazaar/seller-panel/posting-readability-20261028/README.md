@@ -43,7 +43,13 @@ correct invocation subsequently passed. No failed check was waived.
 
 Prepared against fresh signed2026102802 with three replacements: proxy, catalog
 and Bazaar XML;138 remaining descriptors/URLs and all history/tombstones retained.
-Signed publication, main promotion and native acceptance are pending. This is a
+Main PR357/42a849d2669f2d52e5c46076b3546dea2a462b35 and signed2026102803
+publication are complete. The live channel and all three changed files match
+the signed candidate; all141HTTPS assets, production signature and actual DLL/catalog
+pairing pass hosted verification. Allfive service IDs/start times/restart counts
+are unchanged. Wiki20261028-bazaar-post-readability-v1 is published; all499public
+files, security headers and private-route denials verify. Native owner
+acceptance remains pending. This is a
 client-only repair; it requires full EQ exit and launcher update, no server restart.
 
 ## Exact player QA
