@@ -71,7 +71,7 @@ def add_bazaar_panel(root):
     control('Button', 'Dismiss', 'Never mind', 144, 124, 110)
     control('Label', 'Balance', 'Proceeds: loading', 12, 164, 420)
     control('Button', 'Collect', 'Collect Proceeds', 466, 158, 174, 28)
-    control('Label', 'Heading', 'My Listings — select an item to cancel its remaining stock', 12, 198, 640)
+    control('Label', 'Heading', 'My Listings - select an item to cancel its remaining stock', 12, 198, 640)
     for i in range(8):
         control('Button', 'Row'+str(i), '', 12, 226+i*27, 628, 24)
     control('Button', 'Previous', '< Previous', 12, 448, 100)

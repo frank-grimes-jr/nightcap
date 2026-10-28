@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-28 — Bazaar UI parser repair prepared
+
+Player report and the installed RoF2 UIErrors log establish that the October26
+Bazaar XML failed at line1208 (`&#8212;`), causing the entire Nightcap skin to
+fall back to Default. Installed assets matched release2026102601. Replaced two
+em-dash numeric references with ASCII hyphens and made generated UI serialization
+reject non-ASCII text before writing output. Two regression tests failed before
+and pass after the fix; all16 relevant tests pass. Independent review confirms
+five unrelated UI outputs remain byte-identical. No server restart is required.
+Coordinated signed publication and fresh native-client acceptance remain pending.
+[Repair evidence](docs/bazaar/seller-panel/ui-parser-20261028/README.md).
+
 ## October28 — paired Paladin repair packaged locally
 
 The final proxy0.13.1 and matching three native binaries/seven quests are in a

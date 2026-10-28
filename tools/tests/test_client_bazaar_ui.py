@@ -34,6 +34,14 @@ class BazaarUI(unittest.TestCase):
   for page in after.findall('Page'):
    self.assertEqual(page.findtext('Style_VScroll'),'true');self.assertEqual(page.findtext('Style_HScroll'),'true')
    for piece in page.findall('Pieces'):self.assertIsNotNone(after.find("*[@item='"+piece.text+"']"))
+ def test_shipped_panel_uses_rof2_compatible_ascii_text(self):
+  output=ui_xml(STOCK,'bazaar')
+  self.assertNotIn(b'&#',output, 'RoF2 ParseTag rejects numeric character references and abandons the entire skin')
+  self.assertIn(b'My Listings - select an item',output)
+ def test_ui_serialization_rejects_non_ascii_instead_of_numeric_escapes(self):
+  raw=STOCK.replace(b'<Text>Search</Text>',b'<Text>Search &#8212; items</Text>')
+  with self.assertRaisesRegex(ValueError,'ASCII'):
+   ui_xml(raw,'bazaar')
  def test_duplicate_or_wrong_screen_rejected(self):
   with self.assertRaises(ValueError):add_bazaar_panel(ET.fromstring('<XML/>'))
   root=ET.fromstring(STOCK);add_bazaar_panel(root)
