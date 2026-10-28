@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## 2026-10-27 — High Keep rescue confirmed live
+
+The entrance confrontation, temporary guard alarm, compact prison route, zone-wide
+dialogue and Osargen escort shipped in the October25 coordinated release. They
+remain enabled in the October26 Bazaar/grip runtime. Fresh read-only checks verify
+all12 workers, native source pairing, exact rescue schema, revision2026102401,
+health and the reviewed map/navigation assets. No rescue runs have started yet;
+native route, presentation and balance acceptance remain open. No restart or
+deployment was needed for today's approval. [Evidence](dungeons/highkeep-rescue/live-verification-20261027-v3.json)
+and [player QA](dungeons/highkeep-rescue/QA.md).
+
 ## 2026-10-26 — Bazaar seller panel and Paladin grips deployed for live QA
 
 Owner-authorized main PR345/e43f2d4b and one combined runtime release are verified.
