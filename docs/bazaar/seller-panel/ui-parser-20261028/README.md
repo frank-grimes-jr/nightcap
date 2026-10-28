@@ -32,14 +32,19 @@ is a conservative compatibility constraint, not a claim about every entity.
 
 ## Delivery and acceptance
 
-Source fix prepared on `fix/bazaar-ui-parser`. The weapon-conversion chat owns the
-next signed client publication; it must include this XML while preserving its
-new DLL and all other approved client assets. No server change or restart is
-needed for this repair. Never publish an older manifest over its successor.
+Source fix `a9072bdebf4466ab11e14c6c3e627174862c4c3f` was handed to the
+weapon-conversion chat for its coordinated integration and publication. Signed
+client2026102801 is now public. Independent verification on October28 validates
+the channel signature against the shipped production key, corrected hosted XML
+hash/size and exact local installation match. See [receipt](public-verification.json).
+The coordinating chat owns complete release and admission checks; this receipt
+does not claim broader package or runtime acceptance. No server change or restart
+is needed specifically for this XML repair.
 
-Local repair is pending complete EQ exit: atomic replacement was denied while
-EQ held the XML open. Original installed file remains intact; backup and exact
-candidate are retained privately. Do not change file permissions to bypass this.
+The owner confirmed complete EQ exit. Local atomic replacement succeeded at
+15:53:14UTC on October28 after old/candidate/backup hash checks. Original XML is
+retained privately. The earlier file lock required no permission or ACL changes.
+Native visual acceptance remains pending a fresh launch.
 
 After the coordinated client update: fully close EQ, update through the launcher,
 then open `/bazaar`. Verify Search and Sell / My Listings tabs, posting quote and
@@ -47,7 +52,7 @@ confirmation, owned listing cancellation and proceeds collection. Verify a fresh
 UIErrors session has no Bazaar ParseTag error or default-skin fallback. If the
 saved skin remains Default, select the Nightcap skin (`/loadskin nightcap 1`).
 Offline seller search/purchase and money/item correctness remain owner QA gates.
-Native display acceptance and public publication are not yet established.
+Native display acceptance remains pending; corrected client publication is verified.
 
 ## Wiki impact review
 

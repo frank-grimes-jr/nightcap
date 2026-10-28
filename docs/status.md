@@ -1,6 +1,6 @@
 # Current Nightcap status
 
-## 2026-10-28 — Bazaar UI parser repair prepared
+## 2026-10-28 — Bazaar UI parser repair published
 
 Player report and the installed RoF2 UIErrors log establish that the October26
 Bazaar XML failed at line1208 (`&#8212;`), causing the entire Nightcap skin to
@@ -9,7 +9,9 @@ em-dash numeric references with ASCII hyphens and made generated UI serializatio
 reject non-ASCII text before writing output. Two regression tests failed before
 and pass after the fix; all16 relevant tests pass. Independent review confirms
 five unrelated UI outputs remain byte-identical. No server restart is required.
-Coordinated signed publication and fresh native-client acceptance remain pending.
+Signed client2026102801 and the exact corrected hosted/local XML are verified.
+The owner closed EQ and the local repair is installed; fresh native-client
+acceptance remains pending. The weapon chat owns broader release/admission checks.
 [Repair evidence](bazaar/seller-panel/ui-parser-20261028/README.md).
 
 ## 2026-10-27 — High Keep rescue confirmed live
