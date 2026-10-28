@@ -60,6 +60,20 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Same-ID Paladin grip definitions need the matching RoF2 client repair.** The
+  native parser caches by item ID and can retain 2HS despite the server's 1HS
+  message. Candidate proxy 0.13.1 preserves per-instance definitions for the ten
+  supported IDs; equipped toggles also refresh weapon stances. Do not treat packet
+  serialization tests as proof of native shield/equipment behavior. October27
+  failed owner QA, exact native regression and unpublished repair status:
+  `docs/items/paladin-weapon-grip/client-refresh/README.md`. The follow-on balance
+  candidate uses ten explicit damage/delay profiles and four Ascended reward
+  scripts; fresh target stats and tier-aware helper must pass preflight. Require the
+  paired client/server release. October28 now implements direct Ascended Defender,
+  assessed stats and a free exact-instance legacy exchange; other classes retain
+  their paid forge. Monk AAs remain unchanged. See
+  `docs/items/paladin-weapon-grip/balance/README.md`.
+
 - **High Keep rescue deployed October25; reverified October27:** new opted-in Raid runs
   use `zone/highkeep_rescue.inc` and additive `nightcap_highkeep_*` storage. Pair
   zone/schema; revision2026102401 is enabled. Completion requires
@@ -472,6 +486,14 @@ publication as successful native acceptance or a permanent branch-policy change.
 - **main**: only after user sign-off on the manual QA.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+
+**October28 Paladin repair exception:** the owner explicitly approved main and
+paired OVH release for the grip cache repair, assessed weapon stats, direct
+Ascended rewards and free legacy Defender exchange, with signed client/wiki
+publication and a brief whole-game restart. Monk AAs remain unchanged. Native
+owner gameplay acceptance remains open. See
+`docs/items/paladin-weapon-grip/balance/release/AUTHORIZATION.md`; this is scoped
+release authorization, not a permanent branch-policy change.
 
 **October 16 dungeon release exception:** the owner explicitly requested main
 promotion and server deployment with matching binaries and item cache for

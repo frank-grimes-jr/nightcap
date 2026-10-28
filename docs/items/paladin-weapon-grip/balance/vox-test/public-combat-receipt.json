@@ -1,0 +1,24 @@
+{
+  "captured": "2026-10-27T17:17:34.256389+00:00",
+  "bytes": 2840559,
+  "sha256": "073ce2e6574428ca59b2de65533f125809c7e948c77ae6b1187c9c84bfd21141",
+  "tables": {
+    "rule_sets": 8,
+    "rule_values": 1077,
+    "aa_ability": 1572,
+    "aa_ranks": 6657,
+    "aa_rank_effects": 9875,
+    "aa_rank_prereqs": 2526,
+    "spells_new": 40746,
+    "skill_caps": 58359,
+    "base_data": 1600,
+    "npc_spells": 1898,
+    "npc_spells_entries": 5236,
+    "npc_spells_effects": 30,
+    "npc_spells_effects_entries": 30,
+    "zone": 2,
+    "content_flags": 4
+  },
+  "selected_ruleset": [],
+  "production_changed": false
+}

@@ -11,6 +11,11 @@
 #include "zone/embperl.h"
 #include "zone/titles.h"
 
+bool Perl_Client_AscendPaladinEpic(Client* self)
+{
+	return self && self->AscendPaladinEpic();
+}
+
 int Perl_Client_Epic05Contract(Client* self)
 {
 	if (!self || !RuleB(TaskSystem, EnableTaskSystem) || !RuleB(TaskSystem, RecordCompletedTasks) ||
@@ -3490,6 +3495,7 @@ void perl_register_client()
 	package.add("CharacterID", &Perl_Client_CharacterID);
 	package.add("DungeonAction", &Perl_Client_DungeonAction);
 	package.add("LivingEconomy", &Perl_Client_LivingEconomy);
+	package.add("AscendPaladinEpic", &Perl_Client_AscendPaladinEpic);
 	package.add("Epic05Contract", &Perl_Client_Epic05Contract);
 	package.add("MarketAnnouncement", &Perl_Client_MarketAnnouncement);
 	package.add("TunnelChatter", &Perl_Client_TunnelChatter);

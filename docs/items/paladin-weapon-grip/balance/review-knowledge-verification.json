@@ -1,0 +1,17 @@
+{
+  "items": {
+    "reviewed_followup_files": 3,
+    "mismatches": [],
+    "unrelated_historical_drift_count": 107
+  },
+  "balance": {
+    "reviewed_followup_files": 3,
+    "mismatches": [],
+    "unrelated_historical_drift_count": 81
+  },
+  "wiki": {
+    "reviewed_followup_files": 6,
+    "mismatches": [],
+    "unrelated_historical_drift_count": 59
+  }
+}

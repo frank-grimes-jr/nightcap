@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-28",
+  "reviewer": "paladin_stat_assessment_review",
+  "result": "No blocking rollout or publisher defect; ship nested extraction and retained bundle authentication findings fixed before staging",
+  "linux_tests": {
+    "rollout": 30,
+    "publisher": 17
+  },
+  "coordinated_bazaar_tests": 16,
+  "signature_actual_asset_pairing": "PASS",
+  "source_sha256": {
+    "rollout.py": "ce9fec05bbbdcc6e8464482d545e4a1bf0a2ed68b0d3d0375b512f49ccc3ceb6",
+    "test_rollout.py": "a919bdac5bd2da9b1d3ea038a72016141289e802d7c0b2e579e63a9a7b6251cd",
+    "ship.py": "93c4af798dfc4aae24f7458483e45b5224c7fb3a96e5f1ff26642ce31c8b9ec1",
+    "client/publish.py": "a4e92a5eae317a512a7b4e313849858ba983efa4b0d23c4650d2a012350d30a3",
+    "client/test_publish.py": "cb2ae48dab88aae2cb8e267c457b9e76952acffd36b7236e6194b561adc39ec0",
+    "client/prepare.go": "6b27b89a480c89fe9a9adc1e0963fd9384977cbb00aca1df794626d2d46140b0",
+    "client/verify.go": "3e9e75090d0e746c9f4f43a9c65df5170086f35a41f5a18dc6b762317657289b"
+  },
+  "owner_gameplay_accepted": false
+}

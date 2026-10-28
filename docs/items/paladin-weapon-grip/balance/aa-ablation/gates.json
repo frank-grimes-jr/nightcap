@@ -1,0 +1,21 @@
+{
+  "stat_conditions": 144,
+  "exact_baseline_replays": 3,
+  "binary_sha256": "88de63cddae472679f944f04df3662e508c4af125994d0f05adb03b20df8eb47",
+  "matrix_sha256": "29632b808224a6297d1b3e376e7235eca9e8a227b8bcc6f7dd3953cf1a00df22",
+  "removed_first_ranks": {
+    "baseline": [],
+    "wu_off": [
+      611
+    ],
+    "steel_off": [
+      12706
+    ],
+    "both_off": [
+      611,
+      12706
+    ]
+  },
+  "spent_points": "1979 retained, no refunds or reallocation",
+  "scope": "Whole AA removal; Way of Steel skill proc also disabled"
+}

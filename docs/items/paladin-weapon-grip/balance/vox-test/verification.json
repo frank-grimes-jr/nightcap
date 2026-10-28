@@ -1,0 +1,12 @@
+{
+  "skill_validator": "passed",
+  "reviewed_vox_source_entries_unchanged": 11,
+  "historical_context_drift": 81,
+  "historical_drift_action": "Preserved; unrelated older source fingerprints not silently accepted",
+  "local_report_links": "all resolve",
+  "primary_runs": 240,
+  "timestep_runs": 40,
+  "exact_replay": true,
+  "independent_review": "No remaining material inaccuracies; final healing-necessity wording corrected",
+  "gameplay_or_production_mutations": false
+}

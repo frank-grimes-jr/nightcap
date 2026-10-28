@@ -1,5 +1,13 @@
 # Paladin weapon grip — October26 live QA
 
+**Current October28 candidate:** [approved progression implementation and release QA](balance/README.md) supersedes the earlier unchanged-stats/separate-Defender-forge plan. Not deployed.
+
+**October 27 owner QA failed:** SoulFire printed the conversion messages but
+remained 2H and refused a shield; zoning was not tried. The client cache repair
+is implemented and locally tested, but is not deployed. See the
+[repair candidate and current QA](client-refresh/README.md). The October 26
+build/deployment evidence below is historical and does not validate the repair.
+
 Status: implemented on `feature/paladin-weapon-toggle` from main `465003f6`.
 Integrated main PR345/e43f2d4b and the combined Bazaar runtime/client/wiki release
 are verified in docs/bazaar/seller-panel/deployed.json and evidence.json. Owner
@@ -12,11 +20,11 @@ Right-click SoulFire, Fiery Avenger or Fiery Defender to switch between 1H
 Slashing and 2H Slashing. Existing/new weapons start in their original 2HS grip.
 This covers all ten existing definitions: SoulFire 5504/205504/405504/605504,
 Fiery Avenger 11050/211050/411050/611050, Fiery Defender 10099/810099.
-The last Defender is the separate Epic Forgemaster Ascended version.
+The last Defender is the new direct quest reward; the candidate retains a free legacy-owner exchange.
 
-The same instance keeps its ID/name, quality, damage/delay, other combat stats,
+The same instance keeps its ID/name, quality, other combat stats,
 procs, equip/class/level restrictions, saved charges, binding, color, ornaments,
-augments, GUID and recast timestamp. Its weapon type changes, so normal native
+augments, GUID and recast timestamp. Its weapon type and reviewed damage/delay profile change, so normal native
 skill selection, skill gains, weapon AAs and damage-bonus rules follow that grip.
 The 1HS version remains primary-only; this does not add an offhand equipment slot.
 SoulFire no longer casts Complete Heal. Clicking is unlimited, including a spent

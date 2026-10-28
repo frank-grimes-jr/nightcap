@@ -1,0 +1,57 @@
+Verified runtime and saved state; access closed.
+Paladin repair and signed client verified; access restored.
+Verified runtime and saved state; access closed.
+Paladin repair and signed client verified; access restored.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Verified runtime and saved state; access closed.
+Preflight passed; gameplay and access unchanged.
+test_contract_rejects_wrong_values_and_row_count (test_rollout.ContractTests.test_contract_rejects_wrong_values_and_row_count) ... ok
+test_build_preserves_local_layers_and_authenticates_both_native_images (test_rollout.ImageBuildTests.test_build_preserves_local_layers_and_authenticates_both_native_images) ... ok
+test_build_rejects_base_tag_layer_and_binary_drift (test_rollout.ImageBuildTests.test_build_rejects_base_tag_layer_and_binary_drift) ... ok
+test_distinct_expected_boot_state_and_market_rotation_are_verified (test_rollout.LifecycleTests.test_distinct_expected_boot_state_and_market_rotation_are_verified) ... ok
+test_existing_attempt_cannot_replay (test_rollout.LifecycleTests.test_existing_attempt_cannot_replay) ... ok
+test_failed_backup_never_selects_an_image (test_rollout.LifecycleTests.test_failed_backup_never_selects_an_image) ... ok
+test_forward_then_separate_verified_open (test_rollout.LifecycleTests.test_forward_then_separate_verified_open) ... ok
+test_hold_attempts_both_services_when_daemon_fails (test_rollout.LifecycleTests.test_hold_attempts_both_services_when_daemon_fails) ... ok
+test_old_binary_recovery_is_rejected_before_any_operation (test_rollout.LifecycleTests.test_old_binary_recovery_is_rejected_before_any_operation) ... ok
+test_open_requires_verified_receipt (test_rollout.LifecycleTests.test_open_requires_verified_receipt) ... ok
+test_post_start_failures_keep_gateway_closed (test_rollout.LifecycleTests.test_post_start_failures_keep_gateway_closed) ... ok
+test_pre_open_drift_never_opens_access (test_rollout.LifecycleTests.test_pre_open_drift_never_opens_access) ... ok
+test_state_drift_before_selection_or_after_start_holds (test_rollout.LifecycleTests.test_state_drift_before_selection_or_after_start_holds) ... ok
+test_stop_exit_failure_holds_without_snapshot_or_selection (test_rollout.LifecycleTests.test_stop_exit_failure_holds_without_snapshot_or_selection) ... ok
+test_uncertain_open_is_closed_and_cannot_replay (test_rollout.LifecycleTests.test_uncertain_open_is_closed_and_cannot_replay) ... ok
+test_binaries_select_exact_three_file_pair (test_rollout.ManifestTests.test_binaries_select_exact_three_file_pair) ... ok
+test_exact_manifest_authenticates (test_rollout.ManifestTests.test_exact_manifest_authenticates) ... ok
+test_manifest_rejects_tampering_and_scope_changes (test_rollout.ManifestTests.test_manifest_rejects_tampering_and_scope_changes) ... ok
+test_every_quest_and_unrelated_plugin_are_checked_before_open (test_rollout.PairingTests.test_every_quest_and_unrelated_plugin_are_checked_before_open) ... ok
+test_full_runtime_preimage_drift_is_rejected_before_build (test_rollout.PairingTests.test_full_runtime_preimage_drift_is_rejected_before_build) ... ok
+test_open_requires_exact_new_client_and_preserves_other_publications (test_rollout.PairingTests.test_open_requires_exact_new_client_and_preserves_other_publications) ... ok
+test_partial_quest_install_holds_without_boot_or_replay (test_rollout.PairingTests.test_partial_quest_install_holds_without_boot_or_replay) ... ok
+test_preflight_faults_never_stop_select_backup_or_open (test_rollout.PreflightTests.test_preflight_faults_never_stop_select_backup_or_open) ... ok
+test_preflight_success_does_not_mutate_gameplay (test_rollout.PreflightTests.test_preflight_success_does_not_mutate_gameplay) ... ok
+test_unchanged_checks_every_preservation_boundary (test_rollout.PreflightTests.test_unchanged_checks_every_preservation_boundary) ... ok
+test_candidate_drift_never_replaces_target (test_rollout.QuestInstallationTests.test_candidate_drift_never_replaces_target) ... ok
+test_each_preimage_drift_rejects_before_any_install (test_rollout.QuestInstallationTests.test_each_preimage_drift_rejects_before_any_install) ... ok
+test_exact_seven_afterimages_original_backups_and_unrelated_preservation (test_rollout.QuestInstallationTests.test_exact_seven_afterimages_original_backups_and_unrelated_preservation) ... ok
+test_failed_replace_leaves_only_complete_old_or_new_files (test_rollout.QuestInstallationTests.test_failed_replace_leaves_only_complete_old_or_new_files) ... ok
+test_install_requires_both_services_stopped (test_rollout.QuestInstallationTests.test_install_requires_both_services_stopped) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 1.706s
+
+OK

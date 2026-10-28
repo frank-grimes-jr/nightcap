@@ -1,5 +1,111 @@
 # CHANGES
 
+## 2026-10-28 — Bazaar UI parser repair prepared
+
+Player report and the installed RoF2 UIErrors log establish that the October26
+Bazaar XML failed at line1208 (`&#8212;`), causing the entire Nightcap skin to
+fall back to Default. Installed assets matched release2026102601. Replaced two
+em-dash numeric references with ASCII hyphens and made generated UI serialization
+reject non-ASCII text before writing output. Two regression tests failed before
+and pass after the fix; all16 relevant tests pass. Independent review confirms
+five unrelated UI outputs remain byte-identical. No server restart is required.
+Coordinated signed publication and fresh native-client acceptance remain pending.
+[Repair evidence](docs/bazaar/seller-panel/ui-parser-20261028/README.md).
+
+## October28 — paired Paladin repair packaged locally
+
+The final proxy0.13.1 and matching three native binaries/seven quests are in a
+verified local release bundle. Client runtime11groups,117guards, three Go suites,
+80native animation selections and four preflight groups pass. Fresh production
+references verify all7quest dispatch paths, including free legacy exchange.
+Independent package review has no remaining blocker. No main promotion, signing,
+publication or deployment occurred; owner rendered/equipment QA remains open.
+Release scope, hashes and recovery: docs/items/paladin-weapon-grip/balance/release/README.md.
+
+## October28 — SoulFire animation investigation remains open
+
+Owner confirms1HS inspection but two-handed-looking swing on Palwar. Two local
+regression groups pass (80 server skill/animation selections), without reproducing
+client rendering. No gameplay fix/deployment claimed. The subsequently approved production check confirms saved1H metadata and the
+October26 running server; the client still behaves as2H per owner. The local
+paired cache repair remains undeployed. No live writes occurred. Controlled14:48UTC check
+confirms SoulFire equipped1H with an empty offhand; rendered swing QA remains open.
+Evidence: docs/items/paladin-weapon-grip/client-refresh/animation/README.md.
+
+## 2026-10-28 — Paladin Ascended quest progression candidate
+
+Implemented the assessed SoulFire/Avenger/Defender stats and direct Ascended
+Fiery Defender reward. Ascended 1HS: 26/30, 30/30, 36/30; 2HS: 46/45, 66/44,
+72/40; Accuracy 10/15/25; eligible 1H+shield block 0/1/3 points. Defender support
+and proc access preserve progression. Existing normal Defenders have a free,
+instance-preserving Epic Forgemaster exchange; other classes keep their recipe.
+Monk AAs are unchanged. Native, Lua, MariaDB, preflight and Bazaar checks pass;
+isolated zone/world/shared_memory relink succeeds. Not deployed or published;
+paired client repair and owner gameplay acceptance remain pending. Current
+scope/runbook: docs/items/paladin-weapon-grip/balance/README.md.
+
+## 2026-10-27 — Isolated Wu / Way of Steel removal and epic pacing assessment
+
+Repeated the Palwar/Vox weapon matrix with Wu disabled, Way of Steel disabled,
+and both disabled:720 new primary fights,120 timestep controls,144 stat gates
+and exact baseline/ablation replays. Actual-skill first20-second DPS fell about
+52%,78%,88% respectively; effects interact and are not additive damage shares.
+Whole-AA removal includes Steel's associated skill proc. No AAs, weapons, quests
+or players were changed live; the synthetic test character was restored.
+`docs/items/paladin-weapon-grip/balance/aa-ablation/` records all results and limits.
+The accompanying pacing assessment recommends direct Ascended epic delivery,
+without implementing it. Fresh later-item definitions leave replacement headroom,
+but acquisition-to-replacement time is unmeasured and the separate forge remains.
+
+## 2026-10-27 — Isolated Palwar versus Vox weapon experiment
+
+All ten supported weapon qualities in both grips were tested with Palwar's saved
+level45 build, plus comparison weapons and a matched 2HS skill control. The 240
+primary runs, 40 timestep controls and exact replay all killed Vox. Seventy primary
+1H pairs are duplicate trajectories; this is a five-seed pilot, not 281 independent
+samples. Monk damage dominates and small rankings are timing-sensitive, so the
+results do not approve the stat package. No live inventory, gameplay definitions,
+client or deployment changed. Evidence and full variant results:
+`docs/items/paladin-weapon-grip/balance/vox-test/README.md`. Local Docker was
+recovered by preserving/recreating inspected socket-only directories; see
+`docs/ops/docker-stale-sockets-20261027.md`.
+
+## 2026-10-27 — Paladin weapon quantitative assessment (design only)
+
+Fresh read-only public stats exposed additional support-stat/proc-level losses
+at the Avenger-to-Defender hand-in. A proposed replacement table, modest accuracy
+and shield-block budgets, and explicit maximum-AA grip tradeoffs are documented
+in `docs/items/paladin-weapon-grip/balance/assessment/ASSESSMENT.md`. Native cap and
+damage-bonus calculations and an independent arithmetic review support candidate
+selection, not release acceptance. No gameplay/client/quest change or deployment
+was made; the old numerical implementation remains rejected.
+
+## 2026-10-27 — Balanced Paladin grips and Ascended quest rewards candidate
+
+**Follow-up review: numerical table rejected; do not release.** Comparator viability,
+the new Avenger-to-Defender transition and active low-level damage caps require
+retuning/validation. Gameplay code remains unchanged by this review. See
+`docs/items/paladin-weapon-grip/balance/review-followup.md`.
+
+SoulFire and Fiery Avenger terminal rewards now select their existing Ascended
+IDs in the two Hayle scripts and Inte Akera; Fiery Defender quest/forge remain
+separate. All ten1H profiles use30delay and reduced damage, preserving fresh live
+2H values (local tier values were stale). Actual Lua helper confirms the chain.
+Native function diagnostics, restore/toggle tests and paired client checks pass.
+Not deployed: full native build/combat QA remains blocked by local Docker startup.
+[Profiles, evidence and release/QA requirements](docs/items/paladin-weapon-grip/balance/README.md).
+
+## 2026-10-27 — Paladin grip client repair candidate
+
+Owner QA found SoulFire still behaved as 2HS and refused a shield after the 1H
+message. RoF2 reused a definition cached by item ID. Proxy 0.13.1 preserves the
+incoming per-instance definition for all ten supported IDs; the server refreshes
+equipped weapon stances. Actual native parser regression, 11 runtime tests,
+117 guards, four server test groups and actual client-pair checks pass.
+Not deployed: full server build and fresh MariaDB rerun are blocked by the local
+Docker Secrets Engine socket fault. Native player acceptance remains pending.
+[Cause, release requirements and QA](docs/items/paladin-weapon-grip/client-refresh/README.md).
+
 ## 2026-10-27 — High Keep live status reconciled
 
 Confirmed that the rescue shipped in the coordinated October25 release and
