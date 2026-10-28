@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-27",
+  "scope": "Read-only proof of already-deployed High Keep rescue; no new rollout",
+  "review": "Independent evidence/source/operator review",
+  "findings_resolved": [
+    "Remote Python now uses -B to prevent import bytecode-cache writes",
+    "Requires exactly zone/world/shared_memory identity proofs",
+    "Local and remote optimized Python are rejected before verification",
+    "Retained runtime identity must exactly equal the authenticated local proof",
+    "Current documentation links final v3 receipt; earlier receipts retained in task work"
+  ],
+  "guard_validation": "python -O rejects before arguments/SSH; an incomplete identity fixture rejects before source/SSH and writes no receipt; full guarded live verification passes",
+  "final_review": "Independent reviewer verified corrections and reported no remaining concrete issues",
+  "prior_probe_caveat": "The first probe could populate Python import caches; it changed no gameplay, database or service state. v2/v3 disable those writes.",
+  "evidence": "live-verification-20261027-v3.json",
+  "owner_gameplay_accepted": false,
+  "remaining": [
+    "Native escort and doors",
+    "Dialogue/Tasks presentation",
+    "Encounter balance"
+  ]
+}
