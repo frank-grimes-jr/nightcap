@@ -1,0 +1,20 @@
+{
+  "previous_release": 2026102802,
+  "previous_channel_sha256": "ecd87afcefbdced73da41bc43943e44d4b788ab56eb288302bdd8a0cd47f42a1",
+  "proxy_version": "0.13.2",
+  "assets": {
+    "dinput8.dll": {
+      "sha256": "b2b48a72c9949ef98f197fa67c3ee69991a95ab248aa4f2c39764c54698bb72e",
+      "size": 650240
+    },
+    "nightcap-patch-sites.json": {
+      "sha256": "0d7d971e5fcb2d6b6ea43721ff02c033935d6d1f48bf19506c34f8bb4d1a1552",
+      "size": 10353
+    },
+    "uifiles/nightcap/equi_bazaarsearchwnd.xml": {
+      "sha256": "b103458672aac1dbcd246d96b19514365e91ecbb1f0dd2501c781d5407372995",
+      "size": 37724
+    }
+  },
+  "native_player_acceptance": "pending"
+}

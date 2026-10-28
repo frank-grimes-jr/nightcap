@@ -25,13 +25,22 @@ inline void BazaarEnable(void *window,const std::string &name,bool enabled){
 }
 inline bool BazaarPrice(void *window,char (&output)[33]){
 	void *control=AAChild(window,"NCBZ_Price");if(!control)return false;
-	// Same verified CEditBaseWnd ABI as advanced loot. Never retain native text.
+	// Native CEditWnd stores either byte or UTF16 CXStr input. Capacity is bytes.
+	// Accept bounded printable ASCII values in either representation; retain no pointer.
 	__try {
 		const auto rep=*reinterpret_cast<const BYTE **>(static_cast<BYTE *>(control)+0x1ec);
 		if(!rep){output[0]=0;return true;}
 		const auto length=*reinterpret_cast<const uint32_t *>(rep+8);
-		if(*reinterpret_cast<const uint32_t *>(rep+12)||length>32||*reinterpret_cast<const uint32_t *>(rep+4)<=length||rep[0x14+length])return false;
-		for(uint32_t i=0;i<length;++i){if(rep[0x14+i]<32||rep[0x14+i]>126)return false;output[i]=char(rep[0x14+i]);}
+		const auto encoding=*reinterpret_cast<const uint32_t *>(rep+12);
+		if(length>32||encoding>1)return false;
+		const uint32_t stride=encoding?2:1;
+		if(*reinterpret_cast<const uint32_t *>(rep+4)<(length+1)*stride)return false;
+		for(uint32_t i=0;i<=length;++i){
+			uint16_t character=rep[0x14+i*stride];
+			if(encoding)character|=uint16_t(rep[0x15+i*stride])<<8;
+			if(i==length){if(character)return false;}
+			else {if(character<32||character>126)return false;output[i]=char(character);}
+		}
 		output[length]=0;return true;
 	}__except(EXCEPTION_EXECUTE_HANDLER){return false;}
 }
@@ -79,8 +88,8 @@ inline int __fastcall BazaarNotifyHook(void *self,void *,void *sender,uint32_t m
 			if(sender!=BazaarChild(self,name))continue;
 			if(message==1&&UpdateBazaarContext(self)&&BazaarControls(self)){
 				char price[33]={};
-				if(!strcmp(name,"Post")){if(BazaarPrice(self,price))bazaar_panel.Post(price);}
-				else if(!strcmp(name,"ConfirmPost")){if(BazaarPrice(self,price))bazaar_panel.ConfirmPost(price);}
+				if(!strcmp(name,"Post")){if(BazaarPrice(self,price))bazaar_panel.Post(price);else bazaar_panel.PriceUnavailable();}
+				else if(!strcmp(name,"ConfirmPost")){if(BazaarPrice(self,price))bazaar_panel.ConfirmPost(price);else bazaar_panel.PriceUnavailable();}
 				else if(!strcmp(name,"Dismiss"))bazaar_panel.Dismiss();
 				else if(!strcmp(name,"Cancel"))bazaar_panel.Cancel();
 				else if(!strcmp(name,"Collect"))bazaar_panel.Collect();

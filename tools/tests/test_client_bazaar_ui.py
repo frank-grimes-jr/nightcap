@@ -5,6 +5,18 @@ from client_bazaar_ui import add_bazaar_panel
 
 STOCK=b'<XML><Button item="BZR_QueryButton"><ScreenID>BZR_QueryButton</ScreenID><Text>Search</Text></Button><Listbox item="BZR_ItemList"><ScreenID>BZR_ItemList</ScreenID></Listbox><Button item="BZR_BuyButton"><ScreenID>BZR_BuyButton</ScreenID></Button><Screen item="BazaarSearchWnd"><Size><CX>700</CX><CY>600</CY></Size><Pieces>BZR_QueryButton</Pieces><Pieces>BZR_ItemList</Pieces><Pieces>BZR_BuyButton</Pieces></Screen></XML>'
 class BazaarUI(unittest.TestCase):
+ def test_seller_controls_have_readable_explicit_text_and_room(self):
+  root=ET.fromstring(ui_xml(STOCK,'bazaar'))
+  controls=[n for n in root if (n.get('item') or '').startswith('NCBZ_') and n.tag in ('Button','Label','Editbox')]
+  self.assertGreater(len(controls),20)
+  for n in controls:
+   with self.subTest(control=n.get('item')):
+    self.assertGreaterEqual(int(n.findtext('Font')),4)
+    for channel in ('R','G','B'):
+     self.assertGreaterEqual(int(n.findtext('TextColor/'+channel,'0')),220)
+    self.assertGreaterEqual(int(n.findtext('Size/CY')),28)
+  self.assertIn('East Commonlands',root.find("Label[@item='NCBZ_Help']").findtext('Text'))
+  self.assertGreaterEqual(int(root.find("Editbox[@item='NCBZ_Price']").findtext('Location/X')),160)
  def test_tabs_supply_native_border_templates_before_pages_are_inserted(self):
   # Native CTabWnd page insertion dereferences its frame template at +0x1d8;
   # DrawTemplate alone leaves it null (2026-10-28 crash at preferred VA 0x88dc6d).

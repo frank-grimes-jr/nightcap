@@ -9,9 +9,9 @@ static const size_t kRequiredFeatureCount = sizeof(kRequiredFeatures) / sizeof(k
 static const uint32_t kRequiredMask = (uint32_t(1) << kRequiredFeatureCount) - 1;
 static_assert(kRequiredFeatureCount > 0 && kRequiredFeatureCount < 32, "feature mask capacity");
 // Explicit leading boundaries make release-pair checks independent of linker layout.
-static const struct { char boundary; char text[65]; } kCatalogIdentity = {0,"b9fcd843ba30f3490bd42a735f14c103bb0bdaf574e9bbe88e237fba09eb4dc6"};
+static const struct { char boundary; char text[65]; } kCatalogIdentity = {0,"0d7d971e5fcb2d6b6ea43721ff02c033935d6d1f48bf19506c34f8bb4d1a1552"};
 static const char *const kCatalogSHA256 = kCatalogIdentity.text;
-static const struct { char boundary; char text[7]; } kProxyIdentity = {0,"0.13.1"};
+static const struct { char boundary; char text[7]; } kProxyIdentity = {0,"0.13.2"};
 static const char *const kProxyVersion = kProxyIdentity.text;
 static const unsigned kRuntimeSchema = 1;
 }

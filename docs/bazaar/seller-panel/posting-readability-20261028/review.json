@@ -1,0 +1,20 @@
+{
+  "result": "no blocking findings",
+  "independent_native_abi_review": true,
+  "candidate_signatures_and_assets_independently_verified": true,
+  "non_overlapping_seller_rectangles": 24,
+  "native_runtime_groups": 11,
+  "exact_client_guards": 117,
+  "bazaar_native_groups": 2,
+  "python_ui_asset_tests": 19,
+  "launcher_suites": [
+    "manifest",
+    "preflight",
+    "installer"
+  ],
+  "publisher_linux_tests": 20,
+  "wiki_windows_tests": 35,
+  "wiki_windows_skips": "9 platform/fixture checks; publication runs POSIX tests separately",
+  "owner_runtime_encoding": "not inspected; supported UTF16 failure reproduced in native test",
+  "native_visual_and_transaction_acceptance": "pending"
+}
