@@ -80,6 +80,7 @@ public:
 		if(!NightcapBazaarPanel::Unsigned(price,n)||n!=Current().quote.item.price/1000){quote_ready_=false;feedback_="Price changed. Click Post Item for a new preview.";return false;}
 		return Submit("confirm",Current().quote.nonce,Current().page);
 	}
+	void PriceUnavailable(){quote_ready_=false;feedback_="Could not read the price. Clear the price field and enter whole platinum digits.";}
 	void Dismiss(){quote_ready_=false;cancel_=0;feedback_.clear();}
 	void Select(size_t index){if(!Ready()||index>=Current().rows.size())return;selected_=Current().rows[index].id;cancel_=0;quote_ready_=false;feedback_.clear();}
 	bool Cancel(){
