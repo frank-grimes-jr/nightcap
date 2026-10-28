@@ -55,7 +55,7 @@ replacement is not a durable repair and must not bypass its integrity checks.
 The owner's explicit "Publish the launcher hotfix" approval applies to this release;
 it does not grant standing future release authority.
 
-After authorized publication, fully exit EQ and use launcher Play. Log Palwar
+Now fully exit EQ and use launcher Play. Log Palwar
 into East Commonlands: world entry must complete without the crash dialog.
 Open /bazaar, switch Search and Sell / My Listings, resize, close/reopen and
 reload the Nightcap skin. Check fresh dbg/UIErrors for native exceptions,
@@ -76,4 +76,7 @@ Launcher and Recent changes describe the published2802 hotfix with native
 acceptance still open.
 Home, Features, commands, items, zones, catalog values and unrelated release
 labels retain their scope. Global source drift remains review work, not a reason
-to advance unrelated historical pins. Public wiki publication remains pending.
+to advance unrelated historical pins. Wiki20261028-bazaar-startup-hotfix-v1 is published: three changed files,496
+retained. All499HTTPS hashes/security headers and five private404routes verify;
+16Linux publication/recovery tests and rollback rehearsal pass. All141client
+HTTPS assets, signature and actual DLL/catalog pair also verify (281339859bytes).

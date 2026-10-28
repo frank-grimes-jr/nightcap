@@ -9,7 +9,9 @@ the two stock FrameTemplate references. Seven Bazaar regressions (including two
 RED/GREEN additions), six gameplay asset tests and five UI tests pass. The candidate
 changes only these two XML elements and retains the deployed SoulFire DLL/catalog.
 Owner-authorized signed client2026102802 is published with one changed XML and
-140 retained descriptors. A fresh login and native Bazaar acceptance remain pending.
+140 retained descriptors. All141HTTPS assets/signature/pairing verify. Wiki
+20261028-bazaar-startup-hotfix-v1 and all499publicfiles verify (three changed,
+496retained). A fresh login and native Bazaar acceptance remain pending.
 No server restart or player-data change is needed. Evidence and exact QA:
 docs/bazaar/seller-panel/startup-crash-20261028/README.md.
 
