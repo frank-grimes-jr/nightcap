@@ -1,10 +1,11 @@
 # High Keep prison-break QA
 
-Candidate, not deployed. No owner gameplay/balance acceptance has been claimed.
+Deployed and enabled; reverified October27. No rescue runs or owner gameplay/
+balance acceptance have been recorded. Installation checks do not replace this QA.
 
 ## Player route
 
-1. Start a new High Keep **Raid** after activation. At the entrance, hail the
+1. Start a new High Keep **Raid**. At the entrance, hail the
    Gate Sergeant, choose **We're the relief detail**, then **We're here to see
    Osargen**. The replies should grow suspicious; the last choice sounds the
    alarm and guards immediately consider all participants and pets hostile.
