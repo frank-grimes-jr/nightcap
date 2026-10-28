@@ -60,12 +60,14 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
-- **High Keep rescue candidate (October24, not deployed):** new opted-in Raid runs
+- **High Keep rescue deployed October25; reverified October27:** new opted-in Raid runs
   use `zone/highkeep_rescue.inc` and additive `nightcap_highkeep_*` storage. Pair
-  zone/schema; keep the activation flag off until verified. Completion requires
+  zone/schema; revision2026102401 is enabled. Completion requires
   personal four-boss credit plus Osargen extraction. Preserve run/receipt state;
   never downgrade to old completion code over active rescue runs. Scope, exact
-  player QA and recovery: `docs/dungeons/highkeep-rescue/`.
+  player QA and recovery: `docs/dungeons/highkeep-rescue/`. Current runtime,
+  schema, map/navigation and source pairing pass read-only verification;
+  no rescue runs or owner gameplay/balance acceptance are recorded yet.
 
 
 - **Cooldown identities (deployed October 18 via PR223; gameplay QA open):** AA reuse belongs

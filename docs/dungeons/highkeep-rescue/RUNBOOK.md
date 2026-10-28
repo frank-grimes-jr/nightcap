@@ -1,8 +1,14 @@
-# High Keep prison-break candidate
+# High Keep prison break — live testing
 
-2026-10-24. Implemented for review; not installed or activated. The user requested
-the encounter redesign, not production promotion. Keep native gameplay acceptance
-separate from source, build, database and map evidence.
+Deployed on October25 in the owner-authorized coordinated release, preserved by
+the October26 Bazaar/grip runtime. October27 read-only verification confirms the
+feature is already on main and live: revision2026102401 enabled, exact native
+schema checks, all12 zone workers, health and reviewed map/navigation assets pass.
+The owner's October27 approval required no additional rollout or restart.
+No rescue runs have been enrolled yet; gameplay and balance acceptance remain open.
+Current evidence: `live-verification-20261027-v3.json`; original activation:
+`docs/releases/october-24-coordinated/open-receipt.json`; current runtime pairing:
+`docs/bazaar/seller-panel/deployed.json`.
 
 ## Release unit
 
@@ -71,9 +77,15 @@ escorts return to the cell after reboot; alarm and boss deaths remain. Death or
 - `navigation.json`: native FindRoute connects all four legs in both directions
   using normal path flags, with no partial paths or teleport links. Actual
   movement through doors and combat remains an in-game check.
-- `native-build-manifest.json`: full zone build passed, SHA-256
+- `native-build-manifest.json`: historical October24 candidate build passed, SHA-256
   `dad1c575286b2dd40bf5ec775f50a703fb39613aa2f934950c8a32b60b1d3b50`;
-  retained source matches the final changed files. Isolated; never installed.
+  retained source matches that candidate. This older binary must not replace the
+  current live release. The current zone is `ac6656e2a692d317` and preserves later
+  native changes; see the dated live verification and retained ELF identity proof.
+- `live-verification-20261027-v3.json`: source-to-build/runtime identity chain,
+  running workers, enabled flag, exact loader schema checks, map/navigation hashes,
+  zero enrolled rescue runs and unchanged service lifetimes. Read-only; no new
+  deployment and no claim of native gameplay acceptance.
 
 `tools/build_highkeep_candidate.py` verifies the retained Chapterhouse source
 manifest before building. All seven edited pre-existing native files also match

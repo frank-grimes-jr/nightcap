@@ -1,6 +1,8 @@
 # High Keep: The Prison Break
 
-Candidate, 2026-10-24. Source baseline origin/main ebeb6591; not deployed.
+Design originated October24 at origin/main ebeb6591. Deployed October25 and
+reverified live October27; gameplay and balance acceptance remain open. See
+`live-verification-20261027-v3.json` and RUNBOOK.md for the current release pairing.
 Integrated main7fe3a783's subsequent Hole release evidence; the native baseline
 is unchanged. Final full zone build and scoped tests pass; gameplay QA is open.
 The final candidate also integrates reviewed dev06899051's aggro departure and

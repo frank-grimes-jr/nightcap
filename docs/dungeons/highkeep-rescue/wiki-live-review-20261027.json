@@ -1,0 +1,254 @@
+{
+  "result": "PASS",
+  "verified_at": "2026-10-28T01:32:04.761930+00:00",
+  "release": "20261026-bazaar-grip-v1",
+  "articles_reviewed": [
+    {
+      "slug": "about",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "advanced-loot",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "ascension",
+      "sha256": "cb93132b66617aed7acc0ad506aec9b6bd32ab4df2ec5d9440fecab8eac4b212",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "ashen-compact",
+      "sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "build-lab",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "camil-vigil",
+      "sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "combat",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+      "decision": "Existing live High Keep guidance reviewed; no prose change"
+    },
+    {
+      "slug": "commands",
+      "sha256": "a59bff2b99e4bd91bef45718a76f4e209e1cabf01cbd2baf993be8f9c805c4c1",
+      "decision": "Existing live High Keep guidance reviewed; no prose change"
+    },
+    {
+      "slug": "dungeon-modes",
+      "sha256": "4216e0b3aaa77bc5a9b28a7279e40b581ab467667cec3b5ec3e47e42b9ddbe52",
+      "decision": "Existing live High Keep guidance reviewed; no prose change"
+    },
+    {
+      "slug": "equipment",
+      "sha256": "2359e8d2c086238231ac72f215949e52540b5ed0b2334ea05f22f02a56f3a251",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "features",
+      "sha256": "7055d144bfad88df5e7f62ff26b788026831f626dcda0aa5b398bb4c0dfd166e",
+      "decision": "Existing live High Keep guidance reviewed; no prose change"
+    },
+    {
+      "slug": "getting-started",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "index",
+      "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-960420",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-960421",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-960422",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-960423",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-960424",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-960425",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961020",
+      "sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961021",
+      "sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961022",
+      "sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961023",
+      "sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961030",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961031",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-961032",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-990510",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "item-upgrades",
+      "sha256": "30e2f20699cea96dbea81052bcbc235d228c033f751b7623872a3d0a9d3652c0",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "launcher",
+      "sha256": "6582a3d8ec6d9252f3e46eab5922865b2a2a2295f6baf44a958c2c997a296491",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "loot-finder",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "multiclass",
+      "sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "pets",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "recent-changes",
+      "sha256": "066629b8323b5d938282dac8717a758ac7aa057a9303db74e7391cc2543f0b3d",
+      "decision": "Existing live High Keep guidance reviewed; no prose change"
+    },
+    {
+      "slug": "tradeskills",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "travel",
+      "sha256": "1eb4c05d5c41af21737a6d304f59d31dd8ca1479c3a50bfa6d6f335a4c3d0c68",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "tunnel",
+      "sha256": "8b62a3f8a89c9a48b289605bc0c8ffbe7fc15a1ad36b370e5b5fa69aaaae11bf",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "unreleased",
+      "sha256": "33fc53a0491e1c47a43aca3314fdd360cc6400ac2b4a19655b4108bebdd184fe",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "waypoints",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "zone-hunt",
+      "sha256": "9194cea399c35748c60e9e32b629f8f13f755879e387e1403e5749075fc964e9",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    },
+    {
+      "slug": "zone-kael",
+      "sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada",
+      "decision": "No impact: verification/status correction changes no player mechanics, commands, rewards or acquisition"
+    }
+  ],
+  "public_pages_verified": [
+    {
+      "path": "dungeon-modes.html",
+      "sha256": "9c17aef6f43d83856d66a9e09293e1fad21bcd3b814ce2dcc99d92f58f6ee454",
+      "status": 200
+    },
+    {
+      "path": "combat.html",
+      "sha256": "2cf48623a36eb66fedff37f45fc14e7214a3706ae8bce77878cd73efe6a1fd0e",
+      "status": 200
+    },
+    {
+      "path": "commands.html",
+      "sha256": "3603c908ec0d700e4ccd4994e118cc179bdf0a006457abb91912b517f5294ca0",
+      "status": 200
+    },
+    {
+      "path": "features.html",
+      "sha256": "4ca151ed0956187cdd507e7ed6844588d20843ed91af360970884583be817eba",
+      "status": 200
+    },
+    {
+      "path": "recent-changes.html",
+      "sha256": "eabfa5cf9bd5e2699a188d088e2edefc83e74f8ecf6ae93bce2c17107a0fe929",
+      "status": 200
+    },
+    {
+      "path": "zone-highkeep.html",
+      "sha256": "0a91f41c6a24218a1aa625977d5bda25ccb994bc6dfbc0a6c5c3ea81559f40e7",
+      "status": 200
+    },
+    {
+      "path": "index.html",
+      "sha256": "ba60169ab6a2d38be2ff5779f993bc7c4d1a3fbbfd5883342cb27aa570794426",
+      "status": 200
+    },
+    {
+      "path": "search-index.json",
+      "sha256": "ce6a250bcbfc31f21447b25e4ba278c958fde8d82c79a1072345b95db1a66f0f",
+      "status": 200
+    }
+  ],
+  "generated_catalog_change": false,
+  "home_features_commands_reviewed": true,
+  "published_payload_changed": false,
+  "global_ledger": "Historical drift remains separately scoped; not blindly advanced",
+  "scope": "Live-state reconciliation only; no gameplay, reward or website mutation"
+}
