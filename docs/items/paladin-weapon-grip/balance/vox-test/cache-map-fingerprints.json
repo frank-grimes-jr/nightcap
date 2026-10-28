@@ -1,0 +1,12 @@
+{
+  "shared/items": "035296673541b415ed0c4692191841401fee800ef814d81d12657e5b09073688",
+  "shared/spells": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf",
+  "shared/items.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "shared/spells.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "maps/water/permafrost.wtr": "22197ee83b70fa3f3985744d0501867f11cfa9f46d7c9f96d8082e260062fc34",
+  "maps/water/soldungb.wtr": "f0a36861a463e0eef7210a931ad8ddc240d6f1617823264fd093903d88c72d8b",
+  "maps/nav/soldungb.nav": "7e67452811450a5f3e297a0f9b6467212e0b84efc57efe60c144fa2208add06f",
+  "maps/nav/permafrost.nav": "1812706e8d1838ccb633fbba16b1d376f8fd9834a77355523e70aa3f85e1086a",
+  "maps/base/permafrost.map": "bd5c236151331ec667f9b4441c87f2cc5a429ee4324a5dbe250f745ea5099f7d",
+  "maps/base/soldungb.map": "6457a51f76aa7d6a4ebff4b7fa7ca1ed79edeb473b3cf09154e736fbd95bb108"
+}

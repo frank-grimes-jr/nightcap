@@ -60,6 +60,20 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Same-ID Paladin grip definitions need the matching RoF2 client repair.** The
+  native parser caches by item ID and can retain 2HS despite the server's 1HS
+  message. Candidate proxy 0.13.1 preserves per-instance definitions for the ten
+  supported IDs; equipped toggles also refresh weapon stances. Do not treat packet
+  serialization tests as proof of native shield/equipment behavior. October27
+  failed owner QA, exact native regression and unpublished repair status:
+  `docs/items/paladin-weapon-grip/client-refresh/README.md`. The follow-on balance
+  candidate uses ten explicit damage/delay profiles and four Ascended reward
+  scripts; fresh target stats and tier-aware helper must pass preflight. Require the
+  paired client/server release. October28 now implements direct Ascended Defender,
+  assessed stats and a free exact-instance legacy exchange; other classes retain
+  their paid forge. Monk AAs remain unchanged. See
+  `docs/items/paladin-weapon-grip/balance/README.md`.
+
 - **High Keep rescue candidate (October24, not deployed):** new opted-in Raid runs
   use `zone/highkeep_rescue.inc` and additive `nightcap_highkeep_*` storage. Pair
   zone/schema; keep the activation flag off until verified. Completion requires

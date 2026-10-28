@@ -1,0 +1,57 @@
+{
+  "archive_sha256": "8bccc51b4c4dfeb49e33780fef0496d836279f7052d04c67b399dc3d6566edd9",
+  "archive_size": 27518449,
+  "manifest_sha256": "a1afa9d61e93784804a702d85cdc13634b58cb5b62ab9e7823b3599c4218be70",
+  "members": 29,
+  "runtime_identity": {
+    "zone": {
+      "status": "PASS",
+      "allocated_sections": 30,
+      "program_headers": 14,
+      "original_sha256": "b875362117a93b6ef24caf0e0458f4e911ed1854f682dce25f6608f14313619a",
+      "sha256": "9e1a8148976ad6eb5431d3afa3b7efd630e6c9009de0aadb45444b7d797171ad",
+      "original_size": 319524640,
+      "size": 52793872
+    },
+    "world": {
+      "status": "PASS",
+      "allocated_sections": 30,
+      "program_headers": 14,
+      "original_sha256": "7699f1ee74c32374b58fcef3ae7c2b0c40d8f11e9ff99f11c36e5360d871f74a",
+      "sha256": "3ef3cea9f0db20835a88a8f3b5ee7f3228c465b5007b853e7d14e48da19a9568",
+      "original_size": 95508808,
+      "size": 18399752
+    },
+    "shared_memory": {
+      "status": "PASS",
+      "allocated_sections": 30,
+      "program_headers": 14,
+      "original_sha256": "493d18feb8b3ec321c8950d9c4af0e3c7254fee25d3b9ef4b60b2ef2e16120fe",
+      "sha256": "85a466a9f23946504b5c6417870d51d68ec07e148864a00aa2c9db312a39ec47",
+      "original_size": 41811872,
+      "size": 11746480
+    }
+  },
+  "client_assets": {
+    "dinput8.dll": {
+      "sha256": "ed2bc86a5bc026911bf41d9b21e5e74e68f862ab732f63121a50cc52ddc2db87",
+      "size": 650240
+    },
+    "nightcap-patch-sites.json": {
+      "sha256": "b9fcd843ba30f3490bd42a735f14c103bb0bdaf574e9bbe88e237fba09eb4dc6",
+      "size": 10353
+    },
+    "nightcap-patches.cfg": {
+      "sha256": "2f837e4724c64beabc75786a1a095d847c22eff9144668fa29e1130d35cd3e0e",
+      "size": 349
+    }
+  },
+  "public_reference_check": {
+    "canonical_weapons": 10,
+    "reward_scripts": 4,
+    "epic_compatibility_scripts": 3,
+    "dispatch_paths": 7,
+    "result": "PASS"
+  },
+  "production_changes": false
+}

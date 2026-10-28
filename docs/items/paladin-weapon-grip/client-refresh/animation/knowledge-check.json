@@ -1,0 +1,1358 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "client": [
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\pet_management.h",
+        "role": "client roster/native availability contract",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\server-mods\\code\\zone\\client_class_pets.cpp",
+        "role": "server pet lifecycle and command ownership",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\advanced_loot_state.h",
+        "role": "acknowledged client loot state",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\client_merchant_ui.py",
+        "role": "generated merchant SIDL",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\merchant-sell-all-20261012.md",
+        "role": "merchant button owner resolution October 13; initial signed 2026101201 publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\darthy-pet-crash-20261011.md",
+        "role": "register contract and scoped owner confirmation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\blessing-lifetime-20261004\\README.md",
+        "role": "native -1000 versus icon -1",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\karl-rescue-20261012.md",
+        "role": "Karl server rescue and screenshot-confirmed commons client failure; installation and QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\artifacts\\karl-rescue-20261012\\commons-package-validation.json",
+        "role": "manual two-archive package integrity evidence; no remote installation or signed publication",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\early-spell-scribing-20261012\\README.md",
+        "role": "candidate pairing, recovery and exact owner QA; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\early-spell-scribing-20261012\\verification.json",
+        "role": "compiled native and client evidence; in-game acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\early-spell-scribing-20261012\\client-receipt.json",
+        "role": "signed publication and service preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\early-spell-scribing-20261012\\hosted-verification.json",
+        "role": "public HTTPS signature and 105 exact files",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\early-spell-scribing-20261012\\deployment\\client\\stage\\publish.py",
+        "role": "atomic channel-last publisher",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\early-spell-scribing-20261012\\deployment\\client\\test_publish.py",
+        "role": "twelve publication recovery tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\patch-notes.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\cmd\\nightcap-package\\notes_test.go",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\deployment\\client\\test_publish.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\deployment\\client\\verify-production.go",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\server-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\client-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\hosted-verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\trainer_hooks.h",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\trainer-native.cpp",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-trainers-20261012\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\build-manifest.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\client-diff.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\client-native-gates.txt",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\client-receipt.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\client-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\test_publish.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\verify-production.go",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\final-health.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\manifest.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\rollout.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\test_rollout.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\final-health.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\hosted-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\legacy-tag-restored.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\local-client-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\preflight-summary.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\production-probe.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\server-receipt.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\server-report.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\server-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-skills-20261013\\verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-tbs-level1-20261013\\sign-notes.go",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-tbs-level1-20261013\\publish-notes.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-tbs-level1-20261013\\hosted-notes-verification.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-class-ranks-20261013\\sign-notes.go",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-class-ranks-20261013\\publish-notes.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-class-ranks-20261013\\test_publish_notes.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-class-ranks-20261013\\notes-published.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-class-ranks-20261013\\hosted-notes-verification.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\tradeskill_hooks.h",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\tradeskill_repeat.h",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\ui-hooks.cpp",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\tradeskill-repeat.cpp",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\client_tradeskill_ui.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\stage_tradeskill_client.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_client_tradeskill_ui.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\README.md",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\client-audit.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\verification.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\deployment.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\hosted-verification.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\signed-release-audit.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\publication-diff.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\deployment\\client\\test_publish.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\tradeskills\\deployment\\client\\verify-production.go",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\equipment_scope.h",
+        "role": "held-class item/thread/flag projection with zero-mask preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\equipment-native.cpp",
+        "role": "78 exact-client checks using real native race/slot/weapon and inspection instructions",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\equipment-scope.cpp",
+        "role": "4096 primary/held/item combinations and scope controls",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-equipment-20261015\\README.md",
+        "role": "published client and owner-confirmed javelin use; separate race follow-up",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-equipment-20261015\\verification.json",
+        "role": "native/build/review and hosted evidence; gameplay pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\permanent-patcher.md",
+        "role": "client publication guards, nested-directory durability and interrupted-upload recovery",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-equipment-20261015\\deployment\\client\\test_publish.py",
+        "role": "13 publication/recovery tests including nested fsync order",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-equipment-20261015\\deployment.json",
+        "role": "authorized publication, exact unchanged services, source and expiry",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-equipment-20261015\\hosted-verification.json",
+        "role": "106 public assets and shipped-key signature verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\multiclass-equipment-20261015\\deployment\\client\\stage\\publish.py",
+        "role": "guarded channel-last publisher; deepest-first directory fsync",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\server-mods\\code\\zone\\spells.cpp",
+        "role": "reviewed signed item/linked duration and zero custom/linked completion; preserved deployed AA duration and proc guards; candidate only",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-temporary-buffs-20261015\\README.md",
+        "role": "deployed behavior, client/reload pairing, recovery and pending owner QA",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-temporary-buffs-20261015\\verification.json",
+        "role": "thirty behavior checks and deployed receipt boundary",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-temporary-buffs-20261015\\deployment.json",
+        "role": "verified OVH running hashes, backup, data preservation and unchanged client",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-temporary-buffs-20261015\\deployment\\README.md",
+        "role": "release-specific authorization and guarded operation/recovery",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\README.md",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\verification.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\sign-notes.go",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\publish-notes.py",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\test_publish_notes.py",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\published.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\hosted-verification.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\dungeon-patcher-20261017\\layout-verification.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\monk_reuse.h",
+        "role": "six per-skill records, guarded native methods and SEH submission scope; not published",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\monk-reuse-native.cpp",
+        "role": "60 exact-native reuse and submit/commit checks with controlled combat boundaries",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\monk-independent-reuse-20261017\\README.md",
+        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\cooldown-audit-20261017\\README.md",
+        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\ui_state.h",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\aa-recommendations.cpp",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\aa-recommendations-native.cpp",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\recommended-aa-20261017\\README.md",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\recommended-aa-20261017\\verification.json",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\october-17-2026\\README.md",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\october-17-2026\\QA.md",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\october-17-2026\\production-verification.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\october-17-2026\\hosted-client-verification.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\october-17-2026\\wiki-publication.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\aa-reuse-native.cpp",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\cooldown-identities-20261017\\README.md",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\cooldown-identities-20261017\\native-aa-test.txt",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\assets\\client-zone-archives.json",
+        "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\client_zone_archives.py",
+        "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_client_zone_archives.py",
+        "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\cmd\\nightcap-package\\gameplay.go",
+        "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\cmd\\nightcap-package\\gameplay_test.go",
+        "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\assets\\zone_repair_test.go",
+        "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\installer\\zone_repair_test.go",
+        "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\client-zone-validation-20261018\\README.md",
+        "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\client-zone-validation-20261018\\hosted-verification.json",
+        "role": "October18 published client archive repair; Karl West Commonlands owner-confirmed; broader travel QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\cooldown-identities-20261017\\deployment\\client-compatibility.json",
+        "role": "Reviewed cooldown deployment, recovery or guide evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-parity-20261018\\deployment\\hosted-verification.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-parity-20261018\\deployment\\publish_client.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-parity-20261018\\deployment\\test_publish_client.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-pet-scaling-20261018\\evidence\\client-stage.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\wpm-melee-20261018\\evidence\\client-stage.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\wpm-melee-20261018\\stage_client.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\pet_state.h",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\server-mods\\code\\zone\\client_pet_armor.cpp",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\server-mods\\code\\zone\\pet_armor.cpp",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_pet_hand_equipment.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\proxy_catalog.go",
+        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\proxy_catalog_test.go",
+        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\cmd\\nightcap-package\\main.go",
+        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\client-contract-20261019\\README.md",
+        "role": "October19 published contract repair; owner-confirmed Play on their PC; broader native QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\client-contract-20261019\\verification.json",
+        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\client-contract-20261019\\hosted-verification.json",
+        "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\client-contract-20261019\\owner-confirmation.json",
+        "role": "October19 owner-confirmed normal launcher Play on their PC; broader native QA open; no new wiki publication",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\thj_behavior_client.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_thj_behavior_client.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\build_classic_robes.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\classic_robe_geometry.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\classic-robes-requirements.txt",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\preview_classic_robes.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_classic_robes.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\classic-robes-native.cpp",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\adr\\0065-classic-race-robe-assets.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\README.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\QA.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\evidence.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\robe-audit.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\model_hooks.h",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\model_catalog.h",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\config\\classic-models.json",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\model-hooks.cpp",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\client_classic_models.py",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\generate-classic-model-contract.py",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_waypoint_model.py",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\cmd\\nightcap-package\\classic_models.go",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\cmd\\nightcap-package\\classic_models_test.go",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\proxy_catalog_test.go",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\testdata\\released-catalog-20261019.json",
+        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\candidate.json",
+        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\verification.json",
+        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\README.md",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\prepare.go",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\verify.go",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\publish.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\test_publish.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\deployment.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\hosted-verification.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\recovery.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\deployment\\release-record.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\integration.json",
+        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\client-inventory-plan.json",
+        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\promotion.json",
+        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\README.md",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\prepare.go",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\publish.py",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\test_publish.py",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\verify.go",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\deployment.json",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\ops\\waypoint-crystal-20261022\\deployment\\hosted-verification.json",
+        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\patch-notes.json",
+        "role": "Published game2026102202 notice and retained release history",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\README.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\evidence.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\robe-audit.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\README.md",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\prepare.go",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\verify.go",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\publish.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\test_publish.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\deployment.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\hosted-verification.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\recovery.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\waist-correction\\deployment\\release-record.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\classic_robes_skinning_native.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\README.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\evidence.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\native-checks.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\native-loader-disassembly.txt",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\preservation.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\README.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\prepare.go",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\verify.go",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\publish.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\test_publish.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\deployment.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\hosted-verification.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\recovery.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\deployment\\release-record.json",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\classic-robes-20261022\\native-skinning\\owner-acceptance\\owner-confirmation.json",
+        "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\aa-allocation-native.cpp",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-level-progression-20261023\\client\\hosted-verification.json",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-level-progression-20261023\\client\\publish.py",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\aa-level-progression-20261023\\client\\test_publish.py",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\build_warhelm_client.py",
+        "role": "Ashen Compact candidate: tools/build_warhelm_client.py",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\build_winged_helmet_client.py",
+        "role": "Ashen Compact candidate: tools/build_winged_helmet_client.py",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_warhelm_client.py",
+        "role": "Ashen Compact candidate: tools/tests/test_warhelm_client.py",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\quests\\warhelm\\client-manifest.json",
+        "role": "Ashen Compact candidate: docs/quests/warhelm/client-manifest.json",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\bazaar_panel_state.h",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\bazaar_panel_controller.h",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\bazaar_panel_hooks.h",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\ui_hooks.h",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\bazaar-panel.cpp",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\bazaar-panel-native.cpp",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\client_bazaar_ui.py",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\client_gameplay_assets.py",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_client_bazaar_ui.py",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\bazaar_panel_candidate_test.go",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\bazaar\\seller-panel\\client\\publish.py",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\bazaar\\seller-panel\\client\\test_publish.py",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\bazaar\\seller-panel\\client\\public-verification.json",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\bazaar\\seller-panel\\README.md",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\bazaar\\seller-panel\\QA.md",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\bazaar\\seller-panel\\evidence.json",
+        "role": "Reviewed combined live QA deployment; native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\README.md",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\evidence.json",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\review.json",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\patch_catalog.h",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\runtime_contract.h",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\config\\patch-sites.json",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\config\\nightcap-patches.cfg",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\paladin-grip-native.cpp",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\test_runtime.py",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\verify-exact-client-patch-sites.ps1",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\tests\\build-runtime-tests.bat",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\catalog.json",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-launcher\\internal\\preflight\\paladin_grip_candidate_test.go",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\generate-client-patch-catalog.py",
+        "role": "Reviewed October27 failed-owner-QA repair; local candidate only; full server build blocked; see client-refresh evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\balance\\README.md",
+        "role": "Reviewed October27 follow-up balance rejection; no code or deployment change",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\balance\\verification.json",
+        "role": "Reviewed October27 follow-up balance rejection; no code or deployment change",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\eq-client-dll\\src\\dllmain.cpp",
+        "role": "Reviewed October27 Paladin balance/reward candidate; not deployed; full native build blocked",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\server-mods\\code\\common\\paladin_weapon_grip.h",
+        "role": "Reviewed October27 Paladin balance/reward candidate; not deployed; full native build blocked",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\prepare_client.py",
+        "role": "Reviewed October27 Paladin balance/reward candidate; not deployed; full native build blocked",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\tools\\tests\\test_paladin_grip_animation.py",
+        "role": "October28 reviewed animation investigation; server selection passes, visual cause unresolved, production approval pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\animation\\README.md",
+        "role": "October28 controlled equipped1H/empty-offhand observation; current runtime verified, client rendering unresolved, no live writes",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\animation\\evidence.json",
+        "role": "October28 controlled equipped1H/empty-offhand observation; current runtime verified, client rendering unresolved, no live writes",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\releases\\hate-client-archives-20261028\\README.md",
+        "role": "October28 owner confirmed Palwar Hate entry after local archive repair; automatic delivery unpublished; broader gameplay QA open",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-26\\make\\work\\paladin-weapon-toggle\\docs\\items\\paladin-weapon-grip\\client-refresh\\animation\\production-check.json",
+        "role": "October28 controlled equipped1H/empty-offhand observation; current runtime verified, client rendering unresolved, no live writes",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

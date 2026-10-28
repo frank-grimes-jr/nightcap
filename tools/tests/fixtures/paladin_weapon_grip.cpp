@@ -70,6 +70,7 @@ struct Client {
  template<class... A> void Message(int,const char*,A...){ }
  void QuarantineItemTransfer(const char*){++quarantines;m_pet_armor_transfer_valid=false;client_data_loaded=false;}
  void SendItemPacket(int16,Item*,int){assert(database.queries==1);++packets;if(throw_packet)throw std::runtime_error("publish");}
+ int stance=-1; void ApplyWeaponsStance(){assert(bonuses>0);stance=m_inv.GetItem(13)->GetItem()->ItemType;}
  void CalcBonuses(){++bonuses;} void SetAttackTimer(){++timers;} void SendWearChange(int){++wear;}
  bool TogglePaladinWeaponGrip(int32 slot_id);
 };
@@ -86,9 +87,11 @@ int main() {
    assert(sword.data.ItemType==0 && sword.metadata==std::string(Key)+"^1^");
    assert(sword.id==id && sword.charges==5 && sword.color==7 && sword.attuned && sword.augment==&aug);
    assert(c.packets==1 && c.quarantines==0 && c.bonuses==(slot==13));
+   assert(c.stance==(slot==13?0:-1));
    database={};database.observed=&sword;database.expected=sword.metadata;
    assert(c.TogglePaladinWeaponGrip(slot));
    assert(sword.data.ItemType==1 && sword.metadata.empty() && c.packets==2);
+   assert(c.stance==(slot==13?1:-1));
   }
  }
  Item sword,offhand; Client c;c.m_inv.slots[13]=&sword;c.m_inv.slots[14]=&offhand;

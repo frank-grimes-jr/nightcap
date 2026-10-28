@@ -1,0 +1,32 @@
+{
+  "preserved": [
+    {
+      "source": "/opt/nightcap/releases/rogue-tomes-20261024/bin/zone",
+      "archive": "/opt/nightcap/releases/rogue-tomes-20261024/bin/zone.paladin-release-preserved-20261028.gz",
+      "source_sha256": "75e0c7c3a8dbc42b87e09cd60ba350ce0c37b2a2c31771934665aa88fc3061df",
+      "archive_sha256": "6b8112b1ae88704326c31da740b61f07983a0b30463354cd34ecb1dc8ef13a9c",
+      "source_bytes": 317463984,
+      "archive_bytes": 101823061,
+      "mode": 493,
+      "uid": 0,
+      "gid": 0,
+      "restoration": "Decompress to exclusive temp; verify source_sha256; restore recorded mode/owner; rename to original before using old staging operator.",
+      "backups_images_player_data_unchanged": true
+    },
+    {
+      "source": "/opt/nightcap/releases/october-24-coordinated-20261024/bin/zone",
+      "archive": "/opt/nightcap/releases/october-24-coordinated-20261024/bin/zone.paladin-release-preserved-20261028.gz",
+      "source_sha256": "a139726f72960c8966df235088b52d77aca6ac3b6e0d01b50dfae4cba1f1e35b",
+      "archive_sha256": "eee98691be33cc8455d2cfd13c48c35e1e22274068572fa00164a8d1343d698e",
+      "source_bytes": 318074240,
+      "archive_bytes": 101986108,
+      "mode": 493,
+      "uid": 0,
+      "gid": 0,
+      "restoration": "Decompress to exclusive temp; verify source_sha256; restore recorded mode/owner; rename to original before using old staging operator.",
+      "backups_images_player_data_unchanged": true
+    }
+  ],
+  "disk_free": 1071460352,
+  "services_images_unchanged": true
+}

@@ -21,6 +21,7 @@
 #include "common/data_verification.h"
 #include "common/item_instance.h"
 #include "common/nightcap_melee.h"
+#include "common/paladin_weapon_grip.h"
 #include "common/rulesys.h"
 #include "common/spdat.h"
 #include "zone/client.h"
@@ -170,6 +171,20 @@ void Mob::CalcItemBonuses(StatBonuses* b) {
 		) {
 			SetTwoHanderEquipped(true);
 		}
+	}
+
+	// Primary weapon plus a real equipped shield only. Recomputed from zero by
+	// CalcBonuses; never apply to carried weapons, augments, or tribute items.
+	const auto *primary = GetInv().GetItem(EQ::invslot::slotPrimary);
+	const auto *secondary = GetInv().GetItem(EQ::invslot::slotSecondary);
+	if (IsClient() && primary && secondary && primary->IsClassCommon() && secondary->IsClassCommon() &&
+		primary->GetItem() && secondary->GetItem() &&
+		primary->GetItem()->ItemType == EQ::item::ItemType1HSlash &&
+		secondary->GetItem()->ItemType == EQ::item::ItemTypeShield &&
+		CastToClient()->CanEquipItem(primary->GetItem()) && CastToClient()->CanEquipItem(secondary->GetItem()) &&
+		GetLevel() >= primary->GetItemRequiredLevel(true) && GetLevel() >= secondary->GetItemRequiredLevel(true)) {
+		const auto *profile = NightcapPaladinGrip::FindProfile(primary->GetID());
+		if (profile) { b->ShieldBlock += profile->shield_block; }
 	}
 
 	if (CanThisClassDualWield()) {

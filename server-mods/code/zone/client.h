@@ -530,6 +530,7 @@ public:
 	bool LoadPetArmor();
 	void QuarantineItemTransfer(const char *message);
 	bool TogglePaladinWeaponGrip(int32 slot_id);
+	bool AscendPaladinEpic();
 	void ZoneForge(const std::string &request_id);
 	std::map<std::string, std::vector<std::pair<int16_t, uint32_t>>> m_zone_forge_quotes;
 	NPC *GetArmorPet(uint8 pet_class);
