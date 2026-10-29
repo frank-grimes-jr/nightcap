@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-29",
+  "reviewer": "independent agent hate_review",
+  "scope": "Rollout operator, SQL sequencing, immutable receipts, preservation boundaries and paired client admission gate",
+  "operator_sha256": "3f79d3833e431dc33c3e6f6323f950e3da328ec8924e26b7f7c2823641d05850",
+  "tests_sha256": "b993b07f7812eca0df532f2b14e289a130ad387ae37b0570e611a013b9bcce8c",
+  "status": "no blocking findings in reviewed operator",
+  "linux_tests": {
+    "passed": 41,
+    "seconds": 1.694,
+    "environment": "local akk-stack-eqemu-server-1 Python; all external runtime, SQL and publication calls mocked; real POSIX ownership and directory fsync",
+    "failed": 0,
+    "count": 41
+  },
+  "windows_tests": {
+    "passed": 40,
+    "note": "Before final staged-contract binding regression; POSIX ownership and directory fsync mocked",
+    "count": 40
+  },
+  "resolved_findings": [
+    "Bind manifest contract path and digest to the authenticated staged runtime-contract.json; regression passes"
+  ],
+  "verified": [
+    "Preflight does not stop services or write gameplay state",
+    "Both game and gateway stop before fresh backup and additive content installation",
+    "Empty owned scope and public preimages are checked before SQL",
+    "SQL started receipt precedes execution; uncertainty blocks replay",
+    "Full post-install contract and player snapshot must match before quests or boot",
+    "Complement row fingerprints and schemas preserve unrelated owned-table content",
+    "Partial quest install or start failure holds both services",
+    "Old-binary recovery and player snapshot restoration are not available",
+    "Separate open requires exact new client channel, unchanged other publications and verified runtime/state",
+    "Uncertain gateway opening is held and cannot replay"
+  ],
+  "limitations": [
+    "Offline fault injection does not prove a production host or database preimage",
+    "Signed client publication, wiki publisher and rollout bundle were outside this operator review",
+    "Owner gameplay QA remains required after deployment"
+  ],
+  "production_actions_performed": false,
+  "disk_guard_resume": {
+    "script_sha256": "fee17388246501f338b5b779b40c277fbe10ae9756f2f57cf4137fad1d9ec0d8",
+    "tests_sha256": "74d8898eb5ad9f5e0bc80f7d9e5a3b148507c8e6a3d3a1fb551ae9143a424b93",
+    "linux_tests": 6,
+    "passed": 6,
+    "seconds": 0.394,
+    "compile": "passed",
+    "status": "no blocking findings; prepared only, production execution belongs to parent",
+    "pins": "exact failed log, started receipt, manifest, original operator, completed candidate image",
+    "preservation": "original failed evidence retained; no rebuild, service transition, content installation or publication",
+    "archive_script_sha256": "1caf054be0f42cbf49e3a0e3f09ac47e095a969adaa94c7a378e9f97efc757c3",
+    "archive_review": "one pinned unmounted historical Hate Keeper staging executable, gzip roundtrip, source restat and durable restore receipt before unlink; container identity sets and images checked"
+  },
+  "final_verifier": {
+    "script_sha256": "a322394f03156a72c3348c82ff8cb81796618265c2497f0b096c5bc96b8e9217",
+    "tests_sha256": "2a2bc946ec5adab0ee59275dc168ba60f6803fc567170c6f261d8504e557f86f",
+    "linux_tests": 4,
+    "passed": 4,
+    "seconds": 0.828,
+    "compile": "passed",
+    "contract_expected": {
+      "content": 650,
+      "schema": 51
+    },
+    "scope": "Exact signed148-file channel hash and sevennewassets,499wiki files,12zoneworkers and other nativeprocesses, runtimefiles,content/cache/quest preservation and activationguard service lifetimes",
+    "post_open_player_state_comparison": false,
+    "empty_scope_preflight_called": false,
+    "production_execution_by_reviewer": false,
+    "status": "prepared and tested; parent executes after wiki publication"
+  }
+}

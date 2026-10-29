@@ -1,0 +1,119 @@
+{
+  "action": "open",
+  "receipt": {
+    "runtime": {
+      "image_id": "sha256:0dec2bfc8b2e83a30301c2fc203c5688d44a2b39cf354b5e0e0b2ba8ed38f9dd",
+      "started_at": "2026-10-29T14:34:01.172258115Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "670cb11ba9f79c2e44e661250a711a144ffeb79682086d5dd2fe2447a2a3ff9d"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ],
+        [
+          "zone",
+          "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "game": {
+      "id": "2a51a3bae8f586813694aa9197ef6317e08c93c817fe7c71e1ddfb07f0df6e36",
+      "image_id": "sha256:0dec2bfc8b2e83a30301c2fc203c5688d44a2b39cf354b5e0e0b2ba8ed38f9dd",
+      "started_at": "2026-10-29T14:34:01.172258115Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "market": {
+      "before": [
+        "1",
+        "1",
+        "101",
+        "0",
+        "4",
+        "2.500000",
+        "2026-10-28 16:52:15"
+      ],
+      "after": [
+        "1",
+        "1",
+        "102",
+        "0",
+        "4",
+        "2.500000",
+        "2026-10-29 14:34:16"
+      ],
+      "offers": 42,
+      "capacity": 44
+    },
+    "state_tables": 102,
+    "checks": {
+      "schema": 51,
+      "content": 650
+    },
+    "recovery": false,
+    "gateway_open": true,
+    "database_restored": false,
+    "owner_gameplay_accepted": false,
+    "client_update_required": true
+  },
+  "free_bytes": 710008832
+}

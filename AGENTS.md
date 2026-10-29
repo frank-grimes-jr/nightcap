@@ -60,6 +60,20 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Hate ground-level layout deployed October29; owner QA open.** Main PR362
+  (`8b23d739`) and the paired OVH release route new Commonlands Keeper runs to
+  hateplaneb186, preserving original Nightcap encounter/loot/XP/Hunt identities.
+  Existing unexpired hateplane76 runs continue in76; both share dungeon index19
+  and tasks9738/9739. Keep original respawn variance and earned history. Private186
+  replaces stock spawns and excludes later-era quest hooks; public spell routes
+  stay unchanged. Signed client2026102901 includes seven terrain/model assets;
+  fully exit EQ and use launcher Play. All 148 assets,51 schema/650 content checks,
+  12 workers and102 saved-state tables verify. Wiki20261029-hate-layout-v1 and
+  all 499 HTTPS files verify. Do not remove successor content or
+  downgrade to code unaware of186 after activity; use a paired forward repair,
+  never a player snapshot restore. Deployment, disk preservation and owner QA:
+  `docs/dungeons/hate-layout-20261029/release/README.md` and its parent README.
+
 - **Paladin grip repair deployed October28, gameplay QA open.** Main PR352,
   signed client2026102801/proxy0.13.1 and the paired OVH binaries/seven quests
   repair native same-ID item cache retention. Fully exit EQ before launcher
