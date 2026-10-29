@@ -22,6 +22,19 @@ struct DeathEligibility {
 	int level, minimum_level;
 };
 
+// A real spawn (including a private dungeon spawn), not a temporary scripted
+// actor, service class, merchant, invisible controller or protected NPC.
+inline bool RegularCombatSpawn(uint32_t spawn, int npc_class, uint32_t merchant, int body, bool protected_npc)
+{
+	return spawn && npc_class >= 1 && npc_class <= 16 && !merchant && !protected_npc &&
+		body != 11 && body != 60 && body != 66 && body != 67;
+}
+
+inline bool AugmentDeathEligible(const DeathEligibility &e, bool regular_combat)
+{
+	return e.enabled && e.classic && e.version_zero && !e.owned && !e.restored && regular_combat;
+}
+
 inline bool BeginDeathRoll(bool &rolled, const DeathEligibility &e)
 {
 	if (rolled || !e.enabled || !e.classic || !e.version_zero || !e.native_source ||
