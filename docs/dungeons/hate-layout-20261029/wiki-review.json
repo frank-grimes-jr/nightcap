@@ -76,7 +76,7 @@
       "path": "wiki/articles/features.json",
       "title": "Features",
       "before_sha256": "3bda9f248ff8eb4445399971788ca4edd869a2c51a1fd7c666437eaee7e9fe1b",
-      "after_sha256": "63ed673926b524a34ec02c05be6e5df97ae42e81822fd663eb65978429e4cf23",
+      "after_sha256": "6b907f27c1fa3a9ee90969d76b4f4f6c8108fbda85e1822d7e54b0ef63a56075",
       "decision": "Added explicit unreleased Hate layout scope; live instructions retained."
     },
     {

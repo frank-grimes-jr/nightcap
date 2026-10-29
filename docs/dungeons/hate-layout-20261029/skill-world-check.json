@@ -1,9 +1,14 @@
 {
   "topic": "world",
-  "scope": "read-only installed-skill check; existing historical drift retained",
-  "total_entries_checked": 329,
+  "scope": "read-only installed-skill check; historical drift retained",
+  "total_entries_checked": 330,
   "historical_drift_count": 9,
   "candidate_entries": [
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\README.md",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
     {
       "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\CHANGES.md",
       "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
@@ -131,6 +136,11 @@
     },
     {
       "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_hate_layout_migration.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\native-build\\manifest.json",
       "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
       "state": "unchanged"
     }

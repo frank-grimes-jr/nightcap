@@ -55,7 +55,8 @@
     "test_wiki_and_test_refresh": 19,
     "passed": true,
     "whole_article_impact_review": 40,
-    "historical_source_drift": "review required; unrelated pins retained"
+    "historical_source_drift": "review required; unrelated pins retained",
+    "final_preview_grouping_and_links": 2
   },
   "go": {
     "command": "go test ./cmd/nightcap-package ./internal/...",
@@ -66,10 +67,10 @@
   "staged_unsigned_hate_files": 7,
   "native_navigation": "all176 private points and Book reachable;47 complete patrol routes; no teleport edges/upper-floor route",
   "migration": "rehearsal.json;85content guards and atomic inverse/failure/preservation checks passed",
-  "native_build": "see native-build evidence; clean build still in progress",
+  "native_build": "passed: clean world/zone/shared_memory plus final dependency recompile/relink; native-build/manifest.json",
   "skill": {
     "validator": "passed",
-    "reviewed_candidate_pins": 38,
+    "reviewed_candidate_pins": 40,
     "candidate_drift": 0,
     "historical_topic_drift": {
       "client": 58,

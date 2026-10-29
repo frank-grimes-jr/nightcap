@@ -8,7 +8,8 @@ Existing hateplane runs remain usable and share their earned journal/reward
 identities with the successor. The additive placement migration changes no
 player or loot records. Paired native, Lua and signed model/terrain assets are
 required. Migration failure/rollback and native navigation checks pass; deployment
-and owner rendering, pathing and combat acceptance remain pending.
+and owner rendering, pathing and combat acceptance remain pending. Clean paired
+world/zone/shared_memory builds and final source/object/binary checks pass.
 Evidence, rollout boundary and exact QA: `docs/dungeons/hate-layout-20261029/`.
 
 ## 2026-10-28 — Bazaar price input and readability published

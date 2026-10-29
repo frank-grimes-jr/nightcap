@@ -71,6 +71,12 @@ without treating the owner's local entry acceptance as acceptance of the new lay
 
 ## Implementation and checks
 
+The clean Clang14/C++20 world, zone and shared_memory build passed, including
+an actual final dependency recompile and zone relink. All138 source overlay
+hashes match; see [native build evidence](native-build/README.md).
+30 focused checks,19 wiki checks,14 Go packages,38 real terrain archive checks,
+31 current public preflight checks and the85-predicate migration rehearsal pass.
+
 - Catalog/compiler: `tools/hate_layout.py`, `tools/dungeon_catalog.py` and
   `common/dungeon_{catalog,policy,contract}.h`.
 - Native behavior: `zone/dungeon_service.cpp`, `zone/zone.cpp`, `zone/loot.cpp`,

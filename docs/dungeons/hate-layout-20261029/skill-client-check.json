@@ -1,6 +1,6 @@
 {
   "topic": "client",
-  "scope": "read-only installed-skill check; existing historical drift retained",
+  "scope": "read-only installed-skill check; historical drift retained",
   "total_entries_checked": 305,
   "historical_drift_count": 58,
   "candidate_entries": [
