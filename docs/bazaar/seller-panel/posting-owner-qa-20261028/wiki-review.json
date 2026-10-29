@@ -1,0 +1,22 @@
+{
+  "scope": "Direct owner acceptance of reported posting/readability issues",
+  "affected": [
+    "launcher",
+    "recent-changes"
+  ],
+  "retained": [
+    "all other guides",
+    "Home and Features",
+    "commands",
+    "all item/zone/catalog values",
+    "broader market QA gates"
+  ],
+  "publication": "Verified 20261028-bazaar-owner-qa-v1: all499 public hashes/security headers, five private denials; 3 changed/496 preserved",
+  "gameplay_change": false,
+  "validation": {
+    "content_refresh_tests": 19,
+    "linux_publication_recovery_tests": 16
+  },
+  "source_refresh": "Global historical source drift remains review required; this scoped acceptance does not advance unrelated ledger entries",
+  "review": "Scoped documentation and guarded editorial publication reviewed: no gameplay, client asset, catalog or runtime change. Owner quotes and remaining QA boundaries preserved."
+}
