@@ -33,6 +33,9 @@ def refresh():
         contract['content']=[c for c in contract['content'] if not c['label'].startswith('rewards/')]
         contract['content']+=json.loads(rewards.read_text())
     contract=refresh_contract(contract)
+    hate=ROOT/'docs/dungeons/hate-layout-20261029/runtime-checks.json'
+    contract['content']=[c for c in contract['content'] if not c['label'].startswith('hate-layout/')]
+    contract['content']+=json.loads(hate.read_text())
     vigil=ROOT/'docs/quests/camil-chapterhouse/runtime-checks.json'
     contract['content']=[c for c in contract['content'] if not c['label'].startswith('vigil/')]
     contract['content']+=json.loads(vigil.read_text())

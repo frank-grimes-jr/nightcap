@@ -38,8 +38,8 @@ class ZoneArchives(unittest.TestCase):
     def test_catalog_covers_audited_routes_and_packager_exactly_once(self):
         root = CATALOG.parents[1]
         spec = json.loads(CATALOG.read_text())['files']
-        self.assertEqual(len(spec), 34)
-        for zone in ('commons', 'misty', 'tox'):
+        self.assertEqual(len(spec), 38)
+        for zone in ('commons', 'misty', 'tox', 'hateplane', 'hateplaneb'):
             self.assertIn(zone + '.s3d', spec)
             self.assertIn(zone + '_obj.s3d', spec)
         source = (root / 'eq-launcher/cmd/nightcap-package/gameplay.go').read_text()

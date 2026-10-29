@@ -1,0 +1,37 @@
+{
+  "database": "nightcap_dungeon_rehearsal_62423458a85d",
+  "scope": "isolated local MariaDB; synthetic players only; no production writes",
+  "population_sha256": "c8dbe7acc39a500842322a600c6b9c11b6d941d4220a82dd33ff6a71f0edcf76",
+  "counts": {
+    "nightcap_dungeon_spawns": 176,
+    "grid": 47,
+    "grid_entries": 255
+  },
+  "forward_sha256": "76818f0fda735ab6d8cba059ef5a7aacd92b092e240bd65af80cdc2eff77867f",
+  "inverse_sha256": "7d34eef94717ab3df9112402423f884ded3fab051dddf3d6e23fbf0d77e628eb",
+  "runtime_checks": 85,
+  "forward_passed": true,
+  "repeat_rejected": true,
+  "occupied_range_rejected": true,
+  "inverse_drift_rejected": true,
+  "nontransactional_engine_rejected": true,
+  "unexpected_trigger_rejected": true,
+  "original_spawn_variance_drift_detected": true,
+  "injected_mid_transaction_failure_rolled_back": true,
+  "isolated_inverse_passed": true,
+  "reinstall_passed": true,
+  "earned_run_corpse_respawn_inventory_and_public_content_preserved": true,
+  "checksums": {
+    "inventory": "nightcap_dungeon_rehearsal_62423458a85d.inventory\t3789921239",
+    "nightcap_dungeon_runs": "nightcap_dungeon_rehearsal_62423458a85d.nightcap_dungeon_runs\t362819155",
+    "nightcap_dungeon_members": "nightcap_dungeon_rehearsal_62423458a85d.nightcap_dungeon_members\t2822855489",
+    "nightcap_dungeon_corpses": "nightcap_dungeon_rehearsal_62423458a85d.nightcap_dungeon_corpses\t30729336",
+    "nightcap_dungeon_respawns": "nightcap_dungeon_rehearsal_62423458a85d.nightcap_dungeon_respawns\t2883461772",
+    "spawn2": "nightcap_dungeon_rehearsal_62423458a85d.spawn2\t901041288",
+    "npc_types": "nightcap_dungeon_rehearsal_62423458a85d.npc_types\t2193020002",
+    "ground_spawns": "nightcap_dungeon_rehearsal_62423458a85d.ground_spawns\t1349419780",
+    "spawngroup": "nightcap_dungeon_rehearsal_62423458a85d.spawngroup\t3755817100",
+    "spawnentry": "nightcap_dungeon_rehearsal_62423458a85d.spawnentry\t3363040305"
+  },
+  "gameplay_acceptance": false
+}

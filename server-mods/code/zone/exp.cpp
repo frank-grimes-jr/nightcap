@@ -25,6 +25,7 @@
 #include "common/strings.h"
 #include "zone/bot.h"
 #include "zone/client.h"
+#include "zone/dungeon_service.h"
 #include "zone/groups.h"
 #include "zone/lua_parser.h"
 #include "zone/mob.h"
@@ -122,8 +123,9 @@ uint64 Client::CalcEXP(uint8 consider_level, bool ignore_modifiers) {
 			total_modifier *= RuleR(Character, ExpMultiplier);
 		}
 
-		if (zone->newzone_data.zone_exp_multiplier >= 0) {
-			zone_modifier *= zone->newzone_data.zone_exp_multiplier;
+		const auto zone_experience = NightcapDungeon::ExperienceModifier(zone->newzone_data.zone_exp_multiplier);
+		if (zone_experience >= 0) {
+			zone_modifier *= zone_experience;
 		}
 
 		if (RuleB(Character, UseRaceClassExpBonuses)) {
@@ -283,8 +285,9 @@ void Client::CalculateStandardAAExp(uint64 &add_aaxp, uint8 conlevel, bool resex
 	}	//end !resexp
 
 	float aatotalmod = 1.0;
-	if (zone->newzone_data.zone_exp_multiplier >= 0) {
-		aatotalmod *= zone->newzone_data.zone_exp_multiplier;
+	const auto zone_experience = NightcapDungeon::ExperienceModifier(zone->newzone_data.zone_exp_multiplier);
+	if (zone_experience >= 0) {
+		aatotalmod *= zone_experience;
 	}
 
 	// Shouldn't race not affect AA XP?
@@ -429,8 +432,9 @@ void Client::CalculateExp(uint64 in_add_exp, uint64 &add_exp, uint64 &add_aaxp, 
 		}
 
 		//add the zone exp modifier.
-		if (zone->newzone_data.zone_exp_multiplier >= 0) {
-			zemmod *= zone->newzone_data.zone_exp_multiplier;
+		const auto zone_experience = NightcapDungeon::ExperienceModifier(zone->newzone_data.zone_exp_multiplier);
+		if (zone_experience >= 0) {
+			zemmod *= zone_experience;
 		}
 
 		if (RuleB(Character, UseRaceClassExpBonuses))

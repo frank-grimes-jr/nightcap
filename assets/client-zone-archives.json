@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Terrain and object archives for the 17 Classic travel destinations audited October 12. Does not claim validation of the entire RoF2 installation.",
+  "scope": "Terrain/object archives for the audited Classic routes, retained Hate runs and candidate ground-level Hate successor.",
   "files": {
     "butcher.s3d": {
       "sha256": "af504e71d3f3497b5eef037d86475ba96985b261d96f6469915e058e05308839",
@@ -137,6 +137,22 @@
     "tox_obj.s3d": {
       "sha256": "41632c745f01410a0cc6aef27f47bed312195e17ebdca403410df5dc687c1425",
       "world": "tox_obj.wld"
+    },
+    "hateplaneb.s3d": {
+      "sha256": "b5bfee1c99274509a2c15792c9bf2205670192fd5ca9e92e62db342af1fb9f8d",
+      "world": "hateplaneb.wld"
+    },
+    "hateplaneb_obj.s3d": {
+      "sha256": "0ae40c84f57e753dbe2ea681adbdb4e5eb7064d175e1d9a4cef80ab300df3fdb",
+      "world": "hateplaneb_obj.wld"
+    },
+    "hateplane.s3d": {
+      "sha256": "4a6b1a7a3025c22bd5d28a97e9e4c8999000e572f6fb90c6e6aee527bc72e341",
+      "world": "hateplane.wld"
+    },
+    "hateplane_obj.s3d": {
+      "sha256": "cebcf37b783867778b50b68ce96ffa88651981284075de242f672818e12ea435",
+      "world": "hateplane_obj.wld"
     }
   }
 }

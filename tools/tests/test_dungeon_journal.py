@@ -26,17 +26,21 @@ using namespace NightcapDungeon;
 enum class TaskType{Quest=2};constexpr int MAXACTIVEQUESTS=19;
 template<class...T>void LogError(const char*,T...){}
 namespace Strings{unsigned ToUnsignedInt(const char*s){return std::stoul(s);}int ToInt(const char*s){return std::stoi(s);}}
-namespace fmt{template<class...T>std::string format(std::string pattern,T...values){
- std::vector<std::string> args;((args.push_back(std::to_string(values))),...);
+namespace fmt{
+inline std::string arg(const std::string &value){return value;}
+template<class T>std::string arg(T value){return std::to_string(value);}
+template<class...T>std::string format(std::string pattern,T...values){
+ std::vector<std::string> args;((args.push_back(arg(values))),...);
  for(const auto&s:args){auto i=pattern.find("{}");assert(i!=std::string::npos);pattern.replace(i,2,s);}return pattern;
 }}
 struct Client;
+unsigned history_zone=36,history_task=9701;
 struct State{
  bool active=true,history_ok=true;int histories=0,removed=0;int start=100;
- int GetActiveTaskID(int slot){return active&&slot==0?9701:0;}
+ int GetActiveTaskID(int slot){return active&&slot==0?history_task:0;}
  int GetTaskStartTime(TaskType,int){return start;}
- bool RecordCompletedTaskFromLedger(Client*,unsigned task,int time){assert(task==9701&&time==200);++histories;return history_ok;}
- void RemoveTaskByTaskID(Client*,unsigned task){assert(task==9701);active=false;++removed;}
+ bool RecordCompletedTaskFromLedger(Client*,unsigned task,int time){assert(task==history_task&&time==200);++histories;return history_ok;}
+ void RemoveTaskByTaskID(Client*,unsigned task){assert(task==history_task);active=false;++removed;}
 };
 struct Client{State state;State*GetTaskState(){return &state;}unsigned CharacterID(){return 29;}};
 struct Row{std::array<std::string,3> values;const char*operator[](int i)const{return values[i].c_str();}};
@@ -50,8 +54,8 @@ bool fail_query=false,ambiguous=false;int match_queries=0;
 Rows Query(const std::string&sql){
  if(fail_query)throw std::runtime_error("injected history failure");
  assert(sql.find("character_id=29")!=std::string::npos);
- if(sql.find("MAX(m.completed_at)")!=std::string::npos)return {{{{{"36","1","200"}}}}};
- ++match_queries;assert(sql.find("r.zone_id=36 AND r.mode=1")!=std::string::npos);
+ if(sql.find("MAX(m.completed_at)")!=std::string::npos)return {{{{{std::to_string(history_zone),"1","200"}}}}};
+ ++match_queries;assert(sql.find(history_zone==36?"r.zone_id=36 AND r.mode=1":"r.zone_id IN (76,186) AND r.mode=1")!=std::string::npos);
  assert(sql.find("CASE WHEN m.completed_at=0")!=std::string::npos);
  bool old=sql.find("r.instance_start=100")!=std::string::npos;
  return {{{{{old?"1":"0",ambiguous||!old?"1":"0",""}}}}};
@@ -67,6 +71,12 @@ int main(){
  ambiguous=false;JournalHistory(&c);assert(!c.state.active&&c.state.removed==1);
  JournalHistory(&c);assert(c.state.removed==1); // reset/expiry repeated recovery
  fail_query=true;JournalHistory(&c); // display DB failure must not escape into connection handling
+ fail_query=false;history_task=9739;
+ for(unsigned layout:{76u,186u}){
+  history_zone=layout;Client hate;ambiguous=true;
+  JournalHistory(&hate);assert(hate.state.active && hate.state.removed==0);
+  ambiguous=false;JournalHistory(&hate);assert(!hate.state.active && hate.state.removed==1);
+ }
 }
 ''')
 
@@ -179,6 +189,7 @@ enum class TaskType { Quest=2 };
 enum class TaskActivityType { None=0, Kill=2 };
 enum TaskMethodType { METHODSINGLEID=0, METHODQUEST=2 };
 struct ActivityInformation {
+ std::string zones;std::vector<int> zone_ids;
  TaskActivityType activity_type=TaskActivityType::None;
  TaskMethodType goal_method=METHODSINGLEID;
  std::string target_name,description_override;
@@ -225,6 +236,10 @@ int main() {
   assert(original.active.size()==1 && original.active[0]==0); // old all-zero sequence defect
   for(unsigned i=0;i<=d.count;++i) task.selector_ids.push_back(i);
   ConfigureJournalTask(9700+2*d.index+mode,task);
+  if(d.index==19) for(unsigned i=0;i<=d.count;++i) {
+   assert(task.activity_information[i].zones=="76;186");
+   assert((task.activity_information[i].zone_ids==std::vector<int>{76,186}));
+  }
   for(const auto &b:Bosses) if(b.zone==d.zone) {
    const auto &a=task.activity_information[b.objective-1];
    assert(a.activity_type==TaskActivityType::Kill);

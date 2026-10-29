@@ -1,0 +1,50 @@
+{
+  "reviewed_scoped_entries": [
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\eq-client-dll\\src\\bazaar_panel_controller.h",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\eq-client-dll\\src\\bazaar_panel_hooks.h",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\eq-client-dll\\tests\\bazaar-panel-native.cpp",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\tools\\client_bazaar_ui.py",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\tools\\tests\\test_client_bazaar_ui.py",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\docs\\bazaar\\seller-panel\\posting-readability-20261028\\README.md",
+      "role": "Published Bazaar posting/readability client/wiki verification; native owner QA remains open",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\docs\\bazaar\\seller-panel\\posting-readability-20261028\\published.json",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\docs\\bazaar\\seller-panel\\posting-readability-20261028\\review.json",
+      "role": "October28 Bazaar posting/readability repair; exact native bounds and paired client published; owner QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\commonlands-bazaar\\EQ_Local_Dev\\docs\\bazaar\\seller-panel\\posting-readability-20261028\\hosted-verification.json",
+      "role": "Published Bazaar posting/readability client/wiki verification; native owner QA remains open",
+      "state": "unchanged"
+    }
+  ],
+  "global_result": "unrelated historical drift retained; only reviewed repair pins updated"
+}

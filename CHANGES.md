@@ -1,13 +1,27 @@
 # CHANGES
 
-## 2026-10-28 — Bazaar price input and readability candidate
+## 2026-10-29 — Plane of Hate ground-level layout candidate
+
+New Keeper-created Hate runs use hateplaneb terrain with Nightcap's original
+encounters, loot, epic ground item, hunt rewards, XP and Raid/Grind rules.
+Existing hateplane runs remain usable and share their earned journal/reward
+identities with the successor. The additive placement migration changes no
+player or loot records. Paired native, Lua and signed model/terrain assets are
+required. Migration failure/rollback and native navigation checks pass; deployment
+and owner rendering, pathing and combat acceptance remain pending. Clean paired
+world/zone/shared_memory builds and final source/object/binary checks pass.
+Evidence, rollout boundary and exact QA: `docs/dungeons/hate-layout-20261029/`.
+
+## 2026-10-28 — Bazaar price input and readability published
 
 Fixed silent rejection of native UTF16 price fields, preserving bounded ASCII
 price validation and server confirmation. Unreadable input now gives feedback
 and invalidates stale quotes. Enlarged seller text and controls with explicit
 light colors; preserve both previous startup fixes and all native Search controls.
 Proxy0.13.2 pairs with its new catalog. Native regressions, full runtime suites,
-117guards and19UI/asset tests pass; signed delivery and player acceptance pending.
+117guards and19UI/asset tests pass. Main PR357 and signed2026102803 are
+published. Owner confirmed the reported issue works, the posting preview appears,
+and the larger light text is readable. Broader market transaction QA remains open.
 Evidence: `docs/bazaar/seller-panel/posting-readability-20261028/README.md`.
 
 ## October 28 — Bazaar startup crash hotfix published

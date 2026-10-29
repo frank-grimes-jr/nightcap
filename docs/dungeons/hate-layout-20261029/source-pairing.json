@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-29",
+  "remote_root": "/opt/nightcap/deploy/production/data/server",
+  "method": "hash-only SSH comparison of exact public files",
+  "matched": {
+    "quests/hateplaneb/player.lua": "7774dd3427729a40314695af213244a4ec81f5b5fb893d1476dc10444d19b3d4",
+    "quests/hateplaneb/script_init.lua": "ddcdc2c7e09c30a3cc6c14bd394e5696d4c63006ae8ef19c18caa0760a7bff08",
+    "maps/base/hateplaneb.map": "26900b7b8e47f2526a2544244d742839d61b462a91212336c3a141eb65b38459",
+    "maps/nav/hateplaneb.nav": "35bc95b11b32c06222a6ef363c61814d4145b8644f7b483362a9b4a15a41c4c0"
+  },
+  "no_remote_file_contents_or_player_data": true
+}

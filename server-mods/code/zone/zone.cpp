@@ -350,6 +350,12 @@ bool Zone::LoadGroundSpawns() {
 	uint32 added = 0;
 
 	for (uint16 slot_id = 0; slot_id < 50; slot_id++) {
+		if (zoneid==186 && NightcapDungeon::Managed() && g.spawn[slot_id].item_id==28016) {
+			// Retain the epic item, timer and ownership; only managed terrain changes.
+			g.spawn[slot_id].max_x=g.spawn[slot_id].min_x=NightcapDungeon::HateBookX;
+			g.spawn[slot_id].max_y=g.spawn[slot_id].min_y=NightcapDungeon::HateBookY;
+			g.spawn[slot_id].max_z=NightcapDungeon::HateBookZ;
+		}
 		if (EQ::ValueWithin(g.spawn[slot_id].item_id, 1, (SAYLINK_ITEM_ID - 1))) {
 			auto inst = database.CreateItem(g.spawn[slot_id].item_id);
 
@@ -1162,6 +1168,10 @@ bool Zone::Init(bool is_static) {
 	LoadDynamicZoneTemplates();
 	DynamicZone::CacheAllFromDatabase();
 
+	// The terrain successor retains classic Hate's loot policy. Authenticate the
+	// managed allocation before filtering zone-specific global loot; public186
+	// keeps its native rules. The ordinary spawn/checkpoint Boot remains in place.
+	if (zoneid==186 && !NightcapDungeon::Boot()) { return false; }
 	content_db.LoadGlobalLoot();
 	NightcapHunt::Load(*this);
 

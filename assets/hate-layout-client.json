@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "status": "candidate; not published",
+  "sources": {
+    "hateplane_chr.s3d": "217adb0e89fcff849696c592d6195f43afabbb3e56fa831baf18f78d8d7a962c",
+    "hateplaneb_chr.s3d": "83b5f0631e000478bb29de36ca257aa8f3889fd495109d1d8dc59a82a2c2cee3",
+    "hateplaneb_chr.txt": "6b81b1b1f55fe792dd3839a31a012745ba12ae0d6611001146d58f1e680454ca"
+  },
+  "imports": [
+    "dvm",
+    "gar",
+    "imp",
+    "inn",
+    "mim",
+    "ngm",
+    "rat",
+    "rea",
+    "spe",
+    "spi",
+    "wil",
+    "zof",
+    "zom"
+  ]
+}
