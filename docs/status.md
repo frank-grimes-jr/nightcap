@@ -1,5 +1,19 @@
 # Current Nightcap status
 
+## 2026-10-29 — Keyless doors candidate
+
+Prepared removal of key and lock-picking requirements from every existing door
+across all zones/versions, including negative lock-picking sentinels. Only
+`doors.keyitem` and `doors.lockpick` change; guild/script/instance restrictions,
+items and player progress remain. Guarded forward/inverse and isolated MariaDB
+rehearsals pass on 19,264 local doors and all 19,272 captured production doors.
+The owner-approved read-only capture yields 194 locks across 48 zones; exact
+forward/inverse scripts remain private. Main/live activation, supported loaded-zone
+refresh and owner QA remain pending. Production is unchanged.
+No client or binary update. Wiki notes are Not released and unpublished.
+Scope, recovery and exact QA: `docs/ops/keyless-doors-20261029/README.md`.
+
+
 ## 2026-10-29 — Faction standing display candidate
 
 `#factions` adds a player-accessible white-text popup with standing names,
