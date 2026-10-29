@@ -1,0 +1,9 @@
+test_missing_client_receipt_cannot_start_capture (test_activation_guard.ActivationGuardTests.test_missing_client_receipt_cannot_start_capture) ... ok
+test_publisher_requires_activation_guard_before_any_remote_call (test_activation_guard.ActivationGuardTests.test_publisher_requires_activation_guard_before_any_remote_call) ... ok
+test_remote_program_pins_receipts_and_verified_game_generation (test_activation_guard.ActivationGuardTests.test_remote_program_pins_receipts_and_verified_game_generation) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.044s
+
+OK
+{"verified": true, "game_image": "sha256:test", "channel_sha256": "abc"}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "windows": {
+    "passed": 16,
+    "skipped_posix": 5
+  },
+  "linux": {
+    "passed": 21,
+    "skipped": 0
+  },
+  "coverage": [
+    "seven new assets and existing descriptors",
+    "candidate/baseline/asset drift",
+    "atomic channel and immutable asset writes",
+    "interruption recovery before and after channel publication",
+    "service restart or control drift",
+    "POSIX fsync, umask, permissions and symlinks",
+    "closed admissions and verified new runtime identity"
+  ],
+  "status": "local rehearsal only; not published"
+}

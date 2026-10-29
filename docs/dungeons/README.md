@@ -1,8 +1,12 @@
 # Raid and Grind dungeons — deployed for live QA
 
-October29 unreleased candidate: [ground-level Plane of Hate layout](hate-layout-20261029/README.md)
-preserves Nightcap encounters, loot, XP and existing runs. It requires paired
-native, additive placement, quest and client updates; it is not the live destination.
+October29: the [ground-level Plane of Hate layout](hate-layout-20261029/README.md)
+is deployed for live testing after main PR362 and the owner-approved paired
+server/client update. New Commonlands Keeper runs use hateplaneb186; existing76
+runs, Nightcap encounters, loot, XP and earned rewards remain. Fully exit EQ and
+update through launcher Play. [Deployment and recovery](hate-layout-20261029/release/README.md)
+record51 schema/650 content checks,102preserved state tables and signed2026102901.
+Owner rendering, pathing, pull difficulty and complete-run acceptance remain open.
 
 October22: all21 Classic dungeons and414 MAGIC rewards are deployed for live
 QA. [Current release, preservation and recovery](classic-rewards-20261022/deployment/README.md).
