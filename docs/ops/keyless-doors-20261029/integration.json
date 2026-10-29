@@ -1,0 +1,13 @@
+{
+  "source_branch": "feature/keyless-doors",
+  "source_candidate": "cbcae52f",
+  "integrated_commit": "5515d14c",
+  "dev_base": "324de97d",
+  "affected_files": "door implementation/tests unchanged from the independently rehearsed source candidate; documentation conflicts retain both topics",
+  "wiki_articles_reviewed_for_door_impact": 45,
+  "wiki_refresh": "REVIEW REQUIRED",
+  "changed_sources": 496,
+  "live_release_boundary": "dev/test also contain unrelated unpublished candidates; use the two scoped commits 8b40d7de and cbcae52f over current main for a door-only release",
+  "production_writes": false,
+  "owner_gameplay_qa": "pending"
+}
