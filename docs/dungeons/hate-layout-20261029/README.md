@@ -27,8 +27,10 @@ task. No earned run, inventory, receipt, corpse or character record is migrated.
 The176 private points comprise175 original eligible spawn groups plus the
 entrance Keeper. Original NPC IDs, spawn entries/chances, loot tables, HP/damage,
 spell sets, respawn intervals and randomized respawn variance are retained.
-Managed186 uses76's global-loot filters, hunt family/sources and experience
-multiplier (1.0; public186 has1.13). Existing Raid modifiers/unlock gates and
+Managed186 uses76's global-loot filters, equipment hunt family/sources and experience
+multiplier (1.0; public186 has1.13). The integrated October29 augment candidate
+uses zone186's Blackspire Prism family on regular combat mobs at0.5%; original76
+retains Spiteglass Prism. See ../../releases/zone-augments-20261029/README.md. Existing Raid modifiers/unlock gates and
 Grind respawns still apply. Pure invisible ambience and the old waypoint marker
 are omitted. Stock186 population and later-era epic scripts are excluded from
 managed runs; public186 scripts retain their original behavior.
