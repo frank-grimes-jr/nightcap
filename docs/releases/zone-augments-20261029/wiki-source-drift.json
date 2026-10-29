@@ -304,7 +304,11 @@
     "docs/releases/zone-augments-20261029/README.md",
     "docs/releases/zone-augments-20261029/disable-hateplaneb.sql",
     "docs/releases/zone-augments-20261029/enable-hateplaneb.sql",
+    "docs/releases/zone-augments-20261029/native-build.json",
+    "docs/releases/zone-augments-20261029/skill-check.json",
+    "docs/releases/zone-augments-20261029/validation.json",
     "docs/releases/zone-augments-20261029/wiki-review.json",
+    "docs/releases/zone-augments-20261029/wiki-source-drift.json",
     "docs/status.md",
     "eq-client-dll/config/nightcap-patches.cfg",
     "eq-client-dll/config/patch-sites.json",
@@ -421,5 +425,6 @@
     "tools/verify_highkeep_live.py",
     "tools/zone_augment_combat.py"
   ],
-  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "source_revision": "64347456d03c6ebe92fedae362689929d515fc24"
 }
