@@ -12,7 +12,7 @@ class HateKeeper(unittest.TestCase):
 #include <cassert>
 using namespace NightcapDungeon;
 int main() {
- const auto hate=FindDungeon(76);
+ const auto hate=FindDungeon(186);
  assert(hate && KeeperDungeon(22,0,998812)==hate);
  assert(!KeeperDungeon(22,1,998812));
  assert(!KeeperDungeon(22,0,998811));
@@ -23,7 +23,7 @@ int main() {
   assert(KeeperDungeon(d.zone,12,d.keeper)==&d);
   assert(!KeeperDungeon(d.zone,0,1));
  }
- assert(hate->index==19 && hate->keeper==998812 && hate->zone==76);
+ assert(hate->index==19 && hate->keeper==998812 && hate->zone==186);
 }
 ''')
 

@@ -1,5 +1,9 @@
 # Raid and Grind dungeons — deployed for live QA
 
+October29 unreleased candidate: [ground-level Plane of Hate layout](hate-layout-20261029/README.md)
+preserves Nightcap encounters, loot, XP and existing runs. It requires paired
+native, additive placement, quest and client updates; it is not the live destination.
+
 October22: all21 Classic dungeons and414 MAGIC rewards are deployed for live
 QA. [Current release, preservation and recovery](classic-rewards-20261022/deployment/README.md).
 Owner gameplay/balance acceptance remains open. The October16 history below

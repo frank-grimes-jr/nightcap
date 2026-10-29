@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-29",
+  "reviewer": "independent hate_review agent",
+  "result": "no remaining blocking gameplay findings",
+  "corrections": [
+    "Throwing/expiry-aware allocation query and opposing-zone transaction recheck",
+    "History ambiguity across both layouts",
+    "Early managed boot before loot/hunt/quest initialization",
+    "Classic global loot/hunt/XP projection",
+    "Original spawn variance preserved and runtime guarded",
+    "Native186 player and encounter scripts isolated"
+  ],
+  "acceptance_remaining": [
+    "actor rendering",
+    "patrol pacing and pull density",
+    "LOS/collision",
+    "Book of Souls collection",
+    "legacy and new run round trips"
+  ],
+  "production_changed": false,
+  "native_build": "completed after independent source review; exact pairing recorded"
+}

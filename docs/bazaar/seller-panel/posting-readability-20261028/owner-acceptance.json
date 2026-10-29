@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-28",
+  "client_release": 2026102803,
+  "owner_report": "It works",
+  "structured_confirmation": "Preview appears and text is readable",
+  "accepted_scope": [
+    "reported posting problem resolved",
+    "Post item preview appears",
+    "larger light seller text is readable"
+  ],
+  "not_established": [
+    "independent transaction audit",
+    "offline seller purchase",
+    "cancellation and collection",
+    "all saved-window sizes"
+  ],
+  "basis": "Direct owner replies in the Bazaar chat after the installed repair was verified"
+}

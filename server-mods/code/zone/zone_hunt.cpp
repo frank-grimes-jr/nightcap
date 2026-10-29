@@ -3,6 +3,7 @@
 #include "zone/npc.h"
 #include "zone/zone.h"
 #include "zone/zonedb.h"
+#include "zone/dungeon_service.h"
 #include "common/zone_hunt_policy.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/content/world_content_service.h"
@@ -26,10 +27,11 @@ void Load(Zone &z)
 {
 	hunt = {};
 	if (z.GetInstanceVersion() || WorldContentService::Instance()->GetCurrentExpansion() != 0) { return; }
+	const auto content_zone=NightcapDungeon::ContentZone(z.GetZoneID(),NightcapDungeon::Managed());
 	auto config = database.QueryDatabase(fmt::format(
 		"SELECT z.augment_base,z.gear_base,z.min_level,z.night_only FROM nightcap_zone_hunt_zones z "
 		"JOIN nightcap_zone_hunt_state s ON s.id=1 AND s.enabled=1 AND s.revision={} "
-		"WHERE z.zone_id={} AND z.enabled=1", Revision, z.GetZoneID()), false);
+		"WHERE z.zone_id={} AND z.enabled=1", Revision, content_zone), false);
 	if (!config.Success() || config.RowCount() != 1) { return; }
 	auto r = config.begin();
 	hunt.augment = strtoul(r[0], nullptr, 10); hunt.gear = strtoul(r[1], nullptr, 10);
@@ -41,7 +43,7 @@ void Load(Zone &z)
 		}
 	}
 	auto sources = database.QueryDatabase(fmt::format(
-		"SELECT spawn_id,npc_id FROM nightcap_zone_hunt_sources WHERE zone_id={}", z.GetZoneID()), false);
+		"SELECT spawn_id,npc_id FROM nightcap_zone_hunt_sources WHERE zone_id={}", content_zone), false);
 	if (!sources.Success()) { hunt = {}; return; }
 	for (auto row : sources) { hunt.sources.emplace(strtoul(row[0], nullptr, 10), strtoul(row[1], nullptr, 10)); }
 	hunt.zone_id = z.GetZoneID(); hunt.enabled = !hunt.sources.empty();

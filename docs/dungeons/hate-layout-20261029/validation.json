@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-29",
+  "focused_suites": {
+    "test_hate_layout": {
+      "passed": 2,
+      "source_sha256": "1099f87641cbab1b20fc110317b62fd3b0c6a867b7852c0e762730b3cc380a2c"
+    },
+    "test_hate_keeper": {
+      "passed": 2,
+      "source_sha256": "cadf40bae84ca3fdf7d0ecc1bd97ffb80c2cfa0095b8ec9be2932e2f207c86a6"
+    },
+    "test_dungeon_journal": {
+      "passed": 4,
+      "source_sha256": "aef75c18bd6f1f401da384e056a79e440b2b3a6b927fa50307e9a7f95fb2ccc4"
+    },
+    "test_classic_dungeon_private": {
+      "passed": 1,
+      "source_sha256": "3ccdeef9f5045808e5237b565006190362f98584bf4755e0b2fbf087596a5943"
+    },
+    "test_hate_quests": {
+      "passed": 1,
+      "source_sha256": "ce16b6a50edb92916891a8a608ea4a80b743f6595b77572ed36185f48fd562f9"
+    },
+    "test_hate_client": {
+      "passed": 1,
+      "source_sha256": "4cf1442c38ca122be8ade438dc735112966c62bfb87314701185657c9720848f"
+    },
+    "test_client_zone_archives": {
+      "passed": 2,
+      "source_sha256": "49632d5e93c927f0eb1bf7e49c2c861a11cb4b0651fd811790ce8555fb807ce3"
+    },
+    "test_dungeon_current_contract": {
+      "passed": 2,
+      "source_sha256": "639686a43bd568ce97a508ec466ad940c1424ef2bc3fff170abb0dd0ea0fd0c3"
+    },
+    "test_hate_layout_migration": {
+      "passed": 5,
+      "source_sha256": "930c4bd4b46a0a9cc91df32f01b51b24cc94c5645bea158d817cbab699409e89"
+    },
+    "test_hate_keeper_content": {
+      "passed": 3,
+      "source_sha256": "37bbc4f9fbb7dd935be6667762221fb2e3993d8d9c8f1ab3411f271f59c6956d"
+    },
+    "test_client_gameplay_assets": {
+      "passed": 6,
+      "source_sha256": "f288039781f74f953db38790f786f2264915afc4850eac5d93de3955c86a0a20"
+    },
+    "test_dungeon_policy": {
+      "passed": 1,
+      "source_sha256": "cf30de0704aa706db56216d0bc1806d53671da43df29c10a5e667c74f9698ef3"
+    }
+  },
+  "focused_total": 30,
+  "wiki": {
+    "test_wiki_and_test_refresh": 19,
+    "passed": true,
+    "whole_article_impact_review": 40,
+    "historical_source_drift": "review required; unrelated pins retained",
+    "final_preview_grouping_and_links": 2
+  },
+  "go": {
+    "command": "go test ./cmd/nightcap-package ./internal/...",
+    "packages_passed": 14,
+    "final_inventory_package_rerun": "passed"
+  },
+  "real_client_terrain_archives_validated": 38,
+  "staged_unsigned_hate_files": 7,
+  "native_navigation": "all176 private points and Book reachable;47 complete patrol routes; no teleport edges/upper-floor route",
+  "migration": "rehearsal.json;85content guards and atomic inverse/failure/preservation checks passed",
+  "native_build": "passed: clean world/zone/shared_memory plus final dependency recompile/relink; native-build/manifest.json",
+  "skill": {
+    "validator": "passed",
+    "reviewed_candidate_pins": 40,
+    "candidate_drift": 0,
+    "historical_topic_drift": {
+      "client": 58,
+      "wiki": 11,
+      "world": 9
+    }
+  },
+  "owner_gameplay_acceptance": false,
+  "production_mutated": false,
+  "public_content_preflight_checks_passed": 31
+}
