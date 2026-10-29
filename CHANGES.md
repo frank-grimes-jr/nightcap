@@ -1,16 +1,22 @@
 # CHANGES
 
-## 2026-10-29 — Plane of Hate ground-level layout candidate
+## 2026-10-29 — Plane of Hate ground-level layout deployed
 
 New Keeper-created Hate runs use hateplaneb terrain with Nightcap's original
 encounters, loot, epic ground item, hunt rewards, XP and Raid/Grind rules.
 Existing hateplane runs remain usable and share their earned journal/reward
-identities with the successor. The additive placement migration changes no
-player or loot records. Paired native, Lua and signed model/terrain assets are
-required. Migration failure/rollback and native navigation checks pass; deployment
-and owner rendering, pathing and combat acceptance remain pending. Clean paired
-world/zone/shared_memory builds and final source/object/binary checks pass.
-Evidence, rollout boundary and exact QA: `docs/dungeons/hate-layout-20261029/`.
+identities with the successor. Main PR362 (`8b23d739`) and the owner-approved OVH
+release are deployed; admissions are open. All 12 workers,51 schema/650 content checks
+and102 saved-state tables verified. The additive placement changes no player or
+loot records; the authorized restart preserves earned state and authenticates
+the normal single market rotation. Signed client2026102901 adds seven assets
+and preserves 141; all 148 HTTPS assets and signature verify. Wiki
+20261029-hate-layout-v1 changes six guides plus search and preserves 492 files;
+all 499 HTTPS hashes/security headers and five private-route denials pass.
+Fully exit EQ and press launcher Play before testing. Rendering, pathing, pulls,
+Raid/Grind completion and owner gameplay acceptance remain open.
+Evidence, disk-guard continuation, recovery and exact QA:
+`docs/dungeons/hate-layout-20261029/release/README.md`.
 
 ## 2026-10-28 — Bazaar price input and readability published
 

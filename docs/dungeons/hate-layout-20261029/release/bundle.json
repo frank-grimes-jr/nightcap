@@ -1,0 +1,26 @@
+{
+  "stage": "/opt/nightcap/releases/hate-layout-20261029-v1",
+  "archive_sha256": "9fe2cf4c20b4648112720877e965ccdd2f5ea2da4e2d2e07a649ae8422b3dadf",
+  "archive_bytes": 37515484,
+  "manifest_sha256": "468f85c5b7b5d9b108b1b55c108b7a068b04d11d7021f72290df0f58973987e8",
+  "files": {
+    "forward.sql": "76818f0fda735ab6d8cba059ef5a7aacd92b092e240bd65af80cdc2eff77867f",
+    "preflight-checks.json": "b264b6d6cc0367ebbce9e14587007b3d50410bf884d44b7288b1becc366c991c",
+    "rollout.py": "3f79d3833e431dc33c3e6f6323f950e3da328ec8924e26b7f7c2823641d05850",
+    "runtime-contract.json": "ef0773d9bcfef92b825b46edd5d166a53a26287ed417497df20bdab31e166bbe",
+    "bin/shared_memory": "95ebe64bfdd316b14dedb74a76062b106f6aa1d9193c1c96f86bae54ab748f10",
+    "bin/world": "670cb11ba9f79c2e44e661250a711a144ffeb79682086d5dd2fe2447a2a3ff9d",
+    "bin/zone": "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518",
+    "quests/hateplaneb/player.lua": "5b8c0f6e2781f2e0ff9b2e3e9b97a8180c849f3b90c1cfc9e670a99de6215a09",
+    "quests/hateplaneb/script_init.lua": "7bef8988f9436e39384e494c7f01124b587e43a51b50a51d54ddf4e6eb6a3a89"
+  },
+  "candidate_hashes": {
+    "bin/shared_memory": "95ebe64bfdd316b14dedb74a76062b106f6aa1d9193c1c96f86bae54ab748f10",
+    "bin/world": "670cb11ba9f79c2e44e661250a711a144ffeb79682086d5dd2fe2447a2a3ff9d",
+    "bin/zone": "796ebedabf14e525043f69cbcc6469d55667912b7b97281d5afe348d97730518"
+  },
+  "source_revision": "8b23d739cc7da16aa79eb41ba577354c52053df6",
+  "client_channel_new_sha256": "de5959ffdb6dff44e3de9626cb8dba7c57dd4787fbe9912505d5b1955f10c5d8",
+  "native_identity": "native-identity.json",
+  "owner_qa_pending": true
+}

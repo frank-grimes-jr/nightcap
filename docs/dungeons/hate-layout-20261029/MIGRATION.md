@@ -1,6 +1,10 @@
 # Private Hate layout migration
 
-Candidate only. The generated SQL has not been applied to production.
+Applied to production October29 under the owner's explicit paired-release
+authorization. `release/open-receipt.json` verifies open admissions,51 schema and
+650 content predicates, and102 saved-state tables. The176 private rows,47 grids and
+255 waypoints are installed; no player snapshot was restored. Local inverse
+evidence remains a rehearsal artifact, not a live rollback instruction.
 
 `tools/hate_layout_migration.py` compiles the reviewed population into an additive
 transaction: 176 `nightcap_dungeon_spawns` rows for zone186, 47 `grid` rows for
@@ -10,7 +14,7 @@ The 85 generated runtime predicates authenticate all installed rows, the exact
 cardinality of each reserved scope, and the original175 public spawn policies
 (including respawn variance, conditions, expansion flags and group identity).
 
-Before an authorized release, stop admissions and the game through the supported
+For a future authorized release, stop admissions and the game through the supported
 whole-runtime procedure, take the release backup, and capture fresh preimages
 with `hate_layout_migration.capture(query)`. `desired(before)` rejects any occupied
 reserved scope. Inspect public content, quest/map/client pairing and the native

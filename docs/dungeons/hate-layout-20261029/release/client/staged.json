@@ -1,0 +1,21 @@
+{
+  "stage": "/opt/nightcap/releases/hate-client-2026102901",
+  "files": {
+    "channel.json": "de5959ffdb6dff44e3de9626cb8dba7c57dd4787fbe9912505d5b1955f10c5d8",
+    "previous-channel.json": "eb09f02c097eed3ba35c97756ca00ce8cdbbe04453497aa376c6143cf8bb8c8e",
+    "hateplaneb.s3d": "b5bfee1c99274509a2c15792c9bf2205670192fd5ca9e92e62db342af1fb9f8d",
+    "hateplaneb_obj.s3d": "0ae40c84f57e753dbe2ea681adbdb4e5eb7064d175e1d9a4cef80ab300df3fdb",
+    "hateplane.s3d": "4a6b1a7a3025c22bd5d28a97e9e4c8999000e572f6fb90c6e6aee527bc72e341",
+    "hateplane_obj.s3d": "cebcf37b783867778b50b68ce96ffa88651981284075de242f672818e12ea435",
+    "hateplane_chr.s3d": "217adb0e89fcff849696c592d6195f43afabbb3e56fa831baf18f78d8d7a962c",
+    "hateplaneb_chr.s3d": "83b5f0631e000478bb29de36ca257aa8f3889fd495109d1d8dc59a82a2c2cee3",
+    "hateplaneb_chr.txt": "3d38d5ca5e44af15f7e279b807b66eb64a295901a861dbe045c9736db4ed3902",
+    "publish.py": "fd65eb4297000c960d339795c4fd64bac2fe37fe048d5a6acf78f41b241b0464",
+    "test_publish.py": "16a0cc08e5ec37832bb5023cf213af83158d699db003dde7cb2f8be7ef352a89"
+  },
+  "published": false,
+  "linux_tests": "test_candidate_and_baseline_drift_fail_before_writes (test_publish.PublicationTests.test_candidate_and_baseline_drift_fail_before_writes) ... ok\ntest_foreign_nested_file_rejected (test_publish.PublicationTests.test_foreign_nested_file_rejected) ... ok\ntest_immutable_drift_rejected_before_channel_write (test_publish.PublicationTests.test_immutable_drift_rejected_before_channel_write) ... ok\ntest_interrupted_archive_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_archive_write_recovers_valid_prefix_only) ... ok\ntest_interrupted_channel_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_channel_write_recovers_valid_prefix_only) ... ok\ntest_interrupted_writes_recover_without_partial_channel (test_publish.PublicationTests.test_interrupted_writes_recover_without_partial_channel) ... ok\ntest_invalid_baseline_does_not_change_existing_release_bytes_or_permissions (test_publish.PublicationTests.test_invalid_baseline_does_not_change_existing_release_bytes_or_permissions) ... ok\ntest_missing_new_asset_and_foreign_inventory_are_rejected (test_publish.PublicationTests.test_missing_new_asset_and_foreign_inventory_are_rejected) ... ok\ntest_nested_partial_rejects_corruption_then_recovers (test_publish.PublicationTests.test_nested_partial_rejects_corruption_then_recovers) ... ok\ntest_nested_symlink_rejected_without_channel_change (test_publish.PublicationTests.test_nested_symlink_rejected_without_channel_change) ... ok\ntest_private_umask_creates_publicly_traversable_release_and_readable_files (test_publish.PublicationTests.test_private_umask_creates_publicly_traversable_release_and_readable_files) ... ok\ntest_public_control_drift_keeps_old_channel (test_publish.PublicationTests.test_public_control_drift_keeps_old_channel) ... ok\ntest_publish_repeat_and_preservation (test_publish.PublicationTests.test_publish_repeat_and_preservation) ... ok\ntest_retained_asset_drift_keeps_old_channel (test_publish.PublicationTests.test_retained_asset_drift_keeps_old_channel) ... ok\ntest_service_drift_keeps_old_channel (test_publish.PublicationTests.test_service_drift_keeps_old_channel) ... ok\ntest_symlink_release_rejected (test_publish.PublicationTests.test_symlink_release_rejected) ... ok\ntest_verified_existing_release_directory_permissions_are_repaired (test_publish.PublicationTests.test_verified_existing_release_directory_permissions_are_repaired) ... ok\ntest_all_running_services_and_healthy_game_db_are_accepted (test_publish.ServiceTests.test_all_running_services_and_healthy_game_db_are_accepted) ... ok\ntest_each_stopped_or_oom_service_is_rejected (test_publish.ServiceTests.test_each_stopped_or_oom_service_is_rejected) ... ok\ntest_unhealthy_or_missing_game_database_health_is_rejected (test_publish.ServiceTests.test_unhealthy_or_missing_game_database_health_is_rejected) ... ok\ntest_wrong_verified_game_runtime_is_rejected (test_publish.ServiceTests.test_wrong_verified_game_runtime_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.351s\n\nOK\n",
+  "free_before": 818229248,
+  "free_after": 798736384,
+  "reserve_bytes": 704643072
+}
