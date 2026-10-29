@@ -1,6 +1,6 @@
 {
   "date": "2026-10-29",
-  "basis": "origin/main 8b23d739 plus faction-standing worktree; whole authored article inventory and generated catalogs reviewed for impact",
+  "basis": "origin/main 85a42253 plus faction-standing candidate; newer Hate release guidance retained",
   "articles": [
     {
       "path": "wiki/articles/about.json",
@@ -47,13 +47,13 @@
     {
       "path": "wiki/articles/commands.json",
       "title": "Command reference",
-      "sha256": "51bcbf888d98050de6ec0f2e74121cc0c96e7c21fd23f160795f71aa3e901cad",
+      "sha256": "3b994c3b79b9518a43b52314b02f8d06d2596d2830d0c1b0520a14df434d1007",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
       "path": "wiki/articles/dungeon-modes.json",
       "title": "Raid & Grind dungeons",
-      "sha256": "237029a69170ecd34423c509e57ee4e7e1e66987206a03aeaa4def47f467bb90",
+      "sha256": "bbf31f4210444d6b8dae971d7a550f073fe46e21f398e2208347063ab4a88ad4",
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
     },
     {
@@ -65,7 +65,7 @@
     {
       "path": "wiki/articles/features.json",
       "title": "Features",
-      "sha256": "a6e5ef0039485e7938f5ad3733b0fd733332ed1f29caad4286ecc4c53367c4b7",
+      "sha256": "3a44bc88acdbd29bb87cd0eb4287c50a1eb9dcf6d5ab6f73f64f53e0e3281e80",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
@@ -197,7 +197,7 @@
     {
       "path": "wiki/articles/recent-changes.json",
       "title": "Change Log",
-      "sha256": "e108666ebedd649b562695cb321306c29a238cedee8ac6e271b1af5813c530a9",
+      "sha256": "524a101fffcef915c3fbce51868087ef0162136f90900a9511b52d1bbe105720",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
@@ -209,7 +209,7 @@
     {
       "path": "wiki/articles/travel.json",
       "title": "Travel & instances",
-      "sha256": "1eb4c05d5c41af21737a6d304f59d31dd8ca1479c3a50bfa6d6f335a4c3d0c68",
+      "sha256": "ba7b81d22e610faac24fd390cd8dba7163c750747e08346b76122a60b384355e",
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
     },
     {
@@ -221,7 +221,7 @@
     {
       "path": "wiki/articles/unreleased.json",
       "title": "In development",
-      "sha256": "dd2250f3ef331a0f5eb8d7db91b74148d528a42d5ad18bde243c86d721d6169d",
+      "sha256": "e7f3a956780281b42a569aaaaa579c471692558ce1c886a9d51d091be0c88585",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
@@ -233,7 +233,7 @@
     {
       "path": "wiki/articles/zone-hunt.json",
       "title": "Zone hunt & forging",
-      "sha256": "9194cea399c35748c60e9e32b629f8f13f755879e387e1403e5749075fc964e9",
+      "sha256": "c2984b628f9bd1290d92f11d54a504c3fde93bb9ae2775ac51e99c9f1f5e460c",
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
     },
     {

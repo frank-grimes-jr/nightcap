@@ -1,0 +1,63 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "factions": [
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\server-mods\\code\\common\\faction_standing.h",
+        "role": "Faction display parser, escaping, white STML and full-range bars",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\server-mods\\code\\zone\\faction_standing.inc",
+        "role": "Caller-only cache adapter, native faction totals and min/max",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\server-mods\\code\\zone\\command.cpp",
+        "role": "Player factions registration; legacy GM faction access preserved",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\server-mods\\code\\zone\\command.h",
+        "role": "Faction command declaration",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\server-mods\\code\\zone\\client.cpp",
+        "role": "Reviewed native GetModCharacterFactionLevel and SetFactionLevel/2 bounds",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\tools\\tests\\test_faction_standing.py",
+        "role": "Native display/command test runner",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\tools\\tests\\faction_standing_fixture.cpp",
+        "role": "Native parsing, bars and pagination regression",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\tools\\tests\\faction_standing_command_fixture.cpp",
+        "role": "Actual command and total-calculation regression",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\docs\\releases\\faction-standing-20261029\\README.md",
+        "role": "Candidate behavior, pairing, recovery and exact player QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\docs\\releases\\faction-standing-20261029\\verification.json",
+        "role": "Dated test/review evidence and open native QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\docs\\releases\\faction-standing-20261029\\wiki-review.json",
+        "role": "Whole-wiki impact assessment",
+        "state": "unchanged"
+      }
+    ]
+  }
+}
