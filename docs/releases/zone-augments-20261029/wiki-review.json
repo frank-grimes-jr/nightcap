@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-29",
+  "source_base": "a6030a4620bc2b3b5ad8c02a141623af6e50a301",
+  "scope": "candidate only; no publication or current live acquisition claims",
+  "articles": [
+    {
+      "slug": "about",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "advanced-loot",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "ascension",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "ashen-compact",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "build-lab",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "camil-vigil",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "combat",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "commands",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "dungeon-modes",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "equipment",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "features",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "getting-started",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "index",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-940592",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "item-940593",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "item-940594",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "item-940595",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "item-960420",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-960421",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-960422",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-960423",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-960424",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-960425",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961020",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961021",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961022",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961023",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961030",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961031",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-961032",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-990510",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "item-upgrades",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "launcher",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "loot-finder",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "multiclass",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "pets",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "recent-changes",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "tradeskills",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "travel",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "tunnel",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "unreleased",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "waypoints",
+      "assessment": "reviewed; no affected instructions or values"
+    },
+    {
+      "slug": "zone-hateplaneb",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "zone-hunt",
+      "assessment": "candidate text/preview updated"
+    },
+    {
+      "slug": "zone-kael",
+      "assessment": "reviewed; no affected instructions or values"
+    }
+  ],
+  "generated": "All48 current zone pages and192 augment item pages get labeled preview links; live384-item catalog/power unchanged. Five Hate B preview pages are Not released, excluded from live equipment directory.",
+  "home": "Reviewed; goal paths and summaries remain accurate; no duplicate announcement.",
+  "commands": "Reviewed; zoneforge and Reforging Box costs and commands unchanged.",
+  "release_labels": "Current deployed labels retained; new behavior only Not released.",
+  "publication": "pending"
+}

@@ -6,6 +6,11 @@ import test_free_trade as native
 ROOT=Path(__file__).resolve().parents[2]
 
 class NativeZoneHunt(unittest.TestCase):
+    def test_actual_load_with_augment_only_zone(self):
+        load=native.body((ROOT/'server-mods/code/zone/zone_hunt.cpp').read_text(),'void Load(')
+        fixture=(Path(__file__).parent/'zone_hunt_load_fixture.cpp').read_text()
+        native.FreeTradeTests.compile_run(self,fixture.replace('// ACTUAL_LOAD',load))
+
     def test_actual_death_award(self):
         award=native.body((ROOT/'server-mods/code/zone/zone_hunt.cpp').read_text(),'void Award(')
         fixture=(Path(__file__).parent/'zone_hunt_death_fixture.cpp').read_text()
