@@ -157,3 +157,13 @@ checks an ordered explicit List response, filtering unrelated broadcasts.
 persists a one-use interruption fence, and repeats the full auth drain before
 using the reviewed activation tail. Thirteen tests cover this recovery and
 no-broadcast/interleaved-broadcast cases; independent review has no blockers.
+
+The subsequent125second drain correctly stopped before SQL when Paineel naturally
+unloaded. All12 worker lifetimes and all door preimages remained exact; no affected
+zones were loaded. `resume_unloaded.py` accepts only that receipt state and verifies
+no affected loaded/booting zone before and after its one SQL transaction. Native
+TriggerBootup publishes its boot state before sending the worker boot packet;
+status exposes a zone or `...`, which the parser rejects. This continuation needs
+no static refresh: subsequent normal loads read the new definitions. It retains
+the owned hold until exact afterimage, health and unchanged services/workers pass.
+Fourteen operator/regression groups pass, including newly loaded target rejection.

@@ -172,6 +172,52 @@ class ResumeTests(unittest.TestCase):
                     self.assertEqual(json.loads((out/'result.json').read_text())['status'],'admission_held_draining')
 
 
+class UnloadedResumeTests(unittest.TestCase):
+    def test_empty_continuation_and_fail_closed_boundaries(self):
+        for fault in (None,'attempted','preimage','loaded_before','loaded_after','replay'):
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory() as directory:
+                out=Path(directory)
+                before={'doors':[{'id':1,'keyitem':9,'lockpick':-1}]}
+                current=copy.deepcopy(before)
+                if fault=='preimage':current['doors'][0]['keyitem']=8
+                receipt={'status':'admission_held_draining','main':'original','backup_verified':True,
+                  'admission_locks_before':[], 'admission_hold':{'before':[],'after':[75],'reconciled_readback':True}}
+                if fault=='attempted':receipt['started_at']='uncertain'
+                workers={'workers':[{'pid':31,'start':'same'}], 'targets':[], 'locks':[75]}
+                for name,value in [('result.json',receipt),('before.json',before),
+                  ('services-before.json',{}),('runtime-before.json',workers),
+                  ('hold-interruption.json',{'status':'admission_hold_requested','main':'original'})]:
+                    (out/name).write_text(json.dumps(value))
+                if fault=='replay':(out/'unloaded-interruption.json').write_text('{}')
+                for name in ('forward.sql','rollback.sql'):(out/name).write_text(name)
+                writes=[];releases=[]
+                def call(args,source=None):
+                    if source:
+                        writes.append(source)
+                        current['doors'][0].update(keyitem=0,lockpick=0)
+                def runtime(mode,expected_locks=None):
+                    if mode=='release':releases.append(mode);return {'held':False}
+                    result=copy.deepcopy(workers)
+                    if fault=='loaded_before' or (fault=='loaded_after' and writes):result['targets']=[{'zone':'paineel'}]
+                    return result
+                op={'OUT':out,'ORIGINAL_MAIN':'original','MAIN_REVISION':'new','EXPECTED':before,
+                  'FORWARD':'forward.sql','ROLLBACK':'rollback.sql','CAPTURE_SOURCE':'mock',
+                  'services':lambda:{},'runtime':runtime,'identities':lambda s:s['workers'],
+                  'save':lambda n,v:(out/n).write_text(json.dumps(v)),'run':call,
+                  'expected_after':load('activate').expected_after}
+                module=load('resume_unloaded')
+                with patch.object(module,'exec',lambda s,ns:ns.update(capture=lambda:copy.deepcopy(current)),create=True):
+                    if fault:
+                        with self.assertRaises(AssertionError):module.resume(op)
+                        self.assertEqual(len(writes),int(fault=='loaded_after'))
+                        self.assertEqual(releases,[])
+                    else:
+                        result=module.resume(op)
+                        self.assertEqual(result['status'],'activated_verified')
+                        self.assertEqual(writes,['forward.sql'])
+                        self.assertEqual(releases,['release'])
+
+
 class RuntimeTests(unittest.TestCase):
     def test_lock_list_ignores_interleaved_mutation_broadcasts(self):
         runtime=load('runtime')

@@ -11,7 +11,9 @@ ROOT = HERE.parents[2]
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--resume-hold',action='store_true')
+    group=parser.add_mutually_exclusive_group()
+    group.add_argument('--resume-hold',action='store_true')
+    group.add_argument('--resume-unloaded',action='store_true')
     args=parser.parse_args()
     pins = json.loads((HERE/'production-plan.json').read_text())['files']
     for name, digest in pins.items():
@@ -25,10 +27,11 @@ def main():
                   ROLLBACK=(HERE/'private/rollback.sql').read_text(),
                   MAIN_REVISION=revision,
                   EXPECTED_IMAGE='sha256:0dec2bfc8b2e83a30301c2fc203c5688d44a2b39cf354b5e0e0b2ba8ed38f9dd')
-    if args.resume_hold:
+    if args.resume_hold or args.resume_unloaded:
         values['ACTIVATE_SOURCE']=(HERE/'activate.py').read_text()
         values['ORIGINAL_MAIN']='7cb0ec4a0269f0f2ca3394981e4bc308ac238125'
-    source = ''.join(k+'='+repr(v)+'\n' for k,v in values.items()) + (HERE/('resume_activation.py' if args.resume_hold else 'activate.py')).read_text()
+    script='resume_unloaded.py' if args.resume_unloaded else ('resume_activation.py' if args.resume_hold else 'activate.py')
+    source = ''.join(k+'='+repr(v)+'\n' for k,v in values.items()) + (HERE/script).read_text()
     result = subprocess.run(SSH+['sudo -n python3 -'],input=source,text=True,capture_output=True,timeout=900)
     if result.returncode:
         raise RuntimeError(result.stderr[-4000:]+'\nInspect remote result.json before any continuation.')
