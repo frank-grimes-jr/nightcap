@@ -1,5 +1,5 @@
 {
-  "status": "approved release prose; publication gated on verified activation",
+  "status": "published and all499 HTTPS files verified; owner gameplay QA open",
   "articles": [
     {
       "path": "wiki/articles/about.json",
@@ -243,5 +243,6 @@
     }
   ],
   "catalog": "Only Hole generated access wording changes; item and reward values preserved. Other zone pages link owning travel/dungeon guides and make no contradictory key claim.",
-  "home_commands": "Navigation and commands unchanged; no repeated announcement on home."
+  "home_commands": "Navigation and commands unchanged; no repeated announcement on home.",
+  "release": "20261029-keyless-doors-v1"
 }

@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [Keyless doors: live verification, recovery and exact QA](ops/keyless-doors-20261029/README.md)
+
 - [Camil's Chapterhouse helmet quest: live testing, delivery and required QA](quests/camil-chapterhouse/deployment/README.md)
 
 - [Quest ingredient qualities: deployed for live QA, October22](releases/quest-tier-handins-20261022/deployment/README.md)

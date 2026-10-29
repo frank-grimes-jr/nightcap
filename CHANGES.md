@@ -1,22 +1,26 @@
 # CHANGES
 
-## 2026-10-29 — Keyless doors authorized release
+## 2026-10-29 — Keyless doors deployed
 
-Prepared removal of key and lock-picking requirements from every existing door
-across all zones/versions, including negative lock-picking sentinels. Only
-`doors.keyitem` and `doors.lockpick` change; guild/script/instance restrictions,
-items and player progress remain. Guarded forward/inverse and isolated MariaDB
-rehearsals pass on 19,264 local doors and all 19,272 captured production doors.
-The owner-approved read-only capture yields 194 locks across 48 zones; exact
-forward/inverse scripts remain private. The owner approved scoped main/OVH/wiki
-activation after dev/test PR368/369. The reviewed operator takes a full backup,
-holds empty Paineel admissions through auth drain, applies exact SQL and refreshes
-doors while preserving service/worker lifetimes. The first activation stopped before SQL after the native hold applied; direct
-lock-list acknowledgment and receipt-gated continuation are tested/reviewed.
-Activation receipts will follow;
-owner gameplay QA remains open. No client or binary update. The wiki release is
-prepared and gated on successful activation.
-Scope, recovery and exact QA: `docs/ops/keyless-doors-20261029/README.md`.
+Owner-approved main PR370 and guarded OVH activation clear key and lock-picking
+requirements on all194 existing locked doors across48zones, including negative
+lockpick sentinels. Only `doors.keyitem`/`lockpick` changed: all19272 rows match
+the expected afterimage, with19078 unrelated doors preserved. Guild, trigger,
+adventure, quest and zone eligibility remain; player/keyring/item data is untouched.
+
+A verified full PEQ backup preceded the transaction. Two pre-SQL guards stopped
+safely: the native hold acknowledgment needed explicit List readback (PR371), then
+Paineel naturally unloaded during auth drain (PR372). Exact receipt-gated
+continuations applied SQL once. No affected zones remained loaded; future normal
+loads read updated definitions. The owned Paineel hold is released, all12 workers
+and five service lifetimes remain unchanged, and health passes. No restart,
+market rotation, client/binary/cache update or player snapshot restore.
+
+Fourteen operator/recovery tests, seven policy/Hole tests and nine production SQL
+rehearsal groups pass. Wiki20261029-keyless-doors-v1 is published: six changed,
+493 preserved public files. Owner gameplay QA remains open, including Befallen,
+Paineel lift, internal Hole doors and Sky transport. Scope, backup, recovery and
+exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
 
 ## 2026-10-29 — Plane of Hate ground-level layout deployed
