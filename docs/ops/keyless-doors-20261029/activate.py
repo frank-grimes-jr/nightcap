@@ -122,6 +122,10 @@ def execute():
     result['admission_hold'] = runtime('hold', expected_locks=prehold['locks'])
     result['status'] = 'admission_held_draining'
     save('result.json', result)
+    return finish(capture, before, baseline, workers, result)
+
+
+def finish(capture, before, baseline, workers, result):
     # Native auth expires after two 60-second sweeps. Let already-authorized
     # entries complete/expire before proving the locked target is still empty.
     for _ in range(5):

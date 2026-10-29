@@ -85,7 +85,9 @@ def locked_zones(sock):
     ids = set()
     for _ in range(100):
         message = emote(sock)
-        ids.update(map(int, re.findall(r'ID: (\d+)', message)))
+        row = re.fullmatch(r'Zone \d+ \| Name: .* \([a-zA-Z0-9_]+\) ID: (\d+)', message)
+        if row:
+            ids.add(int(row[1]))
         if 'zones locked.' in message.lower() or 'zones are locked.' in message.lower():
             return ids
     raise RuntimeError('No complete zone lock list')
@@ -96,13 +98,8 @@ def change_hold(sock, hold, expected_locks):
     assert before == set(expected_locks), 'Native lock list changed'
     assert (75 in before) != hold, 'Unexpected Paineel lock preimage'
     sock.sendall(packet(0x002B, struct.pack('<B64sH', 1 if hold else 2, b'keyless-door-operator', 75)))
-    expected = 'Zone Locked' if hold else 'Zone Unlocked'
-    for _ in range(50):
-        message = emote(sock)
-        if expected in message and 'ID: 75' in message:
-            break
-    else:
-        raise RuntimeError('No zone lock acknowledgment')
+    # Success broadcasts target loaded zones, not this status-only connection.
+    # An ordered explicit List request provides the authoritative acknowledgment.
     after = locked_zones(sock)
     assert after == (before | {75} if hold else before - {75})
     return {'held': hold, 'zone_id':75, 'other_locks_preserved':True,

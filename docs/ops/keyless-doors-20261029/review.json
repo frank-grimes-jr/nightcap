@@ -5,10 +5,11 @@
     "admission race: owned native zone hold plus auth drain",
     "lock receipt ownership: persisted exact before/after and guarded release"
   ],
-  "activation_tests": 10,
+  "activation_tests": 13,
   "policy_and_hole_tests": 7,
   "production_sql_groups": 9,
   "wiki_tests": 19,
   "search": "PASS",
-  "gameplay_qa": "pending"
+  "gameplay_qa": "pending",
+  "recovery_review": "No blocking findings; exact pre-SQL continuation and authoritative List readback"
 }

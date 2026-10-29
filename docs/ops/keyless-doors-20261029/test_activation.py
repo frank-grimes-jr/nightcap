@@ -135,7 +135,66 @@ class ActivationTests(unittest.TestCase):
         self.assertFalse(any(src==self.op.ROLLBACK for _,src in self.calls))
 
 
+class ResumeTests(unittest.TestCase):
+    def test_only_exact_unattempted_sql_state_can_continue(self):
+        for fault in (None,'commit_started','doors','locks','worker','replay'):
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory() as directory:
+                out=Path(directory)
+                receipt={'status':'admission_hold_requested','main':'original',
+                         'backup_verified':True,'admission_locks_before':[]}
+                before={'doors':[{'id':1,'keyitem':9,'lockpick':-1}]}
+                workers={'workers':[], 'targets':[], 'locks':[]}
+                now=copy.deepcopy(workers);now['locks']=[75]
+                if fault=='commit_started':receipt['status']='commit_started'
+                if fault=='locks':now['locks']=[75,8]
+                if fault=='worker':now['workers']=[{'pid':9,'start':'different'}]
+                if fault=='replay':(out/'hold-interruption.json').write_text('{}')
+                for name,value in [('result.json',receipt),('before.json',before),
+                    ('services-before.json',{'same':True}),('runtime-before.json',workers)]:
+                    (out/name).write_text(json.dumps(value))
+                for name in ('forward.sql','rollback.sql'):(out/name).write_text(name)
+                current=copy.deepcopy(before)
+                if fault=='doors':current['doors'][0]['keyitem']=0
+                finishes=[]
+                op={'OUT':out,'ORIGINAL_MAIN':'original','MAIN_REVISION':'corrected',
+                    'EXPECTED':before,'FORWARD':'forward.sql','ROLLBACK':'rollback.sql',
+                    'CAPTURE_SOURCE':'def capture(): return '+repr(current),
+                    'services':lambda:{'same':True},'runtime':lambda mode:now,
+                    'identities':lambda s:s['workers'],'target_ids':lambda s:s['targets'],
+                    'save':lambda name,value:(out/name).write_text(json.dumps(value)),
+                    'RUNTIME_SOURCE':'corrected','finish':lambda *a:finishes.append(a)}
+                if fault:
+                    with self.assertRaises(AssertionError):load('resume_activation').resume(op)
+                    self.assertEqual(finishes,[])
+                else:
+                    load('resume_activation').resume(op)
+                    self.assertEqual(len(finishes),1)
+                    self.assertEqual(json.loads((out/'result.json').read_text())['status'],'admission_held_draining')
+
+
 class RuntimeTests(unittest.TestCase):
+    def test_lock_list_ignores_interleaved_mutation_broadcasts(self):
+        runtime=load('runtime')
+        sock=types.SimpleNamespace(sendall=lambda data:None)
+        with patch.object(runtime,'emote',side_effect=[
+            'Zone Unlocked | Name: Paineel (paineel) ID: 75',
+            'Zone 1 | Name: North Freeport (freportn) ID: 8', '1 Zones are locked.']):
+            self.assertEqual(runtime.locked_zones(sock),{8})
+        with patch.object(runtime,'emote',side_effect=[
+            'Zone Unlocked | Name: Paineel (paineel) ID: 75','There are no zones locked.']):
+            self.assertEqual(runtime.locked_zones(sock),set())
+
+    def test_hold_and_release_use_direct_readback_without_broadcast(self):
+        runtime=load('runtime')
+        sock=types.SimpleNamespace(sendall=lambda data:None)
+        for hold,before,after in [(True,{8},{8,75}),(False,{8,75},{8})]:
+            with patch.object(runtime,'locked_zones',side_effect=[before,after]), \
+                 patch.object(runtime,'emote',side_effect=AssertionError('No broadcast is delivered')):
+                result=runtime.change_hold(sock,hold,sorted(before))
+            self.assertEqual(result['after'],sorted(after))
+        with patch.object(runtime,'locked_zones',side_effect=[set(),set()]):
+            with self.assertRaises(AssertionError):runtime.change_hold(sock,True,[])
+
     def test_status_parse_and_empty_affected_selection(self):
         runtime=load('runtime')
         rows=[f'#{i} :: D :: 127.0.0.1:9001 :: 0 :: 127.77.0.1:7001 :: '+

@@ -11,7 +11,9 @@ The owner-approved read-only capture yields 194 locks across 48 zones; exact
 forward/inverse scripts remain private. The owner approved scoped main/OVH/wiki
 activation after dev/test PR368/369. The reviewed operator takes a full backup,
 holds empty Paineel admissions through auth drain, applies exact SQL and refreshes
-doors while preserving service/worker lifetimes. Activation receipts will follow;
+doors while preserving service/worker lifetimes. The first activation stopped before SQL after the native hold applied; direct
+lock-list acknowledgment and receipt-gated continuation are tested/reviewed.
+Activation receipts will follow;
 owner gameplay QA remains open. No client or binary update. The wiki release is
 prepared and gated on successful activation.
 Scope, recovery and exact QA: `docs/ops/keyless-doors-20261029/README.md`.
