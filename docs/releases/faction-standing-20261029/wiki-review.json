@@ -1,6 +1,6 @@
 {
   "date": "2026-10-29",
-  "basis": "origin/main 85a42253 plus faction-standing candidate; newer Hate release guidance retained",
+  "basis": "main 85a42253 release records plus dev 9283dd07 augment candidate plus faction standing feature; all authored and generated routes assessed",
   "articles": [
     {
       "path": "wiki/articles/about.json",
@@ -53,7 +53,7 @@
     {
       "path": "wiki/articles/dungeon-modes.json",
       "title": "Raid & Grind dungeons",
-      "sha256": "bbf31f4210444d6b8dae971d7a550f073fe46e21f398e2208347063ab4a88ad4",
+      "sha256": "0f6522fa99091af0192788aee5f2effc2e32b7eaed1d18664d7e55b3a88a968a",
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
     },
     {
@@ -65,7 +65,7 @@
     {
       "path": "wiki/articles/features.json",
       "title": "Features",
-      "sha256": "3a44bc88acdbd29bb87cd0eb4287c50a1eb9dcf6d5ab6f73f64f53e0e3281e80",
+      "sha256": "ca63c059ed03a738c54579f113293934d0280a4ad70ff1ef9cfcb574f8d15650",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
@@ -79,6 +79,30 @@
       "title": "Nightcap Wiki",
       "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-940592.json",
+      "title": "Blackspire Prism",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "ee0a75ffa4d65b645737391e752572c725f4fe97b7ee15856ef425c9b0a3b7cb"
+    },
+    {
+      "path": "wiki/articles/item-940593.json",
+      "title": "Blackspire Prism (Polished)",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "771a749c5899f0a5b6f9eb9b0e40a54632284d2b32cca427febdea08b5bff52d"
+    },
+    {
+      "path": "wiki/articles/item-940594.json",
+      "title": "Blackspire Prism (Exalted)",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "16cb082498c616552795af83f22653e98e82f19b250dd16cd2ac1bf2116cbf1e"
+    },
+    {
+      "path": "wiki/articles/item-940595.json",
+      "title": "Blackspire Prism (Ascension)",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "31da3db64ec0717d929047158d7096ea8f0ad9f30b4449b55f01b18cf9fcbc06"
     },
     {
       "path": "wiki/articles/item-960420.json",
@@ -197,7 +221,7 @@
     {
       "path": "wiki/articles/recent-changes.json",
       "title": "Change Log",
-      "sha256": "524a101fffcef915c3fbce51868087ef0162136f90900a9511b52d1bbe105720",
+      "sha256": "420cebd9688c27600de769fe6d3144f0ddb147fb754451af886273415a56fb01",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
@@ -221,7 +245,7 @@
     {
       "path": "wiki/articles/unreleased.json",
       "title": "In development",
-      "sha256": "e7f3a956780281b42a569aaaaa579c471692558ce1c886a9d51d091be0c88585",
+      "sha256": "43310de2cedbf1fb01dc0ef3937bf3b7c234d2f90d7dda5b40381b8e7471f4b2",
       "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
     },
     {
@@ -231,9 +255,15 @@
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
     },
     {
+      "path": "wiki/articles/zone-hateplaneb.json",
+      "title": "Plane of Hate B \u2014 augment preview",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "d196850bc9b8b66a2ff3598d18e64b315d35c1596594f8c79a1ca6e669bbd9b6"
+    },
+    {
       "path": "wiki/articles/zone-hunt.json",
       "title": "Zone hunt & forging",
-      "sha256": "c2984b628f9bd1290d92f11d54a504c3fde93bb9ae2775ac51e99c9f1f5e460c",
+      "sha256": "679a0362c49dd4c531d9805b24f23d52e29a2bd185fb64393d2a8792a6e6cd9b",
       "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
     },
     {
@@ -244,7 +274,7 @@
     }
   ],
   "home": "Existing four goal paths retained; no live release announcement.",
-  "generated_catalogs": "No item/zone values, acquisition rules or generated templates changed.",
+  "generated_catalogs": "Inherited five augment preview pages retained; faction display changes no catalog values, acquisition rules or template behavior.",
   "publication": "Not published; candidate labels required.",
   "source_ledger": "Historical drift reviewed only for this scoped change; unrelated source pins not advanced."
 }

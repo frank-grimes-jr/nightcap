@@ -57,6 +57,16 @@
         "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\docs\\releases\\faction-standing-20261029\\wiki-review.json",
         "role": "Whole-wiki impact assessment",
         "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\tools\\build_faction_candidate.py",
+        "role": "Authenticated native unity compilation, baseline reproduction and zone relink",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go-2\\work\\faction-standing\\docs\\releases\\faction-standing-20261029\\native-build.json",
+        "role": "Exact native compile/link provenance and retained-input verification",
+        "state": "unchanged"
       }
     ]
   }

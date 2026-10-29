@@ -1,14 +1,13 @@
 # Player faction standing window — October 29, 2026
 
-Candidate only. Native unit/handler checks pass; isolated zone compile/link is
-being verified. No server installation, public wiki publication or owner visual
+Candidate only. Native unit/handler checks and the authenticated zone compile/relink pass. No server installation, public wiki publication or owner visual
 acceptance is claimed.
 
 ## Intent and existing options
 
 The owner requested an in-game view of the character's faction standings with
 bars, numbers and easily readable white text. Current integrated source
-8b23d739 retains `#faction` at QuestTroupe access, with reset operations and
+85a42253 retains `#faction` at QuestTroupe access, with reset operations and
 earned-hit review; it is unsuitable for general player access. `/consider`
 reports a target's reaction, not a numerical faction browser. The inspected
 RoF2 default EQUI catalog has no faction window. No existing Nightcap player
@@ -55,24 +54,53 @@ The view does not change these policies or any faction values.
 Run `python -B -m unittest discover -s tools/tests -p test_faction_standing.py -v`.
 Windows sandbox testing sets TEMP/TMP to this checkout's `work/test-temp`.
 Initial tests failed for the missing feature, then passed after implementation.
+After integration, all three faction groups, five inherited augment groups and
+19 wiki checks pass; the integrated site builds 497 pages. The inherited augment
+tests need UTF-8 mode on Windows (`PYTHONUTF8=1`). Separate code review found no
+blocking findings; rule thresholds are source-reviewed because the command
+fixture stubs label formatting.
 Tests cover cache gaps, base-only factions, modifier changes, self/target isolation,
 invalid inputs, literal search, escaping, pagination, range endpoints/overflow,
 fixed/invalid ranges, payload size and unchanged earned state. The popup is capped
 below its actual 4096-byte packet field. All feedback is Chat::White.
 
-The complete authored wiki was assessed; Commands, Features, In development and
+All 45 authored wiki articles and generated catalogs were assessed; Commands, Features, In development and
 Change Log carry explicit candidate notes. Home, generated rewards and all
 unrelated live release labels are preserved. See `wiki-review.json` and the
 source-drift report. Historical global drift is not silently approved.
 
+## Native build evidence
+
+`native-build.json` records successful Clang14/C++20 compilation of the complete
+unity unit containing command.cpp, plus the inherited dev zone_hunt.cpp. Both use
+full native headers in an isolated source copy. The command header is checked to
+add only its declaration. The tool authenticates all 2,842 retained source files,
+reproduces the retained zone byte-for-byte, preserves every unchanged static-
+archive member and link input, then links the new candidate and rechecks sources.
+This is a selective rebuild against authenticated retained objects, not a clean
+full rebuild. Existing compiler/system dependencies are reused. There are no
+new compile errors; existing MySQL-comparison and command empty-body warnings
+remain. The candidate is not installed.
+
+Reproduce with `python -B tools/build_faction_candidate.py --baseline-manifest
+docs/dungeons/hate-layout-20261029/native-build/manifest.json` on the documented
+local build host. The manifest records exact commands, paths and binary hashes.
+Separate review found no blocking source/object provenance issue.
+
 ## Delivery and recovery
 
-Only a matching rebuilt **zone** is required. No schema/content migration,
+For the faction display alone, only a matching rebuilt **zone** is required. No schema/content migration,
 quest reload, cache rebuild, client asset or custom rule catalog change. Preserve
 the current release's world, shared_memory and signed client pairing. Runtime
 command settings can override compiled access: verify `factions` has access 0
 and does not collide with a persisted alias during release preflight. Do not
 lower the existing `faction` command's access.
+
+The integrated test binary also retains the unreleased dev augment change. It is
+not a faction-only production payload: a later release must rebuild on its
+authorized production source, preserving live changes and excluding or separately
+authorizing the augment delta. The native builder deliberately enforces this
+exact six-file integrated delta.
 
 Source may advance through dev/test under repository policy. Main promotion
 requires owner sign-off; live deployment needs explicit authorization. OVH's
@@ -89,7 +117,7 @@ change in a compatible rebuilt zone; it never restores player snapshots.
 2. Run `#factions qeynos`, then `#factions 2 qeynos` if multiple pages exist.
    Check alphabetical order, no overlaps, page count, no-match and invalid-page
    feedback. Multiword searches need no quotes. Try `#factions 0`.
-3. In a city, target a guard with a positive faction and use `#factions target`.
+3. In North Qeynos, target a city guard with a positive faction and use `#factions target`.
    Compare with a privileged read-only inspection of that character's earned
    value and modifiers. Target another player, clear target, and target a
    special-faction NPC: no other character's standing is shown.
