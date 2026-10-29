@@ -8,7 +8,8 @@ and invalidates stale quotes. Enlarged seller text and controls with explicit
 light colors; preserve both previous startup fixes and all native Search controls.
 Proxy0.13.2 pairs with its new catalog. Native regressions, full runtime suites,
 117guards and19UI/asset tests pass. Main PR357 and signed2026102803 are
-published; player posting/readability acceptance remains pending.
+published. Owner confirmed the reported issue works, the posting preview appears,
+and the larger light text is readable. Broader market transaction QA remains open.
 Evidence: `docs/bazaar/seller-panel/posting-readability-20261028/README.md`.
 
 ## October 28 — Bazaar startup crash hotfix published

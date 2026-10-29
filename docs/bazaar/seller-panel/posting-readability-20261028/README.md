@@ -1,4 +1,4 @@
-# Bazaar posting and readability repair — October28
+# Bazaar posting and readability repair â€” October28
 
 ## Report and diagnosis
 
@@ -10,9 +10,9 @@ process inspection is used. Current installed proxy0.13.1 and XML match2802.
 Read-only disassembly of the pinned RoF2 executable establishes a supported
 native input path missed by synthetic tests: CEditWnd::SetWindowText at0x87DD00
 can convert ordinary digits to UTF16 at0x87DD51 and store InputText at+0x1EC.
-Typed-byte append806E02–806E97 preserves that representation. CXStr+4 is capacity
+Typed-byte append806E02â€“806E97 preserves that representation. CXStr+4 is capacity
 in bytes, +8 is code-unit length, +12 is encoding0/1, payload begins+0x14.
-UTF16 allocation8058F0–8058F5 doubles the requested unit count; copy805AC7–805AE4
+UTF16 allocation8058F0â€“8058F5 doubles the requested unit count; copy805AC7â€“805AE4
 copies2*(length+1) bytes. The old BazaarPrice reader rejected encoding1 silently.
 This proves a supported-path defect, not the owner's exact runtime encoding.
 Page/Tab native forwarding and normal button message1 were independently reviewed;
@@ -48,14 +48,18 @@ publication are complete. The live channel and all three changed files match
 the signed candidate; all141HTTPS assets, production signature and actual DLL/catalog
 pairing pass hosted verification. Allfive service IDs/start times/restart counts
 are unchanged. Wiki20261028-bazaar-post-readability-v1 is published; all499public
-files, security headers and private-route denials verify. Native owner
-acceptance remains pending. This is a
+files, security headers and private-route denials verify. The owner subsequently
+reported "It works" and explicitly confirmed "Preview appears and text is readable".
+The reported posting/readability problem is accepted as resolved; offline buying,
+cancellation/collection and exhaustive resize QA remain separate. See
+[owner acceptance](owner-acceptance.json) and the
+[verified wiki acceptance update](../posting-owner-qa-20261028/README.md). This is a
 client-only repair; it requires full EQ exit and launcher update, no server restart.
 
 ## Exact player QA
 
 After update, enter public East Commonlands safely out of combat and other trades.
-Open /bazaar → Sell / My Listings. Confirm light readable text at the saved size
+Open /bazaar â†’ Sell / My Listings. Confirm light readable text at the saved size
 and after resizing; scroll to every action if the saved window is short.
 Pick up an inexpensive permanent tradeable item, enter1platinum and click Post.
 The exact item, quantity and per-item/total price must appear for review. Click
