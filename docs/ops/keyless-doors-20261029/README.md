@@ -1,15 +1,20 @@
 # Remove door keys and lock-picking requirements
 
-Status: owner-authorized production release; activation and public publication
-are prepared, with execution receipts to follow. The owner requested "Merge to
-prod an server" after the candidate passed dev/test (PR368/369). Only this scoped
-change is promoted from main; unrelated dev/test candidates are excluded.
-The approved capture contains 19,272 doors; 194 locks across 48 zones change,
-including 129 negative lock-picking sentinels. All 19,078 other doors remain.
-Exact forward/inverse SQL and raw capture stay in git-ignored `private/`.
-Ten activation fault/ownership checks, seven policy/Hole tests and nine real SQL
-rehearsal groups pass. Independent review resolved admission-race and lock-receipt
-ownership findings. See `AUTHORIZATION.md` and `native-source-review.json`.
+Status: deployed to OVH at18:01UTC October29 after owner-approved main PR370
+(7cb0ec4a) and operator corrections PR371/372 (final17509a22). All194 locks across
+48zones are cleared, including129 negative lockpick sentinels. All19272 door rows
+match their exact expected afterimage;19078 unrelated rows are unchanged. The
+full backup is verified and the temporary native Paineel hold is released.
+All12 worker/five service lifetimes remain unchanged; health passes. No restart.
+Paineel naturally unloaded before SQL, so no affected loaded zone required a
+static refresh. Subsequent normal zone loads read updated definitions.
+
+`deployed.json` and independent `activation-guard.json` record verification.
+Wiki20261029-keyless-doors-v1 is published; six files changed and493 preserved.
+Fourteen activation/recovery tests, seven policy/Hole tests and nine real SQL
+rehearsal groups pass. Owner gameplay acceptance remains pending; follow the
+exact non-GM route below. Raw data/SQL remain private. See `AUTHORIZATION.md`,
+`review.json` and `native-source-review.json` for authority and source review.
 
 ## Behavior and scope
 
@@ -81,8 +86,9 @@ override of future content or quest-created locks.
    ground spawns and objects: review staged content before using it. New normal
    zone loads read updated rows; re-entering an already loaded zone is insufficient.
    Do not kill individual production workers. Quest reload alone is insufficient.
-6. Verify acknowledgments, health and actual non-GM access before reopening use.
-   Record database application, runtime refresh and owner acceptance separately.
+6. Verify acknowledgments, health and lock ownership before releasing the hold.
+   Perform actual non-GM access tests using the owner QA route below; record
+   database application, runtime refresh and owner acceptance separately.
    No binary, shared-item cache or signed-client update is needed. If a full
    restart is chosen, preserve the current release and authenticate normal market
    rotation rather than restoring a stale market/player snapshot.
@@ -135,7 +141,7 @@ verified full PEQ backup, and uses the authenticated world protocol in `runtime.
 Paineel is the only affected loaded zone. An owned native zone-75 admission hold
 and 125-second auth drain precede its empty-zone refresh. All 12 worker identities,
 service lifetimes, exact full door afterimage and native reload logs must match.
-No binary/client/cache update or service restart is planned. Ordinary future zone
+No binary/client/cache update or service restart occurred. Ordinary future zone
 loads read the updated content. The operator refuses additional affected loaded
 zones until their static content is reviewed.
 
