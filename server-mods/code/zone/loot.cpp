@@ -6,6 +6,7 @@
 #include "common/repositories/global_loot_repository.h"
 #include "zone/client.h"
 #include "zone/entity.h"
+#include "zone/dungeon_service.h"
 #include "zone/global_loot_manager.h"
 #include "zone/mob.h"
 #include "zone/quest_parser_collection.h"
@@ -644,7 +645,8 @@ void ZoneDatabase::LoadGlobalLoot()
 		l.size() != 1 ? "ies" : "y"
 	);
 
-	const std::string &zone_id = std::to_string(zone->GetZoneID());
+	const auto loot_zone=NightcapDungeon::ContentZone(zone->GetZoneID(),NightcapDungeon::Managed());
+	const std::string &zone_id = std::to_string(loot_zone);
 
 	for (const auto &e: l) {
 		if (!e.zone.empty()) {

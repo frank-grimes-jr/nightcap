@@ -1,0 +1,35 @@
+{
+  "status": "unsigned staging only; not installed or published",
+  "terrain_catalog_entries_validated": 38,
+  "files": {
+    "hateplaneb.s3d": {
+      "sha256": "b5bfee1c99274509a2c15792c9bf2205670192fd5ca9e92e62db342af1fb9f8d",
+      "size": 8428122
+    },
+    "hateplaneb_obj.s3d": {
+      "sha256": "0ae40c84f57e753dbe2ea681adbdb4e5eb7064d175e1d9a4cef80ab300df3fdb",
+      "size": 4084126
+    },
+    "hateplane.s3d": {
+      "sha256": "4a6b1a7a3025c22bd5d28a97e9e4c8999000e572f6fb90c6e6aee527bc72e341",
+      "size": 2263975
+    },
+    "hateplane_obj.s3d": {
+      "sha256": "cebcf37b783867778b50b68ce96ffa88651981284075de242f672818e12ea435",
+      "size": 1027549
+    },
+    "hateplane_chr.s3d": {
+      "sha256": "217adb0e89fcff849696c592d6195f43afabbb3e56fa831baf18f78d8d7a962c",
+      "size": 2206116
+    },
+    "hateplaneb_chr.s3d": {
+      "sha256": "83b5f0631e000478bb29de36ca257aa8f3889fd495109d1d8dc59a82a2c2cee3",
+      "size": 1251865
+    },
+    "hateplaneb_chr.txt": {
+      "sha256": "3d38d5ca5e44af15f7e279b807b66eb64a295901a861dbe045c9736db4ed3902",
+      "size": 343
+    }
+  },
+  "archive_sha256": "efd01b322485bb7c7b32ce2242c1352554ca23f886195f0ad7af839b186fd169"
+}

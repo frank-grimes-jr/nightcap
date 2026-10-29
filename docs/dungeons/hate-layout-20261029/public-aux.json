@@ -1,0 +1,2559 @@
+{
+  "grid": [
+    {
+      "id": 1,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 0
+    },
+    {
+      "id": 2,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 3,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 4,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 5,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 6,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 7,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 8,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 9,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 10,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 0
+    },
+    {
+      "id": 11,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 12,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 13,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 0
+    },
+    {
+      "id": 14,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 15,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 16,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 17,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 18,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 19,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 20,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 21,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 22,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 23,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 24,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 25,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 26,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 27,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 28,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 29,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 30,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 31,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 32,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 33,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 34,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 35,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 36,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 37,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 38,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 39,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 40,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 41,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 42,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 43,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 44,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 45,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 46,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    },
+    {
+      "id": 47,
+      "zoneid": 76,
+      "type": 0,
+      "type2": 1
+    }
+  ],
+  "zone": [
+    {
+      "id": 162,
+      "zoneidnumber": 76,
+      "version": 0,
+      "short_name": "hateplane",
+      "long_name": "Plane of Hate",
+      "min_status": 0,
+      "map_file_name": null,
+      "note": "",
+      "min_expansion": -1,
+      "max_expansion": -1,
+      "content_flags": null,
+      "content_flags_disabled": null,
+      "expansion": 0,
+      "file_name": "",
+      "safe_x": -353.08,
+      "safe_y": -374.8,
+      "safe_z": 3.75,
+      "safe_heading": 0,
+      "graveyard_id": 0,
+      "min_level": 46,
+      "max_level": 255,
+      "timezone": 0,
+      "maxclients": 0,
+      "ruleset": 1,
+      "underworld": -1000,
+      "minclip": 200,
+      "maxclip": 200,
+      "fog_minclip": 30,
+      "fog_maxclip": 200,
+      "fog_blue": 128,
+      "fog_red": 128,
+      "fog_green": 128,
+      "sky": 0,
+      "ztype": 255,
+      "zone_exp_multiplier": 1.0,
+      "walkspeed": 0.4,
+      "time_type": 2,
+      "fog_red1": 128,
+      "fog_green1": 128,
+      "fog_blue1": 128,
+      "fog_minclip1": 30,
+      "fog_maxclip1": 200,
+      "fog_red2": 128,
+      "fog_green2": 128,
+      "fog_blue2": 128,
+      "fog_minclip2": 30,
+      "fog_maxclip2": 200,
+      "fog_red3": 128,
+      "fog_green3": 128,
+      "fog_blue3": 128,
+      "fog_minclip3": 30,
+      "fog_maxclip3": 200,
+      "fog_red4": 128,
+      "fog_green4": 128,
+      "fog_blue4": 128,
+      "fog_minclip4": 30,
+      "fog_maxclip4": 200,
+      "fog_density": 0.1,
+      "flag_needed": "",
+      "canbind": 1,
+      "cancombat": 1,
+      "canlevitate": 1,
+      "castoutdoor": 1,
+      "hotzone": 0,
+      "insttype": 0,
+      "shutdowndelay": 3600000,
+      "peqzone": 1,
+      "bypass_expansion_check": 0,
+      "suspendbuffs": 0,
+      "rain_chance1": 0,
+      "rain_chance2": 0,
+      "rain_chance3": 0,
+      "rain_chance4": 0,
+      "rain_duration1": 0,
+      "rain_duration2": 0,
+      "rain_duration3": 0,
+      "rain_duration4": 0,
+      "snow_chance1": 0,
+      "snow_chance2": 0,
+      "snow_chance3": 0,
+      "snow_chance4": 0,
+      "snow_duration1": 0,
+      "snow_duration2": 0,
+      "snow_duration3": 0,
+      "snow_duration4": 0,
+      "gravity": 0.4,
+      "type": 0,
+      "skylock": 0,
+      "fast_regen_hp": 180,
+      "fast_regen_mana": 180,
+      "fast_regen_endurance": 180,
+      "npc_max_aggro_dist": 600,
+      "client_update_range": 600,
+      "underworld_teleport_index": 0,
+      "lava_damage": 50,
+      "min_lava_damage": 10,
+      "idle_when_empty": 1,
+      "seconds_before_idle": 60,
+      "shard_at_player_count": 0
+    },
+    {
+      "id": 163,
+      "zoneidnumber": 186,
+      "version": 0,
+      "short_name": "hateplaneb",
+      "long_name": "The Plane of Hate",
+      "min_status": 0,
+      "map_file_name": null,
+      "note": "",
+      "min_expansion": -1,
+      "max_expansion": -1,
+      "content_flags": null,
+      "content_flags_disabled": null,
+      "expansion": 0,
+      "file_name": "",
+      "safe_x": -393,
+      "safe_y": 656,
+      "safe_z": 3,
+      "safe_heading": 0,
+      "graveyard_id": 0,
+      "min_level": 46,
+      "max_level": 255,
+      "timezone": 0,
+      "maxclients": 0,
+      "ruleset": 1,
+      "underworld": -50,
+      "minclip": 50,
+      "maxclip": 1000,
+      "fog_minclip": 0,
+      "fog_maxclip": 1000,
+      "fog_blue": 25,
+      "fog_red": 25,
+      "fog_green": 25,
+      "sky": 0,
+      "ztype": 0,
+      "zone_exp_multiplier": 1.13,
+      "walkspeed": 0.4,
+      "time_type": 1,
+      "fog_red1": 0,
+      "fog_green1": 0,
+      "fog_blue1": 0,
+      "fog_minclip1": 500,
+      "fog_maxclip1": 2000,
+      "fog_red2": 25,
+      "fog_green2": 25,
+      "fog_blue2": 25,
+      "fog_minclip2": 0,
+      "fog_maxclip2": 600,
+      "fog_red3": 25,
+      "fog_green3": 25,
+      "fog_blue3": 25,
+      "fog_minclip3": 0,
+      "fog_maxclip3": 600,
+      "fog_red4": 25,
+      "fog_green4": 25,
+      "fog_blue4": 25,
+      "fog_minclip4": 0,
+      "fog_maxclip4": 600,
+      "fog_density": 0.33,
+      "flag_needed": "",
+      "canbind": 1,
+      "cancombat": 1,
+      "canlevitate": 1,
+      "castoutdoor": 1,
+      "hotzone": 0,
+      "insttype": 0,
+      "shutdowndelay": 3600000,
+      "peqzone": 1,
+      "bypass_expansion_check": 0,
+      "suspendbuffs": 0,
+      "rain_chance1": 0,
+      "rain_chance2": 0,
+      "rain_chance3": 0,
+      "rain_chance4": 0,
+      "rain_duration1": 0,
+      "rain_duration2": 0,
+      "rain_duration3": 0,
+      "rain_duration4": 0,
+      "snow_chance1": 0,
+      "snow_chance2": 0,
+      "snow_chance3": 0,
+      "snow_chance4": 0,
+      "snow_duration1": 0,
+      "snow_duration2": 0,
+      "snow_duration3": 0,
+      "snow_duration4": 0,
+      "gravity": 0.4,
+      "type": 0,
+      "skylock": 0,
+      "fast_regen_hp": 180,
+      "fast_regen_mana": 180,
+      "fast_regen_endurance": 180,
+      "npc_max_aggro_dist": 600,
+      "client_update_range": 600,
+      "underworld_teleport_index": 0,
+      "lava_damage": 50,
+      "min_lava_damage": 10,
+      "idle_when_empty": 1,
+      "seconds_before_idle": 60,
+      "shard_at_player_count": 0
+    }
+  ],
+  "blocked_spells": [],
+  "ground_spawns": [
+    {
+      "id": 107,
+      "zoneid": 76,
+      "version": 0,
+      "max_x": 324.4,
+      "max_y": -59.5,
+      "max_z": 56.2,
+      "min_x": 324.4,
+      "min_y": -59.5,
+      "heading": 192,
+      "name": "IT28_ACTORDEF",
+      "item": 28016,
+      "max_allowed": 1,
+      "comment": "Part of Rogue Epic",
+      "respawn_timer": 300,
+      "fix_z": 1,
+      "min_expansion": -1,
+      "max_expansion": -1,
+      "content_flags": null,
+      "content_flags_disabled": null
+    },
+    {
+      "id": 29,
+      "zoneid": 186,
+      "version": 0,
+      "max_x": -331,
+      "max_y": 171.8,
+      "max_z": 19.27,
+      "min_x": -331,
+      "min_y": 171.8,
+      "heading": 0,
+      "name": "IT28_ACTORDEF",
+      "item": 28016,
+      "max_allowed": 1,
+      "comment": "part of rogue epic",
+      "respawn_timer": 300,
+      "fix_z": 1,
+      "min_expansion": -1,
+      "max_expansion": -1,
+      "content_flags": null,
+      "content_flags_disabled": null
+    }
+  ],
+  "nightcap_dungeon_spawns": [
+    {
+      "zone_id": 76,
+      "spawn_id": 9100012,
+      "npc_id": 998812,
+      "group_id": 998812,
+      "boss_id": 0,
+      "is_final": 0,
+      "x": -337.08,
+      "y": -374.8,
+      "z": 2,
+      "heading": 0,
+      "respawn": 86400,
+      "grid_id": 0
+    }
+  ],
+  "task_activities": [
+    {
+      "taskid": 9738,
+      "activityid": 0,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Magi P`Tasa",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Magi P`Tasa",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9738,
+      "activityid": 1,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Hand of the Maestro",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Hand of the Maestro",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9738,
+      "activityid": 2,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Maestro of Rancor",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Maestro of Rancor",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9738,
+      "activityid": 3,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Innoruuk",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Innoruuk",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9738,
+      "activityid": 4,
+      "req_activity_id": -1,
+      "step": 1,
+      "activitytype": 0,
+      "target_name": "Dungeon Journal",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Keeper: Status / Claim Rewards.",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9739,
+      "activityid": 0,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Magi P`Tasa",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Magi P`Tasa",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9739,
+      "activityid": 1,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Hand of the Maestro",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Hand of the Maestro",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9739,
+      "activityid": 2,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Maestro of Rancor",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Maestro of Rancor",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9739,
+      "activityid": 3,
+      "req_activity_id": -1,
+      "step": 0,
+      "activitytype": 0,
+      "target_name": "Innoruuk",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Receive encounter credit: Innoruuk",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    },
+    {
+      "taskid": 9739,
+      "activityid": 4,
+      "req_activity_id": -1,
+      "step": 1,
+      "activitytype": 0,
+      "target_name": "Dungeon Journal",
+      "goalmethod": 0,
+      "goalcount": 1,
+      "description_override": "Keeper: Status / Claim Rewards.",
+      "npc_match_list": null,
+      "item_id_list": null,
+      "item_list": "",
+      "dz_switch_id": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "min_z": 0,
+      "max_x": 0,
+      "max_y": 0,
+      "max_z": 0,
+      "skill_list": "-1",
+      "spell_list": "0",
+      "zones": "76",
+      "zone_version": -1,
+      "optional": 0,
+      "list_group": 0
+    }
+  ],
+  "roaming": [
+    {
+      "id": 397,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 398,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 399,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 400,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 401,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 402,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 403,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 404,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 405,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 406,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 407,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 408,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 409,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 410,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 411,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 412,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 413,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 414,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 415,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 416,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 417,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 418,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 419,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 420,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 421,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 422,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 423,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 424,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 425,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 426,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 427,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 428,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 429,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 430,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 431,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 432,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 433,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 434,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 435,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 436,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 437,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 438,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 439,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 440,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 441,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 442,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 443,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 444,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 445,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 446,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 447,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 448,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 449,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 450,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 451,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 452,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 453,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 454,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 455,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 456,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 457,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 458,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1073,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1074,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1075,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1076,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1077,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1078,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1079,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1080,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1081,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1082,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1083,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1084,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1085,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1086,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1087,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1088,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1089,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1090,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1091,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1092,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1093,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1094,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1095,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1096,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1097,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1098,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1099,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1100,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1101,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1102,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1103,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1104,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1105,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1106,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1107,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1108,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1109,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1110,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1111,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1112,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1113,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1114,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1115,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1116,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1117,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1118,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1119,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1120,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1121,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1122,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1123,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1124,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1125,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1126,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1127,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1128,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1129,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1130,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1131,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1132,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1133,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1134,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1135,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1136,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1137,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1138,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1139,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1140,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1141,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1142,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1143,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1144,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1145,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1146,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1147,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1148,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1149,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 1150,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2036,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2037,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2038,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2039,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2040,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2041,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2042,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2043,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2044,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2045,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2046,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2047,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2048,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 2049,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 5119,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 5487,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 5489,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 5490,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 5491,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 5493,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 6099,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 6121,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 6122,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 6123,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 6124,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 6125,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13212,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13213,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13214,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13215,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13216,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13217,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13218,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13219,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13220,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13221,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13222,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13223,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13224,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13225,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13226,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13227,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13228,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13229,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13230,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13231,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13232,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13233,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13234,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13235,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13236,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13237,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13238,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13239,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13240,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13241,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13242,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13243,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13244,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13245,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13246,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13247,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13248,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13249,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13250,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13251,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13252,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13253,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13254,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13255,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13256,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13613,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 13614,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    },
+    {
+      "id": 999240,
+      "dist": 0,
+      "max_x": 0,
+      "min_x": 0,
+      "max_y": 0,
+      "min_y": 0
+    }
+  ],
+  "hotzones": [
+    "76\t0",
+    "186\t0"
+  ],
+  "global_loot": [
+    "1\tNULL\t110209\tNULL",
+    "2\tNULL\t110210\tNULL",
+    "3\tNULL\t110211\tNULL",
+    "4\tNULL\t110212\tNULL",
+    "10\tNULL\t110635\tNULL",
+    "11\tNULL\t110636\tNULL",
+    "12\tNULL\t110637\tNULL",
+    "13\tNULL\t110638\tNULL",
+    "14\tNULL\t110639\tNULL",
+    "15\tNULL\t110640\tNULL",
+    "16\tNULL\t110641\tNULL",
+    "17\tNULL\t110642\tNULL",
+    "18\tNULL\t110643\tNULL",
+    "19\tNULL\t110644\tNULL",
+    "9001\tNULL\t990001\tNULL"
+  ],
+  "disabled_public": []
+}

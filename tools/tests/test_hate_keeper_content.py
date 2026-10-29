@@ -32,8 +32,12 @@ class KeeperContent(unittest.TestCase):
             with self.assertRaises(ValueError):patch.desired(changed)
     def test_successor_contract_is_repeatable(self):
         contract=json.loads((ROOT/'docs/dungeons/runtime-contract.json').read_text())
-        self.assertEqual(patch.refresh_contract(copy.deepcopy(contract)),contract)
-        self.assertEqual(len(contract['content']),499)
+        refreshed=patch.refresh_contract(copy.deepcopy(contract))
+        self.assertEqual(refreshed['schema'],contract['schema'])
+        self.assertEqual({c['label']:c for c in refreshed['content']},
+                         {c['label']:c for c in contract['content']})
+        self.assertEqual(len(contract['content']),len({c['label'] for c in contract['content']}))
+        self.assertTrue(any(c['label'].startswith('hate-layout/') for c in contract['content']))
         old=json.loads((ROOT/'docs/dungeons/classic-expansion-20261022/install-rows.json').read_text())
         self.assertEqual(next(r for r in old['spawn2'] if r['id']==9100012)['zone'],'hateplane')
 

@@ -1,0 +1,49 @@
+{
+  "topic": "wiki",
+  "scope": "read-only installed-skill check; existing historical drift retained",
+  "total_entries_checked": 321,
+  "historical_drift_count": 11,
+  "candidate_entries": [
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\wiki\\articles\\dungeon-modes.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\CHANGES.md",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\wiki\\articles\\features.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\wiki\\articles\\recent-changes.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\wiki\\articles\\unreleased.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\wiki\\articles\\dungeon-modes.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\wiki\\articles\\recent-changes.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\wiki-review.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    }
+  ],
+  "candidate_drift": 0
+}

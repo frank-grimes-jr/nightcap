@@ -23,7 +23,7 @@ inline constexpr Dungeon Dungeons[] = {
 	{39,998809,3,5,16,"hole"},
 	{45,998810,0,5,17,"qcat"},
 	{72,998811,3,5,18,"fearplane"},
-	{76,998812,3,4,19,"hateplane"},
+	{186,998812,3,4,19,"hateplaneb"},
 	{71,998813,3,9,20,"airplane"},
 	{760,998820,3,4,21,"chapterhouse"},
 	{113,998860,3,4,22,"kael"},
@@ -164,10 +164,10 @@ inline constexpr Boss Bosses[] = {
 	{72,13817,72004,3,false,"Fright"},
 	{72,13999,72090,4,false,"a dracoliche"},
 	{72,13816,72003,5,true,"Cazic Thule"},
-	{76,2172,76019,1,false,"Magi P`Tasa"},
-	{76,2168,76015,2,false,"Hand of the Maestro"},
-	{76,2059,76011,3,false,"Maestro of Rancor"},
-	{76,1996,76007,4,true,"Innoruuk"},
+	{186,2172,76019,1,false,"Magi P`Tasa"},
+	{186,2168,76015,2,false,"Hand of the Maestro"},
+	{186,2059,76011,3,false,"Maestro of Rancor"},
+	{186,1996,76007,4,true,"Innoruuk"},
 	{71,9200004,71032,1,false,"a thunder spirit princess"},
 	{71,9200000,71059,2,false,"Protector of Sky"},
 	{71,2641,71021,3,false,"Gorgalosk"},
@@ -185,6 +185,10 @@ inline constexpr Boss Bosses[] = {
 	{113,9230001,998862,2,false,"Marshal Kharzug"},
 	{113,9230002,998863,3,false,"General Vhalek"},
 	{113,9230003,998864,4,true,"Echo of Endless War"},
+	{76,2172,76019,1,false,"Magi P`Tasa"},
+	{76,2168,76015,2,false,"Hand of the Maestro"},
+	{76,2059,76011,3,false,"Maestro of Rancor"},
+	{76,1996,76007,4,true,"Innoruuk"},
 };
 struct ExcludedNPC { uint32_t zone, npc; };
 inline constexpr ExcludedNPC ExcludedNPCs[] = {
@@ -192,7 +196,9 @@ inline constexpr ExcludedNPC ExcludedNPCs[] = {
 	{73,73090},
 	{73,73092},
 };
+inline constexpr Dungeon LegacyHate = {76,998812,3,4,19,"hateplane"};
+inline constexpr float HateBookX=-673.0f, HateBookY=313.0f, HateBookZ=3.0f;
 inline constexpr uint32_t SkyKeyService = 998814;
-inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : zone==760 ? 35 : zone==113 ? 35 : 0; }
-inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }
+inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==186 ? 176 : zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : zone==760 ? 35 : zone==113 ? 35 : 0; }
+inline const Dungeon *FindDungeon(uint32_t zone) { if (zone==76) { return &LegacyHate; } for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }
 }

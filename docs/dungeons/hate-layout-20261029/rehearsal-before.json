@@ -1,0 +1,23 @@
+{
+  "schemas": {
+    "nightcap_dungeon_spawns": {
+      "create": "CREATE TABLE `nightcap_dungeon_spawns` (\n  `zone_id` int(10) unsigned NOT NULL,\n  `spawn_id` int(10) unsigned NOT NULL,\n  `npc_id` int(10) unsigned NOT NULL,\n  `group_id` int(10) unsigned NOT NULL,\n  `boss_id` int(10) unsigned NOT NULL DEFAULT 0,\n  `is_final` tinyint(3) unsigned NOT NULL DEFAULT 0,\n  `x` float NOT NULL,\n  `y` float NOT NULL,\n  `z` float NOT NULL,\n  `heading` float NOT NULL,\n  `respawn` int(10) unsigned NOT NULL,\n  `grid_id` int(10) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`zone_id`,`spawn_id`),\n  CONSTRAINT `CONSTRAINT_1` CHECK (`is_final` in (0,1))\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+    },
+    "grid": {
+      "create": "CREATE TABLE `grid` (\n  `id` int(10) NOT NULL DEFAULT 0,\n  `zoneid` int(10) NOT NULL DEFAULT 0,\n  `type` int(10) NOT NULL DEFAULT 0,\n  `type2` int(10) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`zoneid`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1"
+    },
+    "grid_entries": {
+      "create": "CREATE TABLE `grid_entries` (\n  `gridid` int(10) NOT NULL DEFAULT 0,\n  `zoneid` int(10) NOT NULL DEFAULT 0,\n  `number` int(10) NOT NULL DEFAULT 0,\n  `x` float NOT NULL DEFAULT 0,\n  `y` float NOT NULL DEFAULT 0,\n  `z` float NOT NULL DEFAULT 0,\n  `heading` float NOT NULL DEFAULT 0,\n  `pause` int(10) NOT NULL DEFAULT 0,\n  `centerpoint` tinyint(4) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`zoneid`,`gridid`,`number`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1"
+    }
+  },
+  "scopes": {
+    "nightcap_dungeon_spawns": "zone_id=186",
+    "grid": "zoneid=186 AND id BETWEEN 9001 AND 9047",
+    "grid_entries": "zoneid=186 AND gridid BETWEEN 9001 AND 9047"
+  },
+  "rows": {
+    "nightcap_dungeon_spawns": [],
+    "grid": [],
+    "grid_entries": []
+  }
+}
