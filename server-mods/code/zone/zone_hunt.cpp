@@ -44,21 +44,30 @@ void Load(Zone &z)
 		"SELECT spawn_id,npc_id FROM nightcap_zone_hunt_sources WHERE zone_id={}", z.GetZoneID()), false);
 	if (!sources.Success()) { hunt = {}; return; }
 	for (auto row : sources) { hunt.sources.emplace(strtoul(row[0], nullptr, 10), strtoul(row[1], nullptr, 10)); }
-	hunt.zone_id = z.GetZoneID(); hunt.enabled = !hunt.sources.empty();
-	LogInfo("Zone hunt [{}]: [{}] approved native sources", z.GetShortName(), hunt.sources.size());
+	hunt.zone_id = z.GetZoneID(); hunt.enabled = true;
+	LogInfo("Zone hunt [{}]: regular combat augments; [{}] approved equipment sources", z.GetShortName(), hunt.sources.size());
 }
 
 void Award(NPC &npc, bool owned_before_death, bool &rolled)
 {
-	if (!zone || hunt.zone_id != zone->GetZoneID()) { return; }
+	if (!zone || rolled || hunt.zone_id != zone->GetZoneID()) { return; }
 	const DeathEligibility e = {hunt.enabled,
 		WorldContentService::Instance()->GetCurrentExpansion() == 0, zone->GetInstanceVersion() == 0,
 		hunt.sources.count({npc.GetSpawnPointID(), npc.GetNPCTypeID()}) != 0,
 		owned_before_death || npc.HasOwner() || npc.IsMerc() || npc.GetSwarmInfo() || npc.GetSwarmOwner(),
 		npc.IsQueuedForCorpse(), !hunt.night_only || zone->zone_time.IsNightTime(), npc.GetLevel(), hunt.minimum};
-	if (!BeginDeathRoll(rolled, e)) { return; }
+	const bool regular = RegularCombatSpawn(npc.GetSpawnPointID(), npc.GetClass(), npc.MerchantType,
+		npc.GetBodyType(), npc.GetInvul() || npc.GetSpecialAbility(SpecialAbility::AggroImmunity) ||
+		npc.GetSpecialAbility(SpecialAbility::BeingAggroImmunity) ||
+		npc.GetSpecialAbility(SpecialAbility::HarmFromClientImmunity));
+	const bool augment = AugmentDeathEligible(e, regular);
+	bool equipment = false;
+	BeginDeathRoll(equipment, e); // Preserve the original equipment source/level/night gates.
+	if (!augment && !equipment) { return; }
+	rolled = true;
 	// This path intentionally never calls AddLootTable or the global multiplier.
-	for (uint32 base : {hunt.augment, hunt.gear}) {
+	for (uint32 base : {augment ? hunt.augment : 0, equipment ? hunt.gear : 0}) {
+		if (!base) { continue; }
 		if (zone->random.Int(0, 9999) >= FamilyChance) { continue; }
 		const uint32 id = base + Quality(zone->random.Int(0, 9999));
 		const auto item = database.GetItem(id);

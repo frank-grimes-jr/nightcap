@@ -1,5 +1,18 @@
 # CHANGES
 
+## October 29 — regular combat zone augments candidate
+
+Augments now use ordinary native combat-spawn eligibility across public, Grind
+and Raid zones, without the old NPC minimum-level/name/source/night restrictions.
+The independent augment chance remains0.5% and qualities60/30/8/2; wearable hunt
+eligibility is unchanged. Guarded SQL enables Hate B's existing Blackspire Prism
+family without adding equipment sources. Pets, services, protected/invisible
+actors, temporary adds and restored corpses remain excluded. Native and disposable
+MariaDB checks pass; main promotion, full production pairing/build, activation,
+publication and owner QA are pending. Resolve the separate Hate layout's managed
+186→76 Hunt mapping before combining releases. See
+`docs/releases/zone-augments-20261029/README.md` and its exact `QA.md`.
+
 ## 2026-10-28 — Bazaar price input and readability published
 
 Fixed silent rejection of native UTF16 price fields, preserving bounded ASCII

@@ -1,0 +1,13 @@
+{
+  "slug": "zone-hateplaneb",
+  "title": "Plane of Hate B — augment preview",
+  "summary": "Not released: Hate B zone augment preview at the unchanged0.5% rate.",
+  "body": "<p><strong>Not released:</strong> Hate B regular combat mobs will roll Blackspire Prism at0.5% per eligible death in public, Grind and Raid environments. A separate layout/entry release controls access. The equipment family remains disabled. Existing original Plane of Hate retains Spiteglass Prism.</p><ul><li><a href=\"item-940592.html\">Blackspire Prism</a></li><li><a href=\"item-940593.html\">Blackspire Prism (Polished)</a></li><li><a href=\"item-940594.html\">Blackspire Prism (Exalted)</a></li><li><a href=\"item-940595.html\">Blackspire Prism (Ascension)</a></li></ul><p><a href=\"zone-hunt.html#regular-combat-preview\">Eligibility preview</a>. No guaranteed drop or pity timer.</p>",
+  "category": "World",
+  "status": "Not released",
+  "updated": "2026-10-29",
+  "sources": [
+    "docs/releases/zone-augments-20261029/README.md",
+    "docs/releases/zone-loot-20261009/generated/items.json"
+  ]
+}
