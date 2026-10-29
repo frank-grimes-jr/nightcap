@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-10-29T14:46:21.171320+00:00",
+  "image_id": "sha256:0dec2bfc8b2e83a30301c2fc203c5688d44a2b39cf354b5e0e0b2ba8ed38f9dd",
+  "native_zone_workers": 12,
+  "runtime_files": 8,
+  "schema_checks": 51,
+  "content_checks": 650,
+  "services_preserved_since_open": true,
+  "quest_content_cache_preserved": true,
+  "client_release": 2026102901,
+  "added_client_assets": 7,
+  "wiki_release": "20261029-hate-layout-v1",
+  "wiki_files": 499,
+  "public_http_verified_here": false,
+  "owner_gameplay_accepted": false,
+  "dynamic_player_state_compared": false,
+  "mutations_performed": false
+}

@@ -1,15 +1,19 @@
-# Plane of Hate layout successor — October 29 candidate
+# Plane of Hate layout successor — October 29 deployed for live testing
 
 The owner requested THJ's ground-accessible Hate layout and explicitly chose
 “New layout, preserve Nightcap encounters and loot.” THJ's public teleport guide
-identifies `hateplaneb` (zone186). Nightcap's current Keeper destination is
-`hateplane` (zone76). This candidate puts the existing Nightcap population on
-the ground level of186. It is **not deployed, client-published or owner-accepted**.
+identifies `hateplaneb` (zone186). The owner then approved main and paired
+server/client/wiki delivery before manual QA. Main PR362 (`8b23d739`) and OVH
+activation are complete: new Keeper runs now place the existing Nightcap population
+on the ground level of186; original 76 runs remain usable. Signed client2026102901
+and wiki20261029-hate-layout-v1 are published. Admissions are open. **Owner
+rendering, pathing, practical difficulty and complete-run acceptance remain open.**
+Exact receipts and recovery: [release/README.md](release/README.md).
 
 ## Behavior and preservation
 
 The East Commonlands Keeper creates new Raid/Grind runs in186. A character's
-unexpired76 allocation, or a joined leader's76 allocation, continues in76.
+unexpired 76 allocation, or a joined leader's76 allocation, continues in76.
 Ambiguous or failed allocation queries fail closed. Creation rechecks the other
 zone while holding the existing allocation transaction lock. An expired76 run
 cannot silently create another76 run. Public spell travel and unmanaged zones
@@ -59,7 +63,7 @@ native map and Recast/Detour route evidence. `public-source.json`, `public-aux.j
 content reads, not player data. No traps or zone points exist in these zones.
 The78 successor doors have no keys, locks, destination, trigger or LDoN action.
 
-Pair the candidate binaries, additive SQL, two `hateplaneb` Lua scripts and
+The deployed pair contains the binaries, additive SQL, two `hateplaneb` Lua scripts and
 signed client assets. The client needs `hateplaneb.s3d`, `hateplaneb_obj.s3d`,
 `hateplaneb_chr.s3d`, `hateplane_chr.s3d` and the generated `hateplaneb_chr.txt`.
 It also carries `hateplane.s3d` and `hateplane_obj.s3d` for retained old runs;
@@ -94,9 +98,15 @@ hashes match; see [native build evidence](native-build/README.md).
 
 ## Release and recovery boundary
 
-Promotion to main, signed client publication and OVH activation still require
-owner authorization. Prepare a fresh target content/schema and runtime pairing
-check, free-space check and backup before any authorized maintenance.
+The owner's October29 authorization was exercised for this paired release.
+Preflight, stopped backup, additive installation, two quest replacements,
+native activation, signed client publication and admission reopening are recorded
+in `release/`. All51 schema and650 content predicates passed with102 saved-state
+tables preserved. The initial disk guard safely stopped before service changes;
+one inactive historical staging executable was losslessly archived and the
+authenticated preflight resumed without rebuilding. This dated authorization
+does not authorize future production changes. Prepare fresh target pairing,
+free-space checks and backups before any later authorized maintenance.
 `tools/hate_layout_preflight.py` emits read-only original spawn policy, reserved
 range, roaming, disabled-spawn, trap, exit and zone-policy checks. Re-run them
 against a fresh target before installation; do not treat today's snapshot as
@@ -110,8 +120,8 @@ exact preimages and verification. After186 runs exist, retain the186-capable
 native code and private rows until those runs/checkpoints/corpses are resolved.
 Do not downgrade to code unable to recognize active186 runs, remove their patrols,
 or restore an old player snapshot. A forward fix is the default recovery after
-activity. Preserve the prior signed client channel and use a higher corrective
-release number if clients have already observed the candidate.
+activity. Preserve prior signed client history and use a higher corrective
+release number because clients can now observe2026102901.
 
 ## Required owner QA
 

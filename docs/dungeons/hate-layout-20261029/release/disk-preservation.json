@@ -1,0 +1,19 @@
+{
+  "preserved": [
+    {
+      "source": "/opt/nightcap/releases/hate-keeper-commonlands-20261022/bin/zone",
+      "archive": "/opt/nightcap/releases/hate-keeper-commonlands-20261022/bin/zone.hate-release-preserved-20261029.gz",
+      "source_sha256": "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f",
+      "archive_sha256": "200a66e5ff9e309a700b18309a1d35b0fa8da286e73fdf28729494ab8ddad2de",
+      "source_bytes": 317079592,
+      "archive_bytes": 101729976,
+      "mode": 493,
+      "uid": 0,
+      "gid": 0,
+      "restoration": "Decompress to exclusive temp; verify source_sha256; restore recorded mode/owner; rename to original before using old staging operator.",
+      "backups_images_player_data_unchanged": true
+    }
+  ],
+  "disk_free": 818282496,
+  "services_images_unchanged": true
+}

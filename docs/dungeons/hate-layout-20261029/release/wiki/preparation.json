@@ -1,0 +1,40 @@
+{
+  "status": "published and all499HTTPS hashes/security headers/private-source denials verified; owner gameplay acceptance open",
+  "release": "20261029-hate-layout-v1",
+  "baseline": "20261028-bazaar-owner-qa-v1",
+  "files": 499,
+  "changed": [
+    "dungeon-modes.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json",
+    "travel.html",
+    "unreleased.html",
+    "zone-hunt.html"
+  ],
+  "preserved": 492,
+  "package_bytes": 2850881,
+  "package_sha256": "8b0c52dc6bb00cb99e053966c9dbe220318ae7ac408fa81a34f4bcc7567e37c5",
+  "content_refresh_tests": 19,
+  "linux_publication_recovery_tests": 16,
+  "node_suites": [
+    "search",
+    "equipment (7 cases)",
+    "experience",
+    "build_lab"
+  ],
+  "owner_gameplay_acceptance": false,
+  "main_promotion": {
+    "pr": 362,
+    "merge": "8b23d739",
+    "owner_authorization": "../AUTHORIZATION.md"
+  },
+  "publication_gate": "Completed deployed.json, signed client published.json, parent verified open admission, matching runtime/client hashes; capture under deployment lock",
+  "publication_receipts": [
+    "wiki-publication.json",
+    "wiki-public-verification.json",
+    "activation-guard.json",
+    "../final-verification.json"
+  ],
+  "activation_adapter_tests": 3
+}
