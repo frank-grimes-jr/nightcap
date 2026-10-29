@@ -10,7 +10,11 @@ class PrivateSky(unittest.TestCase):
     def test_actual_native_reconstruction_and_fail_closed_population(self):
         rows=json.loads((ROOT/'docs/dungeons/classic-expansion-20261022/install-rows.json').read_text())['nightcap_dungeon_spawns']
         values=',\n'.join('{'+','.join(json.dumps(str(r[k])) for k in
-            ('spawn_id','group_id','npc_id','x','y','z','heading','respawn','grid_id'))+'}' for r in rows)
+            ('spawn_id','group_id','npc_id','x','y','z','heading','respawn','grid_id'))+',"0"}' for r in rows)
+        hate=json.loads((ROOT/'docs/dungeons/hate-layout-20261029/population.json').read_text())['rows']
+        policies={r['id']:r for r in json.loads((ROOT/'docs/dungeons/hate-layout-20261029/spawn-policy.json').read_text())}
+        hate_values=',\n'.join('{'+','.join(json.dumps(str(r[k])) for k in
+            ('spawn_id','group_id','npc_id','x','y','z','heading','respawn','grid_id'))+','+json.dumps(str(policies.get(r['spawn_id'],{}).get('variance',0)))+'}' for r in hate)
         function=native.body((ROOT/'server-mods/code/zone/dungeon_service.cpp').read_text(),'void PrivateSpawns(')
         code=r'''
 #include "common/dungeon_catalog.h"
@@ -23,13 +27,13 @@ class PrivateSky(unittest.TestCase):
 #include <vector>
 using namespace NightcapDungeon;
 namespace Spawn2Repository {
- struct Spawn2 {uint32_t id=0,spawngroupID=0,respawntime=0,pathgrid=0; int version=0,_condition=0,cond_value=0; float x=0,y=0,z=0,heading=0;std::string zone;};
+ struct Spawn2 {uint32_t id=0,spawngroupID=0,respawntime=0,pathgrid=0,variance=0; int version=0,_condition=0,cond_value=0; float x=0,y=0,z=0,heading=0;std::string zone;};
  Spawn2 NewEntity(){return {};}
 }
 namespace Strings {uint32_t ToUnsignedInt(const char *s){return std::stoul(s);}}
-namespace fmt {std::string format(const char *,uint32_t id){assert(id==71 || id==76);return "private";}}
+namespace fmt {std::string format(const char *,uint32_t id){assert(id==71 || id==76 || id==186);return "private";}}
 struct Result {
- std::vector<std::array<std::string,9>> rows;
+ std::vector<std::array<std::string,10>> rows;
  struct Iterator {
   Result *r;size_t i;
   const char *operator[](size_t n){return r->rows.at(i).at(n).c_str();}
@@ -67,7 +71,7 @@ bool RequiredSpawn(uint32_t id){for(const auto &b:Bosses)if(b.zone==71 && b.spaw
  // A saved Hate checkpoint looks up the moved public base point by its ID.
  // The private definition must replace that EC pose, never append a duplicate.
  healthy=true;current.dungeon=FindDungeon(76);
- result.rows={{{"9100012","998812","998812","-337.08","-374.8","2","0","86400","0"}}};
+ result.rows={{{"9100012","998812","998812","-337.08","-374.8","2","0","86400","0","0"}}};
  for(unsigned load=0;load<2;++load){
   std::vector<Spawn2Repository::Spawn2> hate;
   if(load){auto ec=Spawn2Repository::NewEntity();ec.id=9100012;ec.x=-346;ec.y=-1570;ec.zone="ecommons";hate.push_back(ec);}
@@ -76,6 +80,20 @@ bool RequiredSpawn(uint32_t id){for(const auto &b:Bosses)if(b.zone==71 && b.spaw
   assert(hate[0].x>-338 && hate[0].x<-337 && hate[0].y>-375 && hate[0].y<-374);
   assert(hate[0].spawngroupID==998812 && zone->spawn_group_list.GetSpawnGroup(998812));
  }
+ healthy=true;current.dungeon=FindDungeon(186);
+ result.rows={'''+hate_values+r'''};
+ for(unsigned load=0;load<2;++load){
+  std::vector<Spawn2Repository::Spawn2> next(3);
+  next[0].id=1996;next[0].zone="hateplane";next[0].z=197;
+  next[1].id=186001;next[1].zone="hateplaneb";
+  PrivateSpawns(next);PrivateSpawns(next);
+  assert(healthy && next.size()==176);std::set<uint32_t> ids;
+  for(const auto &s:next){assert(s.zone=="hateplaneb" && s.z<15 && ids.insert(s.id).second);}
+  for(const auto &s:next)if(s.id==1996 || s.id==2059 || s.id==2168)assert(s.variance==77760);
+  assert(ids.count(1996) && ids.count(2172) && ids.count(9100012) && !ids.count(186001));
+ }
+ result.rows.pop_back();std::vector<Spawn2Repository::Spawn2> incomplete(2);
+ PrivateSpawns(incomplete);assert(!healthy && incomplete.empty());
 }
 '''
         native.FreeTradeTests.compile_run(self,code)

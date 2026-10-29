@@ -173,7 +173,9 @@ def main():
     dungeons.append(dungeon())
     from warhelm_content import dungeon as warhelm_dungeon, compile_rows as warhelm_rows
     dungeons.append(warhelm_dungeon())
-    data={'revision':REVISION,'era':'Classic','items':items(),'dungeons':dungeons,'excluded_npcs':EXCLUDED_NPCS,
+    from hate_layout import apply_catalog, population, book_pose
+    legacy_hate=apply_catalog(dungeons)
+    data={'revision':REVISION,'era':'Classic','items':items(),'dungeons':dungeons,'legacy_dungeons':[legacy_hate],'excluded_npcs':EXCLUDED_NPCS,
           'content_sha256':hashlib.sha256((ROOT/'docs/dungeons/local-content.json').read_bytes()).hexdigest(),
           'status':'candidate; automated integration and all gameplay acceptance pending'}
     args.output.mkdir(parents=True,exist_ok=True)
@@ -185,14 +187,16 @@ def main():
     for d in dungeons:
         header.append('\t{%d,%d,%d,%d,%d,"%s"},'%(d['zone_id'],d['keeper_id'],d['band_index'],len(d['bosses']),d['index'],d['zone']))
     header+=['};','inline constexpr unsigned DungeonCount = sizeof(Dungeons)/sizeof(Dungeons[0]);','inline constexpr Boss Bosses[] = {']
-    for d in dungeons:
+    for d in [*dungeons,legacy_hate]:
         for b in d['bosses']:
             header.append('\t{%d,%d,%d,%d,%s,"%s"},'%(d['zone_id'],b['spawn_id'],b['npc_id'],b['boss_id'],'true' if b['is_final'] else 'false',b['name']))
     header+=['};','struct ExcludedNPC { uint32_t zone, npc; };','inline constexpr ExcludedNPC ExcludedNPCs[] = {']
     header += ['\t{%d,%d},'%(r['zone_id'],r['npc_id']) for r in EXCLUDED_NPCS]
-    header+=['};',f'inline constexpr uint32_t SkyKeyService = {SKY_KEY_SERVICE};',
-      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : zone==76 ? 1 : zone==760 ? {len(compile_rows()["nightcap_dungeon_spawns"])} : zone==113 ? {len(warhelm_rows()["nightcap_dungeon_spawns"])} : 0; }}',
-      'inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
+    book=book_pose()
+    header+=['};','inline constexpr Dungeon LegacyHate = {76,998812,3,4,19,"hateplane"};',
+      'inline constexpr float HateBookX=%sf, HateBookY=%sf, HateBookZ=%sf;'%(float(book['x']),float(book['y']),float(book['z'])),f'inline constexpr uint32_t SkyKeyService = {SKY_KEY_SERVICE};',
+      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==186 ? {len(population())} : zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : zone==76 ? 1 : zone==760 ? {len(compile_rows()["nightcap_dungeon_spawns"])} : zone==113 ? {len(warhelm_rows()["nightcap_dungeon_spawns"])} : 0; }}',
+      'inline const Dungeon *FindDungeon(uint32_t zone) { if (zone==76) { return &LegacyHate; } for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
     (ROOT/'server-mods/code/common/dungeon_catalog.h').write_text('\n'.join(header)+'\n')
     print(f'{len(data["items"])} item definitions; {sum(len(d["bosses"]) for d in data["dungeons"])} objectives')
 

@@ -1,0 +1,49 @@
+{
+  "topic": "client",
+  "scope": "read-only installed-skill check; historical drift retained",
+  "total_entries_checked": 305,
+  "historical_drift_count": 58,
+  "candidate_entries": [
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\assets\\client-zone-archives.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_client_zone_archives.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\eq-launcher\\cmd\\nightcap-package\\gameplay.go",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\client_gameplay_assets.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\hate_client.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\assets\\hate-layout-client.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_hate_client.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\client-package.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    }
+  ],
+  "candidate_drift": 0
+}
