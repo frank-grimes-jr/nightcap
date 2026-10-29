@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## 2026-10-29 — Faction standing display candidate
+
+`#factions` adds a player-accessible white-text popup with standing names,
+numerical totals, min/max bars, name search, paging and targeted-NPC lookup.
+It reads only the caller's faction and the loaded cache, preserving native
+modifiers, thresholds and the separate GM reset gate. Three native regression
+groups pass. Isolated zone compile/link verification is in progress; deployment,
+public wiki publication and native readability/gameplay acceptance remain open.
+No client patch, data migration or cache refresh is required. Exact QA and
+delivery boundary: [faction standing candidate](releases/faction-standing-20261029/README.md).
+
 ## 2026-10-28 — Bazaar price input and readability published
 
 Fixed silent rejection of native UTF16 price fields, preserving bounded ASCII

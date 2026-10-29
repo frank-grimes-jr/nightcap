@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-29",
+  "native_regression_groups": 3,
+  "native_status": "passed",
+  "wiki_tests": 19,
+  "wiki_status": "passed",
+  "wiki_pages": 492,
+  "build": "in progress",
+  "player_qa": "not run",
+  "deployment": "not performed",
+  "publication": "not performed",
+  "files": {
+    "server-mods/code/common/faction_standing.h": "fd00a2f339c9238e4b0c4650d02a419a4785b15edd1970f3524efe6e9e4e0028",
+    "server-mods/code/zone/faction_standing.inc": "df03aaab9dd928231dd6e106c1d982d8caebd4fba380da6095172e77a813105a",
+    "server-mods/code/zone/command.cpp": "d97d11695dcd5df5def2367adb48f922b97753003b71dd058800e9a0dd68ce3e",
+    "server-mods/code/zone/command.h": "741446b12910c72c933093b7b99f1bda27fce14fcc69ae1452dc711185f723cd",
+    "tools/tests/test_faction_standing.py": "9e52d20a81df5541d2e47ef692099b1554534ebe6b4347bd900c10641754d97b",
+    "tools/tests/faction_standing_fixture.cpp": "d8fd4999948f0eeab4c8ed8829566cbf9fa80b78ef794569cd0f9b23fae62ea2",
+    "tools/tests/faction_standing_command_fixture.cpp": "45fd3a44d28ee9ce9e3a9c3f32e5bfe73cd8bc3b1f8e9f84661cfdcbb79b04a2"
+  },
+  "environment_note": "Initial Windows sandbox temp-directory denial resolved by workspace-local TEMP/TMP; test assertions unchanged."
+}

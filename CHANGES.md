@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-29 — Player faction standing window candidate
+
+Add `#factions` for white-text numerical standings, full-range bars, name search,
+six-row paging and targeted-NPC faction lookup. Native totals and threshold rules
+include earned/base/class/race/deity/spell/item modifiers, including untouched
+factions. The command reads only the caller and loaded cache; existing GM reset
+permissions and faction behavior stay unchanged. Three native regression groups
+pass. A rebuilt zone is required, with no SQL, cache, quest or client migration.
+Deployment, wiki publication and native visual acceptance remain pending.
+Evidence and exact QA: `docs/releases/faction-standing-20261029/README.md`.
+
 ## 2026-10-29 — Plane of Hate ground-level layout deployed
 
 New Keeper-created Hate runs use hateplaneb terrain with Nightcap's original
