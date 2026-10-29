@@ -1,5 +1,6 @@
 """Send the reviewed single-use operator and pinned private inputs over SSH."""
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import subprocess
@@ -9,6 +10,9 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--resume-hold',action='store_true')
+    args=parser.parse_args()
     pins = json.loads((HERE/'production-plan.json').read_text())['files']
     for name, digest in pins.items():
         assert hashlib.sha256((HERE/'private'/name).read_bytes()).hexdigest() == digest
@@ -21,7 +25,10 @@ def main():
                   ROLLBACK=(HERE/'private/rollback.sql').read_text(),
                   MAIN_REVISION=revision,
                   EXPECTED_IMAGE='sha256:0dec2bfc8b2e83a30301c2fc203c5688d44a2b39cf354b5e0e0b2ba8ed38f9dd')
-    source = ''.join(k+'='+repr(v)+'\n' for k,v in values.items()) + (HERE/'activate.py').read_text()
+    if args.resume_hold:
+        values['ACTIVATE_SOURCE']=(HERE/'activate.py').read_text()
+        values['ORIGINAL_MAIN']='7cb0ec4a0269f0f2ca3394981e4bc308ac238125'
+    source = ''.join(k+'='+repr(v)+'\n' for k,v in values.items()) + (HERE/('resume_activation.py' if args.resume_hold else 'activate.py')).read_text()
     result = subprocess.run(SSH+['sudo -n python3 -'],input=source,text=True,capture_output=True,timeout=900)
     if result.returncode:
         raise RuntimeError(result.stderr[-4000:]+'\nInspect remote result.json before any continuation.')

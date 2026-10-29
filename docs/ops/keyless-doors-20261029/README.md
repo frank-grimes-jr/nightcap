@@ -145,3 +145,15 @@ lock list. An uncertain lock acknowledgment retains its recorded preimage; relea
 only the owned zone-75 hold against its exact postimage. Uncertain SQL must be
 reconciled, never replayed. A committed update with refresh failure keeps the hold
 for audited continuation. Full database rollback is not part of recovery.
+
+## Activation acknowledgment correction
+
+The first operator verified its backup and applied the native Paineel hold, then
+stopped before SQL because successful lock broadcasts do not return to a
+status-only world connection. Fresh read-only reconciliation proved every door
+unchanged, locks [] -> [75], and the same empty Paineel worker. `runtime.py` now
+checks an ordered explicit List response, filtering unrelated broadcasts.
+`resume_activation.py` only accepts this exact pre-SQL receipt/preimage state,
+persists a one-use interruption fence, and repeats the full auth drain before
+using the reviewed activation tail. Thirteen tests cover this recovery and
+no-broadcast/interleaved-broadcast cases; independent review has no blockers.
