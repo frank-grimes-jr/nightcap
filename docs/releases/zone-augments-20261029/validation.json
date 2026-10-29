@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-29",
+  "status": "candidate; not deployed or owner accepted",
+  "source_base": "a6030a4620bc2b3b5ad8c02a141623af6e50a301",
+  "integrated_dev": "c4da1e4e",
+  "tests": {
+    "zone_hunt_catalog_capture_native": {
+      "passed": 9,
+      "command": "python -X utf8 -B -m unittest discover -s tools/tests -p test_zone_*hunt*.py -v",
+      "native_rerun_after_integration": 5
+    },
+    "hate_integration": {
+      "passed": 14,
+      "command": "PYTHONPATH=tools python -X utf8 -B -m unittest discover -s tools/tests -p test_hate*.py -v"
+    },
+    "migration": {
+      "passed": 3,
+      "drift_subcases": 9,
+      "command": "ZONE_AUGMENT_DB_TESTS=1 python -X utf8 -B -m unittest discover -s tools/tests -p test_zone_augment_migration.py -v"
+    },
+    "dungeon_current_contract": {
+      "passed": 2
+    },
+    "wiki": {
+      "passed": 19,
+      "command": "cd wiki; python -X utf8 -B -m unittest -v test_wiki test_refresh"
+    }
+  },
+  "probability": "Actual Award exhausts all10000 chance values: exactly50 augment drops; quality60/30/8/2 unchanged.",
+  "native_build": {
+    "status": "native translation-unit compile and zone relink passed; not installed",
+    "zone_sha256": "651ac4b4e647ceece99409bd8fd443588ccebf5bf30e2ba62a1bb9708ce8c7bf",
+    "baseline_source_count": 2842,
+    "manifest": "native-build.json",
+    "baseline_relink_sha256": "f34dbffba853da24c5a1cd33aaad109f994b3888f7169b6d729cc991231eec2e"
+  },
+  "independent_review": {
+    "native_and_db": "No blocking findings; separate186 augment/76 managed equipment mapping reviewed.",
+    "minor_corrections": "Clarified augment-chance RNG and own versus inherited equipment in Hate B preview.",
+    "build_provenance": "Corrected retained-object provenance by byte-reproducing the recorded baseline zone before substituting the changed object; successful rerun recorded."
+  },
+  "nonpassing_attempts_resolved": [
+    "Initial Windows source test decoding used cp1252; all affected tests pass with Python UTF8 mode.",
+    "Initial Hate client discovery omitted tools from PYTHONPATH;14 integration tests pass with explicit tools import path.",
+    "Build preflight rejected CRLF/LF hash differences; authenticated raw baseline bytes before canonical LF comparison. No source guard bypass."
+  ],
+  "limits": [
+    "No production installation or publication.",
+    "Native compile/link and deterministic fixtures do not establish in-game natural acquisition, corpse recovery or balance acceptance.",
+    "Global historical wiki source ledger still reports REVIEW REQUIRED; scoped45article review does not advance unrelated pins."
+  ]
+}

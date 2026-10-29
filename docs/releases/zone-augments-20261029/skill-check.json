@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-29",
+  "skill_validator": "passed",
+  "topics": {
+    "items": {
+      "candidate_pins_unchanged": 12,
+      "other_preexisting_pin_drift": 8,
+      "global_exit_code": 1
+    },
+    "wiki": {
+      "candidate_pins_unchanged": 12,
+      "other_preexisting_pin_drift": 11,
+      "global_exit_code": 1
+    }
+  }
+}
