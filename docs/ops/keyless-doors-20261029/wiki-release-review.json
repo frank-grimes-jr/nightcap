@@ -1,0 +1,247 @@
+{
+  "status": "approved release prose; publication gated on verified activation",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "after_sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f",
+      "after_sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f"
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25",
+      "after_sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25"
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+      "after_sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58"
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8",
+      "after_sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+      "after_sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "a59bff2b99e4bd91bef45718a76f4e209e1cabf01cbd2baf993be8f9c805c4c1",
+      "after_sha256": "a59bff2b99e4bd91bef45718a76f4e209e1cabf01cbd2baf993be8f9c805c4c1"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "bbf31f4210444d6b8dae971d7a550f073fe46e21f398e2208347063ab4a88ad4",
+      "after_sha256": "bbf31f4210444d6b8dae971d7a550f073fe46e21f398e2208347063ab4a88ad4"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "8b03eaaff5efc8360798b6ec247c272b786d90f38b2fa5b66ce84db74f66559b",
+      "after_sha256": "8b03eaaff5efc8360798b6ec247c272b786d90f38b2fa5b66ce84db74f66559b"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "decision": "Move keyless doors into world features with current instructions.",
+      "before_sha256": "17d18254f060fb3ed024cb8889e6ba90c37e3f4c18e187c70f61e15cf04461a3",
+      "after_sha256": "7bbe33d8be6056d51c17312028070c8d99710e7acf7a66bf390ec2abc4dcf9f5"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+      "after_sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
+      "after_sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e",
+      "after_sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e"
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0",
+      "after_sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0"
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c",
+      "after_sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c"
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb",
+      "after_sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb"
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d",
+      "after_sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d"
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb",
+      "after_sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb"
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d",
+      "after_sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d"
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530",
+      "after_sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530"
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7",
+      "after_sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7"
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364",
+      "after_sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364"
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9",
+      "after_sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9"
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020",
+      "after_sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020"
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d",
+      "after_sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d"
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408",
+      "after_sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "8ca4264530f50bc4f1ed3096dede67e9c5332e48a8448436ed48a5b026f337d2",
+      "after_sha256": "8ca4264530f50bc4f1ed3096dede67e9c5332e48a8448436ed48a5b026f337d2"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "d5bb15293a6b84b6b47de266cc7d3ce0d94f7d9ee44c94057ed74d31bf9901fb",
+      "after_sha256": "d5bb15293a6b84b6b47de266cc7d3ce0d94f7d9ee44c94057ed74d31bf9901fb"
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "after_sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9",
+      "after_sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+      "after_sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "decision": "Current keyless-door guidance and deployment label; owner gameplay QA remains open.",
+      "before_sha256": "369066d04ca4ae2baf48181aed5b8b37f13aaaaa1e746736d0c6d97300b93832",
+      "after_sha256": "aecbfa1022bf977c2a809a98ca56b54d4daef0a3feb650bd5de37915e858f507"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "after_sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "decision": "Current keyless-door guidance and deployment label; owner gameplay QA remains open.",
+      "before_sha256": "9d08a3d85a42a195b4ecead2131570be288d0c3d384980ed785036a43d4603b6",
+      "after_sha256": "6688243b8edc41142d903e954dc2dac1f5e8f834107c14675c27609a2e895c2f"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca",
+      "after_sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "decision": "Current keyless-door guidance and deployment label; owner gameplay QA remains open.",
+      "before_sha256": "a0a85250e170b6d67b82f98a5d19bf55a29c5065551a7584faf3c5b87bda2b51",
+      "after_sha256": "a0ee090343ef419a778214ab4a26e28193428ae3ec4b8c2154e414b152f18e97"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+      "after_sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "c2984b628f9bd1290d92f11d54a504c3fde93bb9ae2775ac51e99c9f1f5e460c",
+      "after_sha256": "c2984b628f9bd1290d92f11d54a504c3fde93bb9ae2775ac51e99c9f1f5e460c"
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "decision": "No changed door/access claim; existing status, values and navigation preserved.",
+      "before_sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada",
+      "after_sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada"
+    }
+  ],
+  "catalog": "Only Hole generated access wording changes; item and reward values preserved. Other zone pages link owning travel/dungeon guides and make no contradictory key claim.",
+  "home_commands": "Navigation and commands unchanged; no repeated announcement on home."
+}

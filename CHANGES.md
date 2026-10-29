@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-29 — Keyless doors candidate
+## 2026-10-29 — Keyless doors authorized release
 
 Prepared removal of key and lock-picking requirements from every existing door
 across all zones/versions, including negative lock-picking sentinels. Only
@@ -8,9 +8,12 @@ across all zones/versions, including negative lock-picking sentinels. Only
 items and player progress remain. Guarded forward/inverse and isolated MariaDB
 rehearsals pass on 19,264 local doors and all 19,272 captured production doors.
 The owner-approved read-only capture yields 194 locks across 48 zones; exact
-forward/inverse scripts remain private. Main/live activation, supported loaded-zone
-refresh and owner QA remain pending. Production is unchanged.
-No client or binary update. Wiki notes are Not released and unpublished.
+forward/inverse scripts remain private. The owner approved scoped main/OVH/wiki
+activation after dev/test PR368/369. The reviewed operator takes a full backup,
+holds empty Paineel admissions through auth drain, applies exact SQL and refreshes
+doors while preserving service/worker lifetimes. Activation receipts will follow;
+owner gameplay QA remains open. No client or binary update. The wiki release is
+prepared and gated on successful activation.
 Scope, recovery and exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
 
