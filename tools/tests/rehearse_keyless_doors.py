@@ -1,4 +1,5 @@
 """Exercise real SQL on an isolated local copy; never write local/live PEQ."""
+import argparse
 import json
 from pathlib import Path
 import subprocess
@@ -8,9 +9,10 @@ import uuid
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 from keyless_doors import generate, plan
+from pok_hub_migration import insert
 
 
-def rehearse():
+def rehearse(capture_path=None):
     database = 'nightcap_keyless_test_' + uuid.uuid4().hex[:12]
 
     def query(sql, fail=False):
@@ -41,8 +43,17 @@ def rehearse():
     checks = []
     query('CREATE DATABASE `' + database + '`;')
     try:
-        run('CREATE TABLE doors LIKE peq.doors; INSERT INTO doors SELECT * FROM peq.doors;')
+        if capture_path:
+            captured = json.loads(capture_path.read_text(encoding='utf-8-sig'))
+            inserts = [insert('doors', {**row, **captured['float_preimages'][str(row['id'])]})
+                       for row in captured['doors']]
+            run(captured['create_table'] + ';\n' + '\n'.join(inserts))
+        else:
+            run('CREATE TABLE doors LIKE peq.doors; INSERT INTO doors SELECT * FROM peq.doors;')
         baseline = snapshot()
+        if capture_path:
+            assert baseline['doors'] == captured['doors'], 'Production content reconstruction drift'
+            checks.append('complete captured production door definitions reconstructed exactly')
         locked = [r for r in baseline['doors'] if r['keyitem'] or r['lockpick']]
         free = next(r for r in baseline['doors'] if not r['keyitem'] and not r['lockpick'])
         assert locked and free
@@ -108,14 +119,20 @@ def rehearse():
         checks.append('nontransactional engine rejects before writes')
     finally:
         query('DROP DATABASE `' + database + '`;')
-    return {'environment': 'isolated local MariaDB copy', 'door_rows': len(baseline['doors']),
+    return {'environment': 'isolated local MariaDB copy',
+            'source': 'captured production doors' if capture_path else 'local PEQ doors',
+            'door_rows': len(baseline['doors']),
             'locked_rows': len(locked), 'checks': checks, 'passed': True,
             'production_writes': False, 'local_peq_writes': False}
 
 
 if __name__ == '__main__':
-    result = rehearse()
-    out = ROOT / 'docs/ops/keyless-doors-20261029/rehearsal.json'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--capture', type=Path)
+    args = parser.parse_args()
+    result = rehearse(args.capture)
+    filename = 'production-rehearsal.json' if args.capture else 'rehearsal.json'
+    out = ROOT / 'docs/ops/keyless-doors-20261029' / filename
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(result, indent=2))

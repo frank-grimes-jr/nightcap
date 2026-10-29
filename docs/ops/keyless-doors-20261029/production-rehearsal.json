@@ -1,0 +1,20 @@
+{
+  "environment": "isolated local MariaDB copy",
+  "source": "captured production doors",
+  "door_rows": 19272,
+  "locked_rows": 194,
+  "checks": [
+    "complete captured production door definitions reconstructed exactly",
+    "every existing lock removed; every other field and unlocked row preserved",
+    "replay rejects atomically",
+    "inverse restores exact complete door table",
+    "key, pick, identity, position, deletion and new-lock drift reject atomically",
+    "unrelated unlocked content edits survive forward and inverse",
+    "inverse refuses changed afterimage without overwriting later edits",
+    "unexpected triggers reject before writes",
+    "nontransactional engine rejects before writes"
+  ],
+  "passed": true,
+  "production_writes": false,
+  "local_peq_writes": false
+}

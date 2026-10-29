@@ -2,9 +2,13 @@
 
 Status: tested content candidate on `feature/keyless-doors`, based on current
 `origin/main` 85a42253. Not deployed, published or accepted in game.
-The production content capture awaits owner approval after automatic approval
-review rejected exporting the complete production doors table. No production
-door count or generated production migration is claimed.
+The owner explicitly approved the read-only production capture on October29.
+The 16:53 UTC capture contains 19,272 doors; 194 locks across 48 zones will
+change, including 129 negative lock-picking sentinels. All 19,078 other doors
+remain unchanged. Exact forward/inverse SQL and raw capture are in git-ignored
+`private/`; `production-plan.json` records their SHA-256 hashes. The complete
+production reconstruction and nine SQL rehearsal groups pass locally. Production
+remains unchanged; main promotion, live activation and owner QA are pending.
 
 ## Behavior and scope
 
@@ -37,6 +41,9 @@ override of future content or quest-created locks.
 - `rehearsal.json`: 19,264 rows, 195 locked rows; all eight check groups pass,
   including exact inverse, replay rejection, stale identity/position/lock values,
   new locks, deleted rows, unrelated edit preservation, triggers and table engine.
+- `production-rehearsal.json`: all 19,272 captured production rows reconstructed
+  exactly using DOUBLE-precision companions for native FLOAT storage. All nine
+  check groups pass, including exact full-table inverse and 194-lock removal.
 - Existing Hole regression tests: three pass unchanged.
 - Native reference inspected in `E:/EQ_Local_Dev/akk-stack/code/zone/doors.cpp`,
   `Doors::HandleClick`: both zero fields choose the unlocked path, including
@@ -46,14 +53,16 @@ override of future content or quest-created locks.
 
 ## Production preparation and activation
 
-1. Obtain approval for the blocked read-only production door capture. Run the
-   capture script over pinned-host SSH with Python stdin and save its JSON in a
-   private evidence directory. It reads door definitions only, not player data.
-   Capture the deployed source identity and active zone/instance inventory too.
+1. Owner approval and the initial production capture are complete. The script
+   requires `sudo -n docker compose` on OVH. Use pinned-host SSH with Python stdin
+   and private local output; it reads door definitions only, not player data.
+   Re-capture before activation and compare against the reviewed preimage.
+   Capture deployed source identity and active zone/instance inventory too.
 2. Generate `forward.sql` and `rollback.sql` from that exact complete capture:
    `python -B tools/keyless_doors.py CAPTURE.json --output PRIVATE_OUTPUT`.
-   Review the actual affected count/zones and rehearse that production preimage
-   in isolation before requesting main/live promotion. Do not use local captures
+   The 194-lock/48-zone plan and its exact production rehearsal are complete.
+   Run `python -B tools/tests/rehearse_keyless_doors.py --capture CAPTURE.json`
+   for any revised preimage before requesting main/live promotion. Do not use local captures
    or the older Paineel-only release as production input.
 3. Main promotion needs owner sign-off under AGENTS.md. Coordinate an authorized
    maintenance window for activation. Take shared deployment/GM locks and a fresh
@@ -85,7 +94,9 @@ override of future content or quest-created locks.
 ## Exact owner QA after activation
 
 Use an ordinary non-GM character with no matching keys in inventory/keyring and
-no lock picks. Use the fresh capture's door IDs and XYZ positions to locate locks.
+no lock picks. Use `private/qa-doors.json` for captured door IDs and positions (/loc is Y,X,Z).
+Befallen IDs124/131/136, Paineel7301/7302, Hole6863/6864 and Sky5321/5328
+are concrete targets. Paw40328 retains its triggertype254 and other metadata.
 
 1. Befallen: click its formerly locked interior doors, pass through, let them
    close and repeat. No key, lock-picking or locked-message requirement remains.
