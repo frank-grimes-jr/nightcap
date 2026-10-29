@@ -123,6 +123,14 @@ Run Personal(uint32_t character, uint32_t destination, bool lock = false) {
 	return ReadRun(fmt::format("r.zone_id={} AND r.expires_at>{} AND EXISTS (SELECT 1 FROM nightcap_dungeon_members m WHERE m.run_id=r.run_id AND m.character_id={})",
 		destination,Now(),character),lock);
 }
+bool HateAllocation(uint32_t character, uint32_t destination, bool lock=false) {
+	if (destination!=76 && destination!=186) { throw std::runtime_error("Invalid Hate allocation destination."); }
+	auto rows=Query(fmt::format("SELECT i.id FROM instance_list i JOIN instance_list_player p ON p.id=i.id "
+		"WHERE p.charid={} AND i.zone={} AND i.version=0 AND (i.never_expires=1 OR i.start_time+i.duration>{})",
+		character,destination,Now())+(lock ? " FOR UPDATE" : ""));
+	if (rows.RowCount()>1) { throw std::runtime_error("Ambiguous Hate allocations require reconciliation."); }
+	return rows.RowCount()==1;
+}
 const Boss *Objective(uint32_t spawn, uint32_t npc) {
 	if (!current.dungeon) { return nullptr; }
 	for (const auto &b : Bosses) { if (b.zone==current.dungeon->zone && b.spawn==spawn && b.npc==npc) { return &b; } }
@@ -207,10 +215,11 @@ void JournalHistory(Client *c) {
 			// acceptedtime has second precision, so ambiguous same-second runs stay.
 			for (int slot=0;slot<MAXACTIVEQUESTS;++slot) {
 				if (state->GetActiveTaskID(slot)!=static_cast<int>(task)) { continue; }
+				const auto journal_zone=d->index==19 ? std::string("r.zone_id IN (76,186)") : "r.zone_id="+std::to_string(d->zone);
 				auto matching=Query(fmt::format("SELECT COUNT(CASE WHEN m.completed_at>0 THEN 1 END),"
 					"COUNT(CASE WHEN m.completed_at=0 THEN 1 END) FROM nightcap_dungeon_members m "
 					"JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} "
-					"AND r.zone_id={} AND r.mode={} AND r.instance_start={}",c->CharacterID(),d->zone,mode,
+					"AND {} AND r.mode={} AND r.instance_start={}",c->CharacterID(),journal_zone,mode,
 					state->GetTaskStartTime(TaskType::Quest,slot)));
 				if (matching.RowCount()==1 && Strings::ToUnsignedInt(matching.begin()[0])>0 &&
 					Strings::ToUnsignedInt(matching.begin()[1])==0) { state->RemoveTaskByTaskID(c,task); }
@@ -279,10 +288,21 @@ void ConfigureJournalTask(int task_id, TaskInformation &task) {
 	summary.step=1; summary.req_activity_id=-1;
 	task.selector_ids.clear();
 	for (unsigned i=0;i<d.count;++i) { task.selector_ids.push_back(i); }
+	if (d.index==19) {
+		for (unsigned i=0;i<=d.count;++i) {
+			task.activity_information[i].zones="76;186";
+			task.activity_information[i].zone_ids={76,186};
+		}
+	}
 }
 
 bool Managed() { return !current.id.empty(); }
 std::string RunID() { return current.id; }
+float ExperienceModifier(float ordinary) {
+	if (!zone || zone->GetZoneID()!=186 || !Managed()) { return ordinary; }
+	const auto classic=GetZoneVersionWithFallback(76,0);
+	return classic ? classic->zone_exp_multiplier : 0.0f;
+}
 bool Boot() {
 	Vigil::defense={};
 	Ashen::defense={};
@@ -356,13 +376,19 @@ void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 			return s.spawngroupID!=999231 && s.spawngroupID!=999240;
 		}),spawns.end());
 	}
-	if (current.dungeon->zone==760 || current.dungeon->zone==113) { spawns.clear(); }
+	if (current.dungeon->zone==760 || current.dungeon->zone==113 || current.dungeon->zone==186) { spawns.clear(); }
 	try {
-		auto rows=Query(fmt::format("SELECT spawn_id,group_id,npc_id,x,y,z,heading,respawn,grid_id FROM nightcap_dungeon_spawns WHERE zone_id={}",current.dungeon->zone));
+		auto rows=Query(fmt::format("SELECT p.spawn_id,p.group_id,p.npc_id,p.x,p.y,p.z,p.heading,p.respawn,p.grid_id,s.variance "
+			"FROM nightcap_dungeon_spawns p LEFT JOIN spawn2 s ON p.zone_id=186 AND s.id=p.spawn_id AND s.zone='hateplane' "
+			"WHERE p.zone_id={}",current.dungeon->zone));
 		for (auto r=rows.begin();r!=rows.end();++r) {
 			auto s=Spawn2Repository::NewEntity(); s.id=Strings::ToUnsignedInt(r[0]); s.spawngroupID=Strings::ToUnsignedInt(r[1]);
 			s.zone=current.dungeon->name; s.version=0; s.x=std::stof(r[3]); s.y=std::stof(r[4]); s.z=std::stof(r[5]); s.heading=std::stof(r[6]);
 			s.respawntime=Strings::ToUnsignedInt(r[7]); s.pathgrid=Strings::ToUnsignedInt(r[8]);
+			if (current.dungeon->zone==186 && s.id!=9100012) {
+				if (!r[9]) { throw std::runtime_error("Original Hate spawn missing"); }
+				s.variance=Strings::ToUnsignedInt(r[9]); s.cond_value=1;
+			}
 			// Saved-state lookup may include the public spawn now hosted elsewhere.
 			spawns.erase(std::remove_if(spawns.begin(),spawns.end(),[&](const auto &base) { return base.id==s.id; }),spawns.end());
 			spawns.push_back(s);
@@ -592,7 +618,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 	if (!zone || !keeper) { return false; }
 	if (Highkeep::Action(c,keeper,action)) { return true; }
 	if (Vigil::Action(c,keeper,action) || Ashen::Action(c,keeper,action)) { return true; }
-	const auto d=KeeperDungeon(zone->GetZoneID(),zone->GetInstanceID(),keeper->GetNPCTypeID());
+	auto d=KeeperDungeon(zone->GetZoneID(),zone->GetInstanceID(),keeper->GetNPCTypeID());
 	if (!d) { return keeper->GetNPCTypeID()==998812 || keeper->GetNPCTypeID()==998820 || keeper->GetNPCTypeID()==998860; }
 	// False means the Perl legacy implementation may mutate instance_list.
 	// Invalid input must be consumed, never translated into legacy permission.
@@ -601,6 +627,18 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		c->Message(Chat::Yellow,"Move closer to the Instance Keeper."); return true;
 	}
 	try {
+		if (zone->GetZoneID()==22 && !zone->GetInstanceID() && keeper->GetNPCTypeID()==998812) {
+			const bool own_old=HateAllocation(c->CharacterID(),76);
+			const bool own_new=HateAllocation(c->CharacterID(),186);
+			bool join_old=false;
+			if (!own_old && !own_new && action=="join" && c->GetGroup()) {
+				auto leader=Query("SELECT id FROM character_data WHERE name="+Q(c->GetGroup()->GetLeaderName()));
+				if (leader.RowCount()==1) { join_old=HateAllocation(Strings::ToUnsignedInt(leader.begin()[0]),76); }
+			}
+			const auto destination=HateDestination(own_old,own_new,join_old);
+			if (!destination) { throw std::runtime_error("Overlapping Hate allocations require reconciliation; neither run was changed."); }
+			d=FindDungeon(destination);
+		}
 		if (d->zone==760 && action!="claim rewards" && (!Vigil::Installed() || c->GetLevel()<50)) {
 			throw std::runtime_error("Chapterhouse requires level 50 and an active curated expedition release.");
 		}
@@ -620,7 +658,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		}
 		auto table=database.QueryDatabase(std::string("SELECT enabled FROM nightcap_dungeon_state WHERE id=1"),false);
 		if (!table.Success() || !table.RowCount()) {
-			if (d->zone==760 || d->zone==113) { throw std::runtime_error("Curated campaign storage is unavailable."); }
+			if (d->zone==760 || d->zone==113 || d->zone==186) { throw std::runtime_error("Curated campaign storage is unavailable."); }
 			if (native_managed || Managed()) { throw std::runtime_error("Managed dungeon storage is unavailable."); }
 			auto installed=Query("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_state'");
 			if (std::string(installed.begin()[0])!="0") { throw std::runtime_error("Dungeon feature state is unavailable."); }
@@ -640,19 +678,19 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		};
 		if (run.id.empty() && action!="claim rewards") {
 			if (legacy(c->CharacterID())) {
-				if (d->zone==760 || d->zone==113) { throw std::runtime_error("An old curated-zone allocation must expire before a curated run can begin."); }
+				if (d->zone==760 || d->zone==113 || d->zone==186) { throw std::runtime_error("An old curated-zone allocation must expire before a curated run can begin."); }
 				return false;
 			}
 			if (!native_managed && action=="join" && c->GetGroup()) {
 				auto leader=Query("SELECT id FROM character_data WHERE name="+Q(c->GetGroup()->GetLeaderName()));
 				if (leader.RowCount()==1 && legacy(Strings::ToUnsignedInt(leader.begin()[0]))) {
-					if (d->zone==760 || d->zone==113) { throw std::runtime_error("The leader's old curated-zone allocation must expire before a curated run can begin."); }
+						if (d->zone==760 || d->zone==113 || d->zone==186) { throw std::runtime_error("The leader's old curated-zone allocation must expire before a curated run can begin."); }
 					return false;
 				}
 			}
 		}
 		if (!enabled && run.id.empty() && !native_managed && action!="claim rewards") {
-			if (d->zone==760 || d->zone==113) { throw std::runtime_error("New curated dungeon runs are paused."); }
+			if (d->zone==760 || d->zone==113 || d->zone==186) { throw std::runtime_error("New curated dungeon runs are paused."); }
 			return false;
 		}
 		if (action=="claim rewards") { Claim(c); return true; }
@@ -666,7 +704,8 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 				Highkeep::Status(c);
 				JournalForRun(c,&run);
 			}
-			auto history=Query(fmt::format("SELECT r.mode,COUNT(*) FROM nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0 AND r.zone_id={} GROUP BY r.mode",c->CharacterID(),d->zone));
+			const auto history_zone=d->index==19 ? std::string("r.zone_id IN (76,186)") : "r.zone_id="+std::to_string(d->zone);
+			auto history=Query(fmt::format("SELECT r.mode,COUNT(*) FROM nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0 AND {} GROUP BY r.mode",c->CharacterID(),history_zone));
 			for (auto r : history) { c->Message(Chat::White,"Permanent %s completions: %s",std::string(r[0])=="1" ? "Raid" : "Grind",r[1]); }
 			return true;
 		}
@@ -700,6 +739,9 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 			Transaction tx;
 			// Serialize all feature allocations/joins with native allocation state.
 			Query("SELECT id FROM nightcap_dungeon_state WHERE id=1 FOR UPDATE");
+			if ((d->zone==76 || d->zone==186) && HateAllocation(c->CharacterID(),d->zone==76 ? 186 : 76,true)) {
+				throw std::runtime_error("Your Hate allocation changed. Hail the Keeper again to resume it.");
+			}
 			run=Personal(c->CharacterID(),d->zone,true);
 			if (run.id.empty() && action=="join") {
 				auto group=c->GetGroup();
@@ -711,6 +753,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 				Enroll(run,c->CharacterID());
 			}
 			if (run.id.empty()) {
+				if (d->zone==76) { throw std::runtime_error("This classic Hate run has ended. Hail the Commonlands Keeper again for the new layout."); }
 				if (action=="enter") { c->Message(Chat::White,"Choose Raid or Grind to create your run."); return true; }
 				if (!enabled || !Enabled() || !d->count) { throw std::runtime_error("New dungeon runs are unavailable."); }
 				if (c->GetGroup() && c->GetGroup()->GetLeaderName()!=c->GetName()) { throw std::runtime_error("Your group leader chooses the mode."); }

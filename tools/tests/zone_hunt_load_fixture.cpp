@@ -14,6 +14,10 @@ template<class... Args>std::string format(const char *text,Args... args) {
 }
 }
 #define LogInfo(...) (void)0
+namespace NightcapDungeon {
+bool managed=false;bool Managed(){return managed;}
+uint32 ContentZone(uint32 id,bool active){return id==186&&active ? 76 : id;}
+}
 struct Zone {uint32 id=186,version=0;uint32 GetZoneID(){return id;}uint32 GetInstanceVersion(){return version;}};
 struct WorldContentService {int era=0;static WorldContentService *Instance(){static WorldContentService s;return &s;}int GetCurrentExpansion(){return era;}};
 struct Result {
@@ -26,8 +30,11 @@ struct Result {
 };
 struct DB {
 	Result config{{{"940592","940596","46","0"}},true},sources{{},true};
+	Result equipment{{{"940564","46","0"}},true};
 	std::set<uint32> items;std::vector<std::string> queries;
-	Result QueryDatabase(std::string q,bool){queries.push_back(q);return queries.size()==1 ? config : sources;}
+	Result QueryDatabase(std::string q,bool){queries.push_back(q);
+		return q.find("SELECT z.augment_base")!=std::string::npos ? config :
+			q.find("SELECT gear_base")!=std::string::npos ? equipment : sources;}
 	bool GetItem(uint32 id){return items.count(id)!=0;}
 } database;
 namespace NightcapHunt {
@@ -37,7 +44,7 @@ struct Hunt {uint32 zone_id=0,augment=0,gear=0;int minimum=0;bool enabled=false,
 int main() {
 	using namespace NightcapHunt;
 	Zone z;
-	auto reset=[&](){database={};z={};WorldContentService::Instance()->era=0;
+	auto reset=[&](){database={};z={};WorldContentService::Instance()->era=0;NightcapDungeon::managed=false;
 		for(uint32 id=940592;id<940600;++id)database.items.insert(id);};
 	reset();Load(z);
 	assert(hunt.enabled&&hunt.zone_id==186&&hunt.augment==940592&&hunt.sources.empty());
@@ -54,4 +61,19 @@ int main() {
 	}
 	reset();database.sources.rows={{"10","4001"}};Load(z);
 	assert(hunt.enabled&&hunt.sources.count({10,4001})==1);
+	// Public186 remains augment-only. Managed186 uses Blackspire augments and
+	// the successor layout's original76 equipment family/source list.
+	reset();NightcapDungeon::managed=true;database.sources.rows={{"10","4001"}};
+	for(uint32 id=940564;id<940568;++id)database.items.insert(id);
+	Load(z);assert(hunt.enabled&&hunt.augment==940592&&hunt.gear==940564);
+	assert(database.queries.size()==3&&database.queries[0].find("z.zone_id=186")!=std::string::npos);
+	assert(database.queries[1].find("zone_id=76")!=std::string::npos);
+	assert(database.queries[2].find("zone_id=76")!=std::string::npos&&hunt.sources.count({10,4001})==1);
+	for(int bad=0;bad<3;++bad) {
+		database.queries.clear();database.equipment={{{"940564","46","0"}},true};
+		if(bad==0)database.equipment.success=false;
+		if(bad==1)database.equipment.rows.clear();
+		if(bad==2)database.items.erase(940567);
+		Load(z);assert(!hunt.enabled);
+	}
 }

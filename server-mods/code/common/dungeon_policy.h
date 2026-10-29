@@ -18,11 +18,22 @@ inline bool IsReward(uint32_t id) { return id >= ItemBegin && id < ItemEnd; }
 // The Hate entrance service lives in the public Commonlands hub. A retained
 // private entrance copy still supports the same run's status and reward menu.
 inline const Dungeon *KeeperDungeon(uint32_t host, uint32_t instance, uint32_t keeper) {
-	if (host==22 && instance==0 && keeper==998812) { return FindDungeon(76); }
+	if (host==22 && instance==0 && keeper==998812) { return FindDungeon(186); }
 	if (host==21 && instance==0 && keeper==998820) { return FindDungeon(760); }
 	if (host==30 && instance==0 && keeper==998860) { return FindDungeon(113); }
 	const auto d=FindDungeon(host);
 	return d && d->keeper==keeper ? d : nullptr;
+}
+// Existing allocations finish on their original terrain. A shared journal must
+// never represent concurrent old/new runs for the same character.
+inline uint32_t HateDestination(bool own_old, bool own_new, bool join_old) {
+	if (own_old && own_new) { return 0; }
+	if (own_old) { return 76; }
+	if (own_new) { return 186; }
+	return join_old ? 76 : 186;
+}
+inline uint32_t ContentZone(uint32_t actual, bool managed) {
+	return actual==186 && managed ? 76 : actual;
 }
 inline Quality RollQuality(Mode mode, unsigned roll) {
 	return mode == Mode::Grind ? Quality::Normal : roll < 9000 ? Quality::Polished : Quality::Ascended;

@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-29",
+  "scope": "read-only public content; no player data",
+  "results": [
+    {
+      "label": "hate-layout/original-spawn-policy/0",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/8",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/16",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/24",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/32",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/40",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/48",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/56",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/64",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/72",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/80",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/88",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/96",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/104",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/112",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/120",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/128",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/136",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/144",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/152",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/160",
+      "expected": "8",
+      "observed": "8",
+      "passed": true
+    },
+    {
+      "label": "hate-layout/original-spawn-policy/168",
+      "expected": "7",
+      "observed": "7",
+      "passed": true
+    },
+    {
+      "label": "empty/nightcap_dungeon_spawns",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "label": "empty/grid",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "label": "empty/grid_entries",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "label": "original-groups",
+      "expected": "175",
+      "observed": "175",
+      "passed": true
+    },
+    {
+      "label": "original-disabled",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "label": "traps",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "label": "zone-points",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    },
+    {
+      "label": "hotzones",
+      "expected": "2",
+      "observed": "2",
+      "passed": true
+    },
+    {
+      "label": "blocked-spells",
+      "expected": "0",
+      "observed": "0",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

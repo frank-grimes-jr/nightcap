@@ -3,6 +3,7 @@
 #include "zone/npc.h"
 #include "zone/zone.h"
 #include "zone/zonedb.h"
+#include "zone/dungeon_service.h"
 #include "common/zone_hunt_policy.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/content/world_content_service.h"
@@ -26,6 +27,7 @@ void Load(Zone &z)
 {
 	hunt = {};
 	if (z.GetInstanceVersion() || WorldContentService::Instance()->GetCurrentExpansion() != 0) { return; }
+	const auto content_zone=NightcapDungeon::ContentZone(z.GetZoneID(),NightcapDungeon::Managed());
 	auto config = database.QueryDatabase(fmt::format(
 		"SELECT z.augment_base,z.gear_base,z.min_level,z.night_only FROM nightcap_zone_hunt_zones z "
 		"JOIN nightcap_zone_hunt_state s ON s.id=1 AND s.enabled=1 AND s.revision={} "
@@ -34,6 +36,17 @@ void Load(Zone &z)
 	auto r = config.begin();
 	hunt.augment = strtoul(r[0], nullptr, 10); hunt.gear = strtoul(r[1], nullptr, 10);
 	hunt.minimum = atoi(r[2]); hunt.night_only = atoi(r[3]) != 0;
+	// A successor layout owns its augment, but keeps its inherited equipment
+	// family and source gates. Managed Hate B must not inherit Spiteglass Prism.
+	if (content_zone != z.GetZoneID()) {
+		auto equipment = database.QueryDatabase(fmt::format(
+			"SELECT gear_base,min_level,night_only FROM nightcap_zone_hunt_zones "
+			"WHERE zone_id={} AND enabled=1", content_zone), false);
+		if (!equipment.Success() || equipment.RowCount() != 1) { hunt = {}; return; }
+		auto gear = equipment.begin();
+		hunt.gear = strtoul(gear[0], nullptr, 10);
+		hunt.minimum = atoi(gear[1]); hunt.night_only = atoi(gear[2]) != 0;
+	}
 	if (!IsAugment(hunt.augment) || !NextTier(hunt.gear)) { hunt = {}; return; }
 	for (uint32 base : {hunt.augment, hunt.gear}) {
 		for (uint32 tier = 0; tier != 4; ++tier) {
@@ -41,7 +54,7 @@ void Load(Zone &z)
 		}
 	}
 	auto sources = database.QueryDatabase(fmt::format(
-		"SELECT spawn_id,npc_id FROM nightcap_zone_hunt_sources WHERE zone_id={}", z.GetZoneID()), false);
+		"SELECT spawn_id,npc_id FROM nightcap_zone_hunt_sources WHERE zone_id={}", content_zone), false);
 	if (!sources.Success()) { hunt = {}; return; }
 	for (auto row : sources) { hunt.sources.emplace(strtoul(row[0], nullptr, 10), strtoul(row[1], nullptr, 10)); }
 	hunt.zone_id = z.GetZoneID(); hunt.enabled = true;

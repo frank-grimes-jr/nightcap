@@ -1,0 +1,149 @@
+{
+  "topic": "world",
+  "scope": "read-only installed-skill check; historical drift retained",
+  "total_entries_checked": 330,
+  "historical_drift_count": 9,
+  "candidate_entries": [
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\README.md",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\CHANGES.md",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\common\\dungeon_policy.h",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\common\\dungeon_catalog.h",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\common\\dungeon_contract.h",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\runtime-contract.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\dungeon_catalog.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\dungeon_refresh_contract.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_hate_keeper.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_hate_keeper_content.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_classic_dungeon_private.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_dungeon_journal.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\dungeon_service.cpp",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\dungeon_service.h",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\common\\dungeon_policy.h",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\dungeon_service.cpp",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\zone.cpp",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\zone_hunt.cpp",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\loot.cpp",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\server-mods\\code\\zone\\exp.cpp",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\hate_layout_migration.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_hate_layout.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\README.md",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\rehearsal.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\preflight-public-result.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\hate_layout_preflight.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\tools\\tests\\test_hate_layout_migration.py",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-29\\go\\work\\hateplaneb\\docs\\dungeons\\hate-layout-20261029\\native-build\\manifest.json",
+      "role": "Reviewed October29 Hate layout candidate; not deployed or owner accepted",
+      "state": "unchanged"
+    }
+  ],
+  "candidate_drift": 0
+}

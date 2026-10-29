@@ -241,6 +241,8 @@ def main():
     files.update(hub_files(client,plan))
     from client_zone_archives import zone_files
     files.update(zone_files(client))
+    from hate_client import files as hate_files
+    files.update(hate_files(client))
     files.update(lavastorm_files(args.lavastorm,client))
     for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets'),('EQUI_MerchantWnd.xml','merchant'),('EQUI_TradeskillWnd.xml','tradeskill'),('EQUI_BazaarSearchWnd.xml','bazaar')]:
         files['uifiles/nightcap/'+filename.lower()] = ui_xml((client/'uifiles/default'/filename).read_bytes(),kind)
