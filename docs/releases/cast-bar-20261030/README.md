@@ -1,10 +1,10 @@
 # Cast-bar timing repair — October 30, 2026
 
-**Published as signed client 2026103002 for owner testing; visible acceptance remains open.** Based on integrated
+**Published as signed client 2026103002; the owner confirms the reported Diiv casting-bar issue is fixed.** Based on integrated
 `989a464c` in `E:/EQ_Local_Dev/_worktrees/cast-bar-timing`, branch
 `feature/cast-bar-timing-20261030`. The owner reports that two level-1 Wizard
 nukes barely move the casting bar until the final instant. This resolves the
-data defect behind the older September 27 investigation; visible QA stays open.
+data defect behind the older September 27 investigation; broader focus/interruption regression QA remains separate.
 
 Main PR376 merged as `ea2f7efc591643339b7dedf6b0759471f558866b` after explicit
 owner approval. Signed client2026103002 and wiki20261030-cast-bar-v1 are published.
@@ -14,11 +14,20 @@ Client publisher20Linux tests and wiki16Linux recovery tests pass. Publication
 changes only spells_us.txt and three wiki files, preserving the newer recall
 label and Cazic-Thule releases. See deployment.json and release/ receipts.
 
+## Owner acceptance
+
+On October30, after the update and Diiv test instructions, the owner replied
+“fIXED”. This closes the reported frozen/delayed casting-bar issue. It does not
+assert that every spell or every focus, item, AA, Bard and interruption case was
+tested. Exact evidence: owner-acceptance/owner-confirmation.json.
+Wiki20261030-cast-bar-accepted-v1 publishes this scoped acceptance; all499 HTTPS
+files verify, with3 changed and496 preserved. See owner-acceptance/README.md.
+
 ## Cause and scope
 
 The October 30 read-only production snapshot gives Frost Bolt (54) and Numbing
-Cold (374) 1000-ms casts, and Blast of Cold (372) 1500 ms. The installed client
-and current published spell asset give all three 50 ms. Native RoF2's gauge at
+Cold (374) 1000-ms casts, and Blast of Cold (372) 1500 ms. The pre-repair installed client
+and published spell asset gave all three 50 ms. Native RoF2's gauge at
 VA `0x761fb0` divides remaining time by spell-memory cast duration (`+0x10`) and
 clamps at 1000 per mille. It therefore stays full until the final 50 ms. This is
 a client spell-definition mismatch, not evidence of slow server execution.
@@ -96,5 +105,6 @@ restores the old display defect; it does not require any player-data rollback.
 The owner approved main, signed client and wiki publication in AUTHORIZATION.md.
 Signed2026103002 is published and its 20 Linux publisher tests pass; release/
 holds exact preparation, activation and HTTPS receipts. See
-[QA.md](QA.md) for the exact live check. Wiki20261030-cast-bar-v1 is published and verified. No visible gameplay acceptance
-is claimed; Diiv testing is the remaining owner check.
+[QA.md](QA.md) for the exact live check. Wiki20261030-cast-bar-v1 was published and verified. The owner then replied
+“fIXED”, accepting the reported Diiv issue. Broader focus/interruption and the
+full spell matrix remain separate checks; see owner-acceptance/.

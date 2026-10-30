@@ -1,5 +1,5 @@
 {
-  "status": "published_for_owner_testing",
+  "status": "published_reported_issue_owner_accepted",
   "verified_utc": "2026-10-30T13:25:49.361150+00:00",
   "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/376",
   "main_merge": "ea2f7efc591643339b7dedf6b0759471f558866b",
@@ -22,5 +22,6 @@
   "services_unchanged": true,
   "sql_changes": false,
   "protected_client_edits": false,
-  "owner_visible_acceptance": "Pending Diiv check; deployment does not claim rendered gameplay acceptance"
+  "owner_visible_acceptance": "Owner replied fIXED on October30, resolving the reported Diiv casting-bar issue; broader matrix not claimed",
+  "acceptance_evidence": "owner-acceptance/owner-confirmation.json"
 }

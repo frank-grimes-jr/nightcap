@@ -11,7 +11,7 @@ The owner explicitly chose “Merge main only for now”; server deployment, pub
 wiki publication and native gameplay/readability QA remain pending.
 Evidence and exact QA: `docs/releases/faction-standing-20261029/README.md`.
 
-## 2026-10-30 — Cast-bar timing repair published for Diiv QA
+## 2026-10-30 — Cast-bar issue owner-confirmed resolved
 
 Owner-approved main PR376 and signed client2026103002 correct stale 50-ms client
 times for638reviewed non-DoT definitions, including level-1 Wizard nukes. Native
@@ -24,8 +24,9 @@ retain exact bytes, including Cazic/recall guidance. All499HTTPS hashes/headers
 and five private-route denials pass; five service lifetimes remain unchanged.
 The original native gauge passes5105checks with the corrected file. Launcher
 suites,20Linux client publisher tests,19wiki checks and16Linux wiki recovery tests
-pass. Fully exit EQ and use launcher Play before testing on Diiv. Owner visible
-casting/interruption acceptance remains pending. Evidence and exact QA:
+pass. The owner replied “fIXED”, confirming the reported Diiv casting-bar issue
+is resolved. Wiki20261030-cast-bar-accepted-v1 records that acceptance; all499
+public files verify. Broader focus/interruption cases remain separate. Evidence and exact QA:
 `docs/releases/cast-bar-20261030/README.md`, `deployment.json` and `QA.md`.
 
 ## 2026-10-29 — Keyless doors deployed
