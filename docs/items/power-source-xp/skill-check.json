@@ -19,6 +19,11 @@
         "state": "unchanged"
       },
       {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\docs\\items\\power-source-xp\\REVIEW.md",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\docs\\items\\power-source-xp\\calibration.json",
         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
         "state": "unchanged"
@@ -135,6 +140,21 @@
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\tools\\build_item_xp.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\tools\\compile_item_xp.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\tools\\item_xp_calibration.py",
         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
         "state": "unchanged"
       },

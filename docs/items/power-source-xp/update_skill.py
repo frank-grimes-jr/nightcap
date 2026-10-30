@@ -99,6 +99,8 @@ preparing any eventual publication; this candidate checkout is not that authorit
         'tools/tests/fixtures/item_xp_award.cpp', 'tools/tests/test_bazaar_native.py',
         'tools/tests/test_paladin_weapon_grip.py', 'tools/tests/test_passive_aa.py',
         'docs/items/power-source-xp/QA.md', 'docs/items/power-source-xp/PLAN.md',
+        'docs/items/power-source-xp/REVIEW.md', 'tools/build_item_xp.py',
+        'tools/compile_item_xp.py', 'tools/item_xp_calibration.py',
         'docs/items/power-source-xp/calibration.json', 'docs/items/power-source-xp/native-compile-final.json',
         'docs/items/power-source-xp/wiki-review.json', 'docs/adr/0073-power-source-item-experience.md',
     })
