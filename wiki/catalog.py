@@ -27,7 +27,7 @@ def catalog_articles():
         if z['slug'] == 'highkeep':
             body += '<h2 id="prison-break">High Keep prison break</h2><p>New managed Raid runs use the <a href="dungeon-modes.html#highkeep-rescue">Osargen rescue route</a>. Hunt item values and ordinary acquisition remain unchanged. Live testing; native escort acceptance remains open.</p>'
         if z['slug'] == 'hole':
-            body += '<h2 id="entrance">Entrance access</h2><p>See <a href="travel.html#hole-entrance">the Paineel passage access note</a> for the installed keyless entrance update and its release status.</p>'
+            body += '<h2 id="entrance">Entrance access</h2><p>See <a href="travel.html#hole-entrance">the Paineel passage access note</a> for keyless entrance and internal door access, remaining restrictions and release status.</p>'
         if z['slug'] == 'kithicor':
             body += '<p><strong>Kithicor requires eligible nighttime undead.</strong></p>'
         body += '<p><strong>Not released:</strong> <a href="zone-hunt.html#regular-combat-preview">broader augment eligibility</a> is prepared for regular combat mobs, including Grind/Raid. The0.5% rate and existing equipment rules remain.</p>'

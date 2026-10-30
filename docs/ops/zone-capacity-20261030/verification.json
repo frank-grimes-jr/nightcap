@@ -1,0 +1,38 @@
+{
+  "status": "TESTED_CANDIDATE_NOT_DEPLOYED",
+  "reviewed_base": "989a464c345fb2c3799f5b769090442039a1d35e",
+  "checks": {
+    "capacity_policy_unit_tests": 8,
+    "resolved_compose_contract_tests": 1,
+    "production_safeguards_linux_tests": 5,
+    "mariadb_10_11_rehearsal_groups": 8,
+    "wiki_content_and_refresh_tests": 19,
+    "wiki_build_pages": 497,
+    "independent_review": "No remaining blocking source findings; review.md",
+    "optimized_python_rehearsal": "Refuses before Docker access",
+    "strict_rollout_preflight": "Correctly refuses current insufficient disk space"
+  },
+  "regression_evidence": {
+    "original": "Old 12-worker pool rejects the 13th distinct destination, Fear; candidate passes",
+    "sustained": "160 two-minute transitions through eight destinations while retaining 13 other destinations; 20-worker one-hour policy fails, mixed retention passes",
+    "limits": "Capacity model, not a native client, memory stress test or unlimited concurrency guarantee",
+    "sql": "Exact five-row forward/inverse and all 618-row preservation verified in isolated local MariaDB; no PEQ writes"
+  },
+  "environment_notes": [
+    "Initial local DB was still starting; final rehearsal used an isolated network-disabled MariaDB 10.11 container matching production's image",
+    "Windows sandbox temp-directory restrictions affected initial tests; final wiki/Compose tests passed outside that restriction and all five production safeguard tests passed on Linux"
+  ],
+  "open_gates": [
+    "Production disk space: at least 3 GiB before backup and 2 GiB after backup",
+    "Fresh resource, rule, identity, source and complete DB preimage checks",
+    "Repository main-promotion sign-off and maintenance activation",
+    "Verified graceful native flush and fresh full stopped backup",
+    "Post-activation twenty-worker, timer, health, player/custom-state and memory checks",
+    "Owner original-route, sustained-travel, respawn/corpse and managed-progress QA",
+    "Public wiki publication only after verified deployment; historical source drift remains review-required"
+  ],
+  "production_changed": false,
+  "owner_gameplay_accepted": false,
+  "wiki_published": false,
+  "integration": "Current dev previews retained; latest main keyless deployment evidence reconciled; capacity source and all gameplay release boundaries unchanged"
+}

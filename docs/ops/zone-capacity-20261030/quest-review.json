@@ -1,0 +1,3343 @@
+{
+  "captured_at_utc": "2026-10-30T07:47:45.992295-04:00",
+  "environment": "production",
+  "production_changed": false,
+  "quest_root": "/srv/nightcap/quests",
+  "zone_files": [
+    {
+      "path": "ecommons/999500.pl",
+      "sha256": "b0c7985d0c903d0b8d96c153c42735815c445a1a7ebd9078aba4b9b643230c96",
+      "bytes": 555,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        },
+        {
+          "line": 3,
+          "text": "    quest::settimer('market',30+int(rand(26)));"
+        },
+        {
+          "line": 4,
+          "text": "    quest::settimer('tunnel_chatter',45+int(rand(36)));"
+        },
+        {
+          "line": 8,
+          "text": "        plugin::market_pulse($entity_list,$npc);"
+        },
+        {
+          "line": 9,
+          "text": "        quest::settimer('market',30+int(rand(26)));"
+        },
+        {
+          "line": 11,
+          "text": "        plugin::tunnel_chatter_pulse($entity_list,$npc);"
+        },
+        {
+          "line": 12,
+          "text": "        quest::settimer('tunnel_chatter',45+int(rand(36)));"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999501.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999502.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999503.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999504.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999505.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999506.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999507.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999508.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999509.pl",
+      "sha256": "f784d3f5ff99251823e491304f06ada69928bc8c60ac8078c61b7ac6198ee12c",
+      "bytes": 116,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999520.pl",
+      "sha256": "51953eef48b8503f96ab5fdf17747d1713f03b168bc1c3fd03d0bbf06317c273",
+      "bytes": 295,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SPAWN { plugin::tunnel_social_schedule($npc,0); }"
+        },
+        {
+          "line": 2,
+          "text": "sub EVENT_TIMER { plugin::tunnel_social_idle($npc,$entity_list,$timer); }"
+        },
+        {
+          "line": 3,
+          "text": "sub EVENT_SAY { plugin::tunnel_social_schedule($npc,1); plugin::tunnel_resident_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999521.pl",
+      "sha256": "28a33a8bc28726eefc7340a50976b830fdd9b83dc31b14d7ce4e93e46c5468c6",
+      "bytes": 611,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SPAWN { plugin::tunnel_social_schedule($npc,0); }"
+        },
+        {
+          "line": 2,
+          "text": "sub EVENT_TIMER { plugin::tunnel_social_idle($npc,$entity_list,$timer); }"
+        },
+        {
+          "line": 4,
+          "text": "    plugin::tunnel_social_schedule($npc,1);"
+        },
+        {
+          "line": 6,
+          "text": "        plugin::tunnel_resident_hail($client,$npc,$text);"
+        },
+        {
+          "line": 11,
+          "text": "    plugin::tunnel_resident_hail($client,$npc,$text);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999522.pl",
+      "sha256": "51953eef48b8503f96ab5fdf17747d1713f03b168bc1c3fd03d0bbf06317c273",
+      "bytes": 295,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SPAWN { plugin::tunnel_social_schedule($npc,0); }"
+        },
+        {
+          "line": 2,
+          "text": "sub EVENT_TIMER { plugin::tunnel_social_idle($npc,$entity_list,$timer); }"
+        },
+        {
+          "line": 3,
+          "text": "sub EVENT_SAY { plugin::tunnel_social_schedule($npc,1); plugin::tunnel_resident_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999523.pl",
+      "sha256": "51953eef48b8503f96ab5fdf17747d1713f03b168bc1c3fd03d0bbf06317c273",
+      "bytes": 295,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SPAWN { plugin::tunnel_social_schedule($npc,0); }"
+        },
+        {
+          "line": 2,
+          "text": "sub EVENT_TIMER { plugin::tunnel_social_idle($npc,$entity_list,$timer); }"
+        },
+        {
+          "line": 3,
+          "text": "sub EVENT_SAY { plugin::tunnel_social_schedule($npc,1); plugin::tunnel_resident_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999524.pl",
+      "sha256": "51953eef48b8503f96ab5fdf17747d1713f03b168bc1c3fd03d0bbf06317c273",
+      "bytes": 295,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SPAWN { plugin::tunnel_social_schedule($npc,0); }"
+        },
+        {
+          "line": 2,
+          "text": "sub EVENT_TIMER { plugin::tunnel_social_idle($npc,$entity_list,$timer); }"
+        },
+        {
+          "line": 3,
+          "text": "sub EVENT_SAY { plugin::tunnel_social_schedule($npc,1); plugin::tunnel_resident_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999525.pl",
+      "sha256": "bb221045df1272173d69fa47a326e128d1b2eb6545928e7df18ce6b50fdf0c38",
+      "bytes": 123,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::tunnel_resident_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999526.pl",
+      "sha256": "cef33b7e72e516e0e9c66baefd9986c23eb2a2c91549d1de35f45c4e5dc11c01",
+      "bytes": 407,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SPAWN { plugin::tunnel_social_schedule($npc,0); }"
+        },
+        {
+          "line": 2,
+          "text": "sub EVENT_TIMER { plugin::tunnel_social_idle($npc,$entity_list,$timer); }"
+        },
+        {
+          "line": 5,
+          "text": "        plugin::tunnel_social_schedule($npc,1);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999527.pl",
+      "sha256": "8d6df21fb656625ca009f87708d4fe6b9ae39b47ffd77364b5a4b0681e8d57aa",
+      "bytes": 118,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::tunnel_spire_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999680.pl",
+      "sha256": "7eb4edd4352bf719e3c3ac76a99158d3d19a042780d45e6dbe25b4abaffff140",
+      "bytes": 114,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999681.pl",
+      "sha256": "7eb4edd4352bf719e3c3ac76a99158d3d19a042780d45e6dbe25b4abaffff140",
+      "bytes": 114,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999682.pl",
+      "sha256": "7eb4edd4352bf719e3c3ac76a99158d3d19a042780d45e6dbe25b4abaffff140",
+      "bytes": 114,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999683.pl",
+      "sha256": "7eb4edd4352bf719e3c3ac76a99158d3d19a042780d45e6dbe25b4abaffff140",
+      "bytes": 114,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999684.pl",
+      "sha256": "7eb4edd4352bf719e3c3ac76a99158d3d19a042780d45e6dbe25b4abaffff140",
+      "bytes": 114,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999685.pl",
+      "sha256": "7eb4edd4352bf719e3c3ac76a99158d3d19a042780d45e6dbe25b4abaffff140",
+      "bytes": 114,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::market_hail($client, $npc, $text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999700.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999701.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999702.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999703.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999704.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999705.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999706.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999707.pl",
+      "sha256": "93684e90b282412b83d461a7112d53b158e9abd1946a2189094ad92f83d14516",
+      "bytes": 198,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "    my $lines=plugin::tunnel_dialogue($npc->GetNPCTypeID());"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999810.pl",
+      "sha256": "24e11a058daaf16adcfb1c9d47881b5ca85ce5cf48c8e083f79b9211d81b08b8",
+      "bytes": 122,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "sub EVENT_SAY { plugin::tunnel_travel_hail($client,$npc,$text); }"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/999820.pl",
+      "sha256": "5c207486dd061a094c935b94a630892777bf81c9cdbf8486f35e7c1cbe50f83b",
+      "bytes": 1470,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Altunic_Jartin.pl",
+      "sha256": "918d4da71b2928cf008c2c5b957ff13b43550b901ada8ce084a582ad74f2c70f",
+      "bytes": 2163,
+      "timer_and_dependency_lines": [
+        {
+          "line": 29,
+          "text": "\tif(plugin::check_handin(\\%itemcount, 18896 => 1))"
+        },
+        {
+          "line": 34,
+          "text": "\tif(plugin::check_handin(\\%itemcount, 13867 => 1))"
+        },
+        {
+          "line": 48,
+          "text": "\tif(plugin::check_handin(\\%itemcount, 1004 => 1))"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Barstre_Songweaver.pl",
+      "sha256": "904dae4750661dc9d62502f27d2b3332dc012c77aa0ca44cb73345e41df9bbf5",
+      "bytes": 35078,
+      "timer_and_dependency_lines": [
+        {
+          "line": 36,
+          "text": "      if (!plugin::check_hasitem($client,41000)) { #PC does not have an Adventurer's Stone"
+        },
+        {
+          "line": 294,
+          "text": "    elsif (defined($qglobals{Wayfarer}) && ($qglobals{Wayfarer} == 4) && !plugin::check_hasitem($client, 40999)) { #PC has earned Wayfarers Brotherhood Emblem"
+        },
+        {
+          "line": 308,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Bubar.pl",
+      "sha256": "be2bf9ed07d852cc60556910f28c4140a36dfd33820abc04fb4c429f1dca8d79",
+      "bytes": 792,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "  if (plugin::check_handin(\\%itemcount, 12351 => 1, 12352 => 1, 12350 => 1)) {"
+        },
+        {
+          "line": 20,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Chaenz_Abella.lua",
+      "sha256": "3634ee0ac117e4d2111b920e375367b69e7d61121bc063f4e060eeccc23576b0",
+      "bytes": 3093,
+      "timer_and_dependency_lines": [
+        {
+          "line": 24,
+          "text": "  local item_lib = require('items');"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Epic_Forgemaster.pl",
+      "sha256": "378e4e60c1011793b1c44b8b3620ab2f3af1630ced0d82b6ef2e6d724756e0a9",
+      "bytes": 4844,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Guard_Reskin.pl",
+      "sha256": "d4873bd0e0f41f14fd77c82915db579b906796232848424440760e388fd7b7e5",
+      "bytes": 106,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Guard_Tolus.pl",
+      "sha256": "09923f59be912c19e12ee25bd425cb309b99baff535a3648d626b243806b4ed6",
+      "bytes": 107,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Kayci_Strahtin.pl",
+      "sha256": "9785e3d0039f1a01b1cce984574e0a671053dc22981b425c2c6663fb8d5f8a6e",
+      "bytes": 1191,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "  if(plugin::check_handin(\\%itemcount, 55268 => 1)) { #Kizpi's Note"
+        },
+        {
+          "line": 11,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Khaite_Ranna.pl",
+      "sha256": "9502938a37c0f352498cbbce563b3ca6eb57c8b0be8da2f0b18de6e39460cfeb",
+      "bytes": 905,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Loric_Weaver.pl",
+      "sha256": "e42bcc2d889e4123d63bbdcd4b5ec603e7cb7ad68d14a1c65e0c977b667f2f54",
+      "bytes": 461,
+      "timer_and_dependency_lines": [
+        {
+          "line": 17,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Luarnn_Gibbizt.lua",
+      "sha256": "d0898674f4958ff103dbbef286cde78ad76e3cb1122ac664c48372cd91212949",
+      "bytes": 1878,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Magus_Goldwind.pl",
+      "sha256": "cf1a0beefcba28c80265b08fc08af3fb525cbfe75bf2d652b114a65fd46e97dc",
+      "bytes": 282,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Magus_Zeir.lua",
+      "sha256": "ee433bda0b9afe2c236742de34f8034954b7cbc25987326171dde2c4f5532594",
+      "bytes": 2347,
+      "timer_and_dependency_lines": [
+        {
+          "line": 30,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Matron_Restora.pl",
+      "sha256": "4611c641acddd46d74dbf99bb16184f16d32d4d092c9b4b05830335bb43e3013",
+      "bytes": 1225,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Merra_Clayfinger.pl",
+      "sha256": "2a8e5981edcef0176b98bfb88dc51ebb2e55a5897b6dcb5593a93f442fd37a12",
+      "bytes": 911,
+      "timer_and_dependency_lines": [
+        {
+          "line": 26,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Sergeant_Ragus.pl",
+      "sha256": "e2b23af417c9bbc69fb06c1a111b8edaa8e7a495592270616aa08f7cc84a9bcb",
+      "bytes": 537,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "  quest::settimer(\"ec_Ragus\", 600);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Sergeant_Slate.pl",
+      "sha256": "0ce0073fb1e1bab8134953e655cb8c30bf21d5c78f035d0fa0c3af8eff698e4a",
+      "bytes": 291,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Soulbinder_Jubbl.pl",
+      "sha256": "f85093c3627391fb1635a08da9c54cbcfd4962b6b0ebbb609828786702881a01",
+      "bytes": 78,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "\tplugin::soulbinder_say($text);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/The_Ancient_Chronicler.pl",
+      "sha256": "777d57939ab1a813f502e1b389c7665f9da2febdb51a049a22bcd0e25a11413e",
+      "bytes": 6318,
+      "timer_and_dependency_lines": [
+        {
+          "line": 4,
+          "text": "# Pure dialog. Every mutation goes through plugin::multiclass (quests/plugins/"
+        },
+        {
+          "line": 29,
+          "text": "    return 'Your classes: ' . plugin::mc_class_name($base) . ' (Primary) | ' ."
+        },
+        {
+          "line": 30,
+          "text": "        ($c2 ? plugin::mc_class_name($c2) : 'Not selected') . ' (Second) | ' ."
+        },
+        {
+          "line": 31,
+          "text": "        ($c3 ? plugin::mc_class_name($c3) : 'Not selected') . ' (Third)';"
+        },
+        {
+          "line": 52,
+          "text": "        ($c2 ? ' \u00e2\u20ac\u201d or [' . quest::saylink('release second') . '] your ' . plugin::mc_class_name($c2) . ' binding.' : '.')"
+        },
+        {
+          "line": 58,
+          "text": "            push @links, '[' . quest::saylink(plugin::mc_class_name($id)) . ']';"
+        },
+        {
+          "line": 66,
+          "text": "    my $cname = plugin::mc_class_name($class_id);"
+        },
+        {
+          "line": 67,
+          "text": "    quest::say($cname . ': ' . plugin::mc_flavor($class_id) . '.');"
+        },
+        {
+          "line": 71,
+          "text": "        'skills improve through use and training. Your Primary class will remain ' . plugin::mc_class_name($base) . '.');"
+        },
+        {
+          "line": 79,
+          "text": "    my ($c2, $c3) = plugin::mc_get_classes($char_id);"
+        },
+        {
+          "line": 98,
+          "text": "            'Unbind the ' . plugin::mc_class_name($class) . ' discipline?<br><br>' ."
+        },
+        {
+          "line": 107,
+          "text": "        my $class_id = plugin::mc_class_id_by_name($1);"
+        },
+        {
+          "line": 109,
+          "text": "        my $cname = plugin::mc_class_name($class_id);"
+        },
+        {
+          "line": 121,
+          "text": "    my $class_id = plugin::mc_class_id_by_name($say);"
+        },
+        {
+          "line": 135,
+          "text": "        my ($ok, $msg) = plugin::mc_revoke_slot($client, $popupid == $POPUP_RELEASE_2 ? 2 : 3);"
+        },
+        {
+          "line": 137,
+          "text": "        my ($c2, $c3) = plugin::mc_get_classes($char_id);"
+        },
+        {
+          "line": 143,
+          "text": "        my ($ok, $msg) = plugin::mc_apply_class($client, $popupid - 300);"
+        },
+        {
+          "line": 145,
+          "text": "        my ($c2, $c3) = plugin::mc_get_classes($char_id);"
+        }
+      ]
+    },
+    {
+      "path": "ecommons/Uzmanya_Zsiksta.lua",
+      "sha256": "c10e054d65eecd13cd9aa06765c304b88cc763bbab903657a21c235902635e1e",
+      "bytes": 1965,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "ecommons/Waypoint_Master.pl",
+      "sha256": "94148dfb4241e0bfaf8af9de19280eaa8afb49396b194a089808fe9d082a1440",
+      "bytes": 1991,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "commons/Bealya_Tanilsuia.pl",
+      "sha256": "24efa182243ccd2e6a066fa57eca6c9b835d0e4b681334d2bfbdf630efbb313e",
+      "bytes": 10643,
+      "timer_and_dependency_lines": [
+        {
+          "line": 7,
+          "text": "   if ($text=~/hail/i && defined($qglobals{GUKtalk}) && plugin::check_hasitem($client, 41000)) {"
+        },
+        {
+          "line": 118,
+          "text": "   plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Duggin_Scumber.pl",
+      "sha256": "123698f82014f0d7ddaf932dfc930e125f33137738bfec14fb32c98f5cb98c54",
+      "bytes": 875,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "    quest::settimer(1,10);"
+        },
+        {
+          "line": 10,
+          "text": "    quest::settimer(2,600);"
+        },
+        {
+          "line": 29,
+          "text": "   plugin::return_items(\\%itemcount);  "
+        }
+      ]
+    },
+    {
+      "path": "commons/Guard_Colin.pl",
+      "sha256": "4825f04cbffeb022f65806c686ba4be259a2ed62f7eb48bfeddc969771ca336e",
+      "bytes": 402,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "\tif (plugin::takeCoin(0, 0, 1, 0)) {"
+        },
+        {
+          "line": 13,
+          "text": "\tplugin::returnUnusedItems();"
+        }
+      ]
+    },
+    {
+      "path": "commons/Guard_Valon.pl",
+      "sha256": "6b21617de6b1fa44924d02ad1090bd94050fb8312af71994455ef3754fa81745",
+      "bytes": 4277,
+      "timer_and_dependency_lines": [
+        {
+          "line": 27,
+          "text": "\tif (plugin::takeItems(13885 => 4)) {"
+        },
+        {
+          "line": 42,
+          "text": "\telsif (plugin::takeItems(13885 => 3)) {"
+        },
+        {
+          "line": 50,
+          "text": "\telsif (plugin::takeItems(13885 => 2)) {"
+        },
+        {
+          "line": 57,
+          "text": "\telsif (plugin::takeItems(13885 => 1)) {"
+        },
+        {
+          "line": 63,
+          "text": " \telsif (plugin::takeItems(12272 => 1)) {"
+        },
+        {
+          "line": 84,
+          "text": "\tplugin::returnUnusedItems();"
+        }
+      ]
+    },
+    {
+      "path": "commons/Jahsohn_Aksot.pl",
+      "sha256": "ca684ae9dd7060acd00d2b6b1b3a7ba0a4d3d46f100be424ea58618dc819264a",
+      "bytes": 2645,
+      "timer_and_dependency_lines": [
+        {
+          "line": 34,
+          "text": "  if (plugin::check_handin(\\%itemcount, 28035 => 1)) {"
+        },
+        {
+          "line": 38,
+          "text": "  if (plugin::check_handin(\\%itemcount, 28000 => 1, 28001 => 1, 28002 => 1)) {"
+        },
+        {
+          "line": 42,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Kizdean_Gix.pl",
+      "sha256": "4222608783c10946139744b2127a8d268c1a73579f04db3043a2d107fd2d97ca",
+      "bytes": 1552,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "commons/Mojax_Hikspin.pl",
+      "sha256": "71361aa6de5b3e2dc29a9c41067e63839ced5e8d3eb15c1524e16c9d47982598",
+      "bytes": 1474,
+      "timer_and_dependency_lines": [
+        {
+          "line": 18,
+          "text": "  if (plugin::check_handin(\\%itemcount, 13087 =>1 )) {"
+        },
+        {
+          "line": 27,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Noresa_Sparkle.pl",
+      "sha256": "ef87b72a251d199ae0f8f387e5c589736f8c99ecb35ccd31008f0f1b2a737f40",
+      "bytes": 938,
+      "timer_and_dependency_lines": [
+        {
+          "line": 16,
+          "text": "  if (plugin::check_handin(\\%itemcount, 17931 => 1)) {"
+        },
+        {
+          "line": 22,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Ranvigoz_Tonsmith.pl",
+      "sha256": "a6945a31c11b86961b2f732f0715b8592a99ff89e148ea3e9b1d53042d110eb0",
+      "bytes": 1828,
+      "timer_and_dependency_lines": [
+        {
+          "line": 24,
+          "text": "    if (plugin::check_handin(\\%itemcount, 4177 => 1)) {"
+        },
+        {
+          "line": 27,
+          "text": "    elsif (plugin::check_handin(\\%itemcount, 4179 => 1)) {"
+        },
+        {
+          "line": 30,
+          "text": "    elsif (plugin::check_handin(\\%itemcount, 4175 => 1)) {"
+        },
+        {
+          "line": 33,
+          "text": "    elsif (plugin::check_handin(\\%itemcount, 4174 => 1)) {"
+        },
+        {
+          "line": 37,
+          "text": "      plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Simon_Aldicott.pl",
+      "sha256": "a62005df13ceda981f790b7702f0c15a056b5bafd28da24baaa9f4fcb9d28e8a",
+      "bytes": 1935,
+      "timer_and_dependency_lines": [
+        {
+          "line": 15,
+          "text": "  if (plugin::check_handin(\\%itemcount, 6708 => 1)) {"
+        },
+        {
+          "line": 19,
+          "text": "  if (plugin::check_handin(\\%itemcount, 6709 => 1)) {"
+        },
+        {
+          "line": 27,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Timtok_Tonsmith.pl",
+      "sha256": "1f3f45f5c98e2461e21beeb0e0c0a58dfe4bd16efe810d8e3ab21e6154e7c135",
+      "bytes": 1826,
+      "timer_and_dependency_lines": [
+        {
+          "line": 24,
+          "text": "    if (plugin::check_handin(\\%itemcount, 4178 => 1)) {"
+        },
+        {
+          "line": 27,
+          "text": "    elsif (plugin::check_handin(\\%itemcount, 4176 => 1)) {"
+        },
+        {
+          "line": 30,
+          "text": "    elsif (plugin::check_handin(\\%itemcount, 4173 => 1)) {"
+        },
+        {
+          "line": 33,
+          "text": "    elsif (plugin::check_handin(\\%itemcount, 4180 => 1)) {"
+        },
+        {
+          "line": 37,
+          "text": "      plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/Wallin_Slyfoot.pl",
+      "sha256": "c1cd7ccbfa8cc563e426bf5821584f1685cf29033a4d3ad99a5c30715ced3cf8",
+      "bytes": 853,
+      "timer_and_dependency_lines": [
+        {
+          "line": 25,
+          "text": "\tplugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "commons/a_Broken_Claw_Bandit.pl",
+      "sha256": "343e01a5718c38ddd47dd9c62c0ccf1d26a77dcd773227765039de8602b65361",
+      "bytes": 87,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "commons/a_Dervish_Cutthroat.pl",
+      "sha256": "65210ce12af46bebb8b1b93a71d84efcf1a2c26366647a80f17a4fadb6fa6bee",
+      "bytes": 231,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "commons/a_Dervish_Thug.pl",
+      "sha256": "40b711fc5a6af29c8bd4f7651ada3b5eeca33e06d18bf4ec63d947a2e22cdd0a",
+      "bytes": 86,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "commons/a_Tortured_Revenant.pl",
+      "sha256": "1a0246ed85eb5c1a045eb148afed9a13d928a32ab70dc99c5d191b020544a5b6",
+      "bytes": 191,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/#a_tired_farmer.pl",
+      "sha256": "dfe2b2b03e870dc9793bcc358f260c86b5688997307e59f9bed4337306470eb2",
+      "bytes": 2334,
+      "timer_and_dependency_lines": [
+        {
+          "line": 12,
+          "text": "  if(plugin::check_hasitem($client, 62632)) { #Poem of the Storms"
+        },
+        {
+          "line": 26,
+          "text": "  if(($cash >= 300000) && plugin::check_handin(\\%itemcount, 62632 => 1)) { #Poem of the Storms"
+        },
+        {
+          "line": 34,
+          "text": "    plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Bidils_the_Quickhand.pl",
+      "sha256": "bb8a9920168c3a20015604b986321f47c793cb716d7dc01a04f74cd0bb33a13d",
+      "bytes": 5644,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Blixkin_Entopop.pl",
+      "sha256": "b76f413c299f040761c3d5c443cad306139763db2269a6009d3031891f192b92",
+      "bytes": 3694,
+      "timer_and_dependency_lines": [
+        {
+          "line": 53,
+          "text": "  if (plugin::check_handin(\\%itemcount, 13268 => 1, 18011 => 1)) {"
+        },
+        {
+          "line": 64,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Bronin_Higginsbot.pl",
+      "sha256": "4b57575971bcbc25814ef30cbf1d1439d17987e4a1e9404ed5b345cb8eb7c78f",
+      "bytes": 3282,
+      "timer_and_dependency_lines": [
+        {
+          "line": 40,
+          "text": "   if (plugin::check_handin(\\%itemcount, 13110 => 1 )) { # Bloody Shank"
+        },
+        {
+          "line": 49,
+          "text": "   elsif (($faction <= 4) && (plugin::check_handin(\\%itemcount, 12192 => 1 ))) { # Froglok Leg"
+        },
+        {
+          "line": 60,
+          "text": "   plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Crysta_Tagglefoot.lua",
+      "sha256": "73b3766eaffb54b218d18f54790e941e455d447ab28742b76e7e04edf46862ed",
+      "bytes": 2047,
+      "timer_and_dependency_lines": [
+        {
+          "line": 26,
+          "text": "\t\teq.set_timer(\"Summonone\", 15000);"
+        },
+        {
+          "line": 37,
+          "text": "\teq.set_timer(\"Uhoh\",8000);"
+        },
+        {
+          "line": 42,
+          "text": "\teq.set_timer(\"Retry\",10000);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Deputy_Asler.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Deputy_Budo.lua",
+      "sha256": "c015bd235e6127e714f2c96fc9db86cc3e9acd63dafcbf96bdbfd4787535714d",
+      "bytes": 2720,
+      "timer_and_dependency_lines": [
+        {
+          "line": 24,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "misty/Deputy_Drebo.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Deputy_Eigon.pl",
+      "sha256": "2d0fde96a7497542fff2f08b3f4938472a79b45b315d93303cd7c7b159685cde",
+      "bytes": 688,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "if(plugin::check_handin(\\%itemcount,16165=> 1)){"
+        }
+      ]
+    },
+    {
+      "path": "misty/Deputy_Felp.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Deputy_Keld.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Deputy_Looh.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Deputy_Poolt.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Deputy_Tagil.pl",
+      "sha256": "6cf774686244a21eb427f9606ba94cddc52bfbaaf8671c95d7f43be87e2a3734",
+      "bytes": 555,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "  if(plugin::check_handin(\\%itemcount, 18013 => 1)){"
+        },
+        {
+          "line": 17,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Deputy_Vastin.pl",
+      "sha256": "d8156bebf436381a04d4f4df86d4604c6acdb57dcf4b9226045043a24734eb0a",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Ella_Foodcrafter.pl",
+      "sha256": "c7ebea7eb02f51641024e81ee712f2a3bfb6b5858718d2cf189c6b5c7fce7254",
+      "bytes": 3697,
+      "timer_and_dependency_lines": [
+        {
+          "line": 35,
+          "text": "  if (plugin::check_handin(\\%itemcount, 18959 => 1)) {"
+        },
+        {
+          "line": 39,
+          "text": "  elsif (plugin::check_handin(\\%itemcount, 20473 => 1, 20460 => 1)) {"
+        },
+        {
+          "line": 43,
+          "text": "elsif (plugin::check_handin(\\%itemcount, 20468 => 1)) {"
+        },
+        {
+          "line": 47,
+          "text": "    plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Ember.lua",
+      "sha256": "64c97b3021d320fb040529393216d80ad30e2fb535b9276e63e1b6d97d387a6b",
+      "bytes": 444,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "\teq.set_timer(\"follow\",1000);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Fajio_Knejo.pl",
+      "sha256": "6720312c12c9fe20e5c4481f512e300faf75b2de86a142e4ad2d99e5b4230ccc",
+      "bytes": 583,
+      "timer_and_dependency_lines": [
+        {
+          "line": 18,
+          "text": "  if (plugin::check_handin(\\%itemcount, 20532 => 1)) {"
+        },
+        {
+          "line": 22,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Gunrich.pl",
+      "sha256": "0ab37e4ed4e8d7014d6bf960d4e0d5aed599c5de1b3e71ad0f0c8ff13fa31a37",
+      "bytes": 632,
+      "timer_and_dependency_lines": [
+        {
+          "line": 18,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Joogl_Honeybugger.pl",
+      "sha256": "ab9945f6d144eaccb8b3518a778e5cb5b22bbee32219268a78eae81389c64302",
+      "bytes": 2028,
+      "timer_and_dependency_lines": [
+        {
+          "line": 21,
+          "text": "  if(plugin::check_handin(\\%itemcount, 13009 => 4)){ $bandage=4;"
+        },
+        {
+          "line": 22,
+          "text": "  } elsif(plugin::check_handin(\\%itemcount, 13009 => 3)){ $bandage=3;"
+        },
+        {
+          "line": 23,
+          "text": "  } elsif(plugin::check_handin(\\%itemcount, 13009 => 2)){ $bandage=2;"
+        },
+        {
+          "line": 24,
+          "text": "  } elsif(plugin::check_handin(\\%itemcount, 13009 => 1)){ $bandage=1;"
+        },
+        {
+          "line": 39,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/Lil_Honeybugger.pl",
+      "sha256": "58dd40111fd4d61e9bfa33fc2f7fbf0f3dce2366350b479f358e9c2e6696e0fe",
+      "bytes": 685,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Roha_Jumthief.pl",
+      "sha256": "30d23ebbbf0bab6c5f079636aaf96b13d70bd3678de32ac0a50fb95c3652223e",
+      "bytes": 907,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Sonsa_Fromp.lua",
+      "sha256": "cd514b4f96c8db426b7a4faa9c54d8d200908faf66507d0b7322a6fbdc8a6eb7",
+      "bytes": 364,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/Swish_Appletop.lua",
+      "sha256": "b7a65b8ac822ff7139fba725e9d15f35ea3938192e814163bbcbbd1f2c74e30c",
+      "bytes": 240,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "misty/encounters/Misty.lua",
+      "sha256": "66f0447ba21526cd1a9f58f2382ca208e256c7dc86552411c07e9bb93e1619bd",
+      "bytes": 32953,
+      "timer_and_dependency_lines": [
+        {
+          "line": 14,
+          "text": "local box = require(\"aa_box\")"
+        },
+        {
+          "line": 61,
+          "text": "\t\teq.set_timer(\"Talk\",18000);"
+        },
+        {
+          "line": 63,
+          "text": "\t\teq.set_timer(\"Rez1\",15000);"
+        },
+        {
+          "line": 67,
+          "text": "\t\teq.set_timer(\"Rez2\",15000);"
+        },
+        {
+          "line": 73,
+          "text": "\t\teq.set_timer(\"Adds\",90000);"
+        },
+        {
+          "line": 74,
+          "text": "\t\teq.set_timer(\"Bags\",15000);"
+        },
+        {
+          "line": 94,
+          "text": "\t\teq.set_timer(\"Stun\",1000);"
+        },
+        {
+          "line": 114,
+          "text": "\t\teq.set_timer(\"Stun\",1000);"
+        },
+        {
+          "line": 134,
+          "text": "\t\teq.set_timer(\"Stun\",1000);"
+        },
+        {
+          "line": 154,
+          "text": "\t\teq.set_timer(\"Stun\",1000);"
+        },
+        {
+          "line": 174,
+          "text": "\t\teq.set_timer(\"Stun\",1000);"
+        },
+        {
+          "line": 177,
+          "text": "\t\teq.set_timer(\"Stun\",1000);"
+        },
+        {
+          "line": 198,
+          "text": "\t\teq.set_timer(\"Check\",1000);"
+        },
+        {
+          "line": 226,
+          "text": "\t\teq.set_timer(\"Laugh\",20000);"
+        },
+        {
+          "line": 228,
+          "text": "\t\teq.set_timer(\"Mob\", 3000);"
+        },
+        {
+          "line": 235,
+          "text": "\t\teq.set_timer(\"Fear\",150000);"
+        },
+        {
+          "line": 239,
+          "text": "\t\teq.set_timer(\"Fail\",10000);"
+        },
+        {
+          "line": 251,
+          "text": "\t\teq.set_timer(\"Convo_\",8000);"
+        },
+        {
+          "line": 256,
+          "text": "\t\teq.set_timer(\"Convo_2\",8000);"
+        },
+        {
+          "line": 277,
+          "text": "\t\teq.set_timer(\"Guards\",8000);"
+        },
+        {
+          "line": 282,
+          "text": "\t\teq.set_timer(\"Agro\",10000);"
+        },
+        {
+          "line": 304,
+          "text": "\t\teq.set_timer(\"Laugh2\",15000);"
+        },
+        {
+          "line": 313,
+          "text": "\t\teq.set_timer(\"Sugar_Rush2\",3000);"
+        },
+        {
+          "line": 314,
+          "text": "\t\teq.set_timer(\"Bags\",60000);"
+        },
+        {
+          "line": 345,
+          "text": "\t\teq.set_timer(\"Sugar_Rush2End\",15000);"
+        },
+        {
+          "line": 364,
+          "text": "\t\t\teq.set_timer(\"BlindCast\",70000);"
+        },
+        {
+          "line": 384,
+          "text": "\t\teq.set_timer(\"Hatch\",20000);"
+        },
+        {
+          "line": 434,
+          "text": "\t\teq.set_timer(\"Root\",5000);"
+        },
+        {
+          "line": 435,
+          "text": "\t\teq.set_timer(\"Fog\",45000);"
+        },
+        {
+          "line": 444,
+          "text": "\t\teq.set_timer(\"Blind\",60000);"
+        },
+        {
+          "line": 445,
+          "text": "\t\teq.set_timer(\"BlindCast\",70000);"
+        },
+        {
+          "line": 468,
+          "text": "\t\t\teq.set_timer(\"check_mark\",20000);"
+        },
+        {
+          "line": 473,
+          "text": "\t\teq.set_timer(\"Curse\",15000);"
+        },
+        {
+          "line": 474,
+          "text": "\t\teq.set_timer(\"Cloud\",60000);"
+        },
+        {
+          "line": 480,
+          "text": "\t\teq.set_timer(\"Spawn\",25000);"
+        },
+        {
+          "line": 523,
+          "text": "\teq.set_timer(\"End\",20000);"
+        },
+        {
+          "line": 544,
+          "text": "\teq.set_timer(\"End2\",20000);"
+        },
+        {
+          "line": 560,
+          "text": "\teq.set_timer(\"Sugar_Rush\",1000);"
+        },
+        {
+          "line": 566,
+          "text": "\teq.set_timer(\"Sugar_Rush\",1000);"
+        },
+        {
+          "line": 572,
+          "text": "\teq.set_timer(\"Sugar_Rush\",1000);"
+        },
+        {
+          "line": 581,
+          "text": "\teq.set_timer(\"Sugar_Rush\",1000);"
+        },
+        {
+          "line": 587,
+          "text": "\teq.set_timer(\"Sugar_Rush\",1000);"
+        },
+        {
+          "line": 593,
+          "text": "\teq.set_timer(\"Sugar_Rush\",1000);"
+        },
+        {
+          "line": 683,
+          "text": "\teq.set_timer(\"Talk\",21000);"
+        },
+        {
+          "line": 691,
+          "text": "\teq.set_timer(\"Heal\",10000);"
+        },
+        {
+          "line": 727,
+          "text": "\tlocal item_lib = require(\"items\");"
+        },
+        {
+          "line": 744,
+          "text": "\t\teq.set_timer(\"Next\",17000);"
+        },
+        {
+          "line": 748,
+          "text": "\t\teq.set_timer(\"Next1\",15000);"
+        }
+      ]
+    },
+    {
+      "path": "misty/epicurean_halfling.pl",
+      "sha256": "7a611d9231bc0d12182dea1975b6b8c343676fdfab98c88f17d9568dd3cb6ae0",
+      "bytes": 1137,
+      "timer_and_dependency_lines": [
+        {
+          "line": 18,
+          "text": "  if(plugin::check_handin(\\%itemcount, 16904 => 1)) { #Sand of Ro"
+        },
+        {
+          "line": 22,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "misty/script_init.lua",
+      "sha256": "5dc6772c926cd64e0f9ffb58c27288ddcad2f2756bdbba19af30b6ef9d5ac956",
+      "bytes": 28,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "rivervale/Ace_Slighthand.lua",
+      "sha256": "aa02f0ff948e75001828e4e6c18ceb31392236b9e329db3ac5a3c8b73fbf14ee",
+      "bytes": 2958,
+      "timer_and_dependency_lines": [
+        {
+          "line": 33,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Artisan_Bill_Whistletop copy.lua",
+      "sha256": "2ba57076a223b4e6110c63526f4dd433304a2622e2bce5e8f15ead9da37a96bb",
+      "bytes": 9690,
+      "timer_and_dependency_lines": [
+        {
+          "line": 111,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Artisan_Bill_Whistletop.lua",
+      "sha256": "4aec9ef2d714c0901924b1d7f0b808b2026242dfe86efcfbf3a00839ecb0001a",
+      "bytes": 6077,
+      "timer_and_dependency_lines": [
+        {
+          "line": 72,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Bartle_Barnick.lua",
+      "sha256": "8bc230a5c7bec1df169bd61fa642988364e8461400dd781a3403556cbb9da28b",
+      "bytes": 4425,
+      "timer_and_dependency_lines": [
+        {
+          "line": 43,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Beek_Guinders.lua",
+      "sha256": "e437903bb686542d161c5dba6ed133979170d6ad25d1961d0f7f63667cd44d77",
+      "bytes": 4651,
+      "timer_and_dependency_lines": [
+        {
+          "line": 31,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Bipdo_Hargin.lua",
+      "sha256": "4d3a18751019eb63de6048b16db9a9577dbfa24fba99ccc805cce5cde1d01a3d",
+      "bytes": 3978,
+      "timer_and_dependency_lines": [
+        {
+          "line": 32,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Blinza_Toepopal.lua",
+      "sha256": "fbaa4dc4cfe5334a10d970063702c7fbce5f86595604c895e31d6ea06d77ab7e",
+      "bytes": 3014,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "\teq.set_timer(\"jillin\",550000);"
+        },
+        {
+          "line": 24,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Bodbin_Gimple.lua",
+      "sha256": "59f433dc7d6093ce854851e94e60501ca3d1aa320ddf2dd886cdb82daaa3feb9",
+      "bytes": 2372,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Charlotte_Diggs.lua",
+      "sha256": "041af0dab8b6f23e8bf8350d1e231cb3ab29419b915f66c98b638318dfc0d576",
+      "bytes": 183,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "\teq.set_timer(\"pick\",random)"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Daleen_Leafsway.lua",
+      "sha256": "b8c58db396380dabb7d30a42589531a3c2de4101acffbb4dc837291c71097f62",
+      "bytes": 1145,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "\teq.set_timer(\"blurt\",600000);"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Dalorio_Blistbobble.lua",
+      "sha256": "4bcb398ef8b4ac4a29def4f4c5d78a290426787c3199d039748032230edbc8d3",
+      "bytes": 8621,
+      "timer_and_dependency_lines": [
+        {
+          "line": 43,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Alltin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Antana.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Banto.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Beedo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Cheel.lua",
+      "sha256": "7c6cffb60ffba76159a77c9a60709ee491a1fb618d0c41e7da2549f82b1e07ab",
+      "bytes": 625,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Chopo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Deego.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Dopkin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Finlip.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Fozon.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Goltin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Gozan.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Heepo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Higley.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Higrin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Hiltop.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Jeggin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Kapop.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Leeot.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Lowmot.lua",
+      "sha256": "056c8b8614596050d48127f902691a19d9677d47747b891dde7d279ccfa5b00f",
+      "bytes": 984,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Millin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Niepo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Olo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Percin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Pigon.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Pittin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Quillto.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Raynin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Regno.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Rollin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Sertlin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Shelmy.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Tilo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Tizzin.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Tocat.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Tonlo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Deputy_Zopo.lua",
+      "sha256": "f1b0a94b387fbe18a81f0cd5a406540308f2aca0ecdba4697dc0f3ae9aa82358",
+      "bytes": 290,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Exterminator_Sutten.lua",
+      "sha256": "422d7d0f575ac86e740a7da6767a7186ec25d166b5a39eef203f2f5d405e85af",
+      "bytes": 1356,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Fiddy_Bobick.lua",
+      "sha256": "91846178c126c86c595b5e6c572d018785412b215b7abd33ac77559b16f50dba",
+      "bytes": 2209,
+      "timer_and_dependency_lines": [
+        {
+          "line": 23,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Gaffin_Deeppockets.lua",
+      "sha256": "561c5897fe0c3b4f2d146739b76a824a96865ec50b5a17bc7cd3768c745c53a5",
+      "bytes": 425,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "\teq.set_timer(\"lenny\",950000);"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Gapeers_Johhanis.lua",
+      "sha256": "66e4189513131c4419d562c85bdcef99ed30afa0cb54dc47d4b651495e436d87",
+      "bytes": 3396,
+      "timer_and_dependency_lines": [
+        {
+          "line": 25,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Hebber_Druneny.pl",
+      "sha256": "c5f452ca442015a96dab63db1011b4447a74657b864bb9f0cc08d724a17b55a7",
+      "bytes": 277,
+      "timer_and_dependency_lines": [
+        {
+          "line": 10,
+          "text": "  plugin::try_tome_handins(\\%itemcount, $class, 'Rogue');"
+        },
+        {
+          "line": 11,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Hendi_Mrubble.lua",
+      "sha256": "5f9bec7350692beff343f7bf42aaa8a79c87511991d1dddb7ad188d5bcb72e5e",
+      "bytes": 1919,
+      "timer_and_dependency_lines": [
+        {
+          "line": 15,
+          "text": "local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Hibbs_Rootenpaw.lua",
+      "sha256": "b386a21f08cef95f71ce30bbd6f1fcb355edb37dbaa7675c8e7ca492b300d094",
+      "bytes": 6600,
+      "timer_and_dependency_lines": [
+        {
+          "line": 34,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Ilscent_Tagglefoot.lua",
+      "sha256": "646dcd8172d4b4e15e92985753ba263fd9336a6f8fc0d620cd9b70d93f9e11f6",
+      "bytes": 1013,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "rivervale/Jimbledorp_Heptybak.lua",
+      "sha256": "c38c56c91bbbd394bd2410e0c48286f60d668fa1b0886112fb21ba4e60323875",
+      "bytes": 4151,
+      "timer_and_dependency_lines": [
+        {
+          "line": 29,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Jimji_Bottletoe.lua",
+      "sha256": "f16c6b4d9b3ec31acc1c931137346ed75aa7eefb1a678c92853a88d5a398beea",
+      "bytes": 4834,
+      "timer_and_dependency_lines": [
+        {
+          "line": 30,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Kaya_Cloudfoot.lua",
+      "sha256": "1e723819f1e151cbd16b4c0f0700fd95088d84f766ec64aed6a926822672ef0b",
+      "bytes": 8787,
+      "timer_and_dependency_lines": [
+        {
+          "line": 52,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Kevlin_Diggs.lua",
+      "sha256": "d05f9c52debaf68a2f2973c5c6af0bbdcad73babeed695778c81c8abe8665d65",
+      "bytes": 927,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "rivervale/Kizzie_Mintopp.lua",
+      "sha256": "35c322d8d9d1263522c66d675352a42632326f64d49377c54b1ea7f93618fd22",
+      "bytes": 2644,
+      "timer_and_dependency_lines": [
+        {
+          "line": 27,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Laryen_Lycanthrope.pl",
+      "sha256": "37f8110d1ee0bbd419ef27a12aac88d0a7cee06863feba010d851ab1c176131c",
+      "bytes": 2428,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "\tquest::settimer(2,600);"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Lendel_Deeppockets.lua",
+      "sha256": "c01b3d06cb1ed00c6ae967d2bbfbc4b078f2a3b530b22b0be7815d3412a3543e",
+      "bytes": 12572,
+      "timer_and_dependency_lines": [
+        {
+          "line": 64,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Mangler.lua",
+      "sha256": "7d23113b5d6390a38cba3e0cbbaab93a52cc6edaade1f652f739f9fd103ad705",
+      "bytes": 190,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "\teq.set_timer(\"mangler\",720000);"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Marshal_Anrey.lua",
+      "sha256": "c2792d098feb5adb3faf8a9f74718eef360211e78c94cdc3fa4feed0075277ab",
+      "bytes": 3039,
+      "timer_and_dependency_lines": [
+        {
+          "line": 19,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Marshal_Ghobber.lua",
+      "sha256": "0dfa48ed601f7de4d285eeb179bf99632195fa1afc0431a58d9acfb469c4a647",
+      "bytes": 2552,
+      "timer_and_dependency_lines": [
+        {
+          "line": 23,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Marshal_Lanena.lua",
+      "sha256": "5851ac65db3c6995f960699f7fe7fcfecdc3b1c04beb72abb0cbb688d1542c8f",
+      "bytes": 3432,
+      "timer_and_dependency_lines": [
+        {
+          "line": 21,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Mayor_Gubbin.lua",
+      "sha256": "43a37f42e78cb47433247f5a6136eb0df937186116bfbe5a839ea96792a6f08c",
+      "bytes": 1242,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Megosh_Thistlethorn.lua",
+      "sha256": "7d5b1a5f42e1fa9660ee6a43c723173ac60689194ffb046722ae7ca6e0d1ebfb",
+      "bytes": 6285,
+      "timer_and_dependency_lines": [
+        {
+          "line": 36,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Nillipuss.lua",
+      "sha256": "3ee0e9fd68308c35a231e48863420e2dca92738fea5ac8028cd8b1b3d7f7d571",
+      "bytes": 475,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "\teq.set_timer(\"nilly\",math.random(750000));"
+        },
+        {
+          "line": 13,
+          "text": "\teq.set_timer(\"nilly\",math.random(750000));"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Reebo_Leafsway.lua",
+      "sha256": "e312dc1d09bf682eedcc6e381efe31045f6134a464e4b315a8d6a24c204d5a37",
+      "bytes": 7385,
+      "timer_and_dependency_lines": [
+        {
+          "line": 30,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Rellix.lua",
+      "sha256": "91278a25bc98a4a2b14367899e885023e927a3ab2b866f6a11d3f0433f2c5834",
+      "bytes": 779,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Rueppy_Kutpurse.lua",
+      "sha256": "599b594ba064cfe8a9d1a0bc6ca2b8bf09a8280aa28f7350bde6b342372e782e",
+      "bytes": 1423,
+      "timer_and_dependency_lines": [
+        {
+          "line": 17,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Shakey_Scarecrow.lua",
+      "sha256": "67ab81923846650252c2edb2a0f3f33ef773bb537fa730875b67306b5d260535",
+      "bytes": 1573,
+      "timer_and_dependency_lines": [
+        {
+          "line": 10,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Sheriff_Roglio.lua",
+      "sha256": "03e104e2c55acab125193894e15c48a7c9c4c5f3f5a90302902e75a6375378eb",
+      "bytes": 4419,
+      "timer_and_dependency_lines": [
+        {
+          "line": 29,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Silna_Songsmith.lua",
+      "sha256": "9bdcd15640be634b27abdae196cc186ba6449a0ecb92610a9525740b6bc57268",
+      "bytes": 1837,
+      "timer_and_dependency_lines": [
+        {
+          "line": 24,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Soulbinder_Hoggle_Grubbytoe.lua",
+      "sha256": "cbea736c3a6e9c4b88bcc5d72e25b387c1ae6026c5523a41aa049c04bafa36c6",
+      "bytes": 679,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Teelie_Meegles.lua",
+      "sha256": "3f9b93bc83bd9d05f352f7e6019bcafd67879c0cd45dbc8647e404e78dd84f46",
+      "bytes": 285,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "rivervale/Thekela_Meepup.lua",
+      "sha256": "692040c0d181e8141c7cfaf2d4a4370618a9609dc3d6742468c7b419c8060627",
+      "bytes": 7788,
+      "timer_and_dependency_lines": [
+        {
+          "line": 43,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Toelia_Snuckery.lua",
+      "sha256": "55e66fef6515f85b66d7e94c263f8ab7e3369b3ef14c5ef1b147edc02cf4ec0a",
+      "bytes": 2599,
+      "timer_and_dependency_lines": [
+        {
+          "line": 17,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/Uner_Gnarltrunk.lua",
+      "sha256": "8bc1e88f9a7b75f0325d0a53f2263cca520b74b6ba8ac3074bfafbe3b24e4fe5",
+      "bytes": 1646,
+      "timer_and_dependency_lines": [
+        {
+          "line": 12,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "rivervale/player.lua",
+      "sha256": "2b58e3f70339bba692cfab715fe7a11ded1d3e58049d35e5cfaf46f9c732b4f1",
+      "bytes": 629,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/#Jovan.lua",
+      "sha256": "8ba3197b96e31dce737187b635a44cf4293169bd0bbc94794abf589ff273703d",
+      "bytes": 912,
+      "timer_and_dependency_lines": [
+        {
+          "line": 11,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Alhareen_the_Just.lua",
+      "sha256": "64c1b64cb91b0270cf0e2d47d55970bbdb2ceefd15dc34b8204a4e34f8d38f81",
+      "bytes": 436,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Anson_McBale.lua",
+      "sha256": "45a3aa27eb2c6670ba3a0bcf38ca59231911ffe191e3df2b6de658da1e11bbda",
+      "bytes": 1959,
+      "timer_and_dependency_lines": [
+        {
+          "line": 20,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Barn_Bloodstone.lua",
+      "sha256": "ac92593b79a6cd800deb9095341cb8ed6acda9ea47e45333bd40dca9c3a07b44",
+      "bytes": 751,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Bartender.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Beef.lua",
+      "sha256": "0492833ea675ac9679cdb1115bb06fca5212a3fea8b672875922887168e727a1",
+      "bytes": 610,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Breck_Damison.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Bryan_McGee.lua",
+      "sha256": "e80ae4d40a193bcd1cfd62a08801486f4c458ffb812a5cd9feed150fce6e823e",
+      "bytes": 3003,
+      "timer_and_dependency_lines": [
+        {
+          "line": 14,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Captain_Ashlan.lua",
+      "sha256": "03978b736399732c6fb063c3209e918fd81964eaae64a0df218407636a3d6e76",
+      "bytes": 2868,
+      "timer_and_dependency_lines": [
+        {
+          "line": 27,
+          "text": "\tlocal item_lib =require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Captain_Orben.lua",
+      "sha256": "813844a5f6227b40a921bbc563527c37c42e112d86e83f0c82a4465bd154f272",
+      "bytes": 2672,
+      "timer_and_dependency_lines": [
+        {
+          "line": 23,
+          "text": "\tlocal item_lib =require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Crenn_Salbet.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Cyrla_Shadowstepper.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Dalishea.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Dovik_Greenbane.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Dyllin_Starsine.lua",
+      "sha256": "e06d2099c14ac92be7f4187d4f2284edfbe454e40cd31fbdcbb7135a50bc8e3d",
+      "bytes": 470,
+      "timer_and_dependency_lines": [
+        {
+          "line": 11,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Falyn_Farreach.lua",
+      "sha256": "1cb6a48ca115dd0445c259f6ca29572919d8955d3a1624e77619e8bf6e537fe2",
+      "bytes": 562,
+      "timer_and_dependency_lines": [
+        {
+          "line": 10,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Guard_Becker.lua",
+      "sha256": "5acd3e579dd5114c4101fc03a5753edbcca850b3c7e03c387850548f3fae4b84",
+      "bytes": 126,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Guard_Ranlem.lua",
+      "sha256": "5acd3e579dd5114c4101fc03a5753edbcca850b3c7e03c387850548f3fae4b84",
+      "bytes": 126,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Guard_Stald.lua",
+      "sha256": "5acd3e579dd5114c4101fc03a5753edbcca850b3c7e03c387850548f3fae4b84",
+      "bytes": 126,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Kaden_Gron.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Mardon_Smith.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Marlin_Shirtov.lua",
+      "sha256": "c99954907552553268febfdd1b55c060a6246ee352dbb53a0005bf628746f524",
+      "bytes": 1557,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Mutt_Rootlit.lua",
+      "sha256": "b6e2be16d0e2e1939e972b07719919e0ba5793c589f0425d6fae4e8ce7d2edfa",
+      "bytes": 311,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Prak.lua",
+      "sha256": "5866b0b6912c5d2d22c5a0ef5af134db6072953672df39c2ea8c27e648dcba6d",
+      "bytes": 2505,
+      "timer_and_dependency_lines": [
+        {
+          "line": 11,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Scar.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Shumpi_Wimahnn.pl",
+      "sha256": "08f8d5b4743f912af911ee0c6f5df6b4974d34e3dd70890425ac7d159442f647",
+      "bytes": 7316,
+      "timer_and_dependency_lines": [
+        {
+          "line": 7,
+          "text": "   if ($text=~/hail/i && defined($qglobals{RUJtalk}) && plugin::check_hasitem($client, 41000)) {"
+        },
+        {
+          "line": 79,
+          "text": "   plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Stanos_Herkanor.lua",
+      "sha256": "878534ab81ff44fde05ab93057bde3b8c190d41cbb687cd49e310343716b545b",
+      "bytes": 12314,
+      "timer_and_dependency_lines": [
+        {
+          "line": 46,
+          "text": "\tlocal item_lib = require(\"items\");"
+        },
+        {
+          "line": 92,
+          "text": "\teq.set_timer(\"depop\", 10 * 60 * 1000); --10 min"
+        },
+        {
+          "line": 117,
+          "text": "\t\teq.pause_timer(\"depop\");"
+        },
+        {
+          "line": 118,
+          "text": "\t\teq.set_timer(\"call_help\", 330000);"
+        },
+        {
+          "line": 120,
+          "text": "\t\teq.resume_timer(\"depop\");"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/Volunteer_Delharn.lua",
+      "sha256": "eef63002ec747e81707351771c54cb43e4d3dfe1b2856f98350dcb5c93a3eb3f",
+      "bytes": 369,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/Wres_Corber.lua",
+      "sha256": "241f50c0bf5dd27580a6c97e3d3b07b813575dd40550ea386631ce82fe145a7f",
+      "bytes": 295,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "highpasshold/a_shady_Highpass_citizen.lua",
+      "sha256": "a5ccbf316c6ab847e3219ce55a568589ceeaabd228d5d91f8e4bd7ecb4c11d77",
+      "bytes": 3861,
+      "timer_and_dependency_lines": [
+        {
+          "line": 19,
+          "text": "\teq.set_timer(\"timecheck\", 30 * 1000);"
+        },
+        {
+          "line": 20,
+          "text": "\teq.set_timer(\"additem\", 1 * 1000);"
+        }
+      ]
+    },
+    {
+      "path": "highpasshold/a_smuggler.lua",
+      "sha256": "556337a223b361fb27abb437ca564b0daa540a9be6dd7e10412e5f5ded1ca680",
+      "bytes": 423,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/#Guard_Elias.lua",
+      "sha256": "77e214c0273ad715a93eb42b27c5840aaacccc1abe69ee340fd9c4e583e44f16",
+      "bytes": 397,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/#Sir_Gregon_Sulltor.lua",
+      "sha256": "6dba13a2679f33d4fba5681aebed69c5b8a6fc5b9eda5d9097f5c08d94cdeefd",
+      "bytes": 195,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Althele.pl",
+      "sha256": "b8e7adedcee891ae3aeb9564ede72ec6f897bd9bb7ade87cfce5a530fbdf36e8",
+      "bytes": 8170,
+      "timer_and_dependency_lines": [
+        {
+          "line": 26,
+          "text": "\tif($class eq \"Ranger\" && (plugin::check_hasitem($client, 20488) || plugin::check_hasitem($client, 62600))) {"
+        },
+        {
+          "line": 40,
+          "text": "\telsif($class eq \"Druid\" && plugin::check_hasitem($client, 20490) or plugin::check_hasitem($client, 62809)) { #has druid 1.0 OR Seed of Wrath"
+        },
+        {
+          "line": 53,
+          "text": "  if (plugin::check_handin(\\%itemcount, 20448 => 1)) {"
+        },
+        {
+          "line": 58,
+          "text": "  elsif(plugin::check_handin(\\%itemcount, 62810 => 1)){ #Sickly Maiden's Hair"
+        },
+        {
+          "line": 62,
+          "text": "  elsif (plugin::check_handin(\\%itemcount, 20452 => 1)) {"
+        },
+        {
+          "line": 94,
+          "text": "  plugin::return_items(\\%itemcount);"
+        },
+        {
+          "line": 112,
+          "text": "  quest::settimer(\"prep\",90);"
+        },
+        {
+          "line": 113,
+          "text": "  quest::settimer(\"attack\",120);"
+        },
+        {
+          "line": 114,
+          "text": "  quest::settimer(\"depop\",600);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Brettaru_Tyco.lua",
+      "sha256": "513a814cf00fb2dda8bcd0e06139bf989f81af0ed7adb3dfbaeeff60d74519ac",
+      "bytes": 1464,
+      "timer_and_dependency_lines": [
+        {
+          "line": 21,
+          "text": "  local item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Broon.lua",
+      "sha256": "5794afc2f5ade881962c52369c11fd98e96b77a984f43017714a1e79b58fa600",
+      "bytes": 121,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Dark_Elf_Corruptor.pl",
+      "sha256": "08f5de2e9a37228ab00e656806fc83c3527e98875d59fd069058c1bb6afd3b35",
+      "bytes": 428,
+      "timer_and_dependency_lines": [
+        {
+          "line": 5,
+          "text": "  quest::settimer(\"despawn\", 300);"
+        },
+        {
+          "line": 18,
+          "text": "    quest::settimer(\"despawn\", 300);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Dark_Elf_Reaver.pl",
+      "sha256": "482d1d12ade558f53241bfc822e5eb012cf5ae0d1ea0c120c48d6dd486bab0de",
+      "bytes": 282,
+      "timer_and_dependency_lines": [
+        {
+          "line": 5,
+          "text": "  quest::settimer(\"despawn\",600);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Droon.lua",
+      "sha256": "a61e9f8d084f3a7c2f1608b9c18a2b044ef05af25a3748ddbb37c8e27fb80ec7",
+      "bytes": 54,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Felodius_Sworddancer.lua",
+      "sha256": "77c13ba07536444b12e01abb73e0f892e9a3c58e74c651fecc6940f08bf322df",
+      "bytes": 6068,
+      "timer_and_dependency_lines": [
+        {
+          "line": 40,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Ganelorn_Oast.lua",
+      "sha256": "2b967bb7652879a4c6855ce6fbada09d9190e8dbff5670463622f30b38109c34",
+      "bytes": 3631,
+      "timer_and_dependency_lines": [
+        {
+          "line": 11,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Guard_Alonso.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Angus.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Beatrice.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Boyet.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Calin.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Celia.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Cloten.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Diana.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Gonlo.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Iris.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Juno.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Mercyl.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Miranda.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Peter.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Philip.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Sara.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Sebastian.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Silvia.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Titan.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Tubal.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Guard_Viola.lua",
+      "sha256": "b41bb1ba08228894c037b0b0d7a918f2d419f4b833a306e10589334d713b8803",
+      "bytes": 122,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Milea_Clothspinner.lua",
+      "sha256": "5573425dc8bd14cc80ec702cc178a7f79be35dcc38355533d5d9bd56ac86e1ca",
+      "bytes": 2562,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Nella_Taraiss.lua",
+      "sha256": "d60879b90ae29930b502875ec578fb637f24478514ebccf2bfac5de4daf9a2d8",
+      "bytes": 937,
+      "timer_and_dependency_lines": [
+        {
+          "line": 16,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Nuien.pl",
+      "sha256": "337d8c49eeb050464bb064a5e50b2000a1d6177046c8a9c50857c56922d31e5e",
+      "bytes": 836,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "  if (plugin::check_handin(\\%itemcount, 20451 => 1)) {"
+        },
+        {
+          "line": 14,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Proon.lua",
+      "sha256": "a61e9f8d084f3a7c2f1608b9c18a2b044ef05af25a3748ddbb37c8e27fb80ec7",
+      "bytes": 54,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/Sionae.pl",
+      "sha256": "31b9dbab3487226fc35be3e3dfc6a811688a1850eb9131d5cc026042bd72ccf6",
+      "bytes": 907,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "  if (plugin::check_handin(\\%itemcount, 20450 => 1)) {"
+        },
+        {
+          "line": 15,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Sir_Morgan.lua",
+      "sha256": "6d599b6cffb6eb8c0db4053cde776d7a0c86ba2cae9c1695bd8f9132b47cdbc6",
+      "bytes": 2258,
+      "timer_and_dependency_lines": [
+        {
+          "line": 31,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Teloa.pl",
+      "sha256": "b5f857cf92e41bcce1015325c0cd647c68eb92c2bd98d9f8e024f4f79c559340",
+      "bytes": 810,
+      "timer_and_dependency_lines": [
+        {
+          "line": 10,
+          "text": "  if (plugin::check_handin(\\%itemcount, 20451 => 1)) {"
+        },
+        {
+          "line": 16,
+          "text": "  plugin::return_items(\\%itemcount);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Tenal_Redblade.lua",
+      "sha256": "240f329ca2ee596ebce938bdc294b5c4f429c7065650ddffcf5269d46e72040d",
+      "bytes": 3414,
+      "timer_and_dependency_lines": [
+        {
+          "line": 24,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Tholris.pl",
+      "sha256": "6c9539101e0ef864c826f63eedf0546a6cc449cce51cb89c13176cb712c2896f",
+      "bytes": 1218,
+      "timer_and_dependency_lines": [
+        {
+          "line": 19,
+          "text": "  if(plugin::check_hasitem($client, 62846)) { "
+        },
+        {
+          "line": 26,
+          "text": "\tif(($text=~/you are diseased/i) && plugin::check_hasitem($client, 62846)) {"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/Vance_Bearstalker.lua",
+      "sha256": "1354184fe837a10ab003a4aca5a7f5278c797e1363d432c22329ab6cb67f5736",
+      "bytes": 102,
+      "timer_and_dependency_lines": [
+        {
+          "line": 2,
+          "text": "\teq.set_timer(\"depop\",1200000);"
+        }
+      ]
+    },
+    {
+      "path": "eastkarana/a_crag_spider.lua",
+      "sha256": "d209a075f00c8965261de7106a18b0eb6a17402fe8ec826bed958472c8dc51b6",
+      "bytes": 636,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "eastkarana/player.lua",
+      "sha256": "72c1607d96d70c84dd98493e099bf1d63582b257d6d8b62b406b377b41a3d872",
+      "bytes": 501,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/#Emissary_Shinsere.pl",
+      "sha256": "984c5907c6cea70724b72f717a6559e48682729ee5b5be2ad5da09cabf80fb72",
+      "bytes": 501,
+      "timer_and_dependency_lines": [
+        {
+          "line": 7,
+          "text": "   if (plugin::check_handin(\\%itemcount, 63105 => 1)) { # Thrice Notched Guja Token"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/#Roror.lua",
+      "sha256": "7be3bafbd08c3a6576a819ba72f45a459a438f460e0b7c173a4bb0d1dc510704",
+      "bytes": 1188,
+      "timer_and_dependency_lines": [
+        {
+          "line": 28,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/#druid_epic_trap.pl",
+      "sha256": "708cc1dcd303a99f386b4270679b376670081a51c7e566b5870cf351e8d64f2f",
+      "bytes": 1827,
+      "timer_and_dependency_lines": [
+        {
+          "line": 18,
+          "text": "\t\t\t\tquest::settimer(1,5);"
+        },
+        {
+          "line": 34,
+          "text": "\tquest::settimer(2,5);"
+        },
+        {
+          "line": 39,
+          "text": "\tquest::settimer(3,5);"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/Annaelia_Wylassi.lua",
+      "sha256": "e08888aff49ef2ea2323e39e51e985eb8df2c674c127b0279cd560282c6ddd47",
+      "bytes": 1826,
+      "timer_and_dependency_lines": [
+        {
+          "line": 13,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/Aqaar_Aluram.lua",
+      "sha256": "b47a32de50306a047ed16a555d7bfcbff8588e9d3a33819b4bbfc2724a9273ed",
+      "bytes": 3950,
+      "timer_and_dependency_lines": [
+        {
+          "line": 25,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/Bouncer_Flerb.lua",
+      "sha256": "aefd0802bbc58314701e60c73690bf8d97aa537750dc5457dc150d04b0a4eec8",
+      "bytes": 1552,
+      "timer_and_dependency_lines": [
+        {
+          "line": 8,
+          "text": "\t\t\teq.set_timer(\"hail\",2000);"
+        },
+        {
+          "line": 20,
+          "text": "\t\teq.set_timer(\"attack\",3000);"
+        },
+        {
+          "line": 29,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/Drizda_Tunesinger.lua",
+      "sha256": "97ac45ba3f6466333b725a94300859e217eecffe2437254761dfb769aacfc03e",
+      "bytes": 1004,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/Eleann_Morkul.lua",
+      "sha256": "af418c216ea433a7b9185398dcc4b6f7627752d39e22841e41b24d62363aa033",
+      "bytes": 2298,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/Grinak.pl",
+      "sha256": "9502938a37c0f352498cbbce563b3ca6eb57c8b0be8da2f0b18de6e39460cfeb",
+      "bytes": 905,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/Innkeep_Gub.lua",
+      "sha256": "44ec6d2b609932369e0fb2176a0e8d6577366e60a9dd36f5d6c9f20b72e10d15",
+      "bytes": 203,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/Klob_Pulp.lua",
+      "sha256": "d8387f2377d388b8efc57f8aa04ccb357554a038465c8f6cb830f92a620183d8",
+      "bytes": 301,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/Oknoggin_Stonesmacker.lua",
+      "sha256": "8c314c1d25fa1c0e592ac05fce44a98e85cbb15bb79e9125771c8e8d4596d941",
+      "bytes": 580,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/Scout_Ahlikal.lua",
+      "sha256": "17d5a68eb50d7e951655d941b05fc3f1e2a7bb3e34cd3f317d887b7c4e432961",
+      "bytes": 1918,
+      "timer_and_dependency_lines": [
+        {
+          "line": 9,
+          "text": "\tlocal item_lib = require(\"items\");"
+        }
+      ]
+    },
+    {
+      "path": "feerrott/Spanner_Scrapsnatcher.lua",
+      "sha256": "3fe3fc80cb751df807d6b33702660e18085300c805af2abe10e9ad946f32c895",
+      "bytes": 1914,
+      "timer_and_dependency_lines": []
+    },
+    {
+      "path": "feerrott/corrupted_spirit.lua",
+      "sha256": "92526e0e062c0a655dbb117ac5c29f8914c1f08c674cae7b7ca9306619adbf4d",
+      "bytes": 4519,
+      "timer_and_dependency_lines": [
+        {
+          "line": 29,
+          "text": "\tlocal item_lib = require(\"items\");\t"
+        },
+        {
+          "line": 40,
+          "text": "\teq.set_timer(\"depop\",300*1000);"
+        }
+      ]
+    }
+  ],
+  "global_candidates": [
+    {
+      "path": "global/global_npc.lua",
+      "sha256": "5d88817c6cb5ca5114f0f3a4181c7839ead6755194986819405e42f543b73263",
+      "bytes": 1117,
+      "timer_and_dependency_lines": [
+        {
+          "line": 1,
+          "text": "function event_spawn(e)"
+        }
+      ]
+    },
+    {
+      "path": "global/global_player.lua",
+      "sha256": "5169ae5b0b05d4812d088ff88eaddfed8504baaeb1e8a83d284812f6be930be2",
+      "bytes": 21767,
+      "timer_and_dependency_lines": [
+        {
+          "line": 3,
+          "text": "local don = require(\"dragons_of_norrath\")"
+        }
+      ]
+    },
+    {
+      "path": "global/global_player.pl",
+      "sha256": "ced9891097508d2baedfde38beba9c42a24bfc3d8d7fc7e15908ac2a30e7660e",
+      "bytes": 1287,
+      "timer_and_dependency_lines": []
+    }
+  ],
+  "global_and_plugin_dependencies": [
+    {
+      "path": "/srv/nightcap/quests/global/script_init.lua",
+      "sha256": "17b72fe55b9c7d0fd978fc3980ebc527a5a85a6629deeebc4536aebbad1ef42e",
+      "bytes": 238,
+      "review_excerpts": [],
+      "full_text_if_short": "require(\"string_ext\");\nrequire(\"command\");\nrequire(\"client_ext\");\nrequire(\"mob_ext\");\nrequire(\"npc_ext\");\nrequire(\"entity_list_ext\");\nrequire(\"general_ext\");\nrequire(\"bit\");\nrequire(\"directional\");\nrequire(\"constants/instance_versions\");\n"
+    },
+    {
+      "path": "/srv/nightcap/quests/misty/script_init.lua",
+      "sha256": "5dc6772c926cd64e0f9ffb58c27288ddcad2f2756bdbba19af30b6ef9d5ac956",
+      "bytes": 28,
+      "review_excerpts": [
+        {
+          "line": 1,
+          "text": "eq.load_encounter('Misty');"
+        }
+      ],
+      "full_text_if_short": "eq.load_encounter('Misty');\n"
+    },
+    {
+      "path": "/srv/nightcap/plugins/tunnel_social.pl",
+      "sha256": "0471d8ec3f150d9179e0452d454823cee7d87faf050ebfa3197b04e531d601cd",
+      "bytes": 1853,
+      "review_excerpts": [
+        {
+          "line": 4,
+          "text": "sub tunnel_social_resident {"
+        },
+        {
+          "line": 9,
+          "text": "sub tunnel_social_schedule {"
+        },
+        {
+          "line": 12,
+          "text": "    quest::settimer('tunnel_social_idle',($talking ? 90 : 35)+int(rand(46)));"
+        },
+        {
+          "line": 15,
+          "text": "sub tunnel_social_distance {"
+        },
+        {
+          "line": 20,
+          "text": "sub tunnel_social_idle {"
+        },
+        {
+          "line": 21,
+          "text": "    my ($npc,$entities,$timer)=@_;"
+        },
+        {
+          "line": 22,
+          "text": "    return unless $npc && $entities && defined($timer) && $timer eq 'tunnel_social_idle';"
+        }
+      ],
+      "full_text_if_short": null
+    },
+    {
+      "path": "/srv/nightcap/plugins/living_economy.pl",
+      "sha256": "1fa61a167fd3c6c2af7eb13024a2427b3ffaa6fa99402673c3c07372107c6f94",
+      "bytes": 797,
+      "review_excerpts": [
+        {
+          "line": 10,
+          "text": "sub market_pulse {"
+        },
+        {
+          "line": 14,
+          "text": "    # One coordinator owns the zone cadence; other traders have no chat timer."
+        }
+      ],
+      "full_text_if_short": "use strict;\nuse warnings;\n\nsub market_hail {\n    my ($client, $npc, $text) = @_;\n    return unless $client && $npc && defined $text;\n    $client->LivingEconomy($npc->GetID(), $text);\n}\n\nsub market_pulse {\n    my ($entities,$coordinator) = @_;\n    my @clients = $entities->GetClientList();\n    return unless @clients && $coordinator;\n    # One coordinator owns the zone cadence; other traders have no chat timer.\n    my @actors=grep { $entities->GetNPCByNPCTypeID($_) } plugin::tunnel_market_ids();\n    my $id=plugin::tunnel_choose($coordinator,'tunnel_last_trader',@actors);\n    return unless defined $id;\n    my $speaker = $entities->GetNPCByNPCTypeID($id);\n    return unless $speaker;\n    my $variant = int(rand(600));\n    $_->MarketAnnouncement($speaker->GetID(), $variant) for @clients;\n}\n\n1;\n"
+    },
+    {
+      "path": "/srv/nightcap/plugins/tunnel_chatter.pl",
+      "sha256": "5750c546fc471eda58a6d4d5ebe47d1586758c4281fc61e16e0c358af1d7a3b4",
+      "bytes": 5800,
+      "review_excerpts": [],
+      "full_text_if_short": null
+    }
+  ],
+  "reviewed_policy_seconds": {
+    "ecommons": 300,
+    "rivervale": 300,
+    "feerrott": 600,
+    "commons": 900,
+    "eastkarana": 1800
+  },
+  "excluded_candidates": {
+    "misty": "script_init loads stateful seasonal encounter; inactive gates not established",
+    "highpasshold": "Stanos finite depop pauses in combat; wall-clock bound insufficient"
+  },
+  "scope": "Read-only installed candidate script fingerprint inventory plus focused timer/global/helper inspection; not full NPC dispatch or live quest acceptance proof",
+  "native_source_review": [
+    {
+      "root": "E:/EQ_Local_Dev/_worktrees/zone-capacity",
+      "path": "server-mods/code/zone/zone.cpp",
+      "sha256": "ad1e925a813765c7d4ace727cbab61fd3cfffcea3e64270b6b5bcfb8007adc26",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/_worktrees/zone-capacity",
+      "path": "server-mods/code/zone/zone_save_state.cpp",
+      "sha256": "13559dcbbc7239bb66b71e0da4e48ea89b752dfc03f5542f098c9431bc785fd7",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/_worktrees/zone-capacity",
+      "path": "server-mods/code/zone/dungeon_service.cpp",
+      "sha256": "3f482e559e68e2b4b2a28c613682b21db53d3152ab9097f4fbd618e28c7d2814",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/_worktrees/zone-capacity",
+      "path": "server-mods/code/zone/spawn2.cpp",
+      "sha256": "5d55fd4b2dececf2a61a4182af347d77edd65887662e776bd212721c15466281",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/_worktrees/zone-capacity",
+      "path": "server-mods/code/zone/zonedb.cpp",
+      "sha256": "c19ef48dc6a2297458405ca747981a35b0fa6ade8bd77d2e25a4be007e73dd64",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/akk-stack/code",
+      "path": "zone/main.cpp",
+      "sha256": "d499379c5645b310fb5bfff7de52b2aa2d8ca7bc88699437245ea8b1fac6bfc2",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/akk-stack/code",
+      "path": "zone/questmgr.cpp",
+      "sha256": "d471021ec4f0ff3ee7cb0563628e3b3a943f71d21e2e4927ecd812262ff85ba4",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/akk-stack/code",
+      "path": "zone/entity.cpp",
+      "sha256": "dbb2a48464f7038996a4f7f9c282ceb7c6a5ee31ba27708279156805b8b5ee4e",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    },
+    {
+      "root": "E:/EQ_Local_Dev/akk-stack/code",
+      "path": "zone/worldserver.cpp",
+      "sha256": "7b9841fa4d76c28524c883876ed84ca2a5ea2710c7753bc97bf34e5c16146616",
+      "scope": "inspected relevant methods; local source corroboration, not fresh deployed binary authentication"
+    }
+  ]
+}

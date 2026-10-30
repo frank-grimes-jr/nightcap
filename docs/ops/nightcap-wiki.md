@@ -1,6 +1,6 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 26, 2026.
+Updated October 29, 2026.
 
 ## Current state
 
@@ -9,16 +9,15 @@ Updated October 26, 2026.
   Owner-approved reader/timer/JSON route and HTML publication are verified.
   [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
 
-- **Public URL: https://wiki.nightcapgame.org/** — verified October26,2026.
-- **Active OVH origin release:** `20261026-commonlands-bazaar-v1`; previous
-  `20261024-rogue-tomes-v1` is retained for recovery. Source: managed
-  commonlands-bazaar checkout, branch `feature/commonlands-bazaar`.
-  [Publication and recovery](../bazaar/deployment/README.md):499HTTPS hashes and
-  security headers plus five private denials pass.35files change,464remain exact,
-  none removed. Publishes already-deployed High Keep/Ashen guidance and bazaar
-  live-testing instructions; preserves Rogue tome content and unrelated candidates.
- 16Linux publisher tests, rollback rehearsal and private/service/config preservation
-  pass. Native gameplay acceptance remains separate.
+- **Public URL: https://wiki.nightcapgame.org/** — verified October29,2026.
+- **Active OVH origin release:** `20261029-keyless-doors-v1`; previous
+  `20261029-hate-layout-v1` is retained for recovery. The scoped release updates
+  Travel, Features, In development, Change Log and generated Hole guidance plus
+  search after verified194-door/48-zone activation. Six files change,493remain
+  exact; all499HTTPS hashes/security headers and five private denials verify.
+ 16Linux publication/recovery tests pass; no service restart or config change.
+ Owner gameplay acceptance remains open. Source/evidence:
+ [Keyless-door release](keyless-doors-20261029/README.md).
 - **Hate Keeper:** now in East Commonlands at `/loc -1570,-346,3`, with level46
   required and the GM access restriction removed. Private Hate retains its
   entrance Keeper. Main PR299/server and466-file wiki publication are verified;
@@ -38,9 +37,8 @@ Updated October 26, 2026.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- 473 articles: 24 maintained guides, 447 generated Hunt/Chapterhouse routes and
-  two catalog indexes. Guides, Search and 404 bring the build to 476 pages.
-- The exact publication contains 483 files. Player access uses the current personal-code
+- 489 articles plus All articles, Search and404 produce492HTML pages.
+- The exact publication contains499files. Player access uses the current personal-code
   policy; wiki updates preserve it. October 9 IP-only descriptions below are historical.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).

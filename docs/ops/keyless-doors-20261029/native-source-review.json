@@ -1,0 +1,17 @@
+{
+  "release": "hate-layout-20261029-v1",
+  "retained_source": "/tmp/nightcap-hate-layout-20261029/source",
+  "reviewed_hashes": {
+    "zone/doors.cpp": "03346fcb3a4a65ad9305eb689aa1ca4b885444fe9852a3699562dd7fa88cf614",
+    "zone/worldserver.cpp": "7b9841fa4d76c28524c883876ed84ca2a5ea2710c7753bc97bf34e5c16146616",
+    "world/zonelist.cpp": "fcf3c0788345138de28c5e3fe090503ac4b351228c80fc5df839d97c79608c18",
+    "common/server_reload_types.h": "ea71a61091b6ca7eb53042cf2d8267d1dbf930ac391fab2d0f7aba316ed1d3ed",
+    "zone/zone.cpp": "ad1e925a813765c7d4ace727cbab61fd3cfffcea3e64270b6b5bcfb8007adc26",
+    "world/zoneserver.cpp": "0d196e05b3252bf8d05fc40416b65a0215c4251166cc646eee51fe816a440611",
+    "world/client.cpp": "41b3e4e58877bea34fd7b0f244ec3e10184984b817dd6062e715229d0f068737",
+    "common/database.h": "dffb489593fbecaa80000bb1f5a7164e8bf2e51d170308f2226b33ba8009ed1f",
+    "common/emu_constants.h": "91bb4b4644a1c0591906d53faaecda85443456b0eea08eec30e548df258c6d5c",
+    "common/servertalk.h": "0df083d33b90f7c36a901a6722d56430895af81e6ebca89a7a638ebe63347c31"
+  },
+  "purpose": "unlocked-door and authenticated targeted static reload contract"
+}

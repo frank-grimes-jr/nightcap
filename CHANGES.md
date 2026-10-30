@@ -1,17 +1,42 @@
 # CHANGES
 
-## 2026-10-29 — Keyless doors candidate
+## 2026-10-30 — Zoning capacity candidate
 
-Prepared removal of key and lock-picking requirements from every existing door
-across all zones/versions, including negative lock-picking sentinels. Only
-`doors.keyitem` and `doors.lockpick` change; guild/script/instance restrictions,
-items and player progress remain. Guarded forward/inverse and isolated MariaDB
-rehearsals pass on 19,264 local doors and all 19,272 captured production doors.
-The owner-approved read-only capture yields 194 locks across 48 zones; exact
-forward/inverse scripts remain private. Main/live activation, supported loaded-zone
-refresh and owner QA remain pending. Production is unchanged.
-No client or binary update. Wiki notes are Not released and unpublished.
-Scope, recovery and exact QA: `docs/ops/keyless-doors-20261029/README.md`.
+Prepared20 supervised zone workers (was12) and guarded empty-retention changes
+for East Commonlands/Rivervale5minutes, Feerrott10, West Commonlands15 and East
+Karana30. Fixes the observed rapid-travel pool exhaustion without a blanket
+timer cap; Misty's seasonal encounter, Stanos, all dungeons and special long
+timers remain unchanged. Full MariaDB forward/inverse and drift rehearsal,
+capacity regressions and independent installed-quest/source review pass.
+
+Not deployed: production disk has only about512MiB free. Require3GiB before
+backup and2GiB after, fresh memory/rule/identity checks, authorized main promotion
+and a complete supervised game restart to refresh every ZoneStore. No new native
+build/client pair and no player/checkpoint writes. Candidate wiki notes are local;
+owner gameplay/return-state QA and publication remain pending. Runbook, resource
+evidence and exact QA: `docs/ops/zone-capacity-20261030/README.md`.
+
+## 2026-10-29 — Keyless doors deployed
+
+Owner-approved main PR370 and guarded OVH activation clear key and lock-picking
+requirements on all194 existing locked doors across48zones, including negative
+lockpick sentinels. Only `doors.keyitem`/`lockpick` changed: all19272 rows match
+the expected afterimage, with19078 unrelated doors preserved. Guild, trigger,
+adventure, quest and zone eligibility remain; player/keyring/item data is untouched.
+
+A verified full PEQ backup preceded the transaction. Two pre-SQL guards stopped
+safely: the native hold acknowledgment needed explicit List readback (PR371), then
+Paineel naturally unloaded during auth drain (PR372). Exact receipt-gated
+continuations applied SQL once. No affected zones remained loaded; future normal
+loads read updated definitions. The owned Paineel hold is released, all12 workers
+and five service lifetimes remain unchanged, and health passes. No restart,
+market rotation, client/binary/cache update or player snapshot restore.
+
+Fourteen operator/recovery tests, seven policy/Hole tests and nine production SQL
+rehearsal groups pass. Wiki20261029-keyless-doors-v1 is published: six changed,
+493 preserved public files. Owner gameplay QA remains open, including Befallen,
+Paineel lift, internal Hole doors and Sky transport. Scope, backup, recovery and
+exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
 
 ## 2026-10-29 — Player faction standing window candidate
