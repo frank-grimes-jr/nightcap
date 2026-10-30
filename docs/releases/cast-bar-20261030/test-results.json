@@ -1,0 +1,30 @@
+{
+  "status": "tested_candidate_not_published",
+  "native": {
+    "fixture": "eq-client-dll/tests/cast-bar-native.cpp",
+    "runner": "eq-client-dll/tests/run-cast-bar-native-tests.bat",
+    "client_sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "spells": 638,
+    "checks": 5105,
+    "shipped_file_failures": 2752,
+    "candidate_failures": 0,
+    "limitations": "Private mapped native gauge, not actual client rendering or live packet/focus verification"
+  },
+  "client_asset_suite": {
+    "command": "PYTHONPATH=tools python -m unittest discover -s tools/tests -p test_client_*.py -q",
+    "tests": 39,
+    "passed": 37,
+    "skipped": 2,
+    "skip_reason": "Optional Bazaar stock XML tests require NIGHTCAP_BAZAAR_XML; unrelated to spell timing",
+    "sandbox_retry": "Four temporary-directory fixture errors resolved by running unchanged suite outside the restricted Windows sandbox"
+  },
+  "wiki": {
+    "command": "python -B -m unittest -q test_wiki test_refresh",
+    "passed": 19,
+    "built_pages": 492,
+    "source_refresh": "REVIEW REQUIRED: 500 historical source paths; no blanket advancement",
+    "published": false
+  },
+  "diff_check": "passed",
+  "owner_gameplay_acceptance": "pending"
+}

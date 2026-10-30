@@ -25,6 +25,7 @@
 #include "common/strings.h"
 #include "zone/bot.h"
 #include "zone/client.h"
+#include "zone/advanced_loot_inventory.h"
 #include "zone/dungeon_service.h"
 #include "zone/groups.h"
 #include "zone/lua_parser.h"
@@ -406,7 +407,7 @@ void Client::CalculateLeadershipExp(uint64 &add_exp, uint8 conlevel)
 	}
 }
 
-void Client::CalculateExp(uint64 in_add_exp, uint64 &add_exp, uint64 &add_aaxp, uint8 conlevel, bool resexp)
+void Client::CalculateExp(uint64 in_add_exp, uint64 &add_exp, uint64 &add_aaxp, uint8 conlevel, bool resexp, uint64 *full_exp)
 {
 	add_exp = in_add_exp;
 
@@ -493,6 +494,7 @@ void Client::CalculateExp(uint64 in_add_exp, uint64 &add_exp, uint64 &add_aaxp, 
 		}
 	}
 
+	if (full_exp) { *full_exp = resexp ? 0 : add_exp; }
 	if (!resexp) {
 		if (RuleI(AA, LevelBasedPointsPerLevel) > 0) {
 			// Same modified XP basis at every allocation, before level-cap clamping.
@@ -572,7 +574,13 @@ void Client::AddEXP(ExpSource exp_source, uint64 in_add_exp, uint8 conlevel, boo
 	NormalizeAAAllocation();
 	uint64 exp = 0;
 	uint64 aaexp = 0;
-	CalculateExp(in_add_exp, exp, aaexp, conlevel, resexp);
+	uint64 item_exp = 0;
+	CalculateExp(in_add_exp, exp, aaexp, conlevel, resexp, &item_exp);
+	if (RuleB(Items, PowerSourceItemXP) && exp_source == ExpSource::Kill && !resexp && npc &&
+		conlevel != ConsiderColor::Gray && conlevel != 0xFF && !npc->HasOwner() && !npc->IsMerc() &&
+		!npc->GetSwarmInfo() && !npc->GetSwarmOwner()) {
+		if (NightcapLoot::AwardItemExperience(this, item_exp) == NightcapLoot::TransferResult::Uncertain) { return; }
+	}
 	const bool level_scaled = RuleI(AA, LevelBasedPointsPerLevel) > 0;
 	const bool progression = exp_source == ExpSource::Kill || exp_source == ExpSource::Quest || exp_source == ExpSource::Task;
 	if (!resexp && aaexp > 0 && (progression || (!level_scaled && m_epp.perAA > 0))) {

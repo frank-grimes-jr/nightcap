@@ -4403,6 +4403,12 @@ void Client::Handle_OP_CastSpell(const EQApplicationPacket *app)
 			return;
 		}
 		const auto *grip_item = m_inv.GetItem(static_cast<int16>(castspell->inventoryslot));
+		if (castspell->inventoryslot == EQ::invslot::slotPowerSource && grip_item && grip_item->GetItem() &&
+			!(grip_item->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) {
+			Message(Chat::Yellow, "Remove your training item from the Power Source slot before using its effects.");
+			SendSpellBarEnable(castspell->spell_id);
+			return;
+		}
 		if (grip_item && NightcapPaladinGrip::Supported(grip_item->GetID())) {
 			// RoF2 follows ItemVerifyReply with CastSpell. Conversion already ran
 			// in ItemVerifyRequest; never toggle twice or cast the click token/heal.
@@ -9430,6 +9436,12 @@ void Client::Handle_OP_ItemVerifyRequest(const EQApplicationPacket *app)
 	}
 	if (slot_id < 0 || slot_id > 32767) {
 		LogDebug("Unknown slot being used by [{}] slot being used is [{}]", GetName(), request->slot);
+		return;
+	}
+	const auto *training_item = m_inv.GetItem(static_cast<int16>(slot_id));
+	if (slot_id == EQ::invslot::slotPowerSource && training_item && training_item->GetItem() &&
+		!(training_item->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) {
+		Message(Chat::Yellow, "Remove your training item from the Power Source slot before using its effects.");
 		return;
 	}
 	if (TogglePaladinWeaponGrip(slot_id)) { return; }

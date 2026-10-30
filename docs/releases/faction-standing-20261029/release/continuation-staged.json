@@ -1,0 +1,9 @@
+{
+  "status": "six continuation tests passed on host",
+  "source_sha256": {
+    "resume_normalization.py": "89d1d519351e0e8678438fb71885e7a40af85b9f34b39744d32f91444b3d91cc",
+    "test_resume_normalization.py": "d16663b0c52be5208d63b6e9a44a92c1c3cd50af346839d7826570daedfab6ae"
+  },
+  "original_operator_and_receipts_preserved": true,
+  "services_changed": false
+}

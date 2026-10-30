@@ -1,0 +1,22 @@
+{
+  "contract": {
+    "schema": 51,
+    "content": 650
+  },
+  "startup": {
+    "shared_tasks": 0,
+    "dynamic_zones": 0,
+    "dynamic_zone_members": 0,
+    "dynamic_zone_lockouts": 0,
+    "character_expedition_lockouts": 0,
+    "character_task_timers": 0,
+    "expiring_instances": 0,
+    "decaying_corpses": 0,
+    "instance_corpses": 0
+  },
+  "factions_currently_registered": false,
+  "legacy_faction_privileged": true,
+  "command_count": 171,
+  "native_health": true,
+  "private_metadata_exported": false
+}

@@ -35,6 +35,7 @@
 #include "common/rulesys.h"
 #include "common/strings.h"
 #include "common/paladin_weapon_grip.h"
+#include "common/item_xp_eligibility.h"
 
 #include <cassert>
 #include <cinttypes>
@@ -6596,6 +6597,9 @@ namespace RoF2
 		ibs.attune = item->Attuneable;
 		ibs.size = item->Size;
 		ibs.slots = item->Slots;
+		if (RuleB(Items, PowerSourceItemXP) && NightcapItemXP::Candidate(item) && !inst->IsEvolving() && !inst->IsScaling()) {
+			ibs.slots |= NightcapItemXP::PowerSourceMask;
+		}
 		ibs.price = item->Price;
 		ibs.icon = item->Icon;
 		ibs.unknown1 = 1;

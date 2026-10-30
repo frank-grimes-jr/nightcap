@@ -1,5 +1,71 @@
 # CHANGES
 
+## 2026-10-30 — Power Source item XP candidate (not released)
+
+Added the candidate additional combat-XP upgrade path; the existing Reforging Box remains.
+Candidate transition costs are 80/160/240 comparable-kill equivalents, targeting
+the owner's 4–8 hours at 60–120 equivalents/hour. Native arithmetic tests cover
+all character levels, boundaries, top-tier stop and overflow. These are modeled
+rates, not live combat measurements. Native slot projection, pre-AA combat awards,
+atomic saved-row updates, automatic tier changes and player `#itemxp` are integrated.
+The rule `Items:PowerSourceItemXP` defaults off. Training gives no passive/click
+benefits, does not automatically equip or attune items, and preserves augments,
+grip and explicit dye. Undyed upgrades adopt the target's default color. The box
+accepts otherwise-valid partially trained inputs and discards their partial XP.
+
+Fixed native multi-key item metadata loading to preserve the existing serialized
+format and empty values, needed for XP alongside weapon grip. Malformed or duplicate
+keys cannot partially apply. Native policy/metadata/box tests, 35 award checks,
+369 AA checks, six grip groups, four Bazaar groups and disposable MariaDB exact-row/
+replay tests pass. Actual native award fault injection and slot admission tests
+also pass; the failure harness caught and fixed lowercase metadata hex rejection.
+The final13-unit compile passes with dependency hashes. Actual bonus dispatch
+and raw AC tests pass; the full paired world/zone/shared_memory build passes from
+2848pinned source files. Independent review found no blocking issue for the
+disabled candidate. Existing box recipe and10quest checks pass. Candidate wiki previews,
+whole-wiki impact review, installed skill/fingerprints and explicit player
+QA/rollback instructions are prepared. Real-client/custody checks, measured pacing
+and owner acceptance remain pending. This common-code/rule change
+requires matched native consumers; no production or client assets changed.
+Plan, calibration and evidence: `docs/items/power-source-xp/`.
+
+## 2026-10-30 — Faction standings deployed for live testing
+
+Player `#factions` is deployed on OVH: white-text popup, numerical standings,
+full-range bars, name search, six-row paging and target-NPC lookup. Existing GM
+`#faction` access and all prior command settings are preserved. No client update.
+The scoped release changes only zone and excludes augment/capacity candidates.
+
+The guarded whole-game restart retained a fresh verified backup,102saved-state
+tables, existing content/quests/caches/client and one normal market rotation.
+All12workers,51schema/650content predicates, command access0 and native health
+verify before admissions reopen. Independent final verification passes.
+Five unused staging originals were losslessly archived under explicit approval;
+images/backups/player data and restoration receipts are retained. A pre-shutdown
+guard held on three Hate B NULL-to-empty fields; an exact temporary-clone proof
+and reviewed continuation preserved that normalization without live content SQL.
+Original receipts remain immutable. Native readability/gameplay QA is open;
+wiki source is updated, while public faction-guide publication remains pending.
+Evidence and recovery: `docs/releases/faction-standing-20261029/release/README.md`.
+
+## 2026-10-30 — Cast-bar issue owner-confirmed resolved
+
+Owner-approved main PR376 and signed client2026103002 correct stale 50-ms client
+times for638reviewed non-DoT definitions, including level-1 Wizard nukes. Native
+bars now use the matching server base duration. All147other client descriptors,
+the newer recall labels, proxy/catalog, history and tombstones are retained.
+All148HTTPS assets/signature/runtime pairing verify. No server restart or SQL.
+
+Wiki20261030-cast-bar-v1 updates Launcher, Change Log and search;496other files
+retain exact bytes, including Cazic/recall guidance. All499HTTPS hashes/headers
+and five private-route denials pass; five service lifetimes remain unchanged.
+The original native gauge passes5105checks with the corrected file. Launcher
+suites,20Linux client publisher tests,19wiki checks and16Linux wiki recovery tests
+pass. The owner replied “fIXED”, confirming the reported Diiv casting-bar issue
+is resolved. Wiki20261030-cast-bar-accepted-v1 records that acceptance; all499
+public files verify. Broader focus/interruption cases remain separate. Evidence and exact QA:
+`docs/releases/cast-bar-20261030/README.md`, `deployment.json` and `QA.md`.
+
 ## 2026-10-30 — Zoning capacity candidate
 
 Prepared20 supervised zone workers (was12) and guarded empty-retention changes
@@ -39,33 +105,6 @@ Paineel lift, internal Hole doors and Sky transport. Scope, backup, recovery and
 exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
 
-## 2026-10-29 — Player faction standing window candidate
-
-Add `#factions` for white-text numerical standings, full-range bars, name search,
-six-row paging and targeted-NPC faction lookup. Native totals and threshold rules
-include earned/base/class/race/deity/spell/item modifiers, including untouched
-factions. The command reads only the caller and loaded cache; existing GM reset
-permissions and faction behavior stay unchanged. Three native regression groups
-and the authenticated native zone compile/relink pass. A rebuilt zone is required, with no SQL, cache, quest or client migration.
-Deployment, wiki publication and native visual acceptance remain pending.
-Evidence and exact QA: `docs/releases/faction-standing-20261029/README.md`.
-
-## October 29 — regular combat zone augments candidate
-
-Augments now use ordinary native combat-spawn eligibility across public, Grind
-and Raid zones, without the old NPC minimum-level/name/source/night restrictions.
-The independent augment chance remains0.5% and qualities60/30/8/2; wearable hunt
-eligibility is unchanged. Guarded SQL enables Hate B's existing Blackspire Prism
-family without adding equipment sources. Pets, services, protected/invisible
-actors, temporary adds and restored corpses remain excluded. Native and disposable
-MariaDB checks pass, and the full changed native translation unit compiles and
-links against authenticated retained Hate build inputs. Main promotion, current
-production pairing/activation, publication and owner QA are pending. Integrated the dev/test Hate layout while keeping186 Blackspire augments
-and its separately inherited76 equipment mapping. See
-`docs/releases/zone-augments-20261029/README.md` and its exact `QA.md`.
-
-
-
 ## 2026-10-29 — Plane of Hate ground-level layout deployed
 
 New Keeper-created Hate runs use hateplaneb terrain with Nightcap's original
@@ -83,6 +122,22 @@ Fully exit EQ and press launcher Play before testing. Rendering, pathing, pulls,
 Raid/Grind completion and owner gameplay acceptance remain open.
 Evidence, disk-guard continuation, recovery and exact QA:
 `docs/dungeons/hate-layout-20261029/release/README.md`.
+
+## October 29 — regular combat zone augments candidate
+
+Augments now use ordinary native combat-spawn eligibility across public, Grind
+and Raid zones, without the old NPC minimum-level/name/source/night restrictions.
+The independent augment chance remains0.5% and qualities60/30/8/2; wearable hunt
+eligibility is unchanged. Guarded SQL enables Hate B's existing Blackspire Prism
+family without adding equipment sources. Pets, services, protected/invisible
+actors, temporary adds and restored corpses remain excluded. Native and disposable
+MariaDB checks pass, and the full changed native translation unit compiles and
+links against authenticated retained Hate build inputs. Main promotion, current
+production pairing/activation, publication and owner QA are pending. Integrated the dev/test Hate layout while keeping186 Blackspire augments
+and its separately inherited76 equipment mapping. See
+`docs/releases/zone-augments-20261029/README.md` and its exact `QA.md`.
+
+
 
 ## 2026-10-28 — Bazaar price input and readability published
 

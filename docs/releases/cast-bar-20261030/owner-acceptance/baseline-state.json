@@ -1,0 +1,60 @@
+{
+  "observed_utc": "2026-10-30T15:26:36.080685+00:00",
+  "release": "20261030-cast-bar-v1",
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "services": {
+    "game": {
+      "Id": "2a51a3bae8f586813694aa9197ef6317e08c93c817fe7c71e1ddfb07f0df6e36",
+      "Image": "sha256:0dec2bfc8b2e83a30301c2fc203c5688d44a2b39cf354b5e0e0b2ba8ed38f9dd",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-29T14:34:01.172258115Z",
+        "OOMKilled": false
+      }
+    },
+    "gateway": {
+      "Id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "Image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-29T14:41:16.917742563Z",
+        "OOMKilled": false
+      }
+    },
+    "db": {
+      "Id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "Image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "RestartCount": 2,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-20T00:08:02.308087378Z",
+        "OOMKilled": false
+      }
+    },
+    "web": {
+      "Id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "Image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-09-20T17:47:54.765116169Z",
+        "OOMKilled": false
+      }
+    },
+    "tunnel": {
+      "Id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "Image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-09-20T17:53:43.445441644Z",
+        "OOMKilled": false
+      }
+    }
+  },
+  "channel_sha256": "831f19ab1e0b2584a215a04ef473618e7dbac10aaf4b66344626cbd349781f99",
+  "client_release": 2026103002,
+  "free_bytes": 366796800
+}

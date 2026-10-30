@@ -5,6 +5,7 @@ The test extracts production bodies, rather than reimplementing XP arithmetic.
 Full server compilation and RoF2 QA are separate checks.
 """
 import argparse
+import os
 import pathlib
 import re
 import subprocess
@@ -53,12 +54,28 @@ namespace Strings {
 bool EqualFold(std::string a,std::string b) { for(auto& c:a)c=tolower(c); for(auto& c:b)c=tolower(c); return a==b; }
 uint32 ToUnsignedInt(const std::string& s) { return std::stoul(s); }
 }
+// Boundary service; the default test world is a public zone with its native ZEM.
+namespace NightcapDungeon { float ExperienceModifier(float value) { return value; } }
 struct Seperator { int argnum=1; std::string arg[2]; };
 enum { aaActionActivate,aaActionBuy,aaActionDisableEXP,aaActionSetEXP };
 struct AA_Action { uint32 action,ability,target_id,exp_value; };
 struct EQApplicationPacket { uint32 size; void* pBuffer; };
 enum { AA_CAP,OVER_AA_CAP,AA_OFF,AA_ON };
-struct NPC {};
+struct NPC {
+    bool owned=false, merc=false, swarm=false;
+    bool HasOwner() { return owned; }
+    bool IsMerc() { return merc; }
+    bool GetSwarmInfo() { return swarm; }
+    bool GetSwarmOwner() { return swarm; }
+};
+namespace NightcapLoot {
+enum class TransferResult { Declined, Delivered, Uncertain };
+uint64 awarded_item_exp=0; unsigned item_awards=0;
+TransferResult item_result=TransferResult::Delivered;
+TransferResult AwardItemExperience(void*, uint64 xp) {
+    awarded_item_exp=xp; ++item_awards; return item_result;
+}
+}
 struct Zone {
     struct { float zone_exp_multiplier=1; } newzone_data;
     struct Mods { float ExpMod=0, AAExpMod=0; } level_exp_mod[256];
@@ -93,7 +110,7 @@ struct Client {
     void CalculateLeadershipExp(uint64&,uint8) {}
     void SetEXP(ExpSource,uint64 xp,uint64 aa,bool=false,NPC*=nullptr);
     uint32 GetEXPForLevel(uint16);
-    void CalculateExp(uint64,uint64&,uint64&,uint8,bool);
+    void CalculateExp(uint64,uint64&,uint64&,uint8,bool,uint64* = nullptr);
     void CalculateStandardAAExp(uint64&,uint8,bool);
     void CalculateNormalizedAAExp(uint64&,uint8,bool);
     void AddEXP(ExpSource,uint64,uint8=0xff,bool=false,NPC*=nullptr);
@@ -291,11 +308,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--compiler', default='clang++')
     args = parser.parse_args()
-    source = (ROOT / 'server-mods/code/zone/exp.cpp').read_text()
-    client = (ROOT / 'server-mods/code/zone/client.cpp').read_text()
-    packet = (ROOT / 'server-mods/code/zone/client_packet.cpp').read_text()
-    command = (ROOT / 'server-mods/code/zone/gm_commands/aa_exp.cpp').read_text()
-    db = (ROOT / 'server-mods/code/zone/zonedb.cpp').read_text()
+    source = (ROOT / 'server-mods/code/zone/exp.cpp').read_text(encoding='utf-8')
+    client = (ROOT / 'server-mods/code/zone/client.cpp').read_text(encoding='utf-8')
+    packet = (ROOT / 'server-mods/code/zone/client_packet.cpp').read_text(encoding='utf-8')
+    command = (ROOT / 'server-mods/code/zone/gm_commands/aa_exp.cpp').read_text(encoding='utf-8')
+    db = (ROOT / 'server-mods/code/zone/zonedb.cpp').read_text(encoding='utf-8')
     bodies = []
     for name in ['static uint64 ScaleAAXPBasedOnCurrentAATotal', 'float static GetConLevelModifierPercent',
                  'void Client::CalculateNormalizedAAExp', 'void Client::CalculateStandardAAExp',
@@ -317,11 +334,20 @@ def main():
     with tempfile.TemporaryDirectory(prefix='passive-aa-') as tmp:
         path = pathlib.Path(tmp)
         test = path / 'test.cpp'
-        test.write_text(PRELUDE + '\n'.join(bodies) + CASES)
-        subprocess.run([args.compiler, '-std=c++20', '-Wall', '-Wextra',
-                        '-Wno-unused-parameter', '-I', str(ROOT/'server-mods/code'),
-                        str(test), '-o', str(path/'test')], check=True)
-        subprocess.run([str(path/'test')], check=True)
+        test.write_text(PRELUDE + '\n'.join(bodies) + CASES, encoding='utf-8')
+        if os.name == 'nt' and args.compiler == 'clang++':
+            script = path / 'build.cmd'
+            script.write_text('@echo off\ncall "C:/BuildTools/VC/Auxiliary/Build/vcvars64.bat" >nul || exit /b 1\n'
+                              'cl /nologo /EHsc /std:c++20 /I"' + str(ROOT/'server-mods/code') + '" test.cpp /Fe:test.exe\n'
+                              'exit /b %errorlevel%\n')
+            subprocess.run(['cmd', '/d', '/c', str(script)], cwd=path, check=True)
+            binary = path/'test.exe'
+        else:
+            subprocess.run([args.compiler, '-std=c++20', '-Wall', '-Wextra',
+                            '-Wno-unused-parameter', '-I', str(ROOT/'server-mods/code'),
+                            str(test), '-o', str(path/'test')], check=True)
+            binary = path/'test'
+        subprocess.run([str(binary)], check=True)
 
 
 if __name__ == '__main__':
