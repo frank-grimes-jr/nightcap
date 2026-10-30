@@ -1,0 +1,26 @@
+{
+  "status": "published_for_owner_testing",
+  "verified_utc": "2026-10-30T13:25:49.361150+00:00",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/376",
+  "main_merge": "ea2f7efc591643339b7dedf6b0759471f558866b",
+  "client_release": 2026103002,
+  "client_channel_sha256": "831f19ab1e0b2584a215a04ef473618e7dbac10aaf4b66344626cbd349781f99",
+  "client_files": 148,
+  "client_changed": [
+    "spells_us.txt"
+  ],
+  "client_preserved": 147,
+  "wiki_release": "20261030-cast-bar-v1",
+  "wiki_files": 499,
+  "wiki_changed": [
+    "launcher.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "wiki_preserved": 496,
+  "service_restart": false,
+  "services_unchanged": true,
+  "sql_changes": false,
+  "protected_client_edits": false,
+  "owner_visible_acceptance": "Pending Diiv check; deployment does not claim rendered gameplay acceptance"
+}

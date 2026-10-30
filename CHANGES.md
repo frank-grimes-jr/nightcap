@@ -1,17 +1,21 @@
 # CHANGES
 
-## 2026-10-30 — Cast-bar timing repair candidate
+## 2026-10-30 — Cast-bar timing repair published for Diiv QA
 
-The shipped spell file gives 638 non-DoT definitions a stale 50-ms cast time,
-including level-1 Wizard Frost Bolt, Blast of Cold and Numbing Cold. The native
-gauge consequently remains full until the last 50 ms. Restore only the reviewed
-cast-time fields to production-matching values; preserve intentional Bard/DoT
-policies and all custom content. The normal asset generator includes the repair.
-An exact-client x86 regression fails with the shipped file and passes all 5105
-checks with the candidate. No DLL/server/SQL change or restart is required.
-Candidate only: main promotion, signed client delivery and visible owner QA
-remain pending. Evidence, recovery and exact tests:
-`docs/releases/cast-bar-20261030/README.md` and `QA.md`.
+Owner-approved main PR376 and signed client2026103002 correct stale 50-ms client
+times for638reviewed non-DoT definitions, including level-1 Wizard nukes. Native
+bars now use the matching server base duration. All147other client descriptors,
+the newer recall labels, proxy/catalog, history and tombstones are retained.
+All148HTTPS assets/signature/runtime pairing verify. No server restart or SQL.
+
+Wiki20261030-cast-bar-v1 updates Launcher, Change Log and search;496other files
+retain exact bytes, including Cazic/recall guidance. All499HTTPS hashes/headers
+and five private-route denials pass; five service lifetimes remain unchanged.
+The original native gauge passes5105checks with the corrected file. Launcher
+suites,20Linux client publisher tests,19wiki checks and16Linux wiki recovery tests
+pass. Fully exit EQ and use launcher Play before testing on Diiv. Owner visible
+casting/interruption acceptance remains pending. Evidence and exact QA:
+`docs/releases/cast-bar-20261030/README.md`, `deployment.json` and `QA.md`.
 
 ## 2026-10-29 — Keyless doors deployed
 

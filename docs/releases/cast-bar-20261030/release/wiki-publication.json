@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "release": "20261030-cast-bar-v1",
+  "previous_release": "20261030-public-cazic-v1",
+  "files": 499,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "test_aggregate_size_rejected_before_read (test_deploy.DeploymentTests.test_aggregate_size_rejected_before_read) ... ok\ntest_extra_file_rejected (test_deploy.DeploymentTests.test_extra_file_rejected) ... ok\ntest_malformed_path_can_be_400_but_private_routes_must_be_404 (test_deploy.DeploymentTests.test_malformed_path_can_be_400_but_private_routes_must_be_404) ... ok\ntest_new_host_has_separate_root_and_no_proxy (test_deploy.DeploymentTests.test_new_host_has_separate_root_and_no_proxy) ... ok\ntest_reload_failure_still_removes_pointer_and_preserves_original_error (test_deploy.DeploymentTests.test_reload_failure_still_removes_pointer_and_preserves_original_error) ... ok\ntest_stale_config_aborts_before_receipt_or_unpack (test_deploy.DeploymentTests.test_stale_config_aborts_before_receipt_or_unpack) ... ok\ntest_traversal_and_symlink_rejected (test_deploy.DeploymentTests.test_traversal_and_symlink_rejected) ... ok\ntest_valid_payload_and_hash_mismatch (test_deploy.DeploymentTests.test_valid_payload_and_hash_mismatch) ... ok\ntest_candidate_failure_restores_previous_pointer (test_update.UpdateTests.test_candidate_failure_restores_previous_pointer) ... ok\ntest_config_drift_still_restores_owned_pointer_without_overwriting_config (test_update.UpdateTests.test_config_drift_still_restores_owned_pointer_without_overwriting_config) ... ok\ntest_corrupt_archive_never_switches_live_pointer (test_update.UpdateTests.test_corrupt_archive_never_switches_live_pointer) ... ok\ntest_interrupt_just_after_atomic_replace_restores_actual_pointer (test_update.UpdateTests.test_interrupt_just_after_atomic_replace_restores_actual_pointer) ... ok\ntest_private_state_change_fails_and_restores_old_pointer (test_update.UpdateTests.test_private_state_change_fails_and_restores_old_pointer) ... ok\ntest_stale_config_and_pointer_abort_before_staging (test_update.UpdateTests.test_stale_config_and_pointer_abort_before_staging) ... ok\ntest_success_rehearses_old_new_old_new_and_preserves_config (test_update.UpdateTests.test_success_rehearses_old_new_old_new_and_preserves_config) ... ok\ntest_unrelated_concurrent_pointer_is_never_overwritten (test_update.UpdateTests.test_unrelated_concurrent_pointer_is_never_overwritten) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.049s\n\nOK\n",
+  "changed_files": [
+    "launcher.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 496,
+  "baseline_source": "20261030-public-cazic-v1",
+  "package_sha256": "4bd218966c116b0bb5a9f22ffc54e7497720f9a04daa703d7f5464493285ed8c",
+  "scope": "Cast-bar timing correction; native owner acceptance open"
+}

@@ -1,0 +1,17 @@
+{
+  "installed": true,
+  "validator": "valid",
+  "source_checks": {
+    "client": {
+      "task_entries": 12,
+      "task_drift": [],
+      "historical_other_drift": 57
+    },
+    "wiki": {
+      "task_entries": 10,
+      "task_drift": [],
+      "historical_other_drift": 11
+    }
+  },
+  "historical_entries_advanced": false
+}
