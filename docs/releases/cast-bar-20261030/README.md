@@ -1,6 +1,6 @@
 # Cast-bar timing repair — October 30, 2026
 
-**Tested candidate; not published or accepted in game.** Based on integrated
+**Owner-approved release candidate; not yet published or accepted in game.** Based on integrated
 `989a464c` in `E:/EQ_Local_Dev/_worktrees/cast-bar-timing`, branch
 `feature/cast-bar-timing-20261030`. The owner reports that two level-1 Wizard
 nukes barely move the casting bar until the final instant. This resolves the
@@ -85,6 +85,8 @@ Never edit the protected reference or an installed player folder directly.
 If recovery is necessary, publish the retained spell asset in a higher signed
 release counter while preserving the then-current remaining inventory. This
 restores the old display defect; it does not require any player-data rollback.
-Main promotion and publication await owner approval under AGENTS.md. See
+The owner approved main, signed client and wiki publication in AUTHORIZATION.md.
+The signed 2026103002 candidate and its 20 Linux publisher tests pass; release/
+holds exact preparation and subsequent activation/HTTPS receipts. See
 [QA.md](QA.md) for the exact live check. Wiki edits are unpublished candidates;
 no public release or gameplay acceptance is claimed.
