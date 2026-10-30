@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-30",
+  "installed_skill": "nightcap-development",
+  "updated_references": [
+    "world",
+    "client",
+    "operations",
+    "wiki",
+    "sources"
+  ],
+  "validator": "passed",
+  "faction_fingerprint_check": "passed; all reviewed entries unchanged",
+  "public_wiki_publication": "pending",
+  "owner_native_qa": "open"
+}

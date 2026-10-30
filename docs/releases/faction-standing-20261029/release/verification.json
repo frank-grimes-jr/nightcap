@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "status": "main-only promotion; not deployed",
+  "status": "deployed to OVH; owner QA open",
   "base_revision": "ea2f7efc",
   "prior_integration": [
     "dev PR366",
@@ -14,12 +14,15 @@
   ],
   "faction_regression_groups": 3,
   "native_build": "release/native-build.json; selective unity compilation and authenticated retained link, not a clean full build",
-  "server_changed": false,
+  "server_changed": true,
   "owner_gameplay_accepted": false,
   "public_wiki_published": false,
-  "deployment": "Deferred by owner: Merge main only for now",
+  "deployment": "Owner renewed authorization; verified controlled zone-only rollout",
   "wiki_checks": 19,
   "wiki_pages": 492,
   "review": "Independent review found no blocking source/build/scope/wiki issue",
-  "wiki_initial_attempt": "Sandbox AppData temp permissions failed; rerun uses workspace TEMP/TMP with unchanged tests"
+  "wiki_initial_attempt": "Sandbox AppData temp permissions failed; rerun uses workspace TEMP/TMP with unchanged tests",
+  "operator_tests": 27,
+  "continuation_tests": 6,
+  "final_verification": "final-verification.json"
 }
