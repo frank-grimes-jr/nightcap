@@ -1,15 +1,23 @@
 # Current Nightcap status
 
-## 2026-10-30 — Faction display promoted for later deployment
+## 2026-10-30 — Faction standings deployed for live testing
 
-Owner-approved main promotion adds player `#factions`: a white-text popup with
-numerical standings, full-range bars, name search, paging and target-NPC lookup.
-Native totals/modifiers and privileged `#faction` reset access are preserved.
-All three faction test groups and the authenticated faction-only zone compile/link
-pass. This scoped release excludes the dev/test augment and capacity candidates.
-The owner explicitly chose “Merge main only for now”; server deployment, public
-wiki publication and native gameplay/readability QA remain pending.
-Evidence and exact QA: `docs/releases/faction-standing-20261029/README.md`.
+Player `#factions` is deployed on OVH: white-text popup, numerical standings,
+full-range bars, name search, six-row paging and target-NPC lookup. Existing GM
+`#faction` access and all prior command settings are preserved. No client update.
+The scoped release changes only zone and excludes augment/capacity candidates.
+
+The guarded whole-game restart retained a fresh verified backup,102saved-state
+tables, existing content/quests/caches/client and one normal market rotation.
+All12workers,51schema/650content predicates, command access0 and native health
+verify before admissions reopen. Independent final verification passes.
+Five unused staging originals were losslessly archived under explicit approval;
+images/backups/player data and restoration receipts are retained. A pre-shutdown
+guard held on three Hate B NULL-to-empty fields; an exact temporary-clone proof
+and reviewed continuation preserved that normalization without live content SQL.
+Original receipts remain immutable. Native readability/gameplay QA is open;
+wiki source is updated, while public faction-guide publication remains pending.
+Evidence and recovery: `docs/releases/faction-standing-20261029/release/README.md`.
 
 ## 2026-10-30 — Cast-bar issue owner-confirmed resolved
 

@@ -11,6 +11,8 @@
     "local_linux": 27,
     "staged_linux": 27
   },
-  "activation": "pending",
-  "owner_gameplay_accepted": false
+  "activation": "verified; access reopened",
+  "owner_gameplay_accepted": false,
+  "continuation_review": "Recovery routing gap closed; independent follow-up found no blocker",
+  "continuation_tests": 6
 }

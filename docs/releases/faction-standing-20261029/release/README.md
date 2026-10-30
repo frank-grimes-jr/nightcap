@@ -1,8 +1,12 @@
 # Faction display OVH release — October30, 2026
 
-Prepared under the owner's renewed deployment authorization. Activation and
-access reopening must be recorded separately; no owner gameplay acceptance is
-inferred from automated checks. Main feature PR378/3c3d815e is the source scope.
+Deployed and independently verified at 2026-10-30T16:12:30.084322+00:00. Admissions are open.
+Image `sha256:933911b9d59354c6eb3848170847a3f0fbe1b1704c51ec7e7f3bcae7ca00d809` runs all12zone workers with no extra restart or native
+errors. All51schema/650content predicates,102saved-state tables at reopening,
+command access0 and retained pairing pass. Fresh stopped backup and exact market
+rotation are retained privately. Owner visible/gameplay acceptance is open.
+Feature PR378, operator PR380 and continuation PR381 are merged. Public wiki
+source is updated; faction-guide publication remains pending.
 
 ## Payload and preparation
 
