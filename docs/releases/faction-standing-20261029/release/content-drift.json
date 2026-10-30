@@ -1,0 +1,12 @@
+{
+  "changed_tables": [
+    "zone"
+  ],
+  "activation_directory_exists": false,
+  "game_unchanged": true,
+  "gateway_unchanged": true,
+  "current_contract": {
+    "schema": 51,
+    "content": 650
+  }
+}
