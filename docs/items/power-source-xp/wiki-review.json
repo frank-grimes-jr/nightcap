@@ -140,8 +140,8 @@
     },
     {
       "path": "wiki/articles/item-upgrades.json",
-      "sha256": "7b44ce8936d50c52906936e800470e11137b285b502a7ac58a88da08eabb76e1",
-      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+      "sha256": "9acf7ed25d96cfb75ce46799d74a5c0329ab8156a5b0dc4249c470e87764544b",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved. Independent review clarified retained multiclass/deity eligibility; no new restriction was added."
     },
     {
       "path": "wiki/articles/launcher.json",

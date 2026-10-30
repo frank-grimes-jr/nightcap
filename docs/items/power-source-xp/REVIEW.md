@@ -1,6 +1,6 @@
 # Candidate source review — October 30, 2026
 
-Author review, not independent approval. Baseline origin/main f3e9e5ff was
+Author review with the independent result recorded below. Baseline origin/main f3e9e5ff was
 re-fetched and remains the source baseline. Do not infer live state from this
 checkout; newer outside-Git public/wiki operations have separate evidence.
 
@@ -68,10 +68,28 @@ three connection/schema capabilities and performs one UPDATE; family lookup is
 four cached definitions. No query is added for an absent/ineligible/top-tier item.
 Live load measurements remain distinct from functional correctness checks.
 
+## Independent review
+
+The owner authorized one independent reviewer on October30. Agent item_xp_review
+reviewed commits3975695c/401b645f/1f445614 against f3e9e5ff and found no blocking
+correctness/security finding for disabled-candidate integration. It independently
+reran the focused suite:8groups passed,1opt-in DB group skipped. It inspected,
+but did not rerun, the separately executable AA integration harness.
+
+The review retained explicit gaps: actual InventoryProfile::SwapItem integration
+and both-direction moves, live query latency/load, real-client effects/custody,
+and measured pacing. QA.md now includes held-class-union/deity eligibility and
+disabled removal/reverse swaps. The reviewer could not read Docker's retained
+source due to sandbox permissions. The author subsequently checked the exact
+retained ItemData predicates, InventoryProfile swap guards and Strings::Split:
+they match the reviewed assumptions. This is author-provided corroboration,
+not independent runtime or player approval. No reviewer edits or deployment.
+
 ## Open gates
 
-Final full paired build/link is running in an isolated directory and must finish
-before release preparation. Independent review is not yet recorded. Real RoF2
+The full paired world/zone/shared_memory build/link passed from2848pinned source
+files; native-build.json records exact source and binary hashes. Independent source review passed for the disabled
+candidate; it does not approve activation. Real RoF2
 placement/effect/custody checks and measured 4–8-hour pacing are owner acceptance
 gates. The default-off candidate has not been promoted, deployed, activated or
 publicly published. Disabling the rule is the safe stop; reverting to an older

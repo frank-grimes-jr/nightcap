@@ -20,10 +20,12 @@ keys cannot partially apply. Native policy/metadata/box tests, 35 award checks,
 replay tests pass. Actual native award fault injection and slot admission tests
 also pass; the failure harness caught and fixed lowercase metadata hex rejection.
 The final13-unit compile passes with dependency hashes. Actual bonus dispatch
-and raw AC tests pass; the full paired build is underway. Candidate wiki previews,
+and raw AC tests pass; the full paired world/zone/shared_memory build passes from
+2848pinned source files. Independent review found no blocking issue for the
+disabled candidate. Existing box recipe and10quest checks pass. Candidate wiki previews,
 whole-wiki impact review, installed skill/fingerprints and explicit player
-QA/rollback instructions are prepared. Linked build, independent review and
-player QA remain pending. This common-code/rule change
+QA/rollback instructions are prepared. Real-client/custody checks, measured pacing
+and owner acceptance remain pending. This common-code/rule change
 requires matched native consumers; no production or client assets changed.
 Plan, calibration and evidence: `docs/items/power-source-xp/`.
 

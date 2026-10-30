@@ -65,6 +65,11 @@ item IDs, character level, zone, effective XP rules, client version and results.
    summoning test copies. Put one eligible base copy in slot 21 and run
    #itemxp. Unsupported, stackable, evolving and below-required/recommended-level
    items must not enter training. A real Power Source retains normal behavior.
+   Test inventory-to-training and reverse swaps with an occupied destination.
+   A matching second/third held class must count; an item matching no held class
+   must be refused. Any remaining race/deity restrictions still apply. With the
+   training rule disabled, remove the item to an empty inventory slot or cursor;
+   a reverse swap must not insert another ineligible item into the training slot.
 3. For the level50 check, use Lower Guk (gukbottom) and native non-gray frogloks;
    record the exact NPC type/level and con for each sample. Verify increasing
    #itemxp progress, approximately ten-percent notifications, each of three

@@ -29,7 +29,17 @@
         "state": "unchanged"
       },
       {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\docs\\items\\power-source-xp\\native-build.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\docs\\items\\power-source-xp\\native-compile-final.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp\\docs\\items\\power-source-xp\\verification.json",
         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
         "state": "unchanged"
       },

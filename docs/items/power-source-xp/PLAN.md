@@ -1,7 +1,8 @@
 # Power Source item experience — implementation plan
 
-Status: integrated candidate, 2026-10-30. Disabled by default; final verification,
-documentation maintenance, linked build, player QA and deployment remain pending.
+Status: verified source candidate, 2026-10-30. Disabled by default. The paired
+build and independent source review pass; real-client/custody checks, measured
+pacing and owner acceptance remain pending. Not deployed or enabled.
 
 ## Accepted intent
 
@@ -88,8 +89,9 @@ The default workspace contains unrelated edits and is not the implementation tar
 - Shared local MariaDB had long-standing metadata/query-cache locks; only this
   task's blocked test was interrupted. Separate disposable test container:
   nightcap-item-xp-db-20261030, localhost3318, schema item_xp_test, task label
-  power-source-item-xp. It contains only synthetic data and is retained for the
-  remaining tests. Test driver: E:/EQ_Local_Dev/artifacts/item-xp-testdeps.
+  power-source-item-xp. It contained only synthetic data and was removed with its
+  anonymous volume after verifying the task label, port and mounts. The shared
+  database was untouched. Test driver: E:/EQ_Local_Dev/artifacts/item-xp-testdeps.
 - Actual AwardItemExperience failure-injection harness passes: save failures,
   stale/multiple rows, exceptions and publication failure quarantine; no duplicate
   award; lore/augment incompatibility refuses; dye/binding/charges remain. It
@@ -105,14 +107,17 @@ The default workspace contains unrelated edits and is not the implementation tar
   focused suite reports9 tests,8passed and the opt-in DB test skipped; that DB
   test separately passes against the disposable synthetic database.
 - Final13-unit compilation passes with9726dependency records. The complete paired
-  native build is running at /tmp/nightcap-item-xp-full-c4802fa0a9ad, via
-  tools/build_item_xp.py, from authenticated retained faction-release sources.
-  It never installs or restarts services. Poll the existing process/log; do not
-  restart a healthy build because a tool observation times out.
+  world/zone/shared_memory build passed at /tmp/nightcap-item-xp-full-c4802fa0a9ad,
+  via tools/build_item_xp.py, from2848authenticated candidate source files based
+  on retained faction-release sources. native-build.json records the exact pins,
+  commands, binary hashes and successful dependency resolution. All three retained
+  binaries were rehashed against that manifest. No services were installed or restarted.
 - Whole-wiki impact evidence is in wiki-review.json; installed skill candidate
-  guidance, item-xp source routing and41fingerprints validate. REVIEW.md is an
-  author review, not independent approval. Real custody/client/effect and pacing
-  checks remain manual acceptance; the complete paired build is still pending.
+  guidance, item-xp source routing and47reviewed fingerprints validate. REVIEW.md records the author audit
+  and owner-authorized independent review: no blocking finding for the disabled
+  candidate;8native groups passed independently, DB opt-in skipped. Existing box
+  recipe policy and all10Perl quest checks also pass. Real custody/client/effect
+  and pacing checks remain manual acceptance.
   No promotion, public publication or production deployment has occurred.
 - Old binaries cannot
   safely load new multi-key XP/grip metadata: paired rollout is required.

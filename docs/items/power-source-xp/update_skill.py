@@ -53,8 +53,11 @@ zone/advanced_loot_inventory.cpp, exp.cpp and equipment/packet guards. Tests:
 tools/tests/test_item_xp_*.py, actual AA/grip/Bazaar regressions; disposable MariaDB
 uses synthetic data. Actual award failure/publication, native slot methods, bonus
 dispatch and raw AC checks pass. Thirteen affected translation units compile with
-source/object/dependency hashes in native-compile-final.json. Full paired build,
-remaining custody/client checks and owner pacing acceptance are separate gates;
+source/object/dependency hashes in native-compile-final.json. The complete paired
+world/zone/shared_memory build passes from2848pinned files (native-build.json).
+Owner-authorized independent review found no blocker for the disabled candidate
+and independently passed8native groups. Existing box policy/10quest checks pass.
+Remaining custody/client checks and owner pacing acceptance are separate gates;
 consult docs/items/power-source-xp/PLAN.md and QA.md for current evidence.
 
 Pair world/zone/shared_memory and every item-loading consumer: new rules require
@@ -102,6 +105,7 @@ preparing any eventual publication; this candidate checkout is not that authorit
         'docs/items/power-source-xp/REVIEW.md', 'tools/build_item_xp.py',
         'tools/compile_item_xp.py', 'tools/item_xp_calibration.py',
         'docs/items/power-source-xp/calibration.json', 'docs/items/power-source-xp/native-compile-final.json',
+        'docs/items/power-source-xp/native-build.json', 'docs/items/power-source-xp/verification.json',
         'docs/items/power-source-xp/wiki-review.json', 'docs/adr/0073-power-source-item-experience.md',
     })
     manifest['topics']['item-xp'] = [dict(root=ROOT.as_posix(), path=n, revision=revision,
@@ -109,7 +113,7 @@ preparing any eventual publication; this candidate checkout is not that authorit
         sha256=hashlib.sha256((ROOT/n).read_bytes()).hexdigest()) for n in paths]
     after['references/sources.json'] = json.dumps(manifest, ensure_ascii=False, indent=2) + '\n'
     patch = ''.join(''.join(difflib.unified_diff(before[n].splitlines(True), after[n].splitlines(True),
-                    fromfile='a/'+n, tofile='b/'+n)) for n in files)
+                    fromfile='a/'+n, tofile='b/'+n, n=0)) for n in files)
     (OUT/'installed-skill.patch').write_text(patch, encoding='utf-8')
     if args.apply:
         for n in files:

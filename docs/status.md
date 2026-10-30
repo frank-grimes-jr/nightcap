@@ -8,8 +8,10 @@ their existing four qualities. The Reforging Box remains. Candidate costs are
 at a modeled 60–120 equivalents/hour, pending timed gameplay measurements.
 The rule defaults off. Native policy, actual award failure injection, metadata,
 slot admission, AA/grip/Bazaar regressions and disposable MariaDB checks pass.
-Thirteen changed translation units compile; the final paired native build and
-remaining custody/effect verification are pending. Wiki previews are local and
+Thirteen changed translation units and the full paired world/zone/shared_memory
+build pass. Independent source review found no blocking issue for the disabled
+candidate. Real-client/custody/effect checks and measured pacing remain pending.
+Wiki previews are local and
 marked Not released. No runtime deployment or owner acceptance is recorded.
 Build boundary, disable/recovery and exact in-game checks:
 [Power Source XP QA](items/power-source-xp/QA.md).
