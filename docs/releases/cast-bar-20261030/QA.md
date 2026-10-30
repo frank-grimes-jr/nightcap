@@ -1,5 +1,9 @@
 # Cast-bar owner QA
 
+Owner confirmation October30: “fIXED” after the Diiv recheck instructions.
+The reported frozen-bar issue is resolved. The extended checklist below remains
+available for regression testing; individual steps are not all claimed passed.
+
 After authorized signed delivery, fully exit EverQuest and use normal launcher
 Play. Keep the current proxy/catalog and other managed assets.
 
@@ -22,4 +26,4 @@ Play. Keep the current proxy/catalog and other managed assets.
    remain intact. Test an existing cast-haste focus separately if available.
 
 Record visible acceptance separately from native fixture and asset checks.
-No gameplay acceptance has been reported for this candidate yet.
+The reported Diiv issue is accepted above; the remaining cases are not all claimed passed.

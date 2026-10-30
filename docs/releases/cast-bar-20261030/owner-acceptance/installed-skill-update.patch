@@ -1,0 +1,205 @@
+--- a/references/client.md
++++ b/references/client.md
+@@ -3 +3 @@
+-## Cast-bar timing — October30 published for Diiv testing
++## Cast-bar timing — October30 reported Diiv issue owner accepted
+@@ -18 +18,3 @@
+-September27 unresolved diagnosis. Visible Diiv/focus/interruption QA remains open.
++September27 unresolved diagnosis. The owner replied “fIXED” after the Diiv test
++instructions; the reported issue is accepted. Broader focus/interruption QA
++remains separate, not claimed fully passed.
+@@ -33 +35 @@
+-Wiki20261030-cast-bar-v1 is published:3changed/496preserved,499HTTPShashes/headers
++Wiki20261030-cast-bar-accepted-v1 records owner acceptance:3changed/496preserved,499HTTPShashes/headers
+@@ -35 +37,2 @@
+-normal launcher Play; native owner acceptance is pending. Future recovery uses
++normal launcher Play. Exact scoped acceptance and publication receipts live in
++docs/releases/cast-bar-20261030/owner-acceptance/. Future recovery uses
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -30,9 +30,11 @@
+-## Cast-bar timing — October30 published for Diiv testing
+-
+-Owner-approved main PR376 and signed client2026103002 pair with public wiki
+-20261030-cast-bar-v1. Launcher, Change Log and search change;496of499public files
+-remain exact, retaining the newer recall and public Cazic-Thule guidance. All499
+-HTTPShashes/security headers and five private404routes pass. All40authored pages
+-and generated catalog impacts reviewed; Home/Features/commands/items/zones/rewards
+-retain their published behavior. Source-only sync of four current public guides
+-preserves deep links; it does not introduce a new gameplay release.
++## Cast-bar timing — October30 reported Diiv issue owner accepted
++
++Signed client2026103002 resolves the reported frozen/delayed bar on Diiv: owner
++reply “fIXED” is recorded separately from native tests and delivery. Broader focus,
++item/AA/Bard/interruption/relog and full638-spell acceptance is not claimed.
++Wiki20261030-cast-bar-accepted-v1 supersedes the pending-owner wording in
++20261030-cast-bar-v1. Launcher/Change Log/search change;496of499files retain exact
++bytes, including recall/Cazic guidance. All499HTTPS hashes/security headers and
++five private404routes verify.19local content/refresh and16Linux recovery tests pass.
++All40authored guides/catalog impacts reviewed; no Home/Features/commands/item/zone
++or reward changes. Unpublished faction source changes are not included.
+@@ -41,5 +43,5 @@
+-docs/releases/cast-bar-20261030/release/ owns baseline, package, reviewed source,
+-guarded publication and HTTPS receipts.19wiki checks and16Linux recovery tests
+-pass. Five service lifetimes and private downloads are preserved. Historical
+-source drift remains REVIEW REQUIRED; no blanket ledger advance. Native Diiv
+-casting/interruption acceptance remains pending and is distinct from delivery.
++docs/releases/cast-bar-20261030/owner-acceptance/ owns exact quote, scope, baseline,
++package review and guarded publication/HTTPS receipts. Signed channel and five
++service lifetimes unchanged; no gameplay/client change. The measured small wiki
++publication retained320MiB disk reserve without deletion. Historical source drift
++remains REVIEW REQUIRED; no blanket ledger advance.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -137 +137,2 @@
+-    "cast_bar_deployed_20261030": "ea2f7efc591643339b7dedf6b0759471f558866b + verified release receipts"
++    "cast_bar_deployed_20261030": "ea2f7efc591643339b7dedf6b0759471f558866b + verified release receipts",
++    "cast_bar_owner_accepted_20261030": "main 3c3d815e + reviewed owner acceptance and verified wiki publication"
+@@ -10263 +10264 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10270 +10271 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10277 +10278 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10284 +10285 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10291 +10292 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10298,3 +10299,3 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
+-        "revision": "main ea2f7efc + reviewed publication evidence",
+-        "sha256": "dff3e788c665249dd76d762933a0d952fb0507d8d7e26e04a2beea35c5d9a81d"
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "fa93a1aced6a7b5ad47328db8cc717ff87f575e97e31bb215b503c23ff065543"
+@@ -10305 +10306 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10312,3 +10313,3 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
+-        "revision": "main ea2f7efc + reviewed publication evidence",
+-        "sha256": "50332999dc5dbbf699861fc8d243038f5cf11d3ce40cd5c423341d0319e14194"
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "c7e0164175caf6dbbf03fb12534d9619a637b7a1a57307a41848dbf1cbda0f0d"
+@@ -10319 +10320 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10326 +10327 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10333 +10334 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -10335,0 +10337,35 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/README.md",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "9aa8d93a81c53527e0e5f2c17fe6afc5c83abbb0540746562226c47704babd31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/owner-confirmation.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "a58543f04a20987e0ceb335b425cb7174a5566f88b911aaa8d16621c0b6ed289"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/wiki-review.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "e353eb72349b4737712044d728534c6da24670e90083d6168aec6e6dd192f08c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/wiki-publication.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "b148ca49c5521a0cee876c9bba9990a11dc6335638618cd235d116e0ef6e6daa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/wiki-public-verification.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "1d355be6457d40f0f960ae329fccd8f41d28c15db4ea888fbf46ff09d9bd2d21"
+@@ -14308,3 +14344,3 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
+-        "revision": "main ea2f7efc + reviewed publication evidence",
+-        "sha256": "a171ff3907edf817e666059f1955ec374439507dfb28b910003070bc807dfb46"
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "c05664c265a638b13388d99df171df631b354232fda1e1b9c4f3cdb4543c0fd4"
+@@ -14315,3 +14351,3 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
+-        "revision": "main ea2f7efc + reviewed publication evidence",
+-        "sha256": "c4cffa7fe8cca8deec1b0d0b9486d401cc55907605390faa82c046d4a1679ada"
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "dce3a41d9753889f56ee7076393aa133a5bbf6b43ab8684403ffebd4b4810763"
+@@ -14322 +14358 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14329 +14365 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14336 +14372 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14343 +14379 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14350 +14386 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14357 +14393 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14364 +14400 @@
+-        "role": "October30 cast-bar3002 and wiki published/verified; native owner acceptance pending",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -14366,0 +14403,35 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/README.md",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "9aa8d93a81c53527e0e5f2c17fe6afc5c83abbb0540746562226c47704babd31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/owner-confirmation.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "a58543f04a20987e0ceb335b425cb7174a5566f88b911aaa8d16621c0b6ed289"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/wiki-review.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "e353eb72349b4737712044d728534c6da24670e90083d6168aec6e6dd192f08c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/wiki-publication.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "b148ca49c5521a0cee876c9bba9990a11dc6335638618cd235d116e0ef6e6daa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/owner-acceptance/wiki-public-verification.json",
++        "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
++        "revision": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
++        "sha256": "1d355be6457d40f0f960ae329fccd8f41d28c15db4ea888fbf46ff09d9bd2d21"
