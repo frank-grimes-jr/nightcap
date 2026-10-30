@@ -2,6 +2,10 @@
 
 ## 2026-10-30 — Power Source item XP candidate (not released)
 
+Dev PR383 and test PR384 merged after independent review and integration checks;
+the promoted test tree matches the tested tree. Owner in-game QA remains the
+main/live gate. No runtime or public wiki activation was performed.
+
 Added the candidate additional combat-XP upgrade path; the existing Reforging Box remains.
 Candidate transition costs are 80/160/240 comparable-kill equivalents, targeting
 the owner's 4–8 hours at 60–120 equivalents/hour. Native arithmetic tests cover

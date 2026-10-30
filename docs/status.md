@@ -2,6 +2,10 @@
 
 ## 2026-10-30 — Power Source item experience candidate, not released
 
+Source is on dev/test through PR383/384. The promoted test tree exactly matched
+the tested integration. Main and runtime activation remain gated on owner QA;
+no public wiki publication is claimed. Receipt: `items/power-source-xp/promotion.json`.
+
 An additional combat-XP path advances supported equipment/Hunt families through
 their existing four qualities. The Reforging Box remains. Candidate costs are
 80/160/240 comparable-kill equivalents: the owner's 4–8-hour full-path target
