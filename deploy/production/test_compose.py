@@ -18,6 +18,8 @@ class ComposeTests(unittest.TestCase):
         )
         config = json.loads(result.stdout)
         services = config['services']
+        self.assertEqual(services['game']['environment']['NIGHTCAP_ZONE_WORKERS'], '20')
+        self.assertEqual(int(services['game']['mem_limit']), 4500 * 1024 * 1024)
         gateway = services['gateway']
         self.assertNotIn('ALLOW_CIDRS', gateway['environment'])
         self.assertEqual(gateway['environment']['PLAYER_ACCESS_FILE'], '/run/nightcap-access/credentials.json')

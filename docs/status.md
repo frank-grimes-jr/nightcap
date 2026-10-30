@@ -1,5 +1,19 @@
 # Current Nightcap status
 
+## 2026-10-30 — Zoning capacity fix tested; storage blocks activation
+
+Candidate increases the pool12→20 and shortens only five reviewed version-0
+travel-zone timers;613other rows and all dungeon/quest/special timers remain.
+Eight capacity/policy checks, eight MariaDB rehearsal groups and independent
+installed-quest review pass. No production change or owner acceptance is claimed.
+
+Resource capture: game peak1.54GiB of4500MiB, no OOM events; memory supports the
+conservative20-worker budget. Host disk has only512MiB free, below the3GiB
+pre-backup/2GiB post-backup release gates. Storage remediation, main sign-off and
+maintenance restart are pending. See `ops/zone-capacity-20261030/README.md` for
+the exact plan, rollback, five timer values and player QA. Candidate-only wiki
+guidance is edited locally, not published.
+
 ## 2026-10-29 — Keyless doors deployed
 
 Owner-approved main PR370 and guarded OVH activation clear key and lock-picking

@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-10-30 — Zoning capacity candidate
+
+Prepared20 supervised zone workers (was12) and guarded empty-retention changes
+for East Commonlands/Rivervale5minutes, Feerrott10, West Commonlands15 and East
+Karana30. Fixes the observed rapid-travel pool exhaustion without a blanket
+timer cap; Misty's seasonal encounter, Stanos, all dungeons and special long
+timers remain unchanged. Full MariaDB forward/inverse and drift rehearsal,
+capacity regressions and independent installed-quest/source review pass.
+
+Not deployed: production disk has only about512MiB free. Require3GiB before
+backup and2GiB after, fresh memory/rule/identity checks, authorized main promotion
+and a complete supervised game restart to refresh every ZoneStore. No new native
+build/client pair and no player/checkpoint writes. Candidate wiki notes are local;
+owner gameplay/return-state QA and publication remain pending. Runbook, resource
+evidence and exact QA: `docs/ops/zone-capacity-20261030/README.md`.
+
 ## 2026-10-29 — Keyless doors deployed
 
 Owner-approved main PR370 and guarded OVH activation clear key and lock-picking

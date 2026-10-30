@@ -1,0 +1,170 @@
+{
+  "source_ref": "989a464c345fb2c3799f5b769090442039a1d35e plus working tree",
+  "articles_reviewed": 40,
+  "articles": [
+    {
+      "slug": "about",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "advanced-loot",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "ascension",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "ashen-compact",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "build-lab",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "camil-vigil",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "combat",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "commands",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "dungeon-modes",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "equipment",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "features",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "getting-started",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "index",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-960420",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-960421",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-960422",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-960423",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-960424",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-960425",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961020",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961021",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961022",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961023",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961030",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961031",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-961032",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-990510",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-upgrades",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "launcher",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "loot-finder",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "multiclass",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "pets",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "recent-changes",
+      "impact": "candidate travel status"
+    },
+    {
+      "slug": "tradeskills",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "travel",
+      "impact": "candidate travel status"
+    },
+    {
+      "slug": "tunnel",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "unreleased",
+      "impact": "candidate travel status"
+    },
+    {
+      "slug": "waypoints",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "zone-hunt",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "zone-kael",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    }
+  ],
+  "generated_catalog": "All source catalogs unchanged; no item/zone values or release promotions.",
+  "Features": "Capacity bug fix, not a new gameplay feature; no directory entry needed.",
+  "publication": "Not published; explicit candidate labels remain.",
+  "ledger": "Historical drift remains review-required; no blanket advance."
+}

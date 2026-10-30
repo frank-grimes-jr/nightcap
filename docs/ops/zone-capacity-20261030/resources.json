@@ -1,0 +1,12 @@
+{
+  "captured_at": "2026-10-30T11:44:24.975795+00:00",
+  "worker_count": 12,
+  "proposed_workers": 20,
+  "disk_free_bytes": 536412160,
+  "game_current_bytes": 1166774272,
+  "game_peak_bytes": 1654902784,
+  "game_limit_bytes": 4718592000,
+  "host_available_bytes": 4348764160,
+  "game_oom_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "production_changed": false
+}

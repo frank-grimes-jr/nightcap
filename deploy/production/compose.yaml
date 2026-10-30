@@ -36,7 +36,8 @@ services:
     tmpfs: ["/tmp:size=128m,mode=1777"]
     working_dir: /srv/nightcap
     entrypoint: [python3, /opt/nightcap/start.py]
-    environment: {NIGHTCAP_ZONE_WORKERS: "12"}
+    # Paired with the scoped travel retention policy; see zone-capacity-20261030.
+    environment: {NIGHTCAP_ZONE_WORKERS: "20"}
     volumes:
       - ./data/server:/srv/nightcap
       - ./private/eqemu_config.json:/srv/nightcap/eqemu_config.json:ro

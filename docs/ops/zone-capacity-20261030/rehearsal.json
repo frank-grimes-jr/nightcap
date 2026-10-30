@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "environment": "isolated local MariaDB schema",
+  "production_writes": false,
+  "local_peq_writes": false,
+  "zone_rows": 618,
+  "checks": [
+    "five scoped timer updates; all other fields and 613 rows preserved",
+    "replay fails without writes",
+    "inverse restores the complete exact zone table",
+    "timer, case, coordinate, version and deletion drift reject atomically",
+    "unrelated concurrent zone changes survive both directions",
+    "rollback refuses changed afterimages",
+    "unexpected trigger rejects before writes",
+    "nontransactional engine rejects before writes"
+  ]
+}
