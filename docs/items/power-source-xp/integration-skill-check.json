@@ -1,0 +1,278 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "item-xp": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\adr\\0073-power-source-item-experience.md",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\PLAN.md",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\QA.md",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\REVIEW.md",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\calibration.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\native-build.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\native-compile-final.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\verification.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\wiki-review.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\item_instance.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\item_xp_eligibility.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\item_xp_inventory.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\item_xp_metadata.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\item_xp_policy.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\paladin_weapon_grip.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\patches\\rof2.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\ruletypes.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\shareddb.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\advanced_loot_inventory.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\advanced_loot_inventory.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\bonuses.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\client.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\client_mods.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\client_packet.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\command.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\command.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\exp.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\inventory.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\build_item_xp.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\compile_item_xp.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\item_xp_calibration.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\fixtures\\item_xp_award.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_bazaar_native.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_awards.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_bonuses.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_box.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_database.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_eligibility.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_inventory.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_metadata.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_native.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_policy.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_item_xp_slots.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_paladin_weapon_grip.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\tests\\test_passive_aa.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\common\\zone_hunt_policy.h",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\server-mods\\code\\zone\\zone_hunt.cpp",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\integration-native-build.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\integration-resolution.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\integration-wiki-review.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\docs\\items\\power-source-xp\\promotion.json",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\power-source-item-xp-test\\tools\\link_item_xp_integration.py",
+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

@@ -207,5 +207,6 @@
   "catalog": "No item/zone values, enabled zones, drop rates, existing forging costs or generated catalog pages change.",
   "tests": "19 wiki and source-refresh tests pass; TEMP/TMP set to writable workspace. Initial default-sandbox temporary paths failed permission checks.",
   "ledger": "Global October24 source ledger reports unrelated historical drift. It is deliberately not advanced.",
-  "publication": "Not requested or performed. Preserve newer October30 Hate-density public content and other concurrent releases when preparing any future publication."
+  "publication": "Not requested or performed. Preserve newer October30 Hate-density public content and other concurrent releases when preparing any future publication.",
+  "promotion_impact": "Dev/test source promotion changes no live availability, item values or player instructions. All candidate previews remain Not released; no public publication."
 }

@@ -1,5 +1,516 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -5,2 +5,2 @@
+-Source: E:/EQ_Local_Dev/_worktrees/power-source-item-xp,
+-feature/power-source-item-xp. Items:PowerSourceItemXP defaults false. Slot21 trains
++Source: E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test,
++feature/power-source-item-xp-test. Items:PowerSourceItemXP defaults false. Slot21 trains
+@@ -40,0 +41,9 @@
++
++Dev PR383 and test PR384 are merged; the promoted test tree
++matched the tested integration exactly. Existing dev Hunt-augment/capacity
++candidates remain. The integration rebuild reproduces the original item-XP
++zone byte-for-byte before rebuilding the Hunt unit and relinking; world and
++shared_memory retain matching full-build hashes. The item-XP-only release-base
++candidate remains at E:/EQ_Local_Dev/_worktrees/power-source-item-xp, c16a2f38.
++Main/runtime activation, public publication and owner gameplay acceptance
++remain pending. Do not ship other test candidates under item-XP-only approval.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -15 +15 @@
+-E:/EQ_Local_Dev/_worktrees/power-source-item-xp has Not released previews in
++E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test has Not released previews in
+@@ -18 +18,2 @@
+-docs/items/power-source-xp/wiki-review.json. No catalog stats, drops or existing
++docs/items/power-source-xp/integration-wiki-review.json. Source is promoted
++through test; previews remain unpublished. No catalog stats, drops or existing
 --- a/references/sources.json
 +++ b/references/sources.json
-@@ -15011 +15011 @@
--        "sha256": "27525cdd55efe9270c7e2f84fd8d21172db65a2a3d415bab1b017664beefadd2"
-+        "sha256": "8e9a2b84adf5dcafc75636197b2fc37664aa7561c1723e6e85b64eeb069ce900"
+@@ -15000 +15000 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15002 +15002 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15004,4 +15004,4 @@
+-        "sha256": "2279583a4396d692c3e7ed38d74f9bed68de7c8557c3b4afceb1afa96e6f9553"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "be0d9decf773977b74903e6f81339b39b2ce1e79b2d7e7834004899163e79e9b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15009 +15009 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15011,4 +15011,4 @@
+-        "sha256": "8e9a2b84adf5dcafc75636197b2fc37664aa7561c1723e6e85b64eeb069ce900"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "580e6501fb0581b9ce294227e52034891468ce6867ec764d1ac254bf147f0e24"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15016 +15016 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15018,4 +15018,4 @@
+-        "sha256": "7f2556110b76b18a5ee4b891ed941ad0176038eb5d8051dc511e7cd9d073175f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "08631d4daee30b69371381a08a64c4c910dffb3c4983ddd170350c5c4107b847"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15023 +15023 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15025,4 +15025,4 @@
+-        "sha256": "9c55ba1a229ab1c0beebf5472721e27a744341d15c6537ce74fe87c518dd4404"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "cbeb7408eb281da150726140ca010063c9244bfde44851ee3c70f1e4662be745"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15030 +15030 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15035 +15035 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15037 +15037 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15039,4 +15039,4 @@
+-        "sha256": "0a62f3ed524e89b1bc2dfae35d7019477adc7b5885d5da03e05d094fedeeeb52"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "3a2026f86a49fad038faf61041d72467010a4b1aa7711af36288f2cc6c0689fe"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15044 +15044 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15046,4 +15046,4 @@
+-        "sha256": "8dd4e7f78622d976399051f9b0e53b71e317050cc961926d9aaa938536dfaec4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "855f6aa25fc81f891fd96ea5cf684f041167100eddc7d7ffbe9ef98a271cc308"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15051 +15051 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15056 +15056 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15058 +15058 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15063 +15063 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15065 +15065 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15070 +15070 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15072 +15072 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15074,4 +15074,4 @@
+-        "sha256": "e65aa7f666de127ade5d28426e08ba0c2664b214595508e3a6080719d8cceecc"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "5f134b9e5b922b916ab72b9e11cd6fb8f33b198a803ff54597dd7fbb78ef7f5f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15079 +15079 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15081,4 +15081,4 @@
+-        "sha256": "3eff5c7627a70738438c31fa558be7464f08b804f96f684b1ba4c561af51727e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "9e4a6e6b42ddd10bc6921985e4d30fe5910a25272c202dd9cb013e86682d85d1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15086 +15086 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15088,4 +15088,4 @@
+-        "sha256": "78c03b98bfa6904c49cde06f2c5b145555d7c25345b10d229e6619206ec2faca"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "8e7830b4dbdfb342eefd2c81d79bade8d104c670205aecece31e589c2d263ba5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15093 +15093 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15095,4 +15095,4 @@
+-        "sha256": "ee8a0434ff38f069365da532467bd0aabde575b810bf4844dae0a4d85c35c77b"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "0705ff31873a14bdff6b4d3b93c88a64c3f74706003be3c3da08ec41132cbec2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15100 +15100 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15105 +15105 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15107 +15107 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15112 +15112 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15114 +15114 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15119 +15119 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15121 +15121 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15126 +15126 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15128 +15128 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15133 +15133 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15135 +15135 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15140 +15140 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15142 +15142 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15147 +15147 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15149 +15149 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15154 +15154 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15156 +15156 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15161 +15161 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15163 +15163 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15168 +15168 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15170 +15170 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15172,4 +15172,4 @@
+-        "sha256": "e91e93cc72768d5279e95f8769cfa48f1352bc2f97193ffc4a2bb18d2e526eb9"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "49186611b271a67cb096f58a9940bc9383433505f3262cdc682c6bea7604dd71"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15177 +15177 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15179,4 +15179,4 @@
+-        "sha256": "89f15b0958ce1b8a27eec56ba5c891807360b92d82f980781be873ab54158942"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "61452509bc0196848b14c775178cab89b4286b58521d20b0e98fb4c954f30585"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15184 +15184 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15189 +15189 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15191 +15191 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15196 +15196 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15198 +15198 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15203 +15203 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15205 +15205 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15210 +15210 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15212 +15212 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15214,4 +15214,4 @@
+-        "sha256": "de60208b314d522860d482493ff406da7cd196bed9a30f0bbcd6e603a58df391"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "a094f7df10b5ca919c99f16bc22a4822ce7f30157056ce0784483cf2f0b04c0a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15219 +15219 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15221,4 +15221,4 @@
+-        "sha256": "5ff5c3a7085bcc5d91d5d4bd3572892b02f9aea5d311f3ea40d76c4a4d6aa549"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "80997f19f6499ff90107808113dcecf166468f456813c30ae263210546862b32"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15226 +15226 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15228,4 +15228,4 @@
+-        "sha256": "63c11a683811200fe5507d97dbcea58e82714bf4bfd3eeb7fe1f06040a3d4368"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "b01333105805ded61c9ead88a1289e0c5064c4c041d4f5870e6549ae9c1e17b7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15233 +15233 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15235,4 +15235,4 @@
+-        "sha256": "9ae43b55ab3f5560f70136f5f63aff8a5a879a0e82a4c5536249aae7994bfafc"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "da5e6391494f1efdaed4949ce7cf7a434213b7da32972388425466eac1732452"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15240 +15240 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15245 +15245 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15247 +15247 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15249,4 +15249,4 @@
+-        "sha256": "48a810b839a19eed19ef470d3facebb6aa9aff0803679d7a1e18f924923bf0ce"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "e7bf39d4269472afcd75c088a7308ba4f4522d7fcbe724c3accd1ae0fccac2f6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15254 +15254 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15256,4 +15256,4 @@
+-        "sha256": "f287e6c9c3615f16fe8a4c5b5934c2f3308208bd0cb481330c632107026fdd9c"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "d5ebb4c53bc888c82a59c6c1df7f80a0cbbae828ca191d802a1bff74f14c53a8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15261 +15261 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15263,4 +15263,4 @@
+-        "sha256": "9bbe3627eba807b82eb26564b10950a3fdcc628c4542b4e52ef0340fd4c986cd"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "f2035565415db0a0fd373437eb58f2205aa7c56db21c37fcab80c3bd16a04384"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15268 +15268 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15270,4 +15270,4 @@
+-        "sha256": "1db0aacfee3288a8ae58d95141d5c3d1126350f5ffba62bad2598c0dc1921426"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "9b4700d3158e2fed36f719fbb87cad5d415c21fd6703f26759e17d0165d9790e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15275 +15275 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15277,4 +15277,4 @@
+-        "sha256": "fb533fdad12685a3a4fb69a7d72bc9c37ac056467abe3927724e313251318074"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "0f77a1fc671a463fc9ecf5ee98fe14c1ee1180866286a8bd7203d131e1904da5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15282 +15282 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15284,4 +15284,4 @@
+-        "sha256": "fa5b94b0d647381ebccff50f952a29ff1e1dcaedd9617b86de6144c60d66ca34"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "20374389d7383ebd24fb06dd779ba04c974b773e9b7255e18a06d5fe89a7839a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15289 +15289 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15291,4 +15291,4 @@
+-        "sha256": "d857c91947069090b5434795cf44c5bf4dc167747faafb1ff84d723956d9e582"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "9536133899635afd7161727481c8969b2de008f1e56bad9f4bf8b81d41912f6c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15296 +15296 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15298,4 +15298,4 @@
+-        "sha256": "255b77258a242a7468804ca52546eaa66704b5200452fac5579bb2811b67e8b3"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "3f64f404d6e91fbdaa54bfb1d8032267e128b26a692296c3f85516fe36474dc7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15303 +15303 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15305,4 +15305,4 @@
+-        "sha256": "66ed0f18630819e96184a7588da180745233644216a9a3d82ef33d3b03fdd103"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "cfaf47b8c149e0ef081d5da95a44a9431c5544742e3d37a5f627f1f71292d96f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15310 +15310 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15312,4 +15312,4 @@
+-        "sha256": "c0ba4467574ca74278662365a35a02b0a66d47796db08f5d95701564e6b425f8"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "sha256": "4a9611b030d71e74c9150295f44a7650495f6c1a61defb2dabfa60d663c7594b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15317 +15317 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15322 +15322 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -15324 +15324 @@
+-        "revision": "1f44561466c2b11c73011a1a3d05e4ce9d006a6d plus reviewed candidate working tree; not deployed",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+@@ -15326,0 +15327,49 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "server-mods/code/common/zone_hunt_policy.h",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "728bf49bb0c8150dc8347ce823e06cb8a265468088b7e3752f82af4e47dae421"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "server-mods/code/zone/zone_hunt.cpp",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "1c495092af7013656df30908771ed411fcc46feae48e2142d00dc1acfbf6e335"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "docs/items/power-source-xp/integration-native-build.json",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "ed6dacef607bb32a9dd07844ad4dfd9154d1e0c156bfdec9cd24c8638fef5fe2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "docs/items/power-source-xp/integration-resolution.json",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "89147e5ee651495af80a8740d4859c0f8d482793e045fffad6d3df24131b0e11"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "docs/items/power-source-xp/integration-wiki-review.json",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "6573b365eeb177dce9276cdebf29cc912d87f7d3b007e7c7a5cd2df48f21ee02"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "docs/items/power-source-xp/promotion.json",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "809cfaed9bd9140bbe8fba15b5b2a9fca8abcdd27cb7d6340d7b1ae307708d51"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "path": "tools/link_item_xp_integration.py",
++        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "0226b35ae84167d6ce89cb8f4fb5e5d786a6ddbd1cbbbc3a1f399404deb157bc"

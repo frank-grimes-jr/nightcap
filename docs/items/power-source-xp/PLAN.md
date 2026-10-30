@@ -1,6 +1,6 @@
 # Power Source item experience — implementation plan
 
-Status: verified source candidate, 2026-10-30. Disabled by default. The paired
+Status: promoted to test through PR384, 2026-10-30 (dev PR383). Disabled by default. The paired
 build and independent source review pass; real-client/custody checks, measured
 pacing and owner acceptance remain pending. Not deployed or enabled.
 
@@ -120,12 +120,13 @@ The default workspace contains unrelated edits and is not the implementation tar
   commands, binary hashes and successful dependency resolution. All three retained
   binaries were rehashed against that manifest. No services were installed or restarted.
 - Whole-wiki impact evidence is in wiki-review.json; installed skill candidate
-  guidance, item-xp source routing and47reviewed fingerprints validate. REVIEW.md records the author audit
+  guidance and reviewed item-xp source fingerprints validate. REVIEW.md records the author audit
   and owner-authorized independent review: no blocking finding for the disabled
   candidate;8native groups passed independently, DB opt-in skipped. Existing box
   recipe policy and all10Perl quest checks also pass. Real custody/client/effect
   and pacing checks remain manual acceptance.
-  No promotion, public publication or production deployment has occurred.
+  Source promotion through test is recorded in promotion.json. No main promotion,
+  public publication or runtime deployment has occurred. Owner in-game QA is next.
 - Old binaries cannot
   safely load new multi-key XP/grip metadata: paired rollout is required.
 
