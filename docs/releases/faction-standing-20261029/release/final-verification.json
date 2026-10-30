@@ -1,0 +1,29 @@
+{
+  "verified_at": "2026-10-30T16:12:30.084322+00:00",
+  "status": "passed",
+  "image_id": "sha256:933911b9d59354c6eb3848170847a3f0fbe1b1704c51ec7e7f3bcae7ca00d809",
+  "started_at": "2026-10-30T16:08:45.395104456Z",
+  "restart_count": 0,
+  "zone_workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "checks": {
+    "schema": 51,
+    "content": 650
+  },
+  "gateway_open": true,
+  "factions_access": 0,
+  "legacy_faction_access_preserved": true,
+  "other_command_settings_preserved": true,
+  "retained_binaries_quests_cache_content_client_verified": true,
+  "changed_native_binaries": [
+    "zone"
+  ],
+  "saved_state_tables_at_open": 102,
+  "free_bytes": 1114513408,
+  "owner_gameplay_accepted": false,
+  "private_metadata_exported": false
+}

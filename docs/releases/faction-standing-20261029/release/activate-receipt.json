@@ -1,0 +1,6 @@
+{
+  "action": "activate",
+  "status": "held_or_failed",
+  "log_tail": "Traceback (most recent call last):\n  File \"/opt/nightcap/releases/faction-standing-20261030-v1/rollout.py\", line 226, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/opt/nightcap/releases/faction-standing-20261030-v1/rollout.py\", line 223, in main\n    {'preflight':preflight,'activate':transition,'open':open_access,\n  File \"/opt/nightcap/releases/faction-standing-20261030-v1/rollout.py\", line 147, in transition\n    unchanged(p);startup.startup_guards()\n    ^^^^^^^^^^^^\n  File \"/opt/nightcap/releases/faction-standing-20261030-v1/rollout.py\", line 94, in unchanged\n    assert content()==p['content'],'Content/rule drift'\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Content/rule drift\n",
+  "returncode": 1
+}

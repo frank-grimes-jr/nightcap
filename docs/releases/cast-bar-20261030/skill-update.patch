@@ -1,0 +1,203 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -1,0 +2,31 @@
++
++## Cast-bar timing — October30 tested unpublished repair
++
++Source: E:/EQ_Local_Dev/_worktrees/cast-bar-timing, feature/cast-bar-timing-20261030;
++docs/releases/cast-bar-20261030/{README.md,QA.md,verification.json,REVIEW.md}.
++Current signed2026102901 spells_us SHA314b098a gives638non-DoT definitions50ms,
++including Frost Bolt54/Numbing Cold374 (server1000ms) and Blast of Cold372
++(1500ms). October30 read-only production content and pinned original agree.
++Native gauge VA0x761fb0 divides remaining deadline by raw spell+0x10 duration
++and clamps1000: it stays full until the last50ms. Earlier September27 casting
++diagnosis is superseded by this reproduced data defect; visible owner QA is open.
++
++assets/spell-cast-times.csv and tools/client_spell_cast_times.py repair only those
++638field13 values, including100native instant definitions. Require exact identity,
++50ms or reviewed afterimage, full scope; preserve other bytes and reject drift.
++client_gameplay_assets.py applies repair before instant_dots. Do not reset all
++spells from stock: Bard timing and custom/DoT policies intentionally differ.
++The normal generator cannot ingest later published custom43220; use the scoped
++transform on verified current signed bytes, not wholesale old-reference output.
++
++eq-client-dll/tests/cast-bar-native.cpp executes the unchanged pinned gauge in a
++private mapped PE; spell lookup ABI is ret4. Existing file fails2752/5105 checks;
++candidate passes5105 across638spells.39asset tests (2environment skips),19wiki
++tests and full field-preservation audit pass. Native graphics/packet delivery,
++focus combinations and Diiv acceptance remain pending. No game process writes.
++
++Candidate spells SHAa4bedf59 is staged only. A new signed one-file release must
++preserve all other147 current descriptors/runtime pair/history/tombstones and
++recheck the latest public baseline. No DLL/server/quest/cache restart is needed;
++fully exit EQ and update through launcher Play. Recovery uses a higher signed
++counter and preserves player data. Main/publication require owner authorization.
+--- C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
+@@ -1,0 +2,11 @@
++
++## Cast-bar timing — October30 unpublished candidate guidance
++
++Source: E:/EQ_Local_Dev/_worktrees/cast-bar-timing;
++docs/releases/cast-bar-20261030/wiki-review.json. All40maintained articles and
++generated catalog impacts reviewed. Launcher, In development and Change Log
++gain explicit Not released notes; prior body/status is preserved. Home/Features,
++commands/items/zones/rewards and normal combat/instant-DoT policy are unchanged.
++19wiki/content-refresh tests pass and492pages build. Historical500source-path
++drift remains REVIEW REQUIRED; no blanket ledger advance or publication. Publish
++current guide wording only with an authorized signed repair; owner QA is pending.
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -132 +132,2 @@
+-    "recall_aa_strings_20261030": "875edf148aa8222246e374d5c8408909e21801a8"
++    "recall_aa_strings_20261030": "875edf148aa8222246e374d5c8408909e21801a8",
++    "cast_bar_candidate_20261030": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate"
+@@ -9430,7 +9430,0 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-29/go/work/hateplaneb",
+-        "path": "tools/client_gameplay_assets.py",
+-        "role": "Reviewed October29 Hate paired deployment; owner gameplay QA open",
+-        "revision": "9bb53754d2f7a825c93f6699822bc56782fb4c33",
+-        "sha256": "5165745b5aa3447b0000fce634d14ba1c3aaa164506240b0674a74e13c13b681"
+-      },
+-      {
+@@ -10008,0 +10003,49 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "tools/client_spell_cast_times.py",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "25bd0f88f5c098b666edb775aba2df726670de068f8e3318222b31f7f9548584"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "tools/client_gameplay_assets.py",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "4ee585f561d15671a4d2cbf0cea2f82a9b3078e52f14bbfe90d2962ed700f041"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "assets/spell-cast-times.csv",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "d95bd3b9b8947bbc87d5ef331b37035f03613dddf8b63727e6ff18e884ad893d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "tools/tests/test_client_spell_cast_times.py",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "10ce3bed9ad3f52167eaf3385eb26272605d36a7535f14d733f1eda14e3a12ea"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "eq-client-dll/tests/cast-bar-native.cpp",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "77038ec3cfe54a1cc3e1742d34253cd6f480bfd0d4509adcc7e324e989b7167c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/README.md",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "095302ceb1a954561bc537557d820460311e71f06fa10378e6a9b81dc200f2ad"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/verification.json",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "568decb3039bdd3bf21045371b03ad36ad114ad9ef50fc880ba2bc0903ba87cd"
+@@ -13234,7 +13276,0 @@
+-        "path": "wiki/articles/launcher.json",
+-        "role": "Reviewed current wiki editorial structure, content or verified publication",
+-        "revision": "7f5f3331ece87706acf75bd32b9bb75b055a564a",
+-        "sha256": "9c992c7594928258dcf1cd8bb9190071ecfc37f80654b8dc4dc210f0e7ab2209"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-clarity",
+@@ -13784,7 +13819,0 @@
+-        "path": "wiki/articles/launcher.json",
+-        "revision": "caeb5b7e2164ea275a862ffddfa55bac0ab98cbb",
+-        "role": "Owner accepted Bazaar posting/preview/readability; broader market QA separate. Acceptance wiki publication verified.",
+-        "sha256": "76ad281d53e5b5b037b889028d7bdd090b951703a3492305dd13c9a0d5653db1"
+-      },
+-      {
+-        "root": "E:/CodexData/home/worktrees/commonlands-bazaar/EQ_Local_Dev",
+@@ -13868,14 +13896,0 @@
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "3e9f58d1806924eb53ed978b08c7d6beb84430a801a8955f32d4dd52ed2b9762"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "56936d7ccca7f901c867b994314710ce6a209d871dd48e5ef187a64819d72f4c"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
+@@ -13952,7 +13966,0 @@
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed October29 Hate paired deployment; owner gameplay QA open",
+-        "revision": "9bb53754d2f7a825c93f6699822bc56782fb4c33",
+-        "sha256": "88e5d167bb4d9207e48a1865ed6c36232564f197e60c143e5b657133f1bec0c9"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-29/go/work/hateplaneb",
+@@ -13963,7 +13970,0 @@
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-29/go/work/hateplaneb",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed October29 Hate paired deployment; owner gameplay QA open",
+-        "revision": "9bb53754d2f7a825c93f6699822bc56782fb4c33",
+-        "sha256": "d5925885aa610ca3f1518c95b98e74d2f9565c51398605dc8fb67d266d6b848a"
+@@ -14008,14 +14008,0 @@
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "October29 deployed keyless doors and verified wiki; owner gameplay QA open",
+-        "revision": "989a464c345fb2c3799f5b769090442039a1d35e",
+-        "sha256": "a0ee090343ef419a778214ab4a26e28193428ae3ec4b8c2154e414b152f18e97"
+-      },
+-      {
+-        "root": "E:/CodexData/home/worktrees/keyless-doors/EQ_Local_Dev",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "October29 deployed keyless doors and verified wiki; owner gameplay QA open",
+-        "revision": "989a464c345fb2c3799f5b769090442039a1d35e",
+-        "sha256": "aecbfa1022bf977c2a809a98ca56b54d4daef0a3feb650bd5de37915e858f507"
+-      },
+-      {
+-        "root": "E:/CodexData/home/worktrees/keyless-doors/EQ_Local_Dev",
+@@ -14053,0 +14041,28 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/wiki-review.json",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "ebc9b8a3444ea16f4fbc33aa13adb0c591fb15ab495b8522cccf126c203b56de"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "wiki/articles/launcher.json",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "53d9fca791384a6e257efd46c711b49f58c287e25ba4aa6b853cb6a46fb4ec3d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "wiki/articles/unreleased.json",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "d76f42a0189fcf50a9f1918c9d785f2ca320cd23f364d106aefd57511382f780"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
++        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
++        "sha256": "c59d31900d1416794531df4c0a8975c1bd2815ea1c14f67eff64eafa39b51058"

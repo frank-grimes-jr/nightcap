@@ -25,6 +25,7 @@ from rabid_bear import client_spells as rabid_bear_spells, ILLUSION as RABID_ILL
 from pet_support_spells import client_spells as pet_support_spells
 from pet_content import client_spells as pet_fragment_spells, client_rows as pet_fragment_rows
 from wpm_content import client_spells as wpm_spells, client_rows as wpm_rows
+from client_spell_cast_times import repair_cast_times
 
 
 def restore_spell_classes(raw, original):
@@ -231,6 +232,7 @@ def main():
     raw = (client/'spells_us.txt').read_bytes()
     original = (args.spell_source or client/'Downloads/spells_us.txt').read_bytes()
     spells, restored = restore_spell_classes(raw, original)
+    spells, restored_cast_times = repair_cast_times(spells)
     spells, ids = instant_dots(spells)
     spells = rabid_bear_spells(spells)
     spells = pet_support_spells(spells)
@@ -272,6 +274,7 @@ def main():
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,
+             'restored_spell_cast_time_ids':restored_cast_times,
              'instant_dot_ids':ids, 'skin_activation':'automatic_at_native_ui_load',
              'helmet_mesh_sha256':hashlib.sha256(helmet_mesh).hexdigest(), 'helmet_archives':helmet_audit,
              'robe_archives':robe_audit,

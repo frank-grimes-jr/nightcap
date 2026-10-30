@@ -1,0 +1,28 @@
+{
+  "baseline_capture": "2026-10-30T11:44:24.975795+00:00",
+  "changes": [
+    {
+      "id": "163",
+      "short_name": "hateplaneb",
+      "zoneidnumber": "186",
+      "version": "0",
+      "changes": {
+        "map_file_name": {
+          "before": null,
+          "after": ""
+        },
+        "content_flags": {
+          "before": null,
+          "after": ""
+        },
+        "content_flags_disabled": {
+          "before": null,
+          "after": ""
+        }
+      }
+    }
+  ],
+  "added": [],
+  "removed": [],
+  "binlog_enabled": "0"
+}

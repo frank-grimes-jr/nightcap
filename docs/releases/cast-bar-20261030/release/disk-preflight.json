@@ -1,0 +1,9 @@
+{
+  "observed_free": 442667008,
+  "spell_asset_bytes": 28157810,
+  "reserved_copies": 2,
+  "minimum_free_after_client_bytes": 367001600,
+  "measured_margin_after_copies_and_reserve": 19349788,
+  "wiki_budget": "separately measured before wiki upload",
+  "deletions": false
+}

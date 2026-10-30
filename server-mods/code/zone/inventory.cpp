@@ -29,6 +29,8 @@
 #include "zone/quest_parser_collection.h"
 #include "zone/worldserver.h"
 #include "zone/zonedb.h"
+#include "zone/advanced_loot_inventory.h"
+#include "common/item_xp_eligibility.h"
 
 extern WorldServer worldserver;
 extern QueryServ  *QServ;
@@ -106,7 +108,7 @@ bool Client::TogglePaladinWeaponGrip(int32 slot_id)
 		Message(Chat::Yellow, "Change your weapon grip from your equipment or inventory while safely out of combat and trading.");
 		return true;
 	}
-	if (inst->IsEvolving() || inst->IsScaling() || !PlainMetadata(inst->GetCustomDataString())) {
+	if (inst->IsEvolving() || inst->IsScaling() || !PlainMetadata(inst->GetCustomDataString(), inst->GetID())) {
 		Message(Chat::Yellow, "This customized weapon cannot change grip.");
 		return true;
 	}
@@ -1362,6 +1364,7 @@ int16 Client::FindLootEquipSlot(const EQ::ItemInstance &inst)
 					continue;
 				}
 
+				if (i == EQ::invslot::slotPowerSource && !(inst.GetItem()->Slots & NightcapItemXP::PowerSourceMask)) { continue; }
 				if (inst.IsEquipable(i)) { // Equippable at this slot?
 					return i;
 				}
@@ -1892,6 +1895,17 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 	uint32 dstitemid = 0;
 	EQ::ItemInstance* src_inst = m_inv.GetItem(src_slot_id);
 	EQ::ItemInstance* dst_inst = m_inv.GetItem(dst_slot_id);
+	// Validate both swap directions; ordinary items may occupy this slot only
+	// through a complete, supported training family. Native power sources retain
+	// their existing rules. Removing a training item remains possible when off.
+	auto training_allowed = [&](int16 destination, const EQ::ItemInstance *incoming) {
+		return destination != EQ::invslot::slotPowerSource || !incoming ||
+			(incoming->GetItem()->Slots & NightcapItemXP::PowerSourceMask) || NightcapLoot::CanTrainItem(this, incoming);
+	};
+	if (!training_allowed(dst_slot_id, src_inst) || !training_allowed(src_slot_id, dst_inst)) {
+		Message(Chat::Yellow, "This item cannot train here. Use a supported equipment or Hunt augment family at its required and recommended level.");
+		return false;
+	}
 	if (src_inst){
 		LogInventory("Src slot [{}] has item [{}] ([{}]) with [{}] charges in it", src_slot_id, src_inst->GetItem()->Name, src_inst->GetItem()->ID, src_inst->GetCharges());
 		srcitemid = src_inst->GetItem()->ID;
@@ -2210,7 +2224,8 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 	}
 	else {
 		// Not dealing with charges - just do direct swap
-		if (src_inst && (dst_slot_id <= EQ::invslot::EQUIPMENT_END) && dst_slot_id >= EQ::invslot::EQUIPMENT_BEGIN) {
+		if (src_inst && (dst_slot_id <= EQ::invslot::EQUIPMENT_END) && dst_slot_id >= EQ::invslot::EQUIPMENT_BEGIN &&
+			(dst_slot_id != EQ::invslot::slotPowerSource || (src_inst->GetItem()->Slots & NightcapItemXP::PowerSourceMask))) {
 			if (src_inst->GetItem()->Attuneable) {
 				src_inst->SetAttuned(true);
 			}
@@ -2264,7 +2279,7 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 		}
 
 		if (src_slot_id <= EQ::invslot::EQUIPMENT_END) {
-			if(src_inst) {
+			if(src_inst && (src_slot_id != EQ::invslot::slotPowerSource || (src_inst->GetItem()->Slots & NightcapItemXP::PowerSourceMask))) {
 				if (parse->ItemHasQuestSub(src_inst, EVENT_UNEQUIP_ITEM)) {
 					parse->EventItem(EVENT_UNEQUIP_ITEM, this, src_inst, nullptr, "", src_slot_id);
 				}
@@ -2280,7 +2295,7 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 				}
 			}
 
-			if (dst_inst) {
+			if (dst_inst && (src_slot_id != EQ::invslot::slotPowerSource || (dst_inst->GetItem()->Slots & NightcapItemXP::PowerSourceMask))) {
 				if (parse->ItemHasQuestSub(dst_inst, EVENT_EQUIP_ITEM)) {
 					parse->EventItem(EVENT_EQUIP_ITEM, this, dst_inst, nullptr, "", src_slot_id);
 				}
@@ -2298,7 +2313,7 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 		}
 
 		if (dst_slot_id <= EQ::invslot::EQUIPMENT_END) {
-			if (dst_inst) {
+			if (dst_inst && (dst_slot_id != EQ::invslot::slotPowerSource || (dst_inst->GetItem()->Slots & NightcapItemXP::PowerSourceMask))) {
 				if (parse->ItemHasQuestSub(dst_inst, EVENT_UNEQUIP_ITEM)) {
 					parse->EventItem(EVENT_UNEQUIP_ITEM, this, dst_inst, nullptr, "", dst_slot_id);
 				}
@@ -2316,7 +2331,7 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 				}
 			}
 
-			if (src_inst) {
+			if (src_inst && (dst_slot_id != EQ::invslot::slotPowerSource || (src_inst->GetItem()->Slots & NightcapItemXP::PowerSourceMask))) {
 				if (parse->ItemHasQuestSub(src_inst, EVENT_EQUIP_ITEM)) {
 					parse->EventItem(EVENT_EQUIP_ITEM, this, src_inst, nullptr, "", dst_slot_id);
 				}

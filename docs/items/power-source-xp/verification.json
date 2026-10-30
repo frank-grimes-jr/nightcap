@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-30",
+  "source_revision": "3975695c907b7f03c581a8217f35f909de0aa9c8",
+  "status": "paired native build, automated regression checks and independent source review pass; not deployed",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s tools/tests -p 'test_item_xp_*.py' -v",
+      "result": "8 native test groups pass; 1 opt-in database group skipped"
+    },
+    {
+      "command": "python -B tools/tests/test_item_xp_awards.py",
+      "result": "35 actual AddEXP/CalculateExp checks pass"
+    },
+    {
+      "command": "python -B tools/tests/test_level_aa.py",
+      "result": "369 existing AA checks pass"
+    },
+    {
+      "command": "python -B tools/tests/test_paladin_weapon_grip.py",
+      "result": "6 groups pass, including actual XP/grip metadata projection and restore"
+    },
+    {
+      "command": "python -B tools/tests/test_bazaar_native.py",
+      "result": "4 groups pass, including actual current metadata reconstruction"
+    },
+    {
+      "command": "python -B -m unittest discover -s tools/tests -p test_item_xp_database.py -v",
+      "result": "1 real MariaDB group passes separately after hex fix; native-generated statements, replay/stale predicates/GUID/NULL/rollback",
+      "scope": "explicit disposable synthetic database, not production schema or player data"
+    },
+    {
+      "command": "python -B -m unittest -q test_wiki test_refresh",
+      "cwd": "wiki",
+      "result": "19 tests pass"
+    },
+    {
+      "command": "Nightcap context.py --topic item-xp --check",
+      "result": "47 reviewed source/test/evidence fingerprints unchanged"
+    },
+    {
+      "command": "skill-creator quick_validate.py nightcap-development",
+      "result": "valid"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "python -B tools/tests/test_item_upgrade_policy.py",
+      "result": "existing 3/4/4 recipe, family and name-policy regression passes"
+    },
+    {
+      "command": "perl tools/tests/test_reforging_box.pl",
+      "result": "10 checks pass using container Perl with isolated copied quest/test files; Windows Perl failed to start due to DLL relocation"
+    }
+  ],
+  "native_compile": {
+    "file": "native-compile-final.json",
+    "sha256": "8dd4e7f78622d976399051f9b0e53b71e317050cc961926d9aaa938536dfaec4",
+    "units": 13,
+    "dependency_records": 9726,
+    "scope": "translation-unit compilation, no linking or installation"
+  },
+  "full_build": {
+    "root": "/tmp/nightcap-item-xp-full-c4802fa0a9ad",
+    "container": "akk-stack-eqemu-server-1",
+    "driver": "tools/build_item_xp.py",
+    "state": "complete; world, zone and shared_memory build/link/dependency checks pass",
+    "manifest_sha256": "0a62f3ed524e89b1bc2dfae35d7019477adc7b5885d5da03e05d094fedeeeb52",
+    "source_files": 2848,
+    "binary_rehash": "all three retained binaries matched the successful manifest after build completion"
+  },
+  "review": "Owner-authorized independent item_xp_review found no blocking correctness/security issue for disabled-candidate integration; 8 native groups passed independently, 1 DB opt-in skipped. Limitations and author corroboration in REVIEW.md.",
+  "manual_qa": "QA.md: actual RoF2, full custody/effects and timed pacing acceptance pending.",
+  "deployment": false,
+  "publication": false,
+  "owner_accepted": false,
+  "origin_main_at_check": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9",
+  "test_database_cleanup": "Verified task label, localhost3318 and anonymous volume before removing nightcap-item-xp-db-20261030; shared database untouched."
+}

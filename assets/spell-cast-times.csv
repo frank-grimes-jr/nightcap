@@ -1,0 +1,639 @@
+id,name,cast_time
+22,Force Snap,2500
+23,Force Strike,4000
+38,Lightning Bolt,2500
+54,Frost Bolt,1000
+73,Gravity Flux,5900
+85,Firestorm,2000
+372,Blast of Cold,1500
+374,Numbing Cold,1000
+376,Shock of Fire,1500
+377,Icestrike,2000
+379,Fingers of Fire,1850
+380,Column of Frost,2700
+382,Frost Spiral of Al'Kabor,3150
+383,Shock of Lightning,2200
+385,Project Lightning,2500
+386,Pillar of Fire,3150
+458,Fire Spiral of Al'Kabor,3600
+459,Shock Spiral of Al'Kabor,4050
+460,Force Spiral of Al'Kabor,5000
+461,Cast Force,3150
+462,Column of Lightning,3600
+463,Circle of Force,4500
+464,Frost Shock,3000
+465,Inferno Shock,4000
+466,Lightning Shock,4000
+467,Lightning Storm,3000
+468,Energy Storm,4000
+469,Lava Storm,5000
+470,Thunder Strike,3500
+471,Thunderclap,3150
+477,Fire Bolt,2000
+656,Shock of Ice,2000
+657,Flame Shock,2500
+658,Ice Shock,4000
+659,Conflagration,5000
+660,Frost Storm,5000
+731,Wrath of Al'Kabor,6300
+732,Ice Comet,5000
+733,Supernova,6300
+755,Rend,5000
+1310,Porlos' Fury,6000
+1311,Hsagra's Wrath,6000
+1421,Enticement of Flame,4500
+1426,Ice Spear of Solist,4000
+1636,Invert Gravity,6100
+1637,Draught of Fire,3000
+1638,Lure of Flame,4500
+1639,Voltaic Draught,3000
+1640,Lure of Lightning,4500
+1641,Draught of Ice,3000
+1642,Lure of Frost,4500
+1643,Draught of Jiva,3000
+1644,Pillar of Flame,4500
+1645,Pillar of Lightning,4500
+1646,Pillar of Frost,4500
+1647,Tears of Prexus,5000
+1648,Tears of Solusek,5000
+1649,Tears of Druzzil,5000
+1650,Inferno of Al'Kabor,5000
+1651,Retribution of Al'Kabor,5000
+1652,Vengeance of Al'Kabor,5000
+1653,Jyll's Static Pulse,2000
+1654,Jyll's Zephyr of Ice,2000
+1655,Jyll's Wave of Heat,2000
+1657,Winds of Gelid,6000
+1658,Sunstrike,7000
+1769,Lure of Ice,4500
+2116,Ancient: Destruction of Ice,4000
+2552,Garrison's Mighty Mana Shock,3000
+2883,Elnerick's Electrical Rending,7500
+2884,Garrison's Superior Sundering,7500
+3189,Tears of Arlyxir,5000
+3191,Shock of Magic,6000
+3327,Tears of Ro,5000
+3328,Lure of Thunder,4500
+3330,Draught of Ro,3000
+3331,Lure of Ro,4500
+3332,Tears of Marr,5000
+3334,Draught of Thunder,3000
+3335,Agnarr's Thunder,7000
+3336,Draught of E`ci,3000
+3339,Strike of Solusek,8000
+3706,Frozen Harpoon,4000
+3976,Draught of Lightning,3000
+4066,Ice Meteor,8000
+4905,Black Ice,3000
+4906,White Fire,8000
+4981,Ancient: Strike of Chaos,8000
+5442,Icebane,4500
+5444,Tears of the Sun,5000
+5445,Lightningbane,4500
+5446,Spark of Fire,3000
+5447,Firebane,4500
+5449,Spark of Thunder,3000
+5450,Thundaka,7000
+5451,Circle of Thunder,6000
+5452,Spark of Lightning,3000
+5454,Meteor Storm,5000
+5455,Circle of Fire,2000
+5456,Telekara,3000
+5457,Spark of Ice,3000
+5458,Gelidin Comet,8000
+5461,Gelid Rains,5000
+5462,Corona Flare,8000
+5463,Ancient: Core Fire,8000
+6146,Ancient: Spear of Gelaqua,3500
+6669,Claw of Vox,5000
+6737,Claw of Frost,5000
+8041,Clinging Frost,4000
+8043,Ether Flame,8000
+8044,Mana Weave,7000
+8512,Chaos Flame,3000
+10540,Ethereal Conflagration,4000
+10541,Ethereal Conflagration Rk. II,4000
+10542,Ethereal Conflagration Rk. III,4000
+10770,Rimelure,1250
+10771,Rimelure Rk. II,1250
+10772,Rimelure Rk. III,1250
+10776,Tears of the Betrayed,5000
+10777,Tears of the Betrayed Rk. II,5000
+10778,Tears of the Betrayed Rk. III,5000
+10788,Magmaraug's Presence,2000
+10789,Magmaraug's Presence Rk. II,2000
+10790,Magmaraug's Presence Rk. III,2000
+10798,Cloudburst Strike,0
+10799,Cloudburst Strike Rk. II,0
+10800,Cloudburst Strike Rk. III,0
+10807,Lavalure,1250
+10808,Lavalure Rk. II,1250
+10809,Lavalure Rk. III,1250
+10813,Leap of Shocking Bolts,750
+10814,Leap of Shocking Bolts Rk. II,750
+10815,Leap of Shocking Bolts Rk. III,750
+10816,Ball Lightning,3500
+10817,Ball Lightning Rk. II,3500
+10818,Ball Lightning Rk. III,3500
+10819,Leap of Sparks,750
+10820,Leap of Sparks Rk. II,750
+10821,Leap of Sparks Rk. III,750
+10822,Cold Snap,0
+10823,Cold Snap Rk. II,0
+10824,Cold Snap Rk. III,0
+10831,Volcanic Eruption,5000
+10832,Volcanic Eruption Rk. II,5000
+10833,Volcanic Eruption Rk. III,5000
+10837,Icefall Avalanche,4000
+10838,Icefall Avalanche Rk. II,4000
+10839,Icefall Avalanche Rk. III,4000
+10841,Flashfires,0
+10842,Flashfires Rk. II,0
+10843,Flashfires Rk. III,0
+10847,Claw of Selay,1500
+10848,Claw of Selay Rk. II,1500
+10849,Claw of Selay Rk. III,1500
+10850,Telakisz,750
+10851,Telakisz Rk. II,750
+10852,Telakisz Rk. III,750
+10856,Icicle Deluge,5000
+10857,Icicle Deluge Rk. II,5000
+10858,Icicle Deluge Rk. III,5000
+10859,Sothgar's Flame,4000
+10860,Sothgar's Flame Rk. II,4000
+10861,Sothgar's Flame Rk. III,4000
+11828,Intertwining Energy,3500
+11829,Intertwining Energy Rk. II,3500
+11830,Intertwining Energy Rk. III,3500
+11831,Chaos Immolation,750
+11832,Chaos Immolation Rk. II,750
+11833,Chaos Immolation Rk. III,750
+11834,Beam of Solteris,0
+11835,Beam of Solteris Rk. II,0
+11836,Beam of Solteris Rk. III,0
+11842,Pure Wildmagic,750
+11843,Pure Wildmagic Rk. II,750
+11844,Pure Wildmagic Rk. III,750
+15381,Ethereal Incineration,4000
+15382,Ethereal Incineration Rk. II,4000
+15383,Ethereal Incineration Rk. III,4000
+15384,Lure of Isaz,1250
+15385,Lure of Isaz Rk. II,1250
+15386,Lure of Isaz Rk. III,1250
+15390,Tears of the Forsaken,5000
+15391,Tears of the Forsaken Rk. II,5000
+15392,Tears of the Forsaken Rk. III,5000
+15402,Vsorug's Presence,2000
+15403,Vsorug's Presence Rk. II,2000
+15404,Vsorug's Presence Rk. III,2000
+15411,Cloudburst Bolts,0
+15412,Cloudburst Bolts Rk. II,0
+15413,Cloudburst Bolts Rk. III,0
+15419,Pyrolure,1250
+15420,Pyrolure Rk. II,1250
+15421,Pyrolure Rk. III,1250
+15425,Leap of Arclight,750
+15426,Leap of Arclight Rk. II,750
+15427,Leap of Arclight Rk. III,750
+15428,Rolling Lightning,3500
+15429,Rolling Lightning Rk. II,3500
+15430,Rolling Lightning Rk. III,3500
+15431,Leap of Static Bolts,750
+15432,Leap of Static Bolts Rk. II,750
+15433,Leap of Static Bolts Rk. III,750
+15434,Rime Snap,0
+15435,Rime Snap Rk. II,0
+15436,Rime Snap Rk. III,0
+15442,Pyroclastic Eruption,5000
+15443,Pyroclastic Eruption Rk. II,5000
+15444,Pyroclastic Eruption Rk. III,5000
+15445,Glacial Collapse,4000
+15446,Glacial Collapse Rk. II,4000
+15447,Glacial Collapse Rk. III,4000
+15451,Flashflames,0
+15452,Flashflames Rk. II,0
+15453,Flashflames Rk. III,0
+15456,Claw of Selig,1500
+15457,Claw of Selig Rk. II,1500
+15458,Claw of Selig Rk. III,1500
+15459,Telajasz,750
+15460,Telajasz Rk. II,750
+15461,Telajasz Rk. III,750
+15465,Icicle Storm,5000
+15466,Icicle Storm Rk. II,5000
+15467,Icicle Storm Rk. III,5000
+15468,Inizen's Fire,4000
+15469,Inizen's Fire Rk. II,4000
+15470,Inizen's Fire Rk. III,4000
+15477,Tangleweave Energy,3500
+15478,Tangleweave Energy Rk. II,3500
+15479,Tangleweave Energy Rk. III,3500
+15483,Chaos Conflagration,750
+15484,Chaos Conflagration Rk. II,750
+15485,Chaos Conflagration Rk. III,750
+15494,Pure Wildmagic,750
+15495,Pure Wildmagic Rk. II,750
+15496,Pure Wildmagic Rk. III,750
+15500,Funnel of Frost,0
+15501,Funnel of Frost Rk. II,0
+15502,Funnel of Frost Rk. III,0
+15508,Ethereal Rime,3750
+15509,Ethereal Rime Rk. II,3750
+15510,Ethereal Rime Rk. III,3750
+19561,Ethereal Combustion,4000
+19562,Ethereal Combustion Rk. II,4000
+19563,Ethereal Combustion Rk. III,4000
+19564,Voidfrost Lure,1250
+19565,Voidfrost Lure Rk. II,1250
+19566,Voidfrost Lure Rk. III,1250
+19570,Tears of the Pyrilen,5000
+19571,Tears of the Pyrilen Rk. II,5000
+19572,Tears of the Pyrilen Rk. III,5000
+19582,Talendor's Presence,2000
+19583,Talendor's Presence Rk. II,2000
+19584,Talendor's Presence Rk. III,2000
+19591,Cloudburst Levin,0
+19592,Cloudburst Levin Rk. II,0
+19593,Cloudburst Levin Rk. III,0
+19599,Flarelure,1250
+19600,Flarelure Rk. II,1250
+19601,Flarelure Rk. III,1250
+19605,Leap of Lightning Sprites,750
+19606,Leap of Lightning Sprites Rk. II,750
+19607,Leap of Lightning Sprites Rk. III,750
+19608,Ribbon Lightning,3500
+19609,Ribbon Lightning Rk. II,3500
+19610,Ribbon Lightning Rk. III,3500
+19611,Leap of Static Jolts,750
+19612,Leap of Static Jolts Rk. II,750
+19613,Leap of Static Jolts Rk. III,750
+19614,Gelid Snap,0
+19615,Gelid Snap Rk. II,0
+19616,Gelid Snap Rk. III,0
+19626,Magmatic Eruption,5000
+19627,Magmatic Eruption Rk. II,5000
+19628,Magmatic Eruption Rk. III,5000
+19629,Icesheet Cascade,4000
+19630,Icesheet Cascade Rk. II,4000
+19631,Icesheet Cascade Rk. III,4000
+19635,Flashblaze,0
+19636,Flashblaze Rk. II,0
+19637,Flashblaze Rk. III,0
+19644,Claw of Gorenaire,1500
+19645,Claw of Gorenaire Rk. II,1500
+19646,Claw of Gorenaire Rk. III,1500
+19647,Telajara,750
+19648,Telajara Rk. II,750
+19649,Telajara Rk. III,750
+19653,Icicle Torrent,5000
+19654,Icicle Torrent Rk. II,5000
+19655,Icicle Torrent Rk. III,5000
+19656,Klixcxyk's Fire,4000
+19657,Klixcxyk's Fire Rk. II,4000
+19658,Klixcxyk's Fire Rk. III,4000
+19665,Thricewoven Energy,3500
+19666,Thricewoven Energy Rk. II,3500
+19667,Thricewoven Energy Rk. III,3500
+19671,Chaos Combustion,750
+19672,Chaos Combustion Rk. II,750
+19673,Chaos Combustion Rk. III,750
+19682,Pure Wildmagic,750
+19683,Pure Wildmagic Rk. II,750
+19684,Pure Wildmagic Rk. III,750
+19688,Funnel of Frigidity,0
+19689,Funnel of Frigidity Rk. II,0
+19690,Funnel of Frigidity Rk. III,0
+19696,Ethereal Iceblight,3750
+19697,Ethereal Iceblight Rk. II,3750
+19698,Ethereal Iceblight Rk. III,3750
+19705,Mindfreeze Strike,1500
+19706,Mindfreeze Strike,1500
+19707,Mindfreeze Strike,1500
+19929,Malediction of Havoc,1000
+19930,Malediction of Havoc Rk. II,1000
+19931,Malediction of Havoc Rk. III,1000
+22559,Splash of Brimstone,1000
+22560,Splash of Brimstone Rk. II,1000
+22561,Splash of Brimstone Rk. III,1000
+26532,Corona Beam,0
+26533,Corona Beam Rk. II,0
+26534,Corona Beam Rk. III,0
+26537,Fire Vortex,1000
+26538,Fire Vortex Rk. II,1000
+26539,Fire Vortex Rk. III,1000
+26543,Glacial Lure,1250
+26544,Glacial Lure Rk. II,1250
+26545,Glacial Lure Rk. III,1250
+26546,Tears of Flame,5000
+26547,Tears of Flame Rk. II,5000
+26548,Tears of Flame Rk. III,5000
+26552,Brainfreeze,1500
+26553,Brainfreeze Rk. II,1500
+26554,Brainfreeze Rk. III,1500
+26561,Cloudburst Storm,0
+26562,Cloudburst Storm Rk. II,0
+26563,Cloudburst Storm Rk. III,0
+26566,Glacial Pillar,2500
+26567,Glacial Pillar Rk. II,2500
+26568,Glacial Pillar Rk. III,2500
+26569,Leap of Corposantum,750
+26570,Leap of Corposantum Rk. II,750
+26571,Leap of Corposantum Rk. III,750
+26572,Ring of Fire,2000
+26573,Ring of Fire Rk. II,2000
+26574,Ring of Fire Rk. III,2000
+26578,Beam of Permafrost,0
+26579,Beam of Permafrost Rk. II,0
+26580,Beam of Permafrost Rk. III,0
+26586,Flamelure,1250
+26587,Flamelure Rk. II,1250
+26588,Flamelure Rk. III,1250
+26589,Freezing Snap,0
+26590,Freezing Snap Rk. II,0
+26591,Freezing Snap Rk. III,0
+26598,Lightning Helix,3500
+26599,Lightning Helix Rk. II,3500
+26600,Lightning Helix Rk. III,3500
+26601,Lightning Surge,750
+26602,Lightning Surge Rk. II,750
+26603,Lightning Surge Rk. III,750
+26604,Mana Vortex,1000
+26605,Mana Vortex Rk. II,1000
+26606,Mana Vortex Rk. III,1000
+26616,Blazing Pillar,2500
+26617,Blazing Pillar Rk. II,2500
+26618,Blazing Pillar Rk. III,2500
+26619,Chaos Char,750
+26620,Chaos Char Rk. II,750
+26621,Chaos Char Rk. III,750
+26625,Denunciation of Havoc,1000
+26626,Denunciation of Havoc Rk. II,1000
+26627,Denunciation of Havoc Rk. III,1000
+26644,Ethereal Glaciation,3750
+26645,Ethereal Glaciation Rk. II,3750
+26646,Ethereal Glaciation Rk. III,3750
+26647,Flashpyre,0
+26648,Flashpyre Rk. II,0
+26649,Flashpyre Rk. III,0
+26656,Glacial Cascade,4000
+26657,Glacial Cascade Rk. II,4000
+26658,Glacial Cascade Rk. III,4000
+26662,Magmatic Downpour,5000
+26663,Magmatic Downpour Rk. II,5000
+26664,Magmatic Downpour Rk. III,5000
+26665,Ethereal Inferno,4000
+26666,Ethereal Inferno Rk. II,4000
+26667,Ethereal Inferno Rk. III,4000
+26668,Glacial Claw,1500
+26669,Glacial Claw Rk. II,1500
+26670,Glacial Claw Rk. III,1500
+26671,Hail Torrent,5000
+26672,Hail Torrent Rk. II,5000
+26673,Hail Torrent Rk. III,5000
+26674,Ice Vortex,1000
+26675,Ice Vortex Rk. II,1000
+26676,Ice Vortex Rk. III,1000
+26680,Lithara's Fire,4000
+26681,Lithara's Fire Rk. II,4000
+26682,Lithara's Fire Rk. III,4000
+26683,Maelstrom of Mana,4000
+26684,Maelstrom of Mana Rk. II,4000
+26685,Maelstrom of Mana Rk. III,4000
+26686,Fire Spiral,0
+26687,Fire Spiral II,0
+26688,Fire Spiral III,0
+26689,Power Spiral,0
+26690,Power Spiral II,0
+26691,Power Spiral III,0
+26692,Ice Spiral,0
+26693,Ice Spiral II,0
+26694,Ice Spiral III,0
+26695,Pure Wildmana,750
+26696,Pure Wildmana II,750
+26697,Pure Wildmana III,750
+26704,Splash of Rhyolite,1000
+26705,Splash of Rhyolite Rk. II,1000
+26706,Splash of Rhyolite Rk. III,1000
+26707,Telakama,750
+26708,Telakama Rk. II,750
+26709,Telakama Rk. III,750
+26710,Thricewoven Electricity,3500
+26711,Thricewoven Electricity Rk. II,3500
+26712,Thricewoven Electricity Rk. III,3500
+29657,Blazing Beam,0
+29658,Blazing Beam Rk. II,0
+29659,Blazing Beam Rk. III,0
+29662,Flame Vortex,1000
+29663,Flame Vortex Rk. II,1000
+29664,Flame Vortex Rk. III,1000
+29666,Frigid Lure,1250
+29667,Frigid Lure Rk. II,1250
+29668,Frigid Lure Rk. III,1250
+29669,Tears of Daevan,3000
+29670,Tears of Daevan Rk. II,3000
+29671,Tears of Daevan Rk. III,3000
+29678,Thoughtfreeze,1500
+29679,Thoughtfreeze Rk. II,1500
+29680,Thoughtfreeze Rk. III,1500
+29682,Cloudburst Tempest,0
+29683,Cloudburst Tempest Rk. II,0
+29684,Cloudburst Tempest Rk. III,0
+29687,Ethereal Barrage,4000
+29688,Ethereal Barrage Rk. II,4000
+29689,Ethereal Barrage Rk. III,4000
+29690,Frozen Pillar,2500
+29691,Frozen Pillar Rk. II,2500
+29692,Frozen Pillar Rk. III,2500
+29693,Leap of Plasma,750
+29694,Leap of Plasma Rk. II,750
+29695,Leap of Plasma Rk. III,750
+29696,Ring of Flame,2000
+29697,Ring of Flame Rk. II,2000
+29698,Ring of Flame Rk. III,2000
+29702,Beam of Rime Crystals,0
+29703,Beam of Rime Crystals Rk. II,0
+29704,Beam of Rime Crystals Rk. III,0
+29713,Blazelure,1250
+29714,Blazelure Rk. II,1250
+29715,Blazelure Rk. III,1250
+29716,Frost Snap,0
+29717,Frost Snap Rk. II,0
+29718,Frost Snap Rk. III,0
+29725,Lightning Swarm,3500
+29726,Lightning Swarm Rk. II,3500
+29727,Lightning Swarm Rk. III,3500
+29728,Staccato Lightning,750
+29729,Staccato Lightning Rk. II,750
+29730,Staccato Lightning Rk. III,750
+29731,Power Vortex,1000
+29732,Power Vortex Rk. II,1000
+29733,Power Vortex Rk. III,1000
+29741,Burning Pillar,2500
+29742,Burning Pillar Rk. II,2500
+29743,Burning Pillar Rk. III,2500
+29744,Chaos Blaze,750
+29745,Chaos Blaze Rk. II,750
+29746,Chaos Blaze Rk. III,750
+29750,Villification of Havoc,1000
+29751,Villification of Havoc Rk. II,1000
+29752,Villification of Havoc Rk. III,1000
+29769,Ethereal Frost,3750
+29770,Ethereal Frost Rk. II,3750
+29771,Ethereal Frost Rk. III,3750
+29772,Flashflares,0
+29773,Flashflares Rk. II,0
+29774,Flashflares Rk. III,0
+29781,Rime Cascade,4000
+29782,Rime Cascade Rk. II,4000
+29783,Rime Cascade Rk. III,4000
+29787,Magmatic Outburst,3000
+29788,Magmatic Outburst Rk. II,3000
+29789,Magmatic Outburst Rk. III,3000
+29790,Ethereal Blaze,4000
+29791,Ethereal Blaze Rk. II,4000
+29792,Ethereal Blaze Rk. III,4000
+29793,Claw of the Abyss,1500
+29794,Claw of the Abyss Rk. II,1500
+29795,Claw of the Abyss Rk. III,1500
+29796,Frost Torrent,3000
+29797,Frost Torrent Rk. II,3000
+29798,Frost Torrent Rk. III,3000
+29799,Frost Vortex,1000
+29800,Frost Vortex Rk. II,1000
+29801,Frost Vortex Rk. III,1000
+29803,Daevan's Fire,4000
+29804,Daevan's Fire Rk. II,4000
+29805,Daevan's Fire Rk. III,4000
+29806,Maelstrom of Power,4000
+29807,Maelstrom of Power Rk. II,4000
+29808,Maelstrom of Power Rk. III,4000
+29809,Fire Spiral,0
+29810,Fire Spiral II,0
+29811,Fire Spiral III,0
+29812,Power Spiral,0
+29813,Power Spiral II,0
+29814,Power Spiral III,0
+29815,Ice Spiral,0
+29816,Ice Spiral II,0
+29817,Ice Spiral III,0
+29818,Pure Wildspark,750
+29819,Pure Wildspark II,750
+29820,Pure Wildspark III,750
+29827,Splash of Phenocrysts,1000
+29828,Splash of Phenocrysts Rk. II,1000
+29829,Splash of Phenocrysts Rk. III,1000
+29830,Telanama,750
+29831,Telanama Rk. II,750
+29832,Telanama Rk. III,750
+29833,Thricewoven Potential,3500
+29834,Thricewoven Potential Rk. II,3500
+29835,Thricewoven Potential Rk. III,3500
+35719,Claw of the Ashwing,3000
+35720,Claw of the Ashwing Rk. II,3000
+35721,Claw of the Ashwing Rk. III,3000
+35747,Incinerating Beam,0
+35748,Incinerating Beam Rk. II,0
+35749,Incinerating Beam Rk. III,0
+35752,Lure of the Wastes,1250
+35753,Lure of the Wastes Rk. II,1250
+35754,Lure of the Wastes Rk. III,1250
+35755,Tears of Gosik,3000
+35756,Tears of Gosik Rk. II,3000
+35757,Tears of Gosik Rk. III,3000
+35764,Skullfreeze,1500
+35765,Skullfreeze Rk. II,1500
+35766,Skullfreeze Rk. III,1500
+35768,Ethereal Salvo,3750
+35769,Ethereal Salvo Rk. II,3750
+35770,Ethereal Salvo Rk. III,3750
+35771,Icebound Pillar,2500
+35772,Icebound Pillar Rk. II,2500
+35773,Icebound Pillar Rk. III,2500
+35774,Leap of Static Sparks,750
+35775,Leap of Static Sparks Rk. II,750
+35776,Leap of Static Sparks Rk. III,750
+35777,Circle of Flame,2000
+35778,Circle of Flame Rk. II,2000
+35779,Circle of Flame Rk. III,2000
+35786,Frigid Beam,0
+35787,Frigid Beam Rk. II,0
+35788,Frigid Beam Rk. III,0
+35791,Magmalure,1250
+35792,Magmalure Rk. II,1250
+35793,Magmalure Rk. III,1250
+35794,Claw of the Flamewing,3000
+35795,Claw of the Flamewing Rk. II,3000
+35796,Claw of the Flamewing Rk. III,3000
+35797,Flashfreeze,0
+35798,Flashfreeze Rk. II,0
+35799,Flashfreeze Rk. III,0
+35806,Lightning Squall,3500
+35807,Lightning Squall Rk. II,3500
+35808,Lightning Squall Rk. III,3500
+35809,Barbed Lightning,750
+35810,Barbed Lightning Rk. II,750
+35811,Barbed Lightning Rk. III,750
+35812,Flamelocked Pillar,2500
+35813,Flamelocked Pillar Rk. II,2500
+35814,Flamelocked Pillar Rk. III,2500
+35815,Chaos Incandescence,750
+35816,Chaos Incandescence Rk. II,750
+35817,Chaos Incandescence Rk. III,750
+35821,Ethereal Hoarfrost,3750
+35822,Ethereal Hoarfrost Rk. II,3750
+35823,Ethereal Hoarfrost Rk. III,3750
+35824,Flashsear,0
+35825,Flashsear Rk. II,0
+35826,Flashsear Rk. III,0
+35833,Hoarfrost Cascade,3000
+35834,Hoarfrost Cascade Rk. II,3000
+35835,Hoarfrost Cascade Rk. III,3000
+35839,Magmatic Vent,3000
+35840,Magmatic Vent Rk. II,3000
+35841,Magmatic Vent Rk. III,3000
+35842,Ethereal Incandescence,3750
+35843,Ethereal Incandescence Rk. II,3750
+35844,Ethereal Incandescence Rk. III,3750
+35845,Claw of the Icewing,3000
+35846,Claw of the Icewing Rk. II,3000
+35847,Claw of the Icewing Rk. III,3000
+35848,Tamagrist Torrent,3000
+35849,Tamagrist Torrent Rk. II,3000
+35850,Tamagrist Torrent Rk. III,3000
+35851,Gosik's Fire,3000
+35852,Gosik's Fire Rk. II,3000
+35853,Gosik's Fire Rk. III,3000
+35854,Pure Wildether,750
+35855,Pure Wildether II,750
+35856,Pure Wildether III,750
+35863,Telanaga,750
+35864,Telanaga Rk. II,750
+35865,Telanaga Rk. III,750
+35866,Thricewoven Mana,3500
+35867,Thricewoven Mana Rk. II,3500
+35868,Thricewoven Mana Rk. III,3500
+35872,Incandescent Vortex,1000
+35873,Incandescent Vortex Rk. II,1000
+35874,Incandescent Vortex Rk. III,1000
+35876,Cloudburst Thunderbolt,0
+35877,Cloudburst Thunderbolt Rk. II,0
+35878,Cloudburst Thunderbolt Rk. III,0
+35881,Ether Vortex,1000
+35882,Ether Vortex Rk. II,1000
+35883,Ether Vortex Rk. III,1000
+35892,Hoarfrost Vortex,1000
+35893,Hoarfrost Vortex Rk. II,1000
+35894,Hoarfrost Vortex Rk. III,1000
+40411,Permeating Blaze,1250
+40412,Permeating Blaze Rk. II,1250
+40413,Permeating Blaze Rk. III,1250
+40415,Permeating Ice,1250
+40416,Permeating Ice Rk. II,1250
+40417,Permeating Ice Rk. III,1250
+40419,Splash of Pyroxene,1000
+40420,Splash of Pyroxene Rk. II,1000
+40421,Splash of Pyroxene Rk. III,1000
+40422,Permeating Ether,1250
+40423,Permeating Ether Rk. II,1250
+40424,Permeating Ether Rk. III,1250
+40512,Ether Shard Strike,0

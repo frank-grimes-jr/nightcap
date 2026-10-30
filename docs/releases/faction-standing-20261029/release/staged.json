@@ -1,0 +1,8 @@
+{
+  "status": "staged and27Linux tests passed",
+  "zone_sha256": "fa77ba0284ab19291cf6a12c914a6193e9cd3683db2735611b93e4eb1e03fe1c",
+  "archive_sha256": "44b6549b45a7738e2d2fb9084a62339e88e416138f2e3a935461744d83ccc58d",
+  "free_bytes": 1358553088,
+  "services_changed": false,
+  "metadata_retained_on_host": true
+}

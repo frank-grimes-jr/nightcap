@@ -1,0 +1,19 @@
+{
+  "status": "unsigned_local_plan_not_approved_not_published",
+  "observed_utc": "2026-10-30T12:03:15.187435+00:00",
+  "previous_release": 2026103001,
+  "proposed_release": 2026103002,
+  "previous_channel_sha256": "fa9488d44023362d7d8e792fdd5eae6af2c9e8cdc0a26f3d31a6d734ba578f6b",
+  "required_revalidation": "Recheck exact current channel and available release counter before signing/publication",
+  "changed_assets": [
+    "spells_us.txt"
+  ],
+  "retained_descriptors": 147,
+  "retained_repair": "2026103001 Ancient Attunement name, Nightcap Recall label and Commonlands recall description",
+  "exact_retention": "All other descriptors/URLs, patch-note history, tombstones and runtime pairing preserved",
+  "expiry": "Inherited in this unsigned plan; refresh within manifest policy when signing",
+  "unsigned_manifest_sha256": "8cf0031a08b86b936d88beeac9e5bb5dc118eb63712d565a88b7d21da98e2aff",
+  "candidate_spell_sha256": "a4bedf590660b9a3441bc1406f40a8427b71ff56694496f8fca97e3ed9c7a34a",
+  "candidate_spell_size": 28157810,
+  "approval": "Main promotion, signed client publication and wiki publication still pending owner authorization"
+}

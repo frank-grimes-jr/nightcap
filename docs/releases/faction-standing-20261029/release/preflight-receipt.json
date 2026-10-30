@@ -1,0 +1,10 @@
+{
+  "action": "preflight",
+  "status": "passed",
+  "private_receipts_retained_on_host": true,
+  "checks": {
+    "schema": 51,
+    "content": 650
+  },
+  "candidate_image": "sha256:933911b9d59354c6eb3848170847a3f0fbe1b1704c51ec7e7f3bcae7ca00d809"
+}

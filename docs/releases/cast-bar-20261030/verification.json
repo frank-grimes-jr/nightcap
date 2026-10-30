@@ -1,0 +1,25 @@
+{
+  "status": "verified_candidate_not_published",
+  "production_captured_utc": "2026-10-30T11:32:57.618506+00:00",
+  "production_capture_sha256": "31f3bb33880254fc67a16f5e981fc206a78e874003cb7e1e9f2bc921de61b64d",
+  "production_query": "SET SESSION max_statement_time=30; START TRANSACTION WITH CONSISTENT SNAPSHOT, READ ONLY; SELECT id,name,cast_time FROM spells_new ORDER BY id; ROLLBACK;",
+  "production_rows": 40746,
+  "published_release": 2026102901,
+  "published_inventory": 148,
+  "channel_sha256": "de5959ffdb6dff44e3de9626cb8dba7c57dd4787fbe9912505d5b1955f10c5d8",
+  "original_sha256": "bae7ba7d897962f67581e3e731b94f4a31898d160c30c2edb74912b21aa11880",
+  "before_sha256": "314b098a5de8a10e7c66e94472aa42b5469b19eac5f91c880b894f04bafb6cdd",
+  "after_sha256": "a4bedf590660b9a3441bc1406f40a8427b71ff56694496f8fca97e3ed9c7a34a",
+  "output_size": 28157810,
+  "catalog_sha256": "d95bd3b9b8947bbc87d5ef331b37035f03613dddf8b63727e6ff18e884ad893d",
+  "spell_rows": 40743,
+  "changed_rows": 638,
+  "changed_fields": [
+    13
+  ],
+  "native_instant_definitions": 100,
+  "generation_source_sha256": "fd0a88825eaacb46d438bb3739ffe4bc05607f9e3122a3a34f4520fc05551599",
+  "normal_spell_generation": "All 638 repaired durations survive full spell composition from the preserved generator input",
+  "generation_limit": "Existing class-restoration stage rejects later published custom spell 43220; do not regenerate the whole signed file from the old reference",
+  "preserved": "All other fields, rows and line endings; all other client files untouched"
+}
