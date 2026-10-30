@@ -1,0 +1,34 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -7 +7 @@
+-Current signed2026102901 spells_us SHA314b098a gives638non-DoT definitions50ms,
++Initial signed2026102901 spells_us SHA314b098a gives638non-DoT definitions50ms,
+@@ -27,0 +28,3 @@
++October30 continuation finds signed2026103001 with the same faulty spell bytes;
++its Ancient Attunement label repair must be retained. release-plan.json records
++an unsigned3002proposal over channel SHAfa9488d4; recheck before signing.
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -10041,7 +10040,0 @@
+-        "path": "docs/releases/cast-bar-20261030/README.md",
+-        "role": "October30 cast-bar repair: tested candidate, publication and owner QA pending",
+-        "revision": "989a464c345fb2c3799f5b769090442039a1d35e + reviewed cast-bar candidate",
+-        "sha256": "095302ceb1a954561bc537557d820460311e71f06fa10378e6a9b81dc200f2ad"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
+@@ -10051,0 +10045,14 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/README.md",
++        "role": "October30 continuation: unsigned cast-bar plan preserves newer 3001 recall repair; approval and owner QA pending",
++        "revision": "4c17774e + reviewed release preflight",
++        "sha256": "3eb0fbff27db1590b02a0672d0735be12aa11fb8ccaebad61d8701fad134c644"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
++        "path": "docs/releases/cast-bar-20261030/release-plan.json",
++        "role": "October30 continuation: unsigned cast-bar plan preserves newer 3001 recall repair; approval and owner QA pending",
++        "revision": "4c17774e + reviewed release preflight",
++        "sha256": "85a0a9786f68bf0a955f63b1923713d80eddee5a249a1bd7d134ad112dd1e8d3"

@@ -39,11 +39,19 @@ the reviewed subset and hashes are recorded here. DB content is not a fresh
 inspection of every worker's memory. Current source starts the server timer
 from its effective cast time and announces base cast time through BeginCast.
 
-The current public channel is release `2026102901`, SHA-256
+The initial public channel capture was release `2026102901`, SHA-256
 `de5959ffdb6dff44e3de9626cb8dba7c57dd4787fbe9912505d5b1955f10c5d8`,
 with 148 descriptors. A read-only host check verifies the hosted spell bytes
 against that descriptor; they exactly match the installed input file. This is
 not a new HTTPS/signature verification of all unrelated assets.
+
+A continuation recheck at `2026-10-30T12:03:15Z` finds release `2026103001`,
+channel SHA-256 `fa9488d44023362d7d8e792fdd5eae6af2c9e8cdc0a26f3d31a6d734ba578f6b`.
+It repairs Ancient Attunement labels but retains the same faulty spell asset.
+The local unsigned plan now proposes `2026103002` over this newer baseline,
+changing only the spell descriptor and retaining all other 147 descriptors,
+history and tombstones. See release-plan.json. Recheck the public baseline and
+available counter again before signing; this plan is not publication approval.
 
 The exact pinned executable is mapped in a separate x86 test process; no game
 is launched or modified. The original gauge executes unchanged, with only spell
