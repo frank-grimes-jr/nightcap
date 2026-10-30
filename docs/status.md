@@ -1,5 +1,18 @@
 # Current Nightcap status
 
+## 2026-10-30 — Cast-bar timing repair candidate
+
+The shipped spell file gives 638 non-DoT definitions a stale 50-ms cast time,
+including level-1 Wizard Frost Bolt, Blast of Cold and Numbing Cold. The native
+gauge consequently remains full until the last 50 ms. Restore only the reviewed
+cast-time fields to production-matching values; preserve intentional Bard/DoT
+policies and all custom content. The normal asset generator includes the repair.
+An exact-client x86 regression fails with the shipped file and passes all 5105
+checks with the candidate. No DLL/server/SQL change or restart is required.
+Candidate only: main promotion, signed client delivery and visible owner QA
+remain pending. Evidence, recovery and exact tests:
+`docs/releases/cast-bar-20261030/README.md` and `QA.md`.
+
 ## 2026-10-29 — Keyless doors deployed
 
 Owner-approved main PR370 and guarded OVH activation clear key and lock-picking

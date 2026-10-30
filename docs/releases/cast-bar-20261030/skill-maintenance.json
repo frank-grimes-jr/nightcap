@@ -1,0 +1,10 @@
+{
+  "status": "installed",
+  "skill": "C:/Users/verre/.codex/skills/nightcap-development/SKILL.md",
+  "references_updated": ["references/client.md", "references/wiki.md", "references/sources.json"],
+  "exact_patch": "skill-update.patch",
+  "validator": "Skill is valid!",
+  "reviewed_task_fingerprints": {"client": 7, "wiki": 4, "all_unchanged": true},
+  "unrelated_existing_drift": {"client": 58, "wiki": 11, "advanced": false},
+  "boundary": "Tested candidate only; main promotion, signed publication and owner-visible QA pending"
+}
