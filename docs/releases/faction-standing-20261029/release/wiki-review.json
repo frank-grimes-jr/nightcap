@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-30",
+  "scope": "Main-only faction promotion; no publication authorized or performed",
+  "changed_articles": [
+    "commands",
+    "features",
+    "unreleased",
+    "recent-changes"
+  ],
+  "articles": [
+    {
+      "slug": "about",
+      "title": "About this wiki",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f"
+    },
+    {
+      "slug": "advanced-loot",
+      "title": "Advanced loot",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "slug": "ascension",
+      "title": "Ascension quest",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f"
+    },
+    {
+      "slug": "ashen-compact",
+      "title": "The Ashen Compact",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25"
+    },
+    {
+      "slug": "build-lab",
+      "title": "Build Lab",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58"
+    },
+    {
+      "slug": "camil-vigil",
+      "title": "The Vigil of the Dawn",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8"
+    },
+    {
+      "slug": "combat",
+      "title": "Combat, buffs & recovery",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f"
+    },
+    {
+      "slug": "commands",
+      "title": "Command reference",
+      "assessment": "Faction command preview and explicit not-released status updated",
+      "sha256": "156420c806f320292de20ab315229c98482355d4470aae8ab75324fc4d0f53d3"
+    },
+    {
+      "slug": "dungeon-modes",
+      "title": "Raid & Grind dungeons",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "3a9904cfe7b3717dddb7c194a85ee547d582592f2a66230bd1cb920fe57cf660"
+    },
+    {
+      "slug": "equipment",
+      "title": "Equipment & trading",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "8b03eaaff5efc8360798b6ec247c272b786d90f38b2fa5b66ce84db74f66559b"
+    },
+    {
+      "slug": "features",
+      "title": "Features",
+      "assessment": "Faction command preview and explicit not-released status updated",
+      "sha256": "38087a72d80d0763aad3fb8a5756732cf8dca936c28298b5b00bb4c6ad779bc0"
+    },
+    {
+      "slug": "getting-started",
+      "title": "Getting started",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151"
+    },
+    {
+      "slug": "index",
+      "title": "Nightcap Wiki",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b"
+    },
+    {
+      "slug": "item-960420",
+      "title": "Polished Blade of the Ashen Compact",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e"
+    },
+    {
+      "slug": "item-960421",
+      "title": "Ascended Blade of the Ashen Compact",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0"
+    },
+    {
+      "slug": "item-960422",
+      "title": "Polished Mantle of the Iron Oath",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c"
+    },
+    {
+      "slug": "item-960423",
+      "title": "Ascended Mantle of the Iron Oath",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb"
+    },
+    {
+      "slug": "item-960424",
+      "title": "Polished Seal of Commanded Souls",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d"
+    },
+    {
+      "slug": "item-960425",
+      "title": "Ascended Seal of Commanded Souls",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb"
+    },
+    {
+      "slug": "item-961020",
+      "title": "Cinder of the Ashen Compact",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d"
+    },
+    {
+      "slug": "item-961021",
+      "title": "Cinder of the Ashen Compact (Polished)",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530"
+    },
+    {
+      "slug": "item-961022",
+      "title": "Cinder of the Ashen Compact (Exalted)",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7"
+    },
+    {
+      "slug": "item-961023",
+      "title": "Cinder of the Ashen Compact (Ascension)",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364"
+    },
+    {
+      "slug": "item-961030",
+      "title": "Iron Oath Gorget",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9"
+    },
+    {
+      "slug": "item-961031",
+      "title": "Kharzug's War Mantle",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020"
+    },
+    {
+      "slug": "item-961032",
+      "title": "Vhalek's Soulcleaver",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d"
+    },
+    {
+      "slug": "item-990510",
+      "title": "Warhelm of the Ashen Compact",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408"
+    },
+    {
+      "slug": "item-upgrades",
+      "title": "Item upgrades",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "8ca4264530f50bc4f1ed3096dede67e9c5332e48a8448436ed48a5b026f337d2"
+    },
+    {
+      "slug": "launcher",
+      "title": "Launcher & interface",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "feaa75b6f7ce586ae7f23bc031a85c4a650da899a5e9dd78685f3408a5740c3c"
+    },
+    {
+      "slug": "loot-finder",
+      "title": "Loot finder",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a"
+    },
+    {
+      "slug": "multiclass",
+      "title": "Multiclass & progression",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9"
+    },
+    {
+      "slug": "pets",
+      "title": "Pets & pet armor",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9"
+    },
+    {
+      "slug": "recent-changes",
+      "title": "Change Log",
+      "assessment": "Faction command preview and explicit not-released status updated",
+      "sha256": "30f28bf3d3696c9fdf1bdb38e76572b5e380534338fcc38ee36741e81b115064"
+    },
+    {
+      "slug": "tradeskills",
+      "title": "Tradeskills & Craft All",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+    },
+    {
+      "slug": "travel",
+      "title": "Travel & instances",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "25d934e1aa9622696430d5d1f52368c01550044d633d3af590358c9f29e78703"
+    },
+    {
+      "slug": "tunnel",
+      "title": "East Commonlands tunnel",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca"
+    },
+    {
+      "slug": "unreleased",
+      "title": "In development",
+      "assessment": "Faction command preview and explicit not-released status updated",
+      "sha256": "c9c967c809949d6ffd7dd0f09367513cb37bc13a8a2b707858f7fbb98640e592"
+    },
+    {
+      "slug": "waypoints",
+      "title": "Waypoint Explorer",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89"
+    },
+    {
+      "slug": "zone-hunt",
+      "title": "Zone hunt & forging",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "c2984b628f9bd1290d92f11d54a504c3fde93bb9ae2775ac51e99c9f1f5e460c"
+    },
+    {
+      "slug": "zone-kael",
+      "title": "Kael Drakkel \u2014 The Ashen Compact",
+      "assessment": "No behavior or availability change: faction display is read-only and remains uninstalled; preserve current published guidance",
+      "sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada"
+    }
+  ],
+  "generated_catalogs": "No item, zone, reward, eligibility or catalog values change. Home/navigation/style/assets retained. Newer recall, public Cazic and cast-bar guidance preserved.",
+  "historical_source_drift": "Review required; do not blindly advance unrelated fingerprints"
+}

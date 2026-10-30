@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## 2026-10-30 — Faction display promoted for later deployment
+
+Owner-approved main promotion adds player `#factions`: a white-text popup with
+numerical standings, full-range bars, name search, paging and target-NPC lookup.
+Native totals/modifiers and privileged `#faction` reset access are preserved.
+All three faction test groups and the authenticated faction-only zone compile/link
+pass. This scoped release excludes the dev/test augment and capacity candidates.
+The owner explicitly chose “Merge main only for now”; server deployment, public
+wiki publication and native gameplay/readability QA remain pending.
+Evidence and exact QA: `docs/releases/faction-standing-20261029/README.md`.
+
 ## 2026-10-30 — Cast-bar timing repair published for Diiv QA
 
 Owner-approved main PR376 and signed client2026103002 correct stale 50-ms client
