@@ -7745,6 +7745,11 @@ bool Mob::CheckItemRaceClassDietyRestrictionsOnCast(uint32 inventory_slot) {
 
 	//Added to prevent MQ2 exploitation of equipping normally-unequippable/clickable items with effects and clicking them for benefits.
 	EQ::ItemInstance *itm = CastToClient()->GetInv().GetItem(inventory_slot);
+	if (inventory_slot == EQ::invslot::slotPowerSource && itm && itm->GetItem() &&
+		!(itm->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) {
+		CastToClient()->Message(Chat::Yellow, "Remove your training item from the Power Source slot before using its effects.");
+		return false;
+	}
 	int bitmask = 1;
 	bitmask = bitmask << (CastToClient()->GetClass() - 1);
 	if (itm && itm->GetItem()->Classes != 65535) {

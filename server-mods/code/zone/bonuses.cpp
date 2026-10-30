@@ -146,6 +146,9 @@ void Mob::CalcItemBonuses(StatBonuses* b) {
 		if (!inst) {
 			continue;
 		}
+		// Training never grants a second equipment slot, even if later disabled.
+		if (IsClient() && i == EQ::invslot::slotPowerSource && inst->GetItem() &&
+			!(inst->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 
 		AddItemBonuses(inst, b, false, false, 0, (i == EQ::invslot::slotAmmo));
 
@@ -228,6 +231,8 @@ void Mob::CalcItemBonuses(StatBonuses* b) {
 			if (!inst) {
 				continue;
 			}
+			if (IsClient() && i == EQ::invslot::slotPowerSource && inst->GetItem() &&
+				!(inst->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 
 			AdditiveWornBonuses(inst, b);
 		}
@@ -4102,7 +4107,8 @@ bool Client::DoItemEnterZone(uint32 slot_x, uint32 slot_y) {
 				parse->EventItem(EVENT_ITEM_ENTER_ZONE, this, inst, nullptr, "", 0);
 			}
 
-			if (i <= EQ::invslot::EQUIPMENT_END) {
+			if (i <= EQ::invslot::EQUIPMENT_END && (i != EQ::invslot::slotPowerSource ||
+				(inst->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource)))) {
 				if (parse->ItemHasQuestSub(inst, EVENT_EQUIP_ITEM)) {
 					parse->EventItem(EVENT_EQUIP_ITEM, this, inst, nullptr, "", i);
 				}
@@ -4114,7 +4120,8 @@ bool Client::DoItemEnterZone(uint32 slot_x, uint32 slot_y) {
 				update_slot = true;
 			}
 		} else {
-			if (i <= EQ::invslot::EQUIPMENT_END) {
+			if (i <= EQ::invslot::EQUIPMENT_END && (i != EQ::invslot::slotPowerSource ||
+				(inst->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource)))) {
 				if (parse->ItemHasQuestSub(inst, EVENT_EQUIP_ITEM)) {
 					parse->EventItem(EVENT_EQUIP_ITEM, this, inst, nullptr, "", i);
 				}

@@ -12,6 +12,21 @@ import test_free_trade as native
 class PaladinWeaponGripTests(unittest.TestCase):
     compile_run = native.FreeTradeTests.compile_run
 
+    def test_grip_sql_preserves_training_progress(self):
+        fixture = (native.ROOT/'tools/tests/fixtures/paladin_weapon_grip.cpp').read_text().split('// PRODUCTION_HANDLER')[0]
+        self.compile_run(fixture + r'''
+int main() {
+ Item item; item.metadata="nightcap_item_xp^1:5504:123^";
+ const auto one=NightcapPaladinGrip::UpdateSQL(42,13,item,true);
+ assert(one.find("SET custom_data='nightcap_item_xp^1:5504:123^^nightcap_paladin_grip^1^'")!=std::string::npos);
+ item.metadata="nightcap_item_xp^1:5504:123^^nightcap_paladin_grip^1^";
+ const auto two=NightcapPaladinGrip::UpdateSQL(42,13,item,false);
+ assert(two.find("SET custom_data='nightcap_item_xp^1:5504:123^'")!=std::string::npos);
+ item.metadata="nightcap_item_xp^1:11050:123^";
+ assert(NightcapPaladinGrip::UpdateSQL(42,13,item,true).empty());
+}
+''')
+
     def test_actual_packet_gate_rejects_slot_aliases(self):
         source = (native.CODE/'zone/client_packet.cpp').read_text(encoding='utf-8')
         cast = native.body(source, 'void Client::Handle_OP_CastSpell(')
@@ -22,17 +37,24 @@ class PaladinWeaponGripTests(unittest.TestCase):
 #include "common/paladin_weapon_grip.h"
 #include <cassert>
 #include <cstdint>
-using uint64=uint64_t;using int16=int16_t;
+using uint64=uint64_t;using uint32=uint32_t;using int16=int16_t;
+namespace EQ { namespace invslot { constexpr int slotPowerSource=21; } }
+namespace Chat { enum { Yellow }; }
 enum class CastingSlot {Gem,Item,PotionBelt};
 #define LogDebug(...) ((void)0)
-struct Item {unsigned id=5504;unsigned GetID()const{return id;}};
+struct Item {
+ unsigned id=5504; unsigned Slots=4;
+ unsigned GetID()const{return id;}
+ const Item* GetItem()const{return this;}
+};
 struct Inventory {
  Item item;int lookups=0;
- const Item *GetItem(int16 slot){++lookups;return slot==13?&item:nullptr;}
+ const Item *GetItem(int16 slot){++lookups;return slot==13 || slot==21?&item:nullptr;}
 };
 struct Client {
  Inventory m_inv;int enables=0,casts=0,toggles=0;
  void SendSpellBarEnable(int){++enables;}
+ template<class... T> void Message(T...) {}
  void Cast(int64_t encoded,CastingSlot slot){
   struct Packet {int64_t inventoryslot;int spell_id=288;} packet{encoded};
   auto *castspell=&packet;
@@ -53,6 +75,8 @@ int main(){
   Client c;c.Cast(13,mode);assert(c.enables==1 && !c.casts && c.m_inv.lookups==1);
   c.Verify(13);assert(c.toggles==1);
   c.m_inv.item.id=5379;c.Cast(13,mode);assert(c.casts==1);
+  c.Cast(21,mode);assert(c.casts==1); // training slot blocks the item effect
+  c.m_inv.item.Slots=1u<<21;c.Cast(21,mode);assert(c.casts==2); // real power source
  }
  Client gem;gem.Cast(-1,CastingSlot::Gem);assert(gem.casts==1 && !gem.m_inv.lookups);
 }
@@ -248,6 +272,17 @@ int main() {
     assert(std::memcmp(&copied,&original,sizeof(item))==0);
     inst.DeleteCustomData(Key);
     assert(std::memcmp(&item,&original,sizeof(item))==0 && inst.GetCustomDataString().empty());
+   }
+   if (NightcapItemXP::Tier(row.id)>=0 && NightcapItemXP::Tier(row.id)<3) {
+    inst.SetCustomData(NightcapItemXP::Key,"1:"+std::to_string(row.id)+":123");
+    inst.SetCustomData(Key,std::string("1"));
+    EQ::ItemData reload=original; EQ::ItemInstance loaded{&reload};
+    loaded.SetCustomDataString(inst.GetCustomDataString());
+    assert(loaded.GetCustomDataString()==inst.GetCustomDataString());
+    assert(reload.ItemType==0 && reload.Damage==row.one_damage);
+    assert(PlainMetadata(loaded.GetCustomDataString(),row.id));
+    loaded.DeleteCustomData(Key);
+    assert(reload.ItemType==1 && loaded.m_custom_data.at(NightcapItemXP::Key)=="1:"+std::to_string(row.id)+":123");
    }
  }
  assert(Supported(10099) && Supported(810099));

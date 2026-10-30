@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "Exactly three NULL-to-empty fields on zone id163/hateplaneb186/version0",
+  "fields": [
+    "map_file_name",
+    "content_flags",
+    "content_flags_disabled"
+  ],
+  "exact_preflight_checksum_reproduced": true,
+  "other_content_checksums_preserved": true,
+  "live_sql_updated": false,
+  "temporary_clone_removed": true
+}

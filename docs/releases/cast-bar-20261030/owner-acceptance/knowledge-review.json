@@ -1,0 +1,10 @@
+{
+  "skill_validation": "PASS",
+  "context_topics_checked": ["client", "wiki"],
+  "scoped_source_entries": 30,
+  "matching_fingerprints": 28,
+  "preserved_prior_fingerprints": ["wiki/articles/unreleased.json", "wiki/articles/features.json"],
+  "reason": "Current main includes separately authorized faction-standing source changes. Acceptance does not review or publish that release; retain the previous fingerprint rather than silently bless unrelated drift.",
+  "historical_context_drift": "Remains review-required; no blanket advancement",
+  "review": "Documentation matches the exact owner statement and limits acceptance to the reported Diiv issue. Publication preserves current client, services and 496 unrelated public files. No gameplay code, credentials or private player data added."
+}

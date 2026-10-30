@@ -79,6 +79,7 @@ int command_init(void)
 	}
 
 	if (
+		command_add("itemxp", "View training progress for the item in your Power Source slot.", AccountStatus::Player, command_itemxp) ||
 		command_add("factions", "[page] [name] or target - View your faction standings, values and bars.", AccountStatus::Player, command_factions) ||
 		command_add("nightcappet", "Manage your pet armor.", AccountStatus::Player, command_nightcappet) ||
 		command_add("nightcapui", "Refresh your class display.", AccountStatus::Player, command_nightcapui) ||

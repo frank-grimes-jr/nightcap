@@ -133,8 +133,10 @@ int main(){
  assert(CursorSnapshot(&client,cursor));assert(Restore(cursor.front()));
  client.inv.cursor.front().SetCustomData("b",std::string("2"));cursor.clear();
  assert(client.inv.cursor.front().GetCustomDataString()=="a^1^^b^2^");
- assert(!Restore(Snapshot(1,33,client.inv.cursor.front())));
- assert(!CursorSnapshot(&client,cursor)); // never escrow unreconstructible metadata
+ assert(Restore(Snapshot(1,33,client.inv.cursor.front())));
+ assert(CursorSnapshot(&client,cursor)); // current native loader preserves multiple fields
+ auto malformed=cursor.front();malformed[12]=Hex("a^1^^^b^2^");
+ assert(!Restore(malformed)); // malformed rows still cannot be escrowed/reconstructed
  client.inv.cursor.front()=EQ::ItemInstance{};client.inv.cursor.front().id=1002;
  client.inv.cursor.front().charges=32766;cursor.clear();assert(CursorSnapshot(&client,cursor));
  client.inv.cursor.front().charges=32767;cursor.clear();assert(!CursorSnapshot(&client,cursor));
@@ -198,8 +200,10 @@ struct ItemInstance {
         restore='\n'.join(function(source,x) for x in ['std::string Hex(', 'std::string Unhex(', 'Row Snapshot(', 'std::unique_ptr<EQ::ItemInstance> Restore('])
         cases=r'''
 int main(){
- for(unsigned id:{5504u,205504u,405504u,605504u,11050u,211050u,411050u,611050u,10099u,810099u})for(bool grip:{false,true}){
-  const std::string metadata=grip?"nightcap_paladin_grip^1^":"";
+ for(unsigned id:{5504u,205504u,405504u,605504u,11050u,211050u,411050u,611050u,10099u,810099u})for(bool grip:{false,true})for(bool training:{false,true}){
+  const std::string xp=training&&NightcapItemXP::Tier(id)>=0&&NightcapItemXP::Tier(id)<3?"nightcap_item_xp^1:"+std::to_string(id)+":123^":"";
+  std::string metadata=xp;
+  if(grip){if(!metadata.empty())metadata+='^';metadata+="nightcap_paladin_grip^1^";}
   Row row={"1","33",std::to_string(id),"0","123","201","0","0","0","0","0","1",Hex(metadata),"72","73","-7","123456"};
   auto restored=Restore(row);assert(restored);assert(restored->GetID()==id&&restored->GetCharges()==0);
   assert(restored->GetCustomDataString()==metadata&&restored->m_item->ItemType==(grip?0:1));
@@ -210,7 +214,7 @@ int main(){
   row[0]="2";auto buyer=Restore(row);assert(buyer&&buyer->m_item->ItemType==(grip?0:1));
   assert(SameItems({row},{Snapshot(2,33,*buyer)}));
   buyer->SetCustomData(NightcapPaladinGrip::Key,std::string("1"));assert(buyer->m_item->ItemType==0);
-  buyer->DeleteCustomData(NightcapPaladinGrip::Key);assert(buyer->m_item->ItemType==1&&buyer->GetCustomDataString().empty());
+  buyer->DeleteCustomData(NightcapPaladinGrip::Key);assert(buyer->m_item->ItemType==1&&buyer->GetCustomDataString()==xp);
   assert(buyer->m_item->Damage==profile.two_hand_damage&&buyer->m_item->Delay==profile.two_hand_delay);
  }
 }
@@ -219,7 +223,11 @@ int main(){
 
     def test_exact_instance_reconstruction(self):
         source=(ROOT/'server-mods/code/zone/client_bazaar.cpp').read_text()
-        code=RESTORE_FIXTURE+'\n'+(ROOT/'tools/tests/fixtures/bazaar_custom_data.inc').read_text(encoding='utf-8')+'\n'+'\n'.join(function(source,x) for x in ['std::string Hex(','std::string Unhex(','Row Snapshot(','std::unique_ptr<EQ::ItemInstance> Restore(','bool CursorSnapshot('])+RESTORE_CASES
+        instance=(ROOT/'server-mods/code/common/item_instance.cpp').read_text(encoding='utf-8')
+        split=function((ROOT/'tools/tests/fixtures/bazaar_custom_data.inc').read_text(),'std::vector<std::string> Strings::Split(')
+        methods='\n'.join(function(instance,x) for x in ['std::string EQ::ItemInstance::GetCustomDataString(', 'void EQ::ItemInstance::SetCustomDataString(', 'void EQ::ItemInstance::SetCustomData(const std::string& identifier, const std::string& value)', 'void EQ::ItemInstance::DeleteCustomData('])
+        fixture=RESTORE_FIXTURE.replace('struct ItemInstance {','struct ItemInstance { void RefreshPaladinWeaponGrip() {}')
+        code='#include "common/paladin_weapon_grip.h"\n'+fixture+'\n'+split+methods+'\n'+'\n'.join(function(source,x) for x in ['std::string Hex(','std::string Unhex(','Row Snapshot(','std::unique_ptr<EQ::ItemInstance> Restore(','bool CursorSnapshot('])+RESTORE_CASES
         self.compile_run(code)
 
     def test_real_purchase_guards(self):

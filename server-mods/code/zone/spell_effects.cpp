@@ -6344,6 +6344,8 @@ void Mob::TryTriggerOnCastFocusEffect(focusType type, uint16 spell_id)
 				continue;
 			}
 			temp_item = ins->GetItem();
+			if (IsClient() && x == EQ::invslot::slotPowerSource && temp_item &&
+				!(temp_item->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 			if (temp_item && temp_item->Focus.Effect > 0 && IsValidSpell(temp_item->Focus.Effect)) {
 				focus_spell_id = temp_item->Focus.Effect;
 				if (!IsEffectInSpell(focus_spell_id, SpellEffect::TriggerOnCast)) {
@@ -6461,6 +6463,8 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 			EQ::ItemInstance const* ins = GetInv().GetItem(x);
 			if (!ins)
 				continue;
+			if (IsClient() && x == EQ::invslot::slotPowerSource && ins->GetItem() &&
+				!(ins->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 			if (
 					auto TempItem = ins->GetItem();
 					TempItem && TempItem->Focus.Effect > 0 && IsValidSpell(TempItem->Focus.Effect)
@@ -6600,6 +6604,8 @@ int64 Mob::GetFocusEffect(focusType type, uint16 spell_id, Mob *caster, bool fro
 			}
 
 			TempItem = ins->GetItem();
+			if (IsClient() && x == EQ::invslot::slotPowerSource && TempItem &&
+				!(TempItem->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 			if (TempItem && IsValidSpell(TempItem->Focus.Effect)) {
 				if(rand_effectiveness) {
 					focus_max = CalcFocusEffect(type, TempItem->Focus.Effect, spell_id, true);
@@ -6902,6 +6908,8 @@ int64 Mob::GetFocusEffect(focusType type, uint16 spell_id, Mob *caster, bool fro
 				}
 
 				temporary_item = ins->GetItem();
+				if (IsClient() && x == EQ::invslot::slotPowerSource && temporary_item &&
+					!(temporary_item->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 				if (temporary_item && IsValidSpell(temporary_item->Worn.Effect)) {
 					if (rand_effectiveness) {
 						worneffect_bonus += CalcFocusEffect(type, temporary_item->Worn.Effect, spell_id, true);

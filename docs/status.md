@@ -1,5 +1,58 @@
 # Current Nightcap status
 
+## 2026-10-30 — Power Source item experience candidate, not released
+
+An additional combat-XP path advances supported equipment/Hunt families through
+their existing four qualities. The Reforging Box remains. Candidate costs are
+80/160/240 comparable-kill equivalents: the owner's 4–8-hour full-path target
+at a modeled 60–120 equivalents/hour, pending timed gameplay measurements.
+The rule defaults off. Native policy, actual award failure injection, metadata,
+slot admission, AA/grip/Bazaar regressions and disposable MariaDB checks pass.
+Thirteen changed translation units and the full paired world/zone/shared_memory
+build pass. Independent source review found no blocking issue for the disabled
+candidate. Real-client/custody/effect checks and measured pacing remain pending.
+Wiki previews are local and
+marked Not released. No runtime deployment or owner acceptance is recorded.
+Build boundary, disable/recovery and exact in-game checks:
+[Power Source XP QA](items/power-source-xp/QA.md).
+
+## 2026-10-30 — Faction standings deployed for live testing
+
+Player `#factions` is deployed on OVH: white-text popup, numerical standings,
+full-range bars, name search, six-row paging and target-NPC lookup. Existing GM
+`#faction` access and all prior command settings are preserved. No client update.
+The scoped release changes only zone and excludes augment/capacity candidates.
+
+The guarded whole-game restart retained a fresh verified backup,102saved-state
+tables, existing content/quests/caches/client and one normal market rotation.
+All12workers,51schema/650content predicates, command access0 and native health
+verify before admissions reopen. Independent final verification passes.
+Five unused staging originals were losslessly archived under explicit approval;
+images/backups/player data and restoration receipts are retained. A pre-shutdown
+guard held on three Hate B NULL-to-empty fields; an exact temporary-clone proof
+and reviewed continuation preserved that normalization without live content SQL.
+Original receipts remain immutable. Native readability/gameplay QA is open;
+wiki source is updated, while public faction-guide publication remains pending.
+Evidence and recovery: `docs/releases/faction-standing-20261029/release/README.md`.
+
+## 2026-10-30 — Cast-bar issue owner-confirmed resolved
+
+Owner-approved main PR376 and signed client2026103002 correct stale 50-ms client
+times for638reviewed non-DoT definitions, including level-1 Wizard nukes. Native
+bars now use the matching server base duration. All147other client descriptors,
+the newer recall labels, proxy/catalog, history and tombstones are retained.
+All148HTTPS assets/signature/runtime pairing verify. No server restart or SQL.
+
+Wiki20261030-cast-bar-v1 updates Launcher, Change Log and search;496other files
+retain exact bytes, including Cazic/recall guidance. All499HTTPS hashes/headers
+and five private-route denials pass; five service lifetimes remain unchanged.
+The original native gauge passes5105checks with the corrected file. Launcher
+suites,20Linux client publisher tests,19wiki checks and16Linux wiki recovery tests
+pass. The owner replied “fIXED”, confirming the reported Diiv casting-bar issue
+is resolved. Wiki20261030-cast-bar-accepted-v1 records that acceptance; all499
+public files verify. Broader focus/interruption cases remain separate. Evidence and exact QA:
+`docs/releases/cast-bar-20261030/README.md`, `deployment.json` and `QA.md`.
+
 ## 2026-10-30 — Zoning capacity fix tested; storage blocks activation
 
 Candidate increases the pool12→20 and shortens only five reviewed version-0
@@ -36,17 +89,6 @@ rehearsal groups pass. Wiki20261029-keyless-doors-v1 is published: six changed,
 Paineel lift, internal Hole doors and Sky transport. Scope, backup, recovery and
 exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
-
-## 2026-10-29 — Faction standing display candidate
-
-`#factions` adds a player-accessible white-text popup with standing names,
-numerical totals, min/max bars, name search, paging and targeted-NPC lookup.
-It reads only the caller's faction and the loaded cache, preserving native
-modifiers, thresholds and the separate GM reset gate. Three native regression
-groups pass. Authenticated native unity compilation and zone relink pass; deployment,
-public wiki publication and native readability/gameplay acceptance remain open.
-No client patch, data migration or cache refresh is required. Exact QA and
-delivery boundary: [faction standing candidate](releases/faction-standing-20261029/README.md).
 
 ## October 29 — regular combat zone augments candidate
 

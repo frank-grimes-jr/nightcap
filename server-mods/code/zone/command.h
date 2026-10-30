@@ -89,6 +89,7 @@ void command_exptoggle(Client *c, const Seperator *sep);
 void command_evolvingitems(Client *c, const Seperator *sep);
 void command_faction(Client *c, const Seperator *sep);
 void command_factions(Client *c, const Seperator *sep);
+void command_itemxp(Client *c, const Seperator *sep);
 void command_faction_association(Client *c, const Seperator *sep);
 void command_feature(Client *c, const Seperator *sep);
 void command_find(Client *c, const Seperator *sep);

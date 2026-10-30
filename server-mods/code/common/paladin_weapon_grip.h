@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
 #include <string>
+#include "item_xp_metadata.h"
+#include "item_xp_eligibility.h"
 
 namespace NightcapPaladinGrip {
 inline constexpr const char *Key = "nightcap_paladin_grip";
@@ -43,10 +45,15 @@ inline const Profile *FindProfile(uint32_t id)
 
 inline bool Supported(uint32_t id) { return FindProfile(id) != nullptr; }
 
-inline bool PlainMetadata(const std::string &data)
+inline bool PlainMetadata(const std::string &data, uint32_t item_id = 0)
 {
-	// Native multi-key custom data does not reliably round-trip. Never add a
-	// second key to another system's metadata or silently normalize its data.
+	if (item_id && NightcapItemXP::Tier(item_id) >= 0) {
+		auto metadata = NightcapItemXP::ReadMetadata(data, item_id, static_cast<uint8_t>(NightcapItemXP::Tier(item_id)));
+		if (!metadata.valid) { return false; }
+		metadata.fields.erase(NightcapItemXP::Key);
+		return metadata.fields.empty() || (metadata.fields.size() == 1 &&
+			metadata.fields.begin()->first == Key && metadata.fields.begin()->second == "1");
+	}
 	return data.empty() || data == std::string(Key) + "^1^";
 }
 
@@ -54,8 +61,14 @@ template <typename Item>
 std::string UpdateSQL(uint32_t character, int16_t slot, const Item &item, bool one_handed)
 {
 	const auto before = item.GetCustomDataString();
-	if (!Supported(item.GetID()) || !PlainMetadata(before)) { return {}; }
-	const auto after = one_handed ? std::string(Key) + "^1^" : std::string{};
+	if (!Supported(item.GetID()) || !PlainMetadata(before, item.GetID())) { return {}; }
+	std::string after = one_handed ? std::string(Key) + "^1^" : std::string{};
+	if (NightcapItemXP::Tier(item.GetID()) >= 0) {
+		auto metadata = NightcapItemXP::ReadMetadata(before, item.GetID(), static_cast<uint8_t>(NightcapItemXP::Tier(item.GetID())));
+		if (one_handed) { metadata.fields[Key] = "1"; }
+		else { metadata.fields.erase(Key); }
+		after = NightcapItemXP::Encode(metadata.fields);
+	}
 	if (before == after) { return {}; }
 	// Only fixed, validated metadata strings and decimal integers enter SQL.
 	// One InnoDB UPDATE is atomic; no delete/summon or read-then-write window.

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-30",
+  "status": "resolved and independently reviewed; automated integration checks pass; source promotion pending",
+  "dev_base": "fd510bd9883ddfc8675b10e237f9103aa3c2e54e",
+  "candidate": "c16a2f382593ac1299ba41ae3fc6883e0e772022",
+  "resolved_paths": [
+    "server-mods/code/zone/command.cpp",
+    "server-mods/code/zone/command.h",
+    "docs/releases/faction-standing-20261029/README.md",
+    "CHANGES.md",
+    "docs/status.md",
+    "docs/README.md",
+    "wiki/articles/commands.json",
+    "wiki/articles/dungeon-modes.json",
+    "wiki/articles/features.json",
+    "wiki/articles/recent-changes.json",
+    "wiki/articles/travel.json",
+    "wiki/articles/unreleased.json",
+    "wiki/articles/zone-hunt.json"
+  ],
+  "wiki_dev_preview_blocks_retained": {
+    "wiki/articles/commands.json": 0,
+    "wiki/articles/dungeon-modes.json": 1,
+    "wiki/articles/features.json": 1,
+    "wiki/articles/recent-changes.json": 2,
+    "wiki/articles/travel.json": 1,
+    "wiki/articles/unreleased.json": 2,
+    "wiki/articles/zone-hunt.json": 1
+  },
+  "native_delta_from_reviewed_candidate": [
+    "common/zone_hunt_policy.h",
+    "zone/zone_hunt.cpp"
+  ],
+  "decisions": [
+    "Native command conflicts resolve to the reviewed candidate: exact dev command contents plus only itemxp registration/declaration.",
+    "Verified released faction/cast-bar/Cazic/Recall guidance supersedes older candidate labels.",
+    "Existing dev-only zoning-capacity and regular-combat augment candidates remain; no deployment status promoted.",
+    "Native overlay is byte-equivalent after line-ending normalization to the reviewed candidate except the two existing dev Hunt-augment files."
+  ],
+  "independent_review": "item_xp_review: no merge-induced blocking issue; native overlay and wiki preservation verified; no deployment or player approval",
+  "checks": {
+    "item_xp_native": "8 groups pass; DB opt-in skipped (separately passed on identical item-XP native source before disposable cleanup)",
+    "wiki": "19 tests pass",
+    "zone_hunt": "9 tests pass",
+    "zone_capacity": "8 tests pass",
+    "native_build": "selective integration compile/relink passes; retained inputs first reproduce original item-XP zone byte-for-byte"
+  },
+  "integration_manifest_sha256": "ed6dacef607bb32a9dd07844ad4dfd9154d1e0c156bfdec9cd24c8638fef5fe2",
+  "zone_sha256": "e8230862dfc7269303908c15646adc756aa63371c1046ca3723bc40b3b02f165"
+}

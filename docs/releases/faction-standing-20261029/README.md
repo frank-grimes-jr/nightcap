@@ -1,7 +1,11 @@
 # Player faction standing window — October 29, 2026
 
-Candidate only. Native unit/handler checks and the authenticated zone compile/relink pass. No server installation, public wiki publication or owner visual
-acceptance is claimed.
+Deployed to OVH October30 under renewed owner authorization. Main feature PR378,
+operator PR380 and normalization continuation PR381 are merged. All12workers,
+51schema/650content checks,102saved-state tables and command access0 verify;
+admissions are open. No client update is needed. Owner native readability and
+gameplay acceptance remain open. Public faction-guide publication is pending.
+Current receipts and recovery are in `release/README.md`.
 
 ## Intent and existing options
 
@@ -13,7 +17,7 @@ reports a target's reaction, not a numerical faction browser. The inspected
 RoF2 default EQUI catalog has no faction window. No existing Nightcap player
 faction browser was found in command registration or global-player handlers.
 
-## Candidate behavior
+## Deployed behavior
 
 - `#factions`: all loaded named factions, alphabetically, six per page.
 - `#factions qeynos`: case-insensitive literal name search, including spaces.
@@ -69,6 +73,23 @@ Change Log carry explicit candidate notes. Home, generated rewards and all
 unrelated live release labels are preserved. See `wiki-review.json` and the
 source-drift report. Historical global drift is not silently approved.
 
+## Scoped main promotion — October30
+
+Dev PR366 and test PR367 verified the feature. The main promotion starts from
+ea2f7efc and takes only the four faction C++ files plus their tests/documentation.
+Newer main/client/wiki work is retained; the unrelated augment and zone-capacity
+candidates are excluded. All three faction test groups pass on this source.
+
+`tools/build_faction_release.py` authenticates the retained Hate baseline and
+enforces exactly four changed/new source files. Only the command unity unit is
+recompiled; its archive member is replaced and the retained inputs first reproduce
+the predecessor byte-for-byte. `release/native-build.json` records the successful
+selective zone link and complete provenance. No rule catalog or data ABI changed.
+This faction-only build was deployed October30; its shipping identity and live
+verification are recorded under release/.
+
+The earlier six-file integrated test build below remains historical evidence.
+
 ## Native build evidence
 
 `native-build.json` records successful Clang14/C++20 compilation of the complete
@@ -102,8 +123,9 @@ authorized production source, preserving live changes and excluding or separatel
 authorizing the augment delta. The native builder deliberately enforces this
 exact six-file integrated delta.
 
-Source may advance through dev/test under repository policy. Main promotion
-requires owner sign-off; live deployment needs explicit authorization. OVH's
+The initial main-only deferral was superseded by the owner’s explicit server
+deployment request. The October30 guarded rollout is verified; later changes
+require their own authorization. OVH's
 supervisor restarts the whole game when a child exits: never kill one zone as a
 reload shortcut. An authorized rollout must use current retained source/evidence
 and the established guarded release process. Recovery removes only this display
