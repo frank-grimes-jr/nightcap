@@ -1,361 +1,365 @@
 --- a/references/sources.json
 +++ b/references/sources.json
-@@ -14844,287 +14844,315 @@
+@@ -14929,315 +14929,315 @@
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "docs/adr/0073-power-source-item-experience.md",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "2279583a4396d692c3e7ed38d74f9bed68de7c8557c3b4afceb1afa96e6f9553"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "docs/items/power-source-xp/PLAN.md",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
--        "sha256": "024ec096d6c6bbab926b732b8dbc892cae0a4ecb7ad3be1322af27722e818717"
-+        "sha256": "d544c2055cc9bafcf8222fdaa01e43bf127e9989546b24832f927adb1b1eb1eb"
+         "sha256": "d544c2055cc9bafcf8222fdaa01e43bf127e9989546b24832f927adb1b1eb1eb"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "docs/items/power-source-xp/QA.md",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
--        "sha256": "06740a5df4d640f2ee32aa375136b25b9aa3998b5e04793b44505e680d89ce6a"
-+        "sha256": "15b37108075fd1a8177f63c002a04bfe932de2a9fd5f461a1ff5abb05bd42614"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
-+        "path": "docs/items/power-source-xp/REVIEW.md",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
-+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
-+        "sha256": "b31b761713dce330b14a4e511631073e59ad4484d0df2ea0a4bd4a6cfd542592"
+-        "sha256": "15b37108075fd1a8177f63c002a04bfe932de2a9fd5f461a1ff5abb05bd42614"
++        "sha256": "76e78f0cd36552f37a744a289f01a37f3a64f4cfa7f2bf10c1e300469dc9608d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
+         "path": "docs/items/power-source-xp/REVIEW.md",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
+         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+-        "sha256": "b31b761713dce330b14a4e511631073e59ad4484d0df2ea0a4bd4a6cfd542592"
++        "sha256": "a9f2c6aa2daf1b1f9c98c047381cb97b7af67258f46e8e3b8c37d3a10ca9f1c1"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "docs/items/power-source-xp/calibration.json",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "3f9925584808131d3b9173096f81e1cd194dd950d5232eda59544cb8c9ecaaa7"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "docs/items/power-source-xp/native-compile-final.json",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "8dd4e7f78622d976399051f9b0e53b71e317050cc961926d9aaa938536dfaec4"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "docs/items/power-source-xp/wiki-review.json",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "9c1ee73a58880327e3451431d0fe11ad69e8ec0a29d6393c552461b15e30a61d"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/item_instance.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "52bb38db131fe368ba21bd7264a0b877bfe1c64c0ad9e1f66a1be04cabe17ed3"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/item_xp_eligibility.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "e65aa7f666de127ade5d28426e08ba0c2664b214595508e3a6080719d8cceecc"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/item_xp_inventory.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "3eff5c7627a70738438c31fa558be7464f08b804f96f684b1ba4c561af51727e"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/item_xp_metadata.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "78c03b98bfa6904c49cde06f2c5b145555d7c25345b10d229e6619206ec2faca"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/item_xp_policy.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "ee8a0434ff38f069365da532467bd0aabde575b810bf4844dae0a4d85c35c77b"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/paladin_weapon_grip.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "73a7a83013929b617a72a88e4b00977ce2d282bf05400d5df01ff23d8e80f019"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/patches/rof2.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "aa39e49ebaab592b1f4fe479e320922390198ccbc77d0c4a2d0ea97127ebbb56"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/ruletypes.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "17dca09145970355eeb968482a4f42419cda64f509f7e711845ec84747e19a3f"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/common/shareddb.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "7968bd7acc8cb1a6499c1283f708cc2f452bf05635c58cf2ae434d5b553cb598"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/advanced_loot_inventory.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "66d4df88f7ddc1cc0078803785736d02757d73bbe2c5819bf35b91891ec79fb9"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/advanced_loot_inventory.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "519edfc14e5e5eb15598150e52023cb102d0c092dcb6ea68d99fb8c5eb8777e7"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/bonuses.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "0db09954a80653a777a0b7ec98094266382ec08c2638a991615b272de919f047"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/client.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "6a342c8f32b18e83ccc1fa988d7c4e3c0824bcb807a9c2f3f2af96175a7c4fe4"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/client_mods.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "8cf3972665ad6e3ff6dd0de20ab78909a31fb1025d03353b83bc52d2af795743"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/client_packet.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "69175def53a690b5b324a6404438aa7cc000101a9cd87677e4ed469818ea808e"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/command.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "e91e93cc72768d5279e95f8769cfa48f1352bc2f97193ffc4a2bb18d2e526eb9"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/command.h",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "89f15b0958ce1b8a27eec56ba5c891807360b92d82f980781be873ab54158942"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/exp.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "0291f0ad7c638731a8dd7823ac94a5979f9ad367eb2d178bf164a87236b5989d"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/inventory.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "1e5a95c74eb20de10cda0595011686b517c83c192ae79b2848007877a95184f3"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/spell_effects.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "2b64ca4c79f767bf30b2853e042d33dfaaf9048982e0f8f5e550c5d0ef464d60"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "server-mods/code/zone/spells.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "7bf99d9bb46de459cc1c6377c241301441e5e0b0f4fdf4082804c7ef2fce64d3"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
-+        "path": "tools/build_item_xp.py",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
-+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
-+        "sha256": "de60208b314d522860d482493ff406da7cd196bed9a30f0bbcd6e603a58df391"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
-+        "path": "tools/compile_item_xp.py",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
-+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
-+        "sha256": "5ff5c3a7085bcc5d91d5d4bd3572892b02f9aea5d311f3ea40d76c4a4d6aa549"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
-+        "path": "tools/item_xp_calibration.py",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
-+        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
-+        "sha256": "63c11a683811200fe5507d97dbcea58e82714bf4bfd3eeb7fe1f06040a3d4368"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
+         "path": "tools/build_item_xp.py",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
+         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+         "sha256": "de60208b314d522860d482493ff406da7cd196bed9a30f0bbcd6e603a58df391"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
+         "path": "tools/compile_item_xp.py",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
+         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+         "sha256": "5ff5c3a7085bcc5d91d5d4bd3572892b02f9aea5d311f3ea40d76c4a4d6aa549"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
+         "path": "tools/item_xp_calibration.py",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
+         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+         "sha256": "63c11a683811200fe5507d97dbcea58e82714bf4bfd3eeb7fe1f06040a3d4368"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/fixtures/item_xp_award.cpp",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "9ae43b55ab3f5560f70136f5f63aff8a5a879a0e82a4c5536249aae7994bfafc"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_bazaar_native.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "bd3d4b7171a0a418bd06c12d820e7fe1c79b4cdb4b7af4aef5aa7d77f329bad6"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_awards.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "48a810b839a19eed19ef470d3facebb6aa9aff0803679d7a1e18f924923bf0ce"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_bonuses.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "f287e6c9c3615f16fe8a4c5b5934c2f3308208bd0cb481330c632107026fdd9c"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_box.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "9bbe3627eba807b82eb26564b10950a3fdcc628c4542b4e52ef0340fd4c986cd"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_database.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "1db0aacfee3288a8ae58d95141d5c3d1126350f5ffba62bad2598c0dc1921426"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_eligibility.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "fb533fdad12685a3a4fb69a7d72bc9c37ac056467abe3927724e313251318074"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_inventory.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "fa5b94b0d647381ebccff50f952a29ff1e1dcaedd9617b86de6144c60d66ca34"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_metadata.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "d857c91947069090b5434795cf44c5bf4dc167747faafb1ff84d723956d9e582"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_native.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "255b77258a242a7468804ca52546eaa66704b5200452fac5579bb2811b67e8b3"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_policy.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "66ed0f18630819e96184a7588da180745233644216a9a3d82ef33d3b03fdd103"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_item_xp_slots.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "c0ba4467574ca74278662365a35a02b0a66d47796db08f5d95701564e6b425f8"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_paladin_weapon_grip.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "9793babec5fd8bc19f0cfb66614cbd519608c63f32678f1494f2838ff86139f1"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
          "path": "tools/tests/test_passive_aa.py",
--        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
-+        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
+-        "revision": "3975695c907b7f03c581a8217f35f909de0aa9c8 plus reviewed candidate working tree; not deployed",
++        "revision": "401b645f8e428d2e0fa5f46680cfbb729182673d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "d6ea4d95598b33aacb2f0d7d22165e0daae5c7c625a1f1ef672c62ea6ce599e9"
        }

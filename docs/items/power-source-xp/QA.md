@@ -36,6 +36,15 @@ effective value in world and zone. Record the actual command-access value for
 Use the supported rules reload/restart procedure for that environment; on OVH
 a child exit restarts the whole runtime. This document grants no deployment.
 
+Verified native operator commands are `#rules current`,
+`#rules get Items:PowerSourceItemXP` and
+`#rules setdb Items:PowerSourceItemXP true`. The last command changes the selected
+ruleset in the database and the current zone only. After paired installation,
+use `#rules reload` and `#rules get Items:PowerSourceItemXP` in every test zone
+using that ruleset. For a temporary single-zone check, `#rules set` changes only
+that zone's memory. Test the actual non-GM player with `#itemxp`; the compiled
+command defaults to Player access, but existing command_settings can override it.
+
 RoF2 receives the additional Power Source slot mask from server serialization;
 no protected client files are modified. Verify real drag/drop on the current
 signed client before concluding a client update is unnecessary.
@@ -89,7 +98,8 @@ item IDs, character level, zone, effective XP rules, client version and results.
 ## Disable and recovery
 
 Disable Items:PowerSourceItemXP using the supported rules procedure and verify
-its effective value. Existing progress remains on the item; remove it from the
+its effective value (`#rules setdb Items:PowerSourceItemXP false`, then reload
+and verify every affected zone using that ruleset). Existing progress remains on the item; remove it from the
 Power Source slot normally. Equipment effects remain suppressed in that slot
 even when training is disabled. Re-enable only with matching safe readers.
 

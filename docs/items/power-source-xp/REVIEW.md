@@ -28,6 +28,8 @@ checkout; newer outside-Git public/wiki operations have separate evidence.
   Sources and non-client dispatch retain their prior behavior. Source review also
   covers four item-focus scans, cast/verify gates, login/swap equip events,
   attunement and auto-equip. These are not actual-client visual/click acceptance.
+  Hunt's separate OutputHeadroom scan uses only armor slots2/7/12/17/18/19, so
+  training in slot21 cannot grant extra Spell Damage or Healing Amount cap room.
 - Existing box/zoneforge rules retain 3/4/4 costs and restrictions. Only valid
   XP-only customization is newly admitted; consumed partial progress is discarded.
   Existing Paladin/Bazaar regression groups exercise actual metadata loading,
