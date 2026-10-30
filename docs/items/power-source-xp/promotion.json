@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-30",
+  "status": "promoted through test; awaiting owner in-game acceptance",
+  "feature_candidate": "c16a2f38",
+  "integration_commit": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d",
+  "dev_pr": {
+    "number": 383,
+    "url": "https://github.com/frank-grimes-jr/nightcap/pull/383",
+    "merge_commit": "bfeaf20178608c31b6ba71b951e56e743279f162",
+    "merged_at": "2026-10-30T20:08:20Z"
+  },
+  "test_pr": {
+    "number": 384,
+    "url": "https://github.com/frank-grimes-jr/nightcap/pull/384",
+    "merge_commit": "b81c6f2a3c9ba476ae42a33534d7ddc98190bab3",
+    "merged_at": "2026-10-30T20:11:37Z"
+  },
+  "verified_promotion_tree": "ce57d16538423ea01ff33d59a65dda0bce364832",
+  "tree_evidence": "Test merge tree and remote promoted test tree exactly matched the locally tested integration tree.",
+  "main_promoted": false,
+  "runtime_deployed": false,
+  "rule_activated": false,
+  "wiki_published": false,
+  "owner_accepted": false,
+  "next_gate": "Owner in-game QA and explicit sign-off before main/live release, per AGENTS.md. A separate explicit live-testing exception would be a new authorization.",
+  "scope": "Test retains pre-existing Hunt-augment and capacity candidates. The release-based item-XP-only candidate remains separately retained; do not deploy other test candidates under item-XP-only authorization."
+}

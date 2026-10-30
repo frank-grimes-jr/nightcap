@@ -68,6 +68,18 @@ slot mask; real signed-client drag/drop still needs QA. No production, protected
 client, rule activation or public wiki publication is authorized by this work.
 
 '''
+    if (OUT/'promotion.json').exists():
+        promotion = json.loads((OUT/'promotion.json').read_text(encoding='utf-8'))
+        body = body.replace('Source: E:/EQ_Local_Dev/_worktrees/power-source-item-xp,\nfeature/power-source-item-xp.',
+            'Source: '+ROOT.as_posix()+',\nfeature/power-source-item-xp-test.')
+        body += ('Dev PR'+str(promotion['dev_pr']['number'])+' and test PR'+str(promotion['test_pr']['number'])+
+            ' are merged; the promoted test tree\nmatched the tested integration exactly. Existing dev Hunt-augment/capacity\n'
+            'candidates remain. The integration rebuild reproduces the original item-XP\n'
+            'zone byte-for-byte before rebuilding the Hunt unit and relinking; world and\n'
+            'shared_memory retain matching full-build hashes. The item-XP-only release-base\n'
+            'candidate remains at E:/EQ_Local_Dev/_worktrees/power-source-item-xp, c16a2f38.\n'
+            'Main/runtime activation, public publication and owner gameplay acceptance\n'
+            'remain pending. Do not ship other test candidates under item-XP-only approval.\n\n')
     after['references/items.md'] = section(before['references/items.md'], heading, body)
     old = 'rejected before escrow. Native multi-key custom data cannot roundtrip; posting\nrejects rather than normalizing.'
     new = ('rejected before escrow. The deployed historical loader cannot roundtrip native\n'
@@ -89,6 +101,12 @@ is claimed. Preserve newer Hate-density and other public October30 changes when
 preparing any eventual publication; this candidate checkout is not that authority.
 
 ''')
+    if (OUT/'promotion.json').exists():
+        after['references/wiki.md'] = after['references/wiki.md'].replace(
+            'E:/EQ_Local_Dev/_worktrees/power-source-item-xp has Not released previews in',
+            ROOT.as_posix()+' has Not released previews in').replace(
+            'docs/items/power-source-xp/wiki-review.json. No catalog stats',
+            'docs/items/power-source-xp/integration-wiki-review.json. Source is promoted\nthrough test; previews remain unpublished. No catalog stats')
     row = '| Power Source item XP candidate | [Items and economy](references/items.md) / `item-xp` |\n'
     if row not in after['SKILL.md']:
         marker = '| Tradeskills, loot tiers, augments, upgrades, trade/LORE, sell-all | [Items and economy](references/items.md) / `items` |\n'
@@ -108,6 +126,12 @@ preparing any eventual publication; this candidate checkout is not that authorit
         'docs/items/power-source-xp/native-build.json', 'docs/items/power-source-xp/verification.json',
         'docs/items/power-source-xp/wiki-review.json', 'docs/adr/0073-power-source-item-experience.md',
     })
+    if (OUT/'promotion.json').exists():
+        paths += ['server-mods/code/common/zone_hunt_policy.h', 'server-mods/code/zone/zone_hunt.cpp',
+                  'docs/items/power-source-xp/integration-native-build.json',
+                  'docs/items/power-source-xp/integration-resolution.json',
+                  'docs/items/power-source-xp/integration-wiki-review.json',
+                  'docs/items/power-source-xp/promotion.json', 'tools/link_item_xp_integration.py']
     manifest['topics']['item-xp'] = [dict(root=ROOT.as_posix(), path=n, revision=revision,
         role='Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted',
         sha256=hashlib.sha256((ROOT/n).read_bytes()).hexdigest()) for n in paths]
