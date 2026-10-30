@@ -60,6 +60,18 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Keyless doors deployed October29; gameplay QA open:** main PR370 and operator
+  follow-ups371/372 clear all194 existing door key/lock-picking requirements across
+ 48zones, preserving other door fields and all player/keyring data. Future content
+ imports need lock-field review; this is a content migration, not a native override.
+ Paineel naturally unloaded under its owned admission hold; all12 workers and five
+ services remained running. No client/cache/binary update. Native lock success
+ broadcasts do not return to status-only connections: verify explicit List rows,
+ preserve exact lock ownership, and never replay uncertain SQL. Full-table
+ afterimage, health and lock release verify. Recovery and exact owner QA:
+ `docs/ops/keyless-doors-20261029/README.md`.
+
+
 - **Hate ground-level layout deployed October29; owner QA open.** Main PR362
   (`8b23d739`) and the paired OVH release route new Commonlands Keeper runs to
   hateplaneb186, preserving original Nightcap encounter/loot/XP/Hunt identities.
