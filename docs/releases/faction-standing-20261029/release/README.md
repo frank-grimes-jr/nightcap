@@ -63,3 +63,27 @@ Commonlands, Qeynos search/paging, target-NPC lookup, min/max values, modifiers,
 white text, scrolling/resizing and persisted faction hits. Visual/gameplay QA
 remains open. No signed client update is required. Wiki source availability must
 be updated after verified activation; public publication is tracked separately.
+
+## Pre-shutdown normalization continuation
+
+The original activation stopped before creating its activation directory or
+stopping services: only the zone checksum changed after preflight. Same-day
+capture comparison identified map_file_name/content_flags/content_flags_disabled
+on id163/hateplaneb186/version0 changing NULL to empty strings. A temporary SQL
+clone with only those three fields reverted to NULL reproduced the exact original
+preflight checksum; all other content stayed exact. No live content was rewritten.
+
+The retained native ApiGetZoneAttributes calls SaveZoneCFG; ZoneRepository maps
+these NULL strings to empty strings and writes the whole row. This is a matching
+native writer path; the calling actor was not logged, so actor attribution is
+not claimed. Preserve the normalized live row. The old attempt/log/preflight stay
+immutable. resume_normalization.py repeats the exact clone proof and admits only
+that one checksum difference, verifies unchanged service identities and invokes
+the original activation under the same locks and state-preservation checks.
+
+Use run_action.py activate --normalization and open --normalization for this
+continuation. Any future authorized rollback/open-rollback must also use
+--normalization; the original preflight intentionally rejects the known drift.
+Six continuation guard/routing tests pass on Windows and the host. Independent
+review found and closed the recovery routing gap, with no remaining blocker.
+Never rerun the failed original activation or substitute an unexplained baseline.
