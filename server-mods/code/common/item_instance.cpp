@@ -24,6 +24,7 @@
 #include "common/shareddb.h"
 #include "common/strings.h"
 #include "common/paladin_weapon_grip.h"
+#include "common/item_xp_eligibility.h"
 
 #include <climits>
 #include <cstring>
@@ -260,6 +261,8 @@ bool EQ::ItemInstance::IsRaceEquipable(uint16 race) const
 // Can equip at this slot?
 bool EQ::ItemInstance::IsEquipable(int16 slot_id) const
 {
+	if (slot_id == EQ::invslot::slotPowerSource && RuleB(Items, PowerSourceItemXP) &&
+		NightcapItemXP::Candidate(m_item) && !IsEvolving() && !IsScaling()) { return true; }
 	if (!m_item || !m_item->Slots) {
 		return false;
 	}
@@ -831,15 +834,21 @@ std::string EQ::ItemInstance::GetCustomDataString() const {
 
 void EQ::ItemInstance::SetCustomDataString(const std::string& str)
 {
-	auto components = Strings::Split(str, "^");
-	auto value_count = components.size() / 2;
-
-	for (size_t i = 0; i < value_count; i++) {
-		auto identifier = components[i * 2];
-		auto value = components[(i * 2) + 1];
-
-		SetCustomData(identifier, value);
+	if (str.empty()) { return; }
+	const auto components = Strings::Split(str, "^");
+	std::map<std::string, std::string> decoded;
+	// GetCustomDataString emits key^value^^key^value^. Preserve that saved
+	// encoding, including empty values, and accept the compact quest encoding
+	// key^value^key^value^. Never partially apply malformed metadata.
+	size_t i = 0;
+	while (i < components.size()) {
+		if (i == components.size() - 1 && components[i].empty()) { break; }
+		if (components[i].empty() || i + 1 >= components.size() || decoded.count(components[i])) { return; }
+		decoded.emplace(components[i], components[i + 1]);
+		i += 2;
+		if (i + 1 < components.size() && components[i].empty()) { ++i; }
 	}
+	for (const auto &entry : decoded) { SetCustomData(entry.first, entry.second); }
 }
 
 std::string EQ::ItemInstance::GetCustomData(const std::string& identifier) {
@@ -941,6 +950,8 @@ EQ::ItemInstance* EQ::ItemInstance::Clone() const
 
 bool EQ::ItemInstance::IsSlotAllowed(int16 slot_id) const {
 	if (!m_item) { return false; }
+	else if (slot_id == EQ::invslot::slotPowerSource && RuleB(Items, PowerSourceItemXP) &&
+		NightcapItemXP::Candidate(m_item) && !IsEvolving() && !IsScaling()) { return true; }
 	else if (InventoryProfile::SupportsContainers(slot_id)) { return true; }
 	else if (m_item->Slots & (1 << slot_id)) { return true; }
 	else if (slot_id > invslot::EQUIPMENT_END) { return true; } // why do we call 'InventoryProfile::SupportsContainers' with this here?

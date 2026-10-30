@@ -1,0 +1,145 @@
+{
+  "status": "candidate; not deployed or player accepted",
+  "owner_target_hours": [
+    4,
+    8
+  ],
+  "cost_kill_equivalents": [
+    80,
+    160,
+    240
+  ],
+  "normal_xp_multiplier": 0.65,
+  "policy_sha256": "ee8a0434ff38f069365da532467bd0aabde575b810bf4844dae0a4d85c35c77b",
+  "rule_evidence": "docs\\releases\\aa-level-progression-20261023\\production-before.json",
+  "rule_evidence_sha256": "61a95023afc320f34ae3db14954e01a04321d2074cab26011b9961061b52423a",
+  "assumptions": [
+    "Reference uses native level-squared kill formula and dated 0.65 normal XP multiplier.",
+    "Solo white-con kills at character level, no additional XP buffs, hotzone or level modifiers.",
+    "Kill rates are modeled assumptions, not measured combat throughput.",
+    "Group/raid shares, lower-con rewards and downtime can increase completion time.",
+    "Actual integer and float rounding can slightly increase counts, especially at low levels.",
+    "Required/recommended item-level gates must prevent low-level farming of endgame items."
+  ],
+  "level_examples": [
+    {
+      "character_level": 10,
+      "reference_kill_xp": 17062.5,
+      "raw_xp_per_transition_at_this_level": [
+        1365000,
+        2730000,
+        4095000
+      ]
+    },
+    {
+      "character_level": 30,
+      "reference_kill_xp": 153562.5,
+      "raw_xp_per_transition_at_this_level": [
+        12285000,
+        24570000,
+        36855000
+      ]
+    },
+    {
+      "character_level": 50,
+      "reference_kill_xp": 426562.5,
+      "raw_xp_per_transition_at_this_level": [
+        34125000,
+        68250000,
+        102375000
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "zone_modifier": 0.75,
+      "eligible_solo_white_kills_per_hour": 60,
+      "hours_per_transition": [
+        1.778,
+        3.556,
+        5.333
+      ],
+      "total_hours": 10.667
+    },
+    {
+      "zone_modifier": 0.75,
+      "eligible_solo_white_kills_per_hour": 90,
+      "hours_per_transition": [
+        1.185,
+        2.37,
+        3.556
+      ],
+      "total_hours": 7.111
+    },
+    {
+      "zone_modifier": 0.75,
+      "eligible_solo_white_kills_per_hour": 120,
+      "hours_per_transition": [
+        0.889,
+        1.778,
+        2.667
+      ],
+      "total_hours": 5.333
+    },
+    {
+      "zone_modifier": 1.0,
+      "eligible_solo_white_kills_per_hour": 60,
+      "hours_per_transition": [
+        1.333,
+        2.667,
+        4.0
+      ],
+      "total_hours": 8.0
+    },
+    {
+      "zone_modifier": 1.0,
+      "eligible_solo_white_kills_per_hour": 90,
+      "hours_per_transition": [
+        0.889,
+        1.778,
+        2.667
+      ],
+      "total_hours": 5.333
+    },
+    {
+      "zone_modifier": 1.0,
+      "eligible_solo_white_kills_per_hour": 120,
+      "hours_per_transition": [
+        0.667,
+        1.333,
+        2.0
+      ],
+      "total_hours": 4.0
+    },
+    {
+      "zone_modifier": 1.5,
+      "eligible_solo_white_kills_per_hour": 60,
+      "hours_per_transition": [
+        0.889,
+        1.778,
+        2.667
+      ],
+      "total_hours": 5.333
+    },
+    {
+      "zone_modifier": 1.5,
+      "eligible_solo_white_kills_per_hour": 90,
+      "hours_per_transition": [
+        0.593,
+        1.185,
+        1.778
+      ],
+      "total_hours": 3.556
+    },
+    {
+      "zone_modifier": 1.5,
+      "eligible_solo_white_kills_per_hour": 120,
+      "hours_per_transition": [
+        0.444,
+        0.889,
+        1.333
+      ],
+      "total_hours": 2.667
+    }
+  ]
+}

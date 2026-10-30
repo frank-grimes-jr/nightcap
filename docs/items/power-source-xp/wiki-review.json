@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-30",
+  "source_revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus working tree",
+  "status": "local candidate review, not publication",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f",
+      "decision": "No change: Epic Ascension remains a separate quest; training requires an existing complete four-tier family."
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+      "decision": "No change: character/AA XP allocation, abilities, damage/healing caps and equipped item stats remain; training does not consume XP or grant equipment benefits."
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+      "decision": "No change: character/AA XP allocation, abilities, damage/healing caps and equipped item stats remain; training does not consume XP or grant equipment benefits."
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "sha256": "d18f686cee0063f16307183150d1702fe146274de65df1ec341f7138855df228",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "sha256": "3a9904cfe7b3717dddb7c194a85ee547d582592f2a66230bd1cb920fe57cf660",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "sha256": "037e57cde2c7c554e7543e13c74c5e6c022810ff7b70a5b68112cfca14b03cb8",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "sha256": "e4627d8d4fa89358c047660fc30d89aef797599c6971a738531ec9337aef07f9",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
+      "decision": "No change: retain four compact goal paths and links to Features/Guides; no candidate release announcement on Home."
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "sha256": "7b44ce8936d50c52906936e800470e11137b285b502a7ac58a88da08eabb76e1",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "sha256": "9e433342745b079fd6db2101060c2f3fbf95fd1b0f664e6c9f621ec49d46b4e7",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9",
+      "decision": "No change: character/AA XP allocation, abilities, damage/healing caps and equipped item stats remain; training does not consume XP or grant equipment benefits."
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "sha256": "7c4f1068aac9dafa602501c06bea8a875276ddf75667445cbcd95e40075746c7",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "sha256": "25d934e1aa9622696430d5d1f52368c01550044d633d3af590358c9f29e78703",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "sha256": "de807f383fcd2a5a26b7cde7d2d2aff2208140a176c8d70e9b5b50cfc7ef6c5b",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+      "decision": "No change: this candidate does not alter the guide’s current release status, instructions or rewards."
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "sha256": "155d1fd233ea292a29960d89e74520efd4973e14a9470f1f36f887f174dbef7a",
+      "decision": "Added explicitly Not released training preview; existing live instructions and release labels preserved."
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada",
+      "decision": "No catalog value or existing acquisition change: training reuses definitions, stats, sockets and four-tier families; candidate instructions are in Item upgrades."
+    }
+  ],
+  "catalog": "No item/zone values, enabled zones, drop rates, existing forging costs or generated catalog pages change.",
+  "tests": "19 wiki and source-refresh tests pass; TEMP/TMP set to writable workspace. Initial default-sandbox temporary paths failed permission checks.",
+  "ledger": "Global October24 source ledger reports unrelated historical drift. It is deliberately not advanced.",
+  "publication": "Not requested or performed. Preserve newer October30 Hate-density public content and other concurrent releases when preparing any future publication."
+}

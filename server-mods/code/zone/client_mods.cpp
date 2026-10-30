@@ -541,6 +541,7 @@ int32 Client::GetRawItemAC()
 	for (int16 slot_id = EQ::invslot::BONUS_BEGIN; slot_id <= EQ::invslot::BONUS_STAT_END; slot_id++) {
 		const EQ::ItemInstance* inst = m_inv[slot_id];
 		if (inst && inst->IsClassCommon()) {
+			if (slot_id == EQ::invslot::slotPowerSource && !(inst->GetItem()->Slots & (uint32{1} << EQ::invslot::slotPowerSource))) { continue; }
 			Total += inst->GetItem()->AC;
 		}
 	}

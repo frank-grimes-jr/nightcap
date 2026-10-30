@@ -1,0 +1,383 @@
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -19,6 +19,7 @@
+ | Source authority, branch/worktree drift, build and reload | [Operations](references/operations.md) / `operations` |
+ | Classes, spells, skills, AA ownership, XP | [Multiclass and progression](references/multiclass.md) / `multiclass` |
+ | Tradeskills, loot tiers, augments, upgrades, trade/LORE, sell-all | [Items and economy](references/items.md) / `items` |
++| Power Source item XP candidate | [Items and economy](references/items.md) / `item-xp` |
+ | Tunnel NPCs, travel, waypoints, instances, Perl bindings | [Quests and world](references/world.md) / `world` |
+ | Player faction standings, bars and #factions | [Quests and world](references/world.md) / `factions` |
+ | RoF2 UI, pets, buffs, models, signed client delivery | [Client and pets](references/client.md) / `client` |
+--- a/references/items.md
++++ b/references/items.md
+@@ -1,4 +1,40 @@
+ # Items, loot, forging and economy
++
++## Power Source item experience — October30 candidate, not released
++
++Source: E:/EQ_Local_Dev/_worktrees/power-source-item-xp,
++feature/power-source-item-xp. Items:PowerSourceItemXP defaults false. Slot21 trains
++one complete ordinary or Hunt four-tier family from eligible pre-AA combat XP;
++character/AA XP is not spent, and level cap does not prevent progress. Required
++and recommended levels apply. No training equipment stats, augments, focus,
++worn/click benefits, auto-equip or attunement. Actual Power Sources retain behavior.
++Normal/Base -> Polished -> Exalted -> Ascended/Ascension costs80/160/240 comparable
++kill equivalents. Owner target4–8hours assumes60–120equivalents/hour; this is a
++model, not timed combat acceptance. Current item stats and drop rates are unchanged.
++
++Versioned item-ID-bound progress lives in custom_data, not a GUID side table.
++Runtime GUIDs regenerate on login. Exact saved-row UPDATE preserves saved GUID,
++charges, binding, compatible augments, grip and explicit dye; default color follows
++the successor. Uncertain writes/publication quarantine before stale saves. Native
++multi-key loading is repaired in this candidate; old consumers remain unsafe for
++XP plus grip. Box/#zoneforge keep3/4/4costs; otherwise eligible partial-XP inputs
++are consumed without pooling progress into the output. Player #itemxp reports it.
++
++Sources: common/item_xp_{policy,metadata,inventory,eligibility}.h,
++zone/advanced_loot_inventory.cpp, exp.cpp and equipment/packet guards. Tests:
++tools/tests/test_item_xp_*.py, actual AA/grip/Bazaar regressions; disposable MariaDB
++uses synthetic data. Actual award failure/publication, native slot methods, bonus
++dispatch and raw AC checks pass. Thirteen affected translation units compile with
++source/object/dependency hashes in native-compile-final.json. Full paired build,
++remaining custody/client checks and owner pacing acceptance are separate gates;
++consult docs/items/power-source-xp/PLAN.md and QA.md for current evidence.
++
++Pair world/zone/shared_memory and every item-loading consumer: new rules require
++matching world, and old metadata loaders are not a safe rollback. Disable the rule
++to stop training while retaining metadata and effect suppression. Never restore
++old player inventories or replay uncertain writes. RoF2 receives a server-side
++slot mask; real signed-client drag/drop still needs QA. No production, protected
++client, rule activation or public wiki publication is authorized by this work.
+ 
+ ## Character sale recovery — October29 operational evidence
+ 
+@@ -143,8 +179,10 @@
+ ambiguous sessions before stale saves. zone/client_bazaar.cpp guards exact native
+ reconstruction and fresh quotes. Race search uses effective equipment policy.
+ Filled bags, temporary/evolving/scaling items and unsupported saved metadata are
+-rejected before escrow. Native multi-key custom data cannot roundtrip; posting
+-rejects rather than normalizing. Saved32767 is unlimited charges, not stack quantity.
++rejected before escrow. The deployed historical loader cannot roundtrip native
++multi-key custom data; posting rejects rather than normalizing. The separate
++Power Source XP candidate repairs this loader and tests XP plus grip roundtrips;
++that is not a claim of a deployed parser update. Saved32767 is unlimited charges, not stack quantity.
+ 
+ Evidence:docs/bazaar/{SPEC.md,QA.md,RUNBOOK.md,evidence.json,deployed.json,
+ deployment-receipt.json},deployment/README.md. Real MariaDB22tests,2native groups,
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,16 @@
+ # Official player wiki and Features
++
++## Power Source XP — October30 local candidate previews
++
++E:/EQ_Local_Dev/_worktrees/power-source-item-xp has Not released previews in
++Item upgrades, Equipment, Zone Hunt, Commands, Features, In development and
++Change Log. All40authored articles and generated catalog impacts are assessed in
++docs/items/power-source-xp/wiki-review.json. No catalog stats, drops or existing
++recipes change. Home keeps compact goal paths; no release announcement is added.
++All19wiki/refresh checks pass using workspace TEMP/TMP. The historical global
++ledger still reports unrelated drift and is not blanket-advanced. No publication
++is claimed. Preserve newer Hate-density and other public October30 changes when
++preparing any eventual publication; this candidate checkout is not that authority.
+ 
+ ## Hate density — October30 published for live testing
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -14839,6 +14839,295 @@
+         "role": "Reviewed faction deployment, preservation, recovery or exact live verification evidence",
+         "sha256": "d6155aed95ed7d0f9fdc3a383911da4bd82c9b043d0e542f7484529da5d87456"
+       }
++    ],
++    "item-xp": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "docs/adr/0073-power-source-item-experience.md",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "2279583a4396d692c3e7ed38d74f9bed68de7c8557c3b4afceb1afa96e6f9553"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "docs/items/power-source-xp/PLAN.md",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "024ec096d6c6bbab926b732b8dbc892cae0a4ecb7ad3be1322af27722e818717"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "docs/items/power-source-xp/QA.md",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "06740a5df4d640f2ee32aa375136b25b9aa3998b5e04793b44505e680d89ce6a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "docs/items/power-source-xp/calibration.json",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "3f9925584808131d3b9173096f81e1cd194dd950d5232eda59544cb8c9ecaaa7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "docs/items/power-source-xp/native-compile-final.json",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "8dd4e7f78622d976399051f9b0e53b71e317050cc961926d9aaa938536dfaec4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "docs/items/power-source-xp/wiki-review.json",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "9c1ee73a58880327e3451431d0fe11ad69e8ec0a29d6393c552461b15e30a61d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/item_instance.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "52bb38db131fe368ba21bd7264a0b877bfe1c64c0ad9e1f66a1be04cabe17ed3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/item_xp_eligibility.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "e65aa7f666de127ade5d28426e08ba0c2664b214595508e3a6080719d8cceecc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/item_xp_inventory.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "3eff5c7627a70738438c31fa558be7464f08b804f96f684b1ba4c561af51727e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/item_xp_metadata.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "78c03b98bfa6904c49cde06f2c5b145555d7c25345b10d229e6619206ec2faca"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/item_xp_policy.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "ee8a0434ff38f069365da532467bd0aabde575b810bf4844dae0a4d85c35c77b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/paladin_weapon_grip.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "73a7a83013929b617a72a88e4b00977ce2d282bf05400d5df01ff23d8e80f019"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/patches/rof2.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "aa39e49ebaab592b1f4fe479e320922390198ccbc77d0c4a2d0ea97127ebbb56"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/ruletypes.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "17dca09145970355eeb968482a4f42419cda64f509f7e711845ec84747e19a3f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/common/shareddb.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "7968bd7acc8cb1a6499c1283f708cc2f452bf05635c58cf2ae434d5b553cb598"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/advanced_loot_inventory.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "66d4df88f7ddc1cc0078803785736d02757d73bbe2c5819bf35b91891ec79fb9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/advanced_loot_inventory.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "519edfc14e5e5eb15598150e52023cb102d0c092dcb6ea68d99fb8c5eb8777e7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/bonuses.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "0db09954a80653a777a0b7ec98094266382ec08c2638a991615b272de919f047"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/client.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "6a342c8f32b18e83ccc1fa988d7c4e3c0824bcb807a9c2f3f2af96175a7c4fe4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/client_mods.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "8cf3972665ad6e3ff6dd0de20ab78909a31fb1025d03353b83bc52d2af795743"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/client_packet.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "69175def53a690b5b324a6404438aa7cc000101a9cd87677e4ed469818ea808e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/command.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "e91e93cc72768d5279e95f8769cfa48f1352bc2f97193ffc4a2bb18d2e526eb9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/command.h",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "89f15b0958ce1b8a27eec56ba5c891807360b92d82f980781be873ab54158942"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/exp.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "0291f0ad7c638731a8dd7823ac94a5979f9ad367eb2d178bf164a87236b5989d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/inventory.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "1e5a95c74eb20de10cda0595011686b517c83c192ae79b2848007877a95184f3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/spell_effects.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "2b64ca4c79f767bf30b2853e042d33dfaaf9048982e0f8f5e550c5d0ef464d60"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "server-mods/code/zone/spells.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "7bf99d9bb46de459cc1c6377c241301441e5e0b0f4fdf4082804c7ef2fce64d3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/fixtures/item_xp_award.cpp",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "9ae43b55ab3f5560f70136f5f63aff8a5a879a0e82a4c5536249aae7994bfafc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_bazaar_native.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "bd3d4b7171a0a418bd06c12d820e7fe1c79b4cdb4b7af4aef5aa7d77f329bad6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_awards.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "48a810b839a19eed19ef470d3facebb6aa9aff0803679d7a1e18f924923bf0ce"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_bonuses.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "f287e6c9c3615f16fe8a4c5b5934c2f3308208bd0cb481330c632107026fdd9c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_box.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "9bbe3627eba807b82eb26564b10950a3fdcc628c4542b4e52ef0340fd4c986cd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_database.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "1db0aacfee3288a8ae58d95141d5c3d1126350f5ffba62bad2598c0dc1921426"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_eligibility.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "fb533fdad12685a3a4fb69a7d72bc9c37ac056467abe3927724e313251318074"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_inventory.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "fa5b94b0d647381ebccff50f952a29ff1e1dcaedd9617b86de6144c60d66ca34"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_metadata.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "d857c91947069090b5434795cf44c5bf4dc167747faafb1ff84d723956d9e582"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_native.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "255b77258a242a7468804ca52546eaa66704b5200452fac5579bb2811b67e8b3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_policy.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "66ed0f18630819e96184a7588da180745233644216a9a3d82ef33d3b03fdd103"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_item_xp_slots.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "c0ba4467574ca74278662365a35a02b0a66d47796db08f5d95701564e6b425f8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_paladin_weapon_grip.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "9793babec5fd8bc19f0cfb66614cbd519608c63f32678f1494f2838ff86139f1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp",
++        "path": "tools/tests/test_passive_aa.py",
++        "revision": "f3e9e5ffdc140d3906228d3ebf2056f899a84af9 plus reviewed candidate working tree; not deployed",
++        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
++        "sha256": "d6ea4d95598b33aacb2f0d7d22165e0daae5c7c625a1f1ef672c62ea6ce599e9"
++      }
+     ]
+   }
+ }

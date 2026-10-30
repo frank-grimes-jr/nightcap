@@ -1,5 +1,6 @@
 #include "zone/advanced_loot_inventory.h"
 #include "zone/client.h"
+#include "zone/command.h"
 #include "zone/zonedb.h"
 #include "common/evolving_items.h"
 #include "common/repositories/inventory_repository.h"
@@ -7,6 +8,10 @@
 #include "common/zone_hunt_catalog.h"
 #include "common/zone_hunt_policy.h"
 #include "common/item_upgrade_policy.h"
+#include "common/item_xp_eligibility.h"
+#include "common/item_xp_metadata.h"
+#include "common/item_xp_inventory.h"
+#include "common/paladin_weapon_grip.h"
 #include <algorithm>
 #include <limits>
 #include <memory>
@@ -335,11 +340,118 @@ std::vector<int16_t> ForgeSlots(Client *c)
 	return result;
 }
 
+bool CanTrainItem(Client *c, const EQ::ItemInstance *item)
+{
+	if (!c || !item || !RuleB(Items, PowerSourceItemXP) || !item->GetItem() ||
+		item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() || item->IsStackable()) { return false; }
+	const auto definition = item->GetItem();
+	const auto tier = NightcapItemXP::Family(definition, [](uint32_t id) { return database.GetItem(id); });
+	if (tier < 0 || c->GetLevel() < std::max(definition->ReqLevel, definition->RecLevel)) { return false; }
+	const auto metadata = NightcapItemXP::ReadMetadata(item->GetCustomDataString(), item->GetID(), static_cast<uint8_t>(tier));
+	return metadata.valid;
+}
+
+static bool TrainingLoreConflict(Client *c, const EQ::ItemInstance *source, const EQ::ItemData *target)
+{
+	if (!c->CheckLoreConflict(target)) { return false; }
+	// Replacing the source is not acquiring a second member of its own lore
+	// group. Still check every other worn item, all augments and other custody.
+	if (target->LoreGroup <= 0 || source->GetItem()->LoreGroup != target->LoreGroup || c->PetArmorLoreConflict(target)) { return true; }
+	auto &inventory = c->GetInv();
+	if (inventory.HasItemByLoreGroup(target->LoreGroup, static_cast<uint8>(~(invWhereWorn | invWhereSharedBank))) != INVALID_INDEX) { return true; }
+	for (int16 slot = EQ::invslot::EQUIPMENT_BEGIN; slot <= EQ::invslot::EQUIPMENT_END; ++slot) {
+		const auto item = inventory.GetItem(slot);
+		if (!item) { continue; }
+		if (slot != EQ::invslot::slotPowerSource && item->GetItem()->LoreGroup == target->LoreGroup) { return true; }
+		for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
+			const auto augment = item->GetAugment(i);
+			if (augment && augment->GetItem()->LoreGroup == target->LoreGroup) { return true; }
+		}
+	}
+	return false;
+}
+
+TransferResult AwardItemExperience(Client *c, uint64_t experience)
+{
+	if (!c || !c->Connected() || !c->ClientDataLoaded() || c->IsDead() || !experience) { return TransferResult::Declined; }
+	const int16 slot = EQ::invslot::slotPowerSource;
+	const auto item = c->GetInv().GetItem(slot);
+	if (!CanTrainItem(c, item)) { return TransferResult::Declined; }
+	using namespace NightcapItemXP;
+	const auto tier = static_cast<uint8_t>(Tier(item->GetID()));
+	const auto metadata = ReadMetadata(item->GetCustomDataString(), item->GetID(), tier);
+	const auto progress = Advance(tier, metadata.progress, Award(experience, c->GetLevel()));
+	if (!progress.valid || (progress.tier == tier && progress.progress == metadata.progress)) { return TransferResult::Declined; }
+	auto uncertain = [&]() {
+		c->QuarantineItemTransfer("Your item's training progress could not be confirmed. Reconnect to reload your inventory.");
+		return TransferResult::Uncertain;
+	};
+	try {
+		const uint32_t step = NightcapHunt::IsReward(item->GetID()) ? 1 : 200000;
+		const auto target = database.GetItem(item->GetID() + (progress.tier - tier) * step);
+		if (!target) { return TransferResult::Declined; }
+		if (target->ID != item->GetID() && TrainingLoreConflict(c, item, target)) { return TransferResult::Declined; }
+		EQ::ItemInstance replacement(*item);
+		*const_cast<EQ::ItemData *>(replacement.GetItem()) = *target;
+		if (!item->GetColor() || item->GetColor() == item->GetItem()->Color) { replacement.SetColor(target->Color); }
+		replacement.DeleteCustomData(Key);
+		const auto after_data = WriteMetadata(metadata, target->ID, progress.progress);
+		replacement.SetCustomDataString(after_data); // also reapplies the owned grip projection
+		if (!metadata.fields.count(NightcapPaladinGrip::Key)) { replacement.DeleteCustomData(NightcapPaladinGrip::Key); }
+		if (replacement.GetCustomDataString() != after_data) { return TransferResult::Declined; }
+		for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
+			const auto augment = item->GetAugment(i);
+			if (augment && (item->GetItem()->AugSlotType[i] != target->AugSlotType[i] ||
+				c->IsAugmentRestricted(replacement.GetItem()->ItemType, augment->GetItem()->AugRestrict))) { return TransferResult::Declined; }
+		}
+		auto before = Values(FromItem(c->CharacterID(), slot, *item));
+		auto after = Values(FromItem(c->CharacterID(), slot, replacement));
+		before[12] = Hex(item->GetCustomDataString());
+		after[12] = Hex(after_data);
+		const auto sql = NightcapItemXP::UpdateSQL(before, after);
+		if (sql.empty()) { return TransferResult::Declined; }
+		// A single InnoDB statement commits progress and identity together. No
+		// retries, delete/summon window, independent side table or stale GUID key.
+		auto engine = database.QueryDatabase(std::string("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='inventory' AND ENGINE='InnoDB'"), false);
+		auto triggers = database.QueryDatabase(std::string("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() AND EVENT_OBJECT_TABLE='inventory'"), false);
+		auto transaction = database.QueryDatabase(std::string("SELECT @@in_transaction,@@autocommit"), false);
+		if (!engine.Success() || engine.RowCount() != 1 || !engine.begin()[0] || atoi(engine.begin()[0]) != 1 ||
+			!triggers.Success() || triggers.RowCount() != 1 || !triggers.begin()[0] || atoi(triggers.begin()[0]) != 0 ||
+			!transaction.Success() || transaction.RowCount() != 1 || !transaction.begin()[0] || !transaction.begin()[1] ||
+			atoi(transaction.begin()[0]) != 0 || atoi(transaction.begin()[1]) != 1) { return TransferResult::Declined; }
+		const auto updated = database.QueryDatabase(sql, false);
+		if (!updated.Success() || updated.RowsAffected() != 1) { return uncertain(); }
+		const auto old_id = item->GetID();
+		if (c->GetInv().PutItem(slot, replacement) != slot) { return uncertain(); }
+		if (old_id != target->ID) {
+			c->SendItemPacket(slot, c->GetInv().GetItem(slot), ItemPacketTrade);
+			c->CalcBonuses();
+			c->Message(Chat::Green, "Your training item has advanced to %s!", target->Name);
+		} else if (progress.progress * 10 / Cost(tier) != metadata.progress * 10 / Cost(tier)) {
+			c->Message(Chat::Yellow, "%s training: %u%% toward the next quality.", target->Name,
+				static_cast<unsigned>(progress.progress * 100 / Cost(tier)));
+		}
+		return TransferResult::Delivered;
+	} catch (...) { return uncertain(); }
+}
+
+static bool PlainUpgradeMetadata(const EQ::ItemInstance *item)
+{
+	const auto data = item->GetCustomDataString();
+	if (data.empty()) { return true; }
+	const auto tier = NightcapItemXP::Tier(item->GetID());
+	if (tier < 0) { return false; }
+	const auto metadata = NightcapItemXP::ReadMetadata(data, item->GetID(), static_cast<uint8_t>(tier));
+	// Existing box/forge restrictions remain. Only our own partial XP may be
+	// discarded when physical copies are consumed; it is never pooled or cloned.
+	return metadata.valid && metadata.present && metadata.fields.size() == 1 && !item->IsStackable();
+}
+
 bool PlainForgeItem(const EQ::ItemInstance *item)
 {
 	if (!item || !item->IsClassCommon() || !NightcapHunt::NextTier(item->GetID()) ||
 		item->IsStackable() || item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() || item->GetCharges() != 1 ||
-		(item->GetColor() && item->GetColor() != item->GetItem()->Color) || !item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
+		(item->GetColor() && item->GetColor() != item->GetItem()->Color) || !PlainUpgradeMetadata(item) || item->GetOrnamentationIcon() ||
 		item->GetOrnamentationIDFile() || item->GetOrnamentHeroModel()) { return false; }
 	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) { if (item->GetAugmentItemID(i)) { return false; } }
 	return true;
@@ -361,7 +473,7 @@ static bool PlainUpgradeItem(const EQ::ItemInstance *item)
 		item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() ||
 		// ItemInstance starts with the definition's color; only an override is dye.
 		(item->GetColor() && item->GetColor() != item->GetItem()->Color) ||
-		!item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
+		!PlainUpgradeMetadata(item) || item->GetOrnamentationIcon() ||
 		item->GetOrnamentationIDFile() || item->GetOrnamentHeroModel()) { return false; }
 	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) { if (item->GetAugmentItemID(i)) { return false; } }
 	for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) { if (item->GetItem(i)) { return false; } }
@@ -520,4 +632,28 @@ TransferResult CombineUpgrade(Client *c, int16_t container_slot, const std::stri
 		return TransferResult::Uncertain;
 	}
 }
+}
+
+void command_itemxp(Client *c, const Seperator *)
+{
+	using namespace NightcapItemXP;
+	const auto item = c->GetInv().GetItem(EQ::invslot::slotPowerSource);
+	if (!item || !Candidate(item->GetItem())) {
+		c->Message(Chat::Yellow, "Place eligible equipment or a Hunt augment in your Power Source slot to train it through combat. The Reforging Box remains available.");
+		return;
+	}
+	const auto tier = static_cast<uint8_t>(Tier(item->GetID()));
+	const auto metadata = ReadMetadata(item->GetCustomDataString(), item->GetID(), tier);
+	if (!metadata.valid) {
+		c->Message(Chat::Red, "This item's saved training progress needs review. No progress has been changed.");
+		return;
+	}
+	if (tier == 3) { c->Message(Chat::Green, "%s is already at its highest quality.", item->GetItem()->Name); return; }
+	c->Message(Chat::Yellow, "%s: %.2f / %.2f item experience (%.1f%%) toward the next quality.", item->GetItem()->Name,
+		static_cast<double>(metadata.progress) / Unit, static_cast<double>(Cost(tier)) / Unit,
+		static_cast<double>(metadata.progress) * 100 / Cost(tier));
+	if (!NightcapLoot::CanTrainItem(c, item)) {
+		c->Message(Chat::Yellow, "Training is currently unavailable. The feature must be enabled, the full item family must exist, and you must meet its required and recommended level.");
+	}
+	c->Message(Chat::Yellow, "Training grants no item stats or effects and consumes no character or AA experience. Removing the item preserves progress; combining copies discards their partial progress.");
 }
