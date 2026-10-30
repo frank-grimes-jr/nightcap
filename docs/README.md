@@ -1,6 +1,9 @@
 # Nightcap documentation
 
+- [Zoning capacity: tested candidate, storage blocker and exact QA](ops/zone-capacity-20261030/README.md)
+
 - [Keyless doors: live verification, recovery and exact QA](ops/keyless-doors-20261029/README.md)
+- [Faction standing window: candidate commands, verification and in-game QA](releases/faction-standing-20261029/README.md)
 
 - [Camil's Chapterhouse helmet quest: live testing, delivery and required QA](quests/camil-chapterhouse/deployment/README.md)
 

@@ -155,3 +155,24 @@ still requires current service/native identity verification and explicit
 maintenance/backup/space gates. No activation tool or production result was
 present in the reviewed scope; disk space currently blocks rollout. No remaining
 blocking source finding was identified for this undeployed candidate.
+
+## Integration review — current main into dev
+
+Reviewed the four resolved documentation files against origin/dev and candidate
+2a84b677 during the integration merge: `docs/README.md` and the Features,
+Change Log and In development article JSON. The documentation index retains
+the faction candidate link and adds the keyless live evidence and zoning
+candidate links. Semantic HTML comparison against dev shows the faction and
+augment preview text is preserved; keyless body fragments now use current-main
+live wording, and zoning capacity remains explicitly not released. No production
+operator is rerun by this documentation integration.
+
+The resolution follow-up is closed: the superseded keyless source provenance
+saying "tested content candidate, not deployed or published" was removed from
+all three merged article `sources` lists, and the live evidence remains.
+Inherited dev Hate candidate provenance also predates its live release; it was
+noted as historical ledger review without silently promoting unrelated feature
+candidates or widening this implementation review. Final semantic checks and
+`git diff --check` passed. The integrating task reports19 wiki checks and a497-page
+build passing; no publication or production activation is implied. No blocking
+integration finding remains in the four reviewed resolutions.

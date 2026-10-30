@@ -39,6 +39,33 @@ Paineel lift, internal Hole doors and Sky transport. Scope, backup, recovery and
 exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
 
+## 2026-10-29 — Player faction standing window candidate
+
+Add `#factions` for white-text numerical standings, full-range bars, name search,
+six-row paging and targeted-NPC faction lookup. Native totals and threshold rules
+include earned/base/class/race/deity/spell/item modifiers, including untouched
+factions. The command reads only the caller and loaded cache; existing GM reset
+permissions and faction behavior stay unchanged. Three native regression groups
+and the authenticated native zone compile/relink pass. A rebuilt zone is required, with no SQL, cache, quest or client migration.
+Deployment, wiki publication and native visual acceptance remain pending.
+Evidence and exact QA: `docs/releases/faction-standing-20261029/README.md`.
+
+## October 29 — regular combat zone augments candidate
+
+Augments now use ordinary native combat-spawn eligibility across public, Grind
+and Raid zones, without the old NPC minimum-level/name/source/night restrictions.
+The independent augment chance remains0.5% and qualities60/30/8/2; wearable hunt
+eligibility is unchanged. Guarded SQL enables Hate B's existing Blackspire Prism
+family without adding equipment sources. Pets, services, protected/invisible
+actors, temporary adds and restored corpses remain excluded. Native and disposable
+MariaDB checks pass, and the full changed native translation unit compiles and
+links against authenticated retained Hate build inputs. Main promotion, current
+production pairing/activation, publication and owner QA are pending. Integrated the dev/test Hate layout while keeping186 Blackspire augments
+and its separately inherited76 equipment mapping. See
+`docs/releases/zone-augments-20261029/README.md` and its exact `QA.md`.
+
+
+
 ## 2026-10-29 — Plane of Hate ground-level layout deployed
 
 New Keeper-created Hate runs use hateplaneb terrain with Nightcap's original

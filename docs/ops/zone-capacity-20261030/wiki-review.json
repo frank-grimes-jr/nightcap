@@ -1,6 +1,6 @@
 {
   "source_ref": "989a464c345fb2c3799f5b769090442039a1d35e plus working tree",
-  "articles_reviewed": 40,
+  "articles_reviewed": 45,
   "articles": [
     {
       "slug": "about",
@@ -52,6 +52,22 @@
     },
     {
       "slug": "index",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-940592",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-940593",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-940594",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "item-940595",
       "impact": "no released mechanic, command, reward, catalog or home summary change"
     },
     {
@@ -152,6 +168,10 @@
     },
     {
       "slug": "waypoints",
+      "impact": "no released mechanic, command, reward, catalog or home summary change"
+    },
+    {
+      "slug": "zone-hateplaneb",
       "impact": "no released mechanic, command, reward, catalog or home summary change"
     },
     {

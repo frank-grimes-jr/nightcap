@@ -7,7 +7,7 @@
     "production_safeguards_linux_tests": 5,
     "mariadb_10_11_rehearsal_groups": 8,
     "wiki_content_and_refresh_tests": 19,
-    "wiki_build_pages": 492,
+    "wiki_build_pages": 497,
     "independent_review": "No remaining blocking source findings; review.md",
     "optimized_python_rehearsal": "Refuses before Docker access",
     "strict_rollout_preflight": "Correctly refuses current insufficient disk space"
@@ -33,5 +33,6 @@
   ],
   "production_changed": false,
   "owner_gameplay_accepted": false,
-  "wiki_published": false
+  "wiki_published": false,
+  "integration": "Current dev previews retained; latest main keyless deployment evidence reconciled; capacity source and all gameplay release boundaries unchanged"
 }

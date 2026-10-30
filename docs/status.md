@@ -37,6 +37,32 @@ Paineel lift, internal Hole doors and Sky transport. Scope, backup, recovery and
 exact QA: `docs/ops/keyless-doors-20261029/README.md`.
 
 
+## 2026-10-29 — Faction standing display candidate
+
+`#factions` adds a player-accessible white-text popup with standing names,
+numerical totals, min/max bars, name search, paging and targeted-NPC lookup.
+It reads only the caller's faction and the loaded cache, preserving native
+modifiers, thresholds and the separate GM reset gate. Three native regression
+groups pass. Authenticated native unity compilation and zone relink pass; deployment,
+public wiki publication and native readability/gameplay acceptance remain open.
+No client patch, data migration or cache refresh is required. Exact QA and
+delivery boundary: [faction standing candidate](releases/faction-standing-20261029/README.md).
+
+## October 29 — regular combat zone augments candidate
+
+Augments now use ordinary native combat-spawn eligibility across public, Grind
+and Raid zones, without the old NPC minimum-level/name/source/night restrictions.
+The independent augment chance remains0.5% and qualities60/30/8/2; wearable hunt
+eligibility is unchanged. Guarded SQL enables Hate B's existing Blackspire Prism
+family without adding equipment sources. Pets, services, protected/invisible
+actors, temporary adds and restored corpses remain excluded. Native and disposable
+MariaDB checks pass, and the full changed native translation unit compiles and
+links against authenticated retained Hate build inputs. Main promotion, current
+production pairing/activation, publication and owner QA are pending. Integrated the dev/test Hate layout while keeping186 Blackspire augments
+and its separately inherited76 equipment mapping. See
+`docs/releases/zone-augments-20261029/README.md` and its exact `QA.md`.
+
+
 ## 2026-10-28 — Bazaar price input and readability published
 
 Fixed silent rejection of native UTF16 price fields, preserving bounded ASCII
