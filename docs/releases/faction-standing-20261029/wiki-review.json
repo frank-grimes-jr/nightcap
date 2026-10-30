@@ -1,0 +1,280 @@
+{
+  "date": "2026-10-29",
+  "basis": "main 85a42253 release records plus dev 9283dd07 augment candidate plus faction standing feature; all authored and generated routes assessed",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "title": "About this wiki",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "title": "Advanced loot",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "title": "Ascension quest",
+      "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "title": "The Ashen Compact",
+      "sha256": "a2ca60702502e8fa73d3107596ae8ef82186f3b340537d3ddab4260743a85b25",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "title": "Build Lab",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "title": "The Vigil of the Dawn",
+      "sha256": "dbebccd85c653c97185eb2acaad6182f80d48a74ec3aea74e4d01743a49d70b8",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "title": "Combat, buffs & recovery",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "title": "Command reference",
+      "sha256": "3b994c3b79b9518a43b52314b02f8d06d2596d2830d0c1b0520a14df434d1007",
+      "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "sha256": "0f6522fa99091af0192788aee5f2effc2e32b7eaed1d18664d7e55b3a88a968a",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "title": "Equipment & trading",
+      "sha256": "8b03eaaff5efc8360798b6ec247c272b786d90f38b2fa5b66ce84db74f66559b",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "title": "Features",
+      "sha256": "ca63c059ed03a738c54579f113293934d0280a4ad70ff1ef9cfcb574f8d15650",
+      "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "title": "Getting started",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "title": "Nightcap Wiki",
+      "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-940592.json",
+      "title": "Blackspire Prism",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "ee0a75ffa4d65b645737391e752572c725f4fe97b7ee15856ef425c9b0a3b7cb"
+    },
+    {
+      "path": "wiki/articles/item-940593.json",
+      "title": "Blackspire Prism (Polished)",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "771a749c5899f0a5b6f9eb9b0e40a54632284d2b32cca427febdea08b5bff52d"
+    },
+    {
+      "path": "wiki/articles/item-940594.json",
+      "title": "Blackspire Prism (Exalted)",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "16cb082498c616552795af83f22653e98e82f19b250dd16cd2ac1bf2116cbf1e"
+    },
+    {
+      "path": "wiki/articles/item-940595.json",
+      "title": "Blackspire Prism (Ascension)",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "31da3db64ec0717d929047158d7096ea8f0ad9f30b4449b55f01b18cf9fcbc06"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "title": "Polished Blade of the Ashen Compact",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "title": "Ascended Blade of the Ashen Compact",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "title": "Polished Mantle of the Iron Oath",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "title": "Ascended Mantle of the Iron Oath",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "title": "Polished Seal of Commanded Souls",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "title": "Ascended Seal of Commanded Souls",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "title": "Cinder of the Ashen Compact",
+      "sha256": "805e4d6ba87df5bb29ceda8aae0c50487bb10d694d0a95a29c4c80c106132a0d",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "title": "Cinder of the Ashen Compact (Polished)",
+      "sha256": "82d61ee231805143ef1f80b4d45a3e0f8394c1aa14f93ce2fecc76fd60e30530",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "title": "Cinder of the Ashen Compact (Exalted)",
+      "sha256": "e8971500133bde80ae5cf5f28826ed1feb6656c097ab9399e8af3587f3b85ce7",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "title": "Cinder of the Ashen Compact (Ascension)",
+      "sha256": "711dd2ca00873c00213e77d23c3cbc8d2d00e9317974a002ee9533ed65081364",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "title": "Iron Oath Gorget",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "title": "Kharzug's War Mantle",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "title": "Vhalek's Soulcleaver",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "title": "Warhelm of the Ashen Compact",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "title": "Item upgrades",
+      "sha256": "8ca4264530f50bc4f1ed3096dede67e9c5332e48a8448436ed48a5b026f337d2",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "title": "Launcher & interface",
+      "sha256": "d5bb15293a6b84b6b47de266cc7d3ce0d94f7d9ee44c94057ed74d31bf9901fb",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "title": "Loot finder",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "title": "Multiclass & progression",
+      "sha256": "1c621159bce0b431107372569c12c80010d565eff92b31d9e073ae1a33311be9",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "title": "Pets & pet armor",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "title": "Change Log",
+      "sha256": "420cebd9688c27600de769fe6d3144f0ddb147fb754451af886273415a56fb01",
+      "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "title": "Travel & instances",
+      "sha256": "ba7b81d22e610faac24fd390cd8dba7163c750747e08346b76122a60b384355e",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "title": "East Commonlands tunnel",
+      "sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "title": "In development",
+      "sha256": "43310de2cedbf1fb01dc0ef3937bf3b7c234d2f90d7dda5b40381b8e7471f4b2",
+      "decision": "Updated scoped candidate instructions/discoverability/history; existing live release labels preserved."
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "title": "Waypoint Explorer",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/zone-hateplaneb.json",
+      "title": "Plane of Hate B \u2014 augment preview",
+      "decision": "Existing dev augment preview preserved; no faction-display impact on reward values or availability.",
+      "sha256": "d196850bc9b8b66a2ff3598d18e64b315d35c1596594f8c79a1ca6e669bbd9b6"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "sha256": "679a0362c49dd4c531d9805b24f23d52e29a2bd185fb64393d2a8792a6e6cd9b",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "title": "Kael Drakkel \u2014 The Ashen Compact",
+      "sha256": "514f7927a33ee736c916bb9a7c8ccb35072f941c7fc45e39951907acf9f2fada",
+      "decision": "No impact: read-only faction display does not alter this guide, rewards, rates, travel, NPC reactions or existing release status."
+    }
+  ],
+  "home": "Existing four goal paths retained; no live release announcement.",
+  "generated_catalogs": "Inherited five augment preview pages retained; faction display changes no catalog values, acquisition rules or template behavior.",
+  "publication": "Not published; candidate labels required.",
+  "source_ledger": "Historical drift reviewed only for this scoped change; unrelated source pins not advanced."
+}

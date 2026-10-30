@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-30",
+  "status": "main-only promotion; not deployed",
+  "base_revision": "ea2f7efc",
+  "prior_integration": [
+    "dev PR366",
+    "test PR367"
+  ],
+  "native_source_delta": [
+    "common/faction_standing.h",
+    "zone/faction_standing.inc",
+    "zone/command.cpp",
+    "zone/command.h"
+  ],
+  "faction_regression_groups": 3,
+  "native_build": "release/native-build.json; selective unity compilation and authenticated retained link, not a clean full build",
+  "server_changed": false,
+  "owner_gameplay_accepted": false,
+  "public_wiki_published": false,
+  "deployment": "Deferred by owner: Merge main only for now",
+  "wiki_checks": 19,
+  "wiki_pages": 492,
+  "review": "Independent review found no blocking source/build/scope/wiki issue",
+  "wiki_initial_attempt": "Sandbox AppData temp permissions failed; rerun uses workspace TEMP/TMP with unchanged tests"
+}

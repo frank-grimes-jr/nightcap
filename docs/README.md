@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [Faction display: main source, pending deployment and exact QA](releases/faction-standing-20261029/README.md)
+
 - [Keyless doors: live verification, recovery and exact QA](ops/keyless-doors-20261029/README.md)
 
 - [Camil's Chapterhouse helmet quest: live testing, delivery and required QA](quests/camil-chapterhouse/deployment/README.md)

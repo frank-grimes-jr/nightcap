@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-29",
+  "native_regression_groups": 3,
+  "native_status": "passed",
+  "wiki_tests": 19,
+  "wiki_status": "passed",
+  "wiki_pages": 497,
+  "build": "passed: complete command unity unit and inherited dev zone_hunt.cpp recompiled; baseline reproduced exactly; candidate relink and source/link-input hashes verified",
+  "player_qa": "not run",
+  "deployment": "not performed",
+  "publication": "not performed",
+  "files": {
+    "server-mods/code/common/faction_standing.h": "14d631538c12912c33ccaaf07663096c614ca0fb56b0f135baa0b6311e9a142b",
+    "server-mods/code/zone/faction_standing.inc": "5ce7c92265500ff2eb7a9dadf5337fe026e3cc213f7009059309ad0f1f4a938e",
+    "server-mods/code/zone/command.cpp": "d97d11695dcd5df5def2367adb48f922b97753003b71dd058800e9a0dd68ce3e",
+    "server-mods/code/zone/command.h": "741446b12910c72c933093b7b99f1bda27fce14fcc69ae1452dc711185f723cd",
+    "tools/tests/test_faction_standing.py": "47f417878f4a91f2708cc6ebe803acaaa30950aec53d0377c6bcc4910b6c3829",
+    "tools/tests/faction_standing_fixture.cpp": "a70ac1f6afa54cf7d15c25482d4f71429f9ce353fa315f74950cda0b3a436552",
+    "tools/tests/faction_standing_command_fixture.cpp": "00cfa54e688b8dcb4941c704545d85d932342f173ea7953a95b6b68fa764152f",
+    "tools/build_faction_candidate.py": "582df3632997b868881848b14a7449a53f4feaa7901a21dbd20ebd805a925863"
+  },
+  "environment_note": "Windows sandbox temp-directory denial resolved with workspace-local TEMP/TMP. Inherited augment source-read encoding error resolved with PYTHONUTF8=1. Assertions unchanged.",
+  "review": {
+    "result": "no blocking findings",
+    "reviewer": "separate review agent using code-review-and-quality skill",
+    "checks": [
+      "native totals and bounds",
+      "rule-driven labels",
+      "safe empty parsing",
+      "caller isolation",
+      "cache-only reads",
+      "STML escaping and payload cap",
+      "unchanged GM gate"
+    ],
+    "limits": "Labels source-reviewed; fixture stubs label function. Native rendering and ordinary-account access pending."
+  },
+  "augment_integration_groups": 5,
+  "augment_integration_status": "passed (PYTHONUTF8=1)",
+  "native_zone_sha256": "4d07a19cba811c1f0f3c313af5949962507e6455d0d459e52e3392cbaf2dd2fa",
+  "baseline_reproduced": true,
+  "build_review": {
+    "result": "no blocking findings",
+    "scope": "Source, unity selection, isolated headers, archive preservation, baseline reproduction and input hashes",
+    "limits": "Selective compile/relink; reused compiler/system dependencies; no installation or visual acceptance"
+  }
+}

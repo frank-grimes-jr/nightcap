@@ -4,6 +4,7 @@
 #include "common/eq_packet.h"
 #include "common/events/player_event_logs.h"
 #include "common/features.h"
+#include "common/faction_standing.h"
 #include "common/file.h"
 #include "common/net/eqstream.h"
 #include "common/ptimer.h"
@@ -78,6 +79,7 @@ int command_init(void)
 	}
 
 	if (
+		command_add("factions", "[page] [name] or target - View your faction standings, values and bars.", AccountStatus::Player, command_factions) ||
 		command_add("nightcappet", "Manage your pet armor.", AccountStatus::Player, command_nightcappet) ||
 		command_add("nightcapui", "Refresh your class display.", AccountStatus::Player, command_nightcapui) ||
 		command_add("aaexp", "[0-100|off] - Set the %% of combat XP routed to AA (the client hides this toggle below level 51)", AccountStatus::Player, command_aa_exp) ||
@@ -754,6 +756,7 @@ void command_apply_shared_memory(Client *c, const Seperator *sep) {
 	worldserver.SendPacket(&pack);
 }
 
+#include "faction_standing.inc"
 #include "bot_command.h"
 // Function delegate to support the command interface for Bots with the client.
 void command_bot(Client *c, const Seperator *sep)
