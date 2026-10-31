@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-31",
+  "status": "paired live-base build and ELF identity passed; production staging blocked by disk reserve",
+  "main_pr": 387,
+  "live_base_image": "sha256:899eeca2400abbb9c7adfd56ed2cf24ff5127f78b1e6442fb748df8d7cf47ae8",
+  "live_base_binaries": {
+    "zone": "9a4cef731cda463c48c32ab42b4171614e70c2ea18e6fe6bdc3eb1bbe32cd8a4",
+    "shared_memory": "f685c435b2311e50614620cf52ff3ab61919836273188c4b421173c3749ac292",
+    "world": "8ab4bce52e8d48c08abe2ca243e9fefffb0c4c577077a68564d682d6844f61a2"
+  },
+  "build_root": "/tmp/nightcap-item-xp-live-20261031-v1",
+  "shipping_root": "E:/EQ_Local_Dev/artifacts/item-xp-live-20261031",
+  "shipping_sha256": {
+    "zone": "d7f00c8e4720eaaa0cfa6f94e10daf5dc48bccc04f0a6ff02b81fe03095acfaf",
+    "shared_memory": "3289827557ae23db4de04e91881a4db99a7c916934eee414126d21bfc5200c05",
+    "world": "8556b552f877a1429cb02f5835a50deefdb423823ff0f364c8dff83a2b86d38e"
+  },
+  "binary_identity": "all three PASS: 30 allocated sections, 14 program headers, identical runtime bytes",
+  "deploy_status": "not staged or activated",
+  "disk_available_bytes": 546078720,
+  "preservation_target": "/opt/nightcap/releases/zone-hunt-20261009/bin/zone",
+  "preservation_source_sha256": "54689a1ad67e8bb753a9e8ad897c3b1cebf51642c8e7a3f0ea5eeb1c96b1d5b1",
+  "preservation_source_bytes": 311420880,
+  "auto_review": "Rejected archival+removal of production historical binary; explicit cleanup authorization required"
+}
