@@ -1,5 +1,21 @@
 # Current Nightcap status
 
+## 2026-10-30 — Power Source item experience candidate, not released
+
+An additional combat-XP path advances supported equipment/Hunt families through
+their existing four qualities. The Reforging Box remains. Candidate costs are
+80/160/240 comparable-kill equivalents: the owner's 4–8-hour full-path target
+at a modeled 60–120 equivalents/hour, pending timed gameplay measurements.
+The rule defaults off. Native policy, actual award failure injection, metadata,
+slot admission, AA/grip/Bazaar regressions and disposable MariaDB checks pass.
+Thirteen changed translation units and the full paired world/zone/shared_memory
+build pass. Independent source review found no blocking issue for the disabled
+candidate. Real-client/custody/effect checks and measured pacing remain pending.
+Wiki previews are local and
+marked Not released. No runtime deployment or owner acceptance is recorded.
+Build boundary, disable/recovery and exact in-game checks:
+[Power Source XP QA](items/power-source-xp/QA.md).
+
 ## 2026-10-30 — Faction standings deployed for live testing
 
 Player `#factions` is deployed on OVH: white-text popup, numerical standings,

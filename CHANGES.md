@@ -1,5 +1,34 @@
 # CHANGES
 
+## 2026-10-30 — Power Source item XP candidate (not released)
+
+Added the candidate additional combat-XP upgrade path; the existing Reforging Box remains.
+Candidate transition costs are 80/160/240 comparable-kill equivalents, targeting
+the owner's 4–8 hours at 60–120 equivalents/hour. Native arithmetic tests cover
+all character levels, boundaries, top-tier stop and overflow. These are modeled
+rates, not live combat measurements. Native slot projection, pre-AA combat awards,
+atomic saved-row updates, automatic tier changes and player `#itemxp` are integrated.
+The rule `Items:PowerSourceItemXP` defaults off. Training gives no passive/click
+benefits, does not automatically equip or attune items, and preserves augments,
+grip and explicit dye. Undyed upgrades adopt the target's default color. The box
+accepts otherwise-valid partially trained inputs and discards their partial XP.
+
+Fixed native multi-key item metadata loading to preserve the existing serialized
+format and empty values, needed for XP alongside weapon grip. Malformed or duplicate
+keys cannot partially apply. Native policy/metadata/box tests, 35 award checks,
+369 AA checks, six grip groups, four Bazaar groups and disposable MariaDB exact-row/
+replay tests pass. Actual native award fault injection and slot admission tests
+also pass; the failure harness caught and fixed lowercase metadata hex rejection.
+The final13-unit compile passes with dependency hashes. Actual bonus dispatch
+and raw AC tests pass; the full paired world/zone/shared_memory build passes from
+2848pinned source files. Independent review found no blocking issue for the
+disabled candidate. Existing box recipe and10quest checks pass. Candidate wiki previews,
+whole-wiki impact review, installed skill/fingerprints and explicit player
+QA/rollback instructions are prepared. Real-client/custody checks, measured pacing
+and owner acceptance remain pending. This common-code/rule change
+requires matched native consumers; no production or client assets changed.
+Plan, calibration and evidence: `docs/items/power-source-xp/`.
+
 ## 2026-10-30 — Faction standings deployed for live testing
 
 Player `#factions` is deployed on OVH: white-text popup, numerical standings,

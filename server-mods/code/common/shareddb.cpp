@@ -722,7 +722,8 @@ bool SharedDatabase::GetInventory(Client *c)
 			instnodrop ||
 			(
 				inst->GetItem()->Attuneable &&
-				EQ::ValueWithin(slot_id, EQ::invslot::EQUIPMENT_BEGIN, EQ::invslot::EQUIPMENT_END)
+				EQ::ValueWithin(slot_id, EQ::invslot::EQUIPMENT_BEGIN, EQ::invslot::EQUIPMENT_END) &&
+				(slot_id != EQ::invslot::slotPowerSource || (item->Slots & (uint32{1} << EQ::invslot::slotPowerSource)))
 			)
 		) {
 			inst->SetAttuned(true);
