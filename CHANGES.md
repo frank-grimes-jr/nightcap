@@ -11,7 +11,8 @@ Lord Nagafen lootless (43 flagged NPCs server-wide). Saved state now applies onl
 to rows holding a live NPC, and the bare `invalid` sentinel on a living NPC is
 lifted with a fresh table roll (upstream fallback). Corpses and raw unparseable
 loot keep their quarantine. Native restore-loop test extended. Zone-only binary.
-Evidence/QA: `docs/ops/npc-placeholder-loot-20261101/`.
+Deployed to OVH 15:36 UTC (zone `77c5fdff`, image `9bd39442`); OVH build cache
+pruned to free disk. Evidence/QA: `docs/ops/npc-placeholder-loot-20261101/`.
 
 ## 2026-10-30 — Power Source item XP candidate (not released)
 

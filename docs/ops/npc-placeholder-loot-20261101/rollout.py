@@ -67,7 +67,9 @@ def preflight():
     assert services['game']['image_id']==m['base_image_id']
     assert r.image_hashes(m['base_image_id'])==m['base_hashes']
     r.running(m['base_image_id'],binaries(False),services['game']['restarts'])
-    base.health();startup.startup_guards();r.closed_ports();checks=h.contract();h.public_preflight()
+    # h.contract() is the installed-state gate; the prior public_preflight is its
+    # pre-install snapshot and correctly fails once its three boss rows moved.
+    base.health();startup.startup_guards();r.closed_ports();checks=h.contract()
     assert free()>=2*(STAGE/'bin/zone').stat().st_size+RESERVE,'Insufficient disk reserve'
     # Dry-run the boot model now so a structural refusal cannot happen mid-outage.
     with tempfile.TemporaryDirectory() as dry:

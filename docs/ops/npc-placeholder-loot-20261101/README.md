@@ -57,6 +57,28 @@ through the validated loader. The placeholder case failed before the fix.
 No guide, command or catalog change: loot tables and rates are unchanged. The fix
 restores intended drops only.
 
+## Deployment — November 1, 15:36 UTC
+
+Owner-authorized ("merge to main and OVH"; build-cache prune and immediate
+restart approved in chat). Main PR #389 (`74f1c0d5`).
+
+- Zone built in `akk-stack-eqemu-server-1` from the retained deployed Hate boss
+  source tree plus only the fixed `zone/zone_save_state.cpp`; stripped zone
+  `77c5fdff…` (53,083,688 bytes), ELF runtime identity PASS. World/shared_memory
+  unchanged. Build tree: `/tmp/nightcap-npc-placeholder-loot-20261101-v1`.
+- OVH disk was 532 MB free; `docker builder prune` removed 1.06 GB of unused
+  build cache only (no images, evidence, backups or player data).
+- `rollout.py` (staged at `/opt/nightcap/releases/npc-placeholder-loot-20261101-v1`)
+  reuses the deployed release's guards. Its pre-install `public_preflight` was
+  dropped: it fails by design after that release moved three boss rows.
+- Preflight, activate and open passed: image `9bd39442`, all 12 zones `77c5fdff`,
+  51 schema / 671 content checks, 102 saved-state tables matched the boot model,
+  fresh stopped backup 65,850,590 bytes (integrity passed), zero native/quest/DB
+  errors, gateway open. ~1.3 GB free afterwards. No client update.
+- Rollback (only after a held activation): `rollout.py rollback` then `open`.
+
+Not verified: in-game drops. The 43 flagged rows heal when each zone next boots.
+
 ## In-game QA
 
 1. Kill fire giants and Lord Nagafen in public soldungb after the deploy (Nagafen
