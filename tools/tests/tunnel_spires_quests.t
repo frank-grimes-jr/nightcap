@@ -31,8 +31,16 @@ our $root=shift @ARGV or die 'Expected server-mods root';
 my $npc=bless {},'SpireNPC';
 my $c=bless {moves=>[]},'SpireClient';
 plugin::tunnel_spire_hail($c,$npc,'Hail');
-is(scalar(()=join(' ',@quest::said)=~/\[spire /g),8,'eight Classic destinations');
-unlike(join(' ',@quest::said),qr/spire (hateplane|airplane|nexus|dreadlands|toxxulia|northro|commonlands)/,'no raid, later-era or replacement-zone routes');
+is(scalar(()=join(' ',@quest::said)=~/\[spire /g),9,'nine Classic destinations');
+like(join(' ',@quest::said),qr/\[spire airplane\]/,'Plane of Sky offered at 46+');
+unlike(join(' ',@quest::said),qr/spire (hateplane|nexus|dreadlands|toxxulia|northro|commonlands)/,'no unlisted planes, later-era or replacement-zone routes');
+{
+    local @quest::said;my $low=bless {moves=>[],level=>45},'SpireClient';
+    plugin::tunnel_spire_hail($low,$npc,'Hail');
+    unlike(join(' ',@quest::said),qr/airplane/,'Plane of Sky hidden below 46');
+    plugin::tunnel_spire_hail($low,$npc,'spire airplane');
+    is(scalar @{$low->{moves}},0,'Plane of Sky refused below 46');
+}
 like(join(' ',@quest::said),qr/dangerous temple/,'temple landing is clearly labelled');
 for my $r (@{plugin::tunnel_spire_catalog()}) {
     $c->{cooldown}=0;plugin::tunnel_spire_hail($c,$npc,'spire '.$r->{zone});
@@ -59,5 +67,5 @@ is(scalar @{$c->{moves}},$count,'Khalure cannot dispatch wizard travel');
 $KhaleidQuest::client=$c;$KhaleidQuest::npc=$npc;KhaleidQuest::EVENT_ITEM();
 is($npc->{returned},1,'items and money return through native API');
 $npc->{id}=999527;@quest::said=();$KhaleidQuest::text='Hail';KhaleidQuest::EVENT_SAY();
-is(scalar(()=join(' ',@quest::said)=~/\[spire /g),8,'numeric quest adapter exposes the wizard menu');
+is(scalar(()=join(' ',@quest::said)=~/\[spire /g),9,'numeric quest adapter exposes the wizard menu');
 done_testing();
