@@ -1,6 +1,16 @@
 # Solo self-found mode: release notes
 
-Status: candidate. Not built, deployed or owner-accepted. Design: [ADR 0074](../../adr/0074-solo-self-found-mode.md).
+Status: owner authorized main and OVH on November 1 ("Push to main and OVF");
+in-game QA open. Design: [ADR 0074](../../adr/0074-solo-self-found-mode.md).
+
+## OVH rollout
+
+`rollout.py preflight|activate|open` (and `rollback` after a held activation),
+staged at `/opt/nightcap/releases/ssf-mode-20261101-v1`. The zone is built from
+the deployed placeholder-loot source plus only the SSF patch; main's mirror also
+carries the unreleased Power Source candidate, so main files are not copied
+whole. Activation stops gateway and game, takes a fresh backup, creates the
+table, installs the Chronicler, then boots the new image with access closed.
 
 ## Contents
 
