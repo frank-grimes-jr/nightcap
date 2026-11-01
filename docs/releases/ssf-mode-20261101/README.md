@@ -11,6 +11,24 @@ the deployed placeholder-loot source plus only the SSF patch; main's mirror also
 carries the unreleased Power Source candidate, so main files are not copied
 whole. Activation stops gateway and game, takes a fresh backup, creates the
 table, installs the Chronicler, then boots the new image with access closed.
+`stage.py <zone> <archive> <revision>` uploads the payload and writes the
+on-host manifest.
+
+### Deployment — November 1, 21:27 UTC
+
+- Main PR #391 (`f87e611b`). Zone built in `akk-stack-eqemu-server-1` at
+  `/tmp/nightcap-ssf-mode-20261101-v1`: the deployed placeholder-loot source
+  plus `ssf.patch` (8 files). Stripped zone `2ca5fa0e…` (53,080,208 bytes),
+  ELF runtime identity PASS. World and shared_memory are unchanged.
+- Preflight: image `e67956fa` builds over base `9bd39442`; the Chronicler passes
+  `perl -c` inside it.
+- Activate: stopped backup 66,075,896 bytes; `character_ssf` created empty;
+  Chronicler `777d5793…` replaced (previous copy kept in the evidence). All 12
+  zones run `2ca5fa0e`. 51 schema / 671 content checks pass; 103 saved-state
+  tables match the boot model; zero native, quest or DB log errors.
+- Open: gateway up. No client update.
+
+Not verified: any in-game behavior (see QA.md).
 
 ## Contents
 
