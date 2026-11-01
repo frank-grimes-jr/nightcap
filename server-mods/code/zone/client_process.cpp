@@ -1314,6 +1314,12 @@ void Client::OPMoveCoin(const EQApplicationPacket* app)
 		return;
 	}
 
+	// ponytail: refusing SSF shared-bank coin leaves the client's coin display stale until it zones.
+	if ((mc->from_slot == 4 || mc->to_slot == 4) && SSFBlocked())
+	{
+		return;
+	}
+
 	// could just do a range, but this is clearer and explicit
 	if
 	(

@@ -90,6 +90,9 @@ struct Client {
     struct { uint64 exp=0; uint32 expAA=0,aapoints=0; } m_pp;
     int level=30, race=Race::Human, cls=Class::Magician, XPRate=0;
     bool enabled=true;
+    bool ssf=false;
+    bool IsSSF() const { return ssf; }
+    uint32 PassiveAAPercent() const;
     uint64 last_exp=0,last_aa=0;
     int calls=0;
     uint8 GetLevel() { return level; }
@@ -316,7 +319,8 @@ def main():
     bodies = []
     for name in ['static uint64 ScaleAAXPBasedOnCurrentAATotal', 'float static GetConLevelModifierPercent',
                  'void Client::CalculateNormalizedAAExp', 'void Client::CalculateStandardAAExp',
-                 'void Client::CalculateExp', 'uint64 Client::CalculateLevelBasedAAExp', 'void Client::NormalizeAAAllocation',
+                 'void Client::CalculateExp', 'uint64 Client::CalculateLevelBasedAAExp',
+                 'uint32 Client::PassiveAAPercent', 'void Client::NormalizeAAAllocation',
                  'uint64 Client::FinalizeAAExperience', 'void Client::AddEXP',
                  'void Client::AddLevelBasedExp', 'uint32 Client::GetEXPForLevel']:
         if name in source:

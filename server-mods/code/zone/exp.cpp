@@ -516,9 +516,15 @@ uint64 Client::CalculateLevelBasedAAExp(uint64 full_xp, uint64 level_xp)
 	}
 	return AAProgression::Award(full_xp, level_xp, GetEXP(), GetLevel(),
 		std::clamp(max_level, 1, 126), m_epp.perAA,
-		std::clamp(RuleI(AA, PassiveExpPercent), 0, 100),
+		PassiveAAPercent(),
 		std::clamp(RuleI(AA, LevelBasedPointsPerLevel), 0, 1000),
 		GetRequiredAAExperience(), [this](uint16 level) { return GetEXPForLevel(level); });
+}
+
+// SSF characters earn AA only from the allocation they choose in the AA window.
+uint32 Client::PassiveAAPercent() const
+{
+	return IsSSF() ? 0 : std::clamp(RuleI(AA, PassiveExpPercent), 0, 100);
 }
 
 void Client::NormalizeAAAllocation()
@@ -552,7 +558,7 @@ uint64 Client::FinalizeAAExperience(uint64 aaexp, bool level_scaled)
 	}
 
 	if (!level_scaled) {
-		const uint64 passive = std::clamp(RuleI(AA, PassiveExpPercent), 0, 100);
+		const uint64 passive = PassiveAAPercent();
 		const uint64 weight = m_epp.perAA * 100 + passive * (100 - m_epp.perAA);
 		// Passive AA follows the retained leveling fraction; never double-pay focus.
 		aaexp = (aaexp / 10000) * weight + (aaexp % 10000) * weight / 10000;

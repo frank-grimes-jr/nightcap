@@ -485,6 +485,11 @@ the outstanding client checks in `docs/qa/2026-10-11-food-drink-removal.md`.
 
 `feature/<name>` → `dev` → `test` → `main`
 
+**November 1 SSF exception:** the owner explicitly requested "Push to main and
+OVF" (OVH) for solo self-found mode (ADR 0074). This authorizes main promotion
+and the zone/table/Chronicler rollout before in-game QA. Retain the open checks
+in `docs/releases/ssf-mode-20261101/QA.md`; not a branch-policy change.
+
 **October 9 advanced-loot controls exception:** the owner explicitly requested
 "Deploy to main and server" for direct Always/Never row controls and empty-queue
 auto-close. This authorizes main promotion and signed client publication before
