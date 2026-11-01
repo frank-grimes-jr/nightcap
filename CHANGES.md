@@ -1,5 +1,49 @@
 # CHANGES
 
+## 2026-11-01 — Per-zone Hunt drop rates (candidate, not deployed)
+
+Hunt family chances move from the compiled 0.5% `FamilyChance` to
+`nightcap_zone_hunt_zones.augment_chance`/`gear_chance` (out of 10000, CHECK
+0–10000). Source of truth `config/zone-hunt-rates.json` → `tools/zone_hunt_rates.py`
+→ `rates.sql`; the wiki reads the same file. Owner-approved default: augments 1.5%
+(~67 kills per drop, ~940 per forged Ascension; 48 Base per Ascension), gear stays
+0.5%. Gotcha: apply the SQL before the new zone binary, or Hunt drops turn off in
+every zone. Rates load at zone boot (full runtime restart). Chapterhouse and Ashen
+Compact rolls are unchanged. Activation/rollback: `docs/releases/zone-hunt-rates-20261101/`.
+
+## 2026-11-01 — Solo self-found mode (deployed to OVH)
+
+Opt-in, permanent, per-character SSF (ADR 0074). Say `walk alone` to the
+Ancient Chronicler in the East Commonlands tunnel at level 1. New `character_ssf` table; one zone gate
+(`Client::SSFBlocked`) refuses player trade, native trader/buyer/barter,
+`#bazaar` escrow, player parcels in both directions, shared bank items and coin,
+guild bank, and group/raid invites and accepts with players. NPC and bot trades and
+bot/merc groups still work. Normal XP is unchanged. SSF characters get no passive
+AA, so 0% earns nothing and AA comes only from the AA window's +/-. Gotchas:
+the load fails open if the table is missing; clearing SSF is a GM row delete plus
+a zone; a refused shared-bank coin move leaves the client coin display stale
+until zoning. Zone-only, no rule change. `tools/tests/test_ssf.py`.
+Deployed to OVH 21:27 UTC (zone `2ca5fa0e`, image `e67956fa`), built from the
+deployed source plus only the SSF patch (main's mirror carries the unreleased
+Power Source candidate). Fix 22:04 UTC: the oath was in the PoK Chronicler
+script, which never spawns; it now lives in `ecommons/The_Ancient_Chronicler.pl`
+(NPC 999220) and PoK is restored (quest reload, no restart). Wiki `20261101-ssf-v1`.
+Evidence/QA: `docs/releases/ssf-mode-20261101/`.
+
+## 2026-11-01 — Zone-state boot no longer wipes respawn loot
+
+`server-mods/code/zone/zone_save_state.cpp`: a dead spawn's placeholder row
+(`npc_id 0`, empty loot) was applied to its fresh respawn at boot; the empty loot
+hit the advanced-loot validator, which cleared the roll and quarantined the NPC
+as `invalid`. That sentinel then re-saved and re-quarantined on every later boot
+and locked the corpse. Palwar's Nagafen's Lair run found every fire giant and
+Lord Nagafen lootless (43 flagged NPCs server-wide). Saved state now applies only
+to rows holding a live NPC, and the bare `invalid` sentinel on a living NPC is
+lifted with a fresh table roll (upstream fallback). Corpses and raw unparseable
+loot keep their quarantine. Native restore-loop test extended. Zone-only binary.
+Deployed to OVH 15:36 UTC (zone `77c5fdff`, image `9bd39442`); OVH build cache
+pruned to free disk. Evidence/QA: `docs/ops/npc-placeholder-loot-20261101/`.
+
 ## 2026-10-30 — Power Source item XP candidate (not released)
 
 Dev PR383 and test PR384 merged after independent review and integration checks;

@@ -1,5 +1,23 @@
 # Current Nightcap status
 
+## 2026-11-01 — Solo self-found mode deployed for live testing
+
+Opt-in, permanent SSF characters (tunnel Ancient Chronicler, `walk alone`, level 1). They
+cannot trade, use either bazaar, parcels, the shared or guild bank, or group or raid with
+players. They earn no passive AA. Main PR #391; live on OVH since 21:27 UTC (zone
+`2ca5fa0e`, all 12 zones, access open, no client update). The oath first went
+to an unspawned PoK script; it moved to the tunnel Chronicler at 22:04 UTC (quest
+reload, no restart). Wiki `20261101-ssf-v1` is published. In-game QA is open:
+[release notes and QA](releases/ssf-mode-20261101/README.md).
+
+## 2026-11-01 — Lootless respawns after zone boot, deployed
+
+Zone-state boot applied dead-spawn placeholders to fresh respawns, wiping their
+loot and quarantining them as `invalid` permanently. Palwar's Nagafen's Lair run
+hit 23 such fire giants plus Lord Nagafen; 43 NPCs are flagged server-wide.
+Zone-only fix is on main (PR #389) and live on OVH since 15:36 UTC: all 12
+zones verified, access open, no client update. In-game loot QA is open: [diagnosis, fix and QA](ops/npc-placeholder-loot-20261101/README.md).
+
 ## 2026-10-30 — Power Source item experience candidate, not released
 
 Source is on dev/test through PR383/384. The promoted test tree exactly matched

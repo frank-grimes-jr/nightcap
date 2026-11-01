@@ -109,6 +109,11 @@ class WikiTests(unittest.TestCase):
             self.assertRegex(a['body'],r'[Ff]our (?:identical )?Polished',a['slug'])
             self.assertNotIn('exchange three identical eligible copies',a['body'])
 
+    def test_zone_pages_publish_configured_rates(self):
+        self.assertIn('independent 1.5% roll for the augment family and 0.5% for the gear family',self.articles['zone-hole']['body'])
+        self.assertIn('rolls at 1.5% per eligible kill',self.articles['item-940280']['body'])
+        self.assertIn('rolls at 0.5% per eligible kill',self.articles['item-940284']['body'])
+
     def test_chapterhouse_separates_augments_equipment_and_quest_delivery(self):
         self.assertIn('0.5%',self.articles['zone-chapterhouse']['body'])
         self.assertIn('35%',self.articles['zone-chapterhouse']['body'])
