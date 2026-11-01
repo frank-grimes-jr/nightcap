@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## 2026-11-01 — Lootless respawns after zone boot, fixed on main
+
+Zone-state boot applied dead-spawn placeholders to fresh respawns, wiping their
+loot and quarantining them as `invalid` permanently. Palwar's Nagafen's Lair run
+hit 23 such fire giants plus Lord Nagafen; 43 NPCs are flagged server-wide.
+Zone-only fix and native test are on main. Production deployment status and
+in-game QA: [diagnosis, fix and QA](ops/npc-placeholder-loot-20261101/README.md).
+
 ## 2026-10-30 — Power Source item experience candidate, not released
 
 An additional combat-XP path advances supported equipment/Hunt families through
