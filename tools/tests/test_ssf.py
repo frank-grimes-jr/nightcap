@@ -19,6 +19,10 @@ def check_gates():
         for name in names:
             signature = re.search(r'\w+ Client::' + name + r'\(', source).group(0)
             assert 'SSFBlocked(' in harness.function(source, signature), f'{name} is not SSF-gated'
+    # The oath must live in the Chronicler that actually spawns (999220, East Commonlands).
+    quests = harness.ROOT / 'server-mods/quests'
+    assert 'SetSSF()' in (quests / 'ecommons/The_Ancient_Chronicler.pl').read_text(encoding='utf-8')
+    assert 'SSF' not in (quests / 'poknowledge/The_Ancient_Chronicler.pl').read_text(encoding='utf-8')
 
 
 harness.CASES = r"""

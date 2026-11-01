@@ -17,7 +17,7 @@ only. It also checks that every gated handler calls `SSFBlocked`.
 
 A is a new level-1 character; B is a normal character. Zone, `#reload quest`.
 
-1. A hails the Ancient Chronicler in PoK, clicks `walk alone`, then Yes.
+1. A hails the Ancient Chronicler in the East Commonlands tunnel, clicks `walk alone`, then Yes.
    Expect "You now walk alone." and a `character_ssf` row. The AA window shows 0%.
 2. A and B request trades with each other: both refused with a red message.
    A hands an item to a quest NPC: the turn-in still works.

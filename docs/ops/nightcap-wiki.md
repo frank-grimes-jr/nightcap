@@ -9,7 +9,13 @@ Updated October 29, 2026.
   Owner-approved reader/timer/JSON route and HTML publication are verified.
   [Operator and recovery](wiki-loot-reader.md); [verification](../releases/wiki-loot-finder-20261022/README.md).
 
-- **Public URL: https://wiki.nightcapgame.org/** — verified October29,2026.
+- **Public URL: https://wiki.nightcapgame.org/** — verified November1,2026.
+- **Active OVH origin release (November 1):** `20261101-ssf-v1` over
+  `20261030-hate-boss-placement-v1` (retained). Solo self-found guidance in
+  Multiclass & progression, Features and Change Log; four files changed, all 499
+  HTTPS hashes verify. Live source is `feature/hate-density` `b6204eef` plus
+  `docs/releases/ssf-mode-20261101/wiki_edit.py`, not main's `wiki/` (main also
+  carries unpublished previews). [SSF release](../releases/ssf-mode-20261101/README.md).
 - **Active OVH origin release:** `20261029-keyless-doors-v1`; previous
   `20261029-hate-layout-v1` is retained for recovery. The scoped release updates
   Travel, Features, In development, Change Log and generated Hole guidance plus

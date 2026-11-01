@@ -2,11 +2,12 @@
 
 ## 2026-11-01 — Solo self-found mode deployed for live testing
 
-Opt-in, permanent SSF characters (PoK Chronicler, `walk alone`, level 1). They
+Opt-in, permanent SSF characters (tunnel Ancient Chronicler, `walk alone`, level 1). They
 cannot trade, use either bazaar, parcels, the shared or guild bank, or group or raid with
 players. They earn no passive AA. Main PR #391; live on OVH since 21:27 UTC (zone
-`2ca5fa0e`, all 12 zones, access open, no client update). In-game QA and the
-wiki entry are open:
+`2ca5fa0e`, all 12 zones, access open, no client update). The oath first went
+to an unspawned PoK script; it moved to the tunnel Chronicler at 22:04 UTC (quest
+reload, no restart). Wiki `20261101-ssf-v1` is published. In-game QA is open:
 [release notes and QA](releases/ssf-mode-20261101/README.md).
 
 ## 2026-11-01 — Lootless respawns after zone boot, deployed
