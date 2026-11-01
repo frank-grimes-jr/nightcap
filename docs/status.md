@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## 2026-11-01 — Solo self-found mode candidate, not released
+
+Opt-in, permanent SSF characters (PoK Chronicler, `walk alone`, level 1). They
+cannot trade, use either bazaar, parcels, the shared or guild bank, or group or raid with
+players. They earn no passive AA. Zone, schema and quest candidate only; the
+native AA harness passes. Not built, deployed or owner-accepted:
+[release notes and QA](releases/ssf-mode-20261101/README.md).
+
 ## 2026-11-01 — Lootless respawns after zone boot, deployed
 
 Zone-state boot applied dead-spawn placeholders to fresh respawns, wiping their

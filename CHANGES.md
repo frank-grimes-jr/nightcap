@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-11-01 — Solo self-found mode candidate (not released)
+
+Opt-in, permanent, per-character SSF (ADR 0074). Say `walk alone` to the PoK
+Ancient Chronicler at level 1. New `character_ssf` table; one zone gate
+(`Client::SSFBlocked`) refuses player trade, native trader/buyer/barter,
+`#bazaar` escrow, player parcels in both directions, shared bank items and coin,
+guild bank, and group/raid invites and accepts with players. NPC and bot trades and
+bot/merc groups still work. Normal XP is unchanged. SSF characters get no passive
+AA, so 0% earns nothing and AA comes only from the AA window's +/-. Gotchas:
+the load fails open if the table is missing; clearing SSF is a GM row delete plus
+a zone; a refused shared-bank coin move leaves the client coin display stale
+until zoning. Zone-only, no rule change. `tools/tests/test_ssf.py`.
+Evidence/QA: `docs/releases/ssf-mode-20261101/`.
+
 ## 2026-11-01 — Zone-state boot no longer wipes respawn loot
 
 `server-mods/code/zone/zone_save_state.cpp`: a dead spawn's placeholder row

@@ -1757,6 +1757,15 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 		return false;
 	}
 
+	// The shared bank is account-wide, so SSF characters cannot use it. Returning false resyncs the client.
+	const auto is_shared_bank = [](uint32 slot) {
+		return EQ::ValueWithin(slot, EQ::invslot::SHARED_BANK_BEGIN, EQ::invslot::SHARED_BANK_END) ||
+			EQ::ValueWithin(slot, EQ::invbag::SHARED_BANK_BAGS_BEGIN, EQ::invbag::SHARED_BANK_BAGS_END);
+	};
+	if ((is_shared_bank(src_slot_check) || is_shared_bank(dst_slot_check)) && SSFBlocked()) {
+		return false;
+	}
+
 	if (move_in->from_slot == move_in->to_slot) { // Item summon, no further processing needed
 		if (ClientVersion() >= EQ::versions::ClientVersion::RoF) { return true; } // Can't do RoF+
 
