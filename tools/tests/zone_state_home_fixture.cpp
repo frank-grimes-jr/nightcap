@@ -73,7 +73,12 @@ struct NPC {
  void SetHeading(float h){position.w=h;} void SaveGuardSpot(const glm::vec4&);
  glm::vec4 GetPosition()const{return position;}
  uint32 GetID()const{return 9;} void SetQueuedToCorpse(){queued=true;} void Depop(){depopped=true;}
- void SetEntityVariable(const std::string&,const std::string&){} void AddLootTable(){}
+ std::map<std::string,std::string> variables;
+ int loot_rolls=0;
+ void SetEntityVariable(const std::string& k,const std::string& v){variables[k]=v;}
+ bool DeleteEntityVariable(const std::string& k){return variables.erase(k)>0;}
+ // Native AddLootTable skips resumed NPCs; record only rolls that would happen.
+ void AddLootTable(){if(!resumed)++loot_rolls;} void ClearLootItems(){}
  bool DropsGlobalLoot()const{return false;} void CheckGlobalLootTables(){}
  void SetSpawnGroupId(uint32){} void SaveGuardPointAnim(int){} void SetAppearance(int){}
 };
@@ -114,10 +119,14 @@ namespace NightcapLoot {
 void StampRestoredDropIDs(NPC*,const std::string&,uint32,int){}
 void RestoreCorpseState(NPC*,const std::string&){}
 }
-void LoadLootStateData(Zone*,NPC*,const std::string&){}
+int loot_restores=0;
+void LoadLootStateData(Zone*,NPC*,const std::string&){++loot_restores;}
 void LoadNPCBuffs(NPC*,const std::string&){}
 void LoadNPCStatePreSpawn(Zone*,NPC*,ZoneStateSpawnsRepository::ZoneStateSpawns&){}
-std::map<std::string,std::string> GetVariablesDeserialized(const std::string&){return {};}
+std::map<std::string,std::string> GetVariablesDeserialized(const std::string& k){
+ if(k.empty()) return {};
+ return {{k,"invalid"}};
+}
 #define LogInfo(...) ((void)0)
 #define LogZoneState(...) ((void)0)
 #define Log(...) ((void)0)
@@ -185,6 +194,32 @@ int main(){
  Restore({saved},{canonical},{{saved.spawn2_id,120}});
  assert(spawn2_list.values.size()==1 && entity_list.published.empty());
  Reset();
+
+ // A dead spawn's placeholder (npc_id 0, no loot) whose timer expired before
+ // boot respawns fresh: its own loot roll must survive, not the empty state.
+ saved.npc_id=0;saved.hp=0;saved.mana=0;saved.endurance=0;loot_restores=0;
+ Restore({saved},{canonical});
+ assert(entity_list.published.size()==1);
+ assert(entity_list.published[0]->loot_rolls==1 && loot_restores==0);
+ assert(!entity_list.published[0]->resumed);
+ Reset();
+
+ // The "invalid" sentinel quarantines empty saved loot and holds nothing to
+ // recover: lift it and roll the resumed NPC's tables instead of re-quarantining.
+ saved=State{};saved.loot_data="invalid";loot_restores=0;
+ saved.entity_variables="nightcap:advloot-invalid-state";
+ Restore({saved},{canonical});
+ auto healed=entity_list.published.at(0);
+ assert(healed->loot_rolls==1 && loot_restores==0);
+ assert(!healed->variables.count("nightcap:advloot-invalid-state"));
+ Reset();
+
+ // Real saved loot still restores through the validated loader without a roll.
+ saved.loot_data="{}";loot_restores=0;
+ Restore({saved},{canonical});
+ assert(entity_list.published.at(0)->loot_rolls==0 && loot_restores==1);
+ Reset();
+ saved=State{};
 
  // Restored roamers keep their current location and persisted waypoint.
  saved.grid=5;group.wp_spawns=true;

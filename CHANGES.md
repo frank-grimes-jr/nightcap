@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-01 — Zone-state boot no longer wipes respawn loot
+
+`server-mods/code/zone/zone_save_state.cpp`: a dead spawn's placeholder row
+(`npc_id 0`, empty loot) was applied to its fresh respawn at boot; the empty loot
+hit the advanced-loot validator, which cleared the roll and quarantined the NPC
+as `invalid`. That sentinel then re-saved and re-quarantined on every later boot
+and locked the corpse. Palwar's Nagafen's Lair run found every fire giant and
+Lord Nagafen lootless (43 flagged NPCs server-wide). Saved state now applies only
+to rows holding a live NPC, and the bare `invalid` sentinel on a living NPC is
+lifted with a fresh table roll (upstream fallback). Corpses and raw unparseable
+loot keep their quarantine. Native restore-loop test extended. Zone-only binary.
+Evidence/QA: `docs/ops/npc-placeholder-loot-20261101/`.
+
 ## 2026-10-30 — Power Source item XP candidate (not released)
 
 Added the candidate additional combat-XP upgrade path; the existing Reforging Box remains.
