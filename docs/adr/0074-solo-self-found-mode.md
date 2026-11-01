@@ -16,7 +16,7 @@ window +/-), and the normal (unboosted) experience rate.
   character as SSF. The zone loads it on ZoneEntry next to the multiclass mask.
   If the query fails the character is treated as normal, so a zone deployed
   before the table exists changes nothing.
-- The character opts in at the PoK Ancient Chronicler by saying `walk alone` at
+- The character opts in at the Ancient Chronicler (East Commonlands tunnel) by saying `walk alone` at
   level 1 and confirming a popup. Only a GM can reverse it, by deleting the row.
 - One gate, `Client::SSFBlocked(other)`, refuses the action with a red message
   when this character or the other client is SSF. It covers:

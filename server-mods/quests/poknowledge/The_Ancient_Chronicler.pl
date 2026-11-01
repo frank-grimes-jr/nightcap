@@ -14,7 +14,6 @@
 
 my $POPUP_RELEASE_2 = 402;
 my $POPUP_RELEASE_3 = 403;
-my $POPUP_SSF       = 500;   # solo self-found oath (ADR 0074)
 
 my %ARCHETYPES = (
     'Tanks' => [1, 3, 5],        # War Pal SK
@@ -73,14 +72,6 @@ sub _show_preview {
     quest::say('Ready to add ' . $cname . '? [' . quest::saylink("embrace $cname", 0, 'Choose this class') . ']');
 }
 
-sub _ssf_line {
-    if ($client->IsSSF()) {
-        $client->Message(15, 'You walk alone: solo self-found.');
-    } elsif ($client->GetLevel() == 1) {
-        quest::say('Or, if you would rather owe nothing to anyone, you may [' . quest::saylink('walk alone') . '].');
-    }
-}
-
 sub EVENT_SAY {
     my $say     = lc($text);
     my $char_id = $client->CharacterID();
@@ -92,21 +83,6 @@ sub EVENT_SAY {
             'Welcome, ' . $client->GetName() . '. I can help you choose two additional classes.'
         );
         _show_menu($base, $c2, $c3);
-        _ssf_line();
-        return;
-    }
-
-    if ($say eq 'walk alone') {
-        if ($client->IsSSF()) { quest::say('You already walk alone.'); return; }
-        if ($client->GetLevel() != 1) { quest::say('That oath can only be sworn at the very start of a journey.'); return; }
-        quest::popup(
-            'Walk Alone',
-            'Swear the solo self-found oath? This is permanent.<br><br>' .
-            'You cannot trade with players, use either bazaar, send or receive parcels, ' .
-            'or use the shared or guild bank. You cannot group or raid with players; bots and mercenaries are allowed.<br><br>' .
-            'AA experience starts off. Use + in the AA window to earn AA; there is no passive AA.',
-            $POPUP_SSF, 1, 0
-        );
         return;
     }
 
@@ -154,13 +130,6 @@ sub EVENT_SAY {
 
 sub EVENT_POPUPRESPONSE {
     my $char_id = $client->CharacterID();
-
-    if ($popupid == $POPUP_SSF) {
-        return if $client->IsSSF() || $client->GetLevel() != 1;
-        $client->Message($client->SetSSF() ? 15 : 13,
-            $client->IsSSF() ? 'You now walk alone.' : 'The oath could not be recorded. Try again later.');
-        return;
-    }
 
     if ($popupid == $POPUP_RELEASE_2 || $popupid == $POPUP_RELEASE_3) {
         my ($ok, $msg) = plugin::mc_revoke_slot($client, $popupid == $POPUP_RELEASE_2 ? 2 : 3);

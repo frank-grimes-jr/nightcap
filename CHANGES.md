@@ -2,8 +2,8 @@
 
 ## 2026-11-01 — Solo self-found mode (deployed to OVH)
 
-Opt-in, permanent, per-character SSF (ADR 0074). Say `walk alone` to the PoK
-Ancient Chronicler at level 1. New `character_ssf` table; one zone gate
+Opt-in, permanent, per-character SSF (ADR 0074). Say `walk alone` to the
+Ancient Chronicler in the East Commonlands tunnel at level 1. New `character_ssf` table; one zone gate
 (`Client::SSFBlocked`) refuses player trade, native trader/buyer/barter,
 `#bazaar` escrow, player parcels in both directions, shared bank items and coin,
 guild bank, and group/raid invites and accepts with players. NPC and bot trades and

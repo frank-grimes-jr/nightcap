@@ -30,13 +30,23 @@ on-host manifest.
 
 Not verified: any in-game behavior (see QA.md).
 
+### Chronicler correction — November 1
+
+The first rollout put `walk alone` in `poknowledge/The_Ancient_Chronicler.pl`,
+but the Chronicler only spawns in the East Commonlands tunnel (NPC 999220,
+`ecommons`). The PoK copy is never loaded, so the oath was unreachable. The
+dialog now lives in `ecommons/The_Ancient_Chronicler.pl`, and the PoK file is
+restored to its original. `test_ssf.py` checks the spawned script.
+`fix_chronicler.py` swaps both files against their exact preimages and reloads
+quests. No restart.
+
 ## Contents
 
 | Part | Files |
 |---|---|
 | Schema | `server-mods/sql/20261101_character_ssf.sql` (plain `CREATE`, fails if the table exists) |
 | Zone | `client.{h,cpp}`, `client_packet.cpp`, `client_process.cpp`, `client_bazaar.cpp`, `inventory.cpp`, `exp.cpp`, `perl_client.cpp` |
-| Quest | `server-mods/quests/poknowledge/The_Ancient_Chronicler.pl` (`walk alone`, popup 500) |
+| Quest | `server-mods/quests/ecommons/The_Ancient_Chronicler.pl` (NPC 999220; `walk alone`, popup 500) |
 | Tests | `tools/tests/test_ssf.py`; `test_passive_aa.py` harness stubs `IsSSF`/`PassiveAAPercent` |
 
 There is no `ruletypes.h` change and no client, cache or `shared_memory` update.
@@ -47,7 +57,7 @@ World is unchanged; only zone is rebuilt.
 1. Back up PEQ (`tools/backup-peq.ps1`). Apply the SQL.
 2. Copy the zone files into `akk-stack/code/zone/` and build zone. Restart the
    whole runtime; never kill individual production zones.
-3. Copy the Chronicler script into `akk-stack/server/quests/poknowledge/` and run `#reload quest`.
+3. Copy the Chronicler script into `akk-stack/server/quests/ecommons/` and run `#reload quest`.
 
 Deploying the zone before the table is safe: the load fails open and no
 character is SSF.
