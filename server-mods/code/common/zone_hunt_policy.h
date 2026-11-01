@@ -5,7 +5,7 @@
 namespace NightcapHunt {
 constexpr uint64_t Revision = 2026100901;
 constexpr uint32_t ArmorMask = 921732;
-constexpr int FamilyChance = 50; // Uniform integer [0,9999]: exactly 0.5%.
+// Family chances are per zone: nightcap_zone_hunt_zones.augment_chance/gear_chance, out of 10000.
 
 inline int Quality(int roll)
 {

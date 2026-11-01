@@ -43,7 +43,6 @@ int main() {
 	using namespace NightcapHunt;
 	std::array<int,4> counts{};for(int i=0;i<10000;++i)++counts[Quality(i)];
 	assert((counts==std::array<int,4>{6000,3000,800,200}));
-	int drops=0;for(int i=0;i<10000;++i)drops+=i<FamilyChance;assert(drops==50);
 	DeathEligibility e{true,true,true,true,false,false,true,46,46};bool rolled=false;
 	assert(BeginDeathRoll(rolled,e)&&rolled&&!BeginDeathRoll(rolled,e));
 	for(int bad=0;bad<8;++bad) {

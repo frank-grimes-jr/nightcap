@@ -602,7 +602,9 @@ Format: date header, area, description. Most recent entry at the top.
 Classic zone hunt/forge is live for owner QA; see `docs/releases/zone-loot-20261009/PRODUCTION.md`.
 `tools/zone_hunt.py` generates guarded item/socket SQL from an explicit production
 content capture. Do not attach its rewards to global loot tables: native death
-rolls are exactly 0.5% per family and intentionally bypass GlobalLootMultiplier.
+rolls intentionally bypass GlobalLootMultiplier. Per-zone family chances (candidate:
+`docs/releases/zone-hunt-rates-20261101/`) come only from `config/zone-hunt-rates.json`
+via `tools/zone_hunt_rates.py`; never hand-edit the columns, the wiki reads the config.
 Keep restored corpses, owned NPCs and non-native clones excluded. Type-22 cap
 credit is limited to six armor locations; preserve nonplayer cap behavior.
 Forging uses the advanced-loot inventory serializer, exact persisted preimages,

@@ -1,0 +1,5 @@
+{
+  "_units": "Chance per eligible kill out of 10000 (150 = 1.5%). Keys under zones are zone short names; each override replaces only the fields it names.",
+  "default": {"augment_chance": 150, "gear_chance": 50},
+  "zones": {}
+}

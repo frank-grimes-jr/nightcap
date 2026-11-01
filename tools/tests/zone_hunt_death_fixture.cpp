@@ -20,7 +20,7 @@ struct NPC {
 	void AddLootDrop(const Item *item,LootdropEntriesRepository::Entry entry,bool wear){assert(!wear&&entry.equip_item==0&&entry.item_charges==1);drops.push_back(item->id);}
 };
 namespace NightcapHunt {
-struct Hunt {uint32 zone_id=4,augment=940024,gear=940028;int minimum=46;bool enabled=true,night_only=false;std::set<std::pair<uint32,uint32>> sources{{10,4001}};} hunt;
+struct Hunt {uint32 zone_id=4,augment=940024,gear=940028;int minimum=46,augment_chance=50,gear_chance=50;bool enabled=true,night_only=false;std::set<std::pair<uint32,uint32>> sources{{10,4001}};} hunt;
 // ACTUAL_AWARD
 }
 int main() {
@@ -39,4 +39,8 @@ int main() {
 	Award(n,true,rolled);assert(!rolled&&instance.random.calls==0); // charm faded during accepted death
 	instance.random={{50,49,9800},0};Award(n,false,rolled);
 	assert((n.drops==std::vector<uint32>{940031})&&instance.random.calls==3); // boundary and no quality draw for failed family
+	n={};rolled=false;hunt.augment_chance=150;hunt.gear_chance=0;instance.random={{149,0,0},0};Award(n,false,rolled);
+	assert((n.drops==std::vector<uint32>{940024})&&instance.random.calls==3); // per-family zone chance; 0 never drops
+	n={};rolled=false;instance.random={{150,9999},0};Award(n,false,rolled);
+	assert(n.drops.empty()&&instance.random.calls==2); // 150 is exclusive
 }
