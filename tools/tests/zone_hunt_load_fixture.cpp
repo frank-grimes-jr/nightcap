@@ -29,8 +29,8 @@ struct Result {
 	Iterator begin(){return {rows.begin()};}Iterator end(){return {rows.end()};}
 };
 struct DB {
-	Result config{{{"940592","940596","46","0"}},true},sources{{},true};
-	Result equipment{{{"940564","46","0"}},true};
+	Result config{{{"940592","940596","46","0","150","50"}},true},sources{{},true};
+	Result equipment{{{"940564","46","0","25"}},true};
 	std::set<uint32> items;std::vector<std::string> queries;
 	Result QueryDatabase(std::string q,bool){queries.push_back(q);
 		return q.find("SELECT z.augment_base")!=std::string::npos ? config :
@@ -38,7 +38,7 @@ struct DB {
 	bool GetItem(uint32 id){return items.count(id)!=0;}
 } database;
 namespace NightcapHunt {
-struct Hunt {uint32 zone_id=0,augment=0,gear=0;int minimum=0;bool enabled=false,night_only=false;std::set<std::pair<uint32,uint32>> sources;} hunt;
+struct Hunt {uint32 zone_id=0,augment=0,gear=0;int minimum=0,augment_chance=0,gear_chance=0;bool enabled=false,night_only=false;std::set<std::pair<uint32,uint32>> sources;} hunt;
 // ACTUAL_LOAD
 }
 int main() {
@@ -48,6 +48,7 @@ int main() {
 		for(uint32 id=940592;id<940600;++id)database.items.insert(id);};
 	reset();Load(z);
 	assert(hunt.enabled&&hunt.zone_id==186&&hunt.augment==940592&&hunt.sources.empty());
+	assert(hunt.augment_chance==150&&hunt.gear_chance==50);
 	assert(database.queries[0].find("z.zone_id=186 AND z.enabled=1")!=std::string::npos);
 	assert(database.queries[0].find("s.enabled=1 AND s.revision=2026100901")!=std::string::npos);
 	for(int bad=0;bad<8;++bad) {
@@ -66,11 +67,12 @@ int main() {
 	reset();NightcapDungeon::managed=true;database.sources.rows={{"10","4001"}};
 	for(uint32 id=940564;id<940568;++id)database.items.insert(id);
 	Load(z);assert(hunt.enabled&&hunt.augment==940592&&hunt.gear==940564);
+	assert(hunt.augment_chance==150&&hunt.gear_chance==25); // own augment chance, inherited gear chance
 	assert(database.queries.size()==3&&database.queries[0].find("z.zone_id=186")!=std::string::npos);
 	assert(database.queries[1].find("zone_id=76")!=std::string::npos);
 	assert(database.queries[2].find("zone_id=76")!=std::string::npos&&hunt.sources.count({10,4001})==1);
 	for(int bad=0;bad<3;++bad) {
-		database.queries.clear();database.equipment={{{"940564","46","0"}},true};
+		database.queries.clear();database.equipment={{{"940564","46","0","25"}},true};
 		if(bad==0)database.equipment.success=false;
 		if(bad==1)database.equipment.rows.clear();
 		if(bad==2)database.items.erase(940567);

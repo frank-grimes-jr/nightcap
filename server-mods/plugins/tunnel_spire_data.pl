@@ -12,5 +12,7 @@ sub tunnel_spire_catalog { return [
     {zone=>'commons',zone_id=>21,label=>'West Commonlands',era=>0,min_level=>0,x=>1841,y=>1,z=>-13,heading=>256},
     {zone=>'nro',zone_id=>34,label=>'North Ro',era=>0,min_level=>0,x=>823,y=>1377,z=>14,heading=>384},
     {zone=>'qey2hh1',zone_id=>12,label=>'West Karana',era=>0,min_level=>0,x=>-14815,y=>-3569,z=>36,heading=>0},
+    # Zone safe point; min_level mirrors zone.min_level 46 so the port never bounces.
+    {zone=>'airplane',zone_id=>71,label=>'Plane of Sky',era=>0,min_level=>46,x=>614,y=>1415,z=>-650,heading=>0},
 ]; }
 1;

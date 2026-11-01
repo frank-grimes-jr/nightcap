@@ -307,8 +307,21 @@ inline void LoadNPCState(Zone *zone, NPC *n, ZoneStateSpawnsRepository::ZoneStat
 	}
 
 	n->SetResumedFromZoneSuspend(false);
-	LoadLootStateData(zone, n, s.loot_data);
-	NightcapLoot::StampRestoredDropIDs(n, s.loot_data, s.id, s.created_at);
+	if (!s.is_corpse && s.loot_data == "invalid") {
+		// The bare sentinel quarantined empty saved loot: nothing is recoverable.
+		// Lift it and roll fresh (upstream's empty-loot fallback) so a living NPC
+		// is not lootless, with a locked corpse, for every later save and boot.
+		n->DeleteEntityVariable("nightcap:advloot-invalid-state");
+		n->ClearLootItems();
+		n->AddLootTable();
+		if (n->DropsGlobalLoot()) {
+			n->CheckGlobalLootTables();
+		}
+	}
+	else {
+		LoadLootStateData(zone, n, s.loot_data);
+		NightcapLoot::StampRestoredDropIDs(n, s.loot_data, s.id, s.created_at);
+	}
 	n->SetResumedFromZoneSuspend(true);
 	LoadNPCBuffs(n, s.buffs);
 
@@ -528,7 +541,9 @@ bool Zone::LoadZoneState(
 		spawn2_list.Insert(new_spawn);
 		new_spawn->Process();
 		auto n = new_spawn->GetNPC();
-		if (n) {
+		// npc_id 0 is a dead spawn's placeholder; an expired timer spawns a fresh
+		// NPC whose own roll must not be replaced by the placeholder's empty loot.
+		if (n && s.npc_id > 0) {
 			LoadNPCState(zone, n, s);
 		}
 	}

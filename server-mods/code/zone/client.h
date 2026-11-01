@@ -819,6 +819,7 @@ public:
 	void NormalizeAAAllocation();
 	uint64 FinalizeAAExperience(uint64 aaexp, bool level_scaled);
 	uint64 CalculateLevelBasedAAExp(uint64 full_xp, uint64 level_xp);
+	uint32 PassiveAAPercent() const;
 	uint64 CalcEXP(uint8 conlevel = 0xFF, bool ignore_mods = false);
 	void CalculateNormalizedAAExp(uint64 &add_aaxp, uint8 conlevel, bool resexp);
 	void CalculateStandardAAExp(uint64 &add_aaxp, uint8 conlevel, bool resexp);
@@ -1211,6 +1212,12 @@ public:
 	inline uint32 GetAAXP() const { return m_pp.expAA; }
 	inline uint32 GetAAPercent() const { return m_epp.perAA; }
 	void SetAAExperiencePercent(uint32 percent); // 0 = leveling plus passive AA; 1-100 = focused AA
+	// Solo self-found (ADR 0074): a character_ssf row makes the character SSF.
+	void LoadSSF();
+	bool SetSSF();
+	inline bool IsSSF() const { return m_ssf; }
+	bool SSFBlocked(Client* other = nullptr); // messages and returns true when this or other is SSF
+	static bool IsSSFCharacter(const std::string &name);
 	void SetAATitle(std::string title);
 	void SetTitleSuffix(std::string suffix);
 	void MemorizeSpell(uint32 slot, uint32 spell_id, uint32 scribing, uint32 reduction = 0);
@@ -2388,6 +2395,7 @@ private:
 	EQ::versions::ClientVersion m_ClientVersion;
 	uint32 m_ClientVersionBit;
 	uint32 m_multiclass_mask;
+	bool m_ssf = false;
 	NightcapPetArmor::Collection m_pet_armor;
 	std::map<uint8, uint16> m_pet_armor_roster;
 	bool m_pet_armor_loaded = false;

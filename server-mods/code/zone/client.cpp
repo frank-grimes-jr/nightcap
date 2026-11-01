@@ -2328,6 +2328,50 @@ void Client::SetAAExperiencePercent(uint32 percent)
 	SendAlternateAdvancementTable();
 }
 
+// ponytail: fails open (unflagged) when the query fails, so a zone deployed
+// before the table exists keeps every character normal.
+void Client::LoadSSF()
+{
+	auto results = database.QueryDatabase(
+		fmt::format("SELECT 1 FROM character_ssf WHERE character_id = {}", CharacterID())
+	);
+	m_ssf = results.Success() && results.RowCount() == 1;
+}
+
+// One-way: only a GM deletes the row. Joining SSF also turns AA experience off.
+bool Client::SetSSF()
+{
+	if (m_ssf) { return true; }
+	auto inserted = database.QueryDatabase(
+		fmt::format("INSERT INTO character_ssf (character_id) VALUES ({})", CharacterID())
+	);
+	if (!inserted.Success() || inserted.RowsAffected() != 1) { return false; }
+	m_ssf = true;
+	SetAAExperiencePercent(0);
+	return true;
+}
+
+bool Client::SSFBlocked(Client* other)
+{
+	if (!m_ssf && !(other && other->IsSSF())) { return false; }
+	const auto message = m_ssf
+		? std::string("You walk alone. Solo self-found characters cannot do that.")
+		: fmt::format("{} walks alone and cannot do that.", other->GetCleanName());
+	Message(Chat::Red, "%s", message.c_str());
+	return true;
+}
+
+// For recipients who may be offline, such as parcel targets.
+bool Client::IsSSFCharacter(const std::string &name)
+{
+	auto results = database.QueryDatabase(fmt::format(
+		"SELECT 1 FROM character_ssf s JOIN character_data c ON c.id = s.character_id "
+		"WHERE c.name = '{}' AND c.deleted_at IS NULL",
+		Strings::Escape(name)
+	));
+	return results.Success() && results.RowCount() > 0;
+}
+
 void Client::IncreaseLanguageSkill(uint8 language_id, uint8 increase)
 {
 	if (!EQ::ValueWithin(language_id, Language::CommonTongue, Language::Unknown27)) {
