@@ -40,6 +40,24 @@ restored to its original. `test_ssf.py` checks the spawned script.
 `fix_chronicler.py` swaps both files against their exact preimages and reloads
 quests. No restart.
 
+Applied 22:04 UTC (owner approved after reporting the missing option). Production's
+ecommons script matched the original PoK one (`777d5793`), not main's mirror,
+which also carries the unreleased Epic 0.5 journal hook. So ecommons now holds
+exactly the SSF script first deployed at PoK (`78f0a5c2`), and PoK is back to
+`777d5793`. All 12 zones acknowledged the Quest reload with no quest errors.
+Gotcha: main's `ecommons` mirror (journal + SSF) still differs from production.
+
+## Wiki — 20261101-ssf-v1
+
+Built from the live source (`feature/hate-density` `b6204eef`) plus
+`wiki_edit.py`: a Solo self-found section in Multiclass & progression, a short
+Features entry and a dated Change Log entry. Exactly four public files changed
+(`features.html`, `multiclass.html`, `recent-changes.html`, `search-index.json`);
+the other 495 matched the live manifest. `publish_wiki.py` ran the Linux
+updater tests, rehearsed rollback to `20261030-hate-boss-placement-v1` and
+switched the pointer; all 499 HTTPS hashes/headers and five private denials
+verify (`wiki-publication.json`, `wiki-public-verification.json`).
+
 ## Contents
 
 | Part | Files |
@@ -81,4 +99,4 @@ DROP TABLE character_ssf;
 
 ## Wiki impact
 
-Player-facing. Needs a wiki entry for the oath and its restrictions before release.
+Player-facing. Published as `20261101-ssf-v1` (above).

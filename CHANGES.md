@@ -14,7 +14,9 @@ a zone; a refused shared-bank coin move leaves the client coin display stale
 until zoning. Zone-only, no rule change. `tools/tests/test_ssf.py`.
 Deployed to OVH 21:27 UTC (zone `2ca5fa0e`, image `e67956fa`), built from the
 deployed source plus only the SSF patch (main's mirror carries the unreleased
-Power Source candidate).
+Power Source candidate). Fix 22:04 UTC: the oath was in the PoK Chronicler
+script, which never spawns; it now lives in `ecommons/The_Ancient_Chronicler.pl`
+(NPC 999220) and PoK is restored (quest reload, no restart). Wiki `20261101-ssf-v1`.
 Evidence/QA: `docs/releases/ssf-mode-20261101/`.
 
 ## 2026-11-01 — Zone-state boot no longer wipes respawn loot

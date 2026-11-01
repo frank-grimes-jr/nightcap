@@ -2,14 +2,19 @@
 
 Quest-only: exact preimages, atomic replacement, global Quest reload with twelve
 acknowledgments. No restart, SQL or access change. Run once from the repo root:
-`python docs/releases/ssf-mode-20261101/fix_chronicler.py <revision>`.
+`python docs/releases/ssf-mode-20261101/fix_chronicler.py`.
+
+Production's ecommons script equals the original PoK one (777d5793), not main's
+mirror (which carries the unreleased Epic 0.5 journal hook). So the new ecommons
+file is exactly the SSF script the first rollout put at PoK (78f0a5c2), and PoK
+gets its original back. Nothing is uploaded.
 """
 from pathlib import Path
 import hashlib,subprocess,sys
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 ECOMMONS='quests/ecommons/The_Ancient_Chronicler.pl'
-PREIMAGES={ECOMMONS:'ed34b69aa329175ce6b0fdf0db49c339c323e39ac926219f755e29d4d406c162',
+PREIMAGES={ECOMMONS:'777d57939ab1a813f502e1b389c7665f9da2febdb51a049a22bcd0e25a11413e',
            'quests/poknowledge/The_Ancient_Chronicler.pl':'78f0a5c20ae80cd0c749eef413ef041f616227d1fd74bd9dc9c364cfd4679bea'}
 POK_ORIGINAL='777d57939ab1a813f502e1b389c7665f9da2febdb51a049a22bcd0e25a11413e'
 
@@ -17,7 +22,7 @@ REMOTE=r'''
 from pathlib import Path
 import datetime,fcntl,hashlib,json,os,shutil,struct,subprocess,time
 ROOT=Path('/opt/nightcap/deploy/production');STAGE=Path('/opt/nightcap/releases/ssf-mode-20261101-v1')
-OUT=STAGE/'evidence/chronicler-fix';ECOMMONS=__ECOMMONS__;PREIMAGES=__PREIMAGES__;NEW=__NEW__
+OUT=STAGE/'evidence/chronicler-fix';ECOMMONS=__ECOMMONS__;PREIMAGES=__PREIMAGES__
 POK='quests/poknowledge/The_Ancient_Chronicler.pl';POK_ORIGINAL=__POK__
 def sha(b):return hashlib.sha256(b).hexdigest()
 def cmd(*a):return subprocess.check_output(a,cwd=ROOT,text=True,timeout=60)
@@ -49,8 +54,10 @@ with (ROOT/'.deployment.lock').open('a') as lock,open('/var/lock/nightcap-gm.loc
     assert game['State']['StartedAt']==deployed['runtime']['started_at'],'Game restarted since SSF activation'
     for name,digest in PREIMAGES.items():assert sha((ROOT/'data/server'/name).read_bytes())==digest,name+' drift'
     previous=(STAGE/'evidence/activation/chronicler-previous.pl').read_bytes();assert sha(previous)==POK_ORIGINAL
-    new=NEW.encode();OUT.mkdir(mode=0o700)
-    check=STAGE/'chronicler-ecommons.pl';check.write_bytes(new)
+    new=(ROOT/'data/server'/POK).read_bytes();assert sha(new)==PREIMAGES[POK]
+    if OUT.exists():assert not any(OUT.iterdir()),'Inspect prior attempt'
+    else:OUT.mkdir(mode=0o700)
+    check=STAGE/'chronicler-ecommons.pl';check.write_bytes(new);check.chmod(0o644)
     subprocess.run(['docker','run','--rm','--network','none','-v',str(check)+':/q.pl:ro','--entrypoint','perl',game['Image'],'-c','/q.pl'],check=True,capture_output=True)
     for name in PREIMAGES:shutil.copy2(ROOT/'data/server'/name,OUT/(name.split('/')[1]+'-before.pl'))
     save('started.json',{'ecommons_new':sha(new),'pok_restore':POK_ORIGINAL})
@@ -72,10 +79,8 @@ with (ROOT/'.deployment.lock').open('a') as lock,open('/var/lock/nightcap-gm.loc
 '''
 
 if __name__=='__main__':
-    revision=sys.argv[1]
-    new=subprocess.check_output(['git','show',revision+':server-mods/'+ECOMMONS],cwd=ROOT).decode()
     code=(REMOTE.replace('__ECOMMONS__',repr(ECOMMONS)).replace('__PREIMAGES__',repr(PREIMAGES))
-          .replace('__NEW__',repr(new)).replace('__POK__',repr(POK_ORIGINAL)))
+          .replace('__POK__',repr(POK_ORIGINAL)))
     script=HERE/'.fix_chronicler_remote.py';script.write_text(code,encoding='utf-8')
     try:subprocess.run([sys.executable,str(ROOT/'docs/quests/camil-chapterhouse/deployment/remote.py'),str(script)],check=True)
     finally:script.unlink()
