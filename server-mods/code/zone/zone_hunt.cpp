@@ -17,7 +17,7 @@ namespace NightcapHunt {
 namespace {
 struct Hunt {
 	uint32 zone_id = 0, augment = 0, gear = 0;
-	int minimum = 0;
+	int minimum = 0, augment_chance = 0, gear_chance = 0; // Out of 10000.
 	bool enabled = false, night_only = false;
 	std::set<std::pair<uint32, uint32>> sources;
 } hunt;
@@ -29,13 +29,14 @@ void Load(Zone &z)
 	if (z.GetInstanceVersion() || WorldContentService::Instance()->GetCurrentExpansion() != 0) { return; }
 	const auto content_zone=NightcapDungeon::ContentZone(z.GetZoneID(),NightcapDungeon::Managed());
 	auto config = database.QueryDatabase(fmt::format(
-		"SELECT z.augment_base,z.gear_base,z.min_level,z.night_only FROM nightcap_zone_hunt_zones z "
+		"SELECT z.augment_base,z.gear_base,z.min_level,z.night_only,z.augment_chance,z.gear_chance FROM nightcap_zone_hunt_zones z "
 		"JOIN nightcap_zone_hunt_state s ON s.id=1 AND s.enabled=1 AND s.revision={} "
 		"WHERE z.zone_id={} AND z.enabled=1", Revision, content_zone), false);
 	if (!config.Success() || config.RowCount() != 1) { return; }
 	auto r = config.begin();
 	hunt.augment = strtoul(r[0], nullptr, 10); hunt.gear = strtoul(r[1], nullptr, 10);
 	hunt.minimum = atoi(r[2]); hunt.night_only = atoi(r[3]) != 0;
+	hunt.augment_chance = atoi(r[4]); hunt.gear_chance = atoi(r[5]); // CHECK constraint bounds both to [0,10000].
 	if (!IsAugment(hunt.augment) || !NextTier(hunt.gear)) { hunt = {}; return; }
 	for (uint32 base : {hunt.augment, hunt.gear}) {
 		for (uint32 tier = 0; tier != 4; ++tier) {
@@ -60,8 +61,8 @@ void Award(NPC &npc, bool owned_before_death, bool &rolled)
 		npc.IsQueuedForCorpse(), !hunt.night_only || zone->zone_time.IsNightTime(), npc.GetLevel(), hunt.minimum};
 	if (!BeginDeathRoll(rolled, e)) { return; }
 	// This path intentionally never calls AddLootTable or the global multiplier.
-	for (uint32 base : {hunt.augment, hunt.gear}) {
-		if (zone->random.Int(0, 9999) >= FamilyChance) { continue; }
+	for (const auto &[base, chance] : {std::pair{hunt.augment, hunt.augment_chance}, std::pair{hunt.gear, hunt.gear_chance}}) {
+		if (zone->random.Int(0, 9999) >= chance) { continue; }
 		const uint32 id = base + Quality(zone->random.Int(0, 9999));
 		const auto item = database.GetItem(id);
 		if (!item) { continue; }

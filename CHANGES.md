@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-11-01 — Per-zone Hunt drop rates (candidate, not deployed)
+
+Hunt family chances move from the compiled 0.5% `FamilyChance` to
+`nightcap_zone_hunt_zones.augment_chance`/`gear_chance` (out of 10000, CHECK
+0–10000). Source of truth `config/zone-hunt-rates.json` → `tools/zone_hunt_rates.py`
+→ `rates.sql`; the wiki reads the same file. Owner-approved default: augments 1.5%
+(~67 kills per drop, ~940 per forged Ascension; 48 Base per Ascension), gear stays
+0.5%. Gotcha: apply the SQL before the new zone binary, or Hunt drops turn off in
+every zone. Rates load at zone boot (full runtime restart). Chapterhouse and Ashen
+Compact rolls are unchanged. Activation/rollback: `docs/releases/zone-hunt-rates-20261101/`.
+
 ## 2026-11-01 — Solo self-found mode (deployed to OVH)
 
 Opt-in, permanent, per-character SSF (ADR 0074). Say `walk alone` to the
