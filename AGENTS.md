@@ -472,6 +472,11 @@ claims about live state).
 
 ### Branch flow
 
+**November 1 Hunt rates exception:** the owner explicitly requested "Merge to main
+and OVH" for per-zone Hunt drop rates (augments 1.5%). This authorizes main
+promotion and OVH rollout before in-game acceptance; it is not standing deployment
+permission. Operator/recovery and QA: `docs/releases/zone-hunt-rates-20261101/`.
+
 **October 18 cooldown exception:** the owner explicitly requested promotion of
 the reviewed cooldown fix to main and deployment to OVH for live testing. Pair
 the rebuilt zone with the guarded saved-timer conversion and preserve the existing
@@ -602,8 +607,8 @@ Format: date header, area, description. Most recent entry at the top.
 Classic zone hunt/forge is live for owner QA; see `docs/releases/zone-loot-20261009/PRODUCTION.md`.
 `tools/zone_hunt.py` generates guarded item/socket SQL from an explicit production
 content capture. Do not attach its rewards to global loot tables: native death
-rolls intentionally bypass GlobalLootMultiplier. Per-zone family chances (candidate:
-`docs/releases/zone-hunt-rates-20261101/`) come only from `config/zone-hunt-rates.json`
+rolls intentionally bypass GlobalLootMultiplier. Per-zone family chances (live since
+November 2: `docs/releases/zone-hunt-rates-20261101/`) come only from `config/zone-hunt-rates.json`
 via `tools/zone_hunt_rates.py`; never hand-edit the columns, the wiki reads the config.
 Keep restored corpses, owned NPCs and non-native clones excluded. Type-22 cap
 credit is limited to six armor locations; preserve nonplayer cap behavior.

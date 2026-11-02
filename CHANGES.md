@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-11-01 — Per-zone Hunt drop rates (candidate, not deployed)
+## 2026-11-01 — Per-zone Hunt drop rates (deployed to OVH)
 
 Hunt family chances move from the compiled 0.5% `FamilyChance` to
 `nightcap_zone_hunt_zones.augment_chance`/`gear_chance` (out of 10000, CHECK
@@ -9,7 +9,9 @@ Hunt family chances move from the compiled 0.5% `FamilyChance` to
 (~67 kills per drop, ~940 per forged Ascension; 48 Base per Ascension), gear stays
 0.5%. Gotcha: apply the SQL before the new zone binary, or Hunt drops turn off in
 every zone. Rates load at zone boot (full runtime restart). Chapterhouse and Ashen
-Compact rolls are unchanged. Activation/rollback: `docs/releases/zone-hunt-rates-20261101/`.
+Compact rolls are unchanged. Live on OVH 2026-11-02 00:31 UTC (zone `90717ac7`,
+image `b821548e`), built from the deployed SSF source plus only the two Hunt files.
+Wiki `20261101-hunt-rates-v1`. Evidence/rollback: `docs/releases/zone-hunt-rates-20261101/`.
 
 ## 2026-11-01 — Solo self-found mode (deployed to OVH)
 

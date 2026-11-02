@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## 2026-11-01 — Per-zone Hunt drop rates deployed
+
+Zone Hunt augments now drop at 1.5% per eligible kill (was 0.5%); equipment stays
+0.5%. Rates live in `nightcap_zone_hunt_zones` and come only from
+`config/zone-hunt-rates.json`. Main PR #396; live on OVH since 2026-11-02 00:31 UTC
+(zone `90717ac7`, all 12 zones, access open, no client update). Wiki
+`20261101-hunt-rates-v1` is published. OVH has 678 MB free, below the next
+release's preflight reserve. In-game QA is open:
+[release notes](releases/zone-hunt-rates-20261101/README.md).
+
 ## 2026-11-01 — Solo self-found mode deployed for live testing
 
 Opt-in, permanent SSF characters (tunnel Ancient Chronicler, `walk alone`, level 1). They
