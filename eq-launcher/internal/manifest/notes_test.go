@@ -7,7 +7,7 @@ import (
 )
 
 func TestPatchNotes(t *testing.T) {
-	for _, name := range []string{"valid", "legacy", "future", "duplicate", "order", "date", "empty", "long", "kind", "old protocol"} {
+	for _, name := range []string{"valid", "legacy", "future", "duplicate", "order", "date", "empty", "long", "kind", "old protocol", "server", "server old protocol", "long reason"} {
 		t.Run(name, func(t *testing.T) {
 			m, trust, key := fixture(t)
 			m.MinLauncher, trust.LauncherVersion = "0.6.0", "0.6.0"
@@ -32,10 +32,18 @@ func TestPatchNotes(t *testing.T) {
 				m.PatchNotes[0].Changes[0].Kind = "html"
 			case "old protocol":
 				m.MinLauncher = "0.5.0"
+			case "server":
+				m.MinLauncher, trust.LauncherVersion = "0.7.0", "0.7.0"
+				m.PatchNotes[0].Changes = append(m.PatchNotes[0].Changes, PatchChange{Kind: "server", Text: "Raised Commonlands drop rates.", Reason: "Solo players were under-geared."})
+			case "server old protocol":
+				m.PatchNotes[0].Changes[0].Reason = "Players asked for it."
+			case "long reason":
+				m.MinLauncher, trust.LauncherVersion = "0.7.0", "0.7.0"
+				m.PatchNotes[0].Changes[0].Reason = strings.Repeat("x", 161)
 			}
 			raw, sig := signed(t, m, key)
 			_, err := Verify(raw, sig, trust)
-			if (err == nil) != (name == "valid" || name == "legacy") {
+			if (err == nil) != (name == "valid" || name == "legacy" || name == "server") {
 				t.Fatalf("unexpected result: %v", err)
 			}
 			if name == "legacy" && bytes.Contains(raw, []byte("patch_notes")) {
