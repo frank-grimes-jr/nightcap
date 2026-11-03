@@ -11,7 +11,7 @@ Owner request: remove Death Touch from every NPC.
   Keeper of Souls, The Spiroc Lord, Overseer of Air, the Hand/Eye of Veeshan,
   Bazzt Zzzt, Sister of the Spire, a greater sphinx (Plane of Sky), Iron Mike,
   Master Yael, Jaled Dar's shade, Vyzh`dra, Shei Vinitras and the "Generic Death
-  Touch" list. Production must be counted at apply time (it was not readable here).
+  Touch" list. Production matched exactly: 17 rows, 25 NPC types.
 - **Quest scripts** (`akk-stack/server/quests`, no spell-list involvement): removed the
   scripted casts in Anguish (AMV, OMM), Misty encounter, Prince Thirneg, Plane of
   Mischief `Life`, Rallos Zek out-of-arena check and both Uqua gas-chamber cheater
@@ -36,7 +36,23 @@ Manual backup `backups/peq_20261103_055440.sql.gz`; remove → `17 / 0`; rollbac
 restored 17; reapply `17 / 0`; double-run refused (ERROR 1050). The five sampled Plane
 of Sky NPCs have 0 DT entries. All 8 zone processes restarted after the change.
 Edited Perl passes `perl -c`; Lua edits only delete lines inside blocks.
-Production: **not applied** (read access was blocked by auto mode).
+Production quest files were byte-identical to the pre-edit originals.
+
+## Production (OVH, 2026-11-03 11:03 UTC) — deployed
+
+`operator.py` (template; filled with `remove.sql` and the eight quest files) ran over
+the SSH runner: gateway and game stopped, verified stopped full dump
+(`/opt/nightcap/backups/no-death-touch-20261103/peq-before.sql.gz`, 45 MB), removal
+`17 / 0`, player/zone-state checksums unchanged, quests replaced (originals in
+`quests-before/`), game healthy, native hashes unchanged, gateway reopened.
+Post-check: Keeper of Souls, Spiroc Lord, Overseer of Air, Hand and Eye of Veeshan
+have 0 DT entries; 12 zones running; disk 599 MB free.
+
+Observed during shutdown (pre-existing, not caused by this change): Plane of Sky's
+`zone_state_spawns` save failed with `Data too long for column 'loot_data'`, so
+airplane restarted from fresh spawns.
+
+Production rollback: `rollback.sql`, restore `quests-before/`, restart game.
 
 ## In-game QA
 

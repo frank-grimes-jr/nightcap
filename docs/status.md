@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## NPC Death Touch removed — November 3, deployed
+
+No NPC casts Death Touch anymore: all 17 production spell-list entries (Keeper of
+Souls, The Spiroc Lord and 23 other NPC types) and eight scripted casts are removed.
+Verified stopped backup, player state preserved, gateway reopened. In-game QA and
+the wiki Features/Recent changes update are pending.
+[Evidence, rollback and QA](releases/no-death-touch-20261103/README.md).
+
 ## 2026-11-01 — Per-zone Hunt drop rates deployed
 
 Zone Hunt augments now drop at 1.5% per eligible kill (was 0.5%); equipment stays
