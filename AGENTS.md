@@ -336,6 +336,8 @@ owner approval. Future releases must preserve/update notes and the 0.6.0 floor.
 Database/server-side changes use kind `server`; any change may carry an optional
 one-line `reason` (≤160 chars). Either one raises the floor to desktop 0.7.0, which
 must reach the starter channel before a game manifest uses them (0.6.0 rejects them).
+Desktop 0.7.0 (launcher release 2026110301) was published November 3; the launcher
+channel expires December 3, so sign a higher release before then.
 See `docs/ops/permanent-patcher.md` for publishing and exact visual QA.
 
 The winged Paladin helmet candidate is documented in
