@@ -1,5 +1,9 @@
 # CHANGES
 
+## 2026-11-03 — NPC Death Touch removed
+
+Owner request: no NPC casts Death Touch. `docs/releases/no-death-touch-20261103/remove.sql` backs up and deletes every NPC spell-list entry for Cazic Touch (982, 3087, 7477) and Touch of Vinitras (2859): 17 rows / 25 NPC types locally, including Keeper of Souls and The Spiroc Lord in Plane of Sky. Scripted Death Touch casts were also removed from eight quest files in later-era zones. The kobold barrel self-destruct is kept because it targets itself. Gotchas: zones must restart (`npc_spells` loads at boot); the Uqua gas-chamber trap and Rallos Zek's out-of-arena DT no longer stop skips or pulls. Rollback rehearsed locally; deployed to production 2026-11-03 11:03 UTC with a verified stopped backup (17/0, player state preserved, binaries unchanged, gateway reopened). In-game QA pending.
+
 ## 2026-11-01 — Per-zone Hunt drop rates (deployed to OVH)
 
 Hunt family chances move from the compiled 0.5% `FamilyChance` to
