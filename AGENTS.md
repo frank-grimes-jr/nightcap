@@ -333,6 +333,9 @@ desktop/minimum launcher 0.6.0+, published through the stable starter before the
 game channel. Verify actual channel counters before assigning the next release.
 Desktop 0.6.0 and game release 2026101202 were published October 12 under explicit
 owner approval. Future releases must preserve/update notes and the 0.6.0 floor.
+Database/server-side changes use kind `server`; any change may carry an optional
+one-line `reason` (≤160 chars). Either one raises the floor to desktop 0.7.0, which
+must reach the starter channel before a game manifest uses them (0.6.0 rejects them).
 See `docs/ops/permanent-patcher.md` for publishing and exact visual QA.
 
 The winged Paladin helmet candidate is documented in
