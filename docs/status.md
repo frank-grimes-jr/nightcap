@@ -36,7 +36,17 @@ hit 23 such fire giants plus Lord Nagafen; 43 NPCs are flagged server-wide.
 Zone-only fix is on main (PR #389) and live on OVH since 15:36 UTC: all 12
 zones verified, access open, no client update. In-game loot QA is open: [diagnosis, fix and QA](ops/npc-placeholder-loot-20261101/README.md).
 
-## 2026-10-30 — Power Source item experience candidate, not released
+## 2026-11-03 — Power Source item experience deployed (enabled) for owner testing
+
+`Items:PowerSourceItemXP` is **on** in production since 19:42 UTC. Paired world/zone/
+shared_memory were rebuilt from the deployed Hunt-rates source (SSF-era files merged
+without conflict); stopped backup, exact rule catalog, saved state and contract checks
+passed; access reopened; no client update. In-game behaviour, custody and the 4–8 hour
+pacing are unverified; owner is testing. Wiki not published. Disable: `#rules setdb
+Items:PowerSourceItemXP false` + `#rules reload` in each zone; keep these binaries.
+[Release, receipts and test spike](releases/power-source-xp-20261103/README.md).
+
+## 2026-10-30 — Power Source item experience candidate (superseded: deployed 2026-11-03)
 
 An additional combat-XP path advances supported equipment/Hunt families through
 their existing four qualities. The Reforging Box remains. Candidate costs are

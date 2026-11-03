@@ -2,6 +2,9 @@
 
 2026-10-30: source candidate, disabled by default. No runtime installation,
 production activation, public wiki publication or owner acceptance is recorded.
+
+2026-11-03: deployed to OVH with the rule enabled for owner testing; owner acceptance
+and wiki publication remain open. See ../../releases/power-source-xp-20261103/README.md.
 The requested target is 4–8 hours for one Normal/Base item to its top quality.
 
 ## Candidate curve

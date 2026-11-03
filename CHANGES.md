@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-03 — Power Source item XP deployed to OVH (enabled, owner testing)
+
+Owner: "Push to server. I'll test" / "Enable at deploy". Paired world/zone/shared_memory
+built from the deployed Hunt-rates source plus the 21 item-XP files (17 copied from the
+Oct 31 candidate; `client.h`, `client_packet.cpp`, `exp.cpp`, `inventory.cpp` three-way
+merged with SSF, no conflicts). `Items:PowerSourceItemXP=true` inserted in a guarded
+transaction before the new world booted. Live 19:42 UTC; backup, rule catalog, saved
+state and contract verified; no client update. Gotchas: the Oct 31 build was from the
+Oct 30 base and would have dropped SSF; never roll back to older binaries once items have
+trained (they misread XP metadata); run long rollout actions detached on-host (an SSH
+connect timeout hit the first activate attempt). Wiki not published. Evidence and test
+spike: `docs/releases/power-source-xp-20261103/`.
+
 ## 2026-11-03 — Launcher desktop 0.7.0: server notes with reasons (published)
 
 Patch notes can now describe database/server-side changes (`"kind": "server"`, a
