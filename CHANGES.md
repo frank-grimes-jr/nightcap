@@ -1,5 +1,31 @@
 # CHANGES
 
+## 2026-11-03 - Nightcap map pack (Brewall readability + services layer)
+
+New `tools/maps/build_maps.py` turns the Brewall 2024-01-09 maps
+(`brewall-20240109/`, 1,707 files) into two client map sets, `maps/Nightcap`
+(white background) and `maps/Nightcap Dark` (black background). Players pick a
+set from the RoF2 map window's folder dropdown (`MVW_MapsDirCombobox`), so no
+client patching is involved. Every line and label colour is stepped toward
+black/white until it reaches WCAG 4.5:1 contrast, keeping its hue so Brewall's
+in-map legend still applies. About 6.4k white/yellow labels and 90k light lines
+were unreadable on the default white background. Size-1 labels become size 2;
+`to_` exits become size 3. The new layer `_3` (169 zones, 893 labels) adds
+data from production: unmarked zone exits, bankers, merchants (by surname),
+class guildmasters, tradeskill objects and hail-responsive quest NPCs. Same-kind
+services within 150 units share one summary label (for example the Commonlands
+hub's "Trainers: Warrior, Monk, …").
+Gotchas: map x/y = negated DB x/y. Era gates follow `era.json` and the
+expansion/content-flag columns. Exits to later-expansion zones, (0,0) book points
+and 999999 edge points are dropped. Brewall's own `(hunter)`/`(raid)` named
+labels are unchanged; per owner choice no named-spawn data was added. Data:
+`tools/maps/export_prod.py` (read-only SELECTs + quest grep), captured
+2026-11-03 14:54 UTC; `client-maps/` and `tools/maps/data/` are gitignored
+build output. Check: `python tools/maps/test_build_maps.py`. Distribution: manual
+zip `client-maps/nightcap-maps.zip` (44 MB) only. Not yet in the launcher's
+managed assets or the starter package; wiki has no map page yet, so the wiki
+update waits for publication. In-game QA pending.
+
 ## 2026-11-03 — NPC Death Touch removed
 
 Owner request: no NPC casts Death Touch. `docs/releases/no-death-touch-20261103/remove.sql` backs up and deletes every NPC spell-list entry for Cazic Touch (982, 3087, 7477) and Touch of Vinitras (2859): 17 rows / 25 NPC types locally, including Keeper of Souls and The Spiroc Lord in Plane of Sky. Scripted Death Touch casts were also removed from eight quest files in later-era zones. The kobold barrel self-destruct is kept because it targets itself. Gotchas: zones must restart (`npc_spells` loads at boot); the Uqua gas-chamber trap and Rallos Zek's out-of-arena DT no longer stop skips or pulls. Rollback rehearsed locally; deployed to production 2026-11-03 11:03 UTC with a verified stopped backup (17/0, player state preserved, binaries unchanged, gateway reopened). In-game QA pending.

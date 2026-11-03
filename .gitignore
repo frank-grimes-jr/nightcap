@@ -35,3 +35,7 @@ artifacts/aggro-zone-cleanup/
 /artifacts/paladin-grip-release-20261028/
 /work/keyless-wiki/
 /.local/cast-bar/
+
+# Nightcap map pack build output and production export (regenerate with tools/maps)
+/client-maps/
+/tools/maps/data/
