@@ -126,7 +126,8 @@ int main() {
   if(result!=TransferResult::Delivered)std::fprintf(stderr,"award=%u result=%d id=%u queries=%d updates=%d metadata=%s\n",n,int(result),c.inventory.GetItem(21)->GetID(),database.queries,database.updates,c.inventory.GetItem(21)->GetCustomDataString().c_str());
   CHECK(result==TransferResult::Delivered);}
   CHECK(c.inventory.GetItem(21)->GetID()==601001&&c.inventory.GetItem(21)->GetCustomDataString().empty());
-  CHECK(c.packets==3&&c.bonuses==3&&database.updates==60);
+  // Every award here crosses a whole percent, which the item name shows.
+  CHECK(c.packets==60&&c.bonuses==3&&database.updates==60);
   prepare(c);CHECK(AwardItemExperience(&c,136500)==TransferResult::Declined&&database.updates==60);}
  for(int failure=1;failure<=9;++failure){auto c=seed();prepare(c);database.failure=failure;
   const auto result=AwardItemExperience(&c,136500);
@@ -152,6 +153,7 @@ int main() {
   prepare(c);CHECK(AwardItemExperience(&c,1)==TransferResult::Delivered&&c.inventory.GetItem(21)->GetAugmentItemID(0)==77);}
  {auto c=seed();near_upgrade(c);EQ::ItemInstance aug;c.inventory.GetItem(21)->aug[0]=&aug;database.items[201001].AugSlotType[0]=2;
   prepare(c);CHECK(AwardItemExperience(&c,1)==TransferResult::Declined&&!database.updates);}
+ {auto c=seed();prepare(c);CHECK(AwardItemExperience(&c,1)==TransferResult::Delivered&&!c.packets&&database.updates==1);}
  {auto c=seed();c.inventory.GetItem(21)->SetCustomData(NightcapItemXP::Key,"1:999:123");prepare(c);
   CHECK(AwardItemExperience(&c,1)==TransferResult::Declined&&!database.queries);}
  {auto c=seed();database.items.erase(601001);prepare(c);CHECK(AwardItemExperience(&c,1)==TransferResult::Declined);}

@@ -427,12 +427,39 @@ TransferResult AwardItemExperience(Client *c, uint64_t experience)
 			c->SendItemPacket(slot, c->GetInv().GetItem(slot), ItemPacketTrade);
 			c->CalcBonuses();
 			c->Message(Chat::Green, "Your training item has advanced to %s!", target->Name);
-		} else if (progress.progress * 10 / Cost(tier) != metadata.progress * 10 / Cost(tier)) {
-			c->Message(Chat::Yellow, "%s training: %u%% toward the next quality.", target->Name,
-				static_cast<unsigned>(progress.progress * 100 / Cost(tier)));
+		} else if (Percent(tier, progress.progress) != Percent(tier, metadata.progress)) {
+			// The item name carries whole-percent progress.
+			c->SendItemPacket(slot, c->GetInv().GetItem(slot), ItemPacketTrade);
+			if (progress.progress * 10 / Cost(tier) != metadata.progress * 10 / Cost(tier)) {
+				c->Message(Chat::Yellow, "%s training: %u%% toward the next quality.", target->Name, Percent(tier, progress.progress));
+			}
 		}
 		return TransferResult::Delivered;
 	} catch (...) { return uncertain(); }
+}
+
+void RefreshTrainingDisplay(Client *c, int16_t from, int16_t to)
+{
+	// ponytail: zone-local set; a stale entry only costs one extra item packet.
+	static std::set<uint32> stripped_cursor; // characters whose cursor holds a stripped copy
+	const int16_t power = EQ::invslot::slotPowerSource, cursor = EQ::invslot::slotCursor;
+	const auto send = [c](int16_t slot) {
+		const auto item = c->GetInv().GetItem(slot);
+		const bool shown = slot <= EQ::invslot::GENERAL_END ||
+			EQ::ValueWithin(slot, EQ::invbag::GENERAL_BAGS_BEGIN, EQ::invbag::GENERAL_BAGS_END) ||
+			EQ::ValueWithin(slot, EQ::invslot::BANK_BEGIN, EQ::invslot::BANK_END) ||
+			EQ::ValueWithin(slot, EQ::invbag::BANK_BAGS_BEGIN, EQ::invbag::BANK_BAGS_END);
+		if (shown && slot != cursor && item && NightcapItemXP::Candidate(item->GetItem())) {
+			c->SendItemPacket(slot, item, ItemPacketTrade);
+		}
+	};
+	if (from == power || to == power) {
+		send(power);
+		const auto other = from == power ? to : from; // now holds what left the Power Source slot
+		if (other == cursor) { stripped_cursor.insert(c->CharacterID()); } else { send(other); }
+	} else if ((from == cursor || to == cursor) && stripped_cursor.erase(c->CharacterID())) {
+		send(from == cursor ? to : from);
+	}
 }
 
 static bool PlainUpgradeMetadata(const EQ::ItemInstance *item)

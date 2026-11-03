@@ -2386,6 +2386,7 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 	else {
 		database.SaveInventory(character_id, m_inv.GetItem(dst_slot_id), dst_slot_id);
 	}
+	NightcapLoot::RefreshTrainingDisplay(this, src_slot_id, dst_slot_id);
 
 	// Step 8: Re-calc stats
 	CalcBonuses();
