@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-11-03 — Launcher desktop 0.7.0: server notes with reasons (published)
+
+Patch notes can now describe database/server-side changes (`"kind": "server"`, a
+blue Server badge) and give any change a one-line `reason` ("Why: …"). Desktop
+0.7.0 / launcher release 2026110301 is live; the starter delivers it on next open.
+Nothing else changed: same trust policy as 0.6.0 except the version, game channel,
+starter ZIP and guide untouched, no service restart. Gotcha: 0.6.0 rejects the new
+fields, so only game manifests signed after this may use them (the packager raises
+the floor to 0.7.0). Channel expires 2026-12-03. Evidence: `docs/releases/desktop-070-20261103/`.
+
 ## 2026-11-03 — NPC Death Touch removed
 
 Owner request: no NPC casts Death Touch. `docs/releases/no-death-touch-20261103/remove.sql` backs up and deletes every NPC spell-list entry for Cazic Touch (982, 3087, 7477) and Touch of Vinitras (2859): 17 rows / 25 NPC types locally, including Keeper of Souls and The Spiroc Lord in Plane of Sky. Scripted Death Touch casts were also removed from eight quest files in later-era zones. The kobold barrel self-destruct is kept because it targets itself. Gotchas: zones must restart (`npc_spells` loads at boot); the Uqua gas-chamber trap and Rallos Zek's out-of-arena DT no longer stop skips or pulls. Rollback rehearsed locally; deployed to production 2026-11-03 11:03 UTC with a verified stopped backup (17/0, player state preserved, binaries unchanged, gateway reopened). In-game QA pending.
