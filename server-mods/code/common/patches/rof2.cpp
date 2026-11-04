@@ -36,6 +36,7 @@
 #include "common/strings.h"
 #include "common/paladin_weapon_grip.h"
 #include "common/item_xp_eligibility.h"
+#include "common/item_xp_metadata.h"
 
 #include <cassert>
 #include <cinttypes>
@@ -6458,6 +6459,10 @@ namespace RoF2
 	void SerializeItem(EQ::OutBuffer& ob, const EQ::ItemInstance *inst, int16 slot_id_in, uint8 depth, ItemPacketType packet_type)
 	{
 		const EQ::ItemData *item = inst->GetUnscaledItem();
+		// The client sums the stats of anything in an equipment slot. A training
+		// item (and its augments) grants nothing, so send it to slot 21 without them.
+		const bool training = slot_id_in == EQ::invslot::slotPowerSource && packet_type != ItemPacketViewLink &&
+			!(item->Slots & NightcapItemXP::PowerSourceMask);
 
 		RoF2::structs::ItemSerializationHeader hdr;
 
@@ -6572,8 +6577,15 @@ namespace RoF2
 
 		ob.write((const char*)&hdrf, sizeof(RoF2::structs::ItemSerializationHeaderFinish));
 
-		if (strlen(item->Name) > 0) {
-			ob.write(item->Name, strlen(item->Name));
+		std::string name = item->Name;
+		if (training && !depth) {
+			const auto tier = NightcapItemXP::Tier(item->ID);
+			const auto metadata = tier < 0 ? NightcapItemXP::Metadata{} :
+				NightcapItemXP::ReadMetadata(inst->GetCustomDataString(), item->ID, static_cast<uint8_t>(tier));
+			if (metadata.valid) { name = NightcapItemXP::TrainingName(name, static_cast<uint8_t>(tier), metadata.progress); }
+		}
+		if (!name.empty()) {
+			ob.write(name.c_str(), name.size());
 			ob.write("\0", 1);
 		}
 
@@ -6678,6 +6690,16 @@ namespace RoF2
 		ibs.FactionMod3 = item->FactionMod3;
 		ibs.FactionAmt4 = item->FactionAmt4;
 		ibs.FactionMod4 = item->FactionMod4;
+		if (training) {
+			ibs.CR = ibs.DR = ibs.PR = ibs.MR = ibs.FR = ibs.SVCorruption = 0;
+			ibs.AStr = ibs.ASta = ibs.AAgi = ibs.ADex = ibs.ACha = ibs.AInt = ibs.AWis = 0;
+			ibs.HP = ibs.Mana = ibs.Endur = ibs.AC = 0;
+			ibs.regen = ibs.mana_regen = ibs.end_regen = 0;
+			ibs.SkillModValue = ibs.SkillModMax = 0;
+			ibs.BaneDmgRaceAmt = ibs.BaneDmgAmt = ibs.ElemDmgAmt = ibs.ExtraDmgAmt = ibs.BardValue = 0;
+			ibs.CombatEffects = ibs.Shielding = ibs.StunResist = ibs.StrikeThrough = 0;
+			ibs.SpellShield = ibs.Avoidance = ibs.Accuracy = 0;
+		}
 
 		ob.write((const char*)&ibs, sizeof(RoF2::structs::ItemBodyStruct));
 
@@ -6758,6 +6780,7 @@ namespace RoF2
 		itbs.unknown12 = 0;
 		itbs.unknown13 = 0;
 		itbs.unknown14 = 0;
+		if (training) { itbs.dotshield = itbs.atk = itbs.haste = itbs.damage_shield = 0; }
 
 		ob.write((const char*)&itbs, sizeof(RoF2::structs::ItemTertiaryBodyStruct));
 
@@ -6778,9 +6801,10 @@ namespace RoF2
 		ices.recast = item->RecastDelay;
 		ices.recast_type = item->RecastType;
 
+		if (training) { ices.effect = 0; }
 		ob.write((const char*)&ices, sizeof(RoF2::structs::ClickEffectStruct));
 
-		if (strlen(item->ClickName) > 0)
+		if (!training && strlen(item->ClickName) > 0)
 			ob.write((const char*)item->ClickName, strlen(item->ClickName));
 		ob.write("\0", 1);
 
@@ -6795,9 +6819,10 @@ namespace RoF2
 		ipes.level = item->Proc.Level;
 		ipes.procrate = item->ProcRate;
 
+		if (training) { ipes.effect = 0; }
 		ob.write((const char*)&ipes, sizeof(RoF2::structs::ProcEffectStruct));
 
-		if (strlen(item->ProcName) > 0)
+		if (!training && strlen(item->ProcName) > 0)
 			ob.write((const char*)item->ProcName, strlen(item->ProcName));
 		ob.write("\0", 1);
 
@@ -6811,9 +6836,10 @@ namespace RoF2
 		iwes.type = item->Worn.Type;
 		iwes.level = item->Worn.Level;
 
+		if (training) { iwes.effect = 0; }
 		ob.write((const char*)&iwes, sizeof(RoF2::structs::WornEffectStruct));
 
-		if (strlen(item->WornName) > 0)
+		if (!training && strlen(item->WornName) > 0)
 			ob.write((const char*)item->WornName, strlen(item->WornName));
 		ob.write("\0", 1);
 
@@ -6827,9 +6853,10 @@ namespace RoF2
 		ifes.type = item->Focus.Type;
 		ifes.level = item->Focus.Level;
 
+		if (training) { ifes.effect = 0; }
 		ob.write((const char*)&ifes, sizeof(RoF2::structs::WornEffectStruct));
 
-		if (strlen(item->FocusName) > 0)
+		if (!training && strlen(item->FocusName) > 0)
 			ob.write((const char*)item->FocusName, strlen(item->FocusName));
 		ob.write("\0", 1);
 
@@ -6861,6 +6888,7 @@ namespace RoF2
 		ibes.level = item->Bard.Level;
 		//ibes.unknown6 = 0xffffffff;
 
+		if (training) { ibes.effect = 0; }
 		ob.write((const char*)&ibes, sizeof(RoF2::structs::WornEffectStruct));
 
 		/*
@@ -6916,6 +6944,12 @@ namespace RoF2
 		iqbs.unknown37a = 0;	// (guessed position) New to RoF2
 		iqbs.unknown38 = 0;
 		iqbs.unknown39 = packet_type == ItemPacketInvalid ? 0 : 1;;
+		if (training) {
+			iqbs.Purity = iqbs.BackstabDmg = iqbs.DSMitigation = 0;
+			iqbs.HeroicStr = iqbs.HeroicInt = iqbs.HeroicWis = iqbs.HeroicAgi = iqbs.HeroicDex = iqbs.HeroicSta = iqbs.HeroicCha = 0;
+			iqbs.HeroicMR = iqbs.HeroicFR = iqbs.HeroicCR = iqbs.HeroicDR = iqbs.HeroicPR = iqbs.HeroicSVCorrup = 0;
+			iqbs.HealAmt = iqbs.SpellDmg = iqbs.Clairvoyance = 0;
+		}
 
 		ob.write((const char*)&iqbs, sizeof(RoF2::structs::ItemQuaternaryBodyStruct));
 

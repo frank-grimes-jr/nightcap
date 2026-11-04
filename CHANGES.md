@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-11-04 — Power Source training display deployed to OVH
+
+Owner fast follows ("Yes, build both"): training items in slot 21 are serialized as
+`<name> [Training N%]`/`[Trained]`, with stats, effects and augment stats zeroed. RoF2
+sums displayed stats from the item packet, so the server-side suppression alone still
+showed them. Moving an item in or out of slot 21 re-sends both sides (cursor: on
+placement). Zone only, built from the deployed Power Source source; live 09:55 UTC with
+backup and guards verified. Gotcha: the first stage hung on its opening SSH check; run
+long steps detached on-host. Evidence: `docs/releases/power-source-xp-display-20261103/`.
+
 ## 2026-11-03 — Power Source item XP deployed to OVH (enabled, owner testing)
 
 Owner: "Push to server. I'll test" / "Enable at deploy". Paired world/zone/shared_memory

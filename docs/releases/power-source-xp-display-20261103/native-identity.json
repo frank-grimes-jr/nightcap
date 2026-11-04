@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "allocated_sections": 30,
+  "program_headers": 14,
+  "original_sha256": "756dcce6b71e4f1110e5f004d9afd7eb75a0649eab48cdb640ce9888597526c7",
+  "sha256": "335cbce1d046565da3ad013261080de4df5032703719a2b2d8348f73f1830dd1",
+  "original_size": 320372000,
+  "size": 53149536
+}
