@@ -5,6 +5,8 @@ production activation, public wiki publication or owner acceptance is recorded.
 
 2026-11-03: deployed to OVH with the rule enabled for owner testing; owner acceptance
 and wiki publication remain open. See ../../releases/power-source-xp-20261103/README.md.
+2026-11-04: training display deployed (progress in the item name, slot-21 stats not
+sent to the client). See ../../releases/power-source-xp-display-20261103/README.md.
 The requested target is 4–8 hours for one Normal/Base item to its top quality.
 
 ## Candidate curve

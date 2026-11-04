@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Power Source training display — November 4, deployed
+
+Items training in the Power Source slot now show `[Training N%]` (or `[Trained]`) in
+their name, updated each percent, and the client no longer adds their stats (or
+their augments'). Zone only, live on OVH since 09:55 UTC: stopped backup, saved
+state, rule catalog and contract verified; access reopened; no client update. Owner
+in-game test is open. [Release, receipts and test](releases/power-source-xp-display-20261103/README.md).
+
 ## NPC Death Touch removed — November 3, deployed
 
 No NPC casts Death Touch anymore: all 17 production spell-list entries (Keeper of
