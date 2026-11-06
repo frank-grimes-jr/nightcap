@@ -83,6 +83,7 @@ int command_init(void)
 		command_add("factions", "[page] [name] or target - View your faction standings, values and bars.", AccountStatus::Player, command_factions) ||
 		command_add("nightcappet", "Manage your pet armor.", AccountStatus::Player, command_nightcappet) ||
 		command_add("nightcapui", "Refresh your class display.", AccountStatus::Player, command_nightcapui) ||
+		command_add("augstats", "Show equipped combat bonuses and augment stacking.", AccountStatus::Player, command_augstats) ||
 		command_add("aaexp", "[0-100|off] - Set the %% of combat XP routed to AA (the client hides this toggle below level 51)", AccountStatus::Player, command_aa_exp) ||
 		command_add("advloot", "Advanced loot window protocol", AccountStatus::Player, command_advloot) ||
 		command_add("zoneforge", "Combine three identical zone rewards into the next quality.", AccountStatus::Player, command_zoneforge) ||

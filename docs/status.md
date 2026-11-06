@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## November6 follow-up — augment visibility correction candidate
+
+A new client Description fix and self-only #augstats equipped-bonus report are
+built/tested for review. Shield Block is shown separately from Shielding, with
+its shield requirement and strongest-only stacking; the report uses actual
+server totals/caps. Signed client candidate2026110601/0.13.3 is not published.
+No production change from this follow-up yet. Owner visible gameplay QA is open.
+[Candidate evidence and exact QA](releases/augment-item-window-20261106/README.md).
+
 ## November 6 — Augments deployed; live QA open
 
 Owner-approved augment-only main PR #406 is deployed on OVH; player access is open.

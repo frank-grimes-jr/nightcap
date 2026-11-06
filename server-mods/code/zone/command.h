@@ -43,6 +43,7 @@ void SendEvolvingItemsSubCommands(Client *c);
 
 // Commands
 void command_nightcapui(Client *c, const Seperator *sep);
+void command_augstats(Client *c, const Seperator *sep);
 void command_zoneforge(Client *c, const Seperator *sep);
 void command_nightcappet(Client *c, const Seperator *sep);
 void command_aa_exp(Client *c, const Seperator *sep);

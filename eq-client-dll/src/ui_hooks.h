@@ -8,6 +8,7 @@
 #include "advanced_loot_icons.h"
 #include "tradeskill_repeat.h"
 #include "bazaar_panel_controller.h"
+#include "augment_item_description.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -22,6 +23,42 @@ using AssignString = EqString* (__thiscall *)(EqString*, const char*);
 // Only the two final skin-name assignments in the native UI loader are
 // redirected. Character window positions, hotbars and other INI reads stay native.
 static AssignString skin_assign = nullptr;
+using UpdateItemDescription = void (__thiscall *)(void*);
+static UpdateItemDescription original_item_description = nullptr;
+static AssignString item_description_assign = nullptr;
+
+// Pinned CItemDisplayWnd: Description0x220, ItemInfo CXStr0x294, ItemPtr0x2b0.
+// Native item definition accessor is vtable slot2; item ID is at definition0xec.
+// Snapshot on the UI thread; never retain a native string/item buffer.
+inline bool SnapshotItemDescription(void* self, uint32_t& id, char (&text)[16385]) {
+    __try {
+        if (!self || !*reinterpret_cast<void**>(static_cast<BYTE*>(self)+0x220)) return false;
+        void* item = *reinterpret_cast<void**>(static_cast<BYTE*>(self)+0x2b0);
+        if (!item) return false;
+        using Definition = const BYTE* (__thiscall *)(void*);
+        const auto table = *static_cast<void***>(item);
+        const BYTE* definition = reinterpret_cast<Definition>(table[2])(item);
+        if (!definition) return false;
+        id = *reinterpret_cast<const uint32_t*>(definition+0xec);
+        const auto rep = *reinterpret_cast<const BYTE**>(static_cast<BYTE*>(self)+0x294);
+        if (!rep) { text[0] = 0; return true; }
+        const uint32_t length = *reinterpret_cast<const uint32_t*>(rep+8);
+        if (*reinterpret_cast<const uint32_t*>(rep+12) != 0 || length > 16384 ||
+            *reinterpret_cast<const uint32_t*>(rep+4) <= length || rep[0x14+length] != 0) return false;
+        memcpy(text,rep+0x14,length+1);
+        return true;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+}
+inline void __fastcall ItemDescriptionHook(void* self, void*) {
+    uint32_t id = 0;
+    char before[16385] = {};
+    if (item_description_assign && SnapshotItemDescription(self,id,before)) {
+        const auto after = AugmentItemDescription(before,id);
+        if (after != before)
+            item_description_assign(reinterpret_cast<EqString*>(static_cast<BYTE*>(self)+0x294),after.c_str());
+    }
+    original_item_description(self);
+}
 inline EqString* __fastcall SkinHook(EqString* self, void*, const char*) {
     return skin_assign(self, "nightcap");
 }
@@ -695,6 +732,11 @@ inline bool Install(uintptr_t image_base) {
     if (!InstallAAAllocationControls()) return false;
     send_request = reinterpret_cast<SendRequest>(base+kUISendRequestRva);
     install_failure = "label_entry";
+    install_failure = "item_description_entry";
+    item_description_assign = reinterpret_cast<AssignString>(base+kUIStringAssignRva);
+    original_item_description = reinterpret_cast<UpdateItemDescription>(EntryHook(
+        base+kItemDescriptionUpdateRva,kExpectedItemDescriptionUpdate,reinterpret_cast<void*>(&ItemDescriptionHook)));
+    if (!original_item_description) return false;
     original_label = reinterpret_cast<GetLabel>(EntryHook(base+kUILabelRva, kExpectedUILabel, reinterpret_cast<void*>(&LabelHook)));
     if (!original_label) return false;
     install_failure = "chat_entry";

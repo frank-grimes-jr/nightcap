@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "source": "/tmp/nightcap-augment-item-window-20261106-v4/source",
+  "preimages": {
+    "zone/command.cpp": "49186611b271a67cb096f58a9940bc9383433505f3262cdc682c6bea7604dd71",
+    "zone/command.h": "ecdd9aced0bc6797fda18bda7d46100f5edcb288f7be21c68fd24b0289aec35e",
+    "zone/gm_commands/nightcapui.cpp": "28db95626e18fa9dde96c12c3e7dbbd2f07501d1705b587d8bd947835e7b59e6"
+  },
+  "afterimages": {
+    "zone/command.cpp": "9bc6edfdef05c7b71f140045785f5bdffe9345abc26ec5ccbd761a6732da582b",
+    "zone/command.h": "44caaea7b0f9eae5117f0fa1fe76bf06bbe1e74c0fe30bd1291160ecdcebcb8b",
+    "zone/gm_commands/nightcapui.cpp": "e665a80eca6a139b1aae95c2fef5b7738603efd279bc5dbccc3af895239fd532"
+  },
+  "baseline_zone": "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892",
+  "candidate_zone": "3fc2b901c98dfc2816298a051f3462a6db0a724ccfa649ff213da3d840186588",
+  "link_inputs": 144,
+  "compiled": [
+    {
+      "unit": "unity_1_cxx.cxx",
+      "object_sha256": "f546af94d23f96e0ce2708a1bfc00b79ecfb9358b0d483d455c9b047e601340a"
+    }
+  ],
+  "scope": "report-only native build; no install or gameplay acceptance"
+}
