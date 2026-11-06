@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [November 6 augment audit: every top-quality augment, zones, icon review and candidate QA](audits/augments-20261106/README.md)
+
 - [Faction display: main source, pending deployment and exact QA](releases/faction-standing-20261029/README.md)
 
 - [Keyless doors: live verification, recovery and exact QA](ops/keyless-doors-20261029/README.md)

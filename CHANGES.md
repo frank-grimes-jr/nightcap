@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-11-06 — Zone augment audit candidate
+
+Audit all 58 augment families / 232 definitions against a fresh read-only
+production capture. Prepare any-killable-NPC augment eligibility including guards,
+named/quest enemies, killable merchants and scripted adds; retain pet/protected/
+restored-corpse exclusions and separate equipment gates. Correct High Keep cleanup
+ordering and Hate B's actual augment family; enable only the now-reviewed Classic
+Cazic-Thule and Hate B pools. Expedition chances become 1.5%, matching Classic.
+
+Add modest secondary specialties, strongest-only +2% Hunt shield block and stock
+focus/dodge/Faerune effects. Replace every cloth-glove/default necklace icon with
+reviewed stock gems/crystals using RoF2's vertical icon mapping. Preserve primary
+budgets, legal caps, 60/30/8/2 quality and 3/4/4 forging. Exact guarded forward and
+inverse SQL, native regressions, disposable MariaDB proof, all-family list,
+whole-wiki unreleased preview and exact QA/reload runbook:
+`docs/audits/augments-20261106/README.md`. Candidate only; no production writes,
+public publication or owner gameplay acceptance. Preserve the inspected already-
+live Hate spawn join correction absent from the selective main mirror.
+
 ## 2026-11-04 — Power Source training display deployed to OVH
 
 Owner fast follows ("Yes, build both"): training items in slot 21 are serialized as

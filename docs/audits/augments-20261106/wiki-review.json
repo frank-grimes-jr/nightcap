@@ -1,0 +1,214 @@
+{
+  "status": "local unpublished candidate",
+  "articles": [
+    {
+      "slug": "about",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "advanced-loot",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "ascension",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "ashen-compact",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "augment-audit",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "build-lab",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "camil-vigil",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "combat",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "commands",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "dungeon-modes",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "equipment",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "features",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "getting-started",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "index",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-960420",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-960421",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-960422",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-960423",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-960424",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-960425",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961020",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961021",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961022",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961023",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961030",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961031",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-961032",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-990510",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "item-upgrades",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "launcher",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "loot-finder",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "multiclass",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "pets",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "recent-changes",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "tradeskills",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "travel",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "tunnel",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "unreleased",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "waypoints",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    },
+    {
+      "slug": "zone-hunt",
+      "decision": "candidate preview added",
+      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+    },
+    {
+      "slug": "zone-kael",
+      "decision": "no change",
+      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+    }
+  ],
+  "generated": "All existing augment item pages and Hunt zone pages link the candidate; baseline published stats remain. Disabled families are listed only in the preview. No raw capture or operational data published.",
+  "home": "No goal/navigation change; no announcement added",
+  "commands": "No command/recipe changes",
+  "source_scope": "HEAD plus task working tree; historical global source drift requires separate review"
+}
