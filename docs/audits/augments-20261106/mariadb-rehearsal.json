@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "schema": "nightcap_augment_audit_20261106_a3bca292",
+  "environment": "local disposable MariaDB; no peq/player writes",
+  "checks": [
+    "all 232 full afterimages match",
+    "replay rejected with all tables unchanged",
+    "inverse restores all five table checksums exactly",
+    "last-row drift rolls back all earlier item updates",
+    "zone preimage drift rolls back the complete item migration",
+    "additive worn rule rejected before writes",
+    "disabled Hunt feature state rejected before writes"
+  ],
+  "forward_sha256": "9a5dd6210b2ba6ab99391997432197e5f50a6768c4634999deedbd3647ce16cc",
+  "rollback_sha256": "03ff038a4bd40ac9f99bc2d4155a12d7e676cb00a633ff7e51d5f18dca50234d"
+}

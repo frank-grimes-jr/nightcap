@@ -1,5 +1,22 @@
 # Current Nightcap status
 
+## November 6 — Zone augment audit candidate; not deployed
+
+The owner explicitly authorized augment-only main/OVH deployment for live QA on
+November 6 after approving the icon preview. Release preparation is in
+`docs/releases/augment-audit-20261106/`; the separate capacity candidate is excluded.
+This authorization is not a deployment receipt or completed gameplay acceptance.
+
+Fresh production audit covers 58 augment families, 232 definitions and all
+configured zones. Candidate fixes guard/any-NPC eligibility, High Keep scripted
+cleanup and Hate B augment identity; adds balanced secondary choices and replaces
+all glove/default icons with reviewed exotic stock gems. Classic rates stay 1.5%;
+the two managed expedition families move to 1.5%. Only Cazic-Thule/Hate B enable;
+six access-check pools remain off. [Full list, verification, reload/recovery and
+exact in-game QA](audits/augments-20261106/README.md). No production content writes,
+deployment, wiki publication or gameplay acceptance. Existing live release below
+is unchanged.
+
 ## Power Source training display — November 4, deployed
 
 Items training in the Power Source slot now show `[Training N%]` (or `[Trained]`) in
