@@ -39,6 +39,7 @@ class UIState {
         return true;
     }
 public:
+    const std::array<uint32_t,5>& Identity() const { return identity_; }
     void Clear() { identity_ = {}; classes_ = {}; name_.clear(); aa_classes_.clear(); ClearRecommendations(); }
     bool RecommendationsReady() const { return recommendations_ready_; }
     size_t RecommendationCount() const { return recommended_.size(); }

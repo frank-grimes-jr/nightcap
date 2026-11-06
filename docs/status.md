@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## November6 — automatic equipped Stats candidate; deployment pending
+
+Inventory Stats has server-backed totals/caps plus Shield Block, Hunt contribution,
+relative Dodge, item focus potential and worn Faerune. The silent self-only UI
+channel refreshes automatically with a server throttle. Client0.13.4/2026110602
+and matching ea6ad532 zone are tested candidates; prior live state below remains
+until verified deployment/publication. [Evidence and exact native QA](releases/character-stats-window-20261106/README.md).
+
 ## November6 follow-up — augment descriptions/totals live; owner QA open
 
 Main PR408/3343d6c8 is deployed on OVH; access is open. The self-only #augstats

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "source": "/tmp/nightcap-character-stats-window-20261106-v3/source",
+  "preimages": {
+    "zone/client.h": "94c8e33d55a9e95dfbc2db9af6de5cbb9a3dabb2ee831da93c7abb050478301a",
+    "zone/gm_commands/nightcapui.cpp": "e665a80eca6a139b1aae95c2fef5b7738603efd279bc5dbccc3af895239fd532",
+    "zone/command.cpp": "9bc6edfdef05c7b71f140045785f5bdffe9345abc26ec5ccbd761a6732da582b"
+  },
+  "afterimages": {
+    "zone/client.h": "f2dd2ae7e322183896996a4707aa97094df5fa263a9ead99e54209a2352f5d91",
+    "zone/gm_commands/nightcapui.cpp": "e81e10e99fdc4fb990c7ce7a6184e9362987e75d5ba93aff203a4c045ecc32c6",
+    "zone/command.cpp": "df30f11e3cefd5182e3fe89f9c2709988c85971c1de91fe78f5591b11245e052"
+  },
+  "baseline_zone": "3fc2b901c98dfc2816298a051f3462a6db0a724ccfa649ff213da3d840186588",
+  "candidate_zone": "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a",
+  "link_inputs": 144,
+  "compiled": [
+    {
+      "unit": "unity_1_cxx.cxx",
+      "object_sha256": "1de6befa783aa1bb21f4f8fc35fd588e6bfa60f76c03d991ece86a5c3ec01a5a"
+    }
+  ],
+  "scope": "presentation-only candidate; not installed or owner accepted",
+  "added_inputs": {
+    "common/equipped_stats_protocol.h": "c0fb04e53bd009fcd4ef3c116f96d7f9865c84c3ff96e032279901104b4cd947"
+  }
+}

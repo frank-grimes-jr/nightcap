@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-06 — Server-backed character Stats candidate
+
+Add Shield Block, strongest Hunt contribution, relative Dodge, item focus
+potential and worn Faerune to Inventory Stats, with silent automatic refresh.
+Existing secondary rows use server totals and real caps/headroom. Missing/stale
+replies show --. No item power, stacking, drops, player data or command-setting
+changes. #augstats remains a fallback. No new native patch sites or ABI changes.
+Client0.13.4/2026110602 changes DLL, paired catalog and Inventory XML only;145
+other assets/URLs remain. Native ea6ad532 reproduces the current3fc2b901 baseline
+before rebuilding one command unity unit. Deployment/publication pending; full
+exit/launcher Play required after publication. Owner native/gameplay QA is open.
+Evidence: `docs/releases/character-stats-window-20261106/`.
+
 ## 2026-11-06 — Augment descriptions and equipped totals deployed
 
 Deploy the owner-requested live-QA correction from main PR408: #augstats provides

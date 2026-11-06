@@ -22,7 +22,7 @@ inline std::string AugmentItemDescription(const char* original, uint32_t id) {
     text += "</c><BR>Shield Block: +" + std::to_string(block) + "% (not Shielding).<BR>";
     text += "Requires this augment socketed in worn armor and a usable shield equipped.<BR>";
     text += "Only the strongest Hunt shield-block augment applies.<BR>";
-    text += "Use #augstats to view your equipped totals.<BR>";
+    text += "View equipped totals on Inventory's Stats tab.<BR>";
     return text;
 }
 }

@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from client_pet_armor_ui import add_pet_page
+from client_character_stats_ui import add_character_stats
 from client_pet_management_ui import add_pet_management
 from client_merchant_ui import add_sell_all
 from client_bazaar_ui import add_bazaar_panel
@@ -120,6 +121,8 @@ def ui_xml(raw, kind):
         labels[0].find('EQType').text = '10001'
         labels[0].find('Text').text = 'Classes loading'
         add_pet_page(root)
+        if root.find("Page[@item='IW_StatPage']") is not None:
+            add_character_stats(root)
     elif kind == 'pets':
         add_pet_management(root)
         add_advanced_loot(root)
@@ -200,6 +203,10 @@ def ui_xml(raw, kind):
         height.text=str(int(height.text)+28)
     else:
         raise ValueError('Unknown UI asset')
+    return serialize_ui(root)
+
+
+def serialize_ui(root):
     # RoF2's reader needs the stock lexical Schema declaration. ElementTree
     # otherwise emits ns0:Schema and drops xmlns:dt, which made the game reject
     # the entire skin and silently fall back to Default.
