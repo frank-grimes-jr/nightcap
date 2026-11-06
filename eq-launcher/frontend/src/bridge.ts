@@ -1,7 +1,7 @@
 export interface PatchNote {
   release: number;
   date: string;
-  changes: { kind: "feature" | "fix"; text: string }[];
+  changes: { kind: "feature" | "fix" | "server"; text: string; reason?: string }[];
 }
 export interface Status {
 	version?: string;

@@ -1,0 +1,397 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -76,38 +76,57 @@
+ sale-value reconciliation. Fresh scoped backups, transactional preimage guards,
+ rollback rehearsal and one-shot receipt are mandatory; never replay after activity
+ or replace all player state. Private character repair has no public wiki impact.
+-## Regular combat augments — October29 on test, not deployed
+-
+-Source: C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev,
+-feature/zone-augment-combat; dev PR363 and test PR364 merged. All regular native/private combat spawns in the48
+-enabled Hunt zones gain the0.5% augment roll, without old level/name/source/night
+-gates; quality60/30/8/2, equip requirements and power remain. Class1–16,
+-nonmerchant, targetable/nonprotected native spawn required. Pets/owned victims,
+-services, temporary actors without respawn2 and restored corpses remain excluded.
+-Wearables retain the old allowlist/level/night0.5% policy and shared once-per-death
+-guard. Load can enable augments with an empty equipment source list.
+-
+-Guarded enable/disable SQL changes only186's enabled flag; seven other dormant
+-zones stay off. Hate B uses Blackspire940592–595. The integrated Hate layout
+-maps managed186 equipment config/source to76 separately; its augment config
+-MUST use actual186. Public186 has no equipment sources. Disabling186 pauses both
+-Hunt families there and retains all earned items/receipts. Never add186 equipment
+-sources merely to activate augments or restore player snapshots.
+-
+-Native9, MariaDB3 (nine drift cases), Hate integration14, contract2 and wiki19
+-checks pass. Actual Award exhausts10000 chance values with50 successes. Full
+-changed TU compile and isolated zone relink651ac4b4 use2842authenticated retained
+-Hate-layout source files; original retained objects first reproduce baseline
+-f34dbffb exactly. This is not a clean all-target rebuild. Native code/fixtures,
+-SQL, QA and native-build.json: docs/releases/zone-augments-20261029/.
+-Independent final review has no blocking finding; no production or player QA.
+-
+-The executable includes the UNRELEASED Hate layout and needs its paired native,
+-SQL, quests and signed client release, or a separately verified live-source build.
+-The augment delta changes no ItemData/rules/client assets. Whole supervised
+-restart required; rule/quest reload is insufficient. Source promotion through
+-TEST is allowed; MAIN/production still needs current owner sign-off. Wiki preview
+-pages remain Not released; global historical source drift is not blanket-approved.
++## Zone augment audit — November6 candidate, not deployed
++
++Source: E:/EQ_Local_Dev/_worktrees/augment-audit-20261106, feature/augment-audit-20261106,
++reviewed e13a307de5700270ab250e6d1d7d2544d16746d4. Supersedes the narrower October29 unpublished
++regular-static-combat candidate. Fresh read-only production capture:48Classic
++pools at1.5%, eight disabled, two managed expeditions at0.5%;58families/232augments.
++Context topic: `augment-audit` for this reviewed candidate's exact source/test pins.
++Zero of585guard spawn/NPC pairs are in the old6056-entry equipment allowlist.
++
++Candidate augments roll for any unowned killable NPC, including guards, named,
++quest/merchant NPCs and scripted adds; no source/name/level/class/night gates.
++Owned pets captured before charm fade, mercs/swarm, protected/noncombat actors
++and restored corpses remain excluded. Corpse ownership remains. Killable merchants
++can leave corpses in enabled reward zones; no city pool/policy change. Equipment
++keeps old gates. Award follows dungeon loot cleanup, preserving High Keep guard
++augments. Managed186 uses Blackspire940592–595 and independently inherits76gear,
++source/minimum/night/chance. Only186and Classic CT48enable; six access-check pools
++stay off. Expedition rolls become1.5%; static per-life receipts and35%static
++miniboss relic gates remain; dynamic enemies get one RNG augment roll/life.
++
++Specialties: avoidance, real shield block, damage/healing, spell haste, mana
++preservation, Faerune, dodge, Shielding, Accuracy and Spell Shielding. Config:
++config/augment-specialties.json; generator tools/augment_audit.py. Primary/heroic/
++level budgets and60/30/8/2quality plus3/4/4forge remain. Six copies max24Avoidance,
++30Accuracy,6Shielding,12SpellShielding,48raw damage/heal. Existing caps include750
++damage/heal plus30earned headroom; no new cap/rule. Strongest Hunt shield block
++max2percentage points, usable shield required; lore describes it. Existing stock
++focus/dodge/Faerune IDs and correct types are captured; strongest worn/focus rules
++apply, additive-worn rule0 is guarded. All232icons become visually reviewed stock
++gems/orbs/crystals944–967. RoF2 grid is VERTICAL, index icon-500: row-major mapping
++would accidentally select equipment. Protected client is read-only.
++
++Sources: zone_hunt.cpp/.h, zone_hunt_policy.h, bonuses.cpp, attack.cpp,
++dungeon_service.cpp. Tests: test_zone_hunt_native.py, test_augment_audit.py,
++test_augment_expedition_native.py; actual bodies, full10000-value RNG domains,
++six-socket/eligibility controls.52focused tests pass. Disposable MariaDB proves232
++full afterimages, exact inverse and replay/drift/stacking/state rejection. Four
++complete TUs compile;144retained native link inputs first reproduce Nov4live
++baseline335cbce1 byte-for-byte, then link candidatebc88a468. Existing live Hate
++spawn mapping is preserved rather than overwritten by main's selective mirror.
++
++Evidence/full58-item list/icons/QA/runbook: docs/audits/augments-20261106/.
++This is a linked local candidate, no production content writes, MAIN/OVH promotion,
++public wiki publication or player acceptance. Current world/zone/shared_memory
++metadata consumers, quests and stock client must remain compatible. Activation
++needs a fresh stopped backup, guarded SQL, matching regenerated shared item cache
++and supported whole-runtime restart; rule/quest reload is insufficient. No new
++client asset. Inverse retains earned inventories/receipts; never restore players
++or use pre-Power-Source-XP binaries. Exact guard/add/expedition/stacking/icon/solo
++balance QA remains mandatory. Historical missing Ashen client-archive fixture is
++unavailable; no client acceptance is inferred.
+ 
+ ## Bazaar seller panel — October26 deployed for live QA
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -137,19 +137,22 @@
+ check_refresh.py against actual HEAD plus working tree retains historical REVIEW
+ REQUIRED; only this scoped change is reviewed, with no unrelated ledger updates.
+ 
+-## Regular combat augments — October29 unpublished candidate
+-
+-Source: zone-augment-combat managed checkout; docs/releases/zone-augments-20261029/.
+-All45authored articles reviewed with48generated zone and192augment-page preview
+-notes. Blackspire940592–595 and Hate B have five Not released preview pages;
+-existing48-zone/384-item live catalog, power and current labels remain intact.
+-Managed186 retains original76 equipment separately from its own Blackspire
+-augment. Features, Hunt, Dungeon modes, In development and Change Log coordinate
+-candidate wording with the integrated Hate layout. Home goals and commands need
+-no change.19wiki/content-refresh tests pass and497HTML pages build; no publication.
+-The global historical source ledger remains REVIEW REQUIRED; only this scoped
+-review is recorded. Release labels/catalog promotion require authorized activation
+-and separate owner gameplay acceptance evidence.
++## Zone augment audit — November6 unpublished preview
++
++Source: E:/EQ_Local_Dev/_worktrees/augment-audit-20261106, e13a307de5700270ab250e6d1d7d2544d16746d4.
++All41authored articles and generated item/zone impacts are assessed in
++docs/audits/augments-20261106/wiki-review.json. An explicitly Not released58-family
++augment-audit article, owning guides, Features, In development and Change Log
++describe broad NPC drops, moderate secondary specialties and exotic icons.
++Existing published item values/48-zone catalog/release labels remain; generated
++augment/zone pages link the preview. Home goal paths and commands need no change.
++22wiki/content-refresh/preview tests pass; local build/link checks do not establish
++public publication. Historical global source drift stays REVIEW REQUIRED; no
++blanket ledger advancement. Six dormant pools remain excluded; CT/Hate B enable
++only in the candidate. Publication/catalog promotion requires verified authorized
++activation and separate owner gameplay acceptance. Protected-client icon extracts
++are audit evidence, not a client asset release. Preserve newer public source when
++preparing any eventual publication.
+ 
+ ## Bazaar posting/readability — October28 owner accepted
+ 
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,14 +1,24 @@
+ # Source authority, builds and reloads
+ 
+-## Current native baseline — November1 placeholder-loot zone
+-
+-Production runs nightcap-game:npc-placeholder-loot-20261101-v1 (9bd39442): the
+-Hate boss image with only zone replaced (77c5fdff). Build tree
+-/tmp/nightcap-npc-placeholder-loot-20261101-v1 in akk-stack-eqemu-server-1 is the
+-Hate boss source plus fixed zone/zone_save_state.cpp. The next native release must
+-start from it (or main), never the older Hate boss tree, or the loot fix regresses.
+-The prior public_preflight is a pre-install snapshot: reuse contract() instead.
+-Docker build cache was pruned (owner-approved, 1.06GB); disk ~1.3GB free after.
++## Current native baseline — November4 Power Source training display
++
++Dated release evidence in current main records OVH activation November4 09:55UTC:
++docs/releases/power-source-xp-display-20261103/README.md, zone335cbce1d046565da3ad013261080de4df5032703719a2b2d8348f73f1830dd1,
++image da797daf over3999a935. Retained local source/build:
++/tmp/nightcap-power-source-xp-display-20261103-v1 in akk-stack-eqemu-server-1.
++It includes Power Source metadata, SSF, per-zone Hunt rates and placeholder-loot
++repair. Never start a new native build from the older November1/Hate baseline or
++roll back to pre-XP metadata consumers after training. This is release-document
++evidence, not a fresh production native probe; owner display/gameplay QA is open.
++
++The November6 augment candidate independently reproduces both retained unstripped
++and shipping zone bytes from144authenticated link inputs before linking its delta.
++Main's selective dungeon_service.cpp mirror lacks the already-live Hate spawn
++source join correction; inspect/preserve that hunk. Native compilation needs the
++retained CMake flags and PCH header. Packaging uses strip --strip-debug and the
++ELF runtime-identity verifier, not default strip-all. No candidate install/restart
++or standing production approval is implied. Evidence:
++docs/audits/augments-20261106/{native-compile.json,native-link.json,README.md}.
+ 
+ ## Hate boss placement — October30 deployed; indexed forward continuation
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -138,7 +138,8 @@
+     "cast_bar_owner_accepted_20261030": "main 3c3d815e + reviewed owner acceptance and verified wiki publication",
+     "hate_density_20261030": "575d21a60e6f5ef876d88ce3e35835c1c464afd1",
+     "hate_boss_placement_20261030": "8023cbce045a1c66e8654e0955a80cce85acc204",
+-    "hate_boss_placement_deployed_20261030": "ef9ce5099cb263b729f2ba7063f887d66e35df60"
++    "hate_boss_placement_deployed_20261030": "ef9ce5099cb263b729f2ba7063f887d66e35df60",
++    "augment_audit_20261106_candidate": "e13a307de5700270ab250e6d1d7d2544d16746d4 (local linked candidate; not deployed)"
+   },
+   "topics": {
+     "operations": [
+@@ -5365,11 +5366,11 @@
+         "sha256": "bad34d9e9bfdbd944103ef222647047ded5394786859cc91163b861091950304"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
+         "path": "server-mods/code/zone/bonuses.cpp",
+-        "role": "Reviewed Paladin implementation/release evidence; main/OVH/client/wiki deployed October28; owner gameplay QA open",
+-        "revision": "074ae26742fb21ee5b247c92be07ca63a98e0085",
+-        "sha256": "337ca3cd3a7df63e398d0daddf8e7364e9c8021506f3458a3e2651d675ff317c"
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "04554adfc84a0b2143b4bf922ceec67413026938c8e114c8f3193896e547630f"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
+@@ -5561,39 +5562,39 @@
+         "sha256": "cddeb0cae667a46c247cee655516f380431622c87d04f38dfe5572cb0677509f"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
+         "path": "server-mods/code/zone/zone_hunt.cpp",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "1c495092af7013656df30908771ed411fcc46feae48e2142d00dc1acfbf6e335"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "abe748393aad6b85fdbaeedb0d7104dfeae17657840a35b8c568358f87cf8992"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
+         "path": "server-mods/code/common/zone_hunt_policy.h",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "728bf49bb0c8150dc8347ce823e06cb8a265468088b7e3752f82af4e47dae421"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "3d86d2f88b41ca1a59fa6057f37592f9f4b091d5d3ea7a87a87547e6c37a9b94"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
+         "path": "tools/tests/test_zone_hunt_native.py",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "24acd4353df0a60f8b7e1f9c51694712cb5769b3eec8e21adcdd12fff96a4bee"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "bbb1b469539303016230ab2fe6bd82cc9b9a7a1e7eef798c4088501e60ac5580"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
+         "path": "tools/tests/zone_hunt_death_fixture.cpp",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "03995a0c00b84f95e81af25a4c01d00c93947b9e4a1233ebbaa8df9849321cc5"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "f259fdff6a77f5e487abc0bdcba7ab03461b98db412775dcf718a0a220800c97"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
+         "path": "tools/tests/zone_hunt_load_fixture.cpp",
+-        "role": "Reviewed October29 regular-combat augment candidate and Hate B integration; native/DB/wiki tests pass, not deployed or owner accepted",
+-        "revision": "64347456d03c6ebe92fedae362689929d515fc24",
+-        "sha256": "e3067cec035c595ed6be4ad8ac8a4cea626668ad9e2a91ff3ffaf0f126b3a0ac"
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "9054d74146f0a212ddada7b50cf2c4e055d5ad1485f61b84361d07313341a456"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/zone-augment-combat/EQ_Local_Dev",
+@@ -15452,6 +15453,134 @@
+         "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+         "sha256": "0226b35ae84167d6ce89cb8f4fb5e5d786a6ddbd1cbbbc3a1f399404deb157bc"
+       }
++    ],
++    "augment-audit": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "server-mods/code/zone/zone_hunt.cpp",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "abe748393aad6b85fdbaeedb0d7104dfeae17657840a35b8c568358f87cf8992"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "server-mods/code/zone/zone_hunt.h",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "8f4f678109d172bce4f4111730a8512dc34d158ca826ee2e48ac50348e304d31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "server-mods/code/common/zone_hunt_policy.h",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "3d86d2f88b41ca1a59fa6057f37592f9f4b091d5d3ea7a87a87547e6c37a9b94"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "server-mods/code/zone/bonuses.cpp",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "04554adfc84a0b2143b4bf922ceec67413026938c8e114c8f3193896e547630f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "server-mods/code/zone/attack.cpp",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "a4b11fe021916c77eddbdeae45e64a72091b3def7047124e16aaeb83d06586b6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "server-mods/code/zone/dungeon_service.cpp",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "72b5c15a550087207141bad90c327d008a1ec38516d0cb0939d0034acc7c6dbc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "config/augment-specialties.json",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "1d5435aa49a06c005c522b02d8425449f848966ee36e18d2a304cb43d93db9d2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "tools/augment_audit.py",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "d37fab8db2071c0fd9a6665a8a3d15109d9df3ad39c39fef46d2eee5fd529533"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "tools/tests/test_zone_hunt_native.py",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "bbb1b469539303016230ab2fe6bd82cc9b9a7a1e7eef798c4088501e60ac5580"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "tools/tests/zone_hunt_death_fixture.cpp",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "f259fdff6a77f5e487abc0bdcba7ab03461b98db412775dcf718a0a220800c97"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "tools/tests/zone_hunt_load_fixture.cpp",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "9054d74146f0a212ddada7b50cf2c4e055d5ad1485f61b84361d07313341a456"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "tools/tests/test_augment_audit.py",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "f2a23b2b97227c204f1cd3af22c9d0ca2b2d90a17980ac02a20fe86c077906af"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "tools/tests/test_augment_expedition_native.py",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "ae638a2227b3124fd334a1af174c2cc067e4586c1909da965bae5d9b9194f2c0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "wiki/augment_candidate.py",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "fbd9b08d8ff80fe4cafdf0b287d7e1734904ff08b744a5b23b5590ce9f471808"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "wiki/articles/augment-audit.json",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "49a91062efba61763086600fb8dca630e4a334f6c2dd0f339695fc1eada99614"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "docs/audits/augments-20261106/verification.json",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "ab0ff38f271b31f641bbfee3fbbd554e202066bc41d69a240ffcbdb64c59a2d8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "docs/audits/augments-20261106/native-link.json",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "9b579ffdc98848702b6c9f2723d5e504b6ec3899b63d69d017959f00e80dd3ef"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-20261106",
++        "path": "docs/audits/augments-20261106/mariadb-rehearsal.json",
++        "role": "November6 reviewed augment candidate; tested/linked locally, no deployment or player acceptance",
++        "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
++        "sha256": "62b0a82d2f946108aae2eb634637d25405424053bd9dc8334d9968da6f9ee452"
++      }
+     ]
+   }
+ }

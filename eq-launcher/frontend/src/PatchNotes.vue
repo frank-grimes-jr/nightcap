@@ -7,6 +7,7 @@ const history = computed(() => props.notes.filter(note => note.release < props.r
 const dateLabel = (date: string) => new Intl.DateTimeFormat("en-US", {
   month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
 }).format(new Date(`${date}T00:00:00Z`));
+const kindLabel = { feature: "Feature", fix: "Bug fix", server: "Server" };
 </script>
 
 <template>
@@ -19,8 +20,8 @@ const dateLabel = (date: string) => new Intl.DateTimeFormat("en-US", {
       <p class="patch-release">Patch {{ latest.release }}</p>
       <ul class="patch-changes">
         <li v-for="(change, i) in latest.changes" :key="i">
-          <span class="change-kind" :class="change.kind">{{ change.kind === 'feature' ? 'Feature' : 'Bug fix' }}</span>
-          <span>{{ change.text }}</span>
+          <span class="change-kind" :class="change.kind">{{ kindLabel[change.kind] }}</span>
+          <span>{{ change.text }}<small v-if="change.reason" class="change-reason">Why: {{ change.reason }}</small></span>
         </li>
       </ul>
     </template>
@@ -32,8 +33,8 @@ const dateLabel = (date: string) => new Intl.DateTimeFormat("en-US", {
           <h3><time :datetime="note.date">{{ dateLabel(note.date) }}</time><span>Patch {{ note.release }}</span></h3>
           <ul class="patch-changes">
             <li v-for="(change, i) in note.changes" :key="i">
-              <span class="change-kind" :class="change.kind">{{ change.kind === 'feature' ? 'Feature' : 'Bug fix' }}</span>
-              <span>{{ change.text }}</span>
+              <span class="change-kind" :class="change.kind">{{ kindLabel[change.kind] }}</span>
+              <span>{{ change.text }}<small v-if="change.reason" class="change-reason">Why: {{ change.reason }}</small></span>
             </li>
           </ul>
         </article>

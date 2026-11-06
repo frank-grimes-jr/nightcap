@@ -1,0 +1,29 @@
+{
+  "world": {
+    "status": "PASS",
+    "allocated_sections": 30,
+    "program_headers": 14,
+    "original_sha256": "f268f6a9e66bde5fc8c39186fdc1731c5bc691b26385737e724855e2b8a82d56",
+    "sha256": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654",
+    "original_size": 95525504,
+    "size": 18408744
+  },
+  "zone": {
+    "status": "PASS",
+    "allocated_sections": 30,
+    "program_headers": 14,
+    "original_sha256": "044f6087236e5fb10cf34c7d69a6cac446be7d3cb59e125a5dde24482f948480",
+    "sha256": "7b61b96ce59e00cc1c28f2b68148bbea21f51b59bd584b16fc9eb45bead867b5",
+    "original_size": 320263720,
+    "size": 53116440
+  },
+  "shared_memory": {
+    "status": "PASS",
+    "allocated_sections": 30,
+    "program_headers": 14,
+    "original_sha256": "c3e000c65beacac31def5c4685b097889a99776e182b8710cdfb51a02d29278c",
+    "sha256": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86",
+    "original_size": 41816704,
+    "size": 11747104
+  }
+}

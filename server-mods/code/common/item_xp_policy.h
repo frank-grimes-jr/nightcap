@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <cstdint>
+#include <string>
 
 namespace NightcapItemXP {
 constexpr uint64_t Unit = 1000000;
@@ -47,5 +48,20 @@ inline Progress Advance(uint8_t tier, uint64_t progress, uint64_t award)
 		++tier;
 	}
 	return {true, tier, tier == 3 ? 0 : remaining};
+}
+
+// Whole percent toward the next quality; Advance keeps progress below Cost.
+inline unsigned Percent(uint8_t tier, uint64_t progress)
+{
+	return tier >= 3 ? 100 : static_cast<unsigned>(progress * 100 / Cost(tier));
+}
+
+// The client shows a training item's progress in its name. RoF2 keeps item
+// names in a 64-byte buffer, so the base name gives way to the suffix.
+inline std::string TrainingName(std::string name, uint8_t tier, uint64_t progress)
+{
+	const std::string suffix = tier >= 3 ? " [Trained]" : " [Training " + std::to_string(Percent(tier, progress)) + "%]";
+	name.resize(std::min(name.size(), size_t{63} - suffix.size()));
+	return name + suffix;
 }
 }

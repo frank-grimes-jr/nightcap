@@ -118,6 +118,10 @@ func buildWithNotes(client, assets, keyPath string, create bool, release uint64,
 	if len(notes) > 0 && profile != nil && !manifest.SupportsPatchNotes(profile.Version) {
 		return fmt.Errorf("patch notes require desktop version 0.6.0 or newer")
 	}
+	serverNotes := manifest.UsesServerNotes(notes)
+	if serverNotes && profile != nil && !manifest.SupportsServerNotes(profile.Version) {
+		return fmt.Errorf("server patch notes require desktop version 0.7.0 or newer")
+	}
 	if client == "" || release == 0 {
 		return fmt.Errorf("client and nonzero release required")
 	}
@@ -193,6 +197,9 @@ func buildWithNotes(client, assets, keyPath string, create bool, release uint64,
 	if len(notes) > 0 {
 		version = manifest.PatchNotesMinimumLauncher
 	}
+	if serverNotes {
+		version = manifest.ServerNotesMinimumLauncher
+	}
 	hosts := []string{"qa.nightcap.invalid"}
 	if profile != nil {
 		key = manifest.Key{ID: "production-" + manifest.Digest(public)[:16], Public: public, NotBefore: profile.KeyNotBefore, NotAfter: profile.KeyNotAfter}
@@ -215,6 +222,9 @@ func buildWithNotes(client, assets, keyPath string, create bool, release uint64,
 
 	if len(notes) > 0 && !manifest.SupportsPatchNotes(m.MinLauncher) {
 		m.MinLauncher = manifest.PatchNotesMinimumLauncher
+	}
+	if serverNotes && !manifest.SupportsServerNotes(m.MinLauncher) {
+		m.MinLauncher = manifest.ServerNotesMinimumLauncher
 	}
 	for _, name := range names {
 		trust.Inventory[name] = true

@@ -1,0 +1,411 @@
+{
+  "status": "Not released",
+  "families": [
+    {
+      "zone": "qeytoqrg",
+      "base": 940024,
+      "specialty": "mana_preservation",
+      "icon": 944,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "highpass",
+      "base": 940032,
+      "specialty": "shielding",
+      "icon": 945,
+      "candidate_enabled": false
+    },
+    {
+      "zone": "highkeep",
+      "base": 940040,
+      "specialty": "shield_block",
+      "icon": 946,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "runnyeye",
+      "base": 940072,
+      "specialty": "spell_damage",
+      "icon": 947,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "qey2hh1",
+      "base": 940080,
+      "specialty": "avoidance",
+      "icon": 948,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "northkarana",
+      "base": 940088,
+      "specialty": "dodge",
+      "icon": 949,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "southkarana",
+      "base": 940096,
+      "specialty": "accuracy",
+      "icon": 950,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "eastkarana",
+      "base": 940104,
+      "specialty": "dodge",
+      "icon": 951,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "beholder",
+      "base": 940112,
+      "specialty": "spell_haste",
+      "icon": 952,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "blackburrow",
+      "base": 940120,
+      "specialty": "shielding",
+      "icon": 953,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "paw",
+      "base": 940128,
+      "specialty": "healing",
+      "icon": 954,
+      "candidate_enabled": false
+    },
+    {
+      "zone": "kithicor",
+      "base": 940144,
+      "specialty": "spell_shielding",
+      "icon": 955,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "commons",
+      "base": 940152,
+      "specialty": "accuracy",
+      "icon": 956,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "ecommons",
+      "base": 940160,
+      "specialty": "shielding",
+      "icon": 957,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "nektulos",
+      "base": 940184,
+      "specialty": "spell_haste",
+      "icon": 958,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "lavastorm",
+      "base": 940192,
+      "specialty": "spell_damage",
+      "icon": 959,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "everfrost",
+      "base": 940208,
+      "specialty": "avoidance",
+      "icon": 960,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "soldunga",
+      "base": 940216,
+      "specialty": "accuracy",
+      "icon": 961,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "soldungb",
+      "base": 940224,
+      "specialty": "spell_shielding",
+      "icon": 962,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "misty",
+      "base": 940232,
+      "specialty": "mana_preservation",
+      "icon": 963,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "nro",
+      "base": 940240,
+      "specialty": "dodge",
+      "icon": 964,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "sro",
+      "base": 940248,
+      "specialty": "accuracy",
+      "icon": 965,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "befallen",
+      "base": 940256,
+      "specialty": "healing",
+      "icon": 966,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "oasis",
+      "base": 940264,
+      "specialty": "mana_preservation",
+      "icon": 967,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "tox",
+      "base": 940272,
+      "specialty": "faerune",
+      "icon": 944,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "hole",
+      "base": 940280,
+      "specialty": "shield_block",
+      "icon": 945,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "najena",
+      "base": 940312,
+      "specialty": "spell_damage",
+      "icon": 946,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "qcat",
+      "base": 940320,
+      "specialty": "spell_shielding",
+      "icon": 947,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "innothule",
+      "base": 940328,
+      "specialty": "mana_preservation",
+      "icon": 948,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "feerrott",
+      "base": 940336,
+      "specialty": "shielding",
+      "icon": 949,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "cazicthule",
+      "base": 940344,
+      "specialty": "shielding",
+      "icon": 950,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "rathemtn",
+      "base": 940360,
+      "specialty": "avoidance",
+      "icon": 951,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "lakerathe",
+      "base": 940368,
+      "specialty": "mana_preservation",
+      "icon": 952,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "gfaydark",
+      "base": 940384,
+      "specialty": "mana_preservation",
+      "icon": 953,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "steamfont",
+      "base": 940400,
+      "specialty": "spell_haste",
+      "icon": 954,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "lfaydark",
+      "base": 940408,
+      "specialty": "dodge",
+      "icon": 955,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "crushbone",
+      "base": 940416,
+      "specialty": "accuracy",
+      "icon": 956,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "mistmoore",
+      "base": 940424,
+      "specialty": "spell_damage",
+      "icon": 957,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "unrest",
+      "base": 940456,
+      "specialty": "healing",
+      "icon": 958,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "kedge",
+      "base": 940464,
+      "specialty": "faerune",
+      "icon": 959,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "guktop",
+      "base": 940472,
+      "specialty": "mana_preservation",
+      "icon": 960,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "gukbottom",
+      "base": 940480,
+      "specialty": "healing",
+      "icon": 961,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "butcher",
+      "base": 940496,
+      "specialty": "avoidance",
+      "icon": 962,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "oot",
+      "base": 940504,
+      "specialty": "accuracy",
+      "icon": 963,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "cauldron",
+      "base": 940512,
+      "specialty": "faerune",
+      "icon": 964,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "airplane",
+      "base": 940520,
+      "specialty": "spell_haste",
+      "icon": 965,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "fearplane",
+      "base": 940528,
+      "specialty": "shield_block",
+      "icon": 966,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "permafrost",
+      "base": 940536,
+      "specialty": "healing",
+      "icon": 967,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "kerraridge",
+      "base": 940544,
+      "specialty": "dodge",
+      "icon": 944,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "hateplane",
+      "base": 940560,
+      "specialty": "spell_damage",
+      "icon": 945,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "erudsxing",
+      "base": 940568,
+      "specialty": "faerune",
+      "icon": 946,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "jaggedpine",
+      "base": 940576,
+      "specialty": "dodge",
+      "icon": 947,
+      "candidate_enabled": false
+    },
+    {
+      "zone": "nedaria",
+      "base": 940584,
+      "specialty": "spell_haste",
+      "icon": 948,
+      "candidate_enabled": false
+    },
+    {
+      "zone": "hateplaneb",
+      "base": 940592,
+      "specialty": "spell_damage",
+      "icon": 949,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "tutoriala",
+      "base": 940600,
+      "specialty": "avoidance",
+      "icon": 950,
+      "candidate_enabled": false
+    },
+    {
+      "zone": "tutorialb",
+      "base": 940608,
+      "specialty": "spell_damage",
+      "icon": 951,
+      "candidate_enabled": false
+    },
+    {
+      "zone": "chapterhouse",
+      "base": 961000,
+      "specialty": "healing",
+      "icon": 952,
+      "candidate_enabled": true
+    },
+    {
+      "zone": "kael",
+      "base": 961020,
+      "specialty": "mana_preservation",
+      "icon": 953,
+      "candidate_enabled": true
+    }
+  ]
+}

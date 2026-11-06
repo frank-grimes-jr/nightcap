@@ -193,6 +193,7 @@ void Mob::CalcItemBonuses(StatBonuses* b) {
 	if (CanThisClassDualWield()) {
 		SetDualWeaponsEquipped(true);
 	}
+	if (IsClient()) { b->ShieldBlock += NightcapHunt::OutputShieldBlock(*CastToClient()); }
 
 	if (IsClient()) {
 		if (CastToClient()->GetPP().tribute_active) {

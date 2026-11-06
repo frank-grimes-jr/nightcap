@@ -131,6 +131,9 @@ func verify(raw []byte, signature Signature, trust Trust, recovery bool) (Manife
 	if len(m.PatchNotes) > 0 && !SupportsPatchNotes(m.MinLauncher) {
 		return fail("patch notes require minimum launcher 0.6.0")
 	}
+	if UsesServerNotes(m.PatchNotes) && !SupportsServerNotes(m.MinLauncher) {
+		return fail("server patch notes require minimum launcher 0.7.0")
+	}
 	if !recovery && !trust.Now.Before(m.Expires) {
 		return fail("release metadata expired")
 	}
