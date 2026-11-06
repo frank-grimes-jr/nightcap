@@ -26,6 +26,7 @@ Source: {ROOT.as_posix()}, feature/augment-audit-20261106,
 reviewed {revision}. Supersedes the narrower October29 unpublished
 regular-static-combat candidate. Fresh read-only production capture:48Classic
 pools at1.5%, eight disabled, two managed expeditions at0.5%;58families/232augments.
+Context topic: `augment-audit` for this reviewed candidate's exact source/test pins.
 Zero of585guard spawn/NPC pairs are in the old6056-entry equipment allowlist.
 
 Candidate augments roll for any unowned killable NPC, including guards, named,

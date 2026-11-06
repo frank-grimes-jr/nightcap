@@ -7,6 +7,7 @@ from augment_audit import ROOT, OUT
 
 LIVE = '/tmp/nightcap-power-source-xp-display-20261103-v1'
 DEST = '/tmp/nightcap-augment-audit-20261106-v2'
+BASE = '1b443b5a'  # Audit patch base, never the feature branch's moving HEAD.
 FILES = ['zone/zone_hunt.cpp', 'zone/zone_hunt.h', 'common/zone_hunt_policy.h',
          'zone/bonuses.cpp', 'zone/attack.cpp', 'zone/dungeon_service.cpp']
 REMOTE = r'''
@@ -48,7 +49,7 @@ print(json.dumps(evidence))
 
 
 def main():
-    before = {n: subprocess.check_output(['git', 'show', 'HEAD:server-mods/code/' + n], cwd=ROOT).replace(b'\r\n', b'\n').decode() for n in FILES}
+    before = {n: subprocess.check_output(['git', 'show', BASE + ':server-mods/code/' + n], cwd=ROOT).replace(b'\r\n', b'\n').decode() for n in FILES}
     # Reviewed existing live correction, absent from main's selective mirror.
     # Preserve actual Hate spawn mapping; never overwrite it with older source.
     old = '\t\t\t"FROM nightcap_dungeon_spawns p LEFT JOIN spawn2 s ON p.zone_id=186 AND s.id=p.spawn_id AND s.zone=\'hateplane\' "\n\t\t\t"WHERE p.zone_id={}",current.dungeon->zone));'

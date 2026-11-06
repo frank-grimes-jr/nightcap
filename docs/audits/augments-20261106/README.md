@@ -131,6 +131,13 @@ baseline is November 4 Power Source training display, not the old October source
 See [native compile](native-compile.json) and [native link](native-link.json);
 no current production binary probe or activation is claimed.
 
+Installed Nightcap items/wiki/operations references and 18 reviewed source/test/
+evidence fingerprints were refreshed for source commit `e13a307d`. The dedicated
+`augment-audit` context check reports every fingerprint unchanged; the skill
+validator passes. Exact installed patch and readback hashes are retained under
+`skill-update/`. Build tooling pins its original patch base, so committing the
+feature cannot silently change the source it validates against.
+
 Focused regression evidence: 12 Hunt tests, eight new audit/expedition tests,
 five Chapterhouse tests and 22 wiki/content-refresh/preview checks pass. The old
 Ashen fixture still expected Keeper Hate zone76 although the unchanged current
