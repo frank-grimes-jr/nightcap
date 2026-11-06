@@ -1,16 +1,18 @@
 # CHANGES
 
-## 2026-11-06 — Server-backed character Stats candidate
+## 2026-11-06 — Server-backed character Stats deployed for live QA
 
-Add Shield Block, strongest Hunt contribution, relative Dodge, item focus
-potential and worn Faerune to Inventory Stats, with silent automatic refresh.
-Existing secondary rows use server totals and real caps/headroom. Missing/stale
-replies show --. No item power, stacking, drops, player data or command-setting
-changes. #augstats remains a fallback. No new native patch sites or ABI changes.
-Client0.13.4/2026110602 changes DLL, paired catalog and Inventory XML only;145
-other assets/URLs remain. Native ea6ad532 reproduces the current3fc2b901 baseline
-before rebuilding one command unity unit. Deployment/publication pending; full
-exit/launcher Play required after publication. Owner native/gameplay QA is open.
+Main PR410 adds automatic server-backed totals/caps to Inventory Stats, including
+Shield Block/Hunt, relative Dodge, worn item focus potential and Faerune. Actual
+damage/healing caps include earned headroom. Missing/stale data shows --. Existing
+#augstats remains a fallback. No item power, stacking, loot, player data, rules,
+cache, command settings or native Client ABI change. Quiet polls retain permission
+checks and avoid command logs/quest callbacks. Supported whole-runtime update,
+fresh stopped backup and saved-state/native/content checks passed; access is open.
+Signed0.13.4/2026110602 changes3/148assets,145unchanged descriptors/URLs retained;
+all HTTPS hashes/production signature/pair verify. Fully EXIT EQ/use launcher Play.
+Wiki510files/rollback/private routes/services verified. Owner native sizing,
+scrolling, refresh and gameplay acceptance remains open.
 Evidence: `docs/releases/character-stats-window-20261106/`.
 
 ## 2026-11-06 — Augment descriptions and equipped totals deployed

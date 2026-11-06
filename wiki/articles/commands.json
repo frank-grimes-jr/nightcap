@@ -20,7 +20,7 @@
     "docs/releases/faction-standing-20261029/README.md and release/AUTHORIZATION.md; main source only, not deployed or owner accepted",
     "docs/releases/faction-standing-20261029/release/final-verification.json; OVH deployment verified, owner native QA open; this source not yet published",
     "docs/items/power-source-xp/PLAN.md and QA.md; source candidate only, disabled by default, not deployed or owner accepted",
-    "docs/releases/character-stats-window-20261106/README.md; signed2026110602/native ea6ad532 candidate, owner QA open"
+    "docs/releases/character-stats-window-20261106/README.md; signed2026110602/native ea6ad532 verified for live QA; owner acceptance open"
   ],
   "reviewed_at": "2026-11-06"
 }

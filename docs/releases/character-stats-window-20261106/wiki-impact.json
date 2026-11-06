@@ -9,6 +9,6 @@
   ],
   "preserved": "all generated item/zone catalogs, home, navigation, assets, build lab and unrelated unreleased previews",
   "reason": "presentation-only; no item values, drop pools, game power or commands removed",
-  "publication": "pending; exact public baseline used instead of main",
+  "publication": "verified20261106-character-stats-v1;510files, rollback/private downloads/services pass",
   "qa": "native visual/gameplay acceptance open"
 }

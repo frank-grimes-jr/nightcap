@@ -1,0 +1,546 @@
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,25 +1,46 @@
+ # RoF2 client, pets and buff effects
+ 
+ 
+-## Hunt augment descriptions — November6 signed client published; native QA open
+-
+-Main PR408/3343d6c8; worktree E:/EQ_Local_Dev/_worktrees/augment-item-window.
+-Signed2026110601/proxy0.13.3 replaces DLL/catalog only, preserving146assets/URLs,
+-history/tombstones/config, cast-bar spell repair and recall strings. All148HTTPS
+-bytes/shipped-key signature and proxy/catalog pairing verify. No desktop/starter
+-or protected-reference-client changes. Fully EXIT EQ/use launcher Play.
+-
+-eq-client-dll/src/{augment_item_description.h,ui_hooks.h} adds explicit Hunt
+-Shield Block, worn-socket/shield requirements and strongest-only rule to normal
+-Description. Existing item names/spells/bonuses unchanged. Native regression runs
+-the pinned UpdateStrings renderer; 25assertions plus22runtime/native groups pass.
+-120catalog sites bind the new6-byte entry instruction and layout reads. The hook
+-is required by existing class_ui startup success; failure cannot silently launch.
+-Local NOMINMAX plus scoped min/max preservation allows the shared server policy
+-header under Windows. Report command #augstats is available from paired zone3fc2b901.
+-All implementation/QA/recovery evidence: docs/releases/augment-item-window-20261106/.
+-Pixels, skin sizing, chat-link/socket views and owner visible acceptance remain
+-live QA; isolated renderer text/signature verification is not visible acceptance.
++## Character Stats and augment descriptions — November6 deployed; native QA open
++
++Main PR410/313d497c; source E:/EQ_Local_Dev/_worktrees/character-stats-bonuses.
++docs/releases/character-stats-window-20261106/ owns build, native/runtime tests,
++guarded deployment, signed HTTPS/client and public wiki receipts plus exact QA.
++Inventory -> Stats automatically shows server mod totals/caps, Shield Block,
++strongest Hunt contribution, relative Dodge, item spell-haste/mana-preservation
++potential and worn Faerune. No command is required. #augstats remains a fallback
++with item/spell/AA block components. Shielding is separate melee reduction.
++Focus rows are best worn-item potential before spell/level/cast-time limits;
++buff/AA effects can change actual casts. Faerune means worn item utility.
++
++Wire common/equipped_stats_protocol.h [NCST1] has33 ordered int32 fields, existing
++five-part UI identity, uint32 sequence and bounded512-byte strict decoding.
++Identity/replay/8second expiry guards show -- instead of stale or invented zero.
++Class/zone/character lifecycle clears values. Existing Label/Chat/State hooks in
++ui_hooks.h service EQTypes10100..10132,10200..10205,10300..10312,10400; no new
++native patch sites. client_character_stats_ui.py scopes the current published
++Inventory XML, inserts block/Hunt by Shielding and Dodge by Avoidance, keeps two
++native columns and provides scrollable focus/utility. Native pixels are not yet
++owner accepted. Existing inventory/pet/class controls and unrelated assets stay.
++
++Silent #nightcapui stats requests use existing self-only transport, at most1/sec
++while labels render. Server RefreshEquippedStats preserves the existing3second
++class-UI throttle and captures actual getters/caps without DB queries, cast RNG
++or focus consumption. Permission checks remain; this exact read-only poll bypasses
++GM quest callbacks/persistent command logs. Eligible worn items/augs only; no bags
++or ordinary slot21 training. Passive focus/worn spell cast level is not an equip
++level requirement. Native Client layout/vtable, item ABI and gameplay unchanged.
++
++Signed2026110602/proxy0.13.4 changes DLL, paired catalog and Inventory XML only;
++145 descriptors/URLs and signed history/tombstones/config, recall/cast-bar repairs
++retained. All148HTTPS hashes/production signature/pair and exact exe preflight
++verify. Fully EXIT EQ/use normal launcher Play; relog alone cannot replace DLL.
++Protected client untouched. Existing Hunt Description annotation remains, now
++pointing to Inventory Stats. Shield requirement/strongest-only text and25 native
++Description checks remain. New real hook/protocol/collection/XML tests,14 focused
++native/runtime groups,120-site catalog, Go packages and24 Linux fault tests pass.
++Owner visible sizing/scroll/refresh and gameplay acceptance remains live QA.
++Context topic character-stats pins the reviewed current source and receipts.
+ 
+ ## Map pack — November3 built; launcher delivery coded, unpublished
+ 
+--- a/references/items.md
++++ b/references/items.md
+@@ -94,13 +94,14 @@
+ common/zone_hunt_policy.h helper as the server. Future ID/value tuning needs
+ matching presentation policy, not just changing lore. Names/spells remain native.
+ 
+-Player #augstats is self-only/read-only: actual equipped Shield Block, active
+-strongest Hunt contribution, item/spell/AA components, Shielding, Spell Shielding,
+-Avoidance, Accuracy, damage/healing totals plus live caps/headroom, relative Dodge
+-modifier and stacking guidance. Native stock250healing label is not server truth;
+-current750base caps and up30earned headroom remain. Numeric copies add within
+-caps; duplicate Hunt block/focus/Improved Dodge I/Faerune effects do not multiply.
+-Focus limits still depend on the cast spell. Bagged/training items give no stats.
++Inventory -> Stats is now the normal equipped-bonus view, automatically refreshed
++from paired zone ea6ad532 and signed2026110602/proxy0.13.4. Shield Block/Hunt,
++relative Dodge, worn-item focus potential and Faerune have visible rows. Existing
++secondary totals/caps come from server getters, including750base damage/healing
++and up30earned headroom. #augstats remains the detailed component/stacking fallback.
++Numeric copies add within caps; repeated Hunt block/focus/Improved Dodge I/Faerune
++do not multiply. Bagged/training items contribute nothing. See client.md and
++character-stats topic for wire, refresh, stale-data and native QA boundaries.
+ 
+ Tests: actual native Description RED then25GREEN assertions,22client runtime/native
+ groups,120exact-client guards, Go preflight/manifest/runtimehealth,2report/7augment
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,39 +1,35 @@
+ # Source authority, builds and reloads
+ 
+-## Current native baseline — November6 augment Description/report follow-up
+-
+-Main PR408/3343d6c8 is deployed for owner live QA. Evidence/worktree:
+-E:/EQ_Local_Dev/_worktrees/augment-item-window,
+-docs/releases/augment-item-window-20261106/{deployed.json,native-build.json,README.md}.
+-Zone3fc2b901c98dfc2816298a051f3462a6db0a724ccfa649ff213da3d840186588;
+-runtime image sha256:95453af80002124ee3daced63fae29d0bc31044fc51ce93d2f3ecc346567e3ed. Gateway reopened after verified
+-stopped backup, exact content/rules/cache/native identities, saved-state boot
+-model and expected market rotation. Only player-access augstats command row added;
+-all other command rows retained. No player snapshot restored. Worldf33c5925 and
+-shared_memory569394cf remain compatible; no rule/ItemData/schema or item changes.
+-
+-Retained source/build /tmp/nightcap-augment-item-window-20261106-v4 in local
+-akk-stack-eqemu-server-1. It first reproduces live augmentbc88a468 byte-for-byte
+-from144authenticated link inputs, then rebuilds unity_1_cxx.cxx containing both
+-command.cpp registration and gm_commands/nightcapui.cpp. Do not assume standalone
+-command.cpp.o is a link input; preserve the other11command archive members.
+-Includes prior Power Source metadata, SSF, Hunt rates, placeholder-loot repair and
+-live Hate spawn-source join. Do not rebuild from the older selective/default mirror.
+-
+-Signed client0.13.3/2026110601 DLL+catalog is published and all148assets verified.
+-Old client can use #augstats; new Description requires full EQ exit/launcher Play.
+-Native visual/gameplay acceptance remains open. Current full-runtime child-exit
+-supervision remains: never refresh OVH by killing one zone. Reuse immutable job
+-receipts, not activation replay; after opening use fresh compatible forward repair.
+-
+-Keeper repair follow-up remains an unpublished local candidate in
+-E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106.
+-Its native-build-current.json reproduces this3fc2b901 baseline and preserves the
+-complete current report command archive before replacing only the dungeon TU.
+-The earlier bc88-only readiness build is not the deployable pair. Compiled
+-expedition SQL/cache guards must follow content changes: operator contract
+-overrides alone do not update native Keeper admission. See world.md's compiled
+-release readiness section and topic dungeon-readiness for exact evidence/QA.
++## Current native baseline — November6 automatic equipped Stats
++
++Main PR410/313d497c is deployed for owner live QA. Source/worktree:
++E:/EQ_Local_Dev/_worktrees/character-stats-bonuses,
++docs/releases/character-stats-window-20261106/ owns all immutable receipts and QA.
++Zone ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a;
++runtime image sha256:cf976e86fd143b45d75c50f9a9d3a8eeef4a363abb7723bc5795b1bd6ab26f3d. Access reopened after stopped
++backup, exact content/rules/cache/all-command-settings guards, saved-state boot
++model and expected market rotation. No player snapshot restore or player/item
++migration. Worldf33c5925/shared_memory569394cf remain compatible; no new rules,
++Client fields/vtable, ItemData or cache ABI. #augstats remains player-access0.
++
++Retained build /tmp/nightcap-character-stats-window-20261106-v3 in local
++akk-stack-eqemu-server-1 reproduces live3fc2b901 from144authenticated inputs before
++rebuilding only command unity_1 (command.cpp + nightcapui.cpp), preserving the
++other11archive members. New common/equipped_stats_protocol.h is a recorded input.
++Retains all prior metadata/SSF/Hunt/placeholder/Hate fixes. Do not rebuild from
++an older selective/default mirror. New nonvirtual method declaration changes no
++native Client ABI. Server must deploy before new signed UI to supply snapshots.
++
++Signed0.13.4/2026110602 DLL/catalog/Inventory XML is published; all148assets verify.
++Full EQ exit/launcher Play required. Gameplay and native visible QA remain open.
++Whole-runtime child-exit supervision remains: never kill one production zone.
++Do not replay terminal jobs. Held rollback uses the compatible prior image; after
++opening use a fresh compatible forward repair, never an old player snapshot.
++
++The unrelated dungeon-readiness-20261106 local candidate was built on3fc2b901.
++It must reproduce this new ea6ad532 baseline and retain this command archive before
++any deployment. Its compiled admission/cache guards remain necessary; operator
++contract overrides alone do not alter native Keeper admission. See world.md.
+ 
+ ## Hate boss placement — October30 deployed; indexed forward continuation
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -137,25 +137,25 @@
+ check_refresh.py against actual HEAD plus working tree retains historical REVIEW
+ REQUIRED; only this scoped change is reviewed, with no unrelated ledger updates.
+ 
+-## Zone augment audit — November6 published; Description follow-up live QA
+-
+-Current public release20261106-augment-description-v1 replaces20261106-augment-audit-v2.
+-All510files/503HTML routes, HTTPS/private-download guards, rollback rehearsal and
+-unchanged service image/start identities verify. Five owning guides/Features/Change
+-Log update Description/Shield Block versus Shielding, #augstats and stacking.
+-Home/navigation, all item/zone/catalog data, Build Lab models/spells and assets
+-unchanged. Full58family list and50Classic/392variants/98families remain; CT/Hate B
+-augment-only, six dormant pools excluded. Artwork accepted; new UI/gameplay QA open.
+-
+-Evidence in E:/EQ_Local_Dev/_worktrees/augment-item-window:
+-docs/releases/augment-item-window-20261106/{wiki-publication.json,wiki-baseline.json,
++## Zone augments and character Stats — November6 published; native QA open
++
++Current wiki20261106-character-stats-v1 replaces20261106-augment-description-v1.
++All510files/503HTML routes, HTTPS/private-download guards, atomic rollback and
++unchanged service identities/start times verify. Five owning guides/Features/
++Change Log now direct players to Inventory Stats with automatic server totals,
++Shield Block, relative Dodge, worn focus potential/Faerune and real caps/headroom.
++#augstats remains diagnostic fallback. Item power/stacking/drops are unchanged;
++all item/zone/catalog, Home/navigation, Build Lab and assets are preserved.
++
++Evidence/source E:/EQ_Local_Dev/_worktrees/character-stats-bonuses,
++docs/releases/character-stats-window-20261106/{wiki-publication.json,wiki-baseline.json,
+ wiki-impact.json,test_release_content.py,published-source-overrides.patch}.
+-The exact prior public source is retained/reproduced before scoped edits. Main
+-keeps unrelated source-only previews; use recorded overrides for actual publication
+-source and never blindly publish a selective main mirror. Historical global
+-source drift stays REVIEW REQUIRED; no blanket ledger advancement. The signed
+-client0.13.3/2026110601 and report-only zone3fc2b901 are independently verified;
+-published labels are Live testing, not completed native visual/gameplay acceptance.
++Use the exact prior public source plus reviewed scoped delta. Main retains
++unrelated source-only previews; never publish it wholesale. Recorded overrides
++reproduce actual public source. Historical global source drift remains REVIEW
++REQUIRED; no blanket ledger advancement. Paired native ea6ad532 and signed
++2026110602/proxy0.13.4 independently verify. Live testing is not owner visual/
++gameplay acceptance; native scrolling/sizing/refresh checks remain open.
+ 
+ ## Bazaar posting/readability — October28 owner accepted
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -144,7 +144,8 @@
+     "augment_audit_test_20261106": "5257586a329ae238ba054511b8a9270b1b4a163f (source only; not deployed or owner accepted)",
+     "augment_audit_20261106_deployed": "3a0cb2d36d14b0ec6dead3ff44c0b98df3ab5f65 plus reviewed deployment/wiki records",
+     "augment_description_20261106_deployed": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+-    "dungeon_readiness_candidate_20261106": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits; not deployed"
++    "dungeon_readiness_candidate_20261106": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits; not deployed",
++    "character_stats_20261106_deployed": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records"
+   },
+   "topics": {
+     "operations": [
+@@ -1892,6 +1893,34 @@
+         "role": "Reviewed November6 augment Description/report release; native visual/gameplay QA open",
+         "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+         "sha256": "966089934884a27a82f273225601007d13463a369e566868151197d2082fe86d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/README.md",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6b298630616e69f3e2fa55e3df5aa70e204347419389c548ebed19ff0644daaf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/deployed.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f7fbd623d86f9d9874c498e8a0e1f96bb9b0649e3945cc814a0416f6a1b460c8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/client-public-verification.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "8b50f6ae5293d0a06e70ff8e10196f4ddf39e375f776881655391e47e1f99fd7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/wiki-publication.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
+       }
+     ],
+     "multiclass": [
+@@ -5766,6 +5795,34 @@
+         "role": "Reviewed November6 augment Description/report release; native visual/gameplay QA open",
+         "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+         "sha256": "966089934884a27a82f273225601007d13463a369e566868151197d2082fe86d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/README.md",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6b298630616e69f3e2fa55e3df5aa70e204347419389c548ebed19ff0644daaf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/deployed.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f7fbd623d86f9d9874c498e8a0e1f96bb9b0649e3945cc814a0416f6a1b460c8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/client-public-verification.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "8b50f6ae5293d0a06e70ff8e10196f4ddf39e375f776881655391e47e1f99fd7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/wiki-publication.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
+       }
+     ],
+     "world": [
+@@ -10886,6 +10943,34 @@
+         "role": "Reviewed November6 augment Description/report release; native visual/gameplay QA open",
+         "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+         "sha256": "966089934884a27a82f273225601007d13463a369e566868151197d2082fe86d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/README.md",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6b298630616e69f3e2fa55e3df5aa70e204347419389c548ebed19ff0644daaf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/deployed.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f7fbd623d86f9d9874c498e8a0e1f96bb9b0649e3945cc814a0416f6a1b460c8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/client-public-verification.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "8b50f6ae5293d0a06e70ff8e10196f4ddf39e375f776881655391e47e1f99fd7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/wiki-publication.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
+       }
+     ],
+     "admin": [
+@@ -15091,6 +15176,34 @@
+         "role": "Reviewed November6 augment Description/report release; native visual/gameplay QA open",
+         "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+         "sha256": "966089934884a27a82f273225601007d13463a369e566868151197d2082fe86d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/README.md",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6b298630616e69f3e2fa55e3df5aa70e204347419389c548ebed19ff0644daaf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/deployed.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f7fbd623d86f9d9874c498e8a0e1f96bb9b0649e3945cc814a0416f6a1b460c8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/client-public-verification.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "8b50f6ae5293d0a06e70ff8e10196f4ddf39e375f776881655391e47e1f99fd7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/wiki-publication.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
+       }
+     ],
+     "factions": [
+@@ -16187,6 +16300,183 @@
+         "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+         "sha256": "114ff05ab36c3d8491f29fe2abfe50ba3b35b5b74e84a9c834d66921bd801c30"
+       }
++    ],
++    "character-stats": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "server-mods/code/common/equipped_stats_protocol.h",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "764a7097e6e681530977823a4d89ea3721b94d981c5ebcd4453bdbc9b642c81b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "server-mods/code/zone/gm_commands/nightcapui.cpp",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "3aa7684428b3ed2404aada07fe2512c651d65ff7d60de53bc45a1dfbe8d1b6be"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "server-mods/code/zone/client.h",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f2dd2ae7e322183896996a4707aa97094df5fa263a9ead99e54209a2352f5d91"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "server-mods/code/zone/command.cpp",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "256a1124e132850b036eba02743d3234aaddc5baab0c4fa3ae5229df347d3d64"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "eq-client-dll/src/equipped_stats_state.h",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "137115e5ea099838fa71bc629b0f69d8c2102b109126e2044d0863b408b0b88b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "eq-client-dll/src/ui_hooks.h",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "dd5f881028b7c6e025bc6194cd13c7eabd3bf37710c31347947e0b7dd7f13281"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "eq-client-dll/src/ui_state.h",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "a8a40da8ea793868c0a4aee8a9f19c646b59c2e7deda3caa910b9e2e91c79b6d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "eq-client-dll/src/augment_item_description.h",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "bc99248b74cd53ecfbca97ac670205d67aa1188cc5702bef23624481143e8af5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "eq-client-dll/config/patch-sites.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "2b84c86f71b61abad4422317c07ff0adca816bed28171771910c98ba3bf06a75"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "eq-client-dll/tests/equipped-stats-labels.cpp",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "c0389ed6c4cd92cdb6f8c70da6eed4c65f4357d6fc61455709d9afa54c99edcd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "tools/client_character_stats_ui.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f99e2b9e0187274abeacd4e301faff3dd3449e81aa3e1911cff0861a0f4ee8be"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "tools/client_gameplay_assets.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "1b217ea92ac0da83ae042f92d8cf7cb6137e6459feb2bafc1d8cfb210bdf14b1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "tools/tests/test_client_character_stats.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6399d27fdb185785f6b9411e646a5e8762fe3273d2eb9b2e342757eb1aadf158"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "tools/tests/test_equipped_stats_capture.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "9ce63d3132ef5df5ab304d50b69ddfb7046a493c11f35b25937873a0d107e784"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "tools/tests/test_equipped_stats_protocol.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "e25a7dfe5474b43a88bab4064124d3c1e19f2dbdcf1dba50621faa903889b522"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/README.md",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6b298630616e69f3e2fa55e3df5aa70e204347419389c548ebed19ff0644daaf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/native-build.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f60740924fd2ab614372f96258f6d886034048098cb331f9bac32c8a83a507ad"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/client-tests.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "3415940ffad5442bb6d5fd087aff80c51830dac5559020432cef6338d06b05a4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/rollout.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "84ed619d8379c0cec74d79d998948a1d37e2f55348f2ea057aad7d635ea4639e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/deployed.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "f7fbd623d86f9d9874c498e8a0e1f96bb9b0649e3945cc814a0416f6a1b460c8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/client-public-verification.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "8b50f6ae5293d0a06e70ff8e10196f4ddf39e375f776881655391e47e1f99fd7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/wiki-publication.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/wiki-impact.json",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "92cdfacec6606deb73657ae8159366410b6a8921880febc84398455006f46015"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/test_release_content.py",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "6774180fefbe701a0a75359697baa4f3a93db528f29f7631985a89241992cacd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-bonuses",
++        "path": "docs/releases/character-stats-window-20261106/published-source-overrides.patch",
++        "role": "Reviewed automatic character Stats release; owner native QA open",
++        "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++        "sha256": "09ad1c732052195a17c6e973f2aadb431aad1505b149ab4351d5fe0bbac662a7"
++      }
+     ]
+   }
+ }

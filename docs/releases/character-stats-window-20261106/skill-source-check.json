@@ -1,0 +1,133 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "character-stats": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\server-mods\\code\\common\\equipped_stats_protocol.h",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\server-mods\\code\\zone\\gm_commands\\nightcapui.cpp",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\server-mods\\code\\zone\\client.h",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\server-mods\\code\\zone\\command.cpp",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\eq-client-dll\\src\\equipped_stats_state.h",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\eq-client-dll\\src\\ui_hooks.h",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\eq-client-dll\\src\\ui_state.h",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\eq-client-dll\\src\\augment_item_description.h",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\eq-client-dll\\config\\patch-sites.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\eq-client-dll\\tests\\equipped-stats-labels.cpp",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\tools\\client_character_stats_ui.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\tools\\client_gameplay_assets.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\tools\\tests\\test_client_character_stats.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\tools\\tests\\test_equipped_stats_capture.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\tools\\tests\\test_equipped_stats_protocol.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\README.md",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\native-build.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\client-tests.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\rollout.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\deployed.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\client-public-verification.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\wiki-publication.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\wiki-impact.json",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\test_release_content.py",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-bonuses\\docs\\releases\\character-stats-window-20261106\\published-source-overrides.patch",
+        "role": "Reviewed automatic character Stats release; owner native QA open",
+        "state": "unchanged"
+      }
+    ]
+  }
+}
