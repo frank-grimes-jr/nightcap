@@ -1569,6 +1569,7 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 	// check and is silently dropped on zone-in â€” the AA disappears and its spent points
 	// are not refunded. Build the mask here so loaded AAs survive.
 	LoadMulticlassMask();
+	LoadSSF();
 
 	if (!database.LoadAlternateAdvancement(this)) {
 		LogError("Error loading AA points for [{}]", GetName());
@@ -3724,6 +3725,9 @@ void Client::Handle_OP_Barter(const EQApplicationPacket *app)
 	{
 		LogDebug("OP_Barter packet below minimum expected size. The packet was [{}] bytes", app->size);
 		DumpPacket(app);
+		return;
+	}
+	if (SSFBlocked()) {
 		return;
 	}
 
@@ -7385,6 +7389,9 @@ void Client::Handle_OP_GroupFollow2(const EQApplicationPacket *app)
 
 	GroupGeneric_Struct* gf = (GroupGeneric_Struct*)app->pBuffer;
 	Mob* inviter = entity_list.GetClientByName(gf->name1);
+	if (SSFBlocked(inviter ? inviter->CastToClient() : nullptr)) {
+		return;
+	}
 
 	// Inviter and Invitee are in the same zone
 	if (inviter != nullptr && inviter->IsClient())
@@ -7438,6 +7445,11 @@ void Client::Handle_OP_GroupInvite2(const EQApplicationPacket *app)
 
 	if (invitee == this) {
 		MessageString(Chat::LightGray, GROUP_INVITEE_SELF);
+		return;
+	}
+
+	// SSF characters group only with bots and mercenaries.
+	if ((!invitee || invitee->IsClient()) && SSFBlocked(invitee ? invitee->CastToClient() : nullptr)) {
 		return;
 	}
 
@@ -7647,6 +7659,11 @@ void Client::Handle_OP_GroupUpdate(const EQApplicationPacket *app)
 
 void Client::Handle_OP_GuildBank(const EQApplicationPacket *app)
 {
+	if (SSFBlocked()) {
+		GuildBankAck();
+		return;
+	}
+
 	if (!GuildBanks) {
 		GuildBankAck();
 		return;
@@ -12363,7 +12380,7 @@ void Client::Handle_OP_RaidCommand(const EQApplicationPacket* app)
 
 		} else {
 			Client* player_to_invite = entity_list.GetClientByName(raid_command_packet->player_name);
-			if (!player_to_invite) {
+			if (!player_to_invite || SSFBlocked(player_to_invite)) {
 				break;
 			}
 
@@ -12411,7 +12428,7 @@ void Client::Handle_OP_RaidCommand(const EQApplicationPacket* app)
 		Client* invitee = entity_list.GetClientByName(raid_command_packet->leader_name);
 		Client* invitor = entity_list.GetClientByName(raid_command_packet->player_name);
 
-		if (!invitee || !invitor) {
+		if (!invitee || !invitor || invitee->SSFBlocked(invitor)) {
 			return;
 		}
 
@@ -15459,6 +15476,9 @@ void Client::Handle_OP_Trader(const EQApplicationPacket *app)
 	// SoF sends 1 or more unhandled OP_Trader packets of size 96 when a trade has completed.
 	// I don't know what they are for (yet), but it doesn't seem to matter that we ignore them.
 	auto action = *(uint32 *)app->pBuffer;
+	if (action != TraderOff && SSFBlocked()) {
+		return;
+	}
 
 	switch (action) {
 		case TraderOff: {
@@ -15506,6 +15526,7 @@ void Client::Handle_OP_Trader(const EQApplicationPacket *app)
 void Client::Handle_OP_TraderBuy(const EQApplicationPacket *app)
 {
 	if (app->size != sizeof(TraderBuy_Struct)) { return; }
+	if (SSFBlocked()) { return; }
 	if (HandleBazaarPurchase(app)) { return; }
 	// Bazaar Trader:
 	//
@@ -15630,6 +15651,9 @@ void Client::Handle_OP_TradeRequest(const EQApplicationPacket *app)
 
 	// Pass trade request on to recipient
 	if (tradee && tradee->IsClient()) {
+		if (SSFBlocked(tradee->CastToClient())) {
+			return;
+		}
 		// if we are idling we need to sync client positions otherwise clients will not be aware of each other
 		if (m_is_idle) {
 			SyncWorldPositionsToClient(true);
@@ -15667,6 +15691,9 @@ void Client::Handle_OP_TradeRequestAck(const EQApplicationPacket *app)
 	Mob* tradee = entity_list.GetMob(msg->to_mob_id);
 
 	if (tradee && tradee->IsClient()) {
+		if (SSFBlocked(tradee->CastToClient())) {
+			return;
+		}
 		// if we are idling we need to sync client positions otherwise clients will not be aware of each other
 		if (m_is_idle) {
 			SyncWorldPositionsToClient(true);
@@ -17226,6 +17253,19 @@ void Client::Handle_OP_ShopSendParcel(const EQApplicationPacket *app)
     }
 
     auto parcel_in = (Parcel_Struct *)app->pBuffer;
+    parcel_in->send_to[sizeof(parcel_in->send_to) - 1] = '\0';
+    // SSF characters neither send nor receive player parcels.
+    if (SSFBlocked()) {
+        DoParcelCancel();
+        SendParcelAck();
+        return;
+    }
+    if (IsSSFCharacter(parcel_in->send_to)) {
+        Message(Chat::Red, "%s walks alone and cannot receive parcels.", parcel_in->send_to);
+        DoParcelCancel();
+        SendParcelAck();
+        return;
+    }
     DoParcelSend(parcel_in);
 }
 

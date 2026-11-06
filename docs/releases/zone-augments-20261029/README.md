@@ -1,5 +1,7 @@
 # Regular combat zone augments — October 29 candidate
 
+**Superseded candidate:** the November 6 audit in `docs/audits/augments-20261106/` replaces this narrower proposal. This report retains historical evidence; neither proposal is a deployment receipt.
+
 Status: implementation, focused native/database tests and native compile/link; **not deployed or
 player-accepted**. The user requested all regular combat mobs in each zone,
 including Grind/Raid, plus Hate B, at the existing 0.5% augment rate.

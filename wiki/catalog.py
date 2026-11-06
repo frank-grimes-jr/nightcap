@@ -6,6 +6,12 @@ from equipment import equipment_directory
 
 ROOT = Path(__file__).resolve().parent
 QUALITIES = ['Base', 'Polished', 'Exalted', 'Ascension']
+RATES = json.loads((ROOT.parent / 'config/zone-hunt-rates.json').read_text(encoding='utf-8'))
+
+
+def rate(slug, kind):
+    r = {**RATES['default'], **RATES['zones'].get(slug, {})}['augment_chance' if kind == 'Augment' else 'gear_chance']
+    return f'{r / 100:g}%'
 
 
 def catalog_articles():
@@ -23,14 +29,14 @@ def catalog_articles():
         body += '<h2 id="rewards">Zone rewards</h2><div class="table-scroll"><table><caption>Both reward families, at every quality</caption><thead><tr><th scope="col">Item</th><th scope="col">Family</th><th scope="col">Quality</th><th scope="col">Required level</th></tr></thead><tbody>'
         for i in rows:
             body += f'<tr><td><a href="item-{i["id"]}.html">{html.escape(i["name"])}</a></td><td>{i["kind"]}</td><td>{QUALITIES[i["tier"]]}</td><td>{i["required_level"]}</td></tr>'
-        body += '</tbody></table></div><h2 id="finding-rewards">Finding these rewards</h2><p>Eligible native enemies have an independent 0.5% roll for the augment family and 0.5% for the gear family. Both may drop together. A successful family roll then chooses Base (60%), Polished (30%), Exalted (8%), or Ascension (2%). Ordinary loot remains.</p><p>Only the zone’s approved native enemies qualify. Pets, merchants, hub residents, summoned copies and city services do not. There is no guaranteed drop or pity timer.</p>'
+        body += f'</tbody></table></div><h2 id="finding-rewards">Finding these rewards</h2><p>Eligible native enemies have an independent {rate(z["slug"],"Augment")} roll for the augment family and {rate(z["slug"],"Gear")} for the gear family. Both may drop together. A successful family roll then chooses Base (60%), Polished (30%), Exalted (8%), or Ascension (2%). Ordinary loot remains.</p><p>Only the zone’s approved native enemies qualify. Pets, merchants, hub residents, summoned copies and city services do not. There is no guaranteed drop or pity timer.</p>'
         if z['slug'] == 'highkeep':
             body += '<h2 id="prison-break">High Keep prison break</h2><p>New managed Raid runs use the <a href="dungeon-modes.html#highkeep-rescue">Osargen rescue route</a>. Hunt item values and ordinary acquisition remain unchanged. Live testing; native escort acceptance remains open.</p>'
         if z['slug'] == 'hole':
             body += '<h2 id="entrance">Entrance access</h2><p>See <a href="travel.html#hole-entrance">the Paineel passage access note</a> for keyless entrance and internal door access, remaining restrictions and release status.</p>'
         if z['slug'] == 'kithicor':
             body += '<p><strong>Kithicor requires eligible nighttime undead.</strong></p>'
-        body += '<p><strong>Not released:</strong> <a href="zone-hunt.html#regular-combat-preview">broader augment eligibility</a> is prepared for regular combat mobs, including Grind/Raid. The0.5% rate and existing equipment rules remain.</p>'
+        body += '<p><strong>Not released:</strong> <a href="zone-hunt.html#regular-combat-preview">November 6 augment eligibility</a> is prepared for any unowned killable NPC, including guards and scripted adds. The zone rates above and existing equipment rules remain.</p>'
         body += '<h2 id="upgrading">Upgrading your finds</h2><p>Forge three identical Base copies into Polished, then four Polished into Exalted or four Exalted into Ascension. Read <a href="zone-hunt.html#forging">the forging guide</a> before using <code>#zoneforge</code>. All new zone rewards have zero merchant resale value.</p><p><a href="zones.html">Browse all 48 reward zones →</a></p>'
         add('zone-'+z['slug'], z['name'], 'Custom augment and equipment rewards · Classic era.', body, 'World')
         for i in rows:
@@ -42,9 +48,9 @@ def catalog_articles():
                 body += '<p>Fits a type-22 socket in eligible head, arms, hands, chest, legs or feet armor. Required levels and item compatibility still apply. See <a href="zone-hunt.html#sockets">sockets and heroic stat limits</a>.</p>'
             elif i['socket']:
                 body += '<p>Includes one type-22 augment socket. See <a href="zone-hunt.html#sockets">the augment guide</a>.</p>'
-            body += f'<h2 id="source">Where to find it</h2><p>From the <a href="zone-{z["slug"]}.html">{e(z["name"])}</a> reward pool. This family rolls at 0.5% per eligible kill, followed by the quality roll. <strong>{QUALITIES[i["tier"]]}</strong> is {[60,30,8,2][i["tier"]]}% of successful family rolls, not of all kills. See the zone page for eligibility.</p>'
+            body += f'<h2 id="source">Where to find it</h2><p>From the <a href="zone-{z["slug"]}.html">{e(z["name"])}</a> reward pool. This family rolls at {rate(z["slug"],i["kind"])} per eligible kill, followed by the quality roll. <strong>{QUALITIES[i["tier"]]}</strong> is {[60,30,8,2][i["tier"]]}% of successful family rolls, not of all kills. See the zone page for eligibility.</p>'
             if i['kind'] == 'Augment':
-                body += '<p><strong>Not released:</strong> the <a href="zone-hunt.html#regular-combat-preview">regular-combat eligibility update</a> broadens this augment family while keeping0.5%.</p>'
+                body += '<p><strong>Not released:</strong> the <a href="zone-hunt.html#regular-combat-preview">November 6 augment eligibility candidate</a> broadens this augment family at the same rate.</p>'
             body += '<h2 id="quality">Quality family</h2><ul>'
             for sibling in rows:
                 if sibling['kind'] == i['kind']:

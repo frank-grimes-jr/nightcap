@@ -21,6 +21,11 @@ deploy/production/native-bin/
 
 # Python test/generator bytecode
 __pycache__/
+/artifacts/augment-audit/
+/docs/audits/augments-20261106/production.json
+/artifacts/tmp/
+/artifacts/icon-sheets.png
+/artifacts/exotic-icon-sheets.png
 
 # Owner-local GM process logs and PID
 artifacts/gm-runtime/

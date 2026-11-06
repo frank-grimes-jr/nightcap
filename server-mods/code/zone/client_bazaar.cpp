@@ -227,6 +227,7 @@ void Client::BazaarPanelCommand(const Seperator *sep)
 void Client::BazaarCommand(const Seperator *sep)
 {
 	using namespace NightcapBazaar;
+	if (SSFBlocked()) { return; }
 	if (std::string(sep->arg[1]) == "ui") { BazaarPanelCommand(sep); return; }
 	if (!BazaarSessionReady()) { return; }
 	try {

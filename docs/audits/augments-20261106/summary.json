@@ -1,0 +1,1161 @@
+{
+  "captured_utc": "2026-11-06T15:02:30.338165+00:00",
+  "environment": "production",
+  "capture_sha256": "4f097b780849e464d9e2dc173024ef46d192f04874b7973336cf7ecb69e88f0c",
+  "status": "candidate; no production writes or public publication",
+  "families": [
+    {
+      "zone": "qeytoqrg",
+      "zone_id": 4,
+      "name": "The Qeynos Hills",
+      "base": 940024,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 944,
+      "item": "Hillside Dewstone (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "highpass",
+      "zone_id": 5,
+      "name": "Highpass Hold",
+      "base": 940032,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "shielding",
+      "icon": 945,
+      "item": "Passwatch Flint (Ascension)",
+      "candidate_enabled": false
+    },
+    {
+      "zone": "highkeep",
+      "zone_id": 6,
+      "name": "High Keep",
+      "base": 940040,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "shield_block",
+      "icon": 946,
+      "item": "Keepstone Seal (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "runnyeye",
+      "zone_id": 11,
+      "name": "The Liberated Citadel of Runnyeye",
+      "base": 940072,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 947,
+      "item": "Runnyeye Prism (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "qey2hh1",
+      "zone_id": 12,
+      "name": "The Western Plains of Karana",
+      "base": 940080,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "avoidance",
+      "icon": 948,
+      "item": "Plainsward Jasper (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "northkarana",
+      "zone_id": 13,
+      "name": "The Northern Plains of Karana",
+      "base": 940088,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "dodge",
+      "icon": 949,
+      "item": "Thunderplume Opal (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "southkarana",
+      "zone_id": 14,
+      "name": "The Southern Plains of Karana",
+      "base": 940096,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "accuracy",
+      "icon": 950,
+      "item": "Pridefang Amber (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "eastkarana",
+      "zone_id": 15,
+      "name": "Eastern Plains of Karana",
+      "base": 940104,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "dodge",
+      "icon": 951,
+      "item": "Highwind Topaz (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "beholder",
+      "zone_id": 16,
+      "name": "Gorge of King Xorbb",
+      "base": 940112,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_haste",
+      "icon": 952,
+      "item": "Xorbb's Glass (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "blackburrow",
+      "zone_id": 17,
+      "name": "Blackburrow",
+      "base": 940120,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "shielding",
+      "icon": 953,
+      "item": "Gnollfang Flint (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "paw",
+      "zone_id": 18,
+      "name": "Lair of the Splitpaw",
+      "base": 940128,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "healing",
+      "icon": 954,
+      "item": "Splitpaw Totemshard (Ascension)",
+      "candidate_enabled": false
+    },
+    {
+      "zone": "kithicor",
+      "zone_id": 20,
+      "name": "Kithicor Forest",
+      "base": 940144,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_shielding",
+      "icon": 955,
+      "item": "Nightfall Soulglass (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "commons",
+      "zone_id": 21,
+      "name": "West Commonlands",
+      "base": 940152,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "accuracy",
+      "icon": 956,
+      "item": "Dervish Bloodstone (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "ecommons",
+      "zone_id": 22,
+      "name": "East Commonlands",
+      "base": 940160,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "shielding",
+      "icon": 957,
+      "item": "Tunnelward Jasper (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "nektulos",
+      "zone_id": 25,
+      "name": "The Nektulos Forest",
+      "base": 940184,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_haste",
+      "icon": 958,
+      "item": "Shadowroot Shard (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "lavastorm",
+      "zone_id": 27,
+      "name": "Lavastorm Mountains",
+      "base": 940192,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 959,
+      "item": "Embervein Crystal (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "everfrost",
+      "zone_id": 30,
+      "name": "Everfrost Peaks",
+      "base": 940208,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "avoidance",
+      "icon": 960,
+      "item": "Icewind Garnet (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "soldunga",
+      "zone_id": 31,
+      "name": "Solusek's Eye",
+      "base": 940216,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "accuracy",
+      "icon": 961,
+      "item": "Fireglass Carbuncle (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "soldungb",
+      "zone_id": 32,
+      "name": "Nagafen's Lair",
+      "base": 940224,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_shielding",
+      "icon": 962,
+      "item": "Emberheart Garnet (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "misty",
+      "zone_id": 33,
+      "name": "Misty Thicket",
+      "base": 940232,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 963,
+      "item": "Thicketseed Opal (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "nro",
+      "zone_id": 34,
+      "name": "Northern Desert of Ro",
+      "base": 940240,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "dodge",
+      "icon": 964,
+      "item": "Dunewind Quartz (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "sro",
+      "zone_id": 35,
+      "name": "Southern Desert of Ro",
+      "base": 940248,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "accuracy",
+      "icon": 965,
+      "item": "Sunscar Ruby (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "befallen",
+      "zone_id": 36,
+      "name": "Befallen",
+      "base": 940256,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "healing",
+      "icon": 966,
+      "item": "Gravewhisper Onyx (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "oasis",
+      "zone_id": 37,
+      "name": "Oasis of Marr",
+      "base": 940264,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 967,
+      "item": "Marrspring Pearl (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "tox",
+      "zone_id": 38,
+      "name": "Toxxulia Forest",
+      "base": 940272,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "faerune",
+      "icon": 944,
+      "item": "Toxroot Amethyst (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "hole",
+      "zone_id": 39,
+      "name": "The Hole",
+      "base": 940280,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "shield_block",
+      "icon": 945,
+      "item": "Understone Heart (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "najena",
+      "zone_id": 44,
+      "name": "Najena",
+      "base": 940312,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 946,
+      "item": "Binding Ember (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "qcat",
+      "zone_id": 45,
+      "name": "The Qeynos Aqueduct System",
+      "base": 940320,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_shielding",
+      "icon": 947,
+      "item": "Aqueduct Moonstone (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "innothule",
+      "zone_id": 46,
+      "name": "Innothule Swamp",
+      "base": 940328,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 948,
+      "item": "Mireglow Pearl (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "feerrott",
+      "zone_id": 47,
+      "name": "The Feerrott",
+      "base": 940336,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "shielding",
+      "icon": 949,
+      "item": "Jungleheart Jade (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "cazicthule",
+      "zone_id": 48,
+      "name": "Accursed Temple of CazicThule",
+      "base": 940344,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "shielding",
+      "icon": 950,
+      "item": "Dreadscale Emerald (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "rathemtn",
+      "zone_id": 50,
+      "name": "The Rathe Mountains",
+      "base": 940360,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "avoidance",
+      "icon": 951,
+      "item": "Hillheart Tourmaline (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "lakerathe",
+      "zone_id": 51,
+      "name": "Lake Rathetear",
+      "base": 940368,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 952,
+      "item": "Reedchant Pearl (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "gfaydark",
+      "zone_id": 54,
+      "name": "The Greater Faydark",
+      "base": 940384,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 953,
+      "item": "Canopyseed Amber (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "steamfont",
+      "zone_id": 56,
+      "name": "Steamfont Mountains",
+      "base": 940400,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_haste",
+      "icon": 954,
+      "item": "Steamcoil Citrine (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "lfaydark",
+      "zone_id": 57,
+      "name": "The Lesser Faydark",
+      "base": 940408,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "dodge",
+      "icon": 955,
+      "item": "Sporelight Opal (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "crushbone",
+      "zone_id": 58,
+      "name": "Crushbone",
+      "base": 940416,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "accuracy",
+      "icon": 956,
+      "item": "Crushbone Warshard (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "mistmoore",
+      "zone_id": 59,
+      "name": "The Castle of Mistmoore",
+      "base": 940424,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 957,
+      "item": "Bloodmoon Ruby (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "unrest",
+      "zone_id": 63,
+      "name": "The Estate of Unrest",
+      "base": 940456,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "healing",
+      "icon": 958,
+      "item": "Haunted Hearthstone (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "kedge",
+      "zone_id": 64,
+      "name": "Kedge Keep",
+      "base": 940464,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "faerune",
+      "icon": 959,
+      "item": "Abyssal Thoughtpearl (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "guktop",
+      "zone_id": 65,
+      "name": "The City of Guk",
+      "base": 940472,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "mana_preservation",
+      "icon": 960,
+      "item": "Bogmoss Emerald (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "gukbottom",
+      "zone_id": 66,
+      "name": "The Ruins of Old Guk",
+      "base": 940480,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "healing",
+      "icon": 961,
+      "item": "Ghoulheart Opal (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "butcher",
+      "zone_id": 68,
+      "name": "Butcherblock Mountains",
+      "base": 940496,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "avoidance",
+      "icon": 962,
+      "item": "Cliffward Jasper (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "oot",
+      "zone_id": 69,
+      "name": "Ocean of Tears",
+      "base": 940504,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "accuracy",
+      "icon": 963,
+      "item": "Seafury Sapphire (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "cauldron",
+      "zone_id": 70,
+      "name": "Dagnor's Cauldron",
+      "base": 940512,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "faerune",
+      "icon": 964,
+      "item": "Cauldron Mistpearl (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "airplane",
+      "zone_id": 71,
+      "name": "The Plane of Sky",
+      "base": 940520,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_haste",
+      "icon": 965,
+      "item": "Skyward Starshard (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "fearplane",
+      "zone_id": 72,
+      "name": "The Plane of Fear",
+      "base": 940528,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "shield_block",
+      "icon": 966,
+      "item": "Dreadheart Onyx (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "permafrost",
+      "zone_id": 73,
+      "name": "The Permafrost Caverns",
+      "base": 940536,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "healing",
+      "icon": 967,
+      "item": "Rimeheart Diamond (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "kerraridge",
+      "zone_id": 74,
+      "name": "Kerra Isle",
+      "base": 940544,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "dodge",
+      "icon": 944,
+      "item": "Pridewhisper Amber (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "hateplane",
+      "zone_id": 76,
+      "name": "Plane of Hate",
+      "base": 940560,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 945,
+      "item": "Spiteglass Prism (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "erudsxing",
+      "zone_id": 98,
+      "name": "Erud's Crossing",
+      "base": 940568,
+      "enabled": true,
+      "rate": 150,
+      "specialty": "faerune",
+      "icon": 946,
+      "item": "Wispglow Pearl (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "jaggedpine",
+      "zone_id": 181,
+      "name": "The Jaggedpine Forest",
+      "base": 940576,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "dodge",
+      "icon": 947,
+      "item": "Wildbough Emerald (Ascension)",
+      "candidate_enabled": false
+    },
+    {
+      "zone": "nedaria",
+      "zone_id": 182,
+      "name": "Nedaria's Landing",
+      "base": 940584,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "spell_haste",
+      "icon": 948,
+      "item": "Landingwind Topaz (Ascension)",
+      "candidate_enabled": false
+    },
+    {
+      "zone": "hateplaneb",
+      "zone_id": 186,
+      "name": "The Plane of Hate",
+      "base": 940592,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 949,
+      "item": "Blackspire Prism (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "tutoriala",
+      "zone_id": 188,
+      "name": "The Mines of Gloomingdeep",
+      "base": 940600,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "avoidance",
+      "icon": 950,
+      "item": "Gloomlight Chip (Ascension)",
+      "candidate_enabled": false
+    },
+    {
+      "zone": "tutorialb",
+      "zone_id": 189,
+      "name": "The Mines of Gloomingdeep",
+      "base": 940608,
+      "enabled": false,
+      "rate": 150,
+      "specialty": "spell_damage",
+      "icon": 951,
+      "item": "Deepcandle Crystal (Ascension)",
+      "candidate_enabled": false
+    },
+    {
+      "zone": "chapterhouse",
+      "zone_id": 760,
+      "name": "Chapterhouse of the Fallen",
+      "base": 961000,
+      "enabled": true,
+      "rate": 50,
+      "specialty": "healing",
+      "icon": 952,
+      "item": "Ember of the First Dawn (Ascension)",
+      "candidate_enabled": true
+    },
+    {
+      "zone": "kael",
+      "zone_id": 113,
+      "name": "Kael: The Ashen Compact",
+      "base": 961020,
+      "enabled": true,
+      "rate": 50,
+      "specialty": "mana_preservation",
+      "icon": 953,
+      "item": "Cinder of the Ashen Compact (Ascension)",
+      "candidate_enabled": true
+    }
+  ],
+  "coverage": [
+    {
+      "zone": "qeytoqrg",
+      "spawn_npc_pairs": 387,
+      "guard_pairs": 14,
+      "old_allowlist_pairs": 302,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "highpass",
+      "spawn_npc_pairs": 194,
+      "guard_pairs": 17,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "highkeep",
+      "spawn_npc_pairs": 222,
+      "guard_pairs": 99,
+      "old_allowlist_pairs": 13,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "runnyeye",
+      "spawn_npc_pairs": 442,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 185,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "qey2hh1",
+      "spawn_npc_pairs": 396,
+      "guard_pairs": 15,
+      "old_allowlist_pairs": 44,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "northkarana",
+      "spawn_npc_pairs": 236,
+      "guard_pairs": 6,
+      "old_allowlist_pairs": 15,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "southkarana",
+      "spawn_npc_pairs": 1254,
+      "guard_pairs": 4,
+      "old_allowlist_pairs": 372,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "eastkarana",
+      "spawn_npc_pairs": 351,
+      "guard_pairs": 32,
+      "old_allowlist_pairs": 2,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "beholder",
+      "spawn_npc_pairs": 101,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 62,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "blackburrow",
+      "spawn_npc_pairs": 298,
+      "guard_pairs": 61,
+      "old_allowlist_pairs": 42,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "paw",
+      "spawn_npc_pairs": 246,
+      "guard_pairs": 3,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "kithicor",
+      "spawn_npc_pairs": 1730,
+      "guard_pairs": 13,
+      "old_allowlist_pairs": 66,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "commons",
+      "spawn_npc_pairs": 207,
+      "guard_pairs": 4,
+      "old_allowlist_pairs": 97,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "ecommons",
+      "spawn_npc_pairs": 430,
+      "guard_pairs": 19,
+      "old_allowlist_pairs": 240,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "nektulos",
+      "spawn_npc_pairs": 539,
+      "guard_pairs": 6,
+      "old_allowlist_pairs": 430,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "lavastorm",
+      "spawn_npc_pairs": 195,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 43,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "everfrost",
+      "spawn_npc_pairs": 412,
+      "guard_pairs": 4,
+      "old_allowlist_pairs": 113,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "soldunga",
+      "spawn_npc_pairs": 479,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 149,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "soldungb",
+      "spawn_npc_pairs": 273,
+      "guard_pairs": 15,
+      "old_allowlist_pairs": 55,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "misty",
+      "spawn_npc_pairs": 482,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 431,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "nro",
+      "spawn_npc_pairs": 239,
+      "guard_pairs": 3,
+      "old_allowlist_pairs": 49,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "sro",
+      "spawn_npc_pairs": 371,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 11,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "befallen",
+      "spawn_npc_pairs": 353,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 193,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "oasis",
+      "spawn_npc_pairs": 292,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 87,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "tox",
+      "spawn_npc_pairs": 500,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 325,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "hole",
+      "spawn_npc_pairs": 1199,
+      "guard_pairs": 4,
+      "old_allowlist_pairs": 313,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "najena",
+      "spawn_npc_pairs": 258,
+      "guard_pairs": 30,
+      "old_allowlist_pairs": 63,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "qcat",
+      "spawn_npc_pairs": 202,
+      "guard_pairs": 1,
+      "old_allowlist_pairs": 21,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "innothule",
+      "spawn_npc_pairs": 260,
+      "guard_pairs": 8,
+      "old_allowlist_pairs": 201,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "feerrott",
+      "spawn_npc_pairs": 566,
+      "guard_pairs": 2,
+      "old_allowlist_pairs": 171,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "cazicthule",
+      "spawn_npc_pairs": 1403,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "rathemtn",
+      "spawn_npc_pairs": 538,
+      "guard_pairs": 15,
+      "old_allowlist_pairs": 23,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "lakerathe",
+      "spawn_npc_pairs": 302,
+      "guard_pairs": 31,
+      "old_allowlist_pairs": 84,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "gfaydark",
+      "spawn_npc_pairs": 635,
+      "guard_pairs": 64,
+      "old_allowlist_pairs": 412,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "steamfont",
+      "spawn_npc_pairs": 371,
+      "guard_pairs": 2,
+      "old_allowlist_pairs": 77,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "lfaydark",
+      "spawn_npc_pairs": 309,
+      "guard_pairs": 8,
+      "old_allowlist_pairs": 21,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "crushbone",
+      "spawn_npc_pairs": 238,
+      "guard_pairs": 1,
+      "old_allowlist_pairs": 48,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "mistmoore",
+      "spawn_npc_pairs": 371,
+      "guard_pairs": 7,
+      "old_allowlist_pairs": 284,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "unrest",
+      "spawn_npc_pairs": 308,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 142,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "kedge",
+      "spawn_npc_pairs": 263,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 6,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "guktop",
+      "spawn_npc_pairs": 582,
+      "guard_pairs": 19,
+      "old_allowlist_pairs": 186,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "gukbottom",
+      "spawn_npc_pairs": 467,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 12,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "butcher",
+      "spawn_npc_pairs": 585,
+      "guard_pairs": 23,
+      "old_allowlist_pairs": 76,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "oot",
+      "spawn_npc_pairs": 324,
+      "guard_pairs": 2,
+      "old_allowlist_pairs": 51,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "cauldron",
+      "spawn_npc_pairs": 122,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 15,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "airplane",
+      "spawn_npc_pairs": 128,
+      "guard_pairs": 6,
+      "old_allowlist_pairs": 64,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "fearplane",
+      "spawn_npc_pairs": 250,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 141,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "permafrost",
+      "spawn_npc_pairs": 457,
+      "guard_pairs": 10,
+      "old_allowlist_pairs": 37,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "kerraridge",
+      "spawn_npc_pairs": 249,
+      "guard_pairs": 5,
+      "old_allowlist_pairs": 80,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "hateplane",
+      "spawn_npc_pairs": 302,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 142,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "erudsxing",
+      "spawn_npc_pairs": 100,
+      "guard_pairs": 4,
+      "old_allowlist_pairs": 60,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "jaggedpine",
+      "spawn_npc_pairs": 663,
+      "guard_pairs": 20,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "nedaria",
+      "spawn_npc_pairs": 431,
+      "guard_pairs": 1,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "hateplaneb",
+      "spawn_npc_pairs": 557,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "tutoriala",
+      "spawn_npc_pairs": 1,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "tutorialb",
+      "spawn_npc_pairs": 363,
+      "guard_pairs": 7,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "chapterhouse",
+      "spawn_npc_pairs": 0,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    },
+    {
+      "zone": "kael",
+      "spawn_npc_pairs": 0,
+      "guard_pairs": 0,
+      "old_allowlist_pairs": 0,
+      "old_guard_pairs": 0
+    }
+  ],
+  "old_icons": {
+    "517": 224,
+    "500": 8
+  },
+  "specialties": {
+    "mana_preservation": 8,
+    "shielding": 5,
+    "shield_block": 3,
+    "spell_damage": 7,
+    "avoidance": 5,
+    "dodge": 6,
+    "accuracy": 6,
+    "spell_haste": 5,
+    "healing": 6,
+    "spell_shielding": 3,
+    "faerune": 4
+  },
+  "rules": [
+    {
+      "ruleset_id": "1",
+      "rule_name": "Character:ItemAvoidanceCap",
+      "rule_value": "100"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Character:ItemHealAmtCap",
+      "rule_value": "750"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Character:ItemShieldingCap",
+      "rule_value": "35"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Character:ItemSpellDmgCap",
+      "rule_value": "750"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Character:ItemSpellShieldingCap",
+      "rule_value": "35"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Spells:AdditiveBonusWornType",
+      "rule_value": "0"
+    }
+  ]
+}

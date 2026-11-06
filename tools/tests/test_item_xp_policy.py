@@ -48,6 +48,23 @@ int main() {
 }
 ''')
 
+    def test_training_name(self):
+        native.FreeTradeTests.compile_run(self, r'''
+#include "common/item_xp_policy.h"
+#include <cstdio>
+#include <cstdlib>
+#define CHECK(x) do { if (!(x)) { std::fprintf(stderr,"%s\n",#x); std::exit(1); } } while(false)
+int main() {
+    using namespace NightcapItemXP;
+    CHECK(Percent(0,0)==0 && Percent(0,Cost(0)-1)==99 && Percent(1,Cost(1)/2)==50 && Percent(3,0)==100);
+    CHECK(TrainingName("Fine Steel Sword",0,0)=="Fine Steel Sword [Training 0%]");
+    CHECK(TrainingName("Fine Steel Sword",2,Cost(2)*42/100)=="Fine Steel Sword [Training 42%]");
+    CHECK(TrainingName("Ember of the First Dawn",3,0)=="Ember of the First Dawn [Trained]");
+    const auto longest=TrainingName(std::string(80,'x'),0,Cost(0)-1);
+    CHECK(longest.size()==63 && longest.substr(longest.size()-15)==" [Training 99%]");
+}
+''')
+
 
 if __name__ == '__main__':
     unittest.main()

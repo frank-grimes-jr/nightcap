@@ -100,6 +100,16 @@ bool Perl_Client_IsLD(Client* self) // @categories Account and Character
 	return self->IsLD();
 }
 
+bool Perl_Client_IsSSF(Client* self) // @categories Account and Character
+{
+	return self->IsSSF();
+}
+
+bool Perl_Client_SetSSF(Client* self) // @categories Account and Character
+{
+	return self->SetSSF();
+}
+
 void Perl_Client_WorldKick(Client* self) // @categories Script Utility
 {
 	self->WorldKick();
@@ -3747,6 +3757,8 @@ void perl_register_client()
 	package.add("IsGrouped", &Perl_Client_IsGrouped);
 	package.add("IsInAGuild", &Perl_Client_IsInAGuild);
 	package.add("IsLD", &Perl_Client_IsLD);
+	package.add("IsSSF", &Perl_Client_IsSSF);
+	package.add("SetSSF", &Perl_Client_SetSSF);
 	package.add("IsMedding", &Perl_Client_IsMedding);
 	package.add("IsNameChangeAllowed", (bool(*)(Client*))&Perl_Client_IsNameChangeAllowed);
 	package.add("IsRaidGrouped", &Perl_Client_IsRaidGrouped);

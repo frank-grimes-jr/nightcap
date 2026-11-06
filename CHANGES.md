@@ -1,5 +1,117 @@
 # CHANGES
 
+## 2026-11-06 — Augment audit dev/test integration
+
+Replace the older static-only augment candidate with the verified broad-NPC,
+secondary-stat and exotic-icon audit. Preserve unrelated capacity configuration
+and preview sources; retain old wiki bookmarks as superseded references. The
+native/quest tree matches the linked main-based candidate exactly. Integration
+evidence and explicit test-stage in-game QA: `docs/audits/augments-20261106/`.
+Source promotion only; main, OVH, capacity activation, public publication and
+player acceptance remain gated.
+
+## 2026-11-06 — Zone augment audit candidate
+
+Audit all 58 augment families / 232 definitions against a fresh read-only
+production capture. Prepare any-killable-NPC augment eligibility including guards,
+named/quest enemies, killable merchants and scripted adds; retain pet/protected/
+restored-corpse exclusions and separate equipment gates. Correct High Keep cleanup
+ordering and Hate B's actual augment family; enable only the now-reviewed Classic
+Cazic-Thule and Hate B pools. Expedition chances become 1.5%, matching Classic.
+
+Add modest secondary specialties, strongest-only +2% Hunt shield block and stock
+focus/dodge/Faerune effects. Replace every cloth-glove/default necklace icon with
+reviewed stock gems/crystals using RoF2's vertical icon mapping. Preserve primary
+budgets, legal caps, 60/30/8/2 quality and 3/4/4 forging. Exact guarded forward and
+inverse SQL, native regressions, disposable MariaDB proof, all-family list,
+whole-wiki unreleased preview and exact QA/reload runbook:
+`docs/audits/augments-20261106/README.md`. Candidate only; no production writes,
+public publication or owner gameplay acceptance. Preserve the inspected already-
+live Hate spawn join correction absent from the selective main mirror.
+
+## 2026-11-04 — Power Source training display deployed to OVH
+
+Owner fast follows ("Yes, build both"): training items in slot 21 are serialized as
+`<name> [Training N%]`/`[Trained]`, with stats, effects and augment stats zeroed. RoF2
+sums displayed stats from the item packet, so the server-side suppression alone still
+showed them. Moving an item in or out of slot 21 re-sends both sides (cursor: on
+placement). Zone only, built from the deployed Power Source source; live 09:55 UTC with
+backup and guards verified. Gotcha: the first stage hung on its opening SSH check; run
+long steps detached on-host. Evidence: `docs/releases/power-source-xp-display-20261103/`.
+
+## 2026-11-03 — Power Source item XP deployed to OVH (enabled, owner testing)
+
+Owner: "Push to server. I'll test" / "Enable at deploy". Paired world/zone/shared_memory
+built from the deployed Hunt-rates source plus the 21 item-XP files (17 copied from the
+Oct 31 candidate; `client.h`, `client_packet.cpp`, `exp.cpp`, `inventory.cpp` three-way
+merged with SSF, no conflicts). `Items:PowerSourceItemXP=true` inserted in a guarded
+transaction before the new world booted. Live 19:42 UTC; backup, rule catalog, saved
+state and contract verified; no client update. Gotchas: the Oct 31 build was from the
+Oct 30 base and would have dropped SSF; never roll back to older binaries once items have
+trained (they misread XP metadata); run long rollout actions detached on-host (an SSH
+connect timeout hit the first activate attempt). Wiki not published. Evidence and test
+spike: `docs/releases/power-source-xp-20261103/`.
+
+## 2026-11-03 — Launcher desktop 0.7.0: server notes with reasons (published)
+
+Patch notes can now describe database/server-side changes (`"kind": "server"`, a
+blue Server badge) and give any change a one-line `reason` ("Why: …"). Desktop
+0.7.0 / launcher release 2026110301 is live; the starter delivers it on next open.
+Nothing else changed: same trust policy as 0.6.0 except the version, game channel,
+starter ZIP and guide untouched, no service restart. Gotcha: 0.6.0 rejects the new
+fields, so only game manifests signed after this may use them (the packager raises
+the floor to 0.7.0). Channel expires 2026-12-03. Evidence: `docs/releases/desktop-070-20261103/`.
+
+## 2026-11-03 — NPC Death Touch removed
+
+Owner request: no NPC casts Death Touch. `docs/releases/no-death-touch-20261103/remove.sql` backs up and deletes every NPC spell-list entry for Cazic Touch (982, 3087, 7477) and Touch of Vinitras (2859): 17 rows / 25 NPC types locally, including Keeper of Souls and The Spiroc Lord in Plane of Sky. Scripted Death Touch casts were also removed from eight quest files in later-era zones. The kobold barrel self-destruct is kept because it targets itself. Gotchas: zones must restart (`npc_spells` loads at boot); the Uqua gas-chamber trap and Rallos Zek's out-of-arena DT no longer stop skips or pulls. Rollback rehearsed locally; deployed to production 2026-11-03 11:03 UTC with a verified stopped backup (17/0, player state preserved, binaries unchanged, gateway reopened). In-game QA pending.
+
+## 2026-11-01 — Per-zone Hunt drop rates (deployed to OVH)
+
+Hunt family chances move from the compiled 0.5% `FamilyChance` to
+`nightcap_zone_hunt_zones.augment_chance`/`gear_chance` (out of 10000, CHECK
+0–10000). Source of truth `config/zone-hunt-rates.json` → `tools/zone_hunt_rates.py`
+→ `rates.sql`; the wiki reads the same file. Owner-approved default: augments 1.5%
+(~67 kills per drop, ~940 per forged Ascension; 48 Base per Ascension), gear stays
+0.5%. Gotcha: apply the SQL before the new zone binary, or Hunt drops turn off in
+every zone. Rates load at zone boot (full runtime restart). Chapterhouse and Ashen
+Compact rolls are unchanged. Live on OVH 2026-11-02 00:31 UTC (zone `90717ac7`,
+image `b821548e`), built from the deployed SSF source plus only the two Hunt files.
+Wiki `20261101-hunt-rates-v1`. Evidence/rollback: `docs/releases/zone-hunt-rates-20261101/`.
+
+## 2026-11-01 — Solo self-found mode (deployed to OVH)
+
+Opt-in, permanent, per-character SSF (ADR 0074). Say `walk alone` to the
+Ancient Chronicler in the East Commonlands tunnel at level 1. New `character_ssf` table; one zone gate
+(`Client::SSFBlocked`) refuses player trade, native trader/buyer/barter,
+`#bazaar` escrow, player parcels in both directions, shared bank items and coin,
+guild bank, and group/raid invites and accepts with players. NPC and bot trades and
+bot/merc groups still work. Normal XP is unchanged. SSF characters get no passive
+AA, so 0% earns nothing and AA comes only from the AA window's +/-. Gotchas:
+the load fails open if the table is missing; clearing SSF is a GM row delete plus
+a zone; a refused shared-bank coin move leaves the client coin display stale
+until zoning. Zone-only, no rule change. `tools/tests/test_ssf.py`.
+Deployed to OVH 21:27 UTC (zone `2ca5fa0e`, image `e67956fa`), built from the
+deployed source plus only the SSF patch (main's mirror carries the unreleased
+Power Source candidate). Fix 22:04 UTC: the oath was in the PoK Chronicler
+script, which never spawns; it now lives in `ecommons/The_Ancient_Chronicler.pl`
+(NPC 999220) and PoK is restored (quest reload, no restart). Wiki `20261101-ssf-v1`.
+Evidence/QA: `docs/releases/ssf-mode-20261101/`.
+
+## 2026-11-01 — Zone-state boot no longer wipes respawn loot
+
+`server-mods/code/zone/zone_save_state.cpp`: a dead spawn's placeholder row
+(`npc_id 0`, empty loot) was applied to its fresh respawn at boot; the empty loot
+hit the advanced-loot validator, which cleared the roll and quarantined the NPC
+as `invalid`. That sentinel then re-saved and re-quarantined on every later boot
+and locked the corpse. Palwar's Nagafen's Lair run found every fire giant and
+Lord Nagafen lootless (43 flagged NPCs server-wide). Saved state now applies only
+to rows holding a live NPC, and the bare `invalid` sentinel on a living NPC is
+lifted with a fresh table roll (upstream fallback). Corpses and raw unparseable
+loot keep their quarantine. Native restore-loop test extended. Zone-only binary.
+Deployed to OVH 15:36 UTC (zone `77c5fdff`, image `9bd39442`); OVH build cache
+pruned to free disk. Evidence/QA: `docs/ops/npc-placeholder-loot-20261101/`.
+
 ## 2026-10-30 — Power Source item XP candidate (not released)
 
 Dev PR383 and test PR384 merged after independent review and integration checks;

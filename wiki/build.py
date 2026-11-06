@@ -8,6 +8,7 @@ import re
 import shutil
 import tarfile
 from catalog import catalog_articles
+from augment_candidate import annotate as annotate_augment_candidates
 import experience
 import build_lab
 import loot_finder
@@ -29,6 +30,7 @@ def link(article):
 def load_articles():
     articles = [json.loads(p.read_text(encoding='utf-8')) for p in sorted((ROOT / 'articles').glob('*.json'))]
     articles += catalog_articles()
+    articles = annotate_augment_candidates(articles)
     slugs = set()
     for a in articles:
         if not re.fullmatch('[a-z0-9]+(?:-[a-z0-9]+)*', a['slug']) or a['slug'] in slugs:
