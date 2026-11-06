@@ -76,7 +76,7 @@
     "docs/releases/ssf-mode-20261101/README.md and docs/adr/0074-solo-self-found-mode.md",
     "docs/releases/zone-hunt-rates-20261101/README.md",
     "docs/releases/augment-audit-20261106/README.md",
-    "docs/releases/character-stats-window-20261106/README.md; signed2026110602/native ea6ad532 candidate, owner QA open"
+    "docs/releases/character-stats-window-20261106/README.md; signed2026110602/native ea6ad532 verified for live QA; owner acceptance open"
   ],
   "keywords": [
     "fixes",

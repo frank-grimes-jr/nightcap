@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "source_inputs": 47,
+  "files": 510,
+  "method": "main source/patch normalized to LF; overrides reproduce79 source inputs and510 public output files"
+}

@@ -84,3 +84,27 @@ replay/expiry, focus limits, actual caps, native ABI and operational recovery.
 Quiet-poll logging and cross-character placeholders were corrected before packaging;
 server3second throttle retained. No unresolved merge blocker. This is self-review;
 no independent agent review is claimed. No gameplay power or loot tuning.
+
+## Verified deployment and publication
+
+Main PR410 merged as313d497c479db5b15c3d4fc622abb4625a8aa4ae. All one-shot
+preflight/activate/open jobs returned0. `deployed.json` is fresh readback of zone
+ea6ad532, compatible unchanged world/shared_memory, unchanged content/rules/cache
+and all command settings. Runtime image sha256:cf976e86fd143b45d75c50f9a9d3a8eeef4a363abb7723bc5795b1bd6ab26f3d.
+Saved-state boot/market rotation verified before reopening; no old player restore.
+Stopped backup SHA256 2a3378f90a578af4933f32526aba075837085f35a52da9cb74002e2fe971d9be passed gzip integrity.
+
+Signed2026110602/proxy0.13.4 is published; `client-public-verification.json` checks
+all148HTTPS assets/300621209bytes, production-key signature,
+history/tombstones and DLL/catalog pairing. Three changed files,145preserved.
+Full EQ exit/launcher Play required. Wiki20261106-character-stats-v1 verifies510
+files/503HTML routes, private downloads, rollback and unchanged service identities/
+starts. Source overrides reproduce79inputs and510outputs while preserving main's
+unrelated unpublished previews. Global historical drift remains REVIEW REQUIRED.
+
+Before reopening, held native rollback can select the compatible prior image;
+after reopening use a fresh compatible forward repair. Never replay terminal jobs
+or restore an old player snapshot. Signed client recovery requires a higher
+counter and matched DLL/catalog/XML; old lower counters must not be republished.
+Owner native pixels/skin/resize/scroll/refresh and gameplay acceptance remains
+open. Delivery and synthetic native tests do not establish player acceptance.

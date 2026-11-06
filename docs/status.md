@@ -1,12 +1,21 @@
 # Current Nightcap status
 
-## November6 — automatic equipped Stats candidate; deployment pending
+## November6 — automatic equipped Stats deployed; owner QA open
 
-Inventory Stats has server-backed totals/caps plus Shield Block, Hunt contribution,
-relative Dodge, item focus potential and worn Faerune. The silent self-only UI
-channel refreshes automatically with a server throttle. Client0.13.4/2026110602
-and matching ea6ad532 zone are tested candidates; prior live state below remains
-until verified deployment/publication. [Evidence and exact native QA](releases/character-stats-window-20261106/README.md).
+Main PR410/313d497c is deployed on OVH with access reopened. Inventory Stats has
+server-backed totals/caps, Shield Block, strongest Hunt contribution, relative
+Dodge, item focus potential and worn Faerune. Refresh is silent and automatic.
+#augstats remains a diagnostic fallback. No gameplay power, loot, player-data,
+cache, rule or command-setting change. Native zone ea6ad532 retains compatible
+world/shared_memory. Stopped backup, saved-state/content/native checks passed.
+
+Signed2026110602/proxy0.13.4 is published:148hosted assets/signature/pair verified;
+only DLL/catalog/Inventory XML changed,145other descriptors/URLs preserved.
+Fully EXIT EQ/use launcher Play; relog alone cannot replace the loaded DLL.
+Wiki20261106-character-stats-v1 passed510-file/rollback/private-download/service
+checks. [Details and exact Palwar/The Hole QA](releases/character-stats-window-20261106/README.md).
+Native pixels, scrolling, actual live refresh and owner gameplay acceptance remain
+open. Automated native fixtures and delivery checks are separate from acceptance.
 
 ## November6 follow-up — augment descriptions/totals live; owner QA open
 
