@@ -1,0 +1,20 @@
+{
+  "status": "Source promoted through test; owner QA and main/OVH authorization pending",
+  "dev": {"pr": 404, "url": "https://github.com/frank-grimes-jr/nightcap/pull/404", "merge_commit": "c1c5e09bcd4f84b74e84a16668edcf20c159ebd1"},
+  "test": {"pr": 405, "url": "https://github.com/frank-grimes-jr/nightcap/pull/405", "merge_commit": "5257586a329ae238ba054511b8a9270b1b4a163f"},
+  "tested_integration_commit": "e1570848440483df0c32c1f9a8c4fd0b72ba82ad",
+  "verified_tree": "8632468101df84a48aac0c16d5a444179f8830fd",
+  "tree_verification": "Fetched remote dev/test after merges; both trees equal the tested integration tree",
+  "main_unchanged": "1b443b5a",
+  "exact_qa": "PR405 body contains the complete nine-part in-game QA spike from README.md",
+  "named_guard_targets": [
+    {"zone": "High Keep", "npc_id": 6000, "name": "Guard_Heltch", "basis": "read-only production spawn capture; verify active QA-zone spawn before testing"},
+    {"zone": "High Keep", "npc_id": 6001, "name": "Guard_Golgon", "basis": "read-only production spawn capture"},
+    {"zone": "Qeynos Hills", "npc_id": 4048, "name": "Guard_Yalroen", "basis": "read-only production spawn capture"}
+  ],
+  "existing_capacity_candidate": "Preserved unchanged, not activated and excluded from the main-based augment-only release build",
+  "runtime": "No production content writes, native installation, restart or capacity activation",
+  "public_wiki": "Not published; candidate labels retained",
+  "owner_qa": "Pending",
+  "main_ovh_signoff": "Pending; continuation of the goal is not approval"
+}

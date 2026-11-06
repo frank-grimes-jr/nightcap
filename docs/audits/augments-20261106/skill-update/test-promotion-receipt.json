@@ -1,0 +1,13 @@
+{
+  "status": "applied and validated after TEST source promotion",
+  "source_test": "5257586a329ae238ba054511b8a9270b1b4a163f",
+  "files": {
+    "items.md": "1319f90647f4e353050b1d88c9000618c3897c5dabc3fc4f33e5e9659507054e",
+    "wiki.md": "c88e7fa285f8fb6ee1f319dd437a414b63a693e353ea4ff189be1f2576ba13d3",
+    "sources.json": "8cce92cc0e8c69e87c2a48ad3054405495e74829e92ca2a15f302d591f1a4d63"
+  },
+  "patch_sha256": "a68175ca7ad883e61b2a82eec8c05e42d243c6c6712771393e354e840b876e89",
+  "source_checks": "10 augment-integration fingerprints unchanged",
+  "validator": "Skill is valid",
+  "runtime": "no main/OVH, capacity activation, public publication or owner acceptance"
+}

@@ -5,6 +5,12 @@ It supersedes the October29 static-combat candidate, preserves the existing
 capacity candidate and previews, and matches all native/quest sources of the
 linked main-based candidate. It grants no capacity or production activation.
 
+Dev PR404 and test PR405 are merged. Fetched remote dev/test trees both equal
+the tested integration tree; [promotion receipt](promotion.json) records exact
+commits and captured named guard targets. Main/OVH, public publication and owner
+gameplay acceptance remain pending. The test PR contains the full nine-part QA
+spike below. A goal continuation is not deployment approval.
+
 **Candidate only. No production content writes, deployment, public wiki publication
 or owner gameplay acceptance.** Source starts at `origin/main` `1b443b5a` in
 `feature/augment-audit-20261106`. The default workspace is older and untouched.

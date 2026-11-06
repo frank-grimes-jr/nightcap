@@ -1,0 +1,132 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -118,8 +118,18 @@
+ spawn mapping is preserved rather than overwritten by main's selective mirror.
+ 
+ Evidence/full58-item list/icons/QA/runbook: docs/audits/augments-20261106/.
+-This is a linked local candidate, no production content writes, MAIN/OVH promotion,
+-public wiki publication or player acceptance. Current world/zone/shared_memory
++Source is promoted through TEST: dev PR404/c1c5e09b, test PR405/5257586a.
++Both fetched remote trees equal the tested integration e1570848 tree. Integration:
++E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106; promotion.json records exact pins.
++All native/quest source matches the linked release-base candidate. Existing
++capacity configuration/previews remain unchanged and are NOT activated or part
++of augment-only approval.51integration checks pass; two historical opt-in DB
++fixtures skip (the current full SQL has its separate successful rehearsal).
++This remains an undeployed candidate: no production content writes, MAIN/OVH,
++public wiki publication or owner gameplay acceptance. Named guard QA includes
++High Keep Guard Heltch6000/Golgon6001 and Qeynos Hills Guard Yalroen4048; verify
++active QA-zone spawns. Full nine-part QA is in test PR405. Goal continuation is
++not approval. Context topic augment-integration owns promotion/preview pins. Current world/zone/shared_memory
+ metadata consumers, quests and stock client must remain compatible. Activation
+ needs a fresh stopped backup, guarded SQL, matching regenerated shared item cache
+ and supported whole-runtime restart; rule/quest reload is insufficient. No new
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -140,7 +140,13 @@
+ ## Zone augment audit — November6 unpublished preview
+ 
+ Source: E:/EQ_Local_Dev/_worktrees/augment-audit-20261106, e13a307de5700270ab250e6d1d7d2544d16746d4.
+-All41authored articles and generated item/zone impacts are assessed in
++The release-base review covers41authored articles; integration covers46,
++including five historical Hate B previews. Source is through TEST via PR404/405
++(c1c5e09b/5257586a), with remote tree equality verified. It supersedes October29
++augment wording and preserves existing capacity previews and old anchors.
++51integration checks pass (two historical opt-in DB skips);22wiki checks pass.
++No main/OVH or public publication; all candidate/live labels remain distinct.
++Whole-wiki/generated item/zone impacts are assessed in
+ docs/audits/augments-20261106/wiki-review.json. An explicitly Not released58-family
+ augment-audit article, owning guides, Features, In development and Change Log
+ describe broad NPC drops, moderate secondary specialties and exotic icons.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -139,7 +139,9 @@
+     "hate_density_20261030": "575d21a60e6f5ef876d88ce3e35835c1c464afd1",
+     "hate_boss_placement_20261030": "8023cbce045a1c66e8654e0955a80cce85acc204",
+     "hate_boss_placement_deployed_20261030": "ef9ce5099cb263b729f2ba7063f887d66e35df60",
+-    "augment_audit_20261106_candidate": "e13a307de5700270ab250e6d1d7d2544d16746d4 (local linked candidate; not deployed)"
++    "augment_audit_20261106_candidate": "e13a307de5700270ab250e6d1d7d2544d16746d4 (local linked candidate; not deployed)",
++    "augment_audit_dev_20261106": "c1c5e09bcd4f84b74e84a16668edcf20c159ebd1",
++    "augment_audit_test_20261106": "5257586a329ae238ba054511b8a9270b1b4a163f (source only; not deployed or owner accepted)"
+   },
+   "topics": {
+     "operations": [
+@@ -15581,6 +15583,78 @@
+         "revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
+         "sha256": "62b0a82d2f946108aae2eb634637d25405424053bd9dc8334d9968da6f9ee452"
+       }
++    ],
++    "augment-integration": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "docs/audits/augments-20261106/integration.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "08815b9a6276439db52e4c7d630de75640ca92052d6130d929d8086dfa34e57f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "docs/audits/augments-20261106/promotion.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "7be959760d8f00eb99832b3e6e4893aa9b93fe854b13cf93655526b7b9cf7194"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "docs/audits/augments-20261106/wiki-review.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "77db6eab85f271bb117d4415ce2468a0901f0c6bd59a5dbfd9f8084c4024e887"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "wiki/catalog.py",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "ecc026a3a3f1341244710655878dbc310d63e993565b63fb6b78412bf00040c2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "17bf1f60df78b6ae4dca43da6a439f2b1c886ddbedac12624c04d4e11ef8db20"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "83f179177b79566c775f882e65107ffa6c1b97570e447ac6d98c80012580c357"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "9e94ca7c30e9189e13a64b4539194115bd9ad9153a1e163641301443e4710df7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "wiki/articles/zone-hunt.json",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "88eff6197408af3e7b694346964dcdaac3d85139048925f776c44c997c3f2db7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "tools/record_augment_integration.py",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "90fb6a0e396a4ac098074c3488d21a26a904abcb28faba31dfb9022f8dac8252"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-audit-dev-20261106",
++        "path": "tools/resolve_augment_integration.py",
++        "role": "Reviewed augment TEST source promotion/preview; no main/OVH, capacity activation, publication or player acceptance",
++        "revision": "5257586a329ae238ba054511b8a9270b1b4a163f plus reviewed promotion evidence",
++        "sha256": "3d5d69e973bd251071d84e99de061e02327e2008d5fba4d0ba5071072c35e5ca"
++      }
+     ]
+   }
+ }

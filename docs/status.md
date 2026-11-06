@@ -2,6 +2,13 @@
 
 ## November 6 — Zone augment audit candidate; not deployed
 
+Source is promoted through **test**: dev PR404 (`c1c5e09b`), test PR405
+(`5257586a`). Both remote trees equal the tested integration tree. Main and OVH
+remain unchanged; owner in-game QA/sign-off is pending. [Promotion receipt and
+named guard QA targets](audits/augments-20261106/promotion.json). Preserve the
+separate capacity candidate; it is not activated or part of augment-only release
+approval.
+
 Fresh production audit covers 58 augment families, 232 definitions and all
 configured zones. Candidate fixes guard/any-NPC eligibility, High Keep scripted
 cleanup and Hate B augment identity; adds balanced secondary choices and replaces

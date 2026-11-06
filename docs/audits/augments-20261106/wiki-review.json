@@ -235,5 +235,6 @@
   "generated": "All existing augment item pages and Hunt zone pages link the candidate; baseline published stats remain. Disabled families are listed only in the preview. No raw capture or operational data published.",
   "home": "No goal/navigation change; no announcement added",
   "commands": "No command/recipe changes",
-  "source_scope": "HEAD plus task working tree; historical global source drift requires separate review"
+  "source_scope": "HEAD plus task working tree; historical global source drift requires separate review",
+  "promotion_review": "Source-only dev/test promotion via PR404/405. Candidate/live labels, home, commands, access, raw catalog values and public publication state remain unchanged; integration reviews all 46 authored sources."
 }

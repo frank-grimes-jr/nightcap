@@ -1,5 +1,5 @@
 {
-  "status": "source integration validated locally; remote promotion pending",
+  "status": "source promoted through test; main and OVH authorization pending",
   "release_base_candidate": "f9247fba93b65147e89bf4992b70c73144346469",
   "dev_parent": "be81b04eb6e724547f3365a24b0a655b9c14a022",
   "test_parent": "75ab3bd38daf470b22717436a0e3215697d8b719",
@@ -30,5 +30,6 @@
   "exact_qa": "README.md section Exact in-game QA spike, copied into the test-promotion PR body",
   "production": "unchanged",
   "public_wiki": "not published",
-  "player_acceptance": "pending"
+  "player_acceptance": "pending",
+  "promotion_receipt": "promotion.json"
 }
