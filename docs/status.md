@@ -1,13 +1,19 @@
 # Current Nightcap status
 
-## November6 follow-up — augment visibility correction candidate
+## November6 follow-up — augment descriptions/totals live; owner QA open
 
-A new client Description fix and self-only #augstats equipped-bonus report are
-built/tested for review. Shield Block is shown separately from Shielding, with
-its shield requirement and strongest-only stacking; the report uses actual
-server totals/caps. Signed client candidate2026110601/0.13.3 is not published.
-No production change from this follow-up yet. Owner visible gameplay QA is open.
-[Candidate evidence and exact QA](releases/augment-item-window-20261106/README.md).
+Main PR408/3343d6c8 is deployed on OVH; access is open. The self-only #augstats
+report shows actual equipped Shield Block, Shielding and other combat totals,
+current caps/headroom and stacking. No item power, drops or cache changes.
+Signed client2026110601/proxy0.13.3 is published: all148HTTPS assets/signature/pair
+verified;146unrelated assets preserved. Fully EXIT EQ/use launcher Play for
+normal item Description text showing +1% Polished/Exalted and +2% Ascension Hunt
+shield block, worn-socket/shield requirements and strongest-only stacking.
+
+Wiki20261106-augment-description-v1 passed510-file publication, private-download/
+service preservation and rollback checks. [Details and exact native QA](releases/augment-item-window-20261106/README.md).
+Native visible/gameplay acceptance remains open; isolated native text checks
+and delivery verification are separate from owner acceptance.
 
 ## November 6 — Augments deployed; live QA open
 

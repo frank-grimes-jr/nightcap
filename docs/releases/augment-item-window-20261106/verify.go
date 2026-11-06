@@ -124,5 +124,5 @@ func main() {
 		}
 		must(preflight.CheckProxyCatalog(paired["dinput8.dll"], paired[preflight.CatalogPath]))
 	}
-	must(json.NewEncoder(os.Stdout).Encode(map[string]any{"release": candidate.Release, "signature": "valid against shipped production key", "managed_files": len(candidate.Files), "changed_assets": 1, "existing_assets_preserved": 147, "history_preserved": true, "hosted": *hosted, "verified_bytes": total, "channel_sha256": manifest.Digest(envelope)}))
+	must(json.NewEncoder(os.Stdout).Encode(map[string]any{"release": candidate.Release, "signature": "valid against shipped production key", "managed_files": len(candidate.Files), "changed_assets": 2, "existing_assets_preserved": 146, "history_preserved": true, "hosted": *hosted, "verified_bytes": total, "channel_sha256": manifest.Digest(envelope)}))
 }

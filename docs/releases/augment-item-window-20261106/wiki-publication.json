@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "release": "20261106-augment-description-v1",
+  "previous_release": "20261106-augment-audit-v2",
+  "files": 510,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "OK",
+  "changed_existing": [
+    "augment-audit.html",
+    "commands.html",
+    "equipment.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "added_files": [],
+  "preserved_files": 504,
+  "package_sha256": "89eae7ab81e9886adcd4ca7c145dcc7ece5d073bd8a1c8f7fdaf5181c02712da",
+  "scope": "five guide updates; no item/catalog/asset change"
+}
