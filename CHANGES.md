@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-11-06 — Augment Description and equipped-total correction candidate
+
+Owner exposed a live QA gap: Understone's real shield-block bonus is absent from
+normal item Description, and Shielding is a separate stat. Add a guarded RoF2
+Description decorator using the server's shield-block policy, plus a self-only
+read-only #augstats report of calculated bonuses/caps and stacking. Item names,
+power, drop rates and saved inventories are unchanged. The native sheet's stock
+healing cap is not authoritative. Paired signed client candidate0.13.3/2026110601
+is prepared, not published; native visual/owner QA remains open. Evidence:
+`docs/releases/augment-item-window-20261106/`.
+
 ## 2026-11-06 — Augments deployed to OVH for live QA
 
 Owner-authorized augment-only main PR #406 is deployed; access reopened after

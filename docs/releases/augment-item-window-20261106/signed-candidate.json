@@ -1,0 +1,18 @@
+{
+  "archive_sha256": {
+    "dinput8.dll": "9a627c1364dc14a70aee82a8c132efdc5c839656409caf8850235bb8dc89814d",
+    "nightcap-patch-sites.json": "17bfd7641dd1119f8dc0686eba34600956880737da908fe71c1b26af84770210"
+  },
+  "assets_preserved": 146,
+  "candidate_proxy_catalog_pair": "passed",
+  "changed_assets": 2,
+  "channel_sha256": "657899ce7c7f61033ba400c8d40f2f31f49a7b704653c78032aaa751e08da0a7",
+  "exact_executable_preflight": "passed",
+  "native_player_acceptance": "pending",
+  "previous_channel_sha256": "831f19ab1e0b2584a215a04ef473618e7dbac10aaf4b66344626cbd349781f99",
+  "previous_release": 2026103002,
+  "release": 2026110601,
+  "signature": "verified against shipped production key",
+  "status": "signed_candidate_not_published",
+  "unchanged_asset_urls_preserved": true
+}

@@ -1,0 +1,10 @@
+{
+  "status": "reviewed candidate; native visual/gameplay acceptance pending",
+  "correctness": "25native Description checks; all3families/4tiers; server-only equipped totals and live caps; same server shield-block policy reused",
+  "security": "self-only report; bounded native snapshots; exact-client signatures; no player writes; private signing seed retained locally",
+  "architecture": "existing class-UI startup gate, existing native command unity unit, signed launcher pairing; no item/cache/rule/schema or stacking changes",
+  "performance": "UI-thread bounded16KiB copy on description refresh; self-only report on explicit request",
+  "source_baseline": "144authenticated link inputs reproduce live zonebc88a468 before report delta3fc2b901",
+  "publication": "not yet deployed/published",
+  "owner_report": "visible item-description omission reproduced; Shielding differs from Shield Block"
+}
