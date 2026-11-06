@@ -1,5 +1,8 @@
 # Ascension augments — November 6 audit
 
+Live release: see [deployment evidence](../../releases/augment-audit-20261106/README.md). The table preserves the original audit capture; Cazic-Thule and Hate B are now enabled and both expedition rates are now 1.5%. Six other disabled pools remain off.
+
+
 Ascension is the in-game top quality (called Ascended in the request).
 Production source captured 2026-11-06T15:02:30.338165+00:00. Candidate specialties/icons below are not deployed.
 

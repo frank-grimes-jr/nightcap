@@ -48,3 +48,30 @@ Live QA: fully relog for refreshed item definitions; test High Keep Guard Heltch
 daytime Kithicor, Cazic-Thule and new Hate Blackspire, both expeditions, shield/
 dodge/focus stacking, full bags/forging and saved corpse recovery. Follow the
 complete nine-part spike in the audit README. No client download is required.
+
+## Verified completion
+
+Main PR #406 merged as `3a0cb2d36d14b0ec6dead3ff44c0b98df3ab5f65`.
+`deployed.json` is the independently fetched, authenticated host receipt after
+preflight, activation and access reopening all terminated successfully.
+The stopped backup passed gzip verification (66,424,213 compressed bytes;
+SHA256 `6579b762149c0a0b3af8b91a70f42d73dc680a2e36797e7f4c8c7779d999b6dd`).
+The item loader contains 309,871 definitions: exactly 232 changed and 309,639
+unrelated definitions preserved. No player restore or client release occurred.
+
+`wiki-publication.json` records verified HTTPS publication of 510 files under
+`20261106-augment-audit-v2`, replacing `20261101-hunt-rates-v1`. Linux publication
+and recovery tests passed; pointer rollback was rehearsed. Private downloads,
+nginx configuration and all service image/start identities were preserved.
+The actual prior public source was reproduced byte-for-byte before editing;
+the published source is main's wiki plus `published-source-overrides.patch`.
+That scoped evidence patch preserves the distinction between public source and
+unrelated source-only previews; do not blindly publish main's entire wiki.
+`test_wiki_release.py` verifies every generated link/anchor, actual afterimages,
+new augment-only zones, unchanged ordinary gear and unchanged Build Lab model.
+`wiki/check_refresh.py` still reports historical source drift; the global ledger
+was not blindly advanced. The entire public guide/catalog impact was reviewed.
+
+**Owner artwork acceptance is recorded; gameplay/solo balance acceptance remains
+open.** Run the audit README's nine-part QA, including the named guards, High Keep
+rescue adds, daytime Kithicor, CT/Hate B, both expeditions and specialty stacking.

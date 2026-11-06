@@ -18,13 +18,13 @@
     },
     {
       "slug": "ashen-compact",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "augment-audit",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "build-lab",
@@ -33,8 +33,8 @@
     },
     {
       "slug": "camil-vigil",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "combat",
@@ -53,13 +53,13 @@
     },
     {
       "slug": "equipment",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "features",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "getting-started",
@@ -168,8 +168,8 @@
     },
     {
       "slug": "recent-changes",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "tradeskills",
@@ -198,17 +198,20 @@
     },
     {
       "slug": "zone-hunt",
-      "decision": "candidate preview added",
-      "reason": "Augment acquisition/secondary/icon preview; live labels and values retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     },
     {
       "slug": "zone-kael",
-      "decision": "no change",
-      "reason": "No changes to this guide: commands, access, AA, class, pet, quest and release contracts remain; Home goal paths retained"
+      "decision": "verified live-testing release content",
+      "reason": "Published instructions/catalog reflect verified afterimages and acquisition; gameplay acceptance remains open"
     }
   ],
-  "generated": "All existing augment item pages and Hunt zone pages link the candidate; baseline published stats remain. Disabled families are listed only in the preview. No raw capture or operational data published.",
-  "home": "No goal/navigation change; no announcement added",
-  "commands": "No command/recipe changes",
-  "source_scope": "HEAD plus task working tree; historical global source drift requires separate review"
+  "generated": "50Classic zones/392variants; CT/HateB augment-only. Updated specialties/expedition rates. Six dormant pools excluded from catalog. Ordinary gear unchanged; Build Lab model/spells unchanged. Exact510-file publication and all links/anchors verified.",
+  "home": "Derived catalog count updated48->50, goal/navigation unchanged",
+  "commands": "No command/recipe changes; public baseline preserved",
+  "source_scope": "HEAD plus task working tree; historical global source drift requires separate review",
+  "review_phase": "November6 verified OVH/public release; artwork accepted, gameplay QA open",
+  "publication": "20261106-augment-audit-v2;510public files verified,rollback rehearsed",
+  "public_source": "Actual499-file baseline reproduced before editing; main plus release published-source-overrides.patch reproduces publication. Unrelated main-only previews retained."
 }

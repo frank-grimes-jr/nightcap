@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "scope": "post-deployment records and scoped published-source reconciliation",
+  "checks": {
+    "main_wiki": 15,
+    "release_labels": 2,
+    "source_drift_tool": 5,
+    "exact_public_links_stats_build_lab": 5,
+    "equipment_filters_node": 7,
+    "host_publication_recovery": 16,
+    "installed_skill": "validated;27 fingerprints unchanged",
+    "published_source_reproduction": "510files byte-identical"
+  },
+  "review": {
+    "correctness": "verified runtime232afterimages, native/cache pairing, scope and publicmanifest",
+    "security": "private raw captures excluded; only redacted receipts and publicprojection committed",
+    "architecture": "main keeps unrelated source-only previews; exactpublication overridepatch recorded",
+    "readability": "release/QA boundary and stoppedbackup/recovery documented",
+    "performance": "staticcatalog only; nativebehaviorunchanged since tested mainrelease"
+  },
+  "owner_artwork_accepted": true,
+  "owner_gameplay_accepted": false,
+  "limitations": [
+    "Historical global wiki source drift remains REVIEW REQUIRED; no blanket ledger advance",
+    "Gameplay and solo balance remain owner live QA"
+  ]
+}

@@ -47,7 +47,7 @@ links into their Change Log entry. Do not remove those links.
 The guide index lists maintained guides and directory entrances, while individual
 item/zone pages remain in their dedicated catalogs and global search. Home keeps
 the four compact goal paths; its release digest and duplicate directory lists are
-retired. All492HTML pages/499public files and the public asset allowlist remain.
+retired. The November6 public release has503HTML pages/510public files and the public asset allowlist remain.
 One-time migration and audit: `tools/wiki_clarity_migration.py` and
 `docs/releases/wiki-clarity-20261024/`. Future edits belong in article JSON.
 
@@ -217,3 +217,5 @@ the release. Update the installed Nightcap skill's wiki reference and fingerprin
 If publication is not authorized or fails, report it pending; do not call local
 edits a live wiki update. New systems need source-path coverage if outside the
 current review scope. `test_refresh.py` exercises real Git change detection.
+
+November6 augment publication and exact public source overrides: `../docs/releases/augment-audit-20261106/`. Main retains unrelated source-only previews; use the recorded public source when preparing publication.

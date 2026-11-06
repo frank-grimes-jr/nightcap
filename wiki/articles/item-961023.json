@@ -2,13 +2,14 @@
   "slug": "item-961023",
   "title": "Cinder of the Ashen Compact (Ascension)",
   "summary": "Augment · Kael · Live testing.",
-  "body": "<table><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th>Item ID</th><td>961023</td></tr><tr><th>Family</th><td>Augment</td></tr><tr><th>Required level</th><td>50</td></tr><tr><th>Recommended level</th><td>50</td></tr><tr><th>Slots</th><td>Head, Arms, Hands, Chest, Legs, Feet</td></tr><tr><th>Classes</th><td>All held classes</td></tr><tr><th>AC</th><td>6</td></tr><tr><th>HP</th><td>144</td></tr><tr><th>Mana</th><td>144</td></tr><tr><th>Heroic STA</th><td>10</td></tr><tr><th>Heroic INT</th><td>10</td></tr><tr><th>Socket type</th><td>22</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>Eligible static custom enemies: 0.5% family roll, then Base60/Polished30/Exalted8/Ascension2 percent. See <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
+  "body": "<table class=\"item-stats\"><caption>Released values; gameplay acceptance pending</caption><tbody><tr><th scope=\"row\">Item ID</th><td>961023</td></tr><tr><th scope=\"row\">Family</th><td>Augment</td></tr><tr><th scope=\"row\">Required level</th><td>50</td></tr><tr><th scope=\"row\">Recommended level</th><td>50</td></tr><tr><th scope=\"row\">Slots</th><td>Head, Arms, Hands, Chest, Legs, Feet</td></tr><tr><th scope=\"row\">Classes</th><td>All held classes</td></tr><tr><th scope=\"row\">AC</th><td>6</td></tr><tr><th scope=\"row\">HP</th><td>144</td></tr><tr><th scope=\"row\">Mana</th><td>144</td></tr><tr><th scope=\"row\">Heroic STA</th><td>10</td></tr><tr><th scope=\"row\">Heroic INT</th><td>10</td></tr><tr><th scope=\"row\">Mana preservation maximum (%)</th><td>10</td></tr></tbody></table><h2 id=\"source\">Source</h2><p>Any unowned killable enemy in the managed Ashen Compact expedition, including scripted combat adds:1.5% family roll, then Base60/Polished30/Exalted8/Ascension2percent. <a href=\"zone-kael.html\">Kael reward rules</a>.</p>",
   "category": "Equipment",
   "status": "Live testing",
-  "updated": "2026-10-24",
+  "updated": "2026-11-06",
   "sources": [
     "docs/quests/warhelm/SPEC.md",
     "docs/quests/warhelm/install-rows.json",
-    "docs/quests/warhelm/QA.md"
+    "docs/quests/warhelm/QA.md",
+    "docs/releases/augment-audit-20261106/README.md"
   ]
 }

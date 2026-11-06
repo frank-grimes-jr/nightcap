@@ -1,10 +1,11 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-11-06",
   "sources": [
     "docs/releases/zone-loot-20261009/generated/items.json",
     "docs/releases/zone-loot-20261009/generated/audit.json",
     "docs/releases/zone-loot-20261009/PRODUCTION.md",
-    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823"
+    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823",
+    "docs/releases/augment-audit-20261106/README.md"
   ],
   "zones": [
     {
@@ -246,6 +247,18 @@
       "slug": "erudsxing",
       "name": "Erud's Crossing",
       "slot": "Range"
+    },
+    {
+      "slug": "cazicthule",
+      "name": "Cazic-Thule",
+      "slot": "Armor sockets",
+      "augment_only": true
+    },
+    {
+      "slug": "hateplaneb",
+      "name": "Plane of Hate: newer layout",
+      "slot": "Armor sockets",
+      "augment_only": true
     }
   ],
   "items": [
@@ -264,7 +277,8 @@
         "Mana": 6,
         "Heroic AGI": 1,
         "Heroic WIS": 1
-      }
+      },
+      "icon": 944
     },
     {
       "id": 940025,
@@ -280,8 +294,10 @@
         "HP": 9,
         "Mana": 9,
         "Heroic AGI": 1,
-        "Heroic WIS": 1
-      }
+        "Heroic WIS": 1,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 944
     },
     {
       "id": 940026,
@@ -297,8 +313,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic AGI": 2,
-        "Heroic WIS": 2
-      }
+        "Heroic WIS": 2,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 944
     },
     {
       "id": 940027,
@@ -314,8 +332,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic AGI": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 944
     },
     {
       "id": 940028,
@@ -415,7 +435,8 @@
         "Armor class": 1,
         "Heroic STA": 3,
         "Heroic AGI": 3
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940041,
@@ -432,8 +453,10 @@
         "Mana": 44,
         "Armor class": 2,
         "Heroic STA": 4,
-        "Heroic AGI": 4
-      }
+        "Heroic AGI": 4,
+        "Hunt shield block (%)": 1
+      },
+      "icon": 946
     },
     {
       "id": 940042,
@@ -450,8 +473,10 @@
         "Mana": 57,
         "Armor class": 3,
         "Heroic STA": 5,
-        "Heroic AGI": 5
-      }
+        "Heroic AGI": 5,
+        "Hunt shield block (%)": 1
+      },
+      "icon": 946
     },
     {
       "id": 940043,
@@ -468,8 +493,10 @@
         "Mana": 72,
         "Armor class": 4,
         "Heroic STA": 6,
-        "Heroic AGI": 6
-      }
+        "Heroic AGI": 6,
+        "Hunt shield block (%)": 2
+      },
+      "icon": 946
     },
     {
       "id": 940044,
@@ -566,7 +593,8 @@
         "Spell Damage": 1,
         "Heroic STA": 2,
         "Heroic INT": 2
-      }
+      },
+      "icon": 947
     },
     {
       "id": 940073,
@@ -581,10 +609,11 @@
       "stats": {
         "HP": 29,
         "Mana": 29,
-        "Spell Damage": 1,
+        "Spell Damage": 2,
         "Heroic STA": 3,
         "Heroic INT": 3
-      }
+      },
+      "icon": 947
     },
     {
       "id": 940074,
@@ -599,10 +628,11 @@
       "stats": {
         "HP": 38,
         "Mana": 38,
-        "Spell Damage": 2,
+        "Spell Damage": 4,
         "Heroic STA": 4,
         "Heroic INT": 4
-      }
+      },
+      "icon": 947
     },
     {
       "id": 940075,
@@ -617,10 +647,11 @@
       "stats": {
         "HP": 48,
         "Mana": 48,
-        "Spell Damage": 3,
+        "Spell Damage": 8,
         "Heroic STA": 5,
         "Heroic INT": 5
-      }
+      },
+      "icon": 947
     },
     {
       "id": 940076,
@@ -719,8 +750,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 1,
-        "Heroic AGI": 1
-      }
+        "Heroic AGI": 1,
+        "Avoidance": 1
+      },
+      "icon": 948
     },
     {
       "id": 940081,
@@ -737,8 +770,10 @@
         "Mana": 18,
         "Armor class": 1,
         "Heroic STA": 2,
-        "Heroic AGI": 2
-      }
+        "Heroic AGI": 2,
+        "Avoidance": 2
+      },
+      "icon": 948
     },
     {
       "id": 940082,
@@ -755,8 +790,10 @@
         "Mana": 24,
         "Armor class": 1,
         "Heroic STA": 3,
-        "Heroic AGI": 3
-      }
+        "Heroic AGI": 3,
+        "Avoidance": 3
+      },
+      "icon": 948
     },
     {
       "id": 940083,
@@ -773,8 +810,10 @@
         "Mana": 30,
         "Armor class": 2,
         "Heroic STA": 4,
-        "Heroic AGI": 4
-      }
+        "Heroic AGI": 4,
+        "Avoidance": 4
+      },
+      "icon": 948
     },
     {
       "id": 940084,
@@ -871,7 +910,8 @@
         "Attack": 1,
         "Heroic AGI": 2,
         "Heroic DEX": 2
-      }
+      },
+      "icon": 949
     },
     {
       "id": 940089,
@@ -889,7 +929,8 @@
         "Attack": 1,
         "Heroic AGI": 3,
         "Heroic DEX": 3
-      }
+      },
+      "icon": 949
     },
     {
       "id": 940090,
@@ -906,8 +947,10 @@
         "Mana": 38,
         "Attack": 2,
         "Heroic AGI": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 949
     },
     {
       "id": 940091,
@@ -924,8 +967,10 @@
         "Mana": 48,
         "Attack": 3,
         "Heroic AGI": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 949
     },
     {
       "id": 940092,
@@ -1025,8 +1070,10 @@
         "Mana": 20,
         "Attack": 1,
         "Heroic STR": 2,
-        "Heroic DEX": 2
-      }
+        "Heroic DEX": 2,
+        "Accuracy": 2
+      },
+      "icon": 950
     },
     {
       "id": 940097,
@@ -1043,8 +1090,10 @@
         "Mana": 29,
         "Attack": 1,
         "Heroic STR": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Accuracy": 3
+      },
+      "icon": 950
     },
     {
       "id": 940098,
@@ -1061,8 +1110,10 @@
         "Mana": 38,
         "Attack": 2,
         "Heroic STR": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Accuracy": 4
+      },
+      "icon": 950
     },
     {
       "id": 940099,
@@ -1079,8 +1130,10 @@
         "Mana": 48,
         "Attack": 3,
         "Heroic STR": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Accuracy": 5
+      },
+      "icon": 950
     },
     {
       "id": 940100,
@@ -1181,7 +1234,8 @@
         "Attack": 1,
         "Heroic AGI": 2,
         "Heroic DEX": 2
-      }
+      },
+      "icon": 951
     },
     {
       "id": 940105,
@@ -1199,7 +1253,8 @@
         "Attack": 1,
         "Heroic AGI": 3,
         "Heroic DEX": 3
-      }
+      },
+      "icon": 951
     },
     {
       "id": 940106,
@@ -1216,8 +1271,10 @@
         "Mana": 38,
         "Attack": 2,
         "Heroic AGI": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 951
     },
     {
       "id": 940107,
@@ -1234,8 +1291,10 @@
         "Mana": 48,
         "Attack": 3,
         "Heroic AGI": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 951
     },
     {
       "id": 940108,
@@ -1335,7 +1394,8 @@
         "Mana": 12,
         "Heroic STA": 1,
         "Heroic INT": 1
-      }
+      },
+      "icon": 952
     },
     {
       "id": 940113,
@@ -1352,8 +1412,10 @@
         "Mana": 18,
         "Spell Damage": 1,
         "Heroic STA": 2,
-        "Heroic INT": 2
-      }
+        "Heroic INT": 2,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 952
     },
     {
       "id": 940114,
@@ -1370,8 +1432,10 @@
         "Mana": 24,
         "Spell Damage": 1,
         "Heroic STA": 3,
-        "Heroic INT": 3
-      }
+        "Heroic INT": 3,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 952
     },
     {
       "id": 940115,
@@ -1388,8 +1452,10 @@
         "Mana": 30,
         "Spell Damage": 2,
         "Heroic STA": 4,
-        "Heroic INT": 4
-      }
+        "Heroic INT": 4,
+        "Spell haste focus (%)": 15
+      },
+      "icon": 952
     },
     {
       "id": 940116,
@@ -1488,7 +1554,8 @@
         "Mana": 12,
         "Heroic STR": 1,
         "Heroic DEX": 1
-      }
+      },
+      "icon": 953
     },
     {
       "id": 940121,
@@ -1506,7 +1573,8 @@
         "Attack": 1,
         "Heroic STR": 2,
         "Heroic DEX": 2
-      }
+      },
+      "icon": 953
     },
     {
       "id": 940122,
@@ -1523,8 +1591,10 @@
         "Mana": 24,
         "Attack": 1,
         "Heroic STR": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Shielding (%)": 1
+      },
+      "icon": 953
     },
     {
       "id": 940123,
@@ -1541,8 +1611,10 @@
         "Mana": 30,
         "Attack": 2,
         "Heroic STR": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Shielding (%)": 1
+      },
+      "icon": 953
     },
     {
       "id": 940124,
@@ -1642,7 +1714,8 @@
         "Healing Amount": 2,
         "Heroic STA": 4,
         "Heroic WIS": 4
-      }
+      },
+      "icon": 955
     },
     {
       "id": 940145,
@@ -1659,8 +1732,10 @@
         "Mana": 58,
         "Healing Amount": 3,
         "Heroic STA": 5,
-        "Heroic WIS": 5
-      }
+        "Heroic WIS": 5,
+        "Spell Shielding (%)": 1
+      },
+      "icon": 955
     },
     {
       "id": 940146,
@@ -1677,8 +1752,10 @@
         "Mana": 76,
         "Healing Amount": 4,
         "Heroic STA": 6,
-        "Heroic WIS": 6
-      }
+        "Heroic WIS": 6,
+        "Spell Shielding (%)": 1
+      },
+      "icon": 955
     },
     {
       "id": 940147,
@@ -1695,8 +1772,10 @@
         "Mana": 96,
         "Healing Amount": 5,
         "Heroic STA": 8,
-        "Heroic WIS": 8
-      }
+        "Heroic WIS": 8,
+        "Spell Shielding (%)": 2
+      },
+      "icon": 955
     },
     {
       "id": 940148,
@@ -1795,8 +1874,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STR": 1,
-        "Heroic DEX": 1
-      }
+        "Heroic DEX": 1,
+        "Accuracy": 2
+      },
+      "icon": 956
     },
     {
       "id": 940153,
@@ -1813,8 +1894,10 @@
         "Mana": 18,
         "Attack": 1,
         "Heroic STR": 2,
-        "Heroic DEX": 2
-      }
+        "Heroic DEX": 2,
+        "Accuracy": 3
+      },
+      "icon": 956
     },
     {
       "id": 940154,
@@ -1831,8 +1914,10 @@
         "Mana": 24,
         "Attack": 1,
         "Heroic STR": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Accuracy": 4
+      },
+      "icon": 956
     },
     {
       "id": 940155,
@@ -1849,8 +1934,10 @@
         "Mana": 30,
         "Attack": 2,
         "Heroic STR": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Accuracy": 5
+      },
+      "icon": 956
     },
     {
       "id": 940156,
@@ -1949,7 +2036,8 @@
         "Mana": 6,
         "Heroic STA": 1,
         "Heroic AGI": 1
-      }
+      },
+      "icon": 957
     },
     {
       "id": 940161,
@@ -1966,7 +2054,8 @@
         "Mana": 9,
         "Heroic STA": 1,
         "Heroic AGI": 1
-      }
+      },
+      "icon": 957
     },
     {
       "id": 940162,
@@ -1982,8 +2071,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 2,
-        "Heroic AGI": 2
-      }
+        "Heroic AGI": 2,
+        "Shielding (%)": 1
+      },
+      "icon": 957
     },
     {
       "id": 940163,
@@ -1999,8 +2090,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic STA": 3,
-        "Heroic AGI": 3
-      }
+        "Heroic AGI": 3,
+        "Shielding (%)": 1
+      },
+      "icon": 957
     },
     {
       "id": 940164,
@@ -2096,7 +2189,8 @@
         "Mana": 6,
         "Heroic STA": 1,
         "Heroic INT": 1
-      }
+      },
+      "icon": 958
     },
     {
       "id": 940185,
@@ -2112,8 +2206,10 @@
         "HP": 9,
         "Mana": 9,
         "Heroic STA": 1,
-        "Heroic INT": 1
-      }
+        "Heroic INT": 1,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 958
     },
     {
       "id": 940186,
@@ -2129,8 +2225,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 2,
-        "Heroic INT": 2
-      }
+        "Heroic INT": 2,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 958
     },
     {
       "id": 940187,
@@ -2146,8 +2244,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic STA": 3,
-        "Heroic INT": 3
-      }
+        "Heroic INT": 3,
+        "Spell haste focus (%)": 15
+      },
+      "icon": 958
     },
     {
       "id": 940188,
@@ -2247,7 +2347,8 @@
         "Spell Damage": 1,
         "Heroic STA": 2,
         "Heroic INT": 2
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940193,
@@ -2262,10 +2363,11 @@
       "stats": {
         "HP": 29,
         "Mana": 29,
-        "Spell Damage": 1,
+        "Spell Damage": 2,
         "Heroic STA": 3,
         "Heroic INT": 3
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940194,
@@ -2280,10 +2382,11 @@
       "stats": {
         "HP": 38,
         "Mana": 38,
-        "Spell Damage": 2,
+        "Spell Damage": 4,
         "Heroic STA": 4,
         "Heroic INT": 4
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940195,
@@ -2298,10 +2401,11 @@
       "stats": {
         "HP": 48,
         "Mana": 48,
-        "Spell Damage": 3,
+        "Spell Damage": 8,
         "Heroic STA": 5,
         "Heroic INT": 5
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940196,
@@ -2400,8 +2504,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 1,
-        "Heroic AGI": 1
-      }
+        "Heroic AGI": 1,
+        "Avoidance": 1
+      },
+      "icon": 960
     },
     {
       "id": 940209,
@@ -2418,8 +2524,10 @@
         "Mana": 18,
         "Armor class": 1,
         "Heroic STA": 2,
-        "Heroic AGI": 2
-      }
+        "Heroic AGI": 2,
+        "Avoidance": 2
+      },
+      "icon": 960
     },
     {
       "id": 940210,
@@ -2436,8 +2544,10 @@
         "Mana": 24,
         "Armor class": 1,
         "Heroic STA": 3,
-        "Heroic AGI": 3
-      }
+        "Heroic AGI": 3,
+        "Avoidance": 3
+      },
+      "icon": 960
     },
     {
       "id": 940211,
@@ -2454,8 +2564,10 @@
         "Mana": 30,
         "Armor class": 2,
         "Heroic STA": 4,
-        "Heroic AGI": 4
-      }
+        "Heroic AGI": 4,
+        "Avoidance": 4
+      },
+      "icon": 960
     },
     {
       "id": 940212,
@@ -2551,8 +2663,10 @@
         "Mana": 30,
         "Attack": 1,
         "Heroic STR": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Accuracy": 2
+      },
+      "icon": 961
     },
     {
       "id": 940217,
@@ -2569,8 +2683,10 @@
         "Mana": 44,
         "Attack": 2,
         "Heroic STR": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Accuracy": 3
+      },
+      "icon": 961
     },
     {
       "id": 940218,
@@ -2587,8 +2703,10 @@
         "Mana": 57,
         "Attack": 3,
         "Heroic STR": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Accuracy": 4
+      },
+      "icon": 961
     },
     {
       "id": 940219,
@@ -2605,8 +2723,10 @@
         "Mana": 72,
         "Attack": 4,
         "Heroic STR": 6,
-        "Heroic DEX": 6
-      }
+        "Heroic DEX": 6,
+        "Accuracy": 5
+      },
+      "icon": 961
     },
     {
       "id": 940220,
@@ -2707,7 +2827,8 @@
         "Attack": 2,
         "Heroic STR": 5,
         "Heroic DEX": 5
-      }
+      },
+      "icon": 962
     },
     {
       "id": 940225,
@@ -2724,8 +2845,10 @@
         "Mana": 87,
         "Attack": 3,
         "Heroic STR": 6,
-        "Heroic DEX": 6
-      }
+        "Heroic DEX": 6,
+        "Spell Shielding (%)": 1
+      },
+      "icon": 962
     },
     {
       "id": 940226,
@@ -2742,8 +2865,10 @@
         "Mana": 114,
         "Attack": 5,
         "Heroic STR": 8,
-        "Heroic DEX": 8
-      }
+        "Heroic DEX": 8,
+        "Spell Shielding (%)": 1
+      },
+      "icon": 962
     },
     {
       "id": 940227,
@@ -2760,8 +2885,10 @@
         "Mana": 144,
         "Attack": 6,
         "Heroic STR": 10,
-        "Heroic DEX": 10
-      }
+        "Heroic DEX": 10,
+        "Spell Shielding (%)": 2
+      },
+      "icon": 962
     },
     {
       "id": 940228,
@@ -2861,7 +2988,8 @@
         "Mana": 6,
         "Heroic AGI": 1,
         "Heroic WIS": 1
-      }
+      },
+      "icon": 963
     },
     {
       "id": 940233,
@@ -2877,8 +3005,10 @@
         "HP": 9,
         "Mana": 9,
         "Heroic AGI": 1,
-        "Heroic WIS": 1
-      }
+        "Heroic WIS": 1,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 963
     },
     {
       "id": 940234,
@@ -2894,8 +3024,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic AGI": 2,
-        "Heroic WIS": 2
-      }
+        "Heroic WIS": 2,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 963
     },
     {
       "id": 940235,
@@ -2911,8 +3043,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic AGI": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 963
     },
     {
       "id": 940236,
@@ -3011,7 +3145,8 @@
         "Mana": 12,
         "Heroic AGI": 1,
         "Heroic DEX": 1
-      }
+      },
+      "icon": 964
     },
     {
       "id": 940241,
@@ -3029,7 +3164,8 @@
         "Attack": 1,
         "Heroic AGI": 2,
         "Heroic DEX": 2
-      }
+      },
+      "icon": 964
     },
     {
       "id": 940242,
@@ -3046,8 +3182,10 @@
         "Mana": 24,
         "Attack": 1,
         "Heroic AGI": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 964
     },
     {
       "id": 940243,
@@ -3064,8 +3202,10 @@
         "Mana": 30,
         "Attack": 2,
         "Heroic AGI": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 964
     },
     {
       "id": 940244,
@@ -3164,8 +3304,10 @@
         "Mana": 20,
         "Attack": 1,
         "Heroic STR": 2,
-        "Heroic DEX": 2
-      }
+        "Heroic DEX": 2,
+        "Accuracy": 2
+      },
+      "icon": 965
     },
     {
       "id": 940249,
@@ -3182,8 +3324,10 @@
         "Mana": 29,
         "Attack": 1,
         "Heroic STR": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Accuracy": 3
+      },
+      "icon": 965
     },
     {
       "id": 940250,
@@ -3200,8 +3344,10 @@
         "Mana": 38,
         "Attack": 2,
         "Heroic STR": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Accuracy": 4
+      },
+      "icon": 965
     },
     {
       "id": 940251,
@@ -3218,8 +3364,10 @@
         "Mana": 48,
         "Attack": 3,
         "Heroic STR": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Accuracy": 5
+      },
+      "icon": 965
     },
     {
       "id": 940252,
@@ -3318,8 +3466,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 1,
-        "Heroic WIS": 1
-      }
+        "Heroic WIS": 1,
+        "Healing Amount": 1
+      },
+      "icon": 966
     },
     {
       "id": 940257,
@@ -3334,10 +3484,11 @@
       "stats": {
         "HP": 18,
         "Mana": 18,
-        "Healing Amount": 1,
+        "Healing Amount": 2,
         "Heroic STA": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 966
     },
     {
       "id": 940258,
@@ -3352,10 +3503,11 @@
       "stats": {
         "HP": 24,
         "Mana": 24,
-        "Healing Amount": 1,
+        "Healing Amount": 4,
         "Heroic STA": 3,
         "Heroic WIS": 3
-      }
+      },
+      "icon": 966
     },
     {
       "id": 940259,
@@ -3370,10 +3522,11 @@
       "stats": {
         "HP": 30,
         "Mana": 30,
-        "Healing Amount": 2,
+        "Healing Amount": 8,
         "Heroic STA": 4,
         "Heroic WIS": 4
-      }
+      },
+      "icon": 966
     },
     {
       "id": 940260,
@@ -3473,7 +3626,8 @@
         "Healing Amount": 1,
         "Heroic STA": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 967
     },
     {
       "id": 940265,
@@ -3490,8 +3644,10 @@
         "Mana": 29,
         "Healing Amount": 1,
         "Heroic STA": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 967
     },
     {
       "id": 940266,
@@ -3508,8 +3664,10 @@
         "Mana": 38,
         "Healing Amount": 2,
         "Heroic STA": 4,
-        "Heroic WIS": 4
-      }
+        "Heroic WIS": 4,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 967
     },
     {
       "id": 940267,
@@ -3526,8 +3684,10 @@
         "Mana": 48,
         "Healing Amount": 3,
         "Heroic STA": 5,
-        "Heroic WIS": 5
-      }
+        "Heroic WIS": 5,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 967
     },
     {
       "id": 940268,
@@ -3627,7 +3787,8 @@
         "Mana": 6,
         "Heroic STA": 1,
         "Heroic INT": 1
-      }
+      },
+      "icon": 944
     },
     {
       "id": 940273,
@@ -3644,7 +3805,8 @@
         "Mana": 9,
         "Heroic STA": 1,
         "Heroic INT": 1
-      }
+      },
+      "icon": 944
     },
     {
       "id": 940274,
@@ -3661,7 +3823,8 @@
         "Mana": 12,
         "Heroic STA": 2,
         "Heroic INT": 2
-      }
+      },
+      "icon": 944
     },
     {
       "id": 940275,
@@ -3677,8 +3840,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic STA": 3,
-        "Heroic INT": 3
-      }
+        "Heroic INT": 3,
+        "Faerune": 1
+      },
+      "icon": 944
     },
     {
       "id": 940276,
@@ -3778,7 +3943,8 @@
         "Armor class": 2,
         "Heroic STA": 5,
         "Heroic AGI": 5
-      }
+      },
+      "icon": 945
     },
     {
       "id": 940281,
@@ -3795,8 +3961,10 @@
         "Mana": 87,
         "Armor class": 3,
         "Heroic STA": 6,
-        "Heroic AGI": 6
-      }
+        "Heroic AGI": 6,
+        "Hunt shield block (%)": 1
+      },
+      "icon": 945
     },
     {
       "id": 940282,
@@ -3813,8 +3981,10 @@
         "Mana": 114,
         "Armor class": 5,
         "Heroic STA": 8,
-        "Heroic AGI": 8
-      }
+        "Heroic AGI": 8,
+        "Hunt shield block (%)": 1
+      },
+      "icon": 945
     },
     {
       "id": 940283,
@@ -3831,8 +4001,10 @@
         "Mana": 144,
         "Armor class": 6,
         "Heroic STA": 10,
-        "Heroic AGI": 10
-      }
+        "Heroic AGI": 10,
+        "Hunt shield block (%)": 2
+      },
+      "icon": 945
     },
     {
       "id": 940284,
@@ -3929,7 +4101,8 @@
         "Spell Damage": 1,
         "Heroic STA": 2,
         "Heroic INT": 2
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940313,
@@ -3944,10 +4117,11 @@
       "stats": {
         "HP": 29,
         "Mana": 29,
-        "Spell Damage": 1,
+        "Spell Damage": 2,
         "Heroic STA": 3,
         "Heroic INT": 3
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940314,
@@ -3962,10 +4136,11 @@
       "stats": {
         "HP": 38,
         "Mana": 38,
-        "Spell Damage": 2,
+        "Spell Damage": 4,
         "Heroic STA": 4,
         "Heroic INT": 4
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940315,
@@ -3980,10 +4155,11 @@
       "stats": {
         "HP": 48,
         "Mana": 48,
-        "Spell Damage": 3,
+        "Spell Damage": 8,
         "Heroic STA": 5,
         "Heroic INT": 5
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940316,
@@ -4083,7 +4259,8 @@
         "Mana": 12,
         "Heroic STA": 1,
         "Heroic WIS": 1
-      }
+      },
+      "icon": 947
     },
     {
       "id": 940321,
@@ -4100,8 +4277,10 @@
         "Mana": 18,
         "Healing Amount": 1,
         "Heroic STA": 2,
-        "Heroic WIS": 2
-      }
+        "Heroic WIS": 2,
+        "Spell Shielding (%)": 1
+      },
+      "icon": 947
     },
     {
       "id": 940322,
@@ -4118,8 +4297,10 @@
         "Mana": 24,
         "Healing Amount": 1,
         "Heroic STA": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Spell Shielding (%)": 1
+      },
+      "icon": 947
     },
     {
       "id": 940323,
@@ -4136,8 +4317,10 @@
         "Mana": 30,
         "Healing Amount": 2,
         "Heroic STA": 4,
-        "Heroic WIS": 4
-      }
+        "Heroic WIS": 4,
+        "Spell Shielding (%)": 2
+      },
+      "icon": 947
     },
     {
       "id": 940324,
@@ -4236,7 +4419,8 @@
         "Mana": 6,
         "Heroic STA": 1,
         "Heroic WIS": 1
-      }
+      },
+      "icon": 948
     },
     {
       "id": 940329,
@@ -4252,8 +4436,10 @@
         "HP": 9,
         "Mana": 9,
         "Heroic STA": 1,
-        "Heroic WIS": 1
-      }
+        "Heroic WIS": 1,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 948
     },
     {
       "id": 940330,
@@ -4269,8 +4455,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 2,
-        "Heroic WIS": 2
-      }
+        "Heroic WIS": 2,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 948
     },
     {
       "id": 940331,
@@ -4286,8 +4474,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic STA": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 948
     },
     {
       "id": 940332,
@@ -4386,7 +4576,8 @@
         "Mana": 12,
         "Heroic STA": 1,
         "Heroic AGI": 1
-      }
+      },
+      "icon": 949
     },
     {
       "id": 940337,
@@ -4404,7 +4595,8 @@
         "Armor class": 1,
         "Heroic STA": 2,
         "Heroic AGI": 2
-      }
+      },
+      "icon": 949
     },
     {
       "id": 940338,
@@ -4421,8 +4613,10 @@
         "Mana": 24,
         "Armor class": 1,
         "Heroic STA": 3,
-        "Heroic AGI": 3
-      }
+        "Heroic AGI": 3,
+        "Shielding (%)": 1
+      },
+      "icon": 949
     },
     {
       "id": 940339,
@@ -4439,8 +4633,10 @@
         "Mana": 30,
         "Armor class": 2,
         "Heroic STA": 4,
-        "Heroic AGI": 4
-      }
+        "Heroic AGI": 4,
+        "Shielding (%)": 1
+      },
+      "icon": 949
     },
     {
       "id": 940340,
@@ -4536,8 +4732,10 @@
         "Mana": 30,
         "Armor class": 1,
         "Heroic STA": 3,
-        "Heroic AGI": 3
-      }
+        "Heroic AGI": 3,
+        "Avoidance": 1
+      },
+      "icon": 951
     },
     {
       "id": 940361,
@@ -4554,8 +4752,10 @@
         "Mana": 44,
         "Armor class": 2,
         "Heroic STA": 4,
-        "Heroic AGI": 4
-      }
+        "Heroic AGI": 4,
+        "Avoidance": 2
+      },
+      "icon": 951
     },
     {
       "id": 940362,
@@ -4572,8 +4772,10 @@
         "Mana": 57,
         "Armor class": 3,
         "Heroic STA": 5,
-        "Heroic AGI": 5
-      }
+        "Heroic AGI": 5,
+        "Avoidance": 3
+      },
+      "icon": 951
     },
     {
       "id": 940363,
@@ -4590,8 +4792,10 @@
         "Mana": 72,
         "Armor class": 4,
         "Heroic STA": 6,
-        "Heroic AGI": 6
-      }
+        "Heroic AGI": 6,
+        "Avoidance": 4
+      },
+      "icon": 951
     },
     {
       "id": 940364,
@@ -4688,7 +4892,8 @@
         "Healing Amount": 1,
         "Heroic STA": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 952
     },
     {
       "id": 940369,
@@ -4705,8 +4910,10 @@
         "Mana": 29,
         "Healing Amount": 1,
         "Heroic STA": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 952
     },
     {
       "id": 940370,
@@ -4723,8 +4930,10 @@
         "Mana": 38,
         "Healing Amount": 2,
         "Heroic STA": 4,
-        "Heroic WIS": 4
-      }
+        "Heroic WIS": 4,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 952
     },
     {
       "id": 940371,
@@ -4741,8 +4950,10 @@
         "Mana": 48,
         "Healing Amount": 3,
         "Heroic STA": 5,
-        "Heroic WIS": 5
-      }
+        "Heroic WIS": 5,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 952
     },
     {
       "id": 940372,
@@ -4842,7 +5053,8 @@
         "Mana": 6,
         "Heroic AGI": 1,
         "Heroic WIS": 1
-      }
+      },
+      "icon": 953
     },
     {
       "id": 940385,
@@ -4858,8 +5070,10 @@
         "HP": 9,
         "Mana": 9,
         "Heroic AGI": 1,
-        "Heroic WIS": 1
-      }
+        "Heroic WIS": 1,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 953
     },
     {
       "id": 940386,
@@ -4875,8 +5089,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic AGI": 2,
-        "Heroic WIS": 2
-      }
+        "Heroic WIS": 2,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 953
     },
     {
       "id": 940387,
@@ -4892,8 +5108,10 @@
         "HP": 15,
         "Mana": 15,
         "Heroic AGI": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 953
     },
     {
       "id": 940388,
@@ -4992,7 +5210,8 @@
         "Mana": 12,
         "Heroic AGI": 1,
         "Heroic DEX": 1
-      }
+      },
+      "icon": 954
     },
     {
       "id": 940401,
@@ -5009,8 +5228,10 @@
         "Mana": 18,
         "Attack": 1,
         "Heroic AGI": 2,
-        "Heroic DEX": 2
-      }
+        "Heroic DEX": 2,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 954
     },
     {
       "id": 940402,
@@ -5027,8 +5248,10 @@
         "Mana": 24,
         "Attack": 1,
         "Heroic AGI": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 954
     },
     {
       "id": 940403,
@@ -5045,8 +5268,10 @@
         "Mana": 30,
         "Attack": 2,
         "Heroic AGI": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Spell haste focus (%)": 15
+      },
+      "icon": 954
     },
     {
       "id": 940404,
@@ -5146,7 +5371,8 @@
         "Healing Amount": 1,
         "Heroic AGI": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 955
     },
     {
       "id": 940409,
@@ -5164,7 +5390,8 @@
         "Healing Amount": 1,
         "Heroic AGI": 3,
         "Heroic WIS": 3
-      }
+      },
+      "icon": 955
     },
     {
       "id": 940410,
@@ -5181,8 +5408,10 @@
         "Mana": 38,
         "Healing Amount": 2,
         "Heroic AGI": 4,
-        "Heroic WIS": 4
-      }
+        "Heroic WIS": 4,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 955
     },
     {
       "id": 940411,
@@ -5199,8 +5428,10 @@
         "Mana": 48,
         "Healing Amount": 3,
         "Heroic AGI": 5,
-        "Heroic WIS": 5
-      }
+        "Heroic WIS": 5,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 955
     },
     {
       "id": 940412,
@@ -5299,8 +5530,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STR": 1,
-        "Heroic DEX": 1
-      }
+        "Heroic DEX": 1,
+        "Accuracy": 2
+      },
+      "icon": 956
     },
     {
       "id": 940417,
@@ -5317,8 +5550,10 @@
         "Mana": 18,
         "Attack": 1,
         "Heroic STR": 2,
-        "Heroic DEX": 2
-      }
+        "Heroic DEX": 2,
+        "Accuracy": 3
+      },
+      "icon": 956
     },
     {
       "id": 940418,
@@ -5335,8 +5570,10 @@
         "Mana": 24,
         "Attack": 1,
         "Heroic STR": 3,
-        "Heroic DEX": 3
-      }
+        "Heroic DEX": 3,
+        "Accuracy": 4
+      },
+      "icon": 956
     },
     {
       "id": 940419,
@@ -5353,8 +5590,10 @@
         "Mana": 30,
         "Attack": 2,
         "Heroic STR": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Accuracy": 5
+      },
+      "icon": 956
     },
     {
       "id": 940420,
@@ -5454,7 +5693,8 @@
         "Spell Damage": 1,
         "Heroic STA": 3,
         "Heroic INT": 3
-      }
+      },
+      "icon": 957
     },
     {
       "id": 940425,
@@ -5472,7 +5712,8 @@
         "Spell Damage": 2,
         "Heroic STA": 4,
         "Heroic INT": 4
-      }
+      },
+      "icon": 957
     },
     {
       "id": 940426,
@@ -5487,10 +5728,11 @@
       "stats": {
         "HP": 57,
         "Mana": 57,
-        "Spell Damage": 3,
+        "Spell Damage": 4,
         "Heroic STA": 5,
         "Heroic INT": 5
-      }
+      },
+      "icon": 957
     },
     {
       "id": 940427,
@@ -5505,10 +5747,11 @@
       "stats": {
         "HP": 72,
         "Mana": 72,
-        "Spell Damage": 4,
+        "Spell Damage": 8,
         "Heroic STA": 6,
         "Heroic INT": 6
-      }
+      },
+      "icon": 957
     },
     {
       "id": 940428,
@@ -5609,7 +5852,8 @@
         "Healing Amount": 1,
         "Heroic STA": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 958
     },
     {
       "id": 940457,
@@ -5624,10 +5868,11 @@
       "stats": {
         "HP": 29,
         "Mana": 29,
-        "Healing Amount": 1,
+        "Healing Amount": 2,
         "Heroic STA": 3,
         "Heroic WIS": 3
-      }
+      },
+      "icon": 958
     },
     {
       "id": 940458,
@@ -5642,10 +5887,11 @@
       "stats": {
         "HP": 38,
         "Mana": 38,
-        "Healing Amount": 2,
+        "Healing Amount": 4,
         "Heroic STA": 4,
         "Heroic WIS": 4
-      }
+      },
+      "icon": 958
     },
     {
       "id": 940459,
@@ -5660,10 +5906,11 @@
       "stats": {
         "HP": 48,
         "Mana": 48,
-        "Healing Amount": 3,
+        "Healing Amount": 8,
         "Heroic STA": 5,
         "Heroic WIS": 5
-      }
+      },
+      "icon": 958
     },
     {
       "id": 940460,
@@ -5764,7 +6011,8 @@
         "Spell Damage": 2,
         "Heroic STA": 5,
         "Heroic INT": 5
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940465,
@@ -5782,7 +6030,8 @@
         "Spell Damage": 3,
         "Heroic STA": 6,
         "Heroic INT": 6
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940466,
@@ -5800,7 +6049,8 @@
         "Spell Damage": 5,
         "Heroic STA": 8,
         "Heroic INT": 8
-      }
+      },
+      "icon": 959
     },
     {
       "id": 940467,
@@ -5817,8 +6067,10 @@
         "Mana": 144,
         "Spell Damage": 6,
         "Heroic STA": 10,
-        "Heroic INT": 10
-      }
+        "Heroic INT": 10,
+        "Faerune": 1
+      },
+      "icon": 959
     },
     {
       "id": 940468,
@@ -5919,7 +6171,8 @@
         "Healing Amount": 1,
         "Heroic AGI": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 960
     },
     {
       "id": 940473,
@@ -5936,8 +6189,10 @@
         "Mana": 29,
         "Healing Amount": 1,
         "Heroic AGI": 3,
-        "Heroic WIS": 3
-      }
+        "Heroic WIS": 3,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 960
     },
     {
       "id": 940474,
@@ -5954,8 +6209,10 @@
         "Mana": 38,
         "Healing Amount": 2,
         "Heroic AGI": 4,
-        "Heroic WIS": 4
-      }
+        "Heroic WIS": 4,
+        "Mana preservation maximum (%)": 5
+      },
+      "icon": 960
     },
     {
       "id": 940475,
@@ -5972,8 +6229,10 @@
         "Mana": 48,
         "Healing Amount": 3,
         "Heroic AGI": 5,
-        "Heroic WIS": 5
-      }
+        "Heroic WIS": 5,
+        "Mana preservation maximum (%)": 10
+      },
+      "icon": 960
     },
     {
       "id": 940476,
@@ -6074,7 +6333,8 @@
         "Healing Amount": 2,
         "Heroic STA": 5,
         "Heroic WIS": 5
-      }
+      },
+      "icon": 961
     },
     {
       "id": 940481,
@@ -6092,7 +6352,8 @@
         "Healing Amount": 3,
         "Heroic STA": 6,
         "Heroic WIS": 6
-      }
+      },
+      "icon": 961
     },
     {
       "id": 940482,
@@ -6110,7 +6371,8 @@
         "Healing Amount": 5,
         "Heroic STA": 8,
         "Heroic WIS": 8
-      }
+      },
+      "icon": 961
     },
     {
       "id": 940483,
@@ -6125,10 +6387,11 @@
       "stats": {
         "HP": 144,
         "Mana": 144,
-        "Healing Amount": 6,
+        "Healing Amount": 8,
         "Heroic STA": 10,
         "Heroic WIS": 10
-      }
+      },
+      "icon": 961
     },
     {
       "id": 940484,
@@ -6227,8 +6490,10 @@
         "HP": 12,
         "Mana": 12,
         "Heroic STA": 1,
-        "Heroic AGI": 1
-      }
+        "Heroic AGI": 1,
+        "Avoidance": 1
+      },
+      "icon": 962
     },
     {
       "id": 940497,
@@ -6245,8 +6510,10 @@
         "Mana": 18,
         "Armor class": 1,
         "Heroic STA": 2,
-        "Heroic AGI": 2
-      }
+        "Heroic AGI": 2,
+        "Avoidance": 2
+      },
+      "icon": 962
     },
     {
       "id": 940498,
@@ -6263,8 +6530,10 @@
         "Mana": 24,
         "Armor class": 1,
         "Heroic STA": 3,
-        "Heroic AGI": 3
-      }
+        "Heroic AGI": 3,
+        "Avoidance": 3
+      },
+      "icon": 962
     },
     {
       "id": 940499,
@@ -6281,8 +6550,10 @@
         "Mana": 30,
         "Armor class": 2,
         "Heroic STA": 4,
-        "Heroic AGI": 4
-      }
+        "Heroic AGI": 4,
+        "Avoidance": 4
+      },
+      "icon": 962
     },
     {
       "id": 940500,
@@ -6378,8 +6649,10 @@
         "Mana": 40,
         "Attack": 2,
         "Heroic AGI": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Accuracy": 2
+      },
+      "icon": 963
     },
     {
       "id": 940505,
@@ -6396,8 +6669,10 @@
         "Mana": 58,
         "Attack": 3,
         "Heroic AGI": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Accuracy": 3
+      },
+      "icon": 963
     },
     {
       "id": 940506,
@@ -6414,8 +6689,10 @@
         "Mana": 76,
         "Attack": 4,
         "Heroic AGI": 6,
-        "Heroic DEX": 6
-      }
+        "Heroic DEX": 6,
+        "Accuracy": 4
+      },
+      "icon": 963
     },
     {
       "id": 940507,
@@ -6432,8 +6709,10 @@
         "Mana": 96,
         "Attack": 5,
         "Heroic AGI": 8,
-        "Heroic DEX": 8
-      }
+        "Heroic DEX": 8,
+        "Accuracy": 5
+      },
+      "icon": 963
     },
     {
       "id": 940508,
@@ -6534,7 +6813,8 @@
         "Healing Amount": 1,
         "Heroic STA": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 964
     },
     {
       "id": 940513,
@@ -6552,7 +6832,8 @@
         "Healing Amount": 1,
         "Heroic STA": 3,
         "Heroic WIS": 3
-      }
+      },
+      "icon": 964
     },
     {
       "id": 940514,
@@ -6570,7 +6851,8 @@
         "Healing Amount": 2,
         "Heroic STA": 4,
         "Heroic WIS": 4
-      }
+      },
+      "icon": 964
     },
     {
       "id": 940515,
@@ -6587,8 +6869,10 @@
         "Mana": 48,
         "Healing Amount": 3,
         "Heroic STA": 5,
-        "Heroic WIS": 5
-      }
+        "Heroic WIS": 5,
+        "Faerune": 1
+      },
+      "icon": 964
     },
     {
       "id": 940516,
@@ -6689,7 +6973,8 @@
         "Attack": 2,
         "Heroic AGI": 5,
         "Heroic DEX": 5
-      }
+      },
+      "icon": 965
     },
     {
       "id": 940521,
@@ -6706,8 +6991,10 @@
         "Mana": 87,
         "Attack": 3,
         "Heroic AGI": 6,
-        "Heroic DEX": 6
-      }
+        "Heroic DEX": 6,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 965
     },
     {
       "id": 940522,
@@ -6724,8 +7011,10 @@
         "Mana": 114,
         "Attack": 5,
         "Heroic AGI": 8,
-        "Heroic DEX": 8
-      }
+        "Heroic DEX": 8,
+        "Spell haste focus (%)": 7
+      },
+      "icon": 965
     },
     {
       "id": 940523,
@@ -6742,8 +7031,10 @@
         "Mana": 144,
         "Attack": 6,
         "Heroic AGI": 10,
-        "Heroic DEX": 10
-      }
+        "Heroic DEX": 10,
+        "Spell haste focus (%)": 15
+      },
+      "icon": 965
     },
     {
       "id": 940524,
@@ -6844,7 +7135,8 @@
         "Armor class": 2,
         "Heroic STA": 5,
         "Heroic AGI": 5
-      }
+      },
+      "icon": 966
     },
     {
       "id": 940529,
@@ -6861,8 +7153,10 @@
         "Mana": 87,
         "Armor class": 3,
         "Heroic STA": 6,
-        "Heroic AGI": 6
-      }
+        "Heroic AGI": 6,
+        "Hunt shield block (%)": 1
+      },
+      "icon": 966
     },
     {
       "id": 940530,
@@ -6879,8 +7173,10 @@
         "Mana": 114,
         "Armor class": 5,
         "Heroic STA": 8,
-        "Heroic AGI": 8
-      }
+        "Heroic AGI": 8,
+        "Hunt shield block (%)": 1
+      },
+      "icon": 966
     },
     {
       "id": 940531,
@@ -6897,8 +7193,10 @@
         "Mana": 144,
         "Armor class": 6,
         "Heroic STA": 10,
-        "Heroic AGI": 10
-      }
+        "Heroic AGI": 10,
+        "Hunt shield block (%)": 2
+      },
+      "icon": 966
     },
     {
       "id": 940532,
@@ -6995,7 +7293,8 @@
         "Healing Amount": 2,
         "Heroic STA": 5,
         "Heroic WIS": 5
-      }
+      },
+      "icon": 967
     },
     {
       "id": 940537,
@@ -7013,7 +7312,8 @@
         "Healing Amount": 3,
         "Heroic STA": 6,
         "Heroic WIS": 6
-      }
+      },
+      "icon": 967
     },
     {
       "id": 940538,
@@ -7031,7 +7331,8 @@
         "Healing Amount": 5,
         "Heroic STA": 8,
         "Heroic WIS": 8
-      }
+      },
+      "icon": 967
     },
     {
       "id": 940539,
@@ -7046,10 +7347,11 @@
       "stats": {
         "HP": 144,
         "Mana": 144,
-        "Healing Amount": 6,
+        "Healing Amount": 8,
         "Heroic STA": 10,
         "Heroic WIS": 10
-      }
+      },
+      "icon": 967
     },
     {
       "id": 940540,
@@ -7150,7 +7452,8 @@
         "Attack": 1,
         "Heroic AGI": 2,
         "Heroic DEX": 2
-      }
+      },
+      "icon": 944
     },
     {
       "id": 940545,
@@ -7168,7 +7471,8 @@
         "Attack": 1,
         "Heroic AGI": 3,
         "Heroic DEX": 3
-      }
+      },
+      "icon": 944
     },
     {
       "id": 940546,
@@ -7185,8 +7489,10 @@
         "Mana": 38,
         "Attack": 2,
         "Heroic AGI": 4,
-        "Heroic DEX": 4
-      }
+        "Heroic DEX": 4,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 944
     },
     {
       "id": 940547,
@@ -7203,8 +7509,10 @@
         "Mana": 48,
         "Attack": 3,
         "Heroic AGI": 5,
-        "Heroic DEX": 5
-      }
+        "Heroic DEX": 5,
+        "Dodge modifier (%)": 10
+      },
+      "icon": 944
     },
     {
       "id": 940548,
@@ -7305,7 +7613,8 @@
         "Spell Damage": 2,
         "Heroic STA": 5,
         "Heroic INT": 5
-      }
+      },
+      "icon": 945
     },
     {
       "id": 940561,
@@ -7323,7 +7632,8 @@
         "Spell Damage": 3,
         "Heroic STA": 6,
         "Heroic INT": 6
-      }
+      },
+      "icon": 945
     },
     {
       "id": 940562,
@@ -7341,7 +7651,8 @@
         "Spell Damage": 5,
         "Heroic STA": 8,
         "Heroic INT": 8
-      }
+      },
+      "icon": 945
     },
     {
       "id": 940563,
@@ -7356,10 +7667,11 @@
       "stats": {
         "HP": 144,
         "Mana": 144,
-        "Spell Damage": 6,
+        "Spell Damage": 8,
         "Heroic STA": 10,
         "Heroic INT": 10
-      }
+      },
+      "icon": 945
     },
     {
       "id": 940564,
@@ -7459,7 +7771,8 @@
         "Mana": 12,
         "Heroic AGI": 1,
         "Heroic WIS": 1
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940569,
@@ -7477,7 +7790,8 @@
         "Healing Amount": 1,
         "Heroic AGI": 2,
         "Heroic WIS": 2
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940570,
@@ -7495,7 +7809,8 @@
         "Healing Amount": 1,
         "Heroic AGI": 3,
         "Heroic WIS": 3
-      }
+      },
+      "icon": 946
     },
     {
       "id": 940571,
@@ -7512,8 +7827,10 @@
         "Mana": 30,
         "Healing Amount": 2,
         "Heroic AGI": 4,
-        "Heroic WIS": 4
-      }
+        "Heroic WIS": 4,
+        "Faerune": 1
+      },
+      "icon": 946
     },
     {
       "id": 940572,
@@ -7596,10 +7913,164 @@
         "Heroic WIS": 1,
         "Heroic poison resist": 2
       }
+    },
+    {
+      "id": 940344,
+      "zone": "cazicthule",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Dreadscale Emerald",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 40,
+        "Mana": 40,
+        "Heroic STA": 4,
+        "Heroic WIS": 4,
+        "Healing Amount": 2
+      },
+      "icon": 950
+    },
+    {
+      "id": 940345,
+      "zone": "cazicthule",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Dreadscale Emerald (Polished)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 58,
+        "Mana": 58,
+        "Heroic STA": 5,
+        "Heroic WIS": 5,
+        "Healing Amount": 3
+      },
+      "icon": 950
+    },
+    {
+      "id": 940346,
+      "zone": "cazicthule",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Dreadscale Emerald (Exalted)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 76,
+        "Mana": 76,
+        "Heroic STA": 6,
+        "Heroic WIS": 6,
+        "Shielding (%)": 1,
+        "Healing Amount": 4
+      },
+      "icon": 950
+    },
+    {
+      "id": 940347,
+      "zone": "cazicthule",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Dreadscale Emerald (Ascension)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 96,
+        "Mana": 96,
+        "Heroic STA": 8,
+        "Heroic WIS": 8,
+        "Shielding (%)": 1,
+        "Healing Amount": 5
+      },
+      "icon": 950
+    },
+    {
+      "id": 940592,
+      "zone": "hateplaneb",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Blackspire Prism",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Heroic STA": 5,
+        "Heroic INT": 5,
+        "Spell Damage": 2
+      },
+      "icon": 949
+    },
+    {
+      "id": 940593,
+      "zone": "hateplaneb",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Blackspire Prism (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Heroic STA": 6,
+        "Heroic INT": 6,
+        "Spell Damage": 3
+      },
+      "icon": 949
+    },
+    {
+      "id": 940594,
+      "zone": "hateplaneb",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Blackspire Prism (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Heroic STA": 8,
+        "Heroic INT": 8,
+        "Spell Damage": 5
+      },
+      "icon": 949
+    },
+    {
+      "id": 940595,
+      "zone": "hateplaneb",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Blackspire Prism (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Heroic STA": 10,
+        "Heroic INT": 10,
+        "Spell Damage": 8
+      },
+      "icon": 949
     }
   ],
   "chapterhouse": {
-    "updated": "2026-10-23",
+    "updated": "2026-11-06",
     "status": "Live testing",
     "items": [
       {
@@ -7616,9 +8087,10 @@
           "HP": 60,
           "Mana": 60,
           "Heroic STA": 5,
-          "Heroic WIS": 5
+          "Heroic WIS": 5,
+          "Healing Amount": 1
         },
-        "source": "Eligible curated static Chapterhouse enemies"
+        "source": "Any unowned killable Chapterhouse enemy, including scripted combat adds (1.5% family roll)"
       },
       {
         "id": 961001,
@@ -7634,9 +8106,10 @@
           "HP": 87,
           "Mana": 87,
           "Heroic STA": 6,
-          "Heroic WIS": 6
+          "Heroic WIS": 6,
+          "Healing Amount": 2
         },
-        "source": "Eligible curated static Chapterhouse enemies"
+        "source": "Any unowned killable Chapterhouse enemy, including scripted combat adds (1.5% family roll)"
       },
       {
         "id": 961002,
@@ -7652,9 +8125,10 @@
           "HP": 114,
           "Mana": 114,
           "Heroic STA": 8,
-          "Heroic WIS": 8
+          "Heroic WIS": 8,
+          "Healing Amount": 4
         },
-        "source": "Eligible curated static Chapterhouse enemies"
+        "source": "Any unowned killable Chapterhouse enemy, including scripted combat adds (1.5% family roll)"
       },
       {
         "id": 961003,
@@ -7670,9 +8144,10 @@
           "HP": 144,
           "Mana": 144,
           "Heroic STA": 10,
-          "Heroic WIS": 10
+          "Heroic WIS": 10,
+          "Healing Amount": 8
         },
-        "source": "Eligible curated static Chapterhouse enemies"
+        "source": "Any unowned killable Chapterhouse enemy, including scripted combat adds (1.5% family roll)"
       },
       {
         "id": 961010,
