@@ -11,14 +11,46 @@ Zone-only candidate; no restart or new deployment is claimed. Main/OVH promotion
 and exact owner entry/gameplay QA remain pending.
 [Evidence, build and QA](dungeons/readiness-20261106/README.md).
 
-## November6 follow-up — augment visibility correction candidate
+## November6 — Stats function reported; font correction published
 
-A new client Description fix and self-only #augstats equipped-bonus report are
-built/tested for review. Shield Block is shown separately from Shielding, with
-its shield requirement and strongest-only stacking; the report uses actual
-server totals/caps. Signed client candidate2026110601/0.13.3 is not published.
-No production change from this follow-up yet. Owner visible gameplay QA is open.
-[Candidate evidence and exact QA](releases/augment-item-window-20261106/README.md).
+Owner confirms Stats functions. Smaller added rows are corrected to the native
+font/row height; Hunt aug block names the portion already included in total block.
+Signed2026110603 is published/verified: Inventory XML only;147assets and proxy0.13.4
+retained. All148HTTPS hashes/signature/pair verify, wiki510files/private guards pass.
+Native runtime/services were not restarted.
+Revised font/scroll/resize QA remains open. [Details](releases/character-stats-font-20261106/README.md).
+
+## November6 — automatic equipped Stats deployed; owner QA open
+
+Main PR410/313d497c is deployed on OVH with access reopened. Inventory Stats has
+server-backed totals/caps, Shield Block, strongest Hunt contribution, relative
+Dodge, item focus potential and worn Faerune. Refresh is silent and automatic.
+#augstats remains a diagnostic fallback. No gameplay power, loot, player-data,
+cache, rule or command-setting change. Native zone ea6ad532 retains compatible
+world/shared_memory. Stopped backup, saved-state/content/native checks passed.
+
+Signed2026110602/proxy0.13.4 is published:148hosted assets/signature/pair verified;
+only DLL/catalog/Inventory XML changed,145other descriptors/URLs preserved.
+Fully EXIT EQ/use launcher Play; relog alone cannot replace the loaded DLL.
+Wiki20261106-character-stats-v1 passed510-file/rollback/private-download/service
+checks. [Details and exact Palwar/The Hole QA](releases/character-stats-window-20261106/README.md).
+Native pixels, scrolling, actual live refresh and owner gameplay acceptance remain
+open. Automated native fixtures and delivery checks are separate from acceptance.
+
+## November6 follow-up — augment descriptions/totals live; owner QA open
+
+Main PR408/3343d6c8 is deployed on OVH; access is open. The self-only #augstats
+report shows actual equipped Shield Block, Shielding and other combat totals,
+current caps/headroom and stacking. No item power, drops or cache changes.
+Signed client2026110601/proxy0.13.3 is published: all148HTTPS assets/signature/pair
+verified;146unrelated assets preserved. Fully EXIT EQ/use launcher Play for
+normal item Description text showing +1% Polished/Exalted and +2% Ascension Hunt
+shield block, worn-socket/shield requirements and strongest-only stacking.
+
+Wiki20261106-augment-description-v1 passed510-file publication, private-download/
+service preservation and rollback checks. [Details and exact native QA](releases/augment-item-window-20261106/README.md).
+Native visible/gameplay acceptance remains open; isolated native text checks
+and delivery verification are separate from owner acceptance.
 
 ## November 6 — Augments deployed; live QA open
 

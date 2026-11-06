@@ -1,0 +1,14 @@
+{
+  "scope": "entire wiki reviewed against current public source and main previews",
+  "changed_guides": [
+    "augment-audit",
+    "equipment",
+    "commands",
+    "features",
+    "recent-changes"
+  ],
+  "preserved": "all generated item/zone catalogs, home, navigation, assets, build lab and unrelated unreleased previews",
+  "reason": "presentation-only; no item values, drop pools, game power or commands removed",
+  "publication": "verified20261106-character-stats-v1;510files, rollback/private downloads/services pass",
+  "qa": "native visual/gameplay acceptance open"
+}

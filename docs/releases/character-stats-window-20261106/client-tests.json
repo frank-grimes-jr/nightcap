@@ -1,0 +1,72 @@
+[
+  {
+    "test": "equipped-stats-labels",
+    "returncode": 0,
+    "output": "PASS: real label/chat/reset hooks, automatic bounded polling, current caps, stale identity and silent frames\n"
+  },
+  {
+    "test": "augment-item-window",
+    "returncode": 0,
+    "output": "25 checks, 0 failures\n"
+  },
+  {
+    "test": "ui-hooks",
+    "returncode": 0,
+    "output": "Native UI hook controls passed\n"
+  },
+  {
+    "test": "ui-state",
+    "returncode": 0,
+    "output": "UI state controls passed\n"
+  },
+  {
+    "test": "verified-patch",
+    "returncode": 0,
+    "output": "PASS: 21 native patch write/failure cases\n"
+  },
+  {
+    "test": "aa-recommendations-native",
+    "returncode": 0,
+    "output": "Native RoF2 filter, controls, affordability, identity and SEH checks passed\n"
+  },
+  {
+    "test": "aa-allocation-native",
+    "returncode": 0,
+    "output": "167 exact-client checks, 0 failures\n"
+  },
+  {
+    "test": "bazaar-panel-native",
+    "returncode": 0,
+    "output": "Bazaar native hook, relocation, input and lifecycle tests passed\n"
+  },
+  {
+    "test": "pet-state",
+    "returncode": 0,
+    "output": "Pet state controls passed\n"
+  },
+  {
+    "test": "pet-management",
+    "returncode": 0,
+    "output": "pet management state passed\n"
+  },
+  {
+    "test": "equipment-native",
+    "returncode": 0,
+    "output": "78 native equipment checks; 0 failures\n"
+  },
+  {
+    "test": "equipment-scope",
+    "returncode": 0,
+    "output": "PASS: 4096 primary/held/item combinations, item/thread/flag scope, zero/high masks and nesting\n"
+  },
+  {
+    "test": "runtime-config",
+    "returncode": 0,
+    "output": "valid=1 mask=524287 survey=0 reason=\n"
+  },
+  {
+    "test": "runtime-health",
+    "returncode": 0,
+    "output": "{\"schema\":1,\"proxy_version\":\"0.13.4\",\"catalog_sha256\":\"2b84c86f71b61abad4422317c07ff0adca816bed28171771910c98ba3bf06a75\",\"config_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"pid\":7072,\"process_created\":\"123456789\",\"nonce\":\"0123456789abcdef0123456789abcdef\",\"state\":\"ready\",\"required_mask\":524287,\"enabled_mask\":524287,\"applied_mask\":524287,\"mq2_survey\":false,\"reason\":\"\"}\n"
+  }
+]

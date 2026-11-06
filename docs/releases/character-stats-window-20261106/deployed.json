@@ -1,0 +1,96 @@
+{
+  "status": "deployed for live QA",
+  "source_revision": "cadec73f",
+  "runtime": {
+    "image_id": "sha256:cf976e86fd143b45d75c50f9a9d3a8eeef4a363abb7723bc5795b1bd6ab26f3d",
+    "started_at": "2026-11-06T20:05:07.119420143Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ],
+      [
+        "zone",
+        "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "database_restored": false,
+  "item_definitions_changed": false,
+  "cache_changed": false,
+  "command_access": 0,
+  "client_update_required": true,
+  "owner_native_visual_accepted": false,
+  "owner_gameplay_accepted": false,
+  "checks": {
+    "schema": 51,
+    "content": 671
+  },
+  "backup": {
+    "sha256": "2a3378f90a578af4933f32526aba075837085f35a52da9cb74002e2fe971d9be",
+    "compressed_bytes": 65586399,
+    "uncompressed_bytes": 471074187,
+    "gzip_integrity": "passed"
+  },
+  "saved_state_model": "verified before reopening; live player progress is not compared to an old snapshot",
+  "command_scope": "all command settings preserved; existing augstats fallback retained"
+}

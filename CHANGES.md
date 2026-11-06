@@ -12,6 +12,44 @@ candidate; deployment and owner entry/gameplay QA remain pending. Exact source,
 build/tests, preservation, activation boundary and QA:
 `docs/dungeons/readiness-20261106/README.md`.
 
+## 2026-11-06 — Character Stats font correction published
+
+Owner confirms Stats functions; added labels are smaller. Inherit the normal
+stat font/row height, widen values, and rename Hunt contribution to Hunt aug block
+(the strongest augment portion already included in total Shield Block).
+Signed2026110603 changes Inventory XML only;147assets/DLL/catalog remain. No
+server restart or gameplay changes. All148hosted assets/signature/pair verify;147preserved. All service identities/starts
+remain. Wiki510files/rollback/private routes verify. Revised pixel QA is open.
+Evidence: `docs/releases/character-stats-font-20261106/`.
+
+## 2026-11-06 — Server-backed character Stats deployed for live QA
+
+Main PR410 adds automatic server-backed totals/caps to Inventory Stats, including
+Shield Block/Hunt, relative Dodge, worn item focus potential and Faerune. Actual
+damage/healing caps include earned headroom. Missing/stale data shows --. Existing
+#augstats remains a fallback. No item power, stacking, loot, player data, rules,
+cache, command settings or native Client ABI change. Quiet polls retain permission
+checks and avoid command logs/quest callbacks. Supported whole-runtime update,
+fresh stopped backup and saved-state/native/content checks passed; access is open.
+Signed0.13.4/2026110602 changes3/148assets,145unchanged descriptors/URLs retained;
+all HTTPS hashes/production signature/pair verify. Fully EXIT EQ/use launcher Play.
+Wiki510files/rollback/private routes/services verified. Owner native sizing,
+scrolling, refresh and gameplay acceptance remains open.
+Evidence: `docs/releases/character-stats-window-20261106/`.
+
+## 2026-11-06 — Augment descriptions and equipped totals deployed
+
+Deploy the owner-requested live-QA correction from main PR408: #augstats provides
+self-only server-calculated equipped totals/caps; signed client2026110601/0.13.3
+shows Hunt Shield Block in normal item Description with restrictions/stacking.
+Stopped backup, saved-state/content/cache/native checks and reopened access pass.
+All148hosted client assets/signature/pair verified; only DLL/catalog changed,
+146assets preserved. No item power, drop, rule or inventory migration. Fully
+exit EQ/use launcher Play; relogging cannot replace the loaded DLL. The native
+stock250healing cap label is not server truth. Wiki510files/rollback/private
+downloads/services verified. Owner visible/gameplay acceptance remains open.
+Evidence: `docs/releases/augment-item-window-20261106/`.
+
 ## 2026-11-06 — Augment Description and equipped-total correction candidate
 
 Owner exposed a live QA gap: Understone's real shield-block bonus is absent from

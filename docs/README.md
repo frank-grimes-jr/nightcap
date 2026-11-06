@@ -1,5 +1,11 @@
 # Nightcap documentation
 
+- [Stats font correction and Hunt augment block explanation](releases/character-stats-font-20261106/README.md)
+
+- [Automatic character Stats: deployed update and exact native QA](releases/character-stats-window-20261106/README.md)
+
+- [Augment Description and equipped totals: deployed correction and exact QA](releases/augment-item-window-20261106/README.md)
+
 - [November 6 augment-only main/OVH deployment and verified public wiki](releases/augment-audit-20261106/README.md)
 
 - [November 6 augments: deployed live QA, complete list and icon review](audits/augments-20261106/README.md)

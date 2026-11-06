@@ -1,0 +1,21 @@
+{
+  "status": "deployed for live QA; owner native acceptance open",
+  "axes": [
+    "correctness",
+    "readability",
+    "architecture",
+    "security",
+    "performance"
+  ],
+  "owner_native_acceptance": false,
+  "source": {
+    "eq-client-dll/src/equipped_stats_state.h": "137115e5ea099838fa71bc629b0f69d8c2102b109126e2044d0863b408b0b88b",
+    "eq-client-dll/src/ui_hooks.h": "dd5f881028b7c6e025bc6194cd13c7eabd3bf37710c31347947e0b7dd7f13281",
+    "eq-client-dll/src/augment_item_description.h": "bc99248b74cd53ecfbca97ac670205d67aa1188cc5702bef23624481143e8af5",
+    "server-mods/code/common/equipped_stats_protocol.h": "764a7097e6e681530977823a4d89ea3721b94d981c5ebcd4453bdbc9b642c81b",
+    "server-mods/code/zone/gm_commands/nightcapui.cpp": "3aa7684428b3ed2404aada07fe2512c651d65ff7d60de53bc45a1dfbe8d1b6be",
+    "server-mods/code/zone/command.cpp": "256a1124e132850b036eba02743d3234aaddc5baab0c4fa3ae5229df347d3d64",
+    "tools/client_character_stats_ui.py": "f99e2b9e0187274abeacd4e301faff3dd3449e81aa3e1911cff0861a0f4ee8be"
+  },
+  "publication": "OVH native, signed2026110602/all148HTTPS assets and wiki510files verified"
+}

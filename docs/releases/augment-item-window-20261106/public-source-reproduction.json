@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "source_inputs": 79,
+  "method": "main wiki/config plus recorded overrides; all runtime/article/catalog/art source inputs equivalent with LF normalization; public outputs separately verified510files"
+}

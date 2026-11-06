@@ -1,0 +1,286 @@
+--- a/references/client.md
++++ b/references/client.md
+@@ -31,16 +31,28 @@
+ or ordinary slot21 training. Passive focus/worn spell cast level is not an equip
+ level requirement. Native Client layout/vtable, item ABI and gameplay unchanged.
+ 
+-Signed2026110602/proxy0.13.4 changes DLL, paired catalog and Inventory XML only;
+-145 descriptors/URLs and signed history/tombstones/config, recall/cast-bar repairs
+-retained. All148HTTPS hashes/production signature/pair and exact exe preflight
++Current signed2026110603/proxy0.13.4 changes Inventory XML only;147descriptors/URLs,
++DLL/catalog, history/tombstones/config and recall/cast-bar repairs retained.
++The preceding2026110602 introduced the paired DLL/catalog and Stats XML. All148HTTPS hashes/production signature/pair and exact exe preflight
+ verify. Fully EXIT EQ/use normal launcher Play; relog alone cannot replace DLL.
+ Protected client untouched. Existing Hunt Description annotation remains, now
+ pointing to Inventory Stats. Shield requirement/strongest-only text and25 native
+ Description checks remain. New real hook/protocol/collection/XML tests,14 focused
+ native/runtime groups,120-site catalog, Go packages and24 Linux fault tests pass.
+-Owner visible sizing/scroll/refresh and gameplay acceptance remains live QA.
++Owner reports the Stats view functions (November6 screenshot); revised font
++pixels/scroll/resize and broader zone/class lifecycle/gameplay QA remain open.
+ Context topic character-stats pins the reviewed current source and receipts.
++
++Font correction: tools/client_character_stats_ui.py::match_character_stats_font
++inherits Font (including absent/default) and14px height from IWS_Shielding;
++never force Font2 on added Stats labels. Values use75px. Hunt aug block replaces
++the confusing Hunt contribution label; it is already included in total Shield
++Block. Max means strongest Hunt augment, not additive copies. Only15NCST labels
++change.7existing UI tests, exact15-label audit,20Linux publication/recovery tests,
++signature/preflight and all148HTTPS assets verify; no native/DLL/server change.
++Source E:/EQ_Local_Dev/_worktrees/character-stats-font,
++docs/releases/character-stats-font-20261106/; topic character-stats-font.
++
+ 
+ ## Map pack — November3 built; launcher delivery coded, unpublished
+ 
+--- a/references/items.md
++++ b/references/items.md
+@@ -95,7 +95,7 @@
+ matching presentation policy, not just changing lore. Names/spells remain native.
+ 
+ Inventory -> Stats is now the normal equipped-bonus view, automatically refreshed
+-from paired zone ea6ad532 and signed2026110602/proxy0.13.4. Shield Block/Hunt,
++from paired zone ea6ad532 and signed2026110603/proxy0.13.4. Shield Block/Hunt aug block,
+ relative Dodge, worn-item focus potential and Faerune have visible rows. Existing
+ secondary totals/caps come from server getters, including750base damage/healing
+ and up30earned headroom. #augstats remains the detailed component/stacking fallback.
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -20,7 +20,9 @@
+ an older selective/default mirror. New nonvirtual method declaration changes no
+ native Client ABI. Server must deploy before new signed UI to supply snapshots.
+ 
+-Signed0.13.4/2026110602 DLL/catalog/Inventory XML is published; all148assets verify.
++Current signed0.13.4/2026110603 is an XML-only font/label correction;147assets
++including DLL/catalog retained, all148HTTPS assets verify. No runtime restart;
++current native baseline is unchanged. See character-stats-font release receipts.
+ Full EQ exit/launcher Play required. Gameplay and native visible QA remain open.
+ Whole-runtime child-exit supervision remains: never kill one production zone.
+ Do not replay terminal jobs. Held rollback uses the compatible prior image; after
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -139,7 +139,11 @@
+ 
+ ## Zone augments and character Stats — November6 published; native QA open
+ 
+-Current wiki20261106-character-stats-v1 replaces20261106-augment-description-v1.
++Current wiki20261106-character-stats-font-v1 replaces20261106-character-stats-v1.
++Font/label and Hunt explanation updated; all owning guides reviewed;505files
++preserved. Current source/receipt worktree E:/EQ_Local_Dev/_worktrees/character-stats-font,
++docs/releases/character-stats-font-20261106/. Owner reports Stats functioning;
++revised font pixels remain open, separately from broader gameplay acceptance.
+ All510files/503HTML routes, HTTPS/private-download guards, atomic rollback and
+ unchanged service identities/start times verify. Five owning guides/Features/
+ Change Log now direct players to Inventory Stats with automatic server totals,
+@@ -154,7 +158,7 @@
+ unrelated source-only previews; never publish it wholesale. Recorded overrides
+ reproduce actual public source. Historical global source drift remains REVIEW
+ REQUIRED; no blanket ledger advancement. Paired native ea6ad532 and signed
+-2026110602/proxy0.13.4 independently verify. Live testing is not owner visual/
++2026110603/proxy0.13.4 independently verify. Live testing is not owner visual/
+ gameplay acceptance; native scrolling/sizing/refresh checks remain open.
+ 
+ ## Bazaar posting/readability — October28 owner accepted
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -145,7 +145,8 @@
+     "augment_audit_20261106_deployed": "3a0cb2d36d14b0ec6dead3ff44c0b98df3ab5f65 plus reviewed deployment/wiki records",
+     "augment_description_20261106_deployed": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+     "dungeon_readiness_candidate_20261106": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits; not deployed",
+-    "character_stats_20261106_deployed": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records"
++    "character_stats_20261106_deployed": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
++    "character_stats_font_20261106_published": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records"
+   },
+   "topics": {
+     "operations": [
+@@ -1921,6 +1922,27 @@
+         "role": "Reviewed automatic character Stats release; owner native QA open",
+         "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+         "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/README.md",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "24481a0c21a8fef1e6120ccf090716d4e129b0c6d485f6f4bce9e7c4b4f91a66"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/client-public-verification.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "0fb66e83a8cf268ca2b0510c90b2400b3c05d6cce4f6130034aeba18309490d7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/wiki-publication.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
+       }
+     ],
+     "multiclass": [
+@@ -5823,6 +5845,27 @@
+         "role": "Reviewed automatic character Stats release; owner native QA open",
+         "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+         "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/README.md",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "24481a0c21a8fef1e6120ccf090716d4e129b0c6d485f6f4bce9e7c4b4f91a66"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/client-public-verification.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "0fb66e83a8cf268ca2b0510c90b2400b3c05d6cce4f6130034aeba18309490d7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/wiki-publication.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
+       }
+     ],
+     "world": [
+@@ -10971,6 +11014,27 @@
+         "role": "Reviewed automatic character Stats release; owner native QA open",
+         "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+         "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/README.md",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "24481a0c21a8fef1e6120ccf090716d4e129b0c6d485f6f4bce9e7c4b4f91a66"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/client-public-verification.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "0fb66e83a8cf268ca2b0510c90b2400b3c05d6cce4f6130034aeba18309490d7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/wiki-publication.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
+       }
+     ],
+     "admin": [
+@@ -15204,6 +15268,27 @@
+         "role": "Reviewed automatic character Stats release; owner native QA open",
+         "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+         "sha256": "d34525a2845407a19fcc1c6db39f80aa6820f8f7b344762f1d13c641faf1134e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/README.md",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "24481a0c21a8fef1e6120ccf090716d4e129b0c6d485f6f4bce9e7c4b4f91a66"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/client-public-verification.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "0fb66e83a8cf268ca2b0510c90b2400b3c05d6cce4f6130034aeba18309490d7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/wiki-publication.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
+       }
+     ],
+     "factions": [
+@@ -16477,6 +16562,78 @@
+         "revision": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+         "sha256": "09ad1c732052195a17c6e973f2aadb431aad1505b149ab4351d5fe0bbac662a7"
+       }
++    ],
++    "character-stats-font": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "tools/client_character_stats_ui.py",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "feccfd6a40f6f4bf1399c50c5db0be30ffab6131ded5f3f445e50f90792f9b72"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "tools/tests/test_client_character_stats.py",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "2234e894e0310d156d934610ccf654e157f60317f66b24aa86b94385ab2cb26a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/README.md",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "24481a0c21a8fef1e6120ccf090716d4e129b0c6d485f6f4bce9e7c4b4f91a66"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/ui-audit.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "10e6f50391c2c23c0c40f6b837105bce3f7b50b847442081f3062c372a6384d9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/source-merge.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "ce2f164932b1402f2744cc1f16fe17283a71193acb3a025f7e68c263cb2a58e8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/client-public-verification.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "0fb66e83a8cf268ca2b0510c90b2400b3c05d6cce4f6130034aeba18309490d7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/client-published.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "8852c0466a5604e5dff1727ae958c7b4a1a2e0a3d45a1984d6e29fe9d18c139b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/wiki-publication.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/wiki-impact.json",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "e28373cbf3330e759cd9a4fed189c9f093413b4a34d20bcd814b2527fe8d3075"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-font",
++        "path": "docs/releases/character-stats-font-20261106/published-source-overrides.patch",
++        "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
++        "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++        "sha256": "1e99267640c89659b136f17b1200526d9ab67561012d675c61d40e846b4f2c05"
++      }
+     ]
+   }
+ }

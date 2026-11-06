@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "python_groups": {
+    "new_stats_xml": 2,
+    "new_protocol_and_capture": 3,
+    "existing_inventory_ui": 5,
+    "existing_augstats": 2,
+    "public_wiki_core": 15,
+    "public_scope_links_and_stacking": 3
+  },
+  "native_runtime_groups": 14,
+  "all_runtime_fixtures_compiled": true,
+  "exact_client_catalog_sites": 120,
+  "go_packages": [
+    "preflight",
+    "manifest",
+    "runtimehealth"
+  ],
+  "linux_operator_and_publisher_fault_tests": 24,
+  "authenticated_baseline_reproduction": "3fc2b901 byte-for-byte;144 link inputs",
+  "candidate_zone": "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a",
+  "limitations": "Native fixture rendering and delivery checks do not establish owner in-game sizing/scrolling/refresh/gameplay acceptance"
+}

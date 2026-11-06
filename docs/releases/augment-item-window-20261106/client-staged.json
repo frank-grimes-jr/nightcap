@@ -1,0 +1,13 @@
+{
+  "status": "staged_not_published",
+  "files": 6,
+  "linux_tests": "OK",
+  "pins": {
+    "channel.json": "657899ce7c7f61033ba400c8d40f2f31f49a7b704653c78032aaa751e08da0a7",
+    "previous-channel.json": "831f19ab1e0b2584a215a04ef473618e7dbac10aaf4b66344626cbd349781f99",
+    "dinput8.dll": "9a627c1364dc14a70aee82a8c132efdc5c839656409caf8850235bb8dc89814d",
+    "nightcap-patch-sites.json": "17bfd7641dd1119f8dc0686eba34600956880737da908fe71c1b26af84770210",
+    "publish.py": "16b23ea5d3de4f7d24d2ec78fb2cb9d698a33a79e79433d45afcb3863d0c2395",
+    "test_publish.py": "6561bb74c68048fff14e7c3dab210e602b3f108fdeae70f2c69f2d7d8001af6a"
+  }
+}

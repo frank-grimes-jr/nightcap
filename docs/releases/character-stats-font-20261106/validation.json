@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "stats_xml_tests": 2,
+  "gameplay_ui_tests": 5,
+  "public_scope_link_tests": 3,
+  "linux_publisher_tests": 20,
+  "modified_controls": 15,
+  "unrelated_ui_controls": "all preserved",
+  "candidate_proxy_catalog": "retained verified0.13.4 pair",
+  "protected_client": "read only",
+  "runtime": "all five service identities/start times/restarts retained",
+  "owner_acceptance": "Stats functioning reported; revised font pixels remain open"
+}
