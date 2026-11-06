@@ -1,5 +1,43 @@
 # Current Nightcap status
 
+## November 6 — Zone augment audit candidate; not deployed
+
+Fresh production audit covers 58 augment families, 232 definitions and all
+configured zones. Candidate fixes guard/any-NPC eligibility, High Keep scripted
+cleanup and Hate B augment identity; adds balanced secondary choices and replaces
+all glove/default icons with reviewed exotic stock gems. Classic rates stay 1.5%;
+the two managed expedition families move to 1.5%. Only Cazic-Thule/Hate B enable;
+six access-check pools remain off. [Full list, verification, reload/recovery and
+exact in-game QA](audits/augments-20261106/README.md). No production content writes,
+deployment, wiki publication or gameplay acceptance. Existing live release below
+is unchanged.
+
+## Power Source training display — November 4, deployed
+
+Items training in the Power Source slot now show `[Training N%]` (or `[Trained]`) in
+their name, updated each percent, and the client no longer adds their stats (or
+their augments'). Zone only, live on OVH since 09:55 UTC: stopped backup, saved
+state, rule catalog and contract verified; access reopened; no client update. Owner
+in-game test is open. [Release, receipts and test](releases/power-source-xp-display-20261103/README.md).
+
+## NPC Death Touch removed — November 3, deployed
+
+No NPC casts Death Touch anymore: all 17 production spell-list entries (Keeper of
+Souls, The Spiroc Lord and 23 other NPC types) and eight scripted casts are removed.
+Verified stopped backup, player state preserved, gateway reopened. In-game QA and
+the wiki Features/Recent changes update are pending.
+[Evidence, rollback and QA](releases/no-death-touch-20261103/README.md).
+
+## 2026-11-01 — Per-zone Hunt drop rates deployed
+
+Zone Hunt augments now drop at 1.5% per eligible kill (was 0.5%); equipment stays
+0.5%. Rates live in `nightcap_zone_hunt_zones` and come only from
+`config/zone-hunt-rates.json`. Main PR #396; live on OVH since 2026-11-02 00:31 UTC
+(zone `90717ac7`, all 12 zones, access open, no client update). Wiki
+`20261101-hunt-rates-v1` is published. OVH has 678 MB free, below the next
+release's preflight reserve. In-game QA is open:
+[release notes](releases/zone-hunt-rates-20261101/README.md).
+
 ## 2026-11-01 — Solo self-found mode deployed for live testing
 
 Opt-in, permanent SSF characters (tunnel Ancient Chronicler, `walk alone`, level 1). They
@@ -18,7 +56,17 @@ hit 23 such fire giants plus Lord Nagafen; 43 NPCs are flagged server-wide.
 Zone-only fix is on main (PR #389) and live on OVH since 15:36 UTC: all 12
 zones verified, access open, no client update. In-game loot QA is open: [diagnosis, fix and QA](ops/npc-placeholder-loot-20261101/README.md).
 
-## 2026-10-30 — Power Source item experience candidate, not released
+## 2026-11-03 — Power Source item experience deployed (enabled) for owner testing
+
+`Items:PowerSourceItemXP` is **on** in production since 19:42 UTC. Paired world/zone/
+shared_memory were rebuilt from the deployed Hunt-rates source (SSF-era files merged
+without conflict); stopped backup, exact rule catalog, saved state and contract checks
+passed; access reopened; no client update. In-game behaviour, custody and the 4–8 hour
+pacing are unverified; owner is testing. Wiki not published. Disable: `#rules setdb
+Items:PowerSourceItemXP false` + `#rules reload` in each zone; keep these binaries.
+[Release, receipts and test spike](releases/power-source-xp-20261103/README.md).
+
+## 2026-10-30 — Power Source item experience candidate (superseded: deployed 2026-11-03)
 
 Source is on dev/test through PR383/384. The promoted test tree exactly matched
 the tested integration. Main and runtime activation remain gated on owner QA;

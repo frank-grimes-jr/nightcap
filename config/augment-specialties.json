@@ -1,0 +1,13 @@
+{
+  "avoidance": ["qey2hh1", "everfrost", "rathemtn", "butcher", "tutoriala"],
+  "shield_block": ["highkeep", "hole", "fearplane"],
+  "spell_damage": ["runnyeye", "lavastorm", "najena", "mistmoore", "hateplane", "hateplaneb", "tutorialb"],
+  "healing": ["paw", "befallen", "unrest", "gukbottom", "permafrost", "chapterhouse"],
+  "spell_haste": ["beholder", "nektulos", "steamfont", "nedaria", "airplane"],
+  "mana_preservation": ["qeytoqrg", "misty", "innothule", "gfaydark", "oasis", "lakerathe", "guktop", "kael"],
+  "faerune": ["tox", "kedge", "cauldron", "erudsxing"],
+  "dodge": ["northkarana", "eastkarana", "nro", "lfaydark", "kerraridge", "jaggedpine"],
+  "shielding": ["highpass", "blackburrow", "ecommons", "feerrott", "cazicthule"],
+  "accuracy": ["southkarana", "commons", "sro", "soldunga", "crushbone", "oot"],
+  "spell_shielding": ["kithicor", "qcat", "soldungb"]
+}

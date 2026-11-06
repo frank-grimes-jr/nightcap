@@ -2609,7 +2609,9 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 	}
 
 	auto* killer = GetHateDamageTop(this);
-	const bool allow_merchant_corpse = RuleB(Merchant, AllowCorpse);
+	// Killable merchants in an enabled augment zone need a lootable corpse too.
+	// This does not change merchants in cities or other zones without a pool.
+	const bool allow_merchant_corpse = RuleB(Merchant, AllowCorpse) || NightcapHunt::CanDropAugment(*this, hunt_owned);
 	const bool is_merchant = (class_ == Class::Merchant || class_ == Class::AdventureMerchant || MerchantType != 0);
 	const bool is_ldon_treasure = GetClass() == Class::LDoNTreasure;
 	Corpse* corpse = nullptr;
@@ -2654,8 +2656,10 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 			}
 		}
 
-		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
 		if (!NightcapDungeon::PrepareLoot(this, hunt_owned)) { return false; }
+		// Scripted encounter loot cleanup must finish before the zone augment
+		// roll, including High Keep's unowned prison-break guards.
+		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
 		corpse = new Corpse(
 			this,
 			&m_loot_items,

@@ -43,4 +43,10 @@ func TestNotesRequireNewDesktopBeforePackaging(t *testing.T) {
 	if err == nil || !strings.Contains(err.Error(), "desktop version 0.6.0") {
 		t.Fatalf("missing compatibility gate: %v", err)
 	}
+	p.Version = "0.6.0"
+	notes[0].Changes = []manifest.PatchChange{{Kind: "server", Text: "Raised Commonlands drop rates."}}
+	err = buildWithNotes("", "", "", false, 1, "", &p, notes)
+	if err == nil || !strings.Contains(err.Error(), "desktop version 0.7.0") {
+		t.Fatalf("missing server notes gate: %v", err)
+	}
 }

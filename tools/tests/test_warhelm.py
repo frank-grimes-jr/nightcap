@@ -19,7 +19,7 @@ int main(){
  assert(KeeperDungeon(113,0,998860)->zone==113);
  assert(KeeperDungeon(113,100,998860)->zone==113);
  assert(KeeperDungeon(21,0,998820)->zone==760);
- assert(KeeperDungeon(22,0,998812)->zone==76);
+ assert(KeeperDungeon(22,0,998812)->zone==186); // Current ground-level Hate layout; original76 runs remain separate.
 }
 ''')
         rows=content.compile_rows()

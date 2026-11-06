@@ -91,7 +91,7 @@ async function desktop(
               message: "Release 2 is ready. 2 file changes to apply.",
               release: 2,
               patch_notes: [
-                { release: 2, date: "2026-10-12", changes: [{ kind: "feature", text: "Added a Sell All button to merchant windows." }] },
+                { release: 2, date: "2026-10-12", changes: [{ kind: "feature", text: "Added a Sell All button to merchant windows." }, { kind: "server", text: "Raised Commonlands drop rates.", reason: "Solo players were under-geared." }] },
                 { release: 1, date: "2026-10-11", changes: [{ kind: "fix", text: "Fixed a crash when summoning pets." }] },
               ],
               files: [
@@ -242,6 +242,8 @@ test("cancel remains clickable while native Update promise is pending", async ({
   await expect(page.getByRole("progressbar")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Latest update" })).toBeVisible();
   await expect(page.getByText("Added a Sell All button to merchant windows.")).toBeVisible();
+  await expect(page.locator(".change-kind.server")).toHaveText("Server");
+  await expect(page.getByText("Why: Solo players were under-geared.")).toBeVisible();
   await page.locator("summary").filter({ hasText: "Previous patches" }).focus();
   await page.keyboard.press("Enter");
   await expect(page.getByText("Fixed a crash when summoning pets.")).toBeVisible();

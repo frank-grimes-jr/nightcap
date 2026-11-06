@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "retained_source": "/tmp/nightcap-power-source-xp-display-20261103-v1",
+  "files": {
+    "zone/zone_hunt.cpp": {
+      "base_sha256": "3ddc3120d5dfd3c49b931303372d2606a309bcf035fd36bbf46b04efa91001ca",
+      "candidate_sha256": "84d5df74ee8edca5be7e3a15ef8ad39aa7158f86311bece979b921e0c767501a"
+    },
+    "zone/zone_hunt.h": {
+      "base_sha256": "486d8de8bb4305f0659d15cf42bdebd69c6f63ae62094006f4f1cbed0241916e",
+      "candidate_sha256": "b3077ba3c1118d0d28ca7194500c08dbd3da3d7fb69904e5e5607fe8db8077f3"
+    },
+    "common/zone_hunt_policy.h": {
+      "base_sha256": "741a423bf8f81796381c581cd91724d3bb61da8014d06b790ddf6c5f5fd33763",
+      "candidate_sha256": "8fe5254ab1d1e53ccc38505fd9c0b9c77f515ee3bb677d16ad776b4ad5c8e14e"
+    },
+    "zone/bonuses.cpp": {
+      "base_sha256": "0db09954a80653a777a0b7ec98094266382ec08c2638a991615b272de919f047",
+      "candidate_sha256": "e6b19a12e401cd2b0d96c0ab08cbb7b45cc386bf8557fbd102fe0342e159a970"
+    },
+    "zone/attack.cpp": {
+      "base_sha256": "c6f450a686700c74245bff9b75997d3c69135a3adb1b24cae5c0d5ea38707174",
+      "candidate_sha256": "a4b11fe021916c77eddbdeae45e64a72091b3def7047124e16aaeb83d06586b6"
+    },
+    "zone/dungeon_service.cpp": {
+      "base_sha256": "1ed0d0aac82c5e1d2e8ec4e35896687ffd3c7a8832df123eaec0421cb23c1cb8",
+      "candidate_sha256": "a2f506ece21b685210ace070c727957bcfcd6906db16dfe59ff35e3434658d60"
+    }
+  },
+  "flags_sha256": "79bc8f9f818718cdc3effad537290ac6275a6b4bd98ef123a5d25bde25f17f1c",
+  "pch_header_sha256": "045cad0404780de309af45896200f71429598c189cebccd3f8ae15270130a18f",
+  "compiles": [
+    {
+      "unit": "zone_hunt.cpp",
+      "object_sha256": "1868469fb6831519ec329798d9e037ea56b24c2bd9f0ae83011dba6761b3da67",
+      "log": "/tmp/nightcap-augment-audit-20261106-v2/zone_hunt.cpp.log"
+    },
+    {
+      "unit": "bonuses.cpp",
+      "object_sha256": "9ceab13b952a924f194b1b6648bfeacc694e2951f8852e4360e9baf14fd411bd",
+      "log": "/tmp/nightcap-augment-audit-20261106-v2/bonuses.cpp.log"
+    },
+    {
+      "unit": "attack.cpp",
+      "object_sha256": "bc4c178956b847bd5f0c0fe2306675dbd7956362998887e1d0d571531f85d91d",
+      "log": "/tmp/nightcap-augment-audit-20261106-v2/attack.cpp.log"
+    },
+    {
+      "unit": "dungeon_service.cpp",
+      "object_sha256": "363671d5cee45bd28def77c0b110b3a8088d6c8fa3db6fbe4a3669a5f4fcbb5c",
+      "log": "/tmp/nightcap-augment-audit-20261106-v2/dungeon_service.cpp.log"
+    }
+  ],
+  "scope": "four changed translation units; no link, install, production or player QA"
+}

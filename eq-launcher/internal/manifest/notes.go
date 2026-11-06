@@ -10,9 +10,14 @@ import (
 
 const PatchNotesMinimumLauncher = "0.6.0"
 
+// Server changes (database or quest edits with no download) and reasons are
+// new fields; strict decoding in older desktops rejects them, so they gate 0.7.0.
+const ServerNotesMinimumLauncher = "0.7.0"
+
 type PatchChange struct {
-	Kind string `json:"kind"`
-	Text string `json:"text"`
+	Kind   string `json:"kind"`
+	Text   string `json:"text"`
+	Reason string `json:"reason,omitempty"`
 }
 
 type PatchNote struct {
@@ -24,6 +29,26 @@ type PatchNote struct {
 func SupportsPatchNotes(v string) bool {
 	parts, err := version(v)
 	return err == nil && (parts[0] > 0 || parts[1] >= 6)
+}
+
+func SupportsServerNotes(v string) bool {
+	parts, err := version(v)
+	return err == nil && (parts[0] > 0 || parts[1] >= 7)
+}
+
+func UsesServerNotes(notes []PatchNote) bool {
+	for _, note := range notes {
+		for _, change := range note.Changes {
+			if change.Kind == "server" || change.Reason != "" {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func conciseLine(text string, limit int) bool {
+	return utf8.ValidString(text) && strings.TrimSpace(text) == text && len(text) > 0 && utf8.RuneCountInString(text) <= limit && !strings.ContainsFunc(text, unicode.IsControl)
 }
 
 // Notes are signed plain text, newest first. Limits keep the patcher readable
@@ -45,10 +70,10 @@ func ValidatePatchNotes(notes []PatchNote, release uint64) error {
 			return fmt.Errorf("patch notes require 1 to 12 changes")
 		}
 		for _, change := range note.Changes {
-			if change.Kind != "feature" && change.Kind != "fix" {
-				return fmt.Errorf("patch change must be feature or fix")
+			if change.Kind != "feature" && change.Kind != "fix" && change.Kind != "server" {
+				return fmt.Errorf("patch change must be feature, fix or server")
 			}
-			if !utf8.ValidString(change.Text) || strings.TrimSpace(change.Text) != change.Text || len(change.Text) == 0 || utf8.RuneCountInString(change.Text) > 240 || strings.ContainsFunc(change.Text, unicode.IsControl) {
+			if !conciseLine(change.Text, 240) || (change.Reason != "" && !conciseLine(change.Reason, 160)) {
 				return fmt.Errorf("patch changes require concise single-line text")
 			}
 		}

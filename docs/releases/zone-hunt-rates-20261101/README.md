@@ -1,7 +1,43 @@
 # Per-zone Hunt drop rates
 
-Candidate, not deployed. Owner approved the plan and a 1.5% augment default on
-November 1, 2026. Production rollout still needs explicit owner go-ahead.
+Live on OVH since 2026-11-02 00:31 UTC. Owner approved the plan and a 1.5% augment
+default, then authorized main and OVH on November 1 ("Merge to main and OVH").
+In-game drop QA is open.
+
+## OVH rollout — November 2, 00:31 UTC
+
+`rollout.py preflight|activate|open` (and `rollback` after a held activation),
+staged at `/opt/nightcap/releases/zone-hunt-rates-20261101-v1` by `stage.py`. It
+chains SSF's deployed guards (SSF → placeholder loot → Hate boss).
+
+- Main PR #396 (`b7c53b3c`); dev integration PR #395.
+- `build.py`: zone built in `akk-stack-eqemu-server-1` at
+  `/tmp/nightcap-zone-hunt-rates-20261101-v1` from the deployed SSF source plus only
+  `zone_hunt.cpp`/`zone_hunt_policy.h` (both checked against the patch base first;
+  the deployed `zone_hunt.cpp` is CRLF and stays CRLF). Unstripped `8bb96c04…`;
+  `package.py` strip → `90717ac7…` (53,084,304 bytes), ELF runtime identity PASS
+  ([native-identity.json](native-identity.json)). World and shared_memory unchanged.
+- Preflight: image `b821548e…` over base `e67956fa` (SSF); columns absent; 56 rows.
+- Activate: stopped backup 66,091,903 bytes (gzip integrity passed); `rates.sql`
+  added both columns and set all 56 rows to 150/50. Only `nightcap_zone_hunt_zones`
+  changed among 103 saved-state tables; saved state matched the boot model after
+  boot. All 12 zones run `90717ac7`; 51 schema / 671 content checks pass; zero MySQL
+  errors. No Hunt zone booted in the window, so the exact new `Load()` query was run
+  against production for The Hole: one row, `940280 940284 46 0 150 50`.
+- Open: gateway up. No client update. Free disk afterwards: **678 MB**, below the
+  ~778 MB the next release's preflight reserve needs; reclaim space first.
+
+## Wiki — 20261101-hunt-rates-v1
+
+Built from the live source (`feature/hate-density` `b6204eef` + SSF's
+`wiki_edit.py`, rebuilt and matched to all 499 live hashes) plus this release's
+`wiki_edit.py`. Exactly 244 public files changed: 48 zone pages, their 192 augment
+item pages, `zone-hunt`, `equipment`, `recent-changes` and `search-index.json`
+(gear pages already said 0.5%). `publish_wiki.py` ran the Linux updater tests and
+switched the pointer: PASS ([wiki-publication.json](wiki-publication.json)). Public
+`zone-hole.html` shows 1.5%/0.5%.
+
+Not verified: in-game drops at the new rate.
 
 ## What changes
 
@@ -69,4 +105,4 @@ drop the columns while the new binary runs.
 - Disposable MariaDB 10.5.4 rehearsal: apply and rerun both succeed (56 rows at
   150/50), 10001 is rejected by the CHECK, a missing zone row aborts the run.
 
-Not yet verified: the full production zone build, the live apply, and in-game drops.
+Not yet verified: in-game drops at the new rate.

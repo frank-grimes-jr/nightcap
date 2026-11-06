@@ -3,6 +3,7 @@
 #include "common/chapterhouse_policy.h"
 #include "common/warhelm_policy.h"
 #include "common/highkeep_policy.h"
+#include "common/zone_hunt_policy.h"
 #include "common/faction.h"
 #include "common/dungeon_contract.h"
 #include "common/content/world_content_service.h"
@@ -379,8 +380,9 @@ void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 	if (current.dungeon->zone==760 || current.dungeon->zone==113 || current.dungeon->zone==186) { spawns.clear(); }
 	try {
 		auto rows=Query(fmt::format("SELECT p.spawn_id,p.group_id,p.npc_id,p.x,p.y,p.z,p.heading,p.respawn,p.grid_id,s.variance "
-			"FROM nightcap_dungeon_spawns p LEFT JOIN spawn2 s ON p.zone_id=186 AND s.id=p.spawn_id AND s.zone='hateplane' "
-			"WHERE p.zone_id={}",current.dungeon->zone));
+			"FROM nightcap_dungeon_spawns p LEFT JOIN spawn2 s ON p.zone_id=186 AND s.id=({}) "
+			"AND s.zone='hateplane' AND s.version=0 AND s.spawngroupID=p.group_id "
+			"WHERE p.zone_id={}",HateSpawnSourceSQL,current.dungeon->zone));
 		for (auto r=rows.begin();r!=rows.end();++r) {
 			auto s=Spawn2Repository::NewEntity(); s.id=Strings::ToUnsignedInt(r[0]); s.spawngroupID=Strings::ToUnsignedInt(r[1]);
 			s.zone=current.dungeon->name; s.version=0; s.x=std::stof(r[3]); s.y=std::stof(r[4]); s.z=std::stof(r[5]); s.heading=std::stof(r[6]);
@@ -410,37 +412,46 @@ bool PrepareLoot(NPC *npc, bool owned) {
 	}
 	try {
 		const auto &run=current;
+		const NightcapHunt::DeathEligibility augment_death = {true, true, true, false,
+			owned || npc->HasOwner() || npc->IsMerc() || npc->GetSwarmInfo() || npc->GetSwarmOwner(),
+			npc->IsQueuedForCorpse(), true, npc->GetLevel(), 0};
+		const bool augment_eligible = NightcapHunt::AugmentDeathEligible(augment_death, npc->GetBodyType(),
+			npc->GetInvul() || npc->GetSpecialAbility(SpecialAbility::AggroImmunity) ||
+			npc->GetSpecialAbility(SpecialAbility::BeingAggroImmunity) ||
+			npc->GetSpecialAbility(SpecialAbility::HarmFromClientImmunity));
 		// Chapterhouse has no original/global loot. Named relics and the zone
 		// augment use per-run, per-spawn, per-life rolls, outside legacy quality
 		// upgrades and global multipliers. Corpse receipts persist the result.
-		if (run.dungeon->zone==760 && !owned && npc->GetSpawnPointID() && NightcapVigil::Combat(npc->GetNPCTypeID()) &&
+		if (run.dungeon->zone==760 && augment_eligible &&
 			npc->GetEntityVariable("nightcap:vigil-loot").empty()) {
 			const auto spawn=npc->GetSpawnPointID();
 			const auto seed=Mix(run.seed^death_times[spawn]);
+			auto augment_roll=[&](uint32_t stream) { return spawn ? Roll(seed,spawn,stream,10000) : static_cast<uint32_t>(zone->random.Int(0,9999)); };
 			auto add=[&](uint32_t item) {
 				const auto before=npc->GetLootItems().size(); npc->AddItem(item,1,false);
 				if (npc->GetLootItems().size()!=before+1) { throw std::runtime_error("Chapterhouse loot materialization failed"); }
 			};
 			const auto mini=NightcapVigil::MiniReward(npc->GetNPCTypeID());
-			if (mini && Roll(seed,spawn,301,10000)<3500) { add(mini); }
-			if (Roll(seed,spawn,302,10000)<50) {
-				const auto quality=Roll(seed,spawn,303,10000);
+			if (spawn && NightcapVigil::Combat(npc->GetNPCTypeID()) && mini && Roll(seed,spawn,301,10000)<3500) { add(mini); }
+			if (augment_roll(302)<NightcapHunt::ExpeditionAugmentChance) {
+				const auto quality=augment_roll(303);
 				add(NightcapVigil::Augment+(quality<6000 ? 0 : quality<9000 ? 1 : quality<9800 ? 2 : 3));
 			}
 			npc->SetEntityVariable("nightcap:vigil-loot",run.id);
 		}
-		if (run.dungeon->zone==113 && !owned && npc->GetSpawnPointID() && NightcapAshen::Combat(npc->GetNPCTypeID()) &&
+		if (run.dungeon->zone==113 && augment_eligible &&
 			npc->GetEntityVariable("nightcap:ashen-loot").empty()) {
 			const auto spawn=npc->GetSpawnPointID();
 			const auto seed=Mix(run.seed^death_times[spawn]);
+			auto augment_roll=[&](uint32_t stream) { return spawn ? Roll(seed,spawn,stream,10000) : static_cast<uint32_t>(zone->random.Int(0,9999)); };
 			auto add=[&](uint32_t item) {
 				const auto before=npc->GetLootItems().size(); npc->AddItem(item,1,false);
 				if (npc->GetLootItems().size()!=before+1) { throw std::runtime_error("Kael loot materialization failed"); }
 			};
 			const auto mini=NightcapAshen::MiniReward(npc->GetNPCTypeID());
-			if (mini && Roll(seed,spawn,301,10000)<3500) { add(mini); }
-			if (Roll(seed,spawn,302,10000)<50) {
-				const auto quality=Roll(seed,spawn,303,10000);
+			if (spawn && NightcapAshen::Combat(npc->GetNPCTypeID()) && mini && Roll(seed,spawn,301,10000)<3500) { add(mini); }
+			if (augment_roll(302)<NightcapHunt::ExpeditionAugmentChance) {
+				const auto quality=augment_roll(303);
 				add(NightcapAshen::Augment+(quality<6000 ? 0 : quality<9000 ? 1 : quality<9800 ? 2 : 3));
 			}
 			npc->SetEntityVariable("nightcap:ashen-loot",run.id);

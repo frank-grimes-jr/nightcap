@@ -36,7 +36,7 @@ def catalog_articles():
             body += '<h2 id="entrance">Entrance access</h2><p>See <a href="travel.html#hole-entrance">the Paineel passage access note</a> for keyless entrance and internal door access, remaining restrictions and release status.</p>'
         if z['slug'] == 'kithicor':
             body += '<p><strong>Kithicor requires eligible nighttime undead.</strong></p>'
-        body += '<p><strong>Not released:</strong> <a href="zone-hunt.html#regular-combat-preview">broader augment eligibility</a> is prepared for regular combat mobs, including Grind/Raid. The zone rates above and existing equipment rules remain.</p>'
+        body += '<p><strong>Not released:</strong> <a href="zone-hunt.html#regular-combat-preview">November 6 augment eligibility</a> is prepared for any unowned killable NPC, including guards and scripted adds. The zone rates above and existing equipment rules remain.</p>'
         body += '<h2 id="upgrading">Upgrading your finds</h2><p>Forge three identical Base copies into Polished, then four Polished into Exalted or four Exalted into Ascension. Read <a href="zone-hunt.html#forging">the forging guide</a> before using <code>#zoneforge</code>. All new zone rewards have zero merchant resale value.</p><p><a href="zones.html">Browse all 48 reward zones →</a></p>'
         add('zone-'+z['slug'], z['name'], 'Custom augment and equipment rewards · Classic era.', body, 'World')
         for i in rows:
@@ -50,7 +50,7 @@ def catalog_articles():
                 body += '<p>Includes one type-22 augment socket. See <a href="zone-hunt.html#sockets">the augment guide</a>.</p>'
             body += f'<h2 id="source">Where to find it</h2><p>From the <a href="zone-{z["slug"]}.html">{e(z["name"])}</a> reward pool. This family rolls at {rate(z["slug"],i["kind"])} per eligible kill, followed by the quality roll. <strong>{QUALITIES[i["tier"]]}</strong> is {[60,30,8,2][i["tier"]]}% of successful family rolls, not of all kills. See the zone page for eligibility.</p>'
             if i['kind'] == 'Augment':
-                body += '<p><strong>Not released:</strong> the <a href="zone-hunt.html#regular-combat-preview">regular-combat eligibility update</a> broadens this augment family at the same rate.</p>'
+                body += '<p><strong>Not released:</strong> the <a href="zone-hunt.html#regular-combat-preview">November 6 augment eligibility candidate</a> broadens this augment family at the same rate.</p>'
             body += '<h2 id="quality">Quality family</h2><ul>'
             for sibling in rows:
                 if sibling['kind'] == i['kind']:

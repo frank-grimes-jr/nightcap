@@ -1,0 +1,20 @@
+{
+  "status": "PASS for candidate scope",
+  "environment": "Local fixtures, disposable MariaDB, retained-source native build; production content capture read-only",
+  "suites": [
+    {"command": "python -B -m unittest discover -s tools/tests -p test_zone_hunt*.py", "tests": 12, "status": "PASS"},
+    {"command": "python -B -m unittest discover -s tools/tests -p test_augment*.py", "tests": 8, "status": "PASS"},
+    {"command": "python -B -m unittest discover -s tools/tests -p test_chapterhouse*.py", "tests": 5, "status": "PASS; host Perl retry after sandbox DLL-launch error"},
+    {"command": "python -B -m unittest test_warhelm test_warhelm_encounters", "tests": 5, "status": "PASS; corrected obsolete Hate zone76 expectation to current186"},
+    {"command": "python -B -m unittest test_wiki test_refresh test_augment_candidate", "tests": 22, "status": "PASS"}
+  ],
+  "total_passed": 52,
+  "native": "Four complete changed translation units compile; 144 retained link inputs authenticated; original baseline reproduced byte-for-byte; candidate linked. See native-compile.json and native-link.json.",
+  "sql": "232 complete afterimages and exact inverse checksums; replay, item/zone drift, stacking-rule and global feature-state guards rehearsed. See mariadb-rehearsal.json.",
+  "icons": "24 vertical-grid stock gem/orb/crystal icons extracted from the pinned read-only protected client and visually inspected. See icon-evidence.json and icon-review.png.",
+  "unavailable": ["Historical test_warhelm_client archive fixture: prior warhelm-client-candidate-03 archives absent. No client asset edits in this task."],
+  "wiki_ledger": "Historical global drift remains REVIEW REQUIRED; task impacts reviewed separately, without blanket advancement.",
+  "deployment": "Not performed",
+  "public_publication": "Not performed",
+  "player_acceptance": "Pending"
+}

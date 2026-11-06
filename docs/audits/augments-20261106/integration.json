@@ -1,0 +1,34 @@
+{
+  "status": "source integration validated locally; remote promotion pending",
+  "release_base_candidate": "f9247fba93b65147e89bf4992b70c73144346469",
+  "dev_parent": "be81b04eb6e724547f3365a24b0a655b9c14a022",
+  "test_parent": "75ab3bd38daf470b22717436a0e3215697d8b719",
+  "native_and_quests": "All server-mods/code and server-mods/quests contents match the linked release-base candidate; no additional native rebuild required for this merge",
+  "retained_native": "native-link.json authenticates 144 inputs and byte-reproduces the retained live baseline before linking candidate",
+  "preserved_capacity_candidate": {
+    "deploy/production/compose.yaml": "68645752af01e6949432ea9806ac2fe1d429197fd091cd4bfbf55d8e7928b7a2",
+    "tools/zone_capacity.py": "b9a15c3a414b4d5e12556315a775ca7015640f1e5ace3eb70c6f849dc829fa0b",
+    "tools/tests/test_zone_capacity.py": "ad89d137a205752c18ae81ace226682d333431e5e00b7161ca0cdbf2c765835d"
+  },
+  "runtime_boundary": "No capacity activation; do not merge or deploy the entire test branch under augment-only approval. The main-based release candidate excludes the preexisting capacity configuration.",
+  "tests": [
+    {
+      "scope": "Hunt, augment, capacity, historical augment migration",
+      "run": 31,
+      "passed": 29,
+      "skipped": 2,
+      "skipped_reason": "Historical October29 standalone enable/disable MariaDB fixture requires opt-in connection environment; current full augment SQL has its separate successful disposable rehearsal"
+    },
+    {
+      "scope": "wiki, refresh and candidate previews",
+      "run": 22,
+      "passed": 22,
+      "skipped": 0
+    }
+  ],
+  "wiki": "46 authored articles reviewed; existing capacity preview and old bookmarks preserved; superseded October29 augment material explicitly historical; current live stats retained",
+  "exact_qa": "README.md section Exact in-game QA spike, copied into the test-promotion PR body",
+  "production": "unchanged",
+  "public_wiki": "not published",
+  "player_acceptance": "pending"
+}

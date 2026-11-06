@@ -1,0 +1,15 @@
+{
+  "status": "applied and validated",
+  "source_revision": "e13a307de5700270ab250e6d1d7d2544d16746d4",
+  "installed_skill": "C:\\Users\\verre\\.codex\\skills\\nightcap-development",
+  "files": {
+    "items.md": "502d20ae52ebb796f50d9b11661b8994113519a1a41a4537c92b996351bfa926",
+    "wiki.md": "c4196a875a0441cba5bdc978cdfe473194540e61b5b1e6da6c4533ffdb268419",
+    "operations.md": "981781c0323c4d388fc4374fdb1d1d82e35c6b69d6655f60eb5d2ec5f589ae94",
+    "sources.json": "a9b48ad0e1119465ec3df8cdc0fb1030572a82dd08031cbc7b64955a9a1b30fe"
+  },
+  "patch_sha256": "03caeeec575d1c9f6c35f348a69745bdc7d4e112855c13fe76472afa6c10c06d",
+  "source_checks": "18 augment-audit fingerprints unchanged",
+  "validator": "quick_validate.py: Skill is valid",
+  "runtime": "candidate only; no deployment, publication or player acceptance"
+}

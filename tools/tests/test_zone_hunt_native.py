@@ -6,15 +6,17 @@ import test_free_trade as native
 ROOT=Path(__file__).resolve().parents[2]
 
 class NativeZoneHunt(unittest.TestCase):
-    def test_actual_load_with_augment_only_zone(self):
+    def test_actual_load_preserves_actual_augment_and_inherited_gear_rates(self):
         load=native.body((ROOT/'server-mods/code/zone/zone_hunt.cpp').read_text(),'void Load(')
         fixture=(Path(__file__).parent/'zone_hunt_load_fixture.cpp').read_text()
         native.FreeTradeTests.compile_run(self,fixture.replace('// ACTUAL_LOAD',load))
 
     def test_actual_death_award(self):
-        award=native.body((ROOT/'server-mods/code/zone/zone_hunt.cpp').read_text(),'void Award(')
+        source=(ROOT/'server-mods/code/zone/zone_hunt.cpp').read_text()
+        award=native.body(source,'void Award(')
+        eligibility=native.body(source,'bool CanDropAugment(')
         fixture=(Path(__file__).parent/'zone_hunt_death_fixture.cpp').read_text()
-        native.FreeTradeTests.compile_run(self,fixture.replace('// ACTUAL_AWARD',award))
+        native.FreeTradeTests.compile_run(self,fixture.replace('// ACTUAL_AWARD',award).replace('// ACTUAL_ELIGIBILITY',eligibility))
 
     def test_native_caps_and_death_policy(self):
         bonus=(ROOT/'server-mods/code/zone/bonuses.cpp').read_text()

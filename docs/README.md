@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [November 6 augment audit: full list, icons and exact QA](audits/augments-20261106/README.md)
+
 - [Power Source item XP: verified candidate, balance target and exact QA](items/power-source-xp/QA.md)
 - [Zoning capacity: tested candidate, storage blocker and exact QA](ops/zone-capacity-20261030/README.md)
 
