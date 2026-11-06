@@ -25,3 +25,16 @@ All item/zone/catalog values, Home, navigation, other guides/Build Lab/assets
 remain. Publish only scoped changes over the actual public510-file source,
 exclude unrelated main-only previews. Recovery uses a newly signed higher counter
 with prior XML plus current retained assets; never roll the counter back.
+
+## Verified publication
+
+Main PR414/b80a6e0959f1308bcb1e1dd585dee2b90f1019ed is published as signed
+2026110604/proxy0.13.4. Signature, all148descriptors/history and served changed XML
+plus retained DLL/catalog verify. Publisher hashes all147retained files; all five
+service identities/starts/restarts are unchanged. HTTPS scope is3files, not a
+repeated download of unchanged files. No server/DLL/restart/player-data change.
+20Linux publisher fault tests and7UI/3public-scope tests pass. Wiki510files,
+504preserved, rollback/private/service guards pass. Recorded overrides
+reproduce79source inputs/510outputs. Historical global drift stays review-required.
+Owner previously reports Stats functioning; revised display pixels remain QA.
+Exit EQ/use launcher Play to load the XML update.

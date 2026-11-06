@@ -1,0 +1,63 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "character-stats-display": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\tools\\client_character_stats_ui.py",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\tools\\tests\\test_client_character_stats.py",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\README.md",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\ui-audit.json",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\source-merge.json",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\verify_public.py",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\client-public-verification.json",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\client-published.json",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\wiki-publication.json",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\wiki-impact.json",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\docs\\releases\\character-stats-shield-block-20261106\\published-source-overrides.patch",
+        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+        "state": "unchanged"
+      }
+    ]
+  }
+}
