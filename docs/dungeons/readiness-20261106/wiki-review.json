@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "status": "local candidate; no publication",
+  "status": "published for live QA; gameplay acceptance open",
   "articles": [
     {
       "slug": "about",
@@ -49,7 +49,7 @@
     },
     {
       "slug": "dungeon-modes",
-      "decision": "no change",
+      "decision": "published entry guidance / repair history",
       "reason": "Repair restores existing documented Keeper entry; commands, rewards, balance, release labels and saved progress remain."
     },
     {
@@ -169,7 +169,7 @@
     },
     {
       "slug": "recent-changes",
-      "decision": "unpublished candidate note",
+      "decision": "published entry guidance / repair history",
       "reason": "Repair restores existing documented Keeper entry; commands, rewards, balance, release labels and saved progress remain."
     },
     {
@@ -189,7 +189,7 @@
     },
     {
       "slug": "unreleased",
-      "decision": "unpublished candidate note",
+      "decision": "remove superseded local candidate note; no public candidate existed",
       "reason": "Repair restores existing documented Keeper entry; commands, rewards, balance, release labels and saved progress remain."
     },
     {
@@ -216,12 +216,14 @@
   },
   "home_features_commands": "No new feature or command; keep existing guide links, summaries and candidate labels. No repeated announcements.",
   "source_drift": "Historical global ledger remains REVIEW REQUIRED; not advanced.",
-  "public_release": "Existing verified augment-display publication remains unchanged; these candidate notes are unpublished.",
+  "public_release": "20261106-dungeon-readiness-v1",
   "validation": {
     "wiki_content_refresh_tests": 20,
     "built_pages": 503,
     "refresh_result": "REVIEW REQUIRED",
     "historical_changed_paths": 803,
     "ledger_advanced": false
-  }
+  },
+  "publication_verification": "deployment/wiki-public-verification.json;510files/507preserved",
+  "current_source": "Exact public-source reproduction and scoped guide/history edits in deployment/wiki-source-review.json"
 }

@@ -1,0 +1,158 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "dungeon-readiness": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\server-mods\\code\\common\\dungeon_contract.h",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\tools\\dungeon_contract.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\tools\\dungeon_refresh_contract.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\tools\\tests\\test_dungeon_release_readiness.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\tools\\tests\\test_dungeon_lifecycle.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\tools\\build_dungeon_readiness.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\tools\\relink_dungeon_current.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\runtime-contract.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\hate-boss-placement-20261030\\runtime-checks.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\audits\\augments-20261106\\item-preimages.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\README.md",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\native-build-current.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\production-target-contract.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\wiki-review.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\rollout.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\test_rollout.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\linux-tests.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\deployed.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\AUTHORIZATION.md",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\wiki-publication.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\wiki-public-verification.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\wiki-source-review.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\stage.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\run_action.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\verify_cache.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\native-live-cache.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\finalize.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\reproduce_wiki.py",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\public-source-reproduction.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\docs\\dungeons\\readiness-20261106\\deployment\\published-source-inputs.json",
+        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

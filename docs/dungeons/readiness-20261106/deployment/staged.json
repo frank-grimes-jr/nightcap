@@ -1,0 +1,1 @@
+{"stage": "/opt/nightcap/releases/dungeon-readiness-20261106-v1", "base_image": "sha256:cf976e86fd143b45d75c50f9a9d3a8eeef4a363abb7723bc5795b1bd6ab26f3d", "payload_files": 5, "zone_sha256": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a", "source_revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6"}

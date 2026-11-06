@@ -1,0 +1,5 @@
+Record the owner-authorized Keeper repair deployed from main PR #415 (44a8247d). OVH access is open with zone b3ec1608, preserving the current automatic Stats command archive and signed client. The stopped backup passed integrity; all 12 workers, 51 schema/671 content checks, 104 saved-state tables' boot model, expected market rotation and unchanged content/cache/rules/commands verify. No SQL migration, new client update or player/run snapshot restore.
+
+The actual live cache passes all 441 native ItemData guards. The scoped wiki release changes only Dungeon modes, Change Log and search, preserves 507 files, and verifies all 510 canonical HTTPS hashes/security headers plus private-route denials. Main plus recorded source overrides reproduces all outputs. Installed Nightcap world/operations/wiki knowledge and 30 reviewed source fingerprints are validated. Owner entry, complete-run and balance QA remains open; exact steps and immutable deployment/recovery receipts are in docs/dungeons/readiness-20261106/.
+
+This records the completed release and its read-only verification helpers; no additional gameplay deployment is introduced.

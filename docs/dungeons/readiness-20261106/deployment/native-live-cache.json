@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "cache_definitions": 441,
+  "item_bytes": 1332,
+  "runtime_image": "sha256:7e7a42ccf64768dba3d8aebc2509adfbec518a2389523dd950f2bdf05677ae40",
+  "checker_sha256": "9f2916e3b7c5447f74dbd6b57679553c2371d0d540e61bfaf6bb543a4c2281f2",
+  "execution": "Native checker on host; exact active game bind mount authenticated",
+  "scope": "Actual live shared item cache with repaired native CacheMatches; read-only, no player/run mutation"
+}

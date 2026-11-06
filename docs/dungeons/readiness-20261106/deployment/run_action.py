@@ -36,7 +36,10 @@ print(json.dumps({{'status':'started','job':str(job),**identity}}))
 running=proc.exists() and proc.read_text().split()[21]==identity['start_ticks']
 result=json.loads((job/'result.json').read_text()) if (job/'result.json').exists() else None
 tail=(job/'private.log').read_text(errors='replace').splitlines()[-12:]
-print(json.dumps({'job':str(job),'running':running,'result':result,'tail':tail}))
+phase=stage/'evidence'/('activation' if ACTION in ('activate','open') else ACTION)
+receipts=sorted(p.name for p in phase.glob('*.json')) if phase.exists() else []
+backup=json.loads((phase/'backup.json').read_text()).get('gzip_integrity') if (phase/'backup.json').exists() else None
+print(json.dumps({'job':str(job),'running':running,'result':result,'tail':tail,'receipts':receipts,'backup_integrity':backup}))
 '''
     result=subprocess.run(SSH+['sudo -n python3 -'],input=prefix+code,text=True,encoding='utf-8',capture_output=True,timeout=40)
     if result.returncode:raise RuntimeError(result.stderr[-2000:])

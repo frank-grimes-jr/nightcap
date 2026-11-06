@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "previous_release": "20261106-character-stats-shield-block-v1",
+  "files": 510,
+  "changed": [
+    "dungeon-modes.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 507,
+  "source": "E:\\EQ_Local_Dev\\_worktrees\\character-stats-shield-block\\artifacts\\character-stats-shield-block\\wiki-source",
+  "target": "E:\\EQ_Local_Dev\\_worktrees\\dungeon-readiness-20261106\\artifacts\\dungeon-readiness\\wiki-source",
+  "method": "Exact public-source reproduction before scoped two-article edit; no unrelated main previews",
+  "home_features_commands_catalog": "No mechanics, command, item/stat/drop/acquisition or eligibility change; all public values retained",
+  "publication": "prepared only; activation receipt and guarded pointer switch required"
+}

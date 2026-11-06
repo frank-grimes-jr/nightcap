@@ -1,0 +1,556 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -515,56 +515,55 @@
+ Owner gameplay acceptance and complete task-delivery lifecycle QA remain open;
+ exact source/tests/build/rollback boundary and QA: docs/releases/quest-tier-handins-20261022/.
+ 
+-## Classic dungeons and compiled release readiness — November6 repair candidate
+-
+-Raid/Grind remains a live-testing system:21Classic zones plus separate level50
+-Chapterhouse/Kael expeditions. Existing revision2026101601, permanent run UUIDs,
+-native allocation generations, boss credit, corpse envelopes, timers, journal
+-history and once-only reward receipts remain authoritative. Owner entry/full-clear
+-and solo/multiclass balance QA are separately scoped; never reset a run to repair
+-a server/catalog mismatch or infer current acceptance from October16's Befallen QA.
+-
+-November6 owner reports both modes rejected in Crushbone. Read-only checks against
+-the exact retained deployed header pass51schema and669/671content: only
+-vigil/items/0 and compact/items/0 reject the already-released eight expedition
+-augments. Operator overrides validated new SQL afterimages but left compiled
+-SQL/cache guards stale. All dungeons share this fail-closed admission gate.
+-The repaired target passes all51/671 read-only production checks. This proves
+-compatibility, not installation or successful player entry.
+-
+-Current repair source: E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106,
+-base3343d6c8bb9c2d1c66de3e68c1c01309479838f6 with reviewed task edits. Evidence and exact QA:
+-docs/dungeons/readiness-20261106/README.md and its native-build-current.json,
+-production-before.json, production-target-contract.json and wiki-review.json.
+-Context topic dungeon-readiness pins reviewed source/tests/evidence.
+-tools/dungeon_refresh_contract.py applies only the reviewed November6 audit
+-delta to historical compilers/SQL predicates, rejects preimage drift and preserves
+-the current106 Hate layout/density/landmark checks. Do not regenerate from the
+-older650-check/176point main mirror: actual retained live is671checks/223points.
+-Never rerun October16/22 dungeon or November6 augment migrations for this fix.
+-
+-Candidate nativec4a431b832a2d3cc is built/tested,
+-not deployed or player-accepted. Exactly two SQL checks/eight cache cases change;
+-all other native cases,51schema/669other content checks and current Hate placement
+-remain. Actual ItemData/CacheMatches rejects all eight new afterimages before the
+-fix, accepts them after it and rejects icon/healing/focus metadata mutations.
+-Twenty-two dungeon regressions pass; generator output is reproducible. Focus
+-Type/Level/Level2 must accompany active Cinder focus IDs in cache validation.
+-
+-The mandatory current-baseline relink preserves all12command archive members
+-and reproduces deployed3fc2b901 before replacing only dungeon_service.cpp.o.
+-Retain current #augstats, signed0.13.3/2026110601, world/shared_memory, quests,
+-current item definitions and generated cache. This fix needs only the matching
+-zone binary through an authorized supervised whole-runtime restart with a fresh
+-stopped backup and saved-state/market checks; no SQL/cache regeneration/client
+-update or quest/rule reload. Never kill one OVH zone child or restore players.
+-
+-Whole wiki reviewed:41authored articles plus generated catalog impact; only
+-unpublished candidate history/development notes change. Public publication is
+-not claimed; main/server promotion and owner Crushbone Raid/Grind/campaign/Hate
+-regression QA remain pending. Existing reward budgets/rates and legal balance
+-pool are unchanged. Earlier October22 similar stale-item incident is historical;
+-maintain compiled admission guards with every content release.
++## Classic dungeons and compiled release readiness — November6 deployed for live QA
++
++Managed catalog covers21Classic dungeons plus Chapterhouse/Kael expeditions;
++revision2026101601 and all earned UUID/generation ownership remain.
++Owner-approved main PR415/44a8247d and OVH activation are verified. Source:
++E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106; docs/dungeons/readiness-20261106/
++and deployment/ own build, native/operator tests, backup/runtime/wiki receipts,
++recovery and exact owner QA. Access open; native zoneb3ec16082368e0d1.
++All12workers,51schema/671content checks, saved-state boot model and one expected
++market rotation pass. Fresh stopped full backup verified; no player snapshot
++restore. Owner entry/full-clear and solo/multiclass balance acceptance remain open.
++
++The November6 content update left vigil/items/0 and compact/items/0 plus native
++cache cases expecting eight older Chapterhouse/Kael augments. Both modes share
++global fail-closed admission, so unrelated Crushbone requests failed too. Operator
++overrides alone do not update compiled guards. dungeon_refresh_contract.py now
++applies only reviewed release afterimage deltas, rejects compiler/SQL preimage
++drift and retains historical setup SQL. Active Cinder Focus Type/Level/Level2
++are checked. Never learn acceptance hashes from mutable production or rerun old
++dungeon/augment setup. The generator is reproducible.
++
++Retained live authority is671checks/223Hate points, not main's former650/176mirror.
++The106reviewed Hate layout/density/landmark records are authenticated to retained
++headerdfc7aadabc49f94c; all current positions, bosses and progress remain. Only
++two SQL checks/eight native cases change;433other cache cases and all schemas/
++669other content checks remain. Real ItemData/CacheMatches rejects eight released
++afterimages before repair, accepts them after, and rejects33mutations.22dungeon,
++10augment,20wiki and6Linux operator tests pass. A native checker against the
++authenticated active game cache bind mount accepts all441definitions/1332byte
++ItemData records without any player/run write.
++
++Current relink reproduces deployed automatic Stats baselineea6ad532 byte-for-byte
++from144authenticated link inputs, retains all12command archive members/protocol,
++then replaces only the repaired dungeon object. Client's only new declaration
++was nonvirtual RefreshEquippedStats; layout/vtable and other native objects stay.
++Preserve automatic Stats/#augstats, signed0.13.4/2026110604, existing world/
++shared_memory, metadata, content/cache/rules/quests and all earned UUID ledgers,
++corpse envelopes, timers, journal credit and reward receipts. Zone-only repair:
++no SQL/cache regeneration/client update or rule/quest reload. Never reset a run
++to repair entry, restore players or kill an individual OVH zone child.
++
++Activation uses current release guards plus zero-client checks, closed ingress,
++125second native auth drain, supported whole-runtime stop, fresh stopped backup
++and exact boot/market checks before reopening. Terminal one-shot jobs are not
++replayable; failures hold access closed. Compatible held rollback retains current
++data but reintroduces the known Keeper failure; after opening recover forward.
++Wiki20261106-dungeon-readiness-v1 verifies all510HTTPS files/five private denials,507preserved.
++Home/Features/commands/catalog mechanics remain; guide/history carry the repair.
++Context topic dungeon-readiness pins reviewed source and verified deployment.
+ 
+ ## Routing and APIs
+ 
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,37 +1,36 @@
+ # Source authority, builds and reloads
+ 
+-## Current native baseline — November6 automatic equipped Stats
+-
+-Main PR410/313d497c is deployed for owner live QA. Source/worktree:
+-E:/EQ_Local_Dev/_worktrees/character-stats-bonuses,
+-docs/releases/character-stats-window-20261106/ owns all immutable receipts and QA.
+-Zone ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a;
+-runtime image sha256:cf976e86fd143b45d75c50f9a9d3a8eeef4a363abb7723bc5795b1bd6ab26f3d. Access reopened after stopped
+-backup, exact content/rules/cache/all-command-settings guards, saved-state boot
+-model and expected market rotation. No player snapshot restore or player/item
+-migration. Worldf33c5925/shared_memory569394cf remain compatible; no new rules,
+-Client fields/vtable, ItemData or cache ABI. #augstats remains player-access0.
+-
+-Retained build /tmp/nightcap-character-stats-window-20261106-v3 in local
+-akk-stack-eqemu-server-1 reproduces live3fc2b901 from144authenticated inputs before
+-rebuilding only command unity_1 (command.cpp + nightcapui.cpp), preserving the
+-other11archive members. New common/equipped_stats_protocol.h is a recorded input.
+-Retains all prior metadata/SSF/Hunt/placeholder/Hate fixes. Do not rebuild from
+-an older selective/default mirror. New nonvirtual method declaration changes no
+-native Client ABI. Server must deploy before new signed UI to supply snapshots.
++## Current native baseline — November6 Instance Keeper readiness repair
++
++Owner-authorized main PR415/44a8247d is deployed for live QA; access open.
++Source E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106, docs/dungeons/readiness-20261106/deployment/.
++Zoneb3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a;
++imagesha256:7e7a42ccf64768dba3d8aebc2509adfbec518a2389523dd950f2bdf05677ae40. All12worker hashes,51schema/671content checks, fresh stopped full
++backup, saved-state boot model, expected market rotation and unchanged content/
++rules/cache/all-command-settings/quests/client verify. No player snapshot restore,
++item/schema/rule/ItemData/Client-layout or world/shared_memory change. Preserve
++worldf33c5925/shared_memory569394cf and current metadata consumers.
++
++Retained local build /tmp/nightcap-dungeon-readiness-stats-20261106-v1 preserves
++the repaired object from /tmp/nightcap-dungeon-readiness-20261106-v2. It first
++reproduces automatic Stats zoneea6ad532 using its unchanged12member command
++archive/protocol plus144authenticated inputs, then replaces only dungeon TU.
++The older3fc-only orbc88-only Keeper candidates must not overwrite automatic
++Stats. SQL/cache guards must follow released content; operator overrides cannot
++change native admission. Exact tests/evidence/owner QA are in world.md.
+ 
+ Current signed0.13.4/2026110604 is an XML-only single Shield Block display;147assets
+-including DLL/catalog retained;148signed descriptors/3served files verify. No runtime restart;
+-current native baseline is unchanged. See character-stats-shield-block release receipts.
++including DLL/catalog retained;148signed descriptors/3served files verify. That XML-only publication required no runtime restart. See character-stats-shield-block release receipts.
+ Full EQ exit/launcher Play required. Gameplay and native visible QA remain open.
+ Whole-runtime child-exit supervision remains: never kill one production zone.
+ Do not replay terminal jobs. Held rollback uses the compatible prior image; after
+ opening use a fresh compatible forward repair, never an old player snapshot.
+-
+-The unrelated dungeon-readiness-20261106 local candidate was built on3fc2b901.
+-It must reproduce this new ea6ad532 baseline and retain this command archive before
+-any deployment. Its compiled admission/cache guards remain necessary; operator
+-contract overrides alone do not alter native Keeper admission. See world.md.
++No additional client update is needed for this Keeper repair. Gameplay acceptance
++remains open. New release operators must preserve the full current pair and use
++deployment/GM locks, zero native clients, closed-ingress125second auth drain,
++supported whole-runtime stop, stopped backup and exact post-boot verification.
++Never kill a production zone worker or replay terminal jobs. After opening use
++fresh compatible forward repair; no old player/run snapshot restoration.
+ 
+ ## Hate boss placement — October30 deployed; indexed forward continuation
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,19 @@
+ # Official player wiki and Features
++
++## Instance Keeper readiness — November6 published for live QA
++
++Wiki20261106-dungeon-readiness-v1 follows owner-authorized main PR415/OVH activation.
++Exact previous510-file public source reproduced before only Dungeon modes,
++Change Log and search change;507files remain exact. All510canonical HTTPS hashes/
++security headers, five private-route denials (origin404/public403or404), pointer rollback, private downloads,
++Nginx and five service identities/start times verify. No catalog/item/stat/drop/
++command/unlock changes. Home/Features/summaries and all41authored/generated page
++impacts reviewed; main-only previews remain excluded. Historical global source
++drift remains REVIEW REQUIRED, not blanket-approved. Owner gameplay QA is open.
++Source E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106; docs/dungeons/readiness-20261106/deployment/
++owns current public source inputs/overrides, publication and HTTPS evidence.
++Do not republish an older full mirror or claim candidate text is live.
++
+ 
+ ## Hate boss placement — October30 published for live testing
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -147,7 +147,8 @@
+     "dungeon_readiness_candidate_20261106": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits; not deployed",
+     "character_stats_20261106_deployed": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+     "character_stats_font_20261106_published": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+-    "character_stats_single_total_20261106_published": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records"
++    "character_stats_single_total_20261106_published": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++    "dungeon_readiness_deployed_20261106": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6; OVH/wiki verified; owner gameplay QA open"
+   },
+   "topics": {
+     "operations": [
+@@ -6204,8 +6205,8 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/tests/test_dungeon_lifecycle.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "40febc0bbfd7124964c29c519ee650e3dea443f36a388aef46c8af7877dde2e4"
+       },
+       {
+@@ -7107,9 +7108,9 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/dungeon_contract.py",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "22ee0405096b1e843a19a28f9409f93552e0ecb062d19ecc357aab8c2cd4a030",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+@@ -7170,9 +7171,9 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/tests/test_dungeon_lifecycle.py",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "40febc0bbfd7124964c29c519ee650e3dea443f36a388aef46c8af7877dde2e4",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+@@ -7198,15 +7199,15 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "server-mods/code/common/dungeon_contract.h",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "3925fe542edb20b4a6109d5238b21a532363accfea7216af7931a8696a5b172d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/dungeons/runtime-contract.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "3c8d3e9ab3c64903098120b674b9dd3b91d1c517ab6dfbf7fc2a345db9768330"
+       },
+       {
+@@ -7226,8 +7227,8 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/dungeon_refresh_contract.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "892104daa4c0ed17300c4f91733ee9faff2ee620f83c4675c527b4b0416ed9c1"
+       },
+       {
+@@ -8549,9 +8550,9 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "server-mods/code/common/dungeon_contract.h",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "3925fe542edb20b4a6109d5238b21a532363accfea7216af7931a8696a5b172d",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-density",
+@@ -16354,121 +16355,212 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "server-mods/code/common/dungeon_contract.h",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "3925fe542edb20b4a6109d5238b21a532363accfea7216af7931a8696a5b172d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/dungeon_contract.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "22ee0405096b1e843a19a28f9409f93552e0ecb062d19ecc357aab8c2cd4a030"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/dungeon_refresh_contract.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "892104daa4c0ed17300c4f91733ee9faff2ee620f83c4675c527b4b0416ed9c1"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/tests/test_dungeon_release_readiness.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "d254176b1625c832933086f8f13041185c82a9f2f92fc35f2ac305a744f6a1ea"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/tests/test_dungeon_lifecycle.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "40febc0bbfd7124964c29c519ee650e3dea443f36a388aef46c8af7877dde2e4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/build_dungeon_readiness.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "4648728a23d5459a4d6b1da0368e68d4a5baca076510ca7d1725344351a1befb"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "tools/relink_dungeon_current.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "bceffb066402b6da37058e0b619d6320af12f0d906cb1b6618b9d67b9c8980e4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+-        "path": "tools/probe_dungeon_build.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "c6f24063027bf2c092e25bf90f12ef1d240be99c8e8aa8cca7589fdd0babd7f4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+-        "path": "tools/probe_dungeon_readiness.py",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "655064adf66f264c4e73de0e2c41efdfae23e662f6d02850bbed01b8d17eacc4"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "df15ffa282266227f895c2e3c24d8a9de7cf38c4d1913e992cbc37d2199dd05d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/dungeons/runtime-contract.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "3c8d3e9ab3c64903098120b674b9dd3b91d1c517ab6dfbf7fc2a345db9768330"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/hate-boss-placement-20261030/runtime-checks.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "a1a17283134e152e48eefdcced0ba7c081a5f59af432b98e87d9a3a49a5917bd"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/audits/augments-20261106/item-preimages.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "aab03552de59cb5d3ac884a864b2c539d6ae6eefbc90f35fed408a01aa8318e4"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+-        "path": "docs/dungeons/hate-boss-placement-20261030/runtime-checks.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "a1a17283134e152e48eefdcced0ba7c081a5f59af432b98e87d9a3a49a5917bd"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/dungeons/readiness-20261106/README.md",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "d63ea23c03f7c367c2a4815ed6e134f348c5a6a14c27817517a1150683e268ff"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "2094cd308e88e07dd977519002c3a0e1d048d1c73c54bb91e3702192ce51eb45"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/dungeons/readiness-20261106/native-build-current.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "0975632b7962667cb8bac6ffbdb33bd6ef8c2cd90fd35c7bdd9d8502fab2a49e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+-        "path": "docs/dungeons/readiness-20261106/production-before.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "7cfca645846b8362a83a2124270d28bfe3c959a53dafa2b2071295961e272421"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "5f6523f236516e4f4494e9cc4e24cb8c757bd7ae8bfdac4db7eb7d2908a6b011"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/dungeons/readiness-20261106/production-target-contract.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
+         "sha256": "876f11fd845f771f89b5d2fde084153b5c986759cc6c9e9765bc7eecc51eced7"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
+         "path": "docs/dungeons/readiness-20261106/wiki-review.json",
+-        "role": "November6 reviewed Keeper repair candidate; built/tested, no deployment or owner entry QA",
+-        "revision": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits",
+-        "sha256": "114ff05ab36c3d8491f29fe2abfe50ba3b35b5b74e84a9c834d66921bd801c30"
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "42600103a6af584a0103df63ba7728c929107cfeb54414ab036f7c91c81f59e0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/rollout.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "f15ce25244cc13e4c277f9ddfd81f7c82eff09c6cc672268810b3411c2e8492d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/test_rollout.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "f5768ab091ee498512d725b66fd3dadcc56b9efb9a0d9e941c70d2dc4a2ee8eb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/linux-tests.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "2e5aab227f38d3587b4a6e359f3fc4d8b8d8f83b1311f035c1c87ac74af7e282"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/deployed.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "1685d746da6bc6450922c1f8c6c41e169f68ff4857335cf4d13ff41d9a6a0788"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/AUTHORIZATION.md",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "fbb1718c9fbbab2132931b3fa2f67b8baa989fd78e1e3cdbbf0ee096781e1cf6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/wiki-publication.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "e560498e453004e439f429773cb85cddec4277fce3cc45949157fa6a6202bc74"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/wiki-public-verification.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "8a3d2afbd48bd8e9048ed3a5bf6069ec79e86cf820acdd5a71e1817833c11949"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/wiki-source-review.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "310a96a1a7fa6c33f3da89996a60dc38583d13cfae727ff93777817164c1d647"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/stage.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "c673caa72e42f798f84cb875ab972d59b4bbd574d9f900dc769eae683e3ee618"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/run_action.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "bc2e5d5ad9ce6eb282798cc67035f00aa5f4def896022dbb7ce0241f522fcc9b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/verify_cache.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "f41b89e45e74b5d644dd9349eceeb46e1f51360c277ef4a2096b35d704254109"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/native-live-cache.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "f9f2e5068112efa32fcd610d671bf5256460aff0a0e574a2c58169b17cdd071f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/finalize.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "fa57df30d36d2b2dfbbe8d7c82b9b1091a263324d443f8723a28f45eb9b0b0d5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/reproduce_wiki.py",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "6c9c930a7c7b767799396f43fc829e6ad489565c1c3dea55a2b24b7f55e1e86b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/public-source-reproduction.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "dace660382d4cb165f2569beb3048d34b1d9599b21b406bcb2266e61471c9ddb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dungeon-readiness-20261106",
++        "path": "docs/dungeons/readiness-20261106/deployment/published-source-inputs.json",
++        "role": "November6 reviewed Keeper repair deployed for live QA; owner gameplay acceptance open",
++        "revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 + verified release receipts",
++        "sha256": "c2b50feb7571ade5a8f8b445afe255a67b06b2e65f7bc11d209a3f221ea07309"
+       }
+     ],
+     "character-stats": [
