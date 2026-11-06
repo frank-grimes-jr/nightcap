@@ -113,7 +113,9 @@ int main() {
         attack=native.body((ROOT/'server-mods/code/zone/attack.cpp').read_text(),'bool NPC::Death(')
         self.assertLess(attack.index('NightcapDungeon::BeforeDeath'),attack.index('entity_list.QueueClients(killer_mob, app'))
         self.assertLess(attack.index('CheckTrivialMinMaxLevelDrop'),attack.index('NightcapHunt::Award'))
-        self.assertLess(attack.index('NightcapHunt::Award'),attack.index('NightcapDungeon::PrepareLoot'))
+        # November6 expedition cleanup must run before the Hunt augment award,
+        # otherwise that cleanup removes the newly awarded guard/add augment.
+        self.assertLess(attack.index('NightcapDungeon::PrepareLoot'),attack.index('NightcapHunt::Award'))
         self.assertLess(attack.index('NightcapDungeon::PrepareLoot'),attack.index('corpse = new Corpse'))
 
     def test_keeper_has_no_chat_based_transfer_acknowledgement(self):

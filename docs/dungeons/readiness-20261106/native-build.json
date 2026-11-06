@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "Local built candidate only; no installation, deployment or player acceptance",
+  "retained_baseline_shipping_sha256": "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892",
+  "candidate_shipping_sha256": "2c57e5638093d92b1dc56b6a4a99e28618125016c6d060597629d2edaceeca0c",
+  "candidate_unstripped_sha256": "f92c2eaa42b21125a6de1ccc31ecea3a8163705e29b3aa42d5b9280d1b5c3283",
+  "contract_sha256": "3925fe542edb20b4a6109d5238b21a532363accfea7216af7931a8696a5b172d",
+  "changed_sql_checks": [
+    "vigil/items/0",
+    "compact/items/0"
+  ],
+  "schema_checks": 51,
+  "content_checks": 671,
+  "cache_afterimages_accepted": 8,
+  "cache_before_rejections": 8,
+  "cache_negative_mutations": 33,
+  "unchanged_native_cache_cases": 433,
+  "recompiled_units": [
+    "zone/dungeon_service.cpp"
+  ],
+  "retained_link_inputs": 144,
+  "link_inputs_sha256": "266d85357cecb2e2ff8cd07f1396e845b4b7ad5a6dc4d474440b40b6ae096451",
+  "build_directory": "/tmp/nightcap-dungeon-readiness-20261106-v2"
+}

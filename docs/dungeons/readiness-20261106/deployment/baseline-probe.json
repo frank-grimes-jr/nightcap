@@ -1,0 +1,62 @@
+{
+  "services": {
+    "game": {
+      "id": "e34cf3c9c03f7f714f80640bd5ed3371a7c370992ba8466fd88d4eeb551210c6",
+      "image_id": "sha256:cf976e86fd143b45d75c50f9a9d3a8eeef4a363abb7723bc5795b1bd6ab26f3d",
+      "started_at": "2026-11-06T20:05:07.119420143Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-11-06T20:09:19.656041253Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-11-03T14:43:33.34444028Z",
+      "restarts": 3,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "binaries": {
+    "shared_memory": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86",
+    "world": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654",
+    "zone": "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+  },
+  "free_bytes": 20523511808,
+  "functions": {
+    "startup_guards": "def startup_guards():\n    # These native systems are unused by the custom dungeon service. Do not silently\n    # accept startup cleanup; a nonempty case requires its own scoped reconciliation.\n    tables=('shared_tasks','dynamic_zones','dynamic_zone_members','dynamic_zone_lockouts')\n    counts={t:int(sql('SELECT COUNT(*) FROM `'+t+'`;')) for t in tables}\n    assert not any(counts.values()),('Native shared/dynamic systems need audit',counts)\n    for table in ('character_expedition_lockouts','character_task_timers'):\n        counts[table]=int(sql('SELECT COUNT(*) FROM '+table+' WHERE expire_time<=NOW()+INTERVAL 10 MINUTE;'))\n        assert counts[table]==0,'Upcoming native cleanup: '+table\n    # Audit native startup cleanup against the authenticated current schema.\n    # Match the exact retained world purge predicate, including its one-hour\n    # offset. Gameplay expiry alone does not delete the membership on startup.\n    offset=int(sql(\"SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Instances:ExpireOffsetTimeSeconds';\"))\n    assert offset==3600,'Native instance purge offset drift'\n    counts['expiring_instances']=int(sql(f'SELECT COUNT(*) FROM instance_list WHERE never_expires=0 AND expire_at<>0 AND expire_at<=UNIX_TIMESTAMP()+600-{offset};'))\n    assert counts['expiring_instances']==0,'Upcoming instance expiry needs audit'\n    decay=int(sql(\"SELECT COALESCE((SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Character:CorpseDecayTime'),604800000);\"))//1000\n    shadow=sql(\"SELECT LOWER(COALESCE((SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Zone:EnableShadowrest'),'true'));\").strip() in ('true','1')\n    predicate=f'time_of_death<>0 AND UNIX_TIMESTAMP()+600-UNIX_TIMESTAMP(time_of_death)>{decay}'\n    if shadow:predicate+=' AND is_buried=0'\n    counts['decaying_corpses']=int(sql('SELECT COUNT(*) FROM character_corpses WHERE '+predicate+';'))\n    counts['instance_corpses']=int(sql('SELECT COUNT(*) FROM character_corpses c JOIN instance_list i ON i.id=c.instance_id WHERE i.never_expires=0;'))\n    assert counts['decaying_corpses']==counts['instance_corpses']==0,'Upcoming native corpse cleanup needs audit'\n    return counts\n",
+    "health": "def health(): r.call('docker','exec',r.state('game')['Id'],'python3','/opt/nightcap/start.py','--health')\n",
+    "hold": "def hold(folder):\n    errors=[]\n    for args in [('stop','gateway'),('stop','-t','90','game')]:\n        try:r.compose(*args)\n        except BaseException as e:errors.append(type(e).__name__)\n    save(folder/('held-'+str(time.time_ns())+'.json'),{'errors':errors,'database_restored':False})\n"
+  }
+}

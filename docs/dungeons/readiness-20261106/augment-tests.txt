@@ -1,0 +1,15 @@
+test_actual_shield_inventory_scan_and_strongest_only_policy (test_augment_audit.AugmentAudit.test_actual_shield_inventory_scan_and_strongest_only_policy) ... ok
+test_every_family_and_quality_has_a_reviewed_icon_and_specialty (test_augment_audit.AugmentAudit.test_every_family_and_quality_has_a_reviewed_icon_and_specialty) ... ok
+test_expedition_rates_match_default_and_keep_named_reward_gates (test_augment_audit.AugmentAudit.test_expedition_rates_match_default_and_keep_named_reward_gates) ... ok
+test_focus_and_worn_effects_are_real_and_correctly_typed (test_augment_audit.AugmentAudit.test_focus_and_worn_effects_are_real_and_correctly_typed) ... ok
+test_load_and_death_order_preserve_layout_and_scripted_guard_drops (test_augment_audit.AugmentAudit.test_load_and_death_order_preserve_layout_and_scripted_guard_drops) ... ok
+test_migration_is_exact_and_transactional (test_augment_audit.AugmentAudit.test_migration_is_exact_and_transactional) ... ok
+test_no_primary_power_loss_and_small_six_socket_totals (test_augment_audit.AugmentAudit.test_no_primary_power_loss_and_small_six_socket_totals) ... ok
+test_actual_both_expedition_rolls (test_augment_expedition_native.ExpeditionAugments.test_actual_both_expedition_rolls) ... ok
+test_player_registration (test_augment_stats.AugmentStats.test_player_registration) ... ok
+test_report_uses_server_totals_and_shield_gate (test_augment_stats.AugmentStats.test_report_uses_server_totals_and_shield_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 24.928s
+
+OK

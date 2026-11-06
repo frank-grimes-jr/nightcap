@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "tests": 6,
+  "output": "test_bad_native_count_response_is_rejected (test_rollout.KeeperRollout.test_bad_native_count_response_is_rejected) ... ok\ntest_closed_ingress_drains_native_auth_before_whole_game_stop (test_rollout.KeeperRollout.test_closed_ingress_drains_native_auth_before_whole_game_stop) ... ok\ntest_connected_clients_stop_preflight_and_activation_before_mutation (test_rollout.KeeperRollout.test_connected_clients_stop_preflight_and_activation_before_mutation) ... ok\ntest_every_compiled_schema_content_check_runs_without_overrides (test_rollout.KeeperRollout.test_every_compiled_schema_content_check_runs_without_overrides) ... ok\ntest_latest_baseline_and_unrelated_native_binaries_are_preserved (test_rollout.KeeperRollout.test_latest_baseline_and_unrelated_native_binaries_are_preserved) ... ok\ntest_open_never_releases_admissions_after_preservation_failure (test_rollout.KeeperRollout.test_open_never_releases_admissions_after_preservation_failure) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.033s\n\nOK\n"
+}

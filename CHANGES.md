@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-11-06 — Instance Keeper Raid/Grind readiness repair candidate
+
+The November6 expedition augment update left two compiled dungeon item batches
+and eight native cache guards expecting old definitions, blocking both modes in
+every dungeon. Regenerate only the reviewed augment expectations, including
+active focus metadata, while reconciling main's mirror to the retained223-point
+Hate contract. Production read-only verification passes all51schema/671content
+checks. No new item tuning, migration, run reset or client update. Zone-only
+candidate; deployment and owner entry/gameplay QA remain pending. Exact source,
+build/tests, preservation, activation boundary and QA:
+`docs/dungeons/readiness-20261106/README.md`.
+
 ## 2026-11-06 — Single Shield Block display published
 
 Keep one plain Shield Block total including augment bonuses; remove the confusing

@@ -1,0 +1,20 @@
+{
+  "captured_at": "2026-11-06T18:45:32.026109+00:00",
+  "scope": "Production read-only contract checks; no player records",
+  "checks": {
+    "schema": {
+      "total": 51,
+      "failures": []
+    },
+    "content": {
+      "total": 671,
+      "failures": []
+    }
+  },
+  "readiness": [
+    "1048576",
+    "15",
+    "2026101601\t1"
+  ],
+  "drift_logs": []
+}

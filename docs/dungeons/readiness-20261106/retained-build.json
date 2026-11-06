@@ -1,0 +1,15 @@
+{
+  "/tmp/nightcap-power-source-xp-display-20261103-v1": {
+    "source/common/dungeon_contract.h": "dfc7aadabc49f94c800070079ad5fa3a97d81ece107b6a59579b68ec318ffc81",
+    "source/zone/dungeon_service.cpp": "1ed0d0aac82c5e1d2e8ec4e35896687ffd3c7a8832df123eaec0421cb23c1cb8"
+  },
+  "/tmp/nightcap-augment-audit-20261106-v2": {
+    "source/common/dungeon_contract.h": "dfc7aadabc49f94c800070079ad5fa3a97d81ece107b6a59579b68ec318ffc81",
+    "source/zone/dungeon_service.cpp": "a2f506ece21b685210ace070c727957bcfcd6906db16dfe59ff35e3434658d60"
+  },
+  "counts": {
+    "schema": 51,
+    "content": 671
+  },
+  "scope": "Retained authenticated November6 augment build source; no native/runtime mutation"
+}
