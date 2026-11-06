@@ -1,4 +1,4 @@
-"""Preserve the newer deployed augment-report archive in the Keeper candidate; never install."""
+"""Preserve the deployed automatic Stats archive in the Keeper candidate; never install."""
 import json
 from pathlib import Path
 import subprocess
@@ -10,19 +10,27 @@ from pathlib import Path
 import difflib,hashlib,json,shlex,subprocess
 aug=Path('/tmp/nightcap-augment-audit-20261106-v2')
 old=Path('/tmp/nightcap-power-source-xp-display-20261103-v1')
-current=Path('/tmp/nightcap-augment-item-window-20261106-v4')
+current=Path('/tmp/nightcap-character-stats-window-20261106-v3')
 candidate=Path('/tmp/nightcap-dungeon-readiness-20261106-v2')
-dest=Path('/tmp/nightcap-dungeon-readiness-current-20261106-v1')
+dest=Path('/tmp/nightcap-dungeon-readiness-stats-20261106-v1')
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 prior=json.loads((candidate/'evidence.json').read_text());assert prior['status']=='PASS'
 assert sha(candidate/'source/common/dungeon_contract.h')==HEADER_SHA
 assert sha(candidate/'candidate-zone.stripped')==prior['candidate_shipping_sha256']
 evidence=json.loads((current/'evidence.json').read_text());assert evidence['status']=='PASS'
-assert evidence['candidate_zone']=='3fc2b901c98dfc2816298a051f3462a6db0a724ccfa649ff213da3d840186588'
+assert evidence['candidate_zone']=='ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a'
 for name,pin in evidence['afterimages'].items():
  assert sha(current/'source'/name)==pin
  actual=(current/'source'/name).read_bytes().replace(b'\r\n',b'\n').decode()
  assert actual==SOURCES[name],name+'\n'+''.join(difflib.unified_diff(SOURCES[name].splitlines(True),actual.splitlines(True)))[:2000]
+protocol=current/'source/common/equipped_stats_protocol.h'
+assert sha(protocol)==PROTOCOL_SHA
+# The retained Stats release added only a nonvirtual method declaration to Client.
+# It reused these same native dungeon/other objects; no class layout or vtable delta.
+client=(current/'source/zone/client.h').read_text()
+declaration='\tvoid RefreshEquippedStats();\n'
+assert client.count(declaration)==1
+assert client.replace(declaration,'')==(aug/'source/zone/client.h').read_text()
 archive=current/'libgm_commands_zone.a';base_archive=old/'build/zone/libgm_commands_zone.a'
 members=lambda p:subprocess.check_output(['ar','t',str(p)],text=True).splitlines()
 assert members(archive)==members(base_archive) and len(members(archive))==12
@@ -60,21 +68,18 @@ report={**prior,'retained_baseline_shipping_sha256':sha(dest/'baseline-zone.stri
  'build_directory':str(dest),'dungeon_object_sha256':sha(candidate/'dungeon_service.cpp.o'),
  'preserved_command_archive_sha256':sha(archive),'preserved_command_members':12,
  'preserved_command_source_sha256':evidence['afterimages'],
- 'reviewed_mirror_difference':'command.h only: itemxp/factions prototype order; exact retained order is preserved',
- 'scope':'Local Keeper candidate preserves the latest deployed augment Description/report release; no install, restart or player acceptance'}
+ 'preserved_protocol_sha256':PROTOCOL_SHA,
+ 'reviewed_client_header_difference':'only nonvirtual RefreshEquippedStats declaration; same layout/vtable and retained native objects',
+ 'scope':'Local Keeper candidate preserves the latest deployed automatic Stats window and client pair; no install, restart or player acceptance'}
 (dest/'evidence.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
 '''
 
 if __name__ == '__main__':
-    names = ('zone/command.cpp', 'zone/command.h', 'zone/gm_commands/nightcapui.cpp')
+    names = ('zone/client.h', 'zone/command.cpp', 'zone/gm_commands/nightcapui.cpp')
     import hashlib
     sources = {n: (ROOT / 'server-mods/code' / n).read_text(encoding='utf-8') for n in names}
-    # Inspected retained/main diff: declaration order only, no signature change.
-    declarations = 'void command_factions(Client *c, const Seperator *sep);\nvoid command_itemxp(Client *c, const Seperator *sep);'
-    retained = 'void command_itemxp(Client *c, const Seperator *sep);\nvoid command_factions(Client *c, const Seperator *sep);'
-    assert sources['zone/command.h'].count(declarations)==1
-    sources['zone/command.h'] = sources['zone/command.h'].replace(declarations,retained)
     inputs = dict(SOURCES=sources,
+                  PROTOCOL_SHA=hashlib.sha256((ROOT/'server-mods/code/common/equipped_stats_protocol.h').read_text(encoding='utf-8').encode()).hexdigest(),
                   HEADER_SHA=hashlib.sha256((ROOT / 'server-mods/code/common/dungeon_contract.h').read_bytes()).hexdigest(),
                   IDENTITY=(ROOT / 'tools/elf_runtime_identity.py').read_text())
     prefix = ''.join(f'{k}={v!r}\n' for k, v in inputs.items())

@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "scope": "Local Keeper candidate preserves the latest deployed augment Description/report release; no install, restart or player acceptance",
-  "retained_baseline_shipping_sha256": "3fc2b901c98dfc2816298a051f3462a6db0a724ccfa649ff213da3d840186588",
-  "candidate_shipping_sha256": "c4a431b832a2d3cc37868c04ac0dbe73b159e5840ac05cf7a1a67d602f052779",
-  "candidate_unstripped_sha256": "fc841f3988e9ca8a08f401558571ceae94afb548afba71b00cff0712301a3ef5",
+  "scope": "Local Keeper candidate preserves the latest deployed automatic Stats window and client pair; no install, restart or player acceptance",
+  "retained_baseline_shipping_sha256": "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a",
+  "candidate_shipping_sha256": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a",
+  "candidate_unstripped_sha256": "d15f549bb2ea6783ea9b24ef88eab832471db0dd1ed5a8b9748191e26d21e2d7",
   "contract_sha256": "3925fe542edb20b4a6109d5238b21a532363accfea7216af7931a8696a5b172d",
   "changed_sql_checks": [
     "vigil/items/0",
@@ -20,14 +20,15 @@
   ],
   "retained_link_inputs": 144,
   "link_inputs_sha256": "266d85357cecb2e2ff8cd07f1396e845b4b7ad5a6dc4d474440b40b6ae096451",
-  "build_directory": "/tmp/nightcap-dungeon-readiness-current-20261106-v1",
+  "build_directory": "/tmp/nightcap-dungeon-readiness-stats-20261106-v1",
   "dungeon_object_sha256": "cd0d793a368e84bd161d0d2b6731b9cad626da206af12e9d9f0532759a2eccc7",
-  "preserved_command_archive_sha256": "6e0e487e48ea6d791f2b6d3cadab6012bc887a3d4266f99a66aedc30feb586f2",
+  "preserved_command_archive_sha256": "3d935a4d7d5e627bf14e92cece8cfbcf18aa769e19600f9df8293878ebac8091",
   "preserved_command_members": 12,
   "preserved_command_source_sha256": {
-    "zone/command.cpp": "9bc6edfdef05c7b71f140045785f5bdffe9345abc26ec5ccbd761a6732da582b",
-    "zone/command.h": "44caaea7b0f9eae5117f0fa1fe76bf06bbe1e74c0fe30bd1291160ecdcebcb8b",
-    "zone/gm_commands/nightcapui.cpp": "e665a80eca6a139b1aae95c2fef5b7738603efd279bc5dbccc3af895239fd532"
+    "zone/client.h": "f2dd2ae7e322183896996a4707aa97094df5fa263a9ead99e54209a2352f5d91",
+    "zone/gm_commands/nightcapui.cpp": "e81e10e99fdc4fb990c7ce7a6184e9362987e75d5ba93aff203a4c045ecc32c6",
+    "zone/command.cpp": "df30f11e3cefd5182e3fe89f9c2709988c85971c1de91fe78f5591b11245e052"
   },
-  "reviewed_mirror_difference": "command.h only: itemxp/factions prototype order; exact retained order is preserved"
+  "preserved_protocol_sha256": "c0fb04e53bd009fcd4ef3c116f96d7f9865c84c3ff96e032279901104b4cd947",
+  "reviewed_client_header_difference": "only nonvirtual RefreshEquippedStats declaration; same layout/vtable and retained native objects"
 }

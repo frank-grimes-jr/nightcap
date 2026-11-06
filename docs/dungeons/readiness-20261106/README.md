@@ -1,4 +1,4 @@
-# Instance Keeper readiness repair — November 6 candidate
+# Instance Keeper readiness repair — November 6 authorized release
 
 The owner reports that Raid and Grind fail in Crushbone with “Dungeon schema,
 catalog or item cache does not match this release.” This is a shared admission
@@ -59,9 +59,9 @@ The native builder is an isolated, one-use build against retained sources and
 authenticated objects. It reproduces augment zone`bc88a468` before linking the
 replacement dungeon TU. The mandatory current-baseline relink then authenticates
 and retains the newer deployed report command archive, reproduces current
-zone`3fc2b901`, and relinks that baseline with the repaired dungeon object. The
+zone`ea6ad532` (automatic Stats window), and relinks that baseline with the repaired dungeon object. The
 second manifest`native-build-current.json` owns the deployable candidate pairing;
-the first build alone would omit the newer #augstats release. Both preserve the
+the first build alone would omit the newer automatic Stats release. Both preserve the
 same dungeon source and compiled contract baseline. It tests the real ItemData/CacheMatches with all eight
 released afterimages: old guards reject them, repaired guards accept them, and
 changed icons/healing/focus metadata still reject. It preserves every other
@@ -70,19 +70,19 @@ evidence; do not overwrite/replay them without choosing a new isolated path.
 
 ## Activation boundary and recovery
 
-**Candidate only; not deployed and not owner-accepted.** Main promotion and OVH
-activation require current owner authorization under the branch policy. Earlier
-augment authorization is not permission to promote this follow-up.
+**Owner authorized main/OVH promotion for live QA.** See
+`deployment/AUTHORIZATION.md`; activation receipts establish actual deployment.
+Owner entry/gameplay acceptance remains open.
 
 This is a **zone-binary-only** repair, paired with the current November6 content,
-shared item cache, world/shared_memory and signed0.13.3/2026110601 client. No SQL, cache
+shared item cache, world/shared_memory and signed0.13.4/2026110603 client. No SQL, cache
 regeneration, quest/rule reload or client update is needed. The unrelated
-`#augstats`/proxy0.13.3 follow-up deployed during investigation is preserved by the
+automatic Stats/#augstats follow-up deployed during investigation is preserved by the
 mandatory current-baseline relink. Never deploy an older augment-only candidate
 over it or treat a selective source mirror as the complete runtime.
 
 After authorization, prepare a fresh guarded release chained to the November6
-augment-display operator. Before stopping, verify live binary/image/source pins, all corrected
+automatic Stats operator. Before stopping, verify live binary/image/source pins, all corrected
 contract checks, exact current item/cache hashes, services, rules, client/wiki
 publication, zero players and free space; take deployment/GM locks. Close
 admissions, stop the whole game using its supervisor, verify native shutdown,
@@ -93,7 +93,7 @@ expiry and exactly one native market rotation before opening. Retain the UUID
 ledgers, corpse envelopes, timers, claims and all player state.
 
 Failures hold admissions closed. A pre-opening rollback can select the exact
-compatible current augment-display image, preserving current data; it returns to the known
+compatible current automatic Stats image, preserving current data; it returns to the known
 Keeper failure and is not a fix. After opening, capture fresh state and recover
 forward. Never restore an old player/run snapshot, repop a live run or kill one
 zone process: production child exit restarts the entire runtime.
@@ -120,4 +120,4 @@ zone process: production child exit restarts the entire runtime.
    New player gameplay, full clears and balance acceptance remain separate QA.
 
 Whole-wiki impact decisions and candidate release labels are in`wiki-review.json`.
-No public wiki publication or game restart is claimed by this candidate.
+Deployment/publication receipts separately establish runtime and wiki state.

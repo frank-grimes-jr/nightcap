@@ -1,0 +1,5 @@
+Raid and Grind requests fail globally because the deployed native dungeon contract still expects the pre-November6 Chapterhouse/Kael augments. Update exactly two SQL batches and eight native cache cases from the reviewed release afterimages, preserving all 51 schema checks, 669 other content checks, 433 other cache cases and the current 223-point Hate layout.
+
+The current-baseline relink reproduces deployed automatic-Stats zone ea6ad532 before replacing only the dungeon object. It preserves the command archive and signed client pairing. No migration, run reset, cache/client update or item tuning is required. The owner explicitly authorized main and OVH deployment for live QA.
+
+Validation: 22 dungeon, 10 augment and 20 wiki tests; five readiness/drift checks; real native ItemData tests accept all eight afterimages and reject 33 mutations; all 51 schema/671 content checks pass in a read-only production probe. Six Linux operator tests cover full contracts, client admission drain, native pairing and held access. Source/evidence, activation/recovery and exact owner QA are in docs/dungeons/readiness-20261106/.
