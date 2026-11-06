@@ -1,5 +1,12 @@
 # Current Nightcap status
 
+## November6 — Stats function reported; font correction candidate
+
+Owner confirms Stats functions. Smaller added rows are corrected to the native
+font/row height; Hunt aug block names the portion already included in total block.
+Signed2026110603 is an XML-only candidate; proxy0.13.4 and native runtime unchanged.
+Revised font/scroll/resize QA remains open. [Details](releases/character-stats-font-20261106/README.md).
+
 ## November6 — automatic equipped Stats deployed; owner QA open
 
 Main PR410/313d497c is deployed on OVH with access reopened. Inventory Stats has

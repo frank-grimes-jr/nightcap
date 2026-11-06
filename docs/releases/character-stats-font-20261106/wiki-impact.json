@@ -1,0 +1,13 @@
+{
+  "review": "entire public wiki and main source-only previews",
+  "updated": [
+    "augment-audit",
+    "equipment",
+    "commands",
+    "features",
+    "recent-changes"
+  ],
+  "unchanged": "all catalogs, item/zone values, Home, navigation, other guides, Build Lab and assets",
+  "publication": "pending",
+  "owner_evidence": "Stats functions; new font pixels not yet accepted"
+}

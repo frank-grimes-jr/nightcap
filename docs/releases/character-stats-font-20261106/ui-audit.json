@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "before_sha256": "28ec4db7ebc35a78e3ab8e54154a453dd86a4e872f75ff84040ab9bb76b22db7",
+  "after_sha256": "071784a87c021a0172008cecec39b87826d22d15407623cec9f80f261fdeeb3e",
+  "changed_controls": [
+    "NCST_Title",
+    "NCST_Name0",
+    "NCST_Value0",
+    "NCST_Name1",
+    "NCST_Value1",
+    "NCST_Name2",
+    "NCST_Value2",
+    "NCST_Name3",
+    "NCST_Value3",
+    "NCST_Name4",
+    "NCST_Value4",
+    "NCST_Name5",
+    "NCST_Value5",
+    "NCST_Status",
+    "NCST_FocusHelp"
+  ],
+  "all_other_controls_preserved": true,
+  "font": "same inherited default as native IWS_Shielding",
+  "row_height": 14,
+  "value_width": 75,
+  "owner_evidence": "Owner reports Stats functioning; screenshot shows smaller NCST font; correction pixel acceptance pending"
+}

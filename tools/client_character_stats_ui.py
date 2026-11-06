@@ -5,6 +5,23 @@ PAIRS=['Shielding','SpellShield','DamageShielding','DoTShielding','DamageShieldM
        'Avoidance','Accuracy','StunResist','StrikeThrough','HealAmount','SpellDamage','Clairvoyance','CombatEffects']
 
 
+def match_character_stats_font(root):
+    """Use the stock stat font, including its inherited default when unspecified."""
+    reference=root.find("Label[@item='IWS_Shielding']")
+    if reference is None:raise ValueError('Missing native stat label')
+    font=reference.findtext('Font')
+    height=reference.findtext('Size/CY')
+    for node in root.findall('Label'):
+        if not (node.get('item') or '').startswith('NCST_'):continue
+        current=node.find('Font')
+        if current is not None:node.remove(current)
+        if font is not None:ET.SubElement(node,'Font').text=font
+        node.find('Size/CY').text=height
+    for index in range(3):
+        root.find("Label[@item='NCST_Value"+str(index)+"']/Size/CX").text='75'
+    root.find("Label[@item='NCST_Name1']/Text").text='Hunt aug block'
+
+
 def add_character_stats(root):
     page=root.find("Page[@item='IW_StatPage']")
     tile=root.find("TileLayoutBox[@item='IW_Stats']")
@@ -78,3 +95,4 @@ def add_character_stats(root):
     label('NCST_Status','Updating server totals...',0,84,360,10400)
     label('NCST_FocusHelp','*Focus potential; spell limits still apply.',0,103,360)
     ET.SubElement(page,'Pieces').text='Screen:NCST_Bonuses'
+    match_character_stats_font(root)
