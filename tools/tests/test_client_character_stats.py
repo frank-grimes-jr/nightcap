@@ -16,7 +16,7 @@ class CharacterStatsUI(unittest.TestCase):
         page=result.find("Page[@item='IW_StatPage']")
         self.assertIn('Screen:NCST_Bonuses',[n.text for n in page.findall('Pieces')])
         self.assertEqual(page.findtext('Style_VScroll'),'true')
-        for text in ('Shield Block','Hunt contribution','Dodge modifier','Item spell haste*','Mana preservation*','Worn Faerune'):
+        for text in ('Shield Block','Hunt aug block','Dodge modifier','Item spell haste*','Mana preservation*','Worn Faerune'):
             self.assertTrue(any(n.findtext('Text')==text for n in result.findall('Label')),text)
         for name in ('IWS_CurrentHealAmount','IWS_CurrentSpellDamage','IWS_CurrentClairvoyance'):
             self.assertGreaterEqual(int(result.findtext("Label[@item='"+name+"']/EQType")),10300)

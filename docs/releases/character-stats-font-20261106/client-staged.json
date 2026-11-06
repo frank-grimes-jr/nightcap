@@ -1,0 +1,12 @@
+{
+  "status": "staged_not_published",
+  "files": 5,
+  "linux_tests": "OK",
+  "pins": {
+    "channel.json": "38805c66c797cece765796c53a9e27a3fcf76c2d8c1c6d7b3415c07611b64fbf",
+    "previous-channel.json": "c5f3d7a3095429ea42cdef26786337a644e3c469b182b402549fca7580d11525",
+    "uifiles/nightcap/equi_inventory.xml": "071784a87c021a0172008cecec39b87826d22d15407623cec9f80f261fdeeb3e",
+    "publish.py": "9d33bb7a95d009c6578229c8ca140e016ac7751778c4e0e11ec438e682f3ddd3",
+    "test_publish.py": "6561bb74c68048fff14e7c3dab210e602b3f108fdeae70f2c69f2d7d8001af6a"
+  }
+}

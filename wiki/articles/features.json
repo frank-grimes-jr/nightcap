@@ -56,7 +56,8 @@
     "docs/dungeons/hate-boss-placement-20261030/release/open-receipt.json; paired deployment verified, owner visual/gameplay acceptance open",
     "docs/releases/ssf-mode-20261101/README.md and docs/adr/0074-solo-self-found-mode.md",
     "docs/releases/augment-audit-20261106/README.md",
-    "docs/releases/character-stats-window-20261106/README.md; signed2026110602/native ea6ad532 verified for live QA; owner acceptance open"
+    "docs/releases/character-stats-window-20261106/README.md; signed2026110602/native ea6ad532 verified for live QA; owner acceptance open",
+    "docs/releases/character-stats-font-20261106/README.md; owner confirms function, revised font/label QA open"
   ],
   "keywords": [
     "custom features",
