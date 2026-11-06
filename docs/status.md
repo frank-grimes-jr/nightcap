@@ -1,21 +1,20 @@
 # Current Nightcap status
 
-## November 6 — Zone augment audit candidate; not deployed
+## November 6 — Augments deployed; live QA open
 
-The owner explicitly authorized augment-only main/OVH deployment for live QA on
-November 6 after approving the icon preview. Release preparation is in
-`docs/releases/augment-audit-20261106/`; the separate capacity candidate is excluded.
-This authorization is not a deployment receipt or completed gameplay acceptance.
+Owner-approved augment-only main PR #406 is deployed on OVH; player access is open.
+All 232 item updates, zone 48/186 enables, matching native image and shared cache
+passed verification. All 309,639 unrelated cache definitions were preserved.
+Fifty Classic pools and both expeditions now use 1.5% augment rolls for any
+unowned killable NPC, including guards and scripted adds; six dormant pools stay
+disabled. Gear eligibility remains separate. Accepted exotic icons use stock
+client assets: no download required, fully relog before testing.
 
-Fresh production audit covers 58 augment families, 232 definitions and all
-configured zones. Candidate fixes guard/any-NPC eligibility, High Keep scripted
-cleanup and Hate B augment identity; adds balanced secondary choices and replaces
-all glove/default icons with reviewed exotic stock gems. Classic rates stay 1.5%;
-the two managed expedition families move to 1.5%. Only Cazic-Thule/Hate B enable;
-six access-check pools remain off. [Full list, verification, reload/recovery and
-exact in-game QA](audits/augments-20261106/README.md). No production content writes,
-deployment, wiki publication or gameplay acceptance. Existing live release below
-is unchanged.
+Wiki release `20261106-augment-audit-v2` passed full 510-file public verification
+and rollback rehearsal. [Full augment list](https://wiki.nightcapgame.org/augment-audit.html),
+[release receipts and live QA steps](releases/augment-audit-20261106/README.md).
+Artwork accepted; gameplay/balance acceptance remains open. Separate capacity
+configuration was excluded. Existing world/shared_memory and signed client retained.
 
 ## Power Source training display — November 4, deployed
 

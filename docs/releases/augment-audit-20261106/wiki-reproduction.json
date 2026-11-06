@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "files": 510,
+  "method": "copy main wiki/config; git apply --ignore-space-change published-source-overrides.patch; build; compare every public byte"
+}

@@ -113,7 +113,7 @@ def build():
         group = sorted([a for a in articles if a['category'] == category and a['slug'] in maintained and a['slug'] not in ['index','features','recent-changes']], key=lambda a: a['title'].lower())
         if category == 'Equipment':
             group = [a for a in group if not a['slug'].startswith('item-')]
-            listing += f'<h2 id="category-{i}">Equipment</h2><div class="equipment-directory-link"><a class="button" href="items.html">Browse equipment →</a><p>384 rewards grouped into 96 item families. Filter by type, slot, required level and source zone; compare all four qualities together.</p></div><h3>Equipment guides</h3><ul class="article-list">'+''.join(f'<li>{link(a)}<small>{html.escape(a["summary"])}</small></li>' for a in group if a['slug'] != 'items')+'</ul>'
+            listing += f'<h2 id="category-{i}">Equipment</h2><div class="equipment-directory-link"><a class="button" href="items.html">Browse equipment →</a><p>392 rewards grouped into 98 item families. Filter by type, slot, required level and source zone; compare all four qualities together.</p></div><h3>Equipment guides</h3><ul class="article-list">'+''.join(f'<li>{link(a)}<small>{html.escape(a["summary"])}</small></li>' for a in group if a['slug'] != 'items')+'</ul>'
             continue
         listing += f'<h2 id="category-{i}">{category}</h2><ul class="article-list">'+''.join(f'<li>{link(a)}<small>{html.escape(a["summary"])}</small></li>' for a in group)+'</ul>'
     (out / 'all-pages.html').write_text(render('Guides', 'Find instructions by topic. Use the item and zone directories for individual rewards.', listing, 'all-pages'), encoding='utf-8')

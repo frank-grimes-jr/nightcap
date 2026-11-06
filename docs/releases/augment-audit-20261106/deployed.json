@@ -1,0 +1,120 @@
+{
+  "status": "deployed for live QA",
+  "source_revision": "3a0cb2d36d14b0ec6dead3ff44c0b98df3ab5f65",
+  "runtime": {
+    "image_id": "sha256:d885c60cda98602744f1ffe0fa0ad0fd4bf151742afc6b8bdaec66a267626d60",
+    "started_at": "2026-11-06T16:55:06.362143629Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ],
+      [
+        "zone",
+        "bc88a4688d722c89f882ddb3328cf0d26867781fea49199ef681abe4f6c51892"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "cache": {
+    "definitions": 309871,
+    "changed_augments": 232,
+    "unrelated_preserved": 309639,
+    "records_sha256": "908aacb221c1df4c93223f8ec51a4544dabb5ec28d7781a71eb106924363474f"
+  },
+  "checks": {
+    "schema": 51,
+    "content": 671
+  },
+  "backup": {
+    "sha256": "6579b762149c0a0b3af8b91a70f42d73dc680a2e36797e7f4c8c7779d999b6dd",
+    "compressed_bytes": 66424213,
+    "uncompressed_bytes": 478185089,
+    "gzip_integrity": "passed"
+  },
+  "zone_rate_groups": [
+    "0\t150\t50\t6",
+    "1\t150\t50\t50"
+  ],
+  "gateway_open": true,
+  "client_update_required": false,
+  "database_restored": false,
+  "capacity_activated": false,
+  "owner_gameplay_accepted": false,
+  "owner_artwork_accepted": true,
+  "changed_items": 232,
+  "changed_zone_enable_flags": [
+    48,
+    186
+  ],
+  "contract_overrides": {
+    "content/vigil/items/0": {
+      "before": "8",
+      "after": "4",
+      "sql_sha256": "3f8511ab1676d4ee5e69db9c2d6f9e28b512b147cc50507b4e57b22b0406c42e"
+    },
+    "content/compact/items/0": {
+      "before": "8",
+      "after": "4",
+      "sql_sha256": "ffefc05c496df71a1019d37f49c06aa2cf86999f3b80fccd5cae99523b04ddad"
+    }
+  },
+  "manifest_sha256": "9bcb69acbef62ecaecbe6f4983a26621f68eb3dc8f17ef1566aeda30d662bc95"
+}

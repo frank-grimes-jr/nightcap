@@ -1,5 +1,6 @@
 """Generate linked zone and item articles from the reviewed, public-only catalog."""
 import html
+import re
 import json
 from pathlib import Path
 from equipment import equipment_directory
@@ -26,17 +27,20 @@ def catalog_articles():
     for z in data['zones']:
         rows = [i for i in data['items'] if i['zone'] == z['slug']]
         body = '<p>This page covers Nightcap’s custom rewards in this zone. It is not a complete camp, map, or ordinary loot guide.</p>'
-        body += '<h2 id="rewards">Zone rewards</h2><div class="table-scroll"><table><caption>Both reward families, at every quality</caption><thead><tr><th scope="col">Item</th><th scope="col">Family</th><th scope="col">Quality</th><th scope="col">Required level</th></tr></thead><tbody>'
+        body += '<h2 id="rewards">Zone rewards</h2><div class="table-scroll"><table><caption>Available reward families, at every quality</caption><thead><tr><th scope="col">Item</th><th scope="col">Family</th><th scope="col">Quality</th><th scope="col">Required level</th></tr></thead><tbody>'
         for i in rows:
             body += f'<tr><td><a href="item-{i["id"]}.html">{html.escape(i["name"])}</a></td><td>{i["kind"]}</td><td>{QUALITIES[i["tier"]]}</td><td>{i["required_level"]}</td></tr>'
-        body += f'</tbody></table></div><h2 id="finding-rewards">Finding these rewards</h2><p>Eligible native enemies have an independent {rate(z["slug"],"Augment")} roll for the augment family and {rate(z["slug"],"Gear")} for the gear family. Both may drop together. A successful family roll then chooses Base (60%), Polished (30%), Exalted (8%), or Ascension (2%). Ordinary loot remains.</p><p>Only the zone’s approved native enemies qualify. Pets, merchants, hub residents, summoned copies and city services do not. There is no guaranteed drop or pity timer.</p>'
+        body += f'</tbody></table></div><h2 id="finding-rewards">Finding these rewards</h2><p>Unowned killable enemies have an independent {rate(z["slug"],"Augment")} roll for the augment family and {rate(z["slug"],"Gear")} for the gear family when they qualify as approved equipment sources. Both may drop together. A successful family roll then chooses Base (60%), Polished (30%), Exalted (8%), or Ascension (2%). Ordinary loot remains.</p><p>Any unowned, killable NPC in an enabled augment zone can roll its augment, including guards, named and quest NPCs, killable merchants and scripted combat adds. Player-owned/charmed pets, mercenaries, swarm pets, protected noncombat actors and restored corpses do not reroll. Native corpse ownership and encounter access still apply. Augments roll at 1.5%; approved native equipment sources keep their separate 0.5% chance and level/night restrictions. There is no guaranteed drop or pity timer.</p>'
+        if z.get('augment_only'):
+            body = re.sub(r'(<h2 id="finding-rewards">Finding these rewards</h2>)<p>.*?</p>', lambda m: m[1] + '<p>Any unowned killable enemy has a 1.5% augment roll, followed by Base60%, Polished30%, Exalted8% or Ascension2%. Ordinary loot remains; this pool has no public wearable drops.</p>', body, count=1)
+            body += '<p><strong>Augment-only pool:</strong> only the augment family listed here drops. There are no approved public wearable sources in this pool. Managed newer Hate runs retain the original Hate equipment family and its source rules.</p>'
         if z['slug'] == 'highkeep':
             body += '<h2 id="prison-break">High Keep prison break</h2><p>New managed Raid runs use the <a href="dungeon-modes.html#highkeep-rescue">Osargen rescue route</a>. Hunt item values and ordinary acquisition remain unchanged. Live testing; native escort acceptance remains open.</p>'
         if z['slug'] == 'hole':
             body += '<h2 id="entrance">Entrance access</h2><p>See <a href="travel.html#hole-entrance">the Paineel passage access note</a> for keyless entrance and internal door access, remaining restrictions and release status.</p>'
         if z['slug'] == 'kithicor':
-            body += '<p><strong>Kithicor requires eligible nighttime undead.</strong></p>'
-        body += '<h2 id="upgrading">Upgrading your finds</h2><p>Forge three identical Base copies into Polished, then four Polished into Exalted or four Exalted into Ascension. Read <a href="zone-hunt.html#forging">the forging guide</a> before using <code>#zoneforge</code>. All new zone rewards have zero merchant resale value.</p><p><a href="zones.html">Browse all 48 reward zones →</a></p>'
+            body += '<p><strong>Kithicor’s nighttime-undead restriction applies to equipment only; augments can drop day or night.</strong></p>'
+        body += '<h2 id="upgrading">Upgrading your finds</h2><p>Forge three identical Base copies into Polished, then four Polished into Exalted or four Exalted into Ascension. Read <a href="zone-hunt.html#forging">the forging guide</a> before using <code>#zoneforge</code>. All new zone rewards have zero merchant resale value.</p><p><a href="zones.html">Browse all 50 reward zones →</a></p>'
         add('zone-'+z['slug'], z['name'], 'Custom augment and equipment rewards · Classic era.', body, 'World')
         for i in rows:
             e = html.escape
@@ -55,8 +59,8 @@ def catalog_articles():
             body += '</ul><p>Use <a href="zone-hunt.html#forging">#zoneforge</a> with three identical Base copies or four identical Polished/Exalted copies for the next quality. The <a href="item-upgrades.html#box">Reforging Box</a> also handles three Base copies for Polished and the four-copy higher steps. Ascension is the final quality. These items can be traded, but cannot be sold to merchants.</p>'
             add('item-'+str(i['id']), i['name'], f'{QUALITIES[i["tier"]]} {i["kind"].lower()} · {z["name"]} · Required level {i["required_level"]}.', body, 'Equipment')
     zone_links = ''.join(f'<li><a href="zone-{z["slug"]}.html">{html.escape(z["name"])}</a></li>' for z in sorted(data['zones'], key=lambda z:z['name']))
-    add('zones', 'Zones & rewards', 'Explore all 48 enabled Classic reward zones.', '<p>Each listed zone has one custom augment family and one equipment family. Click a zone for all four qualities and their item details. The level shown on an item is its required level, not a recommended adventuring level.</p><ul class="article-list">'+zone_links+'</ul><h2 id="excluded">Outside this reward release</h2><p>Highpass, Splitpaw, Cazic-Thule, Jaggedpine, Nedaria, Hate B and both tutorial zones remain outside the reward pool pending access checks. Cities and Plane of Knowledge have no new random drops. This does not mean every excluded zone is inaccessible.</p>', 'World')
-    add('items', 'Equipment', '48 gear families. 48 augments. Four qualities for every reward.', equipment_directory(data), 'Equipment')
+    add('zones', 'Zones & rewards', 'Explore all 50 enabled Classic reward zones.', '<p>Each listed zone has a custom augment family. The original 48 zones also retain their equipment families; Cazic-Thule and newer Hate add augment-only pools. Click a zone for all four qualities and their item details. The level shown on an item is its required level, not a recommended adventuring level.</p><ul class="article-list">'+zone_links+'</ul><h2 id="excluded">Outside this reward release</h2><p>Highpass, Splitpaw, Jaggedpine, Nedaria and both tutorial zones remain outside the reward pool pending access checks. Cities and Plane of Knowledge have no new random drops. This does not mean every excluded zone is inaccessible. Cazic-Thule has restored Classic encounters in public and private runs, but remains outside this Hunt equipment pool.</p>', 'World')
+    add('items', 'Equipment', '48 gear families. 50 augments. Four qualities for every reward.', equipment_directory(data), 'Equipment')
     if data.get('chapterhouse'):
         from chapterhouse_catalog import articles as chapterhouse_articles
         articles.extend(chapterhouse_articles(data['chapterhouse']))

@@ -13,11 +13,11 @@ test('every exact published variant name finds its single family', () => {
     assert.equal(matches[0].kind,item.kind);
   }
 });
-test('catalog pages contain families once, covering all 96 across eight pages', () => {
+test('catalog pages contain families once, covering all 98 across nine pages', () => {
   let all = [];
-  for (let page=1;page<=8;page++) all.push(...selectFamilies(rows,{},page).visible);
-  assert.equal(all.length,96); assert.equal(new Set(all).size,96);
-  assert.equal(selectFamilies(rows,{},999).page,8);
+  for (let page=1;page<=9;page++) all.push(...selectFamilies(rows,{},page).visible);
+  assert.equal(all.length,98); assert.equal(new Set(all).size,98);
+  assert.equal(selectFamilies(rows,{},999).page,9);
   assert.equal(selectFamilies(rows,{},'broken').page,1);
 });
 test('gear slot and level filters combine, without including augments', () => {
@@ -25,7 +25,7 @@ test('gear slot and level filters combine, without including augments', () => {
   assert.deepEqual(selected.map(i=>i.name),['Cliffwatch Cap','Duskroot Cowl']);
 });
 test('augments match every compatible socket slot, but not jewelry', () => {
-  assert.equal(selectFamilies(rows,{kind:'Augment',slot:'hands'}).matches.length,48);
+  assert.equal(selectFamilies(rows,{kind:'Augment',slot:'hands'}).matches.length,50);
   assert.equal(selectFamilies(rows,{kind:'Augment',slot:'finger'}).matches.length,0);
 });
 test('zone filter selects its two families; query narrows by words', () => {

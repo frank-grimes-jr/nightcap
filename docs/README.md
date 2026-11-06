@@ -1,6 +1,8 @@
 # Nightcap documentation
 
-- [November 6 augment audit: every top-quality augment, zones, icon review and candidate QA](audits/augments-20261106/README.md)
+- [November 6 augment-only main/OVH deployment and verified public wiki](releases/augment-audit-20261106/README.md)
+
+- [November 6 augments: deployed live QA, complete list and icon review](audits/augments-20261106/README.md)
 
 - [Faction display: main source, pending deployment and exact QA](releases/faction-standing-20261029/README.md)
 

@@ -1,8 +1,14 @@
 # Zone augment audit — November 6, 2026
 
-**Candidate only. No production content writes, deployment, public wiki publication
-or owner gameplay acceptance.** Source starts at `origin/main` `1b443b5a` in
-`feature/augment-audit-20261106`. The default workspace is older and untouched.
+**Deployed on OVH for live QA, November 6.** Owner-authorized main PR
+[#406](https://github.com/frank-grimes-jr/nightcap/pull/406) merged as
+`3a0cb2d36d14b0ec6dead3ff44c0b98df3ab5f65`. Player access is open.
+The 232 item afterimages, two zone-enable flags, native identities and regenerated
+item cache are verified. Fifty Classic pools and both managed expeditions now
+roll augments at 1.5%; six dormant pools stay disabled. All other item definitions
+are preserved. Icon artwork is accepted; gameplay/balance acceptance is pending.
+No client download is required; fully relog before item QA. The unrelated capacity
+candidate was excluded. [Release evidence](../../releases/augment-audit-20261106/README.md).
 
 The [complete 58-family top-quality list](AUGMENTS.md) names every zone, including
 disabled pools. Ascension is the actual top-quality name; the request called it

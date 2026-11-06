@@ -50,19 +50,19 @@ class WikiTests(unittest.TestCase):
 
     def test_only_enabled_reward_catalog(self):
         data = json.loads((build.ROOT/'catalog.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(data['zones']),48)
-        self.assertEqual(len(data['items']),384)
-        self.assertEqual(len({i['id'] for i in data['items']}),384)
+        self.assertEqual(len(data['zones']),50)
+        self.assertEqual(len(data['items']),392)
+        self.assertEqual(len({i['id'] for i in data['items']}),392)
         for z in data['zones']:
             items = [i for i in data['items'] if i['zone']==z['slug']]
-            self.assertEqual(len(items),8,z['slug'])
-            for kind in ['Augment','Gear']:
+            self.assertEqual(len(items),4 if z['slug'] in ('cazicthule','hateplaneb') else 8,z['slug'])
+            for kind in (['Augment'] if z['slug'] in ('cazicthule','hateplaneb') else ['Augment','Gear']):
                 self.assertEqual(sorted(i['tier'] for i in items if i['kind']==kind),[0,1,2,3])
         self.assertNotIn('highpass', [z['slug'] for z in data['zones']])
 
     def test_equipment_groups_variants_and_keeps_every_item_reachable(self):
         catalog = (self.out/'items.html').read_text(encoding='utf-8')
-        self.assertEqual(catalog.count('data-equipment-row '), 96)
+        self.assertEqual(catalog.count('data-equipment-row '), 98)
         ids = set(re.findall(r'href="item-(\d+)\.html"', catalog))
         data = json.loads((build.ROOT/'catalog.json').read_text(encoding='utf-8'))
         self.assertEqual(ids, {str(i['id']) for i in data['items']})
@@ -86,7 +86,7 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(self.articles['unreleased']['status'],'Not released')
         self.assertIn('not installed',self.articles['unreleased']['body'])
         self.assertIn('no merchant resale value',self.articles['zone-hunt']['body'])
-        self.assertIn('nighttime undead',self.articles['zone-kithicor']['body'])
+        self.assertIn('nighttime-undead restriction applies to equipment only',self.articles['zone-kithicor']['body'])
 
     def test_features_and_updated_guides_are_reachable(self):
         for name, page in self.pages.items():
@@ -104,7 +104,7 @@ class WikiTests(unittest.TestCase):
         catalog = json.loads((Path(__file__).parent/'catalog.json').read_text(encoding='utf-8'))
         hunt_slugs = {'item-'+str(i['id']) for i in catalog['items']} | {'zone-'+z['slug'] for z in catalog['zones']}
         rewards = [a for slug,a in self.articles.items() if slug in hunt_slugs]
-        self.assertEqual(len(rewards),432)
+        self.assertEqual(len(rewards),442)
         for a in rewards:
             self.assertRegex(a['body'],r'[Ff]our (?:identical )?Polished',a['slug'])
             self.assertNotIn('exchange three identical eligible copies',a['body'])
@@ -115,7 +115,7 @@ class WikiTests(unittest.TestCase):
         self.assertIn('rolls at 0.5% per eligible kill',self.articles['item-940284']['body'])
 
     def test_chapterhouse_separates_augments_equipment_and_quest_delivery(self):
-        self.assertIn('0.5%',self.articles['zone-chapterhouse']['body'])
+        self.assertIn('1.5%',self.articles['zone-chapterhouse']['body'])
         self.assertIn('35%',self.articles['zone-chapterhouse']['body'])
         for item in range(961000,961004):
             page=self.articles['item-'+str(item)]

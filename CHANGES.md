@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-06 — Augments deployed to OVH for live QA
+
+Owner-authorized augment-only main PR #406 is deployed; access reopened after
+verified stopped backup, guarded SQL, compatible zone image and cache checks.
+All 232 item definitions match; 309,639 unrelated cached definitions are unchanged.
+Fifty Classic and two expedition pools roll augments at 1.5%, including unowned
+killable guards/adds. Two reviewed zones enabled; six dormant pools remain off.
+The accepted gem/crystal icons require no client download. Fully relog for QA.
+Public wiki release `20261106-augment-audit-v2` verified all 510 files, rollback,
+private downloads and unchanged service identities. Gameplay acceptance remains
+open; separate capacity changes were excluded. Evidence and exact QA:
+`docs/releases/augment-audit-20261106/`.
+
 ## 2026-11-06 — Augment-only main/OVH release authorized
 
 Owner approved the replacement icon preview and explicitly requested main/OVH for
