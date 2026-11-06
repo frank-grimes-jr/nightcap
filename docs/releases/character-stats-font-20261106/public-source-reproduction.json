@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "source_inputs": 47,
+  "files": 510,
+  "method": "main source and recorded overrides normalized to LF reproduce exact public outputs"
+}

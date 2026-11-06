@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "release": "20261106-character-stats-font-v1",
+  "previous_release": "20261106-character-stats-v1",
+  "files": 510,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "OK",
+  "changed_existing": [
+    "augment-audit.html",
+    "commands.html",
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "added_files": [],
+  "preserved_files": 505,
+  "package_sha256": "6536264902116ae9458b66b27e7b9d65373ad5afad9d23528974e138d3acecd5",
+  "scope": "five guide updates; no item/catalog/asset change"
+}
