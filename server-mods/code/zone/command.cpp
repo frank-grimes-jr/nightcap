@@ -501,6 +501,15 @@ int command_realdispatch(Client *c, std::string message, bool ignore_status)
 		}
 	}
 
+	// A bounded, self-only presentation poll must not fire quest command events
+	// or generate a persistent GM-command record on periodic refresh. Permission
+	// and subcommand access checks above still apply; all other commands retain
+	// their existing callbacks/audit behavior.
+	if (current_command->function == command_nightcapui && sep.argnum == 1 && !strcmp(sep.arg[1], "stats")) {
+		current_command->function(c, &sep);
+		return 0;
+	}
+
 	if (current_command->admin >= COMMANDS_LOGGING_MIN_STATUS) {
 		LogCommands(
 			"[{}] ([{}]) used command: [{}] (target=[{}])",

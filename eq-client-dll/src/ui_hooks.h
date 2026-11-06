@@ -9,6 +9,7 @@
 #include "tradeskill_repeat.h"
 #include "bazaar_panel_controller.h"
 #include "augment_item_description.h"
+#include "equipped_stats_state.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -75,6 +76,8 @@ using SetCellText = void (__thiscall *)(void*, int, int, const EqString*);
 static uintptr_t base = 0;
 static const char* install_failure = "not_started";
 static UIState state;
+static EquippedStatsState equipped_stats;
+static ULONGLONG next_stats_refresh = 0;
 static PetState pets;
 static PetManagement pet_management;
 using InventoryNotify = int (__thiscall *)(void*, void*, uint32_t, void*);
@@ -428,6 +431,20 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
     if (!CurrentIdentity()) RequestRefresh();
     if (!CurrentManagementIdentity()) RequestManagementRefresh();
     LootPulse();
+    if ((type>=10100 && type<10100+static_cast<int>(NightcapStats::Count)) ||
+        (type>=10200 && type<=10205) || (type>=10300 && type<=10312) || type==10400) {
+        const auto now=GetTickCount64();
+        const bool current=CurrentIdentity();
+        if(current && now>=next_stats_refresh && ExecuteUIRequest("#nightcapui stats")) {
+            equipped_stats.Requested(state.Identity(),now);next_stats_refresh=now+1000;
+        }
+        const auto identity=current?state.Identity():NightcapStats::Identity{};
+        const auto text=equipped_stats.Label(type,identity,now);
+        reinterpret_cast<AssignString>(base+kUIStringAssignRva)(output,text.c_str());
+        if(override_color)*override_color=true;
+        if(color)*color=equipped_stats.Ready(identity,now)?0xFF00FF00:0xFFAAAAAA;
+        return true;
+    }
     if (type >= 10030 && type <= 10033) {
         const std::string text = !CurrentManagementIdentity() ? "Pets loading" :
             type == 10030 ? pet_management.ScopeText() : pet_management.RowText(type-10031);
@@ -453,6 +470,10 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
 }
 inline void __fastcall ChatHook(void* self, void*, const char* message, int color, bool log, bool convert) {
     LootPulse();
+    if(message && !strncmp(message,"[NCST1]",7)) {
+        if(CurrentIdentity())equipped_stats.Consume(message,state.Identity(),GetTickCount64());
+        return; // Internal frames never leak into chat, including stale/malformed ones.
+    }
     if (ConsumeCraftReply(message)) return;
     if (ConsumeBazaarReply(message)) return;
     if (message && AdvancedLootUI::Consume(message)) return;
@@ -469,7 +490,7 @@ inline void __fastcall StateHook(void* self, void*, int next) {
     if (next != 5) ResetBazaarPanel();
     if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
     if (next != 5) AdvancedLootUI::Reset();
-    if (next != 5) { state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
+    if (next != 5) { equipped_stats.Clear(); next_stats_refresh=0; state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
     if (next == 5) RequestRefresh();
 }
