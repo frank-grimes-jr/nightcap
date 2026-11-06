@@ -1,0 +1,10 @@
+{
+  "reviewed_at": "2026-11-06",
+  "source_worktree": "E:\\EQ_Local_Dev\\_worktrees\\hate-density",
+  "source_revision": "b6204eefebb94125377bfb6ec9a82745bba8eb1f",
+  "source_state": "reviewed working file; SHA256 is the actual source pin",
+  "snapshot_sha256": "a1a17283134e152e48eefdcced0ba7c081a5f59af432b98e87d9a3a49a5917bd",
+  "retained_native_header_sha256": "dfc7aadabc49f94c800070079ad5fa3a97d81ece107b6a59579b68ec318ffc81",
+  "proof": "All 106 parsed snapshot records equal the exact retained live header; no production acceptance hashes generated",
+  "dated_release_evidence": "hate-density/docs/dungeons/hate-boss-placement-20261030/release/final-verification.json; 2026-10-30 20:18:28 UTC, 51 schema/671 content,223 points,3 checkpoint boss records migrated; owner gameplay acceptance false"
+}

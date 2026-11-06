@@ -1,0 +1,27 @@
+test_boss_exclusives_are_three_designs_and_only_raid_quality (test_dungeon_catalog.DungeonCatalogTests.test_boss_exclusives_are_three_designs_and_only_raid_quality) ... ok
+test_catalog_contract (test_dungeon_catalog.DungeonCatalogTests.test_catalog_contract) ... ok
+test_ct_closure_is_isolated_and_preserves_doors (test_dungeon_catalog.DungeonCatalogTests.test_ct_closure_is_isolated_and_preserves_doors) ... ok
+test_expressions_and_extra_statements_are_rejected (test_dungeon_classic.ClassicParserTests.test_expressions_and_extra_statements_are_rejected) ... ok
+test_literals_and_escaped_strings (test_dungeon_classic.ClassicParserTests.test_literals_and_escaped_strings) ... ok
+test_only_audited_collation_alias_is_equivalent (test_dungeon_contract.MetadataContract.test_only_audited_collation_alias_is_equivalent) ... ok
+test_cache_guard_expects_loader_race_projection (test_dungeon_current_contract.CurrentContract.test_cache_guard_expects_loader_race_projection) ... ok
+test_runtime_item_predicates_match_current_compiler (test_dungeon_current_contract.CurrentContract.test_runtime_item_predicates_match_current_compiler) ... ok
+test_actual_journal_preserves_runs_and_never_completes_native_sentinel (test_dungeon_journal.DungeonJournal.test_actual_journal_preserves_runs_and_never_completes_native_sentinel) ... ok
+test_all_dungeon_objectives_are_visible_and_ledger_controlled (test_dungeon_journal.DungeonJournal.test_all_dungeon_objectives_are_visible_and_ledger_controlled) ... ok
+test_history_recovery_after_expiry_preserves_newer_and_ambiguous_runs (test_dungeon_journal.DungeonJournal.test_history_recovery_after_expiry_preserves_newer_and_ambiguous_runs) ... ok
+test_history_write_failure_retry_ordering_and_no_task_rewards (test_dungeon_journal.DungeonJournal.test_history_write_failure_retry_ordering_and_no_task_rewards) ... ok
+test_actual_encounter_credit (test_dungeon_lifecycle.DungeonLifecycle.test_actual_encounter_credit) ... ok
+test_actual_spawn_selection (test_dungeon_lifecycle.DungeonLifecycle.test_actual_spawn_selection) ... ok
+test_death_and_recovery_publish_only_after_commit (test_dungeon_lifecycle.DungeonLifecycle.test_death_and_recovery_publish_only_after_commit) ... ok
+test_keeper_has_no_chat_based_transfer_acknowledgement (test_dungeon_lifecycle.DungeonLifecycle.test_keeper_has_no_chat_based_transfer_acknowledgement) ... ok
+test_native_policy (test_dungeon_policy.DungeonPolicy.test_native_policy) ... ok
+test_current_hate_placement_contract_is_preserved (test_dungeon_release_readiness.DungeonReadiness.test_current_hate_placement_contract_is_preserved) ... ok
+test_generator_changes_only_the_two_expedition_item_batches (test_dungeon_release_readiness.DungeonReadiness.test_generator_changes_only_the_two_expedition_item_batches) ... ok
+test_generator_rejects_wrong_compiler_or_sql_preimages (test_dungeon_release_readiness.DungeonReadiness.test_generator_rejects_wrong_compiler_or_sql_preimages) ... ok
+test_native_cache_guards_accept_icons_healing_and_focus_metadata (test_dungeon_release_readiness.DungeonReadiness.test_native_cache_guards_accept_icons_healing_and_focus_metadata) ... ok
+test_sql_guards_accept_reviewed_expedition_afterimages (test_dungeon_release_readiness.DungeonReadiness.test_sql_guards_accept_reviewed_expedition_afterimages) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 46.886s
+
+OK

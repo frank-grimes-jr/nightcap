@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## November6 — Instance Keeper Raid/Grind repair candidate
+
+Owner's Crushbone report is traced to stale Chapterhouse/Kael augment checks in
+the deployed native admission contract. All51schema checks pass; two of671
+content checks reject November6's already-released definitions. Corrected target
+passes all checks in a read-only production probe. The fix preserves current
+Hate223placements, all earned runs and the existing content/cache/client pair.
+Zone-only candidate; no restart or new deployment is claimed. Main/OVH promotion
+and exact owner entry/gameplay QA remain pending.
+[Evidence, build and QA](dungeons/readiness-20261106/README.md).
+
 ## November6 follow-up — augment visibility correction candidate
 
 A new client Description fix and self-only #augstats equipped-bonus report are

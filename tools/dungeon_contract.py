@@ -98,6 +98,9 @@ def render_header(checks, content, items):
                            'recastdelay':'RecastDelay','recasttype':'RecastType'}.items():
             if key in v:conditions.append('i.'+native+'=='+str(v[key]))
         if 'clickname' in v:conditions.append('std::strcmp(i.ClickName,'+json.dumps(v['clickname'])+')==0')
+        if v.get('focuseffect',-1)>0:
+            conditions += ['i.Focus.'+native+'=='+str(v.get(field,0)) for field,native in
+                           [('focustype','Type'),('focuslevel','Level'),('focuslevel2','Level2')]]
         out.append('case '+str(v['id'])+': return '+' && '.join(conditions)+';')
     out+=['default: return false; } }','}']
     return '\n'.join(out)+'\n'
