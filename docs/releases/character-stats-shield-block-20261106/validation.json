@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "existing_ui_tests": 7,
+  "public_scope_link_tests": 3,
+  "linux_publisher_fault_tests": 20,
+  "ui_scope": "3redundant controls removed;4owning controls changed; all others preserved",
+  "signed_inventory": 148,
+  "served_files_verified": 3,
+  "retained_files_hashed_at_publication": 147,
+  "runtime": "all five service identities/start times/restarts unchanged",
+  "owner_qa": "Previous Stats function confirmed; revised single-row pixels/scroll/resize remain open"
+}

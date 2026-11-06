@@ -1,0 +1,389 @@
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,58 +1,52 @@
+ # RoF2 client, pets and buff effects
+ 
+ 
+-## Character Stats and augment descriptions — November6 deployed; native QA open
+-
+-Main PR410/313d497c; source E:/EQ_Local_Dev/_worktrees/character-stats-bonuses.
+-docs/releases/character-stats-window-20261106/ owns build, native/runtime tests,
+-guarded deployment, signed HTTPS/client and public wiki receipts plus exact QA.
+-Inventory -> Stats automatically shows server mod totals/caps, Shield Block,
+-strongest Hunt contribution, relative Dodge, item spell-haste/mana-preservation
+-potential and worn Faerune. No command is required. #augstats remains a fallback
+-with item/spell/AA block components. Shielding is separate melee reduction.
+-Focus rows are best worn-item potential before spell/level/cast-time limits;
+-buff/AA effects can change actual casts. Faerune means worn item utility.
+-
+-Wire common/equipped_stats_protocol.h [NCST1] has33 ordered int32 fields, existing
+-five-part UI identity, uint32 sequence and bounded512-byte strict decoding.
+-Identity/replay/8second expiry guards show -- instead of stale or invented zero.
+-Class/zone/character lifecycle clears values. Existing Label/Chat/State hooks in
+-ui_hooks.h service EQTypes10100..10132,10200..10205,10300..10312,10400; no new
+-native patch sites. client_character_stats_ui.py scopes the current published
+-Inventory XML, inserts block/Hunt by Shielding and Dodge by Avoidance, keeps two
+-native columns and provides scrollable focus/utility. Native pixels are not yet
+-owner accepted. Existing inventory/pet/class controls and unrelated assets stay.
+-
+-Silent #nightcapui stats requests use existing self-only transport, at most1/sec
+-while labels render. Server RefreshEquippedStats preserves the existing3second
+-class-UI throttle and captures actual getters/caps without DB queries, cast RNG
+-or focus consumption. Permission checks remain; this exact read-only poll bypasses
+-GM quest callbacks/persistent command logs. Eligible worn items/augs only; no bags
+-or ordinary slot21 training. Passive focus/worn spell cast level is not an equip
+-level requirement. Native Client layout/vtable, item ABI and gameplay unchanged.
+-
+-Current signed2026110603/proxy0.13.4 changes Inventory XML only;147descriptors/URLs,
+-DLL/catalog, history/tombstones/config and recall/cast-bar repairs retained.
+-The preceding2026110602 introduced the paired DLL/catalog and Stats XML. All148HTTPS hashes/production signature/pair and exact exe preflight
+-verify. Fully EXIT EQ/use normal launcher Play; relog alone cannot replace DLL.
+-Protected client untouched. Existing Hunt Description annotation remains, now
+-pointing to Inventory Stats. Shield requirement/strongest-only text and25 native
+-Description checks remain. New real hook/protocol/collection/XML tests,14 focused
+-native/runtime groups,120-site catalog, Go packages and24 Linux fault tests pass.
+-Owner reports the Stats view functions (November6 screenshot); revised font
+-pixels/scroll/resize and broader zone/class lifecycle/gameplay QA remain open.
+-Context topic character-stats pins the reviewed current source and receipts.
+-
+-Font correction: tools/client_character_stats_ui.py::match_character_stats_font
+-inherits Font (including absent/default) and14px height from IWS_Shielding;
+-never force Font2 on added Stats labels. Values use75px. Hunt aug block replaces
+-the confusing Hunt contribution label; it is already included in total Shield
+-Block. Max means strongest Hunt augment, not additive copies. Only15NCST labels
+-change.7existing UI tests, exact15-label audit,20Linux publication/recovery tests,
+-signature/preflight and all148HTTPS assets verify; no native/DLL/server change.
+-Source E:/EQ_Local_Dev/_worktrees/character-stats-font,
+-docs/releases/character-stats-font-20261106/; topic character-stats-font.
+-
++## Character Stats — November6 single Shield Block total published
++
++Current source E:/EQ_Local_Dev/_worktrees/character-stats-shield-block;
++docs/releases/character-stats-shield-block-20261106/ owns publication, preservation,
++source reproduction and exact QA. Signed2026110604/proxy0.13.4 changes Inventory
++XML only;147other asset descriptors/URLs, DLL/catalog/config, recall/cast-bar
++fixes, history and tombstones retained. No native build/restart/player change.
++Signature/all148descriptors and served changed XML plus retained DLL/catalog
++verify. Publisher hashes all147retained files and preserves all five service
++identities/start times/restarts. HTTPS scope is3files, not a repeated148download.
++Fully EXIT EQ/use launcher Play; protected reference client untouched.
++
++Owner explicitly requests plain Shield Block. Keep ONE total row, EQType10200,
++including equipped augment bonuses. Remove NCST_Row1/Name1/Value1 and tile
++reference; do not rename the breakdown to create duplicate labels. No Hunt,
++contribution, augment-only or max row in the normal Stats view. Shielding remains
++separate melee reduction. Tooltip explains shield requirement, frontal/counter
++limits, inclusion of augments and strongest augment block only. Stacking/combat
++unchanged. Internal source identifiers and compatibility fields may remain;
++do not expose implementation names in normal player UI.
++
++tools/client_character_stats_ui.py::show_total_shield_block scopes live XML and
++compacts the tile/focus section: exactly3controls removed,4owning controls changed,
++all others retained. match_character_stats_font inherits IWS_Shielding Font,
++including absent/default,14px height and75px values; never pin Font2. Server mod
++totals/caps, Shield Block, relative Dodge, worn-item focus potential/Faerune
++refresh automatically. Focus is best worn-item potential before spell limits;
++buffs/AAs may alter casts. Damage/healing use750base caps plus earned headroom.
++#augstats remains the detailed diagnostic fallback; no command is required.
++
++Native ea6ad532 baseline (PR410), compatible world/shared_memory, rules/cache/
++ItemData/Client layout unchanged. [NCST1] keeps33int32fields, existing generation/
++character/zone/instance/spawn identity, replay sequence and8second expiry; stale
++data shows --. Existing Label/Chat/State hooks and120native guards unchanged.
++Silent self-only polls at most1/sec while rendered, existing server3sec throttle,
++no DB query/RNG/focus consumption or GM quest callbacks/log spam. Eligible worn
++items/augs only, no bags/ordinary slot21training; passive cast level is not an
++equip requirement. Original native/hook/collection/cache tests and build receipts:
++character-stats-window-20261106; font evidence: character-stats-font-20261106.
++
++Owner reports Stats functioning. Revised font/single-row pixels, scrolling,
++resize and broader class/zone lifecycle/gameplay QA remain open.7UI tests,
++structural scope,20Linux publisher/recovery and3public-scope/link tests pass.
++Item Description annotation remains; item names/spells/power unchanged. Current
++topic character-stats-display pins reviewed source/evidence. Prior topics retain
++dated native/font release scope. Delivery is separate from owner acceptance.
+ 
+ ## Map pack — November3 built; launcher delivery coded, unpublished
+ 
+--- a/references/items.md
++++ b/references/items.md
+@@ -95,7 +95,7 @@
+ matching presentation policy, not just changing lore. Names/spells remain native.
+ 
+ Inventory -> Stats is now the normal equipped-bonus view, automatically refreshed
+-from paired zone ea6ad532 and signed2026110603/proxy0.13.4. Shield Block/Hunt aug block,
++from paired zone ea6ad532 and signed2026110604/proxy0.13.4. A single Shield Block total,
+ relative Dodge, worn-item focus potential and Faerune have visible rows. Existing
+ secondary totals/caps come from server getters, including750base damage/healing
+ and up30earned headroom. #augstats remains the detailed component/stacking fallback.
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -20,9 +20,9 @@
+ an older selective/default mirror. New nonvirtual method declaration changes no
+ native Client ABI. Server must deploy before new signed UI to supply snapshots.
+ 
+-Current signed0.13.4/2026110603 is an XML-only font/label correction;147assets
+-including DLL/catalog retained, all148HTTPS assets verify. No runtime restart;
+-current native baseline is unchanged. See character-stats-font release receipts.
++Current signed0.13.4/2026110604 is an XML-only single Shield Block display;147assets
++including DLL/catalog retained;148signed descriptors/3served files verify. No runtime restart;
++current native baseline is unchanged. See character-stats-shield-block release receipts.
+ Full EQ exit/launcher Play required. Gameplay and native visible QA remain open.
+ Whole-runtime child-exit supervision remains: never kill one production zone.
+ Do not replay terminal jobs. Held rollback uses the compatible prior image; after
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -139,27 +139,22 @@
+ 
+ ## Zone augments and character Stats — November6 published; native QA open
+ 
+-Current wiki20261106-character-stats-font-v1 replaces20261106-character-stats-v1.
+-Font/label and Hunt explanation updated; all owning guides reviewed;505files
+-preserved. Current source/receipt worktree E:/EQ_Local_Dev/_worktrees/character-stats-font,
+-docs/releases/character-stats-font-20261106/. Owner reports Stats functioning;
+-revised font pixels remain open, separately from broader gameplay acceptance.
+-All510files/503HTML routes, HTTPS/private-download guards, atomic rollback and
+-unchanged service identities/start times verify. Five owning guides/Features/
+-Change Log now direct players to Inventory Stats with automatic server totals,
+-Shield Block, relative Dodge, worn focus potential/Faerune and real caps/headroom.
+-#augstats remains diagnostic fallback. Item power/stacking/drops are unchanged;
+-all item/zone/catalog, Home/navigation, Build Lab and assets are preserved.
+-
+-Evidence/source E:/EQ_Local_Dev/_worktrees/character-stats-bonuses,
+-docs/releases/character-stats-window-20261106/{wiki-publication.json,wiki-baseline.json,
+-wiki-impact.json,test_release_content.py,published-source-overrides.patch}.
+-Use the exact prior public source plus reviewed scoped delta. Main retains
+-unrelated source-only previews; never publish it wholesale. Recorded overrides
+-reproduce actual public source. Historical global source drift remains REVIEW
+-REQUIRED; no blanket ledger advancement. Paired native ea6ad532 and signed
+-2026110603/proxy0.13.4 independently verify. Live testing is not owner visual/
+-gameplay acceptance; native scrolling/sizing/refresh checks remain open.
++Current wiki20261106-character-stats-shield-block-v1 replaces the font release.
++510files/503HTML routes,504preserved; rollback/private-download/service identity/
++start checks pass. Five owning guide/Features/Change Log instructions now use
++one Shield Block total including equipped augments, separate Shielding and
++unchanged strongest-only augment stacking. Remove redundant Hunt/contribution
++row from current instructions; retain dated historical release notes. Generated
++item/zone/catalog values, Home/navigation, Build Lab/assets and gameplay unchanged.
++Owner reports Stats functions; revised display and broader gameplay QA open.
++
++Source E:/EQ_Local_Dev/_worktrees/character-stats-shield-block,
++docs/releases/character-stats-shield-block-20261106/ owns scope/publication, source
++overrides and79input/510output reproduction. Main retains unrelated unpublished
++previews; never publish wholesale. Historical drift stays REVIEW REQUIRED, no
++blanket advancement. Native ea6ad532 unchanged; signed2026110604/proxy0.13.4 XML
++verifies148descriptors, served XML/retained pair, all147retained hashes at publish.
++No restart. Topic character-stats-display pins reviewed current evidence.
+ 
+ ## Bazaar posting/readability — October28 owner accepted
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -146,7 +146,8 @@
+     "augment_description_20261106_deployed": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 plus reviewed verified release records",
+     "dungeon_readiness_candidate_20261106": "3343d6c8bb9c2d1c66de3e68c1c01309479838f6 + reviewed task edits; not deployed",
+     "character_stats_20261106_deployed": "313d497c479db5b15c3d4fc622abb4625a8aa4ae plus verified release records",
+-    "character_stats_font_20261106_published": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records"
++    "character_stats_font_20261106_published": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
++    "character_stats_single_total_20261106_published": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records"
+   },
+   "topics": {
+     "operations": [
+@@ -1943,6 +1944,27 @@
+         "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
+         "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+         "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/README.md",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "9dd224591ef762f991a4ff6e0eb2e3b61d3280557a34755f1ead9b2fd8ea5e9f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/client-public-verification.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "c49151b5acda34fba46c9b75f8d5987aa2d33e7ea9bb389d3704a2788d7bcc6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/wiki-publication.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
+       }
+     ],
+     "multiclass": [
+@@ -5866,6 +5888,27 @@
+         "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
+         "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+         "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/README.md",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "9dd224591ef762f991a4ff6e0eb2e3b61d3280557a34755f1ead9b2fd8ea5e9f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/client-public-verification.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "c49151b5acda34fba46c9b75f8d5987aa2d33e7ea9bb389d3704a2788d7bcc6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/wiki-publication.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
+       }
+     ],
+     "world": [
+@@ -11035,6 +11078,27 @@
+         "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
+         "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+         "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/README.md",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "9dd224591ef762f991a4ff6e0eb2e3b61d3280557a34755f1ead9b2fd8ea5e9f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/client-public-verification.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "c49151b5acda34fba46c9b75f8d5987aa2d33e7ea9bb389d3704a2788d7bcc6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/wiki-publication.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
+       }
+     ],
+     "admin": [
+@@ -15289,6 +15353,27 @@
+         "role": "Reviewed font-only Stats correction; owner function reported, revised pixels QA open",
+         "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+         "sha256": "2c1f81590d3c50c34d550fa0042060266b18b7f6a751a8131297a0ee81081214"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/README.md",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "9dd224591ef762f991a4ff6e0eb2e3b61d3280557a34755f1ead9b2fd8ea5e9f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/client-public-verification.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "c49151b5acda34fba46c9b75f8d5987aa2d33e7ea9bb389d3704a2788d7bcc6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/wiki-publication.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
+       }
+     ],
+     "factions": [
+@@ -16634,6 +16719,85 @@
+         "revision": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+         "sha256": "1e99267640c89659b136f17b1200526d9ab67561012d675c61d40e846b4f2c05"
+       }
++    ],
++    "character-stats-display": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "tools/client_character_stats_ui.py",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "2aa541ba1502ee498f55bb7903dbde3851c475b9ab3ea0d653ce3595318c5ebd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "tools/tests/test_client_character_stats.py",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "6d9b4991959a852a19b6b3e11d74bc6981c05467a3991ae4f0d0408b697678d4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/README.md",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "9dd224591ef762f991a4ff6e0eb2e3b61d3280557a34755f1ead9b2fd8ea5e9f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/ui-audit.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "5f805c2379ff916a992ea8cfa4fba870c54c55fbd6e8914eb8f6075bb0fdd3cd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/source-merge.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "829c9801f0b2601f030f741ed703bd57bb91d38a6588acd873305cd508b9108a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/verify_public.py",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "c452ae11ea9446098c0537135fb976bb0b3071a4742476fcb50ec1c7b1be19cd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/client-public-verification.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "c49151b5acda34fba46c9b75f8d5987aa2d33e7ea9bb389d3704a2788d7bcc6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/client-published.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "e709a2cabb6d0cbc971e13fd69fe88716ad824452e86ae9083e7a3e7aa9d8a4c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/wiki-publication.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/wiki-impact.json",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "65f25cddb32cc5faeac5f1b79e72aac6ade03675b3d85f1212c4af2882a3e71d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
++        "path": "docs/releases/character-stats-shield-block-20261106/published-source-overrides.patch",
++        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
++        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
++        "sha256": "25a3338356acd8464b8235ce6b2fa073fb820a65e9a6cbd14f094755c78a5c56"
++      }
+     ]
+   }
+ }

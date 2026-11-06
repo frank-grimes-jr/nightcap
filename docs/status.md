@@ -1,10 +1,11 @@
 # Current Nightcap status
 
-## November6 — single Shield Block display candidate
+## November6 — single Shield Block display published
 
-Owner requests one plain Shield Block total. Candidate2026110604 removes the
+Owner requests one plain Shield Block total. Published2026110604 removes the
 redundant augment row, retains normal font and includes augment bonuses in the
-same total. Native/DLL/runtime unchanged; no restart. [QA and evidence](releases/character-stats-shield-block-20261106/README.md).
+same total. Signature/148descriptors/served XML+pair and147retained hashes verify; wiki510files
+and unchanged services pass. Native/DLL/runtime unchanged; no restart. [QA and evidence](releases/character-stats-shield-block-20261106/README.md).
 
 ## November6 — Stats function reported; font correction published
 
