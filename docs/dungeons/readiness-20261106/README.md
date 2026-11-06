@@ -1,4 +1,4 @@
-# Instance Keeper readiness repair — November 6 authorized release
+# Instance Keeper readiness repair — November 6 deployed for live QA
 
 The owner reports that Raid and Grind fail in Crushbone with “Dungeon schema,
 catalog or item cache does not match this release.” This is a shared admission
@@ -121,3 +121,19 @@ zone process: production child exit restarts the entire runtime.
 
 Whole-wiki impact decisions and candidate release labels are in`wiki-review.json`.
 Deployment/publication receipts separately establish runtime and wiki state.
+
+## Verified production activation and publication
+
+Main PR415/44a8247d01d75c16fb5e6190a0f13c8c5da3acd6 is deployed as zone`b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a` in image`sha256:7e7a42ccf64768dba3d8aebc2509adfbec518a2389523dd950f2bdf05677ae40`.
+All12workers/51schema/671content checks verify, fresh stopped backup integrity
+passes, and saved-state/market boot effects match the recorded model. Content,
+rules, all command settings, caches, quests, signed client and compatible native
+consumers remain. Access is open. No new client update or SQL migration.
+
+Wiki`20261106-dungeon-readiness-v1` verifies510public HTTPS hashes/security headers and five
+private denials;507files remain exact. Pointer rollback, private downloads,
+Nginx and all five services are preserved. The exact published source is retained
+under ignored`artifacts/dungeon-readiness/wiki-source`; source review and scoped
+manifest are in`deployment/`. Historical global drift remains REVIEW REQUIRED.
+Owner Crushbone Raid/Grind, entry/re-entry/Join, campaign/Hate and complete-run
+gameplay/balance QA above remains open. Do not replay completed release jobs.

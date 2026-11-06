@@ -1,15 +1,17 @@
 # Current Nightcap status
 
-## November6 — Instance Keeper Raid/Grind repair candidate
+## November6 — Instance Keeper Raid/Grind repair deployed for live QA
 
-Owner's Crushbone report is traced to stale Chapterhouse/Kael augment checks in
-the deployed native admission contract. All51schema checks pass; two of671
-content checks reject November6's already-released definitions. Corrected target
-passes all checks in a read-only production probe. The fix preserves current
-Hate223placements, all earned runs and the existing content/cache/client pair.
-Zone-only candidate; no restart or new deployment is claimed. Main/OVH promotion
-and exact owner entry/gameplay QA remain pending.
-[Evidence, build and QA](dungeons/readiness-20261106/README.md).
+Owner-approved main PR415/44a8247d is deployed on OVH; player access is open.
+Zoneb3ec16082368e0d1 preserves the current automatic Stats/#augstats command archive,
+signed client and world/shared_memory pair. All12zone hashes,51schema/671content
+checks, all441actual live item-cache guards, unchanged content/rules/cache/commands
+and104saved-state table boot model verify.
+Fresh stopped backup integrity and one expected market rotation passed. No SQL,
+cache regeneration, client update or player/run snapshot restore. Owner entry,
+complete-run and balance acceptance remain open. Public wiki repair note/guide
+verifies all510HTTPS files,507preserved, with rollback/private-route safeguards.
+[Release, recovery and exact QA](dungeons/readiness-20261106/README.md).
 
 ## November6 — single Shield Block display published
 

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "release": "20261106-dungeon-readiness-v1",
+  "files": 510,
+  "private_denials": 5,
+  "private_statuses": {
+    "/channel.json": 403,
+    "/launcher-channel.json": 403,
+    "/nightcap-friends.zip": 403,
+    "/guide.html": 403,
+    "/.env": 403
+  },
+  "security_headers": true,
+  "scope": "All510canonical HTTPS hashes; five private routes denied403/404 (origin404 verified separately); no gameplay/player acceptance inferred"
+}

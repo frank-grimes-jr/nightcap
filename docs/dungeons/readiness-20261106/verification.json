@@ -1,5 +1,5 @@
 {
-  "status": "verified local candidate; not deployed or owner-accepted",
+  "status": "deployed for live QA; owner gameplay acceptance open",
   "date": "2026-11-06",
   "schema_checks": 51,
   "content_checks": 671,
@@ -12,16 +12,26 @@
   "native_cache_before_rejections": 8,
   "native_cache_negative_mutations": 33,
   "unchanged_native_cache_cases": 433,
-  "changed_sql_checks": ["vigil/items/0", "compact/items/0"],
-  "candidate_shipping_sha256": "c4a431b832a2d3cc37868c04ac0dbe73b159e5840ac05cf7a1a67d602f052779",
-  "current_baseline_reproduced_sha256": "3fc2b901c98dfc2816298a051f3462a6db0a724ccfa649ff213da3d840186588",
+  "changed_sql_checks": [
+    "vigil/items/0",
+    "compact/items/0"
+  ],
+  "candidate_shipping_sha256": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a",
+  "current_baseline_reproduced_sha256": "ea6ad5324fbfd976210d060ad3efd29616c9da53a73f36f5d4fd7cfbd8743d6a",
   "native_manifest": "native-build-current.json",
   "candidate_artifact": "bin/zone (ignored, retained locally)",
   "generator_idempotent": true,
   "diff_whitespace_check": "passed",
-  "skill_update": "applied and validated; 17 reviewed source fingerprints unchanged",
-  "wiki_publication": "none; local candidate notes only",
+  "skill_update": "applied; 30 reviewed source fingerprints; deployment/maintenance.json",
+  "wiki_publication": "20261106-dungeon-readiness-v1",
   "wiki_refresh": "REVIEW REQUIRED for historical global drift; ledger not advanced",
-  "production_mutations": false,
-  "open_gates": ["current owner main/OVH authorization", "guarded activation/runtime verification", "exact owner gameplay QA"]
+  "production_mutations": "authorized supervised runtime restart and scoped wiki publication; no content/player migration",
+  "open_gates": [
+    "Owner exact entry/gameplay/balance QA"
+  ],
+  "linux_operator_tests": 6,
+  "actual_live_cache_guards": 441,
+  "saved_state_tables": 104,
+  "public_https_files": 510,
+  "source_revision": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6"
 }

@@ -1,7 +1,7 @@
 {
   "date": "2026-11-06",
   "review": "Author separate correctness, readability/architecture, security/privacy and performance passes; no independent human approval claimed",
-  "result": "No blocking finding in candidate source/build pairing; production activation still gated",
+  "result": "Verified deployed runtime and published wiki; owner gameplay acceptance remains open",
   "findings_resolved": [
     "Native contract left old expedition item definitions after an operator-only override; update both SQL and actual ItemData guards.",
     "Main mirror had 176 Hate points/650 checks while retained source has223/671; restore only authenticated reviewed current checks.",
@@ -16,9 +16,7 @@
     "Read-only production probes and bounded local native fixtures retain private credentials outside logs"
   ],
   "acceptance_open": [
-    "Current owner main/OVH authorization",
-    "Guarded current-baseline release and runtime/player-state verification",
-    "Owner Crushbone Raid/Grind and existing-run/campaign/Hate QA",
-    "Public wiki publication after authorized deployment"
-  ]
+    "Owner exact entry/gameplay/balance QA"
+  ],
+  "release_evidence": "deployment/deployed.json; native-live-cache.json; wiki-public-verification.json"
 }
