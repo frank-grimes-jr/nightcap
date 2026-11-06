@@ -1,0 +1,17 @@
+{
+  "archive_sha256": {
+    "uifiles/nightcap/equi_inventory.xml": "cf0402a36438a2a667add72cb37c259fd276a7ac1ac444fae7f8e7f63eb05648"
+  },
+  "assets_preserved": 147,
+  "candidate_proxy_catalog_pair": "passed",
+  "changed_assets": 1,
+  "channel_sha256": "ee56323a1780ef5481c3c55e195ec4831969b82f3aed839b81ec3300b31d4dd0",
+  "exact_executable_preflight": "passed",
+  "native_player_acceptance": "pending",
+  "previous_channel_sha256": "38805c66c797cece765796c53a9e27a3fcf76c2d8c1c6d7b3415c07611b64fbf",
+  "previous_release": 2026110603,
+  "release": 2026110604,
+  "signature": "verified against shipped production key",
+  "status": "signed_candidate_not_published",
+  "unchanged_asset_urls_preserved": true
+}
