@@ -12,6 +12,15 @@ candidate; deployment and owner entry/gameplay QA remain pending. Exact source,
 build/tests, preservation, activation boundary and QA:
 `docs/dungeons/readiness-20261106/README.md`.
 
+## 2026-11-06 — Single Shield Block display published
+
+Keep one plain Shield Block total including augment bonuses; remove the confusing
+augment-only breakdown row. Preserve normal font and all unrelated controls.
+Signed2026110604 is Inventory XML only,147assets retained; no native/DLL/server
+restart or gameplay change. Publication verified:148signed descriptors, served XML/pair,147retained hashes,
+unchanged services and wiki510files. Owner revised-display QA remains open.
+Evidence: `docs/releases/character-stats-shield-block-20261106/`.
+
 ## 2026-11-06 — Character Stats font correction published
 
 Owner confirms Stats functions; added labels are smaller. Inherit the normal

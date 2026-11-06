@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "before_sha256": "071784a87c021a0172008cecec39b87826d22d15407623cec9f80f261fdeeb3e",
+  "after_sha256": "cf0402a36438a2a667add72cb37c259fd276a7ac1ac444fae7f8e7f63eb05648",
+  "removed": [
+    "NCST_Name1",
+    "NCST_Row1",
+    "NCST_Value1"
+  ],
+  "changed": [
+    "IW_Stats",
+    "NCST_Bonuses",
+    "NCST_Name0",
+    "NCST_Value0"
+  ],
+  "all_other_controls_preserved": true,
+  "single_total": "Shield Block, EQType10200 unchanged",
+  "normal_font_preserved": true,
+  "owner_pixel_acceptance": "pending"
+}

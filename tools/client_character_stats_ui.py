@@ -3,6 +3,24 @@ import xml.etree.ElementTree as ET
 
 PAIRS=['Shielding','SpellShield','DamageShielding','DoTShielding','DamageShieldMitigation',
        'Avoidance','Accuracy','StunResist','StrikeThrough','HealAmount','SpellDamage','Clairvoyance','CombatEffects']
+SHIELD_BLOCK_TIP='Total shield-block chance, including equipped augment bonuses. Requires a shield; facing and attack counters still apply. Only the strongest augment shield-block bonus applies.'
+
+
+def show_total_shield_block(root):
+    """Keep a single total; remove the redundant augment-only breakdown row."""
+    tile=root.find("TileLayoutBox[@item='IW_Stats']")
+    section=root.find("Screen[@item='NCST_Bonuses']")
+    if tile is None or section is None:raise ValueError('Missing Stats layout')
+    for node in list(root):
+        if node.get('item') in ('NCST_Row1','NCST_Name1','NCST_Value1'):root.remove(node)
+    for piece in tile.findall('Pieces'):
+        if piece.text=='Screen:NCST_Row1':tile.remove(piece)
+    for name in ('NCST_Name0','NCST_Value0'):
+        root.find("Label[@item='"+name+"']/TooltipReference").text=SHIELD_BLOCK_TIP
+    root.find("Label[@item='NCST_Name0']/Text").text='Shield Block'
+    height=max(400,((len(tile.findall('Pieces'))+1)//2)*16+2)
+    tile.find('Size/CY').text=str(height)
+    section.find('Location/Y').text=str(height+20)
 
 
 def match_character_stats_font(root):
@@ -17,9 +35,8 @@ def match_character_stats_font(root):
         if current is not None:node.remove(current)
         if font is not None:ET.SubElement(node,'Font').text=font
         node.find('Size/CY').text=height
-    for index in range(3):
+    for index in (0,2):
         root.find("Label[@item='NCST_Value"+str(index)+"']/Size/CX").text='75'
-    root.find("Label[@item='NCST_Name1']/Text").text='Hunt aug block'
 
 
 def add_character_stats(root):
@@ -67,13 +84,12 @@ def add_character_stats(root):
         if tooltip:put(node,'TooltipReference',tooltip)
         ET.SubElement(section if parent is None else parent,'Pieces').text=name
     label('NCST_Title','Item focus and utility',0,0,360)
-    rows=[('Shield Block','Nominal frontal shield-block check; requires a shield. Facing and attack counters still apply.'),
-          ('Hunt contribution','Active strongest eligible Hunt shield-block augment; copies do not add.'),
-          ('Dodge modifier','Relative modifier to Dodge skill, not a flat chance to avoid all attacks.'),
-          ('Item spell haste*','Best worn item focus potential before spell limits. Buffs/AAs and cast/level limits affect an actual cast.'),
-          ('Mana preservation*','Best worn item focus potential before spell limits; copies do not add. Actual reduction depends on the spell and active rules.'),
-          ('Worn Faerune','A usable equipped item/augment supplies Faerune. Copies do not multiply its utility effects.')]
-    for i,(text,tip) in enumerate(rows):
+    rows=[(0,'Shield Block',SHIELD_BLOCK_TIP),
+          (2,'Dodge modifier','Relative modifier to Dodge skill, not a flat chance to avoid all attacks.'),
+          (3,'Item spell haste*','Best worn item focus potential before spell limits. Buffs/AAs and cast/level limits affect an actual cast.'),
+          (4,'Mana preservation*','Best worn item focus potential before spell limits; copies do not add. Actual reduction depends on the spell and active rules.'),
+          (5,'Worn Faerune','A usable equipped item/augment supplies Faerune. Copies do not multiply its utility effects.')]
+    for i,text,tip in rows:
         if i<3:
             row=ET.SubElement(root,'Screen',item='NCST_Row'+str(i))
             put(row,'RelativePosition','true');put(row,'Style_Transparent','true')
@@ -81,7 +97,6 @@ def add_character_stats(root):
             label('NCST_Name'+str(i),text,0,0,105,tooltip=tip,parent=row)
             label('NCST_Value'+str(i),'--',105,0,70,10200+i,tip,parent=row)
             after='Screen:IWS_ShieldingScreen' if i<2 else 'Screen:IWS_AvoidanceScreen'
-            if i==1:after='Screen:NCST_Row0'
             previous=next(n for n in tile.findall('Pieces') if n.text==after)
             piece=ET.Element('Pieces');piece.text='Screen:NCST_Row'+str(i)
             tile.insert(list(tile).index(previous)+1,piece)
@@ -95,4 +110,5 @@ def add_character_stats(root):
     label('NCST_Status','Updating server totals...',0,84,360,10400)
     label('NCST_FocusHelp','*Focus potential; spell limits still apply.',0,103,360)
     ET.SubElement(page,'Pieces').text='Screen:NCST_Bonuses'
+    show_total_shield_block(root)
     match_character_stats_font(root)

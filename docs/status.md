@@ -11,6 +11,13 @@ Zone-only candidate; no restart or new deployment is claimed. Main/OVH promotion
 and exact owner entry/gameplay QA remain pending.
 [Evidence, build and QA](dungeons/readiness-20261106/README.md).
 
+## November6 — single Shield Block display published
+
+Owner requests one plain Shield Block total. Published2026110604 removes the
+redundant augment row, retains normal font and includes augment bonuses in the
+same total. Signature/148descriptors/served XML+pair and147retained hashes verify; wiki510files
+and unchanged services pass. Native/DLL/runtime unchanged; no restart. [QA and evidence](releases/character-stats-shield-block-20261106/README.md).
+
 ## November6 — Stats function reported; font correction published
 
 Owner confirms Stats functions. Smaller added rows are corrected to the native
