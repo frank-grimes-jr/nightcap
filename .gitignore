@@ -22,6 +22,8 @@ deploy/production/native-bin/
 # Python test/generator bytecode
 __pycache__/
 /artifacts/augment-audit/
+/artifacts/augment-audit-release/
+/docs/releases/augment-audit-20261106/*-private.json
 /docs/audits/augments-20261106/production.json
 /artifacts/tmp/
 /artifacts/icon-sheets.png

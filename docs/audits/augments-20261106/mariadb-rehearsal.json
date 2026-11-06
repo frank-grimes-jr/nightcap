@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "schema": "nightcap_augment_audit_20261106_d76d2e9b",
+  "schema": "nightcap_augment_audit_20261106_a3bca292",
   "environment": "local disposable MariaDB; no peq/player writes",
   "checks": [
     "all 232 full afterimages match",
@@ -11,6 +11,6 @@
     "additive worn rule rejected before writes",
     "disabled Hunt feature state rejected before writes"
   ],
-  "forward_sha256": "8ba96ee0c9f45d6be4ba22c32857d9ec3173b694e097c91a6f00d42196cb73ed",
-  "rollback_sha256": "1926d0fdb0bc1d472acfea470f8ac5c900493615d2ec4fcff8523720cfffaf12"
+  "forward_sha256": "9a5dd6210b2ba6ab99391997432197e5f50a6768c4634999deedbd3647ce16cc",
+  "rollback_sha256": "03ff038a4bd40ac9f99bc2d4155a12d7e676cb00a633ff7e51d5f18dca50234d"
 }

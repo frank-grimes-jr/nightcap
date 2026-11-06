@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-11-06 — Augment-only main/OVH release authorized
+
+Owner approved the replacement icon preview and explicitly requested main/OVH for
+live QA. Prepare the linked, tested augment-only release, excluding the separate
+capacity candidate. Production preflight matches all 232 item preimages, 56 zone
+rows and 17 captured effects. Add indexed identity predicates to the existing
+full-row SQL guards, and rehearse native cache regeneration against an isolated
+copy of the full production item catalog. Six Linux rollout fault tests pass.
+Activation/publication receipts and owner gameplay QA remain separate gates:
+`docs/releases/augment-audit-20261106/`.
+
 ## 2026-11-06 — Zone augment audit candidate
 
 Audit all 58 augment families / 232 definitions against a fresh read-only

@@ -477,6 +477,13 @@ claims about live state).
 
 ### Branch flow
 
+**November 6 augment release exception:** the owner explicitly requested,
+"Looks good. Merge the augment changes to main and deploy to OVH for live QA."
+This authorizes the audited augment-only candidate, its guarded item/config SQL,
+matching item-cache regeneration and zone deployment before in-game acceptance.
+It excludes the unrelated zone-capacity candidate. Preserve pending owner gameplay
+and balance QA; icon-preview approval is not full gameplay acceptance.
+
 **November 1 Hunt rates exception:** the owner explicitly requested "Merge to main
 and OVH" for per-zone Hunt drop rates (augments 1.5%). This authorizes main
 promotion and OVH rollout before in-game acceptance; it is not standing deployment

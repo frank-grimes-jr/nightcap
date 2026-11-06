@@ -72,7 +72,7 @@ def guarded_sql(rows, reverse=False, zones=(), effects=()):
         used = {r['after'][k] for r in rows for k in ('focuseffect', 'worneffect')} - {'-1', '0'}
         for effect in effects:
             if effect['id'] in used:
-                predicate = ' AND '.join(f'BINARY `{k}` <=> {literal(v)}' for k, v in effect.items())
+                predicate = 'id=' + str(int(effect['id'])) + ' AND ' + ' AND '.join(f'BINARY `{k}` <=> {literal(v)}' for k, v in effect.items())
                 sql += [f" IF NOT EXISTS (SELECT 1 FROM spells_new WHERE {predicate}) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Spell effect drift'; END IF;"]
     for entry in rows:
         before, after = (entry['after'], entry['before']) if reverse else (entry['before'], entry['after'])
@@ -80,7 +80,7 @@ def guarded_sql(rows, reverse=False, zones=(), effects=()):
         if not fields:
             continue
         # Full captured row, including all unknown columns, must still match.
-        where = ' AND '.join(f'BINARY `{k}` <=> {literal(v)}' for k, v in before.items())
+        where = 'id=' + str(int(before['id'])) + ' AND ' + ' AND '.join(f'BINARY `{k}` <=> {literal(v)}' for k, v in before.items())
         sql += [' UPDATE items SET ' + ','.join(f'`{k}`={literal(after[k])}' for k in fields)
                 + ',`updated`=`updated` WHERE ' + where + ';',
                 " IF ROW_COUNT()<>1 THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Augment preimage drift'; END IF;"]
@@ -89,7 +89,7 @@ def guarded_sql(rows, reverse=False, zones=(), effects=()):
             continue
         expected = {k: v for k, v in zone.items() if k not in ('short_name', 'long_name')}
         expected['enabled'] = '1' if reverse else '0'
-        predicate = ' AND '.join(f'BINARY `{k}` <=> {literal(v)}' for k, v in expected.items())
+        predicate = 'zone_id=' + str(int(expected['zone_id'])) + ' AND ' + ' AND '.join(f'BINARY `{k}` <=> {literal(v)}' for k, v in expected.items())
         sql += [f" UPDATE nightcap_zone_hunt_zones SET enabled={0 if reverse else 1} WHERE {predicate};",
                 " IF ROW_COUNT()<>1 THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Zone enable preimage drift'; END IF;"]
     sql += [' COMMIT;', 'END//', 'DELIMITER ;', f'CALL {name}();', f'DROP PROCEDURE {name};']

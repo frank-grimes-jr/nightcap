@@ -1,0 +1,7 @@
+Zone augments still miss guards/unlisted NPCs, lack secondary-stat variety and use cloth-glove/default icons. This release grants any unowned killable NPC the augment roll, corrects High Keep cleanup and Hate identity, adds bounded specialties, and changes all232 augment definitions to visually approved gems/crystals/orbs. Classic stays1.5%; the two expeditions move to1.5%; quality/forge costs remain.
+
+Owner explicitly authorized main and OVH for live QA on November6: “Looks good. Merge the augment changes to main and deploy to OVH for live QA.” This main-based branch excludes the unrelated capacity configuration on test. Native/quest content matches the tested candidate; compatible XP metadata readers are retained.
+
+Validation:52 focused candidate tests, four complete native compiles,144 authenticated linker inputs reproducing the live baseline before linking, exact SQL/inverse/drift rehearsals, six Linux rollout fault tests, and fresh production preimage/runtime checks. Production-sized cache rehearsal and activation use one-shot guarded phases and a fresh stopped backup. No player restore or client asset update.
+
+Native gameplay, balancing and visible loot acceptance remain open. Exact nine-part QA and full58-family list: docs/audits/augments-20261106/README.md and AUGMENTS.md. Operational scope/recovery: docs/releases/augment-audit-20261106/README.md. Wiki/catalog promotion follows verified activation; local previews are not public publication.
