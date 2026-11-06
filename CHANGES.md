@@ -1,12 +1,13 @@
 # CHANGES
 
-## 2026-11-06 — Character Stats font correction candidate
+## 2026-11-06 — Character Stats font correction published
 
 Owner confirms Stats functions; added labels are smaller. Inherit the normal
 stat font/row height, widen values, and rename Hunt contribution to Hunt aug block
 (the strongest augment portion already included in total Shield Block).
 Signed2026110603 changes Inventory XML only;147assets/DLL/catalog remain. No
-server restart or gameplay changes. Revised pixel QA is open; publication pending.
+server restart or gameplay changes. All148hosted assets/signature/pair verify;147preserved. All service identities/starts
+remain. Wiki510files/rollback/private routes verify. Revised pixel QA is open.
 Evidence: `docs/releases/character-stats-font-20261106/`.
 
 ## 2026-11-06 — Server-backed character Stats deployed for live QA
