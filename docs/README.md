@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [Augment Description and equipped totals: deployed correction and exact QA](releases/augment-item-window-20261106/README.md)
+
 - [November 6 augment-only main/OVH deployment and verified public wiki](releases/augment-audit-20261106/README.md)
 
 - [November 6 augments: deployed live QA, complete list and icon review](audits/augments-20261106/README.md)

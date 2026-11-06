@@ -1,0 +1,13 @@
+{
+  "reviewed": "all503routes/510publicfiles; entire authored guide inventory and generated catalogs",
+  "changed_guides": [
+    "augment-audit",
+    "commands",
+    "equipment",
+    "features",
+    "recent-changes"
+  ],
+  "unchanged": "all items/zones/catalog values, Home/navigation, Build Lab models/spells, asset files and unrelated mechanics",
+  "publication": "verified20261106-augment-description-v1;510files, rollback/private downloads/services pass",
+  "native_visual_acceptance": "pending"
+}

@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-06 — Augment descriptions and equipped totals deployed
+
+Deploy the owner-requested live-QA correction from main PR408: #augstats provides
+self-only server-calculated equipped totals/caps; signed client2026110601/0.13.3
+shows Hunt Shield Block in normal item Description with restrictions/stacking.
+Stopped backup, saved-state/content/cache/native checks and reopened access pass.
+All148hosted client assets/signature/pair verified; only DLL/catalog changed,
+146assets preserved. No item power, drop, rule or inventory migration. Fully
+exit EQ/use launcher Play; relogging cannot replace the loaded DLL. The native
+stock250healing cap label is not server truth. Wiki510files/rollback/private
+downloads/services verified. Owner visible/gameplay acceptance remains open.
+Evidence: `docs/releases/augment-item-window-20261106/`.
+
 ## 2026-11-06 — Augment Description and equipped-total correction candidate
 
 Owner exposed a live QA gap: Understone's real shield-block bonus is absent from
