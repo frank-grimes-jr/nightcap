@@ -1,0 +1,14 @@
+{
+  "review": "entire public wiki/catalogs and main previews",
+  "updated": [
+    "augment-audit",
+    "equipment",
+    "commands",
+    "features",
+    "recent-changes"
+  ],
+  "unchanged": "all item/zone/catalog values, Home/navigation, unrelated guides/Build Lab/assets",
+  "publication": "pending",
+  "owner_request": "one Shield Block total; remove extra augment row",
+  "owner_pixel_acceptance": "pending"
+}

@@ -1,5 +1,11 @@
 # Current Nightcap status
 
+## November6 — single Shield Block display candidate
+
+Owner requests one plain Shield Block total. Candidate2026110604 removes the
+redundant augment row, retains normal font and includes augment bonuses in the
+same total. Native/DLL/runtime unchanged; no restart. [QA and evidence](releases/character-stats-shield-block-20261106/README.md).
+
 ## November6 — Stats function reported; font correction published
 
 Owner confirms Stats functions. Smaller added rows are corrected to the native

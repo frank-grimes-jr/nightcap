@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-11-06 — Single Shield Block display candidate
+
+Keep one plain Shield Block total including augment bonuses; remove the confusing
+augment-only breakdown row. Preserve normal font and all unrelated controls.
+Signed2026110604 is Inventory XML only,147assets retained; no native/DLL/server
+restart or gameplay change. Publication and owner revised-display QA pending.
+Evidence: `docs/releases/character-stats-shield-block-20261106/`.
+
 ## 2026-11-06 — Character Stats font correction published
 
 Owner confirms Stats functions; added labels are smaller. Inherit the normal
