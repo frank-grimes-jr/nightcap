@@ -48,6 +48,13 @@ constexpr bool CanOffer(unsigned task,unsigned level,uint16_t completed) {
 }
 constexpr bool ArmorEarned(unsigned id,unsigned level,uint32_t classes,uint16_t completed) {
 	const auto a=Decode(id);
+	if (!a.valid) { return false; }
+	const unsigned earned=SlotTasks[a.slot];
+	if (!CanOffer(FirstTask+earned,255,completed & ~(1u<<earned))) { return false; }
+	if (a.grade) {
+		const unsigned milestone=a.grade==3 ? 15 : a.grade==2 ? 12 : 9;
+		if (!(completed&(1u<<milestone)) || !CanOffer(FirstTask+milestone,255,completed & ~(1u<<milestone))) { return false; }
+	}
 	return a.valid && FitAllowed(a.fit,classes) && level>=RequiredLevel(a.grade,a.slot) &&
 		(completed & (1u<<SlotTasks[a.slot])) && (a.slot<3 || HasOath(completed)) && a.grade<=Grade(completed);
 }

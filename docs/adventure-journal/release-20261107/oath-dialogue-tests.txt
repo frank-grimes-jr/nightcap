@@ -1,0 +1,55 @@
+ok 1 - unsaved native completion cannot attune
+ok 2 - unsaved native completion cannot activate an existing charm
+ok 3 - fresh character sees only first shared chapter
+ok 4 - next chapter follows earned completion
+ok 5 - all five archetype paths offered without class lookup
+ok 6 - earned path attunes at hub
+ok 7 - legacy Perl forge cannot create an unreceipted charm
+ok 8 - legacy fallback cannot duplicate a native charm
+ok 9 - item click always blocks native dummy spell
+ok 10 - earned equipped charm invokes one effect
+ok 11 - selected path supplies effect
+ok 12 - shared cooldown starts before effect
+ok 13 - second click blocked
+ok 14 - cooldown blocks switching
+ok 15 - fresh session retains cooldown
+ok 16 - invalid hub/eligibility state refuses attunement: level
+ok 17 - invalid hub/eligibility state refuses attunement: zone
+ok 18 - invalid hub/eligibility state refuses attunement: instance
+ok 19 - invalid hub/eligibility state refuses attunement: aggro
+ok 20 - invalid hub/eligibility state refuses attunement: casting
+ok 21 - invalid hub/eligibility state refuses attunement: distance
+ok 22 - invalid hub/eligibility state refuses attunement: stunned
+ok 23 - invalid hub/eligibility state refuses attunement: contract
+ok 24 - invalid hub/eligibility state refuses attunement: completed
+ok 25 - rejected click remains intercepted
+ok 26 - invalid click state refuses ability: item
+ok 27 - rejected click consumes no cooldown
+ok 28 - rejected click remains intercepted
+ok 29 - invalid click state refuses ability: stunned
+ok 30 - rejected click consumes no cooldown
+ok 31 - rejected click remains intercepted
+ok 32 - invalid click state refuses ability: casting
+ok 33 - rejected click consumes no cooldown
+ok 34 - rejected click remains intercepted
+ok 35 - invalid click state refuses ability: contract
+ok 36 - rejected click consumes no cooldown
+ok 37 - rejected click remains intercepted
+ok 38 - invalid click state refuses ability: level
+ok 39 - rejected click consumes no cooldown
+ok 40 - rejected click remains intercepted
+ok 41 - invalid click state refuses ability: hp
+ok 42 - rejected click consumes no cooldown
+ok 43 - rejected click remains intercepted
+ok 44 - invalid click state refuses ability: completed
+ok 45 - rejected click consumes no cooldown
+ok 46 - bag click cannot borrow equipped eligibility
+ok 47 - failed or uncertain DB reserve never applies power
+ok 48 - disabled release refuses power
+ok 49 - foreign pet rejected
+ok 50 - invalid pet does not spend cooldown
+ok 51 - one owned target receives binder ability
+ok 52 - binder does not multiply across pet roster
+ok 53 - real item entry point intercepts activation
+1..53
+

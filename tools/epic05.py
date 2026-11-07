@@ -91,7 +91,8 @@ def spell_rows(catalog):
                    resisttype=0, targettype=5 if path['target'] == 'owned_pet' else 6,
                    skill=4, icon=1, memicon=1, new_icon=1, short_buff_box=1,
                    not_extendable=1, suspendable=0, persistdeath=0,
-                   can_mgb=0, nodispell=0, no_block=0, spellgroup=path['spell'])
+                   can_mgb=0, nodispell=0, no_block=0, spellgroup=path['spell'],
+                   typedescnum=0, effectdescnum=0)
         for index in range(1, 17):
             row['classes' + str(index)] = 255
         for index in range(1, 13):

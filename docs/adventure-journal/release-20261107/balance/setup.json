@@ -1,0 +1,6 @@
+{
+  "database": "nightcap_lantern_balance_20261107",
+  "source_database": "nightcap_warhelm_balance_20261024",
+  "runtime": "/tmp/nightcap-balance-last-lantern-20261107",
+  "production_changed": false
+}

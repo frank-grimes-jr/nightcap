@@ -21,7 +21,7 @@ struct DB {
   if(n==throw_at) throw std::runtime_error("injected");
   if(n==fail) return {};
   Reply r; r.ok=true;r.affected=1;
-  if(sql.find("information_schema.TABLES")!=std::string::npos) r.rows={{"15"}};
+  if(sql.find("information_schema.TABLES")!=std::string::npos) r.rows={{"16"}};
   else if(sql.find("information_schema.TRIGGERS")!=std::string::npos) r.rows={{"0"}};
   else if(sql.find("@@in_transaction")!=std::string::npos) r.rows={{"0","1"}};
   else if(sql.find("SELECT revision FROM nightcap_lantern_control")!=std::string::npos)r.rows={{std::to_string(Revision)}};
@@ -84,6 +84,10 @@ int main() {
  assert(Refit([&](const std::string&s){return db(s);},evil)==Status::Rejected && db.n==0);
  auto dye=req;dye.after[4]="456";
  assert(Refit([&](const std::string&s){return db(s);},dye)==Status::Rejected); // custom dye must survive
+ DB default_dye;default_dye.inventory={req.before};
+ auto default_req=req;default_req.after[4]="456";
+ default_req.source_default_color=123;default_req.target_default_color=456;
+ assert(Refit([&](const std::string&s){return default_dye(s);},default_req)==Status::Committed);
  DB rollback;rollback.inventory={req.before};rollback.fail=5;rollback.rollback_fail=true;
  assert(Refit([&](const std::string&s){return rollback(s);},req)==Status::Uncertain);
  DB outside;outside.inventory={req.before};outside.outside=true;

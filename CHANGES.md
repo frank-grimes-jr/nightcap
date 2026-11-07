@@ -15,18 +15,30 @@ matching native release and campaign durable-history checks remain in progress.
 Wiki impact: task persistence reliability belongs in the campaign release notes;
 no chapter, item budget, command or existing quest requirement changes here.
 
-## 2026-11-07 — Last Lantern release authorized; native reward foundation
+## 2026-11-07 — Last Lantern campaign and earned outfit implemented candidate
 
-The owner approved the campaign direction and requested main/server release with
-client notes. Implementation starts with native chapter/armor eligibility and
-fixed 128-item identity policy (four fits, four earned grades, eight slots), plus
-an effective personal-reward cache override after FreeTrade. Preserve NO DROP,
-NoTransfer, NoPet and zero resale even under global item rules; pet equipment
-restoration now honors NoPet. Compiled negative controls cover alternative oath
-paths, sequential continuation, legal fits, refit grades and trade projection.
-No new item definitions, campaign scenes or runtime changes are deployed yet.
-Source audit, delivery/refit, content, native build and release work remain open:
-`tasks/adventure-journal-endgame/plan.md` and `todo.md`.
+Extend the original three chapters/five oath trials with eight continuations to
+level50: sixteen Tasks/sixty-four activities, eight private version80 memories,
+Mera/Oren/Tovin, ordered retreat checkpoints, defenses, named voices, a three-phase
+Hollow Witness finale, inscription and title. Native completed_tasks controls
+eligibility; no parallel persistent story mask. Keep Keeper runs/rewards separate,
+suppress transient saved-state/XP/loot and retain an exit companion across cleanup.
+
+Add128 fixed personal armor definitions, eight earned pieces/four fits/four grades,
+with budgets derived from current Normal dungeon items. First delivery freezes a
+stable character/slot UUID; refits preserve complete instances, saved GUID, augments,
+dye, binding and ornaments through inventory CAS plus ownership/operation receipts.
+No free replacement of missing receipted equipment. Native policy follows FreeTrade
+and preserves personal/no-pet/zero-resale flags. The existing charm's powers and
+shared recovery remain; attunement/click now also require durable native history.
+
+Compiled policy/runtime/failure controls and real disposable MariaDB rehearsal pass.
+Native build/current-baseline reproduction, combat calibration and authorized
+main/server/client/wiki publication continue under release-20261107/. No production
+installation or player acceptance is claimed here. Client2026110701 notes/spells
+are signed locally, preserving the latest148-file inventory and all38 older notes.
+Wiki impact covers the campaign guide/reward projection, Features, in-development
+boundary and Change Log; public publication remains pending.
 
 ## 2026-11-06 — Adventure Journal endgame story and armor proposal
 

@@ -28,7 +28,7 @@ sub epic05_earned {
     for my $chapter (@{epic05_catalog()->{shared}}, $path) {
         return 0 unless $client->IsTaskCompleted($chapter->{task});
     }
-    return 1;
+    return epic05_store_earned($client->CharacterID(), $path->{task});
 }
 
 sub epic05_can_act {
@@ -80,10 +80,10 @@ sub epic05_journal {
     my $state = epic05_store_state($client->CharacterID());
     if ($state && $state->{active_path}) {
         epic05_message($client, 'Active attunement: '.ucfirst($state->{active_path}).'. Shared recovery: '
-            .$state->{remaining}.' seconds. ['.quest::saylink('journal forge',0,'Forge or recover my Epic 0.5').']');
+            .$state->{remaining}.' seconds. ['.quest::saylink('journal forge',0,'Claim my oath charm').']');
     } else {
         epic05_message($client, 'After earning a path, choose its attunement and ask me to ['
-            .quest::saylink('journal forge',0,'forge your Epic 0.5').'].');
+            .quest::saylink('journal forge',0,'claim your oath charm').'].');
     }
     $client->TaskSelector(\@offered) if @offered;
 }
@@ -100,31 +100,14 @@ sub epic05_attune {
         return;
     }
     epic05_message($client, 'Your oath follows the '.ucfirst($key).' path. '.$path->{effect_text}
-        .' All paths share a ten-minute recovery. ['.quest::saylink('journal forge',0,'Forge or recover my Epic 0.5').']');
+        .' All paths share a ten-minute recovery. ['.quest::saylink('journal forge',0,'Claim my oath charm').']');
 }
 
 sub epic05_forge {
     my ($client) = @_;
-    my $catalog = epic05_catalog();
-    my $state = epic05_store_state($client->CharacterID());
-    if (!$state || $client->GetLevel() < 35 || !epic05_earned($client, epic05_path($state->{active_path}))) {
-        epic05_message($client, 'Earn and attune an archetype path before asking me to forge your oath.');
-        return;
-    }
-    if ($client->CountItem($catalog->{item}{id}) > 0) {
-        epic05_message($client, 'You already own your Epic 0.5. Check your equipment, bags and bank.');
-        return;
-    }
-    if ($client->GetItemIDAt(30) != -1) {
-        epic05_message($client, 'Clear your cursor before I forge your relic.');
-        return;
-    }
-    # SummonItem uses native lore/inventory checks. Earned task history remains
-    # recoverable if inventory delivery fails; never consume or clear that history.
-    $client->SummonItem($catalog->{item}{id});
-    epic05_message($client, $client->CountItem($catalog->{item}{id}) > 0
-        ? 'Your journeys have become Wayfarer\'s Oath. Equip it in your charm slot and right-click to awaken your attunement.'
-        : 'The charm could not be delivered. Check your bank and cursor, then return; your victories remain recorded.');
+    # Permanent first delivery belongs to the native slot entitlement/receipt.
+    # A legacy or untargeted Perl route must never mint an unreceipted copy.
+    epic05_message($client, 'Target the Ancient Chronicler in the Commonlands tunnel and choose Claim my oath charm. The native journal safely delivers your earned relic.');
 }
 
 sub epic05_dialogue {

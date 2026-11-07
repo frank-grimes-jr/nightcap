@@ -7,9 +7,10 @@ Implementation plan: [ordered slices](../../tasks/adventure-journal-endgame/plan
 
 The owner requested a
 living story through endgame and confirmed useful progression armor with a
-coordinated appearance. The chapter script, encounter implementation and final
-item budgets below require implementation and source audit. This document does not install content.
-The original eight-task Epic 0.5 candidate remains unchanged and unreleased.
+coordinated appearance. The implemented candidate now has sixteen native Tasks, eight private memory scenes
+and the complete armor/refit system. The original eight-task catalog is preserved
+as its path/spell foundation. Release, measured tuning and player acceptance are
+tracked separately in release-20261107/. This document does not establish installation.
 
 ## The experience
 

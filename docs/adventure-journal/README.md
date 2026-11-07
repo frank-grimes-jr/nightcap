@@ -1,10 +1,16 @@
 # Adventure Journal / Epic 0.5 candidate
 
-**November 6 design expansion:** [The Last Lantern](CAMPAIGN.md) proposes a
-12-chapter playthrough through level-50 endgame, recurring companions and an
-eight-piece coordinated progression armor set. The owner requested useful armor;
-the full chapter/reward design awaits review. It is not implemented or installed.
-The eight-task candidate described below remains the actual built scope.
+**November 7 approved implementation:** [The Last Lantern](CAMPAIGN.md) extends
+one playthrough to twelve chapters through level50, with returning companions,
+eight personal progression armor pieces, four legal fits, earned refits and a
+planar finale. Sixteen Task definitions include five alternative oath trials.
+Native/content implementation and automated/database checks are present; release
+and player acceptance are tracked separately in [the release record](release-20261107/README.md).
+Nothing is installed until its dated activation receipt is recorded.
+
+The original eight-task catalog below remains the underlying path/spell contract,
+not the full release package. Use last-lantern-setup.sql and the reviewed campaign
+operator for the expansion; the old setup.sql alone cannot install this runtime.
 
 October 1, 2026. This candidate adds eight native journal adventures and one
 archetype relic. It is prepared for the normal `dev` → `test` flow. Production
@@ -16,8 +22,8 @@ independently earnable paths at level 35. Any primary class can earn any path.
 The Tasks window records progress. The Chronicler provides preparation notes,
 the next eligible chapter, earned choices and the remaining shared cooldown.
 
-After finishing a path, choose its **Attune** link, then **Forge or recover my
-Epic 0.5**. Equip **Wayfarer's Oath [Epic 0.5]** in the charm slot and right-click.
+After finishing a path, choose its **Attune** link, then **Claim Wayfarer's Oath**.
+The campaign delivers one charm per character through a permanent receipt. Equip **Wayfarer's Oath [Epic 0.5]** in the charm slot and right-click.
 Binder requires one living owned pet targeted within 100 units. Other paths act
 on the wearer. Switching earned paths requires the public EC hub, no aggro and
 a ready cooldown. Every path shares the same durable ten-minute timer.
@@ -30,7 +36,7 @@ a ready cooldown. Every path shares the same durable ten-minute timer.
 | Warden | 10% max HP, capped at 400 base healing before normal bonuses | Khrix Fritchoff; Maid Issis | Garanel Rucksif |
 | Binder | One pet: 8% melee modifier and 10% absorption, 150 cap, up to 3 ticks | King Thex'Ka IV; Mynthi Davissi | Xicotl |
 
-The relic has 5 AC, 35 HP/mana and 3 classic resists. It is lore, no trade,
+The relic has 5 AC, 35 HP/mana and 3 classic resists. Its campaign policy is personal, no trade,
 all class and level 35 required. It has no augment slots, heroics, regeneration
 or random tiers. Additional paths unlock choices on the same charm.
 

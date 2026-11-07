@@ -39,6 +39,16 @@ sub epic05_store_state {
     return $row->{active_path} ? $row : {active_path => '', remaining => 0};
 }
 
+sub epic05_store_earned {
+    my ($character_id, $path_task) = @_;
+    return 0 unless defined($path_task) && $path_task =~ /^950[3-7]$/;
+    my $row = epic05_statement('read',
+        'SELECT COUNT(DISTINCT taskid) AS earned FROM completed_tasks '
+        . 'WHERE charid=? AND activityid=-1 AND taskid IN (9500,9501,9502,?)',
+        $character_id, $path_task);
+    return $row && ($row->{earned} // 0) == 4;
+}
+
 sub epic05_store_attune {
     my ($character_id, $path) = @_;
     my $state = epic05_store_state($character_id);

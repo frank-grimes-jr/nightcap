@@ -7,12 +7,20 @@ our $root = shift @ARGV or die 'Expected repository root';
     do "$main::root/server-mods/plugins/epic05_data.pl" or die $@ || $!;
     do "$main::root/server-mods/plugins/epic05.pl" or die $@ || $!;
     our %states;
+    our %clients;
     our $enabled = 1;
     our $write_failure = 0;
     # Boundary fake; integration tests execute these SQL statements against MariaDB.
     no warnings 'redefine';
     sub epic05_store_enabled { return $enabled; }
     sub epic05_store_state { return $states{$_[0]} // {active_path=>'',remaining=>0}; }
+    sub epic05_store_earned {
+        my ($id,$task)=@_; my $c=$clients{$id};
+        my $done=exists($c->{durable}) ? $c->{durable} : $c->{completed};
+        return 0 if $write_failure;
+        for my $required (9500,9501,9502,$task) { return 0 unless $done->{$required}; }
+        return 1;
+    }
     sub epic05_store_attune {
         my ($id,$path)=@_;
         return 0 if $write_failure || ($states{$id} && $states{$id}{remaining});
@@ -61,9 +69,18 @@ our $root = shift @ARGV or die 'Expected repository root';
 
 my $npc=bless {},'EpicNPC';
 sub client {
-    return bless {id=>7, completed=>{map {$_=>1} 9500..9507},messages=>[],casts=>[],@_},'EpicClient';
+    my $c=bless {id=>7, completed=>{map {$_=>1} 9500..9507},messages=>[],casts=>[],@_},'EpicClient';
+    $plugin::clients{$c->{id}}=$c; return $c;
 }
 sub reset_state { %plugin::states=(); $plugin::enabled=1; $plugin::write_failure=0; }
+
+reset_state(); my $pending=client(durable=>{});
+plugin::epic05_dialogue($pending,$npc,'journal attune guardian');
+ok(!$plugin::states{7},'unsaved native completion cannot attune');
+$plugin::states{7}={active_path=>'guardian',remaining=>0};
+plugin::epic05_click($pending,0);
+is(scalar @{$pending->{casts}},0,'unsaved native completion cannot activate an existing charm');
+reset_state();
 
 my $c=client(completed=>{});
 plugin::epic05_dialogue($c,$npc,'journal');
@@ -79,9 +96,9 @@ reset_state(); $c=client();
 plugin::epic05_dialogue($c,$npc,'journal attune guardian');
 is($plugin::states{7}{active_path},'guardian','earned path attunes at hub');
 plugin::epic05_dialogue($c,$npc,'journal forge');
-is($c->{summons},1,'earned charm is recoverable');
+is($c->{summons}//0,0,'legacy Perl forge cannot create an unreceipted charm');
 plugin::epic05_dialogue($c,$npc,'journal forge');
-is($c->{summons},1,'existing charm not duplicated');
+is($c->{summons}//0,0,'legacy fallback cannot duplicate a native charm');
 is(plugin::epic05_click($c,0),1,'item click always blocks native dummy spell');
 is(scalar @{$c->{casts}},1,'earned equipped charm invokes one effect');
 is($c->{casts}[0][0],42801,'selected path supplies effect');

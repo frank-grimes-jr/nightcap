@@ -1,5 +1,185 @@
 [
   {
+    "release": 2026110701,
+    "date": "2026-11-07",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "The Last Lantern carries the Adventure Journal from level 20 through 50: three shared chapters, five oath paths to choose from, and eight further chapters."
+      },
+      {
+        "kind": "feature",
+        "text": "Meet Mera, Oren and Tovin, recover lost names in private company expeditions, and face the Hollow Witness."
+      },
+      {
+        "kind": "feature",
+        "text": "Earn eight matching armor pieces. Oren offers legal woven, leather, chain and plate fits, with earned refits at levels 40, 46 and 50."
+      },
+      {
+        "kind": "feature",
+        "text": "Refits preserve augments and custom dye. Campaign equipment is personal; Wayfarer's Oath powers share a ten-minute recovery."
+      },
+      {
+        "kind": "feature",
+        "text": "Begin with the Ancient Chronicler in the East Commonlands tunnel. Fully exit EverQuest and press Play to install the journal spells."
+      },
+      {
+        "kind": "feature",
+        "text": "Released for live QA. Rendered armor appearances and full encounter balance still await player acceptance."
+      }
+    ]
+  },
+  {
+    "release": 2026110605,
+    "date": "2026-11-06",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Repairs loot auto-opening after Filters, skin reload visibility and filter search; enlarges item icons and moves Inspect onto the main loot window. Fully exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026110604,
+    "date": "2026-11-06",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Shows one Shield Block total including equipped augments and removes the redundant augment breakdown row. Exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026110603,
+    "date": "2026-11-06",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Matches the added Stats rows to the normal font and row height, and clarifies Hunt aug block as the augment portion already included in total Shield Block. Exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026110602,
+    "date": "2026-11-06",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Inventory Stats now shows server-calculated totals and caps, Shield Block, Dodge, item focus potential and worn Faerune. Values update automatically. Fully exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026110601,
+    "date": "2026-11-06",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Shows Hunt Shield Block in augment item descriptions with the shield requirement and strongest-only stacking. Use #augstats for server-calculated equipped totals and caps. Fully exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026103002,
+    "date": "2026-10-30",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Corrects spell casting bars that remain full until the final instant, including level-1 Wizard nukes. Fully exit EverQuest and press Play to update. Server cast times and instant DoTs are unchanged."
+      }
+    ]
+  },
+  {
+    "release": 2026103001,
+    "date": "2026-10-30",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Restores the Ancient Attunement name, Nightcap Recall hotbutton label and Commonlands recall description. Fully exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026102901,
+    "date": "2026-10-29",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "New Plane of Hate dungeon runs use a ground-level layout with Nightcap encounters and loot preserved. Existing runs keep their original layout. Fully exit EQ and use Play to update before entering Hate. Owner gameplay QA is open."
+      }
+    ]
+  },
+  {
+    "release": 2026102803,
+    "date": "2026-10-28",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixes Bazaar Post for valid Unicode price text and makes seller controls larger and lighter. Fully exit EQ and use Play to update. In-game QA remains open."
+      }
+    ]
+  },
+  {
+    "release": 2026102802,
+    "date": "2026-10-28",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixes a crash while entering the world caused by missing Bazaar tab border templates. Fully exit EverQuest and use Play to update. The SoulFire repair and all other client assets are retained. Native login and Bazaar QA remain open."
+      }
+    ]
+  },
+  {
+    "release": 2026102801,
+    "date": "2026-10-28",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixes Paladin weapon grip caching and Bazaar skin loading. Paired server adds assessed weapon stats, direct Ascended quest rewards and free legacy Defender exchange. Fully exit EQ and use Play to update. In-game QA remains open."
+      }
+    ]
+  },
+  {
+    "release": 2026102601,
+    "date": "2026-10-26",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Adds Bazaar Sell / My Listings: post, cancel and collect in public East Commonlands. Close EQ and use Play to update. Paired server includes Paladin weapon grip conversion. Live QA is open."
+      }
+    ]
+  },
+  {
+    "release": 2026102402,
+    "date": "2026-10-24",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Adds the Warhelm of the Ashen Compact appearance; Camil and existing models are preserved. Close EQ and use Play to update. Corrects patch 2026102401 notes. Server activation is announced separately."
+      }
+    ]
+  },
+  {
+    "release": 2026102401,
+    "date": "2026-10-24",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Live testing: Earn two AA per level. AA +/− controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."
+      }
+    ]
+  },
+  {
+    "release": 2026102301,
+    "date": "2026-10-23",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Live testing: Earn two AA per level. AA +/− controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."
+      }
+    ]
+  },
+  {
     "release": 2026102204,
     "date": "2026-10-22",
     "changes": [
@@ -139,7 +319,7 @@
     "changes": [
       {
         "kind": "feature",
-        "text": "Raid & Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
+        "text": "Raid \u0026 Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
       },
       {
         "kind": "feature",
@@ -179,7 +359,7 @@
       },
       {
         "kind": "feature",
-        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid & Grind guide on wiki.nightcapgame.org lists every required boss."
+        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid \u0026 Grind guide on wiki.nightcapgame.org lists every required boss."
       }
     ]
   },

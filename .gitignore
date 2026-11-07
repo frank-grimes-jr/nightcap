@@ -47,3 +47,10 @@ artifacts/augment-display-env/
 artifacts/augment-item-window/
 artifacts/character-stats-font/
 artifacts/character-stats-shield-block/
+
+# Last Lantern local signed/runtime artifacts (keys remain outside this checkout)
+/artifacts/last-lantern-20261107/
+/eq-launcher/cmd/last-lantern-sign/
+
+# Captured public combat snapshot is reproducible; commit its fingerprint only.
+docs/adventure-journal/release-20261107/balance/public-content.json.gz

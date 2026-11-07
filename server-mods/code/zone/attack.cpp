@@ -2738,7 +2738,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 	};
 	// Managed deaths finalize exactly the native corpse before publishing death,
 	// XP or respawn state. The same object is committed and then published below.
-	const bool prepared_dungeon_death = NightcapDungeon::Managed() && !IsQueuedForCorpse();
+	const bool prepared_dungeon_death = (NightcapDungeon::Managed() || NightcapDungeon::Campaign()) && !IsQueuedForCorpse();
 	if (prepared_dungeon_death) {
 		if ((leaves_corpse() && !prepare_corpse()) ||
 			!NightcapDungeon::BeforeDeath(this, killer, hunt_owned, corpse)) {

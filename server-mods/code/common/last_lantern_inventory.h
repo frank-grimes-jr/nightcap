@@ -10,6 +10,7 @@ using NightcapBazaar::Row;
 using NightcapBazaar::Status;
 struct RefitRequest {
 	uint32_t character=0, level=0, classes=0;
+	uint32_t source_default_color=0, target_default_color=0; // authenticated item-cache definitions
 	std::string request_id;
 	Row before, after; // full native inventory rows; custom_data is hex
 	std::vector<uint32_t> supported_slots; // from the native inventory lookup
@@ -57,16 +58,19 @@ inline Status Refit(const Query &query,RefitRequest request) {
 		if (!request.parent.empty() && !ValidItem(request.parent,request.character)) { return Status::Rejected; }
 		for (size_t i=0;i<17;++i) {
 			// Preserve custom dye, augments, binding, ornaments, custom fields and GUID.
-			if (i!=2 && before[i]!=after[i]) { return Status::Rejected; }
+			if (i!=2 && i!=4 && before[i]!=after[i]) { return Status::Rejected; }
 		}
+		if (before[4]!=after[4] &&
+			((Number(before[4])!=0 && Number(before[4])!=request.source_default_color) ||
+			 Number(after[4])!=request.target_default_color)) { return Status::Rejected; }
 		const auto source=Number(before[2]), target=Number(after[2]);
 		if (source>UINT32_MAX || target>UINT32_MAX || !IsArmor(unsigned(source)) || !IsArmor(unsigned(target))) { return Status::Rejected; }
 		const auto slot=Decode(unsigned(source)).slot;
-		const std::string tables="'inventory','nightcap_lantern_control','nightcap_lantern_slots','nightcap_lantern_refits','completed_tasks','sharedbank','guild_bank','character_parcels','character_parcels_containers','character_corpse_items','character_pet_inventory','character_pet_armor','nightcap_bazaar_items','object_contents','trader'";
+		const std::string tables="'inventory','nightcap_lantern_control','nightcap_lantern_slots','nightcap_lantern_refits','completed_tasks','sharedbank','guild_bank','character_parcels','character_parcels_containers','character_corpse_items','character_corpses','character_pet_inventory','character_pet_armor','nightcap_bazaar_items','object_contents','trader'";
 		const auto engines=query("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME IN ("+tables+") AND ENGINE='InnoDB'");
 		const auto triggers=query("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() AND EVENT_OBJECT_TABLE IN ("+tables+")");
 		const auto transaction=query("SELECT @@in_transaction,@@autocommit");
-		if (!engines.ok || engines.rows!=Rows{{"15"}} || !triggers.ok || triggers.rows!=Rows{{"0"}} ||
+		if (!engines.ok || engines.rows!=Rows{{"16"}} || !triggers.ok || triggers.rows!=Rows{{"0"}} ||
 			!transaction.ok || transaction.rows!=Rows{{"0","1"}}) { return Status::Rejected; }
 		open=true;
 		if (!query("START TRANSACTION").ok) { return reject(); }
@@ -90,7 +94,9 @@ inline Status Refit(const Query &query,RefitRequest request) {
 		// any conflicting row rather than manufacture or refit an ambiguous copy.
 		for (const auto *table:{"sharedbank","guild_bank","character_parcels","character_parcels_containers","character_corpse_items","character_pet_inventory","character_pet_armor","nightcap_bazaar_items","object_contents","trader"}) {
 			const std::string column=std::string(table)=="object_contents" ? "itemid" : "item_id";
-			const auto custody=query("SELECT "+column+" FROM "+table+" WHERE "+column+">="+std::to_string(FirstArmor)+" AND "+column+"<"+std::to_string(FirstArmor+ArmorCount)+" FOR UPDATE");
+			std::string scope;
+			if (std::string(table)=="character_corpse_items") { scope=" AND corpse_id IN (SELECT id FROM character_corpses WHERE charid="+std::to_string(request.character)+") AND MOD(item_id-"+std::to_string(FirstArmor)+",8)="+std::to_string(slot); }
+			const auto custody=query("SELECT "+column+" FROM "+table+" WHERE "+column+">="+std::to_string(FirstArmor)+" AND "+column+"<"+std::to_string(FirstArmor+ArmorCount)+scope+" FOR UPDATE");
 			if (!custody.ok || !custody.rows.empty()) { return reject(); }
 		}
 		const auto inventory=query("SELECT "+SelectColumns()+" FROM inventory WHERE character_id="+std::to_string(request.character)+" FOR UPDATE");

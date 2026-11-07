@@ -1,0 +1,32 @@
+{
+  "release": 2026110605,
+  "file_count": 148,
+  "history_count": 38,
+  "rules": [
+    {
+      "ruleset": 1,
+      "name": "Items:DisableNoDrop",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Items:DisableNoPet",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Items:DisableNoTransfer",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Items:FreeTrade",
+      "value": "true"
+    },
+    {
+      "ruleset": 1,
+      "name": "World:FVNoDropFlag",
+      "value": "0"
+    }
+  ]
+}

@@ -21,20 +21,26 @@ personal chapters. [Quest scope](../quests/camil-chapterhouse/SPEC.md).
 
 ## Wayfarer's Oath
 
-The October 1 built candidate has eight tasks and one five-attunement charm;
-it remains unreleased. November 6's proposed continuation, **The Last Lantern**,
-follows a lost expedition into level-50 Classic endgame. The Chronicler erased
-its failure, scout Mera Vell searches for her companions, quartermaster Oren
-refits the player's earned armor, and the Hollow Witness sold the company's
-names to survive. Captain Selene Marris's final retreat and the surviving
-porter return through letters, rescues and the closing Commonlands campfire.
-All are original Nightcap fiction. Class ancestry and deity allegiance do not
-restrict eligibility. Eight useful armor pieces complete a coordinated set;
-the charm keeps the existing five earned choices and shared cooldown.
-[Campaign, sample dialogue and unresolved implementation details](../adventure-journal/CAMPAIGN.md).
-This direction is a reviewable proposal, not implemented scenes or player
-acceptance. Exact encounter identities, placements and the final chapter script
-remain subject to review and source audit. Do not describe these actors as live.
+The owner approved **The Last Lantern** and its main/server release on November7.
+Its implemented candidate follows the lost company through Classic endgame to50.
+Mera Vell keeps Captain Selene Marris's seal; Oren Lanternwright repairs the
+player's earned armor; Tovin returned with gaps in his account. The private
+expeditions are company memories reconstructed through the journal, so living
+companions can remain in the shared Commonlands camp while their past is replayed.
+Selene left the crates and returned for people. The Hollow Witness carried the
+ledger and sold their names to buy himself another morning. Restoring those
+voices leads to an inscription choice and the campfire ledger bearing every name.
+These are original Nightcap characters and events, not new EverQuest canon.
+
+Native dialogue now preserves each encounter's enemy name and gives the records
+Selene, Tovin and Mera's voices. Mera's satchel and the company roster have their
+own carriers and accounts. Eight useful armor pieces share a coordinated palette;
+the charm retains its five earned choices and shared ten-minute recovery. The
+player's memorial inscription persists separately as flavor, never quest authority.
+[Campaign](../adventure-journal/CAMPAIGN.md),
+[implementation/release boundaries](../adventure-journal/release-20261107/README.md).
+Full journey, rendered scenes and encounter balance remain unaccepted until dated
+player QA. Do not describe this candidate as deployed without its activation receipt.
 
 ## East Commonlands tunnel residents
 

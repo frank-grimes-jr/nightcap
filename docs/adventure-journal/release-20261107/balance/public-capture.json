@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-11-07T11:57:21.592841+00:00",
+  "sha256": "9d190a24ea68ecab8145a7ac9deb51a58931b66086432509d98d558324bd5fd6",
+  "bytes": 2774665,
+  "tables": {
+    "rule_sets": 8,
+    "rule_values": 1078,
+    "aa_ability": 1572,
+    "aa_ranks": 6657,
+    "aa_rank_effects": 9875,
+    "aa_rank_prereqs": 2526,
+    "spells_new": 40746,
+    "skill_caps": 58359,
+    "items": 387
+  },
+  "selected_ruleset": [],
+  "production_changed": false
+}

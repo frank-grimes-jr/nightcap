@@ -1,0 +1,4339 @@
+{
+  "map": "/home/eqemu/server/maps/base/soldungb.map",
+  "points": [
+    {
+      "label": "-60:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 30.0
+        }
+      ],
+      "x": -323,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "-60:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 31.384765625
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.79757690429688,
+          "headroom": 31.41650390625
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 30.509765625
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 30.0
+        }
+      ],
+      "x": -323,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "-60:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 28.759765625
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 28.759765625
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.11328125,
+          "headroom": 29.63817596435547
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 27.884765625
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 29.634765625
+        }
+      ],
+      "x": -323,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "-60:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 26.134765625
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 26.134765625
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.11328125,
+          "headroom": 22.782363891601562
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 27.009765625
+        }
+      ],
+      "x": -323,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "-60:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "-60:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "-60:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "-60:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "-60:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "-60:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "-60:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -323,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "-48:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -101.96875,
+          "headroom": 25.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        }
+      ],
+      "x": -311,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "-48:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.12109375,
+          "headroom": 26.9609375
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.24609375,
+          "headroom": 26.085105895996094
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.12109375,
+          "headroom": 25.710655212402344
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -102.96875,
+          "headroom": 28.0
+        }
+      ],
+      "x": -311,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "-48:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.12109375,
+          "headroom": 23.2109375
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.24609375,
+          "headroom": 22.3359375
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 26.30859375
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.12109375,
+          "headroom": 21.960617065429688
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -105.12109375,
+          "headroom": 24.4609375
+        }
+      ],
+      "x": -311,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "-48:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -105.12109375,
+          "headroom": 20.7109375
+        }
+      ],
+      "x": -311,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "-48:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "-48:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "-48:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "-48:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "-48:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "-48:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "-48:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -311,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "-36:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 28.738487243652344
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 28.7374267578125
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -101.96875,
+          "headroom": 25.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -100.96875,
+          "headroom": 19.41650390625
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 26.42835235595703
+        }
+      ],
+      "x": -299,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "-36:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -100.96875,
+          "headroom": 22.231033325195312
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -102.47232055664062,
+          "headroom": 12.261093139648438
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -100.96875,
+          "headroom": 22.237686157226562
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -101.93685913085938,
+          "headroom": 11.194602966308594
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -100.96875,
+          "headroom": 20.830230712890625
+        }
+      ],
+      "x": -299,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "-36:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "-36:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "-36:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "-36:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "-36:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "-36:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "-36:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "-36:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "-36:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -299,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "-24:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 26.430465698242188
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 24.11058807373047
+        }
+      ],
+      "x": -287,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "-24:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.548828125,
+          "headroom": 13.331253051757812
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.01072692871094,
+          "headroom": 12.800506591796875
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -103.548828125,
+          "headroom": 12.806251525878906
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "-24:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.00455474853516,
+          "headroom": 11.194007873535156
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -103.54743194580078,
+          "headroom": 12.273719787597656
+        }
+      ],
+      "x": -287,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "-24:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "-24:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "-24:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "-24:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "-24:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "-24:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "-24:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "-24:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -287,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "-12:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.102592468261719
+        }
+      ],
+      "x": -275,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "-12:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -103.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -104.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -275,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "-12:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "-12:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "-12:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "-12:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "-12:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "-12:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "-12:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "-12:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "-12:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -275,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "0:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 14.376449584960938
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.263282775878906
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 14.575424194335938
+        }
+      ],
+      "x": -263,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "0:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -104.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -263,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "0:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -263,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "0:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -263,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "0:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -263,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "0:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -263,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "0:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -263,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "0:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -263,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "0:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -263,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "0:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -263,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "0:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -263,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "12:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.358535766601562
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.361061096191406
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.893020629882812
+        }
+      ],
+      "x": -251,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "12:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "12:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -106.98172760009766,
+          "headroom": 12.000007629394531
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -107.84779357910156,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -106.69154357910156,
+          "headroom": 12.0
+        }
+      ],
+      "x": -251,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "12:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "12:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "12:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -251,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "12:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "12:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "12:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -251,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "12:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "12:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -251,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "24:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.365386962890625
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.367103576660156
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.363510131835938
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -100.13894653320312,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.900970458984375
+        }
+      ],
+      "x": -239,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "24:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -100.67512512207031,
+          "headroom": 80.0
+        }
+      ],
+      "x": -239,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "24:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -109.55976104736328,
+          "headroom": 12.001602172851562
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.43003845214844,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -108.6933822631836,
+          "headroom": 12.000251770019531
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -109.84458923339844,
+          "headroom": 12.00201416015625
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -109.2759780883789,
+          "headroom": 12.0
+        }
+      ],
+      "x": -239,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "24:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -239,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "24:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -239,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "24:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -239,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "24:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -239,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "24:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -239,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "24:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -239,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "24:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -239,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "24:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -239,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "36:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -112.96875,
+          "headroom": 13.367446899414062
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "36:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "36:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -227,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "36:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "36:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "36:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -227,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "36:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "36:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "36:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -227,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "36:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "36:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -227,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "48:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -109.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -109.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -109.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -109.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "48:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "48:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "48:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "48:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "48:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "48:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -215,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "48:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -215,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "48:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "48:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -215,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "48:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -215,
+      "y": -364,
+      "z": -108
+    },
+    {
+      "label": "60:-60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -104.35579681396484,
+          "headroom": 80.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -103.53401184082031,
+          "headroom": 80.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -105.07733154296875,
+          "headroom": 80.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -484,
+      "z": -108
+    },
+    {
+      "label": "60:-48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -110.96875,
+          "headroom": 13.090667724609375
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -472,
+      "z": -108
+    },
+    {
+      "label": "60:-36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -111.96875,
+          "headroom": 12.0
+        }
+      ],
+      "x": -203,
+      "y": -460,
+      "z": -108
+    },
+    {
+      "label": "60:-24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -448,
+      "z": -108
+    },
+    {
+      "label": "60:-12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -436,
+      "z": -108
+    },
+    {
+      "label": "60:0",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -424,
+      "z": -108
+    },
+    {
+      "label": "60:12",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -412,
+      "z": -108
+    },
+    {
+      "label": "60:24",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -400,
+      "z": -108
+    },
+    {
+      "label": "60:36",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -388,
+      "z": -108
+    },
+    {
+      "label": "60:48",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -376,
+      "z": -108
+    },
+    {
+      "label": "60:60",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": false
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": false
+        }
+      ],
+      "x": -203,
+      "y": -364,
+      "z": -108
+    }
+  ],
+  "segments": []
+}

@@ -258,8 +258,13 @@ void Tick() {
 }
 }
 
-bool HighkeepSay(Client *c,NPC *n,const std::string &text) { return Highkeep::Action(c,n,Strings::ToLower(text)); }
+bool HighkeepSay(Client *c,NPC *n,const std::string &text) { return Lantern::Action(c,n,text) || Highkeep::Action(c,n,Strings::ToLower(text)); }
 int HighkeepFaction(Mob *subject,Mob *observer) {
+	if (Lantern::owned && subject && observer) {
+		const auto controller=Highkeep::Controller(subject);
+		if (Lantern::Friendly(observer) && controller && controller->IsClient()) { return FACTION_ALLY; }
+		if (Lantern::Enemy(observer) && ((controller && controller->IsClient()) || Lantern::Friendly(subject))) { return FACTION_SCOWLS; }
+	}
 	if (!Highkeep::Active() || !subject || !observer) { return -1; }
 	if (subject->IsClient() && Highkeep::Prisoner(observer)) { return FACTION_ALLY; }
 	const auto owner=Highkeep::Controller(subject);
@@ -271,11 +276,12 @@ int HighkeepFaction(Mob *subject,Mob *observer) {
 }
 bool HighkeepProtected(Mob *attacker,Mob *target) {
 	const auto owner=Highkeep::Controller(attacker);
-	return Highkeep::Prisoner(target) && owner && owner->IsClient();
+	return (Highkeep::Prisoner(target) || Lantern::Friendly(target)) && owner && owner->IsClient();
 }
-bool HighkeepNoFaction(Mob *npc) { return Highkeep::Active() && Highkeep::Guard(npc); }
-bool HighkeepHealTarget(Mob *npc) { return Highkeep::Prisoner(npc); }
+bool HighkeepNoFaction(Mob *npc) { return Lantern::Actor(npc) || (Highkeep::Active() && Highkeep::Guard(npc)); }
+bool HighkeepHealTarget(Mob *npc) { return Lantern::Friendly(npc) || Highkeep::Prisoner(npc); }
 bool HighkeepTransient(Mob *npc) {
+	if (Lantern::Actor(npc)) { return true; }
 	return Highkeep::Active() && npc && npc->GetEntityVariable("highkeep-run")==current.id &&
 		(npc->GetEntityVariable("highkeep-role")=="guard" || npc->GetEntityVariable("highkeep-role")=="prisoner");
 }

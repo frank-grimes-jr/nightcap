@@ -88,7 +88,7 @@ sub EVENT_SAY {
         return;
     }
     if ($say =~ /hail/) {
-        $client->Message(15, 'Your adventures can earn an archetype Epic 0.5. [' .
+        $client->Message(15, 'Your journal follows the lost company to the Last Lantern, with armor earned along the road. [' .
             quest::saylink('journal', 0, 'Open the Adventure Journal') . ']');
     }
     my $char_id = $client->CharacterID();

@@ -38,7 +38,7 @@ def main():
         sql('GRANT ALL ON `' + schema + "`.* TO 'eqemu'@'%';")
         granted = True
         sql('\n'.join('CREATE TABLE `' + t + '` LIKE peq.`' + t + '`;' for t in
-                      ['tasks','task_activities','spells_new','items','npc_types','spawnentry','spawn2']))
+                      ['tasks','task_activities','spells_new','items','npc_types','spawnentry','spawn2','completed_tasks']))
         sql(f'INSERT INTO npc_types SELECT * FROM peq.npc_types WHERE id IN ({ids});'
             f'INSERT INTO spawnentry SELECT * FROM peq.spawnentry WHERE npcID IN ({ids});'
             'INSERT INTO spawn2 SELECT s.* FROM peq.spawn2 s JOIN (SELECT DISTINCT spawngroupID FROM spawnentry) e ON e.spawngroupID=s.spawngroupID;'
@@ -97,7 +97,7 @@ def main():
             run_command(['docker','exec','-i','akk-stack-eqemu-server-1','tee',container_dir+'/'+name],body)
         result=run_command(['docker','exec','-e','NIGHTCAP_EPIC05_QA_DB='+schema,
                             'akk-stack-eqemu-server-1','perl',container_dir+'/test.t',container_dir+'/store.pl'])
-        assert 'not ok' not in result.stdout and '1..20' in result.stdout, result.stdout
+        assert 'not ok' not in result.stdout and '1..24' in result.stdout, result.stdout
         evidence['store_tests']=result.stdout.splitlines()
         evidence['checks'].append('Perl store: durable cooldown, SQL errors, uncertain acknowledgement, four-way concurrent reserve')
         before=sql('SELECT character_id,active_path,ready_at,uses FROM nightcap_epic05_state;').stdout

@@ -1,17 +1,19 @@
 # Current Nightcap status
 
-## November6 — Adventure Journal endgame campaign proposed
+## November7 — Last Lantern implemented candidate; release authorized
 
-The owner requested a continuing story and confirmed useful progression armor
-with a coordinated look. [The Last Lantern](adventure-journal/CAMPAIGN.md) now
-proposes 12 chapters on one playthrough, recurring companions, higher Classic
-dungeons/planes, a level-50 finale and eight armor pieces with earned refits.
-Three opening chapters and one of five paths lead to eight continuation chapters:
-16 quest definitions proposed in total. The original eight-task/charm candidate
-remains unchanged and unreleased. Chapter/reward design review, content/material
-audit, implementation, automated/native/balance QA and deployment remain pending.
-Wiki source has a Not released design preview; no public publication is claimed.
-[Scope and wiki impact evidence](adventure-journal/endgame-review.json).
+The owner approved main/server release and client notes. The implementation now
+contains sixteen native Task definitions (twelve chapters per playthrough), eight
+separate private memory scenes, recurring companions, eight useful coordinated
+armor pieces, four fits, earned40/46/50 refits, the oath charm and a memorial/title.
+Durable native Tasks control eligibility; claims/refits use stable receipts and
+complete inventory-row preservation. Twelve focused compiled controls and the
+real MariaDB migration/refit rehearsal pass; additional runtime/storage and oath
+checks, native relink/cache and measured combat calibration continue.
+Signed client2026110701 is prepared with the current proxy/catalog and all38 old
+notes preserved. Main promotion, actual server activation, client/wiki publication
+and owner gameplay acceptance are not yet recorded.
+[Implementation and recovery](adventure-journal/release-20261107/README.md).
 
 ## November6 — Instance Keeper Raid/Grind repair deployed for live QA
 

@@ -3,6 +3,8 @@
 #include "common/chapterhouse_policy.h"
 #include "common/warhelm_policy.h"
 #include "common/highkeep_policy.h"
+#include "common/last_lantern_catalog.h"
+#include <cstdio>
 #include "common/zone_hunt_policy.h"
 #include "common/faction.h"
 #include "common/dungeon_contract.h"
@@ -246,8 +248,9 @@ void ShowChecklist(Client *c, const Run &run) {
 
 #include "zone/chapterhouse_vigil.inc"
 #include "zone/warhelm_compact.inc"
+#include "zone/last_lantern.inc"
 #include "zone/highkeep_rescue.inc"
-void Process() { Vigil::Tick(); Ashen::Tick(); Highkeep::Tick(); }
+void Process() { Vigil::Tick(); Ashen::Tick(); Highkeep::Tick(); Lantern::Tick(); }
 
 void ConfigureJournalTask(int task_id, TaskInformation &task) {
 	Vigil::Configure(task_id,task);
@@ -304,11 +307,14 @@ float ExperienceModifier(float ordinary) {
 	const auto classic=GetZoneVersionWithFallback(76,0);
 	return classic ? classic->zone_exp_multiplier : 0.0f;
 }
+bool Campaign() { return Lantern::owned; }
 bool Boot() {
 	Vigil::defense={};
 	Ashen::defense={};
 	Highkeep::state={};
 	current={}; healthy=true; deaths.clear(); objectives.clear(); respawns.clear(); death_times.clear(); confirmations.clear();
+	try { Lantern::Boot(); } catch (...) { Lantern::owned=zone && zone->GetInstanceVersion()==NightcapLantern::SceneVersion; Lantern::operational=false; }
+	if (Lantern::owned) { current={}; return true; }
 	if (!zone || !zone->GetInstanceID() || !FindDungeon(zone->GetZoneID())) { return true; }
 	try {
 		// Uninstalled feature and legacy native instances retain normal behavior.
@@ -335,6 +341,7 @@ bool RaidNPC(Mob *mob) {
 		mob->GetClass()<=16 && mob->GetNPCTypeID()!=current.dungeon->keeper && mob->GetNPCTypeID()!=SkyKeyService;
 }
 bool SelectSpawn(uint32_t spawn, uint32_t &npc) {
+	if (Lantern::owned) { return false; }
 	if (!Managed()) { return true; }
 	if (!healthy || current.expiry<=Now() || (current.mode==Mode::Raid && deaths.count(spawn))) { return false; }
 	if (Highkeep::Active() && (spawn==10156 || spawn==10109 || spawn==10210 || spawn==10132)) { return false; }
@@ -367,6 +374,7 @@ void RestoreTimers(std::unordered_map<uint32_t,uint32_t> &timers) {
 	for (const auto &r : respawns) { timers[r.first]=RespawnDelay(r.first); }
 }
 void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
+	if (Lantern::owned) { spawns.clear(); return; }
 	if (!Managed()) { return; }
 	Highkeep::Layout(spawns);
 	for (auto &s : spawns) { if (RequiredSpawn(s.id)) { s._condition=0; s.cond_value=0; } }
@@ -404,6 +412,7 @@ void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 }
 
 bool PrepareLoot(NPC *npc, bool owned) {
+	if (Lantern::owned) { npc->ClearLootItems(); npc->SetCopper(0); npc->SetSilver(0); npc->SetGold(0); npc->SetPlatinum(0); return true; }
 	if (!Managed() || npc->IsQueuedForCorpse()) { return true; }
 	if (!healthy || current.expiry<=Now()) { return false; }
 	if (Highkeep::Active() && npc->GetEntityVariable("highkeep-run")==current.id) {
@@ -477,6 +486,13 @@ bool PrepareLoot(NPC *npc, bool owned) {
 }
 
 bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
+	if (Lantern::owned) {
+		try { return Lantern::Death(npc,killer); }
+		catch (const std::exception &e) {
+			Lantern::operational=false; Lantern::Clear(npc->GetID());
+			LogError("Last Lantern death credit suspended [{}]",e.what()); return false;
+		}
+	}
 	if (!Managed() || npc->IsQueuedForCorpse()) { return true; }
 	if (!npc->GetEntityVariable("nightcap:dungeon-death-committed").empty()) { return false; }
 	if (!healthy || current.expiry<=Now()) { return false; }
@@ -590,6 +606,7 @@ void JournalForRun(Client *c, const Run *selected) {
 void Journal(Client *c) { JournalForRun(c,nullptr); }
 
 void Connected(Client *c) {
+	if (Lantern::owned) { Lantern::Connected(c); return; }
 	if (!c || !c->Connected() || !zone) { return; }
 	if (!database.QueryDatabase(std::string("SELECT id FROM nightcap_dungeon_state WHERE id=1"),false).Success()) {
 		if (Managed()) { c->Disconnect(); }
@@ -901,6 +918,7 @@ std::string AgeRights(const std::string &loot, uint64_t saved_at) {
 }
 }
 bool LoadCheckpoint(std::vector<SavedSpawn> &spawns) {
+	if (Lantern::owned) { spawns.clear(); return true; }
 	if (!Managed()) { return false; }
 	try {
 		spawns.clear();
@@ -947,6 +965,7 @@ bool LoadCheckpoint(std::vector<SavedSpawn> &spawns) {
 	return true;
 }
 bool SaveCheckpoint(const std::vector<SavedSpawn> &spawns) {
+	if (Lantern::owned) { return true; }
 	if (!Managed()) { return false; }
 	if (!healthy) { return true; } // preserve last known good state after ambiguity
 	try {

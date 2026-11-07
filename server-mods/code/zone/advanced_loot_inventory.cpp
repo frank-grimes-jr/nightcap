@@ -12,6 +12,7 @@
 #include "common/item_xp_metadata.h"
 #include "common/item_xp_inventory.h"
 #include "common/paladin_weapon_grip.h"
+#include "common/last_lantern_inventory.h"
 #include <algorithm>
 #include <limits>
 #include <memory>
@@ -338,6 +339,84 @@ std::vector<int16_t> ForgeSlots(Client *c)
 		}
 	}
 	return result;
+}
+
+TransferResult RefitLanternItem(Client *c, int16_t slot, uint32_t target_id, const std::string &request_id)
+{
+	using namespace NightcapLantern;
+	if (!c || !c->Connected() || !c->ClientDataLoaded() || c->IsZoning() || c->IsDead() || c->IsEngaged() ||
+		c->IsCasting() || c->IsAIControlled() || (c->trade && c->trade->With()) || c->GetTradeskillObject() ||
+		c->IsLooting() || c->GetMerchantSessionEntityID() || !c->GetInv().CursorEmpty()) { return TransferResult::Declined; }
+	auto uncertain=[&]() {
+		c->QuarantineItemTransfer("Your armor refit could not be confirmed. Reconnect to reload your saved equipment.");
+		return TransferResult::Uncertain;
+	};
+	try {
+		auto supported=ForgeSlots(c);
+		for (auto worn:WornSlots) { supported.push_back(static_cast<int16_t>(worn)); }
+		if (std::find(supported.begin(),supported.end(),slot)==supported.end()) { return TransferResult::Declined; }
+		const auto item=c->GetInv().GetItem(slot);
+		if (!item || !item->GetItem() || !IsArmor(item->GetID()) || !IsArmor(target_id) ||
+			item->IsStackable() || item->IsEvolving() || item->IsScaling() || item->GetEvolveUniqueID()) { return TransferResult::Declined; }
+		const auto target=database.GetItem(target_id);
+		const auto identity=Decode(target_id);
+		if (!target || target->ID!=target_id || target->Classes!=FitClasses[identity.fit] ||
+			target->Slots!=(1u<<WornSlots[identity.slot]) || target->ReqLevel!=RequiredLevel(identity.grade,identity.slot) ||
+			target->ItemType!=10 || target->FreeTrade || target->FVNoDrop!=1 || target->NoDrop ||
+			!target->NoTransfer || !target->NoPet || !target->NoRent || target->Price || target->FixedSellPrice ||
+			target->LoreFlag || target->Attuneable) { return TransferResult::Declined; }
+		EQ::ItemInstance replacement(*item);
+		*const_cast<EQ::ItemData *>(replacement.GetItem())=*target;
+		if (!item->GetColor() || item->GetColor()==item->GetItem()->Color) { replacement.SetColor(target->Color); }
+		for (uint8 i=0;i<EQ::invaug::SOCKET_COUNT;++i) {
+			const auto augment=item->GetAugment(i);
+			if (augment && (item->GetItem()->AugSlotType[i]!=target->AugSlotType[i] ||
+				c->IsAugmentRestricted(target->ItemType,augment->GetItem()->AugRestrict))) { return TransferResult::Declined; }
+		}
+		RefitRequest request;
+		request.character=c->CharacterID(); request.level=c->GetLevel(); request.classes=c->GetClassMask();
+		request.source_default_color=item->GetItem()->Color; request.target_default_color=target->Color;
+		request.request_id=request_id;
+		for (auto candidate:supported) { request.supported_slots.push_back(static_cast<uint32_t>(candidate)); }
+		auto fields=[&](int16_t where,const EQ::ItemInstance &instance) {
+			auto row=Values(FromItem(c->CharacterID(),where,instance));
+			row[12]=Hex(instance.GetCustomDataString());
+			return row;
+		};
+		request.before=fields(slot,*item); request.after=fields(slot,replacement);
+		if (slot>EQ::invslot::GENERAL_END) {
+			const auto parent=EQ::InventoryProfile::CalcSlotId(slot);
+			const auto bag=c->GetInv().GetItem(parent);
+			if (!bag || !bag->IsClassBag() || !EQ::InventoryProfile::CanItemFitInContainer(target,bag->GetItem())) { return TransferResult::Declined; }
+			request.parent=fields(parent,*bag);
+		}
+		auto session=database.QueryDatabase(std::string("SELECT @@in_transaction,@@autocommit"),false);
+		if (!session.Success() || session.RowCount()!=1 || !session.begin()[0] || !session.begin()[1]) { return uncertain(); }
+		if (std::string(session.begin()[0])!="0" || std::string(session.begin()[1])!="1") { return TransferResult::Declined; }
+		if (!c->SaveTaskState()) { return TransferResult::Declined; }
+		const auto query=[](const std::string &sql) {
+			auto result=database.QueryDatabase(sql,false);
+			NightcapBazaar::Reply reply{result.Success(),result.RowsAffected(),result.LastInsertedID(),{}};
+			if (reply.ok) {
+				for (auto row:result) {
+					NightcapBazaar::Row values;
+					for (uint32 i=0;i<result.ColumnCount();++i) { values.push_back(row[i] ? row[i] : ""); }
+					reply.rows.push_back(std::move(values));
+				}
+			}
+			return reply;
+		};
+		const auto result=Refit(query,request);
+		if (result==NightcapBazaar::Status::Uncertain) { return uncertain(); }
+		if (result!=NightcapBazaar::Status::Committed) { return TransferResult::Declined; }
+		if (c->GetInv().PutItem(slot,replacement)!=slot) { return uncertain(); }
+		c->SendItemPacket(slot,c->GetInv().GetItem(slot),ItemPacketTrade);
+		c->CalcBonuses();
+		if (slot>=EQ::invslot::EQUIPMENT_BEGIN && slot<=EQ::invslot::EQUIPMENT_END) {
+			c->SendWearChange(EQ::InventoryProfile::CalcMaterialFromSlot(slot));
+		}
+		return TransferResult::Delivered;
+	} catch (...) { return uncertain(); }
 }
 
 bool CanTrainItem(Client *c, const EQ::ItemInstance *item)

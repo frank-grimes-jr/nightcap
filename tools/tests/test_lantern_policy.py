@@ -76,6 +76,8 @@ int main() {
  }
  CHECK(RequiredLevel(0,0)==20); CHECK(RequiredLevel(0,7)==50);
  CHECK(RequiredLevel(1,0)==40); CHECK(RequiredLevel(2,0)==46); CHECK(RequiredLevel(3,0)==50);
+ CHECK(!ArmorEarned(ArmorID(0,3,0),50,1,(1u<<15)|1));
+ CHECK(!ArmorEarned(ArmorID(0,0,7),50,1,(1u<<15)|7|(1u<<3)));
  CHECK(!CanRefit(ArmorID(0,0,0),ArmorID(3,3,0),50,1u<<11,65535));
  CHECK(!CanRefit(ArmorID(0,0,0),ArmorID(0,3,0),49,1,65535));
  Item armor{FirstArmor}; ApplyEffectivePolicy(armor);

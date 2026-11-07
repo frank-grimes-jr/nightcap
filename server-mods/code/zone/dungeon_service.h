@@ -17,6 +17,7 @@ using SavedSpawn = ZoneStateSpawnsRepository::ZoneStateSpawns;
 bool Boot();
 void Process();
 bool Managed();
+bool Campaign(); // reserved Last Lantern instance; includes disabled recovery
 // Read-only identity for run-scoped quest state. Retained after expiry or
 // suspension so quest callbacks cannot fall through to public-zone behavior.
 std::string RunID();

@@ -1,0 +1,234 @@
+[
+  {
+    "zone": 65,
+    "npc": 65027,
+    "name": "a_froglok_tad",
+    "x": -22.0,
+    "y": 19.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65057,
+    "name": "a_froglok_tad",
+    "x": -22.0,
+    "y": 19.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65067,
+    "name": "a_froglok_tad",
+    "x": -22.0,
+    "y": 19.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65028,
+    "name": "a_froglok_sentry",
+    "x": 23.0,
+    "y": 21.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65045,
+    "name": "a_froglok_sentinel",
+    "x": 23.0,
+    "y": 21.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65082,
+    "name": "a_froglok_novice",
+    "x": 23.0,
+    "y": 21.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65123,
+    "name": "a_froglok_apprentice",
+    "x": 23.0,
+    "y": 21.0,
+    "z": 3.75
+  },
+  {
+    "zone": 65,
+    "npc": 65150,
+    "name": "croc_trigger",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  {
+    "zone": 65,
+    "npc": 999240,
+    "name": "a_waypoint",
+    "x": 7.0,
+    "y": -36.0,
+    "z": 4.0
+  },
+  {
+    "zone": 65,
+    "npc": 998804,
+    "name": "Instance_Keeper",
+    "x": 23.0,
+    "y": -36.0,
+    "z": 2.0
+  },
+  {
+    "zone": 11,
+    "npc": 11002,
+    "name": "a_goblin_runt",
+    "x": 177.0,
+    "y": 54.0,
+    "z": 2.5
+  },
+  {
+    "zone": 11,
+    "npc": 11090,
+    "name": "a_goblin_peon",
+    "x": 177.0,
+    "y": 54.0,
+    "z": 2.5
+  },
+  {
+    "zone": 11,
+    "npc": 11093,
+    "name": "a_goblin_peon",
+    "x": 177.0,
+    "y": 54.0,
+    "z": 2.5
+  },
+  {
+    "zone": 11,
+    "npc": 11095,
+    "name": "a_goblin_neophyte",
+    "x": 177.0,
+    "y": 54.0,
+    "z": 2.5
+  },
+  {
+    "zone": 11,
+    "npc": 11016,
+    "name": "a_Sporali_Defender",
+    "x": 127.75,
+    "y": 106.0,
+    "z": -82.5
+  },
+  {
+    "zone": 11,
+    "npc": 11124,
+    "name": "#The_Sporali_Moldmaster",
+    "x": 127.75,
+    "y": 106.0,
+    "z": -82.5
+  },
+  {
+    "zone": 11,
+    "npc": 11040,
+    "name": "a_goblin_runt",
+    "x": 126.25,
+    "y": 99.879997,
+    "z": 2.5
+  },
+  {
+    "zone": 11,
+    "npc": 11046,
+    "name": "a_goblin_trainee",
+    "x": 180.380005,
+    "y": 55.380001,
+    "z": 2.5
+  },
+  {
+    "zone": 11,
+    "npc": 11009,
+    "name": "a_Pickclaw_Foeseeker",
+    "x": 127.0,
+    "y": 67.0,
+    "z": -128.75
+  },
+  {
+    "zone": 11,
+    "npc": 11010,
+    "name": "a_Pickclaw_Foeslicer",
+    "x": 127.0,
+    "y": 67.0,
+    "z": -128.75
+  },
+  {
+    "zone": 11,
+    "npc": 11052,
+    "name": "a_Pickclaw_Foeseeker",
+    "x": 127.0,
+    "y": 67.0,
+    "z": -128.75
+  },
+  {
+    "zone": 11,
+    "npc": 11105,
+    "name": "a_Pickclaw_Zekspeaker",
+    "x": 127.0,
+    "y": 67.0,
+    "z": -128.75
+  },
+  {
+    "zone": 11,
+    "npc": 11065,
+    "name": "a_Runnyeye_Conscript",
+    "x": 127.879997,
+    "y": 92.25,
+    "z": -83.129997
+  },
+  {
+    "zone": 11,
+    "npc": 11070,
+    "name": "a_goblin_merchant",
+    "x": 139.0,
+    "y": 60.0,
+    "z": -128.130005
+  },
+  {
+    "zone": 11,
+    "npc": 11076,
+    "name": "a_goblin_merchant",
+    "x": 139.0,
+    "y": 60.0,
+    "z": -128.130005
+  },
+  {
+    "zone": 11,
+    "npc": 998802,
+    "name": "Instance_Keeper",
+    "x": 201.0,
+    "y": 106.0,
+    "z": 3.0
+  },
+  {
+    "zone": 63,
+    "npc": 63109,
+    "name": "Halloween_Trigger",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  {
+    "zone": 63,
+    "npc": 999228,
+    "name": "Instance_Keeper",
+    "x": 52.0,
+    "y": -38.0,
+    "z": 3.0
+  },
+  {
+    "zone": 63,
+    "npc": 999240,
+    "name": "a_waypoint",
+    "x": 52.0,
+    "y": -38.0,
+    "z": 3.0
+  }
+]

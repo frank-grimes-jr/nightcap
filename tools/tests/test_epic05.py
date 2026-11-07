@@ -22,6 +22,11 @@ class Epic05Content(unittest.TestCase):
         self.assertEqual(len({(a['taskid'], a['activityid']) for a in activities}), len(activities))
         self.assertTrue(all(a['goalcount'] == 1 for a in activities))
 
+    def test_native_numeric_spell_descriptions_are_nonnull(self):
+        for row in spell_rows(self.catalog):
+            self.assertEqual(row['typedescnum'],0)
+            self.assertEqual(row['effectdescnum'],0)
+
     def test_path_finale_is_after_both_field_objectives(self):
         _, activities = task_rows(self.catalog)
         for path in self.catalog['paths']:

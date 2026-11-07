@@ -1,0 +1,42 @@
+{
+  "schema": "nightcap_lantern_qa_ba31df709937",
+  "scope": "disposable MariaDB content rehearsal; not native gameplay or player acceptance",
+  "checks": [
+    "reserved item collision refuses before creating feature tables; existing reforging box retained",
+    "16 Tasks, 64 activities, 128 armor, charm, six spells, scene actors and six public services inserted disabled; reapply fails without changing content",
+    "every generated armor field matches the real MariaDB afterimage",
+    "all 237 client/server fields match for all six spells",
+    "real single-connection native refit engine: preserved augmented/dyed/bound/ornamented/custom/GUID row, rollback, unrelated-player corpse, replay refusal and durable ambiguous COMMIT",
+    "24 real Perl/DBI checks: durable native eligibility, cooldown, uncertain acknowledgement, four-way concurrent activation and disable races",
+    "activation enables all chapters; forward disable preserves ownership, content, spell definitions and unrelated items"
+  ],
+  "native_refit": "PASS: actual MariaDB atomic refit, complete metadata/GUID preservation, injected rollback, unrelated corpse, replay refusal and ambiguous committed acknowledgement",
+  "oath_store": [
+    "ok 1 - in-memory completion alone cannot authorize an oath",
+    "ok 2 - durable native history authorizes exactly the earned path",
+    "ok 3 - missing durable path refuses power",
+    "ok 4 - failed history read refuses power",
+    "ok 5 - release starts disabled",
+    "ok 6 - disabled release blocks first attunement",
+    "ok 7 - enabled candidate recognized",
+    "ok 8 - first attunement persisted",
+    "ok 9 - read returns persisted attunement",
+    "ok 10 - earned caller can switch ready state",
+    "ok 11 - stale path cannot reserve",
+    "ok 12 - one activation reserves cooldown",
+    "ok 13 - repeated activation refused",
+    "ok 14 - switch cannot reset cooldown",
+    "ok 15 - new DB connection sees durable cooldown",
+    "ok 16 - SQL exception fails closed",
+    "ok 17 - failed execution writes no timer",
+    "ok 18 - uncertain acknowledgement fails closed",
+    "ok 19 - lost acknowledgement never authorizes free retry",
+    "ok 20 - four concurrent connections grant exactly one activation",
+    "ok 21 - one committed use after concurrent attempts",
+    "ok 22 - disable races cannot grant power",
+    "ok 23 - disable races cannot switch path",
+    "ok 24 - disable retains attunement",
+    "1..24"
+  ],
+  "status": "PASS"
+}
