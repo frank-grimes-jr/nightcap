@@ -244,3 +244,6 @@ docs/items/paladin-weapon-grip/balance/release/wiki-public-verification.json tex
 docs/items/paladin-weapon-grip/balance/release/wiki-publication-review.json text eol=lf
 docs/items/paladin-weapon-grip/balance/release/disk-preservation.json text eol=lf
 docs/items/paladin-weapon-grip/balance/release/evidence.json text eol=lf
+
+# Keep reviewed Last Lantern source/knowledge patches exact on Windows.
+docs/adventure-journal/release-20261107/*.patch text eol=lf
