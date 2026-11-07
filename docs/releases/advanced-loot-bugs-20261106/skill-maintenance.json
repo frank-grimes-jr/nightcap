@@ -1,24 +1,24 @@
 {
   "status": "installed and read-back verified",
-  "scope": "client.md, wiki.md, reviewed source fingerprints; local unpublished candidate",
+  "scope": "Signed2026110605/proxy0.13.5 candidate, cross-view/off-page growth fix; not published; approval/native QA pending",
   "files": [
     {
       "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
-      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\artifacts\\advanced-loot-skill-update\\client.md",
-      "before_sha256": "232da41ce031fb82a66ca36369ecf834efe39423b18c382d799bfd2fd6a329d2",
-      "after_sha256": "7f5647d593e81e1355c0e35da832ab1bced2652c52fc06f87fae6b6f7da369d4"
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-update-v2\\client.md",
+      "before_sha256": "7f5647d593e81e1355c0e35da832ab1bced2652c52fc06f87fae6b6f7da369d4",
+      "after_sha256": "b12802f269d395a7c983b843dea11fbc8374e4efd374f5094b853452844fa911"
     },
     {
       "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
-      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\artifacts\\advanced-loot-skill-update\\wiki.md",
-      "before_sha256": "c8193c0b8dff2a27f35fd3bb7cca5b08dfa01f901ae2601c0d4dfcf5e8367c54",
-      "after_sha256": "28fe9b9a5f58ed56bd30c283ce1f1a7ee9fe479c74e63bf3925fde549f2bd185"
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-update-v2\\wiki.md",
+      "before_sha256": "28fe9b9a5f58ed56bd30c283ce1f1a7ee9fe479c74e63bf3925fde549f2bd185",
+      "after_sha256": "1179c60dc779ec290f83badf3a40e86f433ab01a36076d8016a97019a1562d11"
     },
     {
       "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
-      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\artifacts\\advanced-loot-skill-update\\sources.json",
-      "before_sha256": "bbd7d55cb38e7fab5b5d2ef57b8b616e1d491f468dbc6d1702d0845ceb39480a",
-      "after_sha256": "812e1f2a706dc2aa7a2de6fc9cdc2498e0de111a27b54bd9ff560d3a2c3e2d74"
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-update-v2\\sources.json",
+      "before_sha256": "812e1f2a706dc2aa7a2de6fc9cdc2498e0de111a27b54bd9ff560d3a2c3e2d74",
+      "after_sha256": "2202cd748fa29a78b7a8c8552a334603ac141676aee5b4a1758c150e728ba990"
     }
   ]
 }

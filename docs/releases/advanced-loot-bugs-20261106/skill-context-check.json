@@ -5,62 +5,132 @@
     "advanced-loot-reliability": [
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\src\\advanced_loot_ui.h",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\src\\advanced_loot_screen.h",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\tests\\advanced-loot-controller.cpp",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\tests\\advanced-loot-screen.cpp",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\tests\\run-advanced-loot-tests.bat",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\tools\\client_advanced_loot_ui.py",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\tools\\tests\\test_advanced_loot_ui.py",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\README.md",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\verification.json",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\wiki-impact.json",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\wiki\\articles\\advanced-loot.json",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\wiki\\articles\\recent-changes.json",
-        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\config\\patch-sites.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\src\\runtime_contract.h",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-launcher\\internal\\preflight\\catalog.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-launcher\\patch-notes.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\prepare_client.py",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\test_prepare_client.py",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\prepare.go",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\verify.go",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\publish.py",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\test_publish.py",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\signed-candidate.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\candidate-verification.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\publication-payload.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\release-validation.json",
+        "role": "Reviewed signed advanced-loot2026110605/proxy0.13.5 candidate; native and23Linux release checks pass; not published; main approval/native QA pending",
         "state": "unchanged"
       }
     ]
