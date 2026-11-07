@@ -477,6 +477,13 @@ claims about live state).
 
 ### Branch flow
 
+**November 7 advanced-loot repair exception:** the owner explicitly approved
+main promotion and publication of signed client2026110605 for live QA. Scope is
+the loot auto-open/search repairs,32px icons and main-window Inspect, with matched
+DLL/catalog/Pet Info XML and scoped wiki guidance. No runtime restart is required.
+Preserve pending native gameplay/visual acceptance and unrelated assets. Exact
+authorization and QA: `docs/releases/advanced-loot-bugs-20261106/`.
+
 **November 6 augment release exception:** the owner explicitly requested,
 "Looks good. Merge the augment changes to main and deploy to OVH for live QA."
 This authorizes the audited augment-only candidate, its guarded item/config SQL,

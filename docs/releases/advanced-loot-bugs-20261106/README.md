@@ -5,6 +5,11 @@ Candidate on `codex/advanced-loot-bugs`, based on locally observed
 verified locally, replacing exactly three assets over live2026110604. No
 publication, production change or owner in-game acceptance is claimed.
 
+On November7 the owner approved main promotion and live QA publication of this
+candidate. [Authorization](AUTHORIZATION.md) is release-scoped. Actual release
+receipts, rather than this approval, establish publication; native acceptance
+remains pending.
+
 ## Problems and behavior
 
 Closing the native window while browsing Filters left its server subscription
