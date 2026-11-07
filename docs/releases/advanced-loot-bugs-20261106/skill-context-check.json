@@ -1,0 +1,68 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "advanced-loot-reliability": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\src\\advanced_loot_ui.h",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\src\\advanced_loot_screen.h",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\tests\\advanced-loot-controller.cpp",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\tests\\advanced-loot-screen.cpp",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\tests\\run-advanced-loot-tests.bat",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\tools\\client_advanced_loot_ui.py",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\tools\\tests\\test_advanced_loot_ui.py",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\README.md",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\verification.json",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\docs\\releases\\advanced-loot-bugs-20261106\\wiki-impact.json",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\wiki\\articles\\advanced-loot.json",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed advanced-loot reliability/UI candidate; local tests/build passed; signed publication and owner native QA pending",
+        "state": "unchanged"
+      }
+    ]
+  }
+}
