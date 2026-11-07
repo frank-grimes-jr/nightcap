@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "scope": {
     "maintained_articles": 24,
     "authored_item_articles": 15,
@@ -8,7 +8,7 @@
     "all_item_routes": 421,
     "all_zone_routes": 53
   },
-  "publication": "not authorized/performed for this candidate",
+  "publication": "Verified wiki20261107-advanced-loot-v1:510HTTPS hashes/security/fiveprivate denials;507files preserved; rollback rehearsed.",
   "generated_pages": "Names, definitions, acquisition, zones, rates, balances and catalog values unchanged; no regeneration required.",
   "articles": [
     {
@@ -19,8 +19,8 @@
     },
     {
       "article": "advanced-loot.json",
-      "sha256": "d94aee1eee019341aae700b15bab58015de98ffa6f24a16648e13163dc7b3a51",
-      "decision": "Correct already-live Never instruction; add explicitly unreleased repair preview. Keep live instructions separate.",
+      "sha256": "9acc6ca9b923305503b064cd99690b7f9fd27c8058ff3f10d610b76e8bfaa2ae",
+      "decision": "Owning guide now describes live32px icons, main Inspect, filter Search and auto-open behavior; native QA remains pending.",
       "loot_context": [
         "h2 id=\"advanced-loot\">Custom loot window</h2><p>Open <code>/advloot</code> to see personal and shared drops together. Inspect an item, find its corpse, or leave that d",
         "<h2 id=\"loot-filters\">Ignore unwanted drops</h2><p>Click Never Loot beside an item to save Never for your character. Click the checked choice again, or Remove it from ",
@@ -134,8 +134,8 @@
     },
     {
       "article": "recent-changes.json",
-      "sha256": "10ce195846f933dc4284feee2364a0eaa24a20484ff4d8f3346dcde5b3e0a07a",
-      "decision": "Record candidate once, without claiming delivery or player acceptance.",
+      "sha256": "f63474d3906139d409d27eae17fff5fd281176e9d284dd1da62c32c415b1a3aa",
+      "decision": "Replace local preview with the verified November7live-testing release; retain all existing history.",
       "loot_context": [
         "<h2 id=\"advanced-loot-repair-preview-20261106\">November6: Advanced loot repair candidate \u2014 Not released</h2><p>New-drop opening after Filters, skin reload visibility, filt",
         "<li><a href=\"advanced-loot.html#row-controls\">Always Loot / Never Loot controls</a>, effective Spell Damage on <a href=\"combat.html#throw-stone\">Throw Stone</a>, and reta",
@@ -176,5 +176,6 @@
     }
   ],
   "source_checker": "wiki-source-review.json retains historical REVIEW REQUIRED; no global ledger advancement.",
-  "candidate_status": "Signed client2026110605/proxy0.13.5 assembled locally; no publication. Source/current-page preview decisions unchanged."
+  "candidate_status": "Client2026110605/proxy0.13.5 published under owner approval; native visual/gameplay acceptance pending.",
+  "public_source_scope": "Current published510-file source reproduced before only guide/history/search changed; no unrelated main previews published. See wiki-release-review.json."
 }

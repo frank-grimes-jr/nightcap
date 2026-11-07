@@ -1,13 +1,15 @@
 # Current Nightcap status
 
-## November6 — Advanced loot signed candidate; not published
+## November7 — Advanced loot repair published for live QA
 
-Candidate fixes hidden Filters preventing new-drop auto-open, visibility loss
-on skin reload and native UTF16 Search rejection. Stock icons are32px; Inspect
-is on the main list. Candidate2026110605/proxy0.13.5 verifies three replacements
-and145retained descriptors/URLs/history. Automated regressions/build/client
-guards pass; main approval, client publication and native QA remain pending. No server or
-installed-client change. [Evidence and exact QA](releases/advanced-loot-bugs-20261106/README.md).
+Owner-approved main PR418/af4170d8 and signed2026110605/proxy0.13.5 are published.
+Filters/skin reload auto-open, off-page growth, typed Search,32px icons and main
+Inspect are repaired. Signature/all148HTTPS assets and actual runtime pair pass;
+145other descriptors/URLs/history remain. All five services are unchanged, with
+no server restart, SQL/cache/player or installed-client write. Fully exit EQ and
+use launcher Play. Wiki510public files/security/private denials and rollback
+verify,507files preserved. Native visual/gameplay acceptance remains pending.
+[Release, recovery and exact QA](releases/advanced-loot-bugs-20261106/README.md).
 
 ## November6 — Instance Keeper Raid/Grind repair deployed for live QA
 

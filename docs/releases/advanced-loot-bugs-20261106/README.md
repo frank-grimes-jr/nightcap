@@ -1,14 +1,27 @@
 # Advanced loot reliability and controls — November 6, 2026
 
-Candidate on `codex/advanced-loot-bugs`, based on locally observed
-`origin/main` d5c895d3. Signed candidate2026110605/proxy0.13.5 is prepared and
-verified locally, replacing exactly three assets over live2026110604. No
-publication, production change or owner in-game acceptance is claimed.
+Owner-approved main PR418 merged as af4170d897ca67e6253ad0d87aace51087ca8ef7.
+Signed2026110605/proxy0.13.5 is published on November7 over2026110604, changing
+exactly DLL/catalog/Pet Info XML. All148HTTPS files/300620431bytes, production-key
+signature and actual DLL/catalog pairing verify. The145other descriptors/URLs,
+history/tombstones and all five service identities/start times/restarts remain.
+No game-server, database/cache/player or protected/installed-client write.
 
-On November7 the owner approved main promotion and live QA publication of this
-candidate. [Authorization](AUTHORIZATION.md) is release-scoped. Actual release
-receipts, rather than this approval, establish publication; native acceptance
-remains pending.
+Wiki20261107-advanced-loot-v1 verifies510public hashes/security headers and five
+private-route denials, with507files preserved and pointer rollback rehearsed.
+The current public source reproduced exactly before changing only the loot
+guide, Change Log and search. Native visual/gameplay acceptance remains pending.
+[Authorization](AUTHORIZATION.md) is release-scoped and is not native acceptance.
+Preparation receipts below retain their original pre-publication scope; actual
+publication is proved by client-published.json, client-public-verification.json,
+wiki-publication.json and wiki-public-verification.json.
+
+The published wiki is reproducible from source4718c471 plus nine reviewed
+overrides in published-source-overrides.patch. Normalize the85reviewed source
+inputs toLF, apply with `git apply --unidiff-zero`, then build: all510public
+hashes match. public-source-reproduction.json records the exact base and patch
+hash. Preserve these public-source overrides when main contains unrelated
+unpublished previews; do not republish an entire older/main mirror.
 
 ## Problems and behavior
 
@@ -72,8 +85,9 @@ compatibility and scope; no independent reviewer or visual acceptance is claimed
 signature, all148descriptors and exact preservation of145other descriptors/URLs,
 history and tombstones. The three replacements are DLL, matching versioned
 catalog and Pet Info XML. Source catalog regeneration changes only the proxy
-version/hash contract, retaining all120native sites. The local signature does
-not reserve a release counter; recheck the live baseline before any publication.
+version/hash contract, retaining all120native sites. This counter is now
+published; any correction or rollback requires a higher signed counter and a
+freshly reviewed public baseline.
 
 `prepare_client.py` reads the fresh, hash-pinned live Pet Info XML and replaces
 only its100loot controls/screen blocks. All bytes outside those spans, including
@@ -89,7 +103,8 @@ POSIX skips. Tests use a disposable network-isolated container, read-only source
 and temporary files, not the running game services. `publish.py` pins both
 envelopes/assets, checks all retained assets and public controls, holds service
 fingerprints and writes the channel last under the deployment lock. Main/live
-publication remains owner-gated. `release-validation.json` records current scope.
+publication is verified by the dated receipts. `release-validation.json` retains
+the original preparation scope; new releases still require owner authorization.
 
 Deliver the DLL, its matching catalog/config and newly generated
 `uifiles/nightcap/equi_petinfowindow.xml` together through the existing signed

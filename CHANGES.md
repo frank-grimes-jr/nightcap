@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-11-07 — Advanced loot repair published for live QA
+
+Owner-approved PR418/af4170d8 promotes the four loot fixes. Signed client
+2026110605/proxy0.13.5 repairs auto-open after Filters/skin reload, including
+off-page queue growth, typed filter search,32px icons and main-window Inspect.
+Exactly three assets change;145other descriptors/URLs and history/tombstones
+remain. Signature/all148HTTPS assets and actual DLL/catalog pairing verify.
+All five service identities/start times/restart counts are preserved; no native
+server, SQL, cache, player-state or installed-client write. Fully exit EQ and
+use normal launcher Play. Native visual/gameplay acceptance remains pending.
+Wiki20261107-advanced-loot-v1 verifies510public hashes/security/private denials,
+507preserved files and pointer rollback. Exact current public source was
+reproduced before the scoped guide/history/search update. Publication and QA:
+`docs/releases/advanced-loot-bugs-20261106/`.
+
 ## 2026-11-06 — Advanced loot reliability and controls candidate
 
 Signed candidate2026110605/proxy0.13.5 is assembled over current2026110604:

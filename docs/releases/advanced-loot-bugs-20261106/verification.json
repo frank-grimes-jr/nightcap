@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "baseline": "d5c895d3a304d7bae9dc234ee1107b845592dabe",
-  "status": "signed local candidate2026110605/proxy0.13.5; unpublished; owner native QA pending",
+  "status": "published2026110605/proxy0.13.5 for owner live QA; native acceptance pending",
   "checks": {
     "advanced_loot_x86": "5 fixture executables pass; red UTF16/subscription tests observed before repair",
     "layout": "7 tests pass: 32px icons, main Inspect, eight rows, 640x480 and non-overlap",
@@ -41,5 +41,11 @@
       "sha256": "3f02f08d31734883dc6269fc2e0e1980750e491f6d335f7ae91d384bfd9daa92"
     }
   },
-  "delivery": "Prepared signed2026110605 against fresh verified signed2026110604; not uploaded/published. Recheck current baseline before authorized publication. Full EQ exit/Play required afterward; no server reload."
+  "delivery": "Owner-approved PR418/af4170d8 merged. Signed2026110605 and wiki20261107-advanced-loot-v1 published/verified. No server restart, database/cache/player or installed-client write. Fully exit EQ and use normal launcher Play.",
+  "publication_evidence": [
+    "client-published.json",
+    "client-public-verification.json",
+    "wiki-publication.json",
+    "wiki-public-verification.json"
+  ]
 }
