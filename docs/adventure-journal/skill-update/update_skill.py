@@ -15,6 +15,14 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def unified_patch(before, after, path):
+    rows = difflib.unified_diff(before.splitlines(keepends=True),
+                               after.splitlines(keepends=True),
+                               fromfile='a/' + path, tofile='b/' + path, n=0)
+    return ''.join(row if row.endswith('\n') else
+                   row + '\n\\ No newline at end of file\n' for row in rows)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--apply', action='store_true')
@@ -97,9 +105,7 @@ checks and the pending detailed design/implementation/native/material/balance ga
                          'revision': revision + ' + reviewed design working tree',
                          'sha256': digest((ROOT / path).read_bytes())})
     after[paths[2]] = json.dumps(manifest, ensure_ascii=False, indent=2) + '\n'
-    patch = ''.join(''.join(difflib.unified_diff(
-        before[p].decode('utf-8').splitlines(keepends=True), after[p].splitlines(keepends=True),
-        fromfile='a/' + p, tofile='b/' + p)) for p in paths)
+    patch = ''.join(unified_patch(before[p].decode('utf-8'), after[p], p) for p in paths)
     (OUT / 'installed-nightcap.patch').write_text(patch, encoding='utf-8', newline='')
     receipt = {'applied': False, 'skill': SKILL.as_posix(), 'files': [
         {'path': p, 'before_sha256': digest(before[p]), 'after_sha256': digest(after[p].encode('utf-8'))}
