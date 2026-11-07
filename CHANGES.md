@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-07 — Last Lantern release authorized; native reward foundation
+
+The owner approved the campaign direction and requested main/server release with
+client notes. Implementation starts with native chapter/armor eligibility and
+fixed 128-item identity policy (four fits, four earned grades, eight slots), plus
+an effective personal-reward cache override after FreeTrade. Preserve NO DROP,
+NoTransfer, NoPet and zero resale even under global item rules; pet equipment
+restoration now honors NoPet. Compiled negative controls cover alternative oath
+paths, sequential continuation, legal fits, refit grades and trade projection.
+No new item definitions, campaign scenes or runtime changes are deployed yet.
+Source audit, delivery/refit, content, native build and release work remain open:
+`tasks/adventure-journal-endgame/plan.md` and `todo.md`.
+
 ## 2026-11-06 — Adventure Journal endgame story and armor proposal
 
 Specify The Last Lantern: a 12-chapter level-20-to-50 campaign with returning

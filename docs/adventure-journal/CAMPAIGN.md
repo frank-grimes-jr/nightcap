@@ -1,9 +1,14 @@
 # Wayfarer's Oath: The Last Lantern
 
-Status: proposed campaign expansion, November 6, 2026. The owner requested a
+Status: approved direction; implementation in progress, November 7, 2026.
+The owner explicitly requested main/server deployment and client notes after
+reviewing this campaign. This authorizes this release, not gameplay acceptance.
+Implementation plan: [ordered slices](../../tasks/adventure-journal-endgame/plan.md).
+
+The owner requested a
 living story through endgame and confirmed useful progression armor with a
 coordinated appearance. The chapter script, encounter implementation and final
-item budgets below await design review. This document does not install content.
+item budgets below require implementation and source audit. This document does not install content.
 The original eight-task Epic 0.5 candidate remains unchanged and unreleased.
 
 ## The experience

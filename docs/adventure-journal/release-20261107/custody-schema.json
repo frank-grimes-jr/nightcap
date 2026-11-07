@@ -1,0 +1,52 @@
+[
+  {
+    "table": "character_corpse_items",
+    "engine": "InnoDB",
+    "columns": "corpse_id,equip_slot,item_id,charges,aug_1,aug_2,aug_3,aug_4,aug_5,aug_6,attuned,custom_data,ornamenticon,ornamentidfile,ornament_hero_model"
+  },
+  {
+    "table": "character_parcels",
+    "engine": "InnoDB",
+    "columns": "id,char_id,item_id,aug_slot_1,aug_slot_2,aug_slot_3,aug_slot_4,aug_slot_5,aug_slot_6,slot_id,quantity,evolve_amount,from_name,note,sent_date"
+  },
+  {
+    "table": "character_parcels_containers",
+    "engine": "InnoDB",
+    "columns": "id,parcels_id,slot_id,item_id,aug_slot_1,aug_slot_2,aug_slot_3,aug_slot_4,aug_slot_5,aug_slot_6,quantity,evolve_amount"
+  },
+  {
+    "table": "character_pet_armor",
+    "engine": "InnoDB",
+    "columns": "character_id,slot_id,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,instnodrop,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,guid,pet_class"
+  },
+  {
+    "table": "character_pet_inventory",
+    "engine": "InnoDB",
+    "columns": "char_id,pet,slot,item_id"
+  },
+  {
+    "table": "guild_bank",
+    "engine": "InnoDB",
+    "columns": "id,guild_id,area,slot,item_id,augment_one_id,augment_two_id,augment_three_id,augment_four_id,augment_five_id,augment_six_id,quantity,donator,permissions,who_for"
+  },
+  {
+    "table": "nightcap_bazaar_items",
+    "engine": "InnoDB",
+    "columns": "listing_id,character_id,slot_id,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,instnodrop,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,guid"
+  },
+  {
+    "table": "object_contents",
+    "engine": "InnoDB",
+    "columns": "zoneid,parentid,bagidx,itemid,charges,droptime,augslot1,augslot2,augslot3,augslot4,augslot5,augslot6"
+  },
+  {
+    "table": "sharedbank",
+    "engine": "InnoDB",
+    "columns": "account_id,slot_id,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,guid"
+  },
+  {
+    "table": "trader",
+    "engine": "InnoDB",
+    "columns": "id,char_id,item_id,aug_slot_1,aug_slot_2,aug_slot_3,aug_slot_4,aug_slot_5,aug_slot_6,item_sn,item_charges,item_cost,slot_id,char_entity_id,char_zone_id,char_zone_instance_id,active_transaction,listing_date"
+  }
+]

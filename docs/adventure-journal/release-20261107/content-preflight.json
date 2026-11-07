@@ -1,0 +1,56 @@
+{
+  "scope": "read-only production PEQ content and schema",
+  "rows": [
+    {
+      "kind": "item_collision",
+      "id": 900620,
+      "name": "Reforging Box"
+    },
+    {
+      "kind": "hub_spawn",
+      "npc": 999220,
+      "name": "The_Ancient_Chronicler",
+      "race": 495,
+      "gender": 2,
+      "level": 65,
+      "x": -215.0,
+      "y": -1585.0,
+      "z": 3.75,
+      "heading": 216.074692
+    },
+    {
+      "kind": "hub_spawn",
+      "npc": 999521,
+      "name": "Camil_Silvermist",
+      "race": 5,
+      "gender": 0,
+      "level": 50,
+      "x": -275.0,
+      "y": -1693.0,
+      "z": 3.75,
+      "heading": 250.189346
+    },
+    {
+      "kind": "hub_spawn",
+      "npc": 999821,
+      "name": "Mira_Coinwell",
+      "race": 1,
+      "gender": 1,
+      "level": 50,
+      "x": -144.0,
+      "y": -1584.0,
+      "z": 3.75,
+      "heading": 128.0
+    },
+    {
+      "kind": "storage",
+      "table": "inventory",
+      "engine": "InnoDB"
+    },
+    {
+      "kind": "storage",
+      "table": "completed_tasks",
+      "engine": "InnoDB"
+    }
+  ]
+}

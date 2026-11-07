@@ -1,4 +1,5 @@
 #include "common/dungeon_policy.h"
+#include "common/last_lantern_policy.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
 
@@ -1251,6 +1252,7 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 		item.ScriptFileID = e.scriptfileid;
 
 		EQ::ItemTradePolicy::Apply(item, RuleB(Items, FreeTrade), e.nodrop == 0);
+		NightcapLantern::ApplyEffectivePolicy(item);
 		NightcapDivineSummons::ApplyMerchantPolicy(item);
 		if (NightcapHunt::IsReward(item.ID) || NightcapDungeon::IsReward(item.ID)) {
 			// These progression rewards are tradable under the existing server policy,

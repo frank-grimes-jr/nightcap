@@ -611,7 +611,7 @@ void NPC::SetPetState(SpellBuff_Struct *pet_buffs, uint32 *items) {
 			bool noDrop           = (item2->NoDrop == 0); // Field is reverse logic
 			bool petCanHaveNoDrop = (RuleB(Pets, CanTakeNoDrop) && _CLIENTPET(this) && GetPetType() <= PetType::Normal);
 
-			if (!noDrop || petCanHaveNoDrop) {
+			if (!item2->NoPet && (!noDrop || petCanHaveNoDrop)) {
 				AddLootDrop(item2, LootdropEntriesRepository::NewNpcEntity(), true);
 			}
 		}
