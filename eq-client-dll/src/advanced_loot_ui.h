@@ -17,6 +17,7 @@ class AdvancedLootUI {
 	inline static Notice notice_ = nullptr, trace_ = nullptr;
 	inline static uint64_t now_ = 0, next_pulse_ = 0, next_refresh_ = 0, next_create_ = 0, sent_at_ = 0;
 	inline static uint32_t selected_ = 0, confirm_ = 0, spawn_ = 0;
+	inline static uint32_t last_drop_total_ = 0;
 	inline static std::string name_, search_, feedback_;
 	inline static uint64_t feedback_until_ = 0, all_confirm_until_ = 0;
 	inline static uint32_t all_confirm_revision_ = 0;
@@ -242,7 +243,7 @@ class AdvancedLootUI {
 public:
 	static void Initialize(Send send, Notice notice, Notice trace = nullptr) { send_ = send; notice_ = notice; trace_ = trace; }
 	static void Reset() {
-		state_.Clear(); selected_ = confirm_ = spawn_ = all_confirm_revision_ = 0; name_.clear(); search_.clear(); seen_.clear();
+		state_.Clear(); selected_ = confirm_ = spawn_ = all_confirm_revision_ = last_drop_total_ = 0; name_.clear(); search_.clear(); seen_.clear();
 		feedback_.clear(); awaiting_all_ = false; feedback_until_ = all_confirm_until_ = 0;
 		busy_ = false; dirty_ = true; want_show_ = false; failed_ = false; next_refresh_ = 0;
 		panel_ = Panel::List; desired_view_ = NightcapLoot::View::Drops; fault_ = Fault::None;
@@ -307,7 +308,11 @@ public:
 			busy_ = false; fault_ = Fault::None; all_confirm_revision_ = 0; Trace("snapshot-accepted");
 			const auto &s = state_.Current();
 			if (!KeepNoTradeConfirmation(before, s, confirm_)) { confirm_ = 0; }
-			const bool fresh = NewAdvancedLoot(before, s, seen_);
+			// Filters has a different total. Retain the last Drops count so a
+			// new item beyond page one can still auto-open after closing Filters.
+			const bool drops = s.view == NightcapLoot::View::Drops;
+			const bool fresh = NewAdvancedLoot(before, s, seen_) || (drops && s.total > last_drop_total_);
+			if (drops) { last_drop_total_ = s.total; }
 			if (fresh && (s.settings & NightcapLoot::Enabled) && (s.settings & NightcapLoot::AutoShow)) {
 				if (!Screen::Visible()) { panel_ = Panel::List; }
 				want_show_ = true;

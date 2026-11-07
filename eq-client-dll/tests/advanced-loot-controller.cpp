@@ -269,6 +269,21 @@ int main() {
 	assert(!AdvancedLootScreen::Visible());
 	s.settings |= AutoShow; SnapshotReady(s); assert(!AdvancedLootScreen::Visible());
 	++s.rows[0].token; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	// A kill beyond the visible page still opens after Filters. Comparing
+	// the rule count with the new drop count loses the previous queue size.
+	s.rows.resize(8, s.rows[0]);
+	for (unsigned i = 0; i < 8; ++i) { s.rows[i].token = 6000 + i; }
+	s.total = 8; SnapshotReady(s);
+	const auto drop_rows = s.rows;
+	Click("Filters"); s.view = View::Filters; s.rows.clear(); s.total = 0; SnapshotReady(s);
+	AdvancedLootScreen::Show(false); Pulse();
+	s.view = View::Drops; s.rows = drop_rows; s.total = 9; SnapshotReady(s);
+	assert(AdvancedLootScreen::Visible() && Visible("Row7"));
+	Click("Filters"); s.view = View::Filters; s.rows.clear(); s.total = 0; SnapshotReady(s);
+	AdvancedLootScreen::Show(false); Pulse();
+	s.view = View::Drops; s.rows = drop_rows; s.total = 9; SnapshotReady(s);
+	assert(!AdvancedLootScreen::Visible()); // unchanged queue respects the close
+	s.total = 10; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
 	assert(!AdvancedLootUI::Consume("ordinary chat"));
 	AdvancedLootScreen::Destroy(); assert(!AdvancedLootScreen::Window());
 	std::cout << "PASS: native notification ABI; panels, timeout/retry, commands, snapshots, NO TRADE, inline rule toggles and empty-queue auto-close\n";
