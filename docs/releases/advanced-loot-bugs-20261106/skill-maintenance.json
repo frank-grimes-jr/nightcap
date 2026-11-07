@@ -1,0 +1,37 @@
+{
+  "status": "installed and read-back verified",
+  "date": "2026-11-07",
+  "scope": "Published main PR418, client2026110605/proxy0.13.5 and wiki20261107-advanced-loot-v1. Owner native QA pending; other topics preserved.",
+  "files": [
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-published-20261107\\client.md",
+      "before_sha256": "b12802f269d395a7c983b843dea11fbc8374e4efd374f5094b853452844fa911",
+      "after_sha256": "ab03c247b8c04d63bbe2f2318bf0354a087cb7ca28858231ca834797321b7779"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-published-20261107\\wiki.md",
+      "before_sha256": "22fa53d3424a317bee7f034d577f097b5da1048fd4cd8f1e1fbd6370a628538f",
+      "after_sha256": "72814ac0759b444432b4ca78fd3e2078bb01fcf4108f424a9e0215469242c4d9"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\operations.md",
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-published-20261107\\operations.md",
+      "before_sha256": "c6449f74fe9e01c0a0dde4a778686dcb63c9d4d6c14ac9a536cddcbc1c8b41ce",
+      "after_sha256": "d011b97786cb10ac9ef6d22357b2dd886720193493e8f4c07f8901fe746103b0"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\admin.md",
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-published-20261107\\admin.md",
+      "before_sha256": "59fabddd950a6592c87dd33a286094f995ed6253970ae67830e7ce057e6506ed",
+      "after_sha256": "4db6681ff12e1a3be50c521583cf2c5383b1be0212f0418222b49b7cf4fb8ceb"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+      "staged": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\build\\advanced-loot-release\\skill-published-20261107\\sources.json",
+      "before_sha256": "4da0afe183aa01fba7d8a67e240f375e56aacc8fe2ea1a81ff2e73f2103432b6",
+      "after_sha256": "e3324074966b578c0f4bcca452ceab2677aaea72490147ea92388bc63402c8cc"
+    }
+  ]
+}

@@ -6,7 +6,9 @@ if not exist build\tests mkdir build\tests
 for %%F in (advanced-loot-state advanced-loot-policy advanced-loot-screen advanced-loot-controller advanced-loot-icons) do (
  cl /nologo /W4 /WX /O2 /EHsc /MT /std:c++17 tests\%%F.cpp /Fo:build\tests\ /Fe:build\tests\%%F.exe
  if errorlevel 1 exit /b 1
+ if not errorlevel 0 exit /b 1
  build\tests\%%F.exe
  if errorlevel 1 exit /b 1
+ if not errorlevel 0 exit /b 1
 )
 exit /b %errorlevel%

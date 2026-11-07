@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "release": "20261107-advanced-loot-v1",
+  "previous_release": "20261106-dungeon-readiness-v1",
+  "files": 510,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "OK",
+  "changed_existing": [
+    "advanced-loot.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 507,
+  "package_sha256": "fcb57aac91d9436157d32ead1cb4073e539f2ab11753e13d085f18ebd71b16f7",
+  "scope": "Loot guide/history/search only; all catalogs, other guides and assets retained"
+}

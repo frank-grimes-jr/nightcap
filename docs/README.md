@@ -117,6 +117,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Compact tunnel services: layout, complete roster and exact QA](releases/tunnel-compact-20261002/README.md)
 
+- [Advanced loot reliability, Search, larger icons and main Inspect: published client and QA](releases/advanced-loot-bugs-20261106/README.md)
 - [Advanced loot direct Always/Never controls and empty-window close: deployment and QA](releases/advanced-loot/ROW-CONTROLS.md)
 - [Advanced loot Loot All/Ignore action repair: deployment and owner QA](releases/advanced-loot/ACTION-REPAIR.md)
 

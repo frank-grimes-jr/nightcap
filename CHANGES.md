@@ -55,6 +55,41 @@ wiki Not released/Change Log previews together; public publication is pending.
 Design, acceptance and review evidence: `docs/adventure-journal/CAMPAIGN.md` and
 `docs/adventure-journal/endgame-review.json`.
 
+## 2026-11-07 — Advanced loot repair published for live QA
+
+Owner-approved PR418/af4170d8 promotes the four loot fixes. Signed client
+2026110605/proxy0.13.5 repairs auto-open after Filters/skin reload, including
+off-page queue growth, typed filter search,32px icons and main-window Inspect.
+Exactly three assets change;145other descriptors/URLs and history/tombstones
+remain. Signature/all148HTTPS assets and actual DLL/catalog pairing verify.
+All five service identities/start times/restart counts are preserved; no native
+server, SQL, cache, player-state or installed-client write. Fully exit EQ and
+use normal launcher Play. Native visual/gameplay acceptance remains pending.
+Wiki20261107-advanced-loot-v1 verifies510public hashes/security/private denials,
+507preserved files and pointer rollback. Exact current public source was
+reproduced before the scoped guide/history/search update. Publication and QA:
+`docs/releases/advanced-loot-bugs-20261106/`.
+
+## 2026-11-06 — Advanced loot reliability and controls candidate
+
+Signed candidate2026110605/proxy0.13.5 is assembled over current2026110604:
+three replacements,145other descriptors/URLs plus history/tombstones retained.
+Signature and exact runtime pair verify. Scoped XML preparation preserves every
+non-loot byte. Not published; main/live QA approval and native acceptance pending.
+
+Rearm Drops after closing Filters so new kills can auto-open loot. Preserve an
+independent Drops count so new loot beyond the first page is detected after
+browsing Filters, while an unchanged queue respects a deliberate close. Preserve an
+open screen across skin reload and show Drops after closed Settings receives
+new loot. Search accepts bounded printable text in native byte/UTF16 storage.
+Enlarge stock icons to32px and put Inspect item beside the main actions.
+Eight rows still fit640x480; server rights, preferences and award logic stay.
+Regression fixtures reproduce the search/subscription defects; native build,
+UI/layout and exact-client guards verify. Reject negative crash exits in the
+loot test runner. Deliver matched DLL/catalog/config/Pet Info XML via a new
+signed release; no server reload. Not published or in-game accepted.
+Evidence, wiki assessment and exact QA: `docs/releases/advanced-loot-bugs-20261106/`.
+
 ## 2026-11-06 — Instance Keeper Raid/Grind repair deployed
 
 Main PR415/44a8247d and the owner-authorized OVH zone-only release repair

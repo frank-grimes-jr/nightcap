@@ -15,6 +15,17 @@ notes preserved. Main promotion, actual server activation, client/wiki publicati
 and owner gameplay acceptance are not yet recorded.
 [Implementation and recovery](adventure-journal/release-20261107/README.md).
 
+## November7 — Advanced loot repair published for live QA
+
+Owner-approved main PR418/af4170d8 and signed2026110605/proxy0.13.5 are published.
+Filters/skin reload auto-open, off-page growth, typed Search,32px icons and main
+Inspect are repaired. Signature/all148HTTPS assets and actual runtime pair pass;
+145other descriptors/URLs/history remain. All five services are unchanged, with
+no server restart, SQL/cache/player or installed-client write. Fully exit EQ and
+use launcher Play. Wiki510public files/security/private denials and rollback
+verify,507files preserved. Native visual/gameplay acceptance remains pending.
+[Release, recovery and exact QA](releases/advanced-loot-bugs-20261106/README.md).
+
 ## November6 — Instance Keeper Raid/Grind repair deployed for live QA
 
 Owner-approved main PR415/44a8247d is deployed on OVH; player access is open.

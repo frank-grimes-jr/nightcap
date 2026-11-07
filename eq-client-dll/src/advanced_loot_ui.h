@@ -17,6 +17,7 @@ class AdvancedLootUI {
 	inline static Notice notice_ = nullptr, trace_ = nullptr;
 	inline static uint64_t now_ = 0, next_pulse_ = 0, next_refresh_ = 0, next_create_ = 0, sent_at_ = 0;
 	inline static uint32_t selected_ = 0, confirm_ = 0, spawn_ = 0;
+	inline static uint32_t last_drop_total_ = 0;
 	inline static std::string name_, search_, feedback_;
 	inline static uint64_t feedback_until_ = 0, all_confirm_until_ = 0;
 	inline static uint32_t all_confirm_revision_ = 0;
@@ -136,10 +137,11 @@ class AdvancedLootUI {
 		Text("All", all_confirm_revision_ ? "Confirm NO TRADE" : "Loot All");
 		Visible("Back", !list); Visible("PanelTitle", !list);
 		Text("PanelTitle", settings ? "Loot settings" : row ? row->name : "");
-		static const char *extras[] = {"Inspect", "Leave", "Find", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Assign"};
-		static const Action actions[] = {Action::Inspect, Action::Leave, Action::FindCorpse, Action::Need, Action::Greed,
+		Visible("Inspect", list && matching && can(Action::Inspect)); Enable("Inspect", ready && can(Action::Inspect));
+		static const char *extras[] = {"Leave", "Find", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Assign"};
+		static const Action actions[] = {Action::Leave, Action::FindCorpse, Action::Need, Action::Greed,
 			Action::Pass, Action::Roll, Action::FreeGrab, Action::Assign};
-		for (unsigned i = 0; i < 9; ++i) { Visible(extras[i], more && can(actions[i])); Enable(extras[i], ready && can(actions[i])); }
+		for (unsigned i = 0; i < 8; ++i) { Visible(extras[i], more && can(actions[i])); Enable(extras[i], ready && can(actions[i])); }
 		for (unsigned i = 0; i < 5; ++i) {
 			const std::string suffix = std::to_string(i);
 			const bool visible = rule;
@@ -241,14 +243,17 @@ class AdvancedLootUI {
 public:
 	static void Initialize(Send send, Notice notice, Notice trace = nullptr) { send_ = send; notice_ = notice; trace_ = trace; }
 	static void Reset() {
-		state_.Clear(); selected_ = confirm_ = spawn_ = all_confirm_revision_ = 0; name_.clear(); search_.clear(); seen_.clear();
+		state_.Clear(); selected_ = confirm_ = spawn_ = all_confirm_revision_ = last_drop_total_ = 0; name_.clear(); search_.clear(); seen_.clear();
 		feedback_.clear(); awaiting_all_ = false; feedback_until_ = all_confirm_until_ = 0;
 		busy_ = false; dirty_ = true; want_show_ = false; failed_ = false; next_refresh_ = 0;
 		panel_ = Panel::List; desired_view_ = NightcapLoot::View::Drops; fault_ = Fault::None;
 		if (configured_) { Text("SearchText", ""); }
 		Screen::Show(false);
 	}
-	static void Destroyed() { configured_ = false; controls_.clear(); dirty_ = true; next_create_ = now_ + 1000; }
+	static void Destroyed(bool visible) {
+		want_show_ = want_show_ || visible;
+		configured_ = false; controls_.clear(); dirty_ = true; next_create_ = now_ + 1000;
+	}
 	static void Pulse(uint64_t now, uint32_t spawn, const char *name) {
 		now_ = now;
 		if (!send_ || now < next_pulse_) { return; }
@@ -263,6 +268,9 @@ public:
 			failed_ = true; return;
 		}
 		configured_ = true; failed_ = false;
+		// A hidden Filters subscription never contains new drops. Rearm it
+		// without reopening the window or changing the character's saved rules.
+		if (!Screen::Visible() && !want_show_ && desired_view_ != NightcapLoot::View::Drops) { RequestView(NightcapLoot::View::Drops); }
 		if (all_confirm_revision_ && now >= all_confirm_until_) { all_confirm_revision_ = 0; dirty_ = true; }
 		if (!feedback_.empty() && now >= feedback_until_) { feedback_.clear(); dirty_ = true; }
 		if (busy_ && now - sent_at_ >= 5000) {
@@ -300,8 +308,15 @@ public:
 			busy_ = false; fault_ = Fault::None; all_confirm_revision_ = 0; Trace("snapshot-accepted");
 			const auto &s = state_.Current();
 			if (!KeepNoTradeConfirmation(before, s, confirm_)) { confirm_ = 0; }
-			const bool fresh = NewAdvancedLoot(before, s, seen_);
-			if (fresh && (s.settings & NightcapLoot::Enabled) && (s.settings & NightcapLoot::AutoShow)) { want_show_ = true; }
+			// Filters has a different total. Retain the last Drops count so a
+			// new item beyond page one can still auto-open after closing Filters.
+			const bool drops = s.view == NightcapLoot::View::Drops;
+			const bool fresh = NewAdvancedLoot(before, s, seen_) || (drops && s.total > last_drop_total_);
+			if (drops) { last_drop_total_ = s.total; }
+			if (fresh && (s.settings & NightcapLoot::Enabled) && (s.settings & NightcapLoot::AutoShow)) {
+				if (!Screen::Visible()) { panel_ = Panel::List; }
+				want_show_ = true;
+			}
 			// Drop tokens and saved-rule item IDs are different namespaces. A
 			// vanished selection must never retarget a pending detail-panel click.
 			if (before.view != s.view || Selected() == s.rows.size()) {

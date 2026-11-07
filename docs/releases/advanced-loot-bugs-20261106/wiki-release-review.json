@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "baseline": "20261106-dungeon-readiness-v1",
+  "release": "20261107-advanced-loot-v1",
+  "files": 510,
+  "changed": [
+    "advanced-loot.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 507,
+  "catalog_values_and_generated_item_zone_pages": "unchanged",
+  "features_home_commands_launcher": "existing instructions/links remain accurate; no extra mechanics/command change",
+  "scope": "Current public source exactly reproduced before changing owning guide and Change Log; no unrelated main previews published.",
+  "source_tests": "20wiki/content/refresh tests pass; source/client publication and manual native acceptance remain separate."
+}
