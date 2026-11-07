@@ -127,12 +127,12 @@ armor and campaign acceptance remain OPEN; status is Live testing.'''
     after['SKILL.md']=after['SKILL.md'].replace('Tunnel NPCs, travel, waypoints, instances, Perl bindings','Tunnel NPCs, travel, instances, Adventure Journal, Perl bindings')
     sources=json.loads(after['references/sources.json']);rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     paths={
-      'world':['server-mods/code/zone/last_lantern.inc','server-mods/code/common/last_lantern_scene_policy.h','server-mods/code/common/last_lantern_catalog.h','server-mods/code/zone/task_manager.cpp','server-mods/code/zone/task_client_state.cpp','server-mods/plugins/epic05.pl','server-mods/plugins/epic05_store.pl','docs/adventure-journal/CAMPAIGN.md','docs/adventure-journal/SPEC.md','docs/adventure-journal/catalog.json','docs/lore/structure.md','docs/adventure-journal/release-20261107/production-verification.json'],
-      'items':['server-mods/code/common/last_lantern_policy.h','server-mods/code/common/last_lantern_inventory.h','server-mods/code/zone/advanced_loot_inventory.cpp','docs/adventure-journal/last-lantern-catalog.json','docs/adventure-journal/release-20261107/database-rehearsal.json'],
+      'world':['server-mods/code/zone/last_lantern.inc','server-mods/code/zone/dungeon_service.cpp','server-mods/code/zone/dungeon_service.h','server-mods/code/zone/highkeep_rescue.inc','server-mods/code/zone/spawn2.cpp','server-mods/code/zone/attack.cpp','tools/epic05.py','tools/tests/test_lantern_runtime.py','tools/tests/test_lantern_task_save.py','server-mods/code/common/last_lantern_scene_policy.h','server-mods/code/common/last_lantern_catalog.h','server-mods/code/zone/task_manager.cpp','server-mods/code/zone/task_client_state.cpp','server-mods/plugins/epic05.pl','server-mods/plugins/epic05_store.pl','docs/adventure-journal/CAMPAIGN.md','docs/adventure-journal/SPEC.md','docs/adventure-journal/catalog.json','docs/lore/structure.md','docs/adventure-journal/release-20261107/production-verification.json'],
+      'items':['server-mods/code/common/shareddb.cpp','server-mods/code/zone/pets.cpp','server-mods/code/zone/advanced_loot_inventory.h','tools/tests/rehearse_last_lantern.py','docs/adventure-journal/release-20261107/cache-private-validation.json','server-mods/code/common/last_lantern_policy.h','server-mods/code/common/last_lantern_inventory.h','server-mods/code/zone/advanced_loot_inventory.cpp','docs/adventure-journal/last-lantern-catalog.json','docs/adventure-journal/release-20261107/database-rehearsal.json'],
       'client':['eq-launcher/patch-notes.json','docs/adventure-journal/release-20261107/client-public-verification.json'],
       'operations':['docs/adventure-journal/release-20261107/rollout.py','docs/adventure-journal/release-20261107/production-verification.json','docs/adventure-journal/release-20261107/native-build.json'],
       'balance':['tools/last_lantern_balance.py','docs/adventure-journal/release-20261107/balance/calibration.json','docs/adventure-journal/release-20261107/balance/native-build-manifest.json'],
-      'wiki':['wiki/articles/adventure-journal.json','wiki/last-lantern-catalog.json','wiki/last_lantern_catalog.py','wiki/articles/unreleased.json','wiki/articles/recent-changes.json','docs/adventure-journal/release-20261107/wiki-impact.json','docs/adventure-journal/release-20261107/wiki-publication.json']}
+      'wiki':['wiki/catalog.py','wiki/articles/features.json','wiki/articles/index.json','wiki/articles/tunnel.json','wiki/articles/travel.json','wiki/articles/equipment.json','wiki/articles/adventure-journal.json','wiki/last-lantern-catalog.json','wiki/last_lantern_catalog.py','wiki/articles/unreleased.json','wiki/articles/recent-changes.json','docs/adventure-journal/release-20261107/wiki-impact.json','docs/adventure-journal/release-20261107/wiki-publication.json']}
     for topic,files in paths.items():
         for path in files:
             row=dict(root=route,path=path,role='Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open',revision=rev+' plus verified release evidence',sha256=hashlib.sha256((ROOT/path).read_bytes()).hexdigest())
@@ -149,7 +149,7 @@ armor and campaign acceptance remain OPEN; status is Live testing.'''
     if args.apply:
         for name in names:
             assert (SKILL/name).read_text(encoding='utf-8')==before[name],'Concurrent skill edit; re-review'
-            (SKILL/name).write_text(after[name],encoding='utf-8')
+            (SKILL/name).write_bytes(after[name].encode('utf-8'))
     (OUT/'skill-maintenance.json').write_text(json.dumps({'applied':args.apply,'reviewed_revision':rev,'files':{n:hashlib.sha256(after[n].encode()).hexdigest() for n in names},'normal_player_accepted':False},indent=2)+'\n')
     print('Installed skill refreshed' if args.apply else 'Exact skill patch prepared; installation pending')
 

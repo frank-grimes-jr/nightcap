@@ -1,12 +1,12 @@
 {
   "files": 27,
-  "bytes": 35293436,
-  "archive_sha256": "7ac0a6021c86efefb0858936f6dad2422726f8231b1d3446df2349bdca539332",
-  "manifest_sha256": "2d227fa6559203721761648edfd594715e785ede030d3dd52392c0432ec5c99e",
+  "bytes": 32930530,
+  "archive_sha256": "3c8d457b76d0ea471b57d30c8af04e0c0d122b58479752ca96e2a6052c885478",
+  "manifest_sha256": "3700cd61ea72a62f3f02636d78b9227a2ad156ab40dcd2bacb77e451ca2b9a77",
   "binaries": {
     "zone": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04",
     "world": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0",
     "shared_memory": "f66dd110de5bdc8f95b7455c12a17f4acd4aa18ab1fa131882d85eb6130e4985"
   },
-  "source_revision": "d1e54f23604493106ae64126042948a5b937cb85"
+  "source_revision": "1e27feae0a9756be7bb3e23419b33a8bb4efb1b3"
 }

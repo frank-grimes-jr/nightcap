@@ -1,0 +1,29 @@
+{
+  "manifest_sha256": "3700cd61ea72a62f3f02636d78b9227a2ad156ab40dcd2bacb77e451ca2b9a77",
+  "image": "sha256:56605b9ea493f1dd0298da16f7367b1be1138c4c75a62b0f972d9d4f31977e1c",
+  "checks": {
+    "items": 128,
+    "tasks": 16,
+    "task_activities": 64,
+    "npc_types": 19
+  },
+  "cache_after": {
+    "items": "c841133a65084263091f9c1fa7d62ea0cfb4da2e83f788c2a2f2a6f8fae9321c",
+    "spells": "20b3cbe91e0c0481993ca2f242daedab3294761fe87f7737eaf13e659162c483"
+  },
+  "cache_verification": {
+    "status": "PASS",
+    "preserved_items": 309871,
+    "added_items": 129,
+    "armor_afterimages": 128,
+    "preserved_spell_record_bytes": 107707648,
+    "item_bytes": 1332
+  },
+  "status": "PASS",
+  "production_content_unchanged": true,
+  "client_rehearsal": {
+    "release": 2026110701,
+    "preserved_assets": 147,
+    "changed_assets": 1
+  }
+}
