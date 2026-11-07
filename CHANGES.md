@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-11-06 — Advanced loot reliability and controls candidate
+
+Rearm Drops after closing Filters so new kills can auto-open loot. Preserve an
+open screen across skin reload and show Drops after closed Settings receives
+new loot. Search accepts bounded printable text in native byte/UTF16 storage.
+Enlarge stock icons to32px and put Inspect item beside the main actions.
+Eight rows still fit640x480; server rights, preferences and award logic stay.
+Regression fixtures reproduce the search/subscription defects; native build,
+UI/layout and exact-client guards verify. Reject negative crash exits in the
+loot test runner. Deliver matched DLL/catalog/config/Pet Info XML via a new
+signed release; no server reload. Not published or in-game accepted.
+Evidence, wiki assessment and exact QA: `docs/releases/advanced-loot-bugs-20261106/`.
+
 ## 2026-11-06 — Instance Keeper Raid/Grind repair deployed
 
 Main PR415/44a8247d and the owner-authorized OVH zone-only release repair
