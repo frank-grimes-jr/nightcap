@@ -66,4 +66,9 @@ def catalog_articles():
         articles.extend(chapterhouse_articles(data['chapterhouse']))
         next(a for a in articles if a['slug']=='zones')['body'] += '<h2 id="chapterhouse">Custom expedition</h2><p><a href="zone-chapterhouse.html">Chapterhouse of the Fallen</a> has a separate curated capstone reward pool. Its scoped access exception does not expand the 48 Classic Hunt zones.</p>'
     next(a for a in articles if a['slug']=='zones')['body'] += '<h2 id="ashen-compact">The Ashen Compact</h2><p><a href="zone-kael.html">Kael: The Ashen Compact</a> is a separate curated campaign in live testing.</p>'
+    from last_lantern_catalog import articles as lantern_articles
+    articles.extend(lantern_articles(json.loads((ROOT/'last-lantern-catalog.json').read_text(encoding='utf-8'))))
+    for article in articles:
+        if article['slug'] in ('zone-unrest','zone-gukbottom','zone-soldungb','zone-cazicthule','zone-hole','zone-fearplane','zone-hateplane'):
+            article['body'] += '<h2 id="last-lantern-memory">A company memory</h2><p>The <a href="adventure-journal.html#chapters">Last Lantern campaign</a> revisits this terrain in a separate private journal memory. Enter through the Ancient Chronicler with the active chapter. Public populations, Keeper runs and Hunt reward values remain separate.</p>'
     return articles

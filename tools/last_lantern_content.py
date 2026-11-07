@@ -176,14 +176,14 @@ def compile_npcs():
         npc(998910 + index, ('a_roster_thief', 'a_mossbound_pursuer', 'an_emberbound_lieutenant',
                             'an_echo_of_the_last_watch', 'the_Witnesses_agent', 'a_pursuer_of_lost_names',
                             'a_guard_of_the_unwritten', 'a_fragment_of_the_broken_oath')[index],
-            lastname='', level=level, hp=(9000, 30000, 50000, 65000, 85000, 100000, 120000, 160000)[index],
-            mindmg=(25, 80, 110, 140, 180, 220, 260, 320)[index],
-            maxdmg=(65, 180, 240, 300, 380, 450, 550, 650)[index],
+            lastname='', level=level, hp=(650, 1000, 1300, 1500, 1500, 3200, 1500, 1200)[index],
+            mindmg=(12, 22, 28, 30, 32, 40, 42, 40)[index],
+            maxdmg=(28, 48, 60, 65, 70, 90, 95, 90)[index],
             AC=80 + level * 2, ATK=level * 5, attack_count=2,
             attack_delay=24 if level < 46 else 20, special_abilities='', aggroradius=35,
             assistradius=20, always_aggro=1)
     npc(998918, 'The_Hollow_Witness', lastname='Recorder of the Last Lantern', level=50,
-        hp=400000, mindmg=450, maxdmg=900, AC=240, ATK=300, attack_count=2,
+        hp=6000, mindmg=50, maxdmg=110, AC=240, ATK=300, attack_count=2,
         attack_delay=20, special_abilities='', aggroradius=35, assistradius=20, always_aggro=1,
         spellscale=500)
     npc(998919, 'a_company_standard_bearer', level=50, hp=40000,

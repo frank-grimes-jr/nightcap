@@ -1,8 +1,9 @@
 {
-  "schema": "nightcap_lantern_qa_ba31df709937",
+  "schema": "nightcap_lantern_qa_93d00f738a7d",
   "scope": "disposable MariaDB content rehearsal; not native gameplay or player acceptance",
   "checks": [
     "reserved item collision refuses before creating feature tables; existing reforging box retained",
+    "high-ID title insert changes only its auto-increment counter, preserving every schema attribute",
     "16 Tasks, 64 activities, 128 armor, charm, six spells, scene actors and six public services inserted disabled; reapply fails without changing content",
     "every generated armor field matches the real MariaDB afterimage",
     "all 237 client/server fields match for all six spells",

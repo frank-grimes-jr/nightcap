@@ -23,7 +23,10 @@ async function search(q, fail = false) {
   assert.equal(result.results[0].children[0].textContent, 'Zone hunt & forging');
   result = await search('Hillside Dewstone');
   assert.equal(result.results[0].children[0].href, 'item-940024.html');
-  assert.equal(result.results.length, 6);
+  assert.deepEqual(result.results.filter(n => /^item-94002[4-7]\.html$/.test(n.children[0].href)).map(n => n.children[0].href).sort(),
+    ['item-940024.html','item-940025.html','item-940026.html','item-940027.html']);
+  result = await search('Last Lantern Woven Robe Complete');
+  assert.equal(result.results[0].children[0].href, 'item-964031.html');
   result = await search('hillside ascension');
   assert.equal(result.results[0].children[0].href, 'item-940027.html');
   for(const query of ['AA','classes']) {

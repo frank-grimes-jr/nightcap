@@ -1,0 +1,34 @@
+{
+  "prior_operator_sha256": "f15ce25244cc13e4c277f9ddfd81f7c82eff09c6cc672268810b3411c2e8492d",
+  "base_image_id": "sha256:7e7a42ccf64768dba3d8aebc2509adfbec518a2389523dd950f2bdf05677ae40",
+  "base_hashes": {
+    "bin/world": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654",
+    "bin/zone": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "game_network": "nightcap-production_database",
+  "players": 0,
+  "maps": {
+    "soldungb": "6457a51f76aa7d6a4ebff4b7fa7ca1ed79edeb473b3cf09154e736fbd95bb108",
+    "hole": "0ef90649ca040a99aa2bee06864a68e9e3e65d41a081e903723ec0d935252e93",
+    "cazicthule": "fb6390b8862a25862fa839940191c1bb7fa9c2bb3031f430362a87bc3dd6434a",
+    "unrest": "4f0aa04aaf4f9cee3b6dca60eaa181b99e8753d372c8e5bd1fa928b2489c8a23",
+    "gukbottom": "fb7fd1f8a863ce87ad3b2effaa139c23593a00510b83437ee840a0fc85ee6e2c",
+    "fearplane": "6019a02993021507bbe2ba19d31c277da9db8e980e97a99c54d04908cfa96652",
+    "hateplane": "6a2102ad38830015a9d78bcb47ca145e062dfd71d24ae69a944bf13df8b76639"
+  },
+  "rules": [
+    "Items:DisableNoDrop\tfalse",
+    "Items:DisableNoPet\tfalse",
+    "Items:DisableNoTransfer\tfalse",
+    "Items:FreeTrade\ttrue",
+    "TaskSystem:RecordCompletedTasks\ttrue",
+    "World:FVNoDropFlag\t0"
+  ],
+  "free_bytes": 20162433024
+}

@@ -1,8 +1,8 @@
 {"linked": "baseline-zone", "shipping_sha256": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a"}
-{"linked": "candidate-zone", "shipping_sha256": "184b2c140f1c4332aac2e7f64817fbf13304a71ac7e1b4ad5d66840ee3d728ae"}
+{"linked": "candidate-zone", "shipping_sha256": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"}
 {"linked": "baseline-world", "shipping_sha256": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654"}
 {"linked": "candidate-world", "shipping_sha256": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0"}
 {"linked": "baseline-shared_memory", "shipping_sha256": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86"}
 {"linked": "candidate-shared_memory", "shipping_sha256": "f66dd110de5bdc8f95b7455c12a17f4acd4aa18ab1fa131882d85eb6130e4985"}
-{"status": "PASS", "shipping": {"baseline-zone": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a", "candidate-zone": "184b2c140f1c4332aac2e7f64817fbf13304a71ac7e1b4ad5d66840ee3d728ae", "baseline-world": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654", "candidate-world": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0", "baseline-shared_memory": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86", "candidate-shared_memory": "f66dd110de5bdc8f95b7455c12a17f4acd4aa18ab1fa131882d85eb6130e4985"}}
+{"status": "PASS", "shipping": {"baseline-zone": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a", "candidate-zone": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04", "baseline-world": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654", "candidate-world": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0", "baseline-shared_memory": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86", "candidate-shared_memory": "f66dd110de5bdc8f95b7455c12a17f4acd4aa18ab1fa131882d85eb6130e4985"}}
 

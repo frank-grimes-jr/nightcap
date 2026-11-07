@@ -1,5 +1,6 @@
 """Exercise additive migration only in a fresh disposable local database."""
 import json
+import re
 from pathlib import Path
 import sys
 import subprocess
@@ -42,7 +43,10 @@ def main():
         assert sql("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='nightcap_lantern_control';").stdout.strip()=='0'
         sql('DELETE FROM items WHERE id=964000;')
         report['checks'].append('reserved item collision refuses before creating feature tables; existing reforging box retained')
+        title_schema=sql('SHOW CREATE TABLE titles;').stdout
         sql(setup)
+        assert re.sub(r' AUTO_INCREMENT=[0-9]+','',sql('SHOW CREATE TABLE titles;').stdout)==re.sub(r' AUTO_INCREMENT=[0-9]+','',title_schema)
+        report['checks'].append('high-ID title insert changes only its auto-increment counter, preserving every schema attribute')
         counts=sql('SELECT COUNT(*) FROM tasks;SELECT COUNT(*) FROM task_activities;SELECT COUNT(*) FROM items;'
                    'SELECT COUNT(*) FROM spells_new;SELECT COUNT(*) FROM npc_types WHERE id BETWEEN 998900 AND 998939;'
                    'SELECT COUNT(*) FROM spawn2 WHERE id BETWEEN 9113000 AND 9113005;'

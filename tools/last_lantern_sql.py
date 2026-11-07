@@ -79,7 +79,7 @@ CREATE TABLE nightcap_lantern_memorials (
     rows = [insert('nightcap_lantern_control', dict(id=1, revision=REVISION, enabled=0)),
             insert('titles',dict(id=995501,title_set=995501,suffix='the Lanternbearer'))]
     tasks, activities = compile_tasks()
-    rows += [insert('tasks', r) for r in tasks]
+    rows += [insert('tasks', dict(r,enabled=0)) for r in tasks]
     rows += [insert('task_activities', r) for r in activities]
     rows += [insert('items', r) for r in compile_items()]
     rows += [insert('npc_types', r) for r in compile_npcs()]

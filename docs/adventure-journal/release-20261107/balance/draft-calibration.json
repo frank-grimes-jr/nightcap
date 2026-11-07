@@ -1,0 +1,1826 @@
+{
+  "status": "REVIEW",
+  "production_changed": false,
+  "native_build": "7b9c71c9af0dd2df28b264ea155d1e8316be0ec260aa8e09579e219798d73017",
+  "rows": [
+    {
+      "level": 25,
+      "npc": 998910,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 650,
+      "npc_damage": [
+        12,
+        28
+      ],
+      "aa_requested": 48,
+      "aa_spent": 48,
+      "result": "npc_death",
+      "elapsed_ms": 269550,
+      "hp": 1173,
+      "mana": 716,
+      "minimum_hp": 494,
+      "final_hp": 737,
+      "final_mana": 240,
+      "final_npc_hp": 10,
+      "heal_spell": 17,
+      "nuke_spell": 0,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960000
+        },
+        {
+          "slot": 17,
+          "id": 960003
+        },
+        {
+          "slot": 7,
+          "id": 960006
+        },
+        {
+          "slot": 9,
+          "id": 960009
+        },
+        {
+          "slot": 12,
+          "id": 960012
+        },
+        {
+          "slot": 18,
+          "id": 960015
+        },
+        {
+          "slot": 6,
+          "id": 960021
+        },
+        {
+          "slot": 13,
+          "id": 960024
+        },
+        {
+          "slot": 1,
+          "id": 960048
+        },
+        {
+          "slot": 15,
+          "id": 960051
+        },
+        {
+          "slot": 5,
+          "id": 960054
+        },
+        {
+          "slot": 3,
+          "id": 960057
+        },
+        {
+          "slot": 8,
+          "id": 960060
+        },
+        {
+          "slot": 20,
+          "id": 960063
+        },
+        {
+          "slot": 10,
+          "id": 960009
+        },
+        {
+          "slot": 4,
+          "id": 960048
+        },
+        {
+          "slot": 16,
+          "id": 960051
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 40,
+      "npc": 998912,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 1800,
+      "npc_damage": [
+        28,
+        60
+      ],
+      "aa_requested": 78,
+      "aa_spent": 78,
+      "result": "npc_death",
+      "elapsed_ms": 310100,
+      "hp": 2173,
+      "mana": 1363,
+      "minimum_hp": 161,
+      "final_hp": 167,
+      "final_mana": 55,
+      "final_npc_hp": 27,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960144
+        },
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 7,
+          "id": 960150
+        },
+        {
+          "slot": 18,
+          "id": 960159
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        },
+        {
+          "slot": 12,
+          "id": 964033
+        },
+        {
+          "slot": 9,
+          "id": 964034
+        },
+        {
+          "slot": 10,
+          "id": 964035
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998917,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 1200,
+      "npc_damage": [
+        40,
+        90
+      ],
+      "aa_requested": 98,
+      "aa_spent": 98,
+      "result": "npc_death",
+      "elapsed_ms": 170000,
+      "hp": 3148,
+      "mana": 1876,
+      "minimum_hp": 1432,
+      "final_hp": 1846,
+      "final_mana": 778,
+      "final_npc_hp": -500,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 25,
+      "npc": 998910,
+      "profile": "war-pal-mnk",
+      "seed": 1108,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 650,
+      "npc_damage": [
+        12,
+        28
+      ],
+      "aa_requested": 48,
+      "aa_spent": 48,
+      "result": "npc_death",
+      "elapsed_ms": 255350,
+      "hp": 1173,
+      "mana": 716,
+      "minimum_hp": 510,
+      "final_hp": 697,
+      "final_mana": 240,
+      "final_npc_hp": 15,
+      "heal_spell": 17,
+      "nuke_spell": 0,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960000
+        },
+        {
+          "slot": 17,
+          "id": 960003
+        },
+        {
+          "slot": 7,
+          "id": 960006
+        },
+        {
+          "slot": 9,
+          "id": 960009
+        },
+        {
+          "slot": 12,
+          "id": 960012
+        },
+        {
+          "slot": 18,
+          "id": 960015
+        },
+        {
+          "slot": 6,
+          "id": 960021
+        },
+        {
+          "slot": 13,
+          "id": 960024
+        },
+        {
+          "slot": 1,
+          "id": 960048
+        },
+        {
+          "slot": 15,
+          "id": 960051
+        },
+        {
+          "slot": 5,
+          "id": 960054
+        },
+        {
+          "slot": 3,
+          "id": 960057
+        },
+        {
+          "slot": 8,
+          "id": 960060
+        },
+        {
+          "slot": 20,
+          "id": 960063
+        },
+        {
+          "slot": 10,
+          "id": 960009
+        },
+        {
+          "slot": 4,
+          "id": 960048
+        },
+        {
+          "slot": 16,
+          "id": 960051
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 40,
+      "npc": 998912,
+      "profile": "war-pal-mnk",
+      "seed": 1108,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 5,
+      "npc_hp": 1800,
+      "npc_damage": [
+        28,
+        60
+      ],
+      "aa_requested": 78,
+      "aa_spent": 78,
+      "result": "player_death",
+      "elapsed_ms": 277800,
+      "hp": 2173,
+      "mana": 1363,
+      "minimum_hp": -500,
+      "final_hp": -500,
+      "final_mana": 111,
+      "final_npc_hp": 1602,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960144
+        },
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 7,
+          "id": 960150
+        },
+        {
+          "slot": 18,
+          "id": 960159
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        },
+        {
+          "slot": 12,
+          "id": 964033
+        },
+        {
+          "slot": 9,
+          "id": 964034
+        },
+        {
+          "slot": 10,
+          "id": 964035
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998917,
+      "profile": "war-pal-mnk",
+      "seed": 1108,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 1200,
+      "npc_damage": [
+        40,
+        90
+      ],
+      "aa_requested": 98,
+      "aa_spent": 98,
+      "result": "npc_death",
+      "elapsed_ms": 225100,
+      "hp": 3148,
+      "mana": 1876,
+      "minimum_hp": 770,
+      "final_hp": 2234,
+      "final_mana": 178,
+      "final_npc_hp": 31,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 25,
+      "npc": 998910,
+      "profile": "war-pal-mnk",
+      "seed": 1109,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 650,
+      "npc_damage": [
+        12,
+        28
+      ],
+      "aa_requested": 48,
+      "aa_spent": 48,
+      "result": "npc_death",
+      "elapsed_ms": 243750,
+      "hp": 1173,
+      "mana": 716,
+      "minimum_hp": 500,
+      "final_hp": 647,
+      "final_mana": 240,
+      "final_npc_hp": 5,
+      "heal_spell": 17,
+      "nuke_spell": 0,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960000
+        },
+        {
+          "slot": 17,
+          "id": 960003
+        },
+        {
+          "slot": 7,
+          "id": 960006
+        },
+        {
+          "slot": 9,
+          "id": 960009
+        },
+        {
+          "slot": 12,
+          "id": 960012
+        },
+        {
+          "slot": 18,
+          "id": 960015
+        },
+        {
+          "slot": 6,
+          "id": 960021
+        },
+        {
+          "slot": 13,
+          "id": 960024
+        },
+        {
+          "slot": 1,
+          "id": 960048
+        },
+        {
+          "slot": 15,
+          "id": 960051
+        },
+        {
+          "slot": 5,
+          "id": 960054
+        },
+        {
+          "slot": 3,
+          "id": 960057
+        },
+        {
+          "slot": 8,
+          "id": 960060
+        },
+        {
+          "slot": 20,
+          "id": 960063
+        },
+        {
+          "slot": 10,
+          "id": 960009
+        },
+        {
+          "slot": 4,
+          "id": 960048
+        },
+        {
+          "slot": 16,
+          "id": 960051
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 40,
+      "npc": 998912,
+      "profile": "war-pal-mnk",
+      "seed": 1109,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 5,
+      "npc_hp": 1800,
+      "npc_damage": [
+        28,
+        60
+      ],
+      "aa_requested": 78,
+      "aa_spent": 78,
+      "result": "player_death",
+      "elapsed_ms": 293400,
+      "hp": 2173,
+      "mana": 1363,
+      "minimum_hp": -500,
+      "final_hp": -500,
+      "final_mana": 19,
+      "final_npc_hp": 344,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960144
+        },
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 7,
+          "id": 960150
+        },
+        {
+          "slot": 18,
+          "id": 960159
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        },
+        {
+          "slot": 12,
+          "id": 964033
+        },
+        {
+          "slot": 9,
+          "id": 964034
+        },
+        {
+          "slot": 10,
+          "id": 964035
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998917,
+      "profile": "war-pal-mnk",
+      "seed": 1109,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 1200,
+      "npc_damage": [
+        40,
+        90
+      ],
+      "aa_requested": 98,
+      "aa_spent": 98,
+      "result": "npc_death",
+      "elapsed_ms": 201000,
+      "hp": 3148,
+      "mana": 1876,
+      "minimum_hp": 1020,
+      "final_hp": 2331,
+      "final_mana": 474,
+      "final_npc_hp": -500,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 38,
+      "npc": 998911,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 5,
+      "npc_hp": 1500,
+      "npc_damage": [
+        22,
+        48
+      ],
+      "aa_requested": 74,
+      "aa_spent": 74,
+      "result": "player_death",
+      "elapsed_ms": 284100,
+      "hp": 1899,
+      "mana": 1170,
+      "minimum_hp": -500,
+      "final_hp": -500,
+      "final_mana": 14,
+      "final_npc_hp": 232,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960072
+        },
+        {
+          "slot": 17,
+          "id": 960075
+        },
+        {
+          "slot": 7,
+          "id": 960078
+        },
+        {
+          "slot": 18,
+          "id": 960087
+        },
+        {
+          "slot": 6,
+          "id": 960093
+        },
+        {
+          "slot": 13,
+          "id": 960096
+        },
+        {
+          "slot": 1,
+          "id": 960120
+        },
+        {
+          "slot": 15,
+          "id": 960123
+        },
+        {
+          "slot": 5,
+          "id": 960126
+        },
+        {
+          "slot": 3,
+          "id": 960129
+        },
+        {
+          "slot": 8,
+          "id": 960132
+        },
+        {
+          "slot": 20,
+          "id": 960135
+        },
+        {
+          "slot": 10,
+          "id": 960081
+        },
+        {
+          "slot": 4,
+          "id": 960120
+        },
+        {
+          "slot": 16,
+          "id": 960123
+        },
+        {
+          "slot": 19,
+          "id": 964032
+        },
+        {
+          "slot": 12,
+          "id": 964033
+        },
+        {
+          "slot": 9,
+          "id": 964034
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 42,
+      "npc": 998913,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 1800,
+      "npc_damage": [
+        30,
+        65
+      ],
+      "aa_requested": 82,
+      "aa_spent": 82,
+      "result": "npc_death",
+      "elapsed_ms": 281900,
+      "hp": 2432,
+      "mana": 1500,
+      "minimum_hp": 874,
+      "final_hp": 874,
+      "final_mana": 99,
+      "final_npc_hp": 41,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960144
+        },
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964040
+        },
+        {
+          "slot": 12,
+          "id": 964041
+        },
+        {
+          "slot": 9,
+          "id": 964042
+        },
+        {
+          "slot": 10,
+          "id": 964043
+        },
+        {
+          "slot": 7,
+          "id": 964044
+        },
+        {
+          "slot": 18,
+          "id": 964045
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 45,
+      "npc": 998914,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 3,
+      "killed_count": 6,
+      "npc_hp": 1900,
+      "npc_damage": [
+        32,
+        70
+      ],
+      "aa_requested": 88,
+      "aa_spent": 88,
+      "result": "npc_death",
+      "elapsed_ms": 312100,
+      "hp": 2684,
+      "mana": 1633,
+      "minimum_hp": 322,
+      "final_hp": 328,
+      "final_mana": 113,
+      "final_npc_hp": 16,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960144
+        },
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964040
+        },
+        {
+          "slot": 12,
+          "id": 964041
+        },
+        {
+          "slot": 9,
+          "id": 964042
+        },
+        {
+          "slot": 10,
+          "id": 964043
+        },
+        {
+          "slot": 7,
+          "id": 964044
+        },
+        {
+          "slot": 18,
+          "id": 964045
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 46,
+      "npc": 998915,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 1,
+      "waves": 1,
+      "killed_count": 1,
+      "npc_hp": 3200,
+      "npc_damage": [
+        40,
+        90
+      ],
+      "aa_requested": 90,
+      "aa_spent": 90,
+      "result": "npc_death",
+      "elapsed_ms": 76250,
+      "hp": 2767,
+      "mana": 1677,
+      "minimum_hp": 2062,
+      "final_hp": 2074,
+      "final_mana": 1467,
+      "final_npc_hp": 69,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 2,
+          "id": 960144
+        },
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964040
+        },
+        {
+          "slot": 12,
+          "id": 964041
+        },
+        {
+          "slot": 9,
+          "id": 964042
+        },
+        {
+          "slot": 10,
+          "id": 964043
+        },
+        {
+          "slot": 7,
+          "id": 964044
+        },
+        {
+          "slot": 18,
+          "id": 964045
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 48,
+      "npc": 998916,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 2,
+      "waves": 2,
+      "killed_count": 2,
+      "npc_hp": 3500,
+      "npc_damage": [
+        42,
+        95
+      ],
+      "aa_requested": 94,
+      "aa_spent": 94,
+      "result": "player_death",
+      "elapsed_ms": 242100,
+      "hp": 2979,
+      "mana": 1789,
+      "minimum_hp": -500,
+      "final_hp": -500,
+      "final_mana": 83,
+      "final_npc_hp": 1386,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998918,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 1,
+      "waves": 1,
+      "killed_count": 1,
+      "npc_hp": 6000,
+      "npc_damage": [
+        50,
+        110
+      ],
+      "aa_requested": 98,
+      "aa_spent": 98,
+      "result": "npc_death",
+      "elapsed_ms": 168450,
+      "hp": 3148,
+      "mana": 1876,
+      "minimum_hp": 1373,
+      "final_hp": 2049,
+      "final_mana": 1074,
+      "final_npc_hp": 3,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998918,
+      "profile": "war-clr-wiz",
+      "seed": 1107,
+      "enemies": 1,
+      "waves": 1,
+      "killed_count": 1,
+      "npc_hp": 6000,
+      "npc_damage": [
+        50,
+        110
+      ],
+      "aa_requested": 98,
+      "aa_spent": 98,
+      "result": "npc_death",
+      "elapsed_ms": 84500,
+      "hp": 3171,
+      "mana": 1799,
+      "minimum_hp": 1203,
+      "final_hp": 1835,
+      "final_mana": 223,
+      "final_npc_hp": -500,
+      "heal_spell": 9,
+      "nuke_spell": 732,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964112
+        },
+        {
+          "slot": 12,
+          "id": 964113
+        },
+        {
+          "slot": 9,
+          "id": 964114
+        },
+        {
+          "slot": 10,
+          "id": 964115
+        },
+        {
+          "slot": 7,
+          "id": 964116
+        },
+        {
+          "slot": 18,
+          "id": 964117
+        },
+        {
+          "slot": 2,
+          "id": 964118
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998918,
+      "profile": "war-clr-mnk",
+      "seed": 1107,
+      "enemies": 1,
+      "waves": 1,
+      "killed_count": 1,
+      "npc_hp": 6000,
+      "npc_damage": [
+        50,
+        110
+      ],
+      "aa_requested": 98,
+      "aa_spent": 98,
+      "result": "npc_death",
+      "elapsed_ms": 160900,
+      "hp": 3148,
+      "mana": 1876,
+      "minimum_hp": 1539,
+      "final_hp": 2442,
+      "final_mana": 1396,
+      "final_npc_hp": 139,
+      "heal_spell": 9,
+      "nuke_spell": 0,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    },
+    {
+      "level": 50,
+      "npc": 998918,
+      "profile": "war-pal-mnk",
+      "seed": 1107,
+      "enemies": 1,
+      "waves": 1,
+      "killed_count": 1,
+      "npc_hp": 6000,
+      "npc_damage": [
+        50,
+        110
+      ],
+      "aa_requested": 500,
+      "aa_spent": 500,
+      "result": "npc_death",
+      "elapsed_ms": 154100,
+      "hp": 3148,
+      "mana": 1876,
+      "minimum_hp": 1566,
+      "final_hp": 2506,
+      "final_mana": 1492,
+      "final_npc_hp": 51,
+      "heal_spell": 15,
+      "nuke_spell": 216,
+      "gear": [
+        {
+          "slot": 17,
+          "id": 960147
+        },
+        {
+          "slot": 6,
+          "id": 960165
+        },
+        {
+          "slot": 13,
+          "id": 960168
+        },
+        {
+          "slot": 1,
+          "id": 960192
+        },
+        {
+          "slot": 15,
+          "id": 960195
+        },
+        {
+          "slot": 5,
+          "id": 960198
+        },
+        {
+          "slot": 3,
+          "id": 960201
+        },
+        {
+          "slot": 8,
+          "id": 960204
+        },
+        {
+          "slot": 20,
+          "id": 960207
+        },
+        {
+          "slot": 4,
+          "id": 960192
+        },
+        {
+          "slot": 16,
+          "id": 960195
+        },
+        {
+          "slot": 19,
+          "id": 964048
+        },
+        {
+          "slot": 12,
+          "id": 964049
+        },
+        {
+          "slot": 9,
+          "id": 964050
+        },
+        {
+          "slot": 10,
+          "id": 964051
+        },
+        {
+          "slot": 7,
+          "id": 964052
+        },
+        {
+          "slot": 18,
+          "id": 964053
+        },
+        {
+          "slot": 2,
+          "id": 964054
+        }
+      ],
+      "scope": "Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open"
+    }
+  ],
+  "scope": "Progression earned-gear calibration; native SolB map arena, continuous wave resources. Full live scenes, pet builds, all classes and visible armor remain manual QA."
+}

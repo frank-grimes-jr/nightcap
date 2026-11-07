@@ -20,6 +20,7 @@ BASE_DB='nightcap_warhelm_balance_20261024'
 RUNTIME='/tmp/nightcap-balance-last-lantern-20261107'
 BASE='/tmp/nightcap-balance-warhelm-20261024'
 CONTAINER='akk-stack-eqemu-server-1'
+SEED=1107
 TABLES=('rule_sets','rule_values','aa_ability','aa_ranks','aa_rank_effects','aa_rank_prereqs','spells_new','skill_caps')
 
 
@@ -129,6 +130,21 @@ def build():
     assert r.count(old)==1
     r=r.replace(old,'const uint16 heal = input.value("heal_spell", uint16(c->GetSpellMinLevel(9) <= c->GetLevel() ? 9 : 15));')
     r=r.replace('if (wpm && (c->GetSpellMinLevel(nuke)>c->GetLevel()', 'if (nuke && (!IsValidSpell(nuke) || c->GetSpellMinLevel(nuke)>c->GetLevel())) { throw std::runtime_error("Ineligible diagnostic nuke"); }\n\tif (wpm && nuke && (c->GetSpellMinLevel(nuke)>c->GetLevel()')
+    # Diagnostic-only two-enemy pressure. Production actor code is unchanged.
+    begin=r.index('json NightcapBalanceEncounter(Client *c, const json &input)')
+    a,runtime=r[:begin],r[begin:]
+    runtime=runtime.replace('const uint32 combat_start = Timer::GetCurrentTime();', 'const unsigned enemy_count=input.value("enemy_count",1u);\n\tif (!enemy_count || enemy_count>2) { throw std::runtime_error("Invalid diagnostic enemy count"); }\n\tstd::vector<BalanceNPC*> foes{npc};\n\tfor(unsigned i=1;i<enemy_count;++i) { auto add=new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);add->capture_damage=true;entity_list.AddNPC(add,false);add->AddToHateList(c,1);foes.push_back(add); }\n\tconst uint32 combat_start = Timer::GetCurrentTime();')
+    runtime=runtime.replace('&& terminal.empty(); ms += 50)', '&& !terminal.count(c) && std::any_of(foes.begin(),foes.end(),[](auto f){return !terminal.count(f);}); ms += 50)')
+    runtime=runtime.replace('\t\tAdvance(50);', '\t\tif (terminal.count(npc)) { for(auto f:foes) if(!terminal.count(f)) {npc=f;c->SetTarget(npc);break;} }\n\t\tAdvance(50);')
+    runtime=runtime.replace('if (!terminal.empty()) { sample(); break; }', 'if (terminal.count(c)) { sample(); break; }')
+    runtime=runtime.replace('if (!npc->Process()) { throw std::runtime_error("NPC processing stopped before terminal combat result"); }', 'for(auto f:foes) { if (!terminal.count(f) && !f->Process()) { throw std::runtime_error("NPC processing stopped before terminal combat result"); } }')
+    runtime=runtime.replace('return result;\n}', 'result["enemy_count"]=enemy_count;\n\treturn result;\n}',1)
+    runtime=runtime.replace('const uint32 combat_start = Timer::GetCurrentTime();','unsigned waves_left=input.value("waves",1u);if(!waves_left || waves_left>3){throw std::runtime_error("Invalid waves");}--waves_left;\n\tconst uint32 combat_start = Timer::GetCurrentTime();')
+    runtime=runtime.replace('&& std::any_of(foes.begin(),foes.end(),[](auto f){return !terminal.count(f);});', '&& (waves_left || std::any_of(foes.begin(),foes.end(),[](auto f){return !terminal.count(f);}));')
+    runtime=runtime.replace('\t\tif (terminal.count(npc))', '\t\tif (waves_left && std::all_of(foes.begin(),foes.end(),[](auto f){return terminal.count(f);})) { --waves_left;for(unsigned i=0;i<enemy_count;++i){auto add=new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);add->capture_damage=true;entity_list.AddNPC(add,false);add->AddToHateList(c,1);foes.push_back(add);} }\n\t\tif (terminal.count(npc))')
+    runtime=runtime.replace('terminal.count(npc) ? "npc_death"', '!waves_left && std::all_of(foes.begin(),foes.end(),[](auto f){return terminal.count(f);}) ? "npc_death"')
+    runtime=runtime.replace('result["enemy_count"]=enemy_count;', 'result["enemy_count"]=enemy_count;result["killed_count"]=std::count_if(foes.begin(),foes.end(),[](auto f){return terminal.count(f);});result["waves"]=input.value("waves",1u);')
+    r=a+runtime
     files['native_runtime.cpp']=r
     code=r'''from pathlib import Path
 import json,shlex,subprocess
@@ -144,7 +160,7 @@ old=old.replace('CXX_INCLUDES = ','CXX_INCLUDES = -I'+str(source)+' -I'+str(sour
 old=old.replace('CXX_FLAGS = ','CXX_FLAGS = -include /tmp/nightcap-last-lantern-20261107-v1/cmake_pch.hxx ')
 (folder/'flags.make').write_text(old)
 # Builder replaces these two references; all other inputs are authenticated candidate inputs.
-subprocess.run(['python3',str(runtime/'build_native.py'),'--source',str(source),'--build-dir',str(runtime/'build')],check=True,cwd=runtime)
+subprocess.run(['python3',str(runtime/'build_native.py'),'--source',str(source),'--build-dir',str(runtime/'build'),*(['--reuse-adapters'] if (runtime/'native-build-manifest.json').exists() else [])],check=True,cwd=runtime)
 '''
     result=remote('FILES='+repr(files)+'\nRUNTIME='+repr(RUNTIME)+'\n'+code,1800)
     (OUT/'build.log').write_text(result,encoding='utf-8')
@@ -160,7 +176,7 @@ def cache():
 
 def execute(name,value):
     remote('from pathlib import Path\nPath('+repr(RUNTIME+'/'+name+'-input.json')+').write_text('+repr(json.dumps(value))+')')
-    command=['docker','exec','-w',RUNTIME,'-e','NIGHTCAP_BALANCE_RNG_SEED=1107',CONTAINER,RUNTIME+'/balance-zone','tests:balance',RUNTIME+'/'+name+'-input.json',RUNTIME+'/'+name+'-result.json']
+    command=['docker','exec','-w',RUNTIME,'-e','NIGHTCAP_BALANCE_RNG_SEED='+str(SEED),CONTAINER,RUNTIME+'/balance-zone','tests:balance',RUNTIME+'/'+name+'-input.json',RUNTIME+'/'+name+'-result.json']
     r=subprocess.run(command,text=True,encoding='utf-8',capture_output=True,timeout=300)
     (OUT/(name+'.log')).write_text((r.stdout+r.stderr)[-10000:],encoding='utf-8')
     assert r.returncode==0,(r.stdout+r.stderr)[-1500:]
@@ -175,7 +191,7 @@ def fixture(level,profile='war-pal-mnk',developed=False):
     b=copy.deepcopy(v['builds'][0]);b.update(level=level,test_character_id={'war-pal-mnk':94025,'war-clr-wiz':94026,'war-clr-mnk':94027}[profile],profile=profile,classes={'war-pal-mnk':[1,3,7],'war-clr-wiz':[1,2,12],'war-clr-mnk':[1,2,7]}[profile],aa_budget=0,aa_rank_ids=[],tier='earned campaign before encounter; Normal dungeon supporting gear')
     band=20 if level<30 else 30 if level<40 else 40
     rows={r['design']:r['values'] for r in existing_items() if r['band']==band and r['quality']=='Normal'}
-    slots={0:2,1:17,2:7,3:9,4:12,5:18,6:19,7:6,8:13,16:1,17:15,18:5,19:3,20:8,21:20}
+    slots={0:2,1:17,2:7,3:9,4:12,5:18,6:19,7:6,(12 if profile=='war-clr-wiz' else 8):13,16:1,17:15,18:5,19:3,20:8,21:20}
     equipment=[dict(slot=slot,id=rows[design]['id']) for design,slot in slots.items()]
     equipment += [dict(slot=10,id=rows[3]['id']),dict(slot=4,id=rows[16]['id']),dict(slot=16,id=rows[17]['id'])]
     grade=0 if level<=40 else 1 if level<=46 else 2
@@ -201,6 +217,46 @@ def probe():
     print(json.dumps({'build':{k:x for k,x in result['builds'][0].items() if k not in ('aa_catalog','equipped_items','aa_purchases')}}))
 
 
+def fight(level,index,profile='war-pal-mnk',budget=None,hp=None,damage=None,enemies=1,waves=1,seed=1107):
+    global SEED
+    SEED=seed
+    sys.path.insert(0,str(ROOT/'tools/balance'))
+    from aa_allocations import Purchases
+    v=fixture(level,profile)
+    name=f'{level}-{index}-{profile}-aa{budget if budget is not None else 2*(level-1)}-n{enemies}-w{waves}-seed{seed}'
+    catalog=execute(name+'-catalog',v)['builds'][0]['aa_catalog']
+    if isinstance(catalog,dict):catalog=catalog['ranks']
+    state=Purchases(catalog);state.free_closure()
+    budget=2*(level-1) if budget is None else budget
+    priority=[28,33,34,20,224,18,19,30,189,108,23,114,215,397,398]
+    while True:
+        available=[r for r in state.ranks.values() if not state.reasons(r) and state.spent+r['cost']<=budget]
+        if not available:break
+        row=min(available,key=lambda r:(priority.index(r['ability_id']) if r['ability_id'] in priority else 100,r['cost'],r['rank'],r['rank_id']))
+        state.buy(row)
+    v['builds'][0].update(aa_budget=budget,aa_rank_ids=state.ids,aa_policy='explicit legal native catalog; defense/sustain first then available purchases')
+    npc=compile_npcs()[9+index] if index<8 else next(n for n in compile_npcs() if n['id']==998918)
+    assert npc['id']==998910+index if index<8 else npc['id']==998918
+    npc=dict(npc,id=32040)
+    if hp is not None:npc['hp']=hp
+    if damage:npc.update(mindmg=damage[0],maxdmg=damage[1])
+    sql(insert('npc_types',npc).replace('INSERT INTO','REPLACE INTO',1))
+    heal=(17 if level<27 else 15 if level>=36 else 12) if profile=='war-pal-mnk' else 9 if level>=30 else 15
+    nuke=(216 if level>=28 else 0) if profile=='war-pal-mnk' else 0 if profile=='war-clr-mnk' else 732 if level>=49 else 659 if level>=43 else 464
+    v.pop('export_aa_catalog',None)
+    v['encounter']=dict(npc_id=32040,npc_position=[-871,-1395,104.879997,45],duration_ms=600000,return_to_melee=True,combat_policy={'war-pal-mnk':'wpm','war-clr-mnk':'melee_heal','war-clr-wiz':'caster_heal'}[profile],nuke_spell=nuke,heal_spell=heal,melee_specials=True,enemy_count=enemies,waves=waves)
+    r=execute(name,v);b=r['builds'][0];e=r['encounter'];trace=e['trace']
+    audit=dict(level=level,npc=998910+index,profile=profile,seed=seed,enemies=enemies,waves=waves,killed_count=e['killed_count'],npc_hp=npc['hp'],npc_damage=[npc['mindmg'],npc['maxdmg']],aa_requested=budget,aa_spent=b['aa_spent'],result=e['result'],elapsed_ms=e['elapsed_ms'],hp=b['hp'],mana=b['mana'],minimum_hp=min(t['player_hp'] for t in trace),final_hp=trace[-1]['player_hp'],final_mana=trace[-1]['player_mana'],final_npc_hp=trace[-1]['npc_hp'],heal_spell=heal,nuke_spell=nuke,gear=v['builds'][0]['equipment'],scope='Native SolB arena, explicit simultaneous opponents and continuous waves; no ally guardian or brand mechanic; native trained skills and purchased AAs, no buffs/pets/augments; full expedition QA remains open')
+    (OUT/(name+'-summary.json')).write_text(json.dumps(audit,indent=2)+'\n')
+    print(json.dumps({k:x for k,x in audit.items() if k!='gear'}),flush=True)
+    return audit
+
+
+def calibrate():
+    fight(25,0)
+    fight(50,8)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=('prepare','capture','restore','build','cache','probe'))
+    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=('prepare','capture','restore','build','cache','probe','calibrate'))
     globals()[parser.parse_args().stage]()

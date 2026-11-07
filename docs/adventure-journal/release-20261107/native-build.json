@@ -2,7 +2,7 @@
   "status": "PASS",
   "shipping": {
     "baseline-zone": "b3ec16082368e0d16dfc3f9e31201860ccc0f3ad51cd60fc96ee039ac8931d4a",
-    "candidate-zone": "184b2c140f1c4332aac2e7f64817fbf13304a71ac7e1b4ad5d66840ee3d728ae",
+    "candidate-zone": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04",
     "baseline-world": "f33c5925faca41a0b252c1794af80e0e5acc666dd72451d04f2f131928db0654",
     "candidate-world": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0",
     "baseline-shared_memory": "569394cfcb522a3e4f3cc322f8fe3986d6a981175bd78c1d1317eecd21df4b86",
@@ -13,10 +13,10 @@
       "status": "PASS",
       "allocated_sections": 30,
       "program_headers": 14,
-      "original_sha256": "4cd64f3cb4dab12dff05e19b57f8468d902b0175ed04598022daca30d23a36a9",
-      "sha256": "184b2c140f1c4332aac2e7f64817fbf13304a71ac7e1b4ad5d66840ee3d728ae",
-      "original_size": 321319920,
-      "size": 53300808
+      "original_sha256": "c7f78ba1bf4ae1d817fe0fbd43b0566d7088b9a6ef11912c55da53e65b9c93a1",
+      "sha256": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04",
+      "original_size": 321321736,
+      "size": 53300872
     },
     "world": {
       "status": "PASS",
@@ -973,7 +973,7 @@
     "zone/horse.h": "61b8923289b10219cd11d974f369a6b1e967ac9088ef96ec64a282a4ef42e32c",
     "zone/lua_spell.cpp": "864bdee8c37be34c2d7d4c6903f4fcbda2b02181fabe29938cc98a6ffa458ace",
     "zone/lua_client.h": "43db23ea36fa3592a96477219a987b436b568b05b027287dbd74fab42a712ced",
-    "zone/last_lantern.inc": "61b64ff7962587cd40c77a5b8560c0310647f28a2f8cc1a01ee105f3f6217bb7",
+    "zone/last_lantern.inc": "e6978049b9618687d65e7507c3bb7f678f5a065e9de09041a15e6440998edfe0",
     "zone/global_loot_manager.h": "3c0c860c661cb17d3cea5621c028888849596d248ffc3acc72f672aa3e9a9d65",
     "zone/zone_save_state.cpp": "e41f7709689b900c8bc3df34c24aaa01708b7b542cde4389afb1c3d0a64762d8",
     "zone/lua_database.h": "303870858d682259396bde0a72fb3dcbe9e243ad56c4efc7df5d1464350b1019",

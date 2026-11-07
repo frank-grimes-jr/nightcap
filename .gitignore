@@ -54,3 +54,7 @@ artifacts/character-stats-shield-block/
 
 # Captured public combat snapshot is reproducible; commit its fingerprint only.
 docs/adventure-journal/release-20261107/balance/public-content.json.gz
+docs/adventure-journal/release-20261107/balance/*-result.json
+docs/adventure-journal/release-20261107/balance/*-catalog.log
+docs/adventure-journal/release-20261107/balance/*-summary.json
+docs/adventure-journal/release-20261107/balance/*.log
