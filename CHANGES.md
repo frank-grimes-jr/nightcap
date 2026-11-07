@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-11-06 — Adventure Journal endgame story and armor proposal
+
+Specify The Last Lantern: a 12-chapter level-20-to-50 campaign with returning
+companions, meaningful rescues, higher Classic/planar trials and a final private
+encounter. The owner confirmed useful coordinated armor: eight real pieces over
+seven visible regions, with earned level-40/46/final refits and the original
+Epic 0.5 charm. Sixteen quest definitions are proposed including five alternative
+paths; no all-path grind, stronger stacked clicks or best-in-slot guarantee.
+Exact stats/materials/new content IDs and implementation await design review and
+audit. Current eight-task executable catalog, migrations, runtime and clients
+are unchanged; nothing is installed or accepted in game. Update lore/status and
+wiki Not released/Change Log previews together; public publication is pending.
+Design, acceptance and review evidence: `docs/adventure-journal/CAMPAIGN.md` and
+`docs/adventure-journal/endgame-review.json`.
+
 ## 2026-11-06 — Instance Keeper Raid/Grind repair deployed
 
 Main PR415/44a8247d and the owner-authorized OVH zone-only release repair

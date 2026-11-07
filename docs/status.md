@@ -1,5 +1,18 @@
 # Current Nightcap status
 
+## November6 — Adventure Journal endgame campaign proposed
+
+The owner requested a continuing story and confirmed useful progression armor
+with a coordinated look. [The Last Lantern](adventure-journal/CAMPAIGN.md) now
+proposes 12 chapters on one playthrough, recurring companions, higher Classic
+dungeons/planes, a level-50 finale and eight armor pieces with earned refits.
+Three opening chapters and one of five paths lead to eight continuation chapters:
+16 quest definitions proposed in total. The original eight-task/charm candidate
+remains unchanged and unreleased. Chapter/reward design review, content/material
+audit, implementation, automated/native/balance QA and deployment remain pending.
+Wiki source has a Not released design preview; no public publication is claimed.
+[Scope and wiki impact evidence](adventure-journal/endgame-review.json).
+
 ## November6 — Instance Keeper Raid/Grind repair deployed for live QA
 
 Owner-approved main PR415/44a8247d is deployed on OVH; player access is open.

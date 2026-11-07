@@ -1,5 +1,11 @@
 # Adventure Journal / Epic 0.5 candidate
 
+**November 6 design expansion:** [The Last Lantern](CAMPAIGN.md) proposes a
+12-chapter playthrough through level-50 endgame, recurring companions and an
+eight-piece coordinated progression armor set. The owner requested useful armor;
+the full chapter/reward design awaits review. It is not implemented or installed.
+The eight-task candidate described below remains the actual built scope.
+
 October 1, 2026. This candidate adds eight native journal adventures and one
 archetype relic. It is prepared for the normal `dev` → `test` flow. Production
 enablement and manual gameplay acceptance are not recorded here.

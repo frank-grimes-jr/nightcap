@@ -1,0 +1,408 @@
+{
+  "date": "2026-11-06",
+  "checkout": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+  "source_ref": "d5c895d3a304d7bae9dc234ee1107b845592dabe",
+  "scope": "Owner-requested campaign design; owner confirmed useful progression armor with a coordinated look. Detailed specification review precedes implementation.",
+  "status": {
+    "design": "written; chapter/reward review pending",
+    "implementation": "original eight-task candidate unchanged; expansion not implemented",
+    "automated_checks": "20 wiki/content/refresh tests passed using a workspace temp folder. Initial system-temp run had permission errors; no expansion gameplay or native build is claimed.",
+    "deployment": "none",
+    "owner_gameplay_acceptance": "none",
+    "public_wiki": "local previews only; publication not authorized or claimed"
+  },
+  "scope_checks": {
+    "playthrough_chapters": 12,
+    "quest_definitions_proposed": 16,
+    "alternative_paths": 5,
+    "armor_pieces": 8,
+    "visible_material_regions": 7,
+    "level_cap": 50
+  },
+  "wiki": {
+    "review_basis": "Read maintained article metadata/body and assess proposal impact against actual unchanged gameplay/catalog scope; preserve current candidate and release boundaries. Outside-Git operations were not performed or probed.",
+    "authored_articles": [
+      {
+        "path": "wiki/articles/about.json",
+        "title": "About this wiki",
+        "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/advanced-loot.json",
+        "title": "Advanced loot",
+        "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/ascension.json",
+        "title": "Ascension quest",
+        "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/ashen-compact.json",
+        "title": "The Ashen Compact",
+        "sha256": "ae5e25dbe84c86576d6d4feaca6175a378f83f0a19fa641a388706bc9df2ba6c",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/augment-audit.json",
+        "title": "Zone augments: rewards and specialties",
+        "sha256": "194de492e964abbee8cf3657f98919dad14c0bb338c0a5276fdee32144461f1e",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/build-lab.json",
+        "title": "Build Lab",
+        "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/camil-vigil.json",
+        "title": "The Vigil of the Dawn",
+        "sha256": "e99aadc821e59045685d112c3dca6c8e9facd7827668dcede096a069425524ad",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/combat.json",
+        "title": "Combat, buffs & recovery",
+        "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/commands.json",
+        "title": "Command reference",
+        "sha256": "bfe05e4176dfc072f94765b06da89b8e23ac26e0142a8da84cb2d4990fde71c8",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/dungeon-modes.json",
+        "title": "Raid & Grind dungeons",
+        "sha256": "fc69adbcc04b4bce5d1c12a8763899f439f8308a938e860346dc90a701875ff4",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/equipment.json",
+        "title": "Equipment & trading",
+        "sha256": "8b2c65b360400037db0ff17985dc398430e97cea60db6ecec3887a5a33a3daba",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/features.json",
+        "title": "Features",
+        "sha256": "59b96399dd138134aa0c989dbf2e6ef5a6a1c8680219c362832f3a0b3bd35f77",
+        "decision": "Existing unreleased journal link remains accurate; no live feature or Home announcement."
+      },
+      {
+        "path": "wiki/articles/getting-started.json",
+        "title": "Getting started",
+        "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/index.json",
+        "title": "Nightcap Wiki",
+        "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-960420.json",
+        "title": "Polished Blade of the Ashen Compact",
+        "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-960421.json",
+        "title": "Ascended Blade of the Ashen Compact",
+        "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-960422.json",
+        "title": "Polished Mantle of the Iron Oath",
+        "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-960423.json",
+        "title": "Ascended Mantle of the Iron Oath",
+        "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-960424.json",
+        "title": "Polished Seal of Commanded Souls",
+        "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-960425.json",
+        "title": "Ascended Seal of Commanded Souls",
+        "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961020.json",
+        "title": "Cinder of the Ashen Compact",
+        "sha256": "aea9f156efac1e2bcebfc5ef159f2cc99adab2a7e1f8f7727a283ba2f8863dc4",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961021.json",
+        "title": "Cinder of the Ashen Compact (Polished)",
+        "sha256": "a67e8015fd384f35fcc13d930730d49cc817bc49aa2559724d0495ef82a9ec7f",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961022.json",
+        "title": "Cinder of the Ashen Compact (Exalted)",
+        "sha256": "c2769c03a2a74ac493eb41248c6764c30c082f639d3d0810e56cbeb68dc62bf1",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961023.json",
+        "title": "Cinder of the Ashen Compact (Ascension)",
+        "sha256": "2dece2f1ecd7711a91ac11d04edcfb89a1d676f783c967307835f2a9a54e0ded",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961030.json",
+        "title": "Iron Oath Gorget",
+        "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961031.json",
+        "title": "Kharzug's War Mantle",
+        "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-961032.json",
+        "title": "Vhalek's Soulcleaver",
+        "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-990510.json",
+        "title": "Warhelm of the Ashen Compact",
+        "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/item-upgrades.json",
+        "title": "Item upgrades",
+        "sha256": "7e3dfd9a722cfbc5042b0d92d09936de8d159d299406fd843a58b5d1179d8385",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/launcher.json",
+        "title": "Launcher & interface",
+        "sha256": "9e433342745b079fd6db2101060c2f3fbf95fd1b0f664e6c9f621ec49d46b4e7",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/loot-finder.json",
+        "title": "Loot finder",
+        "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/multiclass.json",
+        "title": "Multiclass & progression",
+        "sha256": "9069c796329e8dd5f79e673f75ee1a41644a1c4647574e9e65f615fac3645bb1",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/pets.json",
+        "title": "Pets & pet armor",
+        "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/recent-changes.json",
+        "title": "Change Log",
+        "sha256": "90fb2ab27378af53847f5a8c9a3fee80ca6a56babf8b222179db3bd23da3e7ee",
+        "decision": "Add dated proposal entry; explicitly no implementation or installation."
+      },
+      {
+        "path": "wiki/articles/tradeskills.json",
+        "title": "Tradeskills & Craft All",
+        "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/travel.json",
+        "title": "Travel & instances",
+        "sha256": "25d934e1aa9622696430d5d1f52368c01550044d633d3af590358c9f29e78703",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/tunnel.json",
+        "title": "East Commonlands tunnel",
+        "sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/unreleased.json",
+        "title": "In development",
+        "sha256": "9afb9e6ed32eb780d233877a1971d0ca1c11e8872cfc11827b404f63e5b0ff81",
+        "decision": "Add design-only campaign and armor preview; retain original eight-quest built/uninstalled boundary."
+      },
+      {
+        "path": "wiki/articles/waypoints.json",
+        "title": "Waypoint Explorer",
+        "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      },
+      {
+        "path": "wiki/articles/zone-hunt.json",
+        "title": "Zone hunt & forging",
+        "sha256": "9d0ea49479ae354c55bdc3ec6f308e05f2dd6ad36c00ec540040dd39f64956ba",
+        "decision": "Current released instructions and rewards unchanged. Proposal does not create live gear, locations, commands, fits or encounter access."
+      },
+      {
+        "path": "wiki/articles/zone-kael.json",
+        "title": "Kael Drakkel — The Ashen Compact",
+        "sha256": "2c5efd23028146024172b77d3ff03a863b838710a918ffad49cbb09b7054d48b",
+        "decision": "No current player-facing change: proposal only, with no runtime, quest catalog, stats, command, asset or deployment change."
+      }
+    ],
+    "generated_surfaces": "Existing item/zone projections, catalogs, Build Lab, search code and assets remain unchanged; proposed armor is not added to released catalogs.",
+    "home_features_commands": "No live summary, command or acquisition changes. Features keeps its existing Not released link.",
+    "global_content_review": "Do not advance content-review.json or accept unrelated source drift.",
+    "source_drift_check": {
+      "exit_code": 1,
+      "result": "REVIEW REQUIRED",
+      "source_ref": "HEAD",
+      "changed_source_count": 967,
+      "global_ledger_advanced": false
+    }
+  },
+  "reviewed_sources": [
+    {
+      "path": "docs/adventure-journal/CAMPAIGN.md",
+      "sha256": "578c19bcb3d5784bb06cd700d1fc32e4a95b8d8d4b8ee02eb6496fb8340fc4f0"
+    },
+    {
+      "path": "docs/adventure-journal/README.md",
+      "sha256": "5b3e8a0763df1733e4cdbd89a19331213966db7217c037a7f80ed85524214c11"
+    },
+    {
+      "path": "docs/adventure-journal/SPEC.md",
+      "sha256": "1ae7238ab6e87a221973f139a9edc76e9215776c7fd697ca1d763cce233a504d"
+    },
+    {
+      "path": "docs/adventure-journal/catalog.json",
+      "sha256": "ee8a2c8310f4cdc47b583c394330faf3d20d83d325e41b9ef54024420950248e"
+    },
+    {
+      "path": "docs/adventure-journal/QA.md",
+      "sha256": "c8e05d15b4c2d101d89ceccda5fab3c1bdceab1bc50ca72a0d2a74ccc536b1d0"
+    },
+    {
+      "path": "docs/adventure-journal/RELEASE.md",
+      "sha256": "62209790dbe203c76562f8bae0cbf64e99eed9054814b993ffeaf8c4f30b72c6"
+    },
+    {
+      "path": "docs/lore/structure.md",
+      "sha256": "261dd4d0ed3ca74913a66426c4f1e9fec764a95b4b2fe6b2fc8df8f4fd3f6a49"
+    },
+    {
+      "path": "era.json",
+      "sha256": "f0ff0215c5e7af62209711d0e422b9afc50823527033b4fb6aabf5caa5494571"
+    },
+    {
+      "path": "tools/epic05.py",
+      "sha256": "e517daa12673a214bb7ed6433c2e9c441cf4169550fee76baa387f26053b6769"
+    },
+    {
+      "path": "server-mods/plugins/epic05.pl",
+      "sha256": "afac000668b1d16898f5f567081e9821c054f07ddb074ead861d0cd763a6f64c"
+    }
+  ],
+  "knowledge_maintenance": {
+    "installed": true,
+    "exact_patch": "skill-update/installed-nightcap.patch",
+    "receipt": "skill-update/receipt.json",
+    "checks": {
+      "world_knowledge": {
+        "exit_code": 1,
+        "scoped_files": [
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\README.md",
+            "role": "eight-task built candidate; Last Lantern expansion proposed only; not installed",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\CAMPAIGN.md",
+            "role": "owner-requested level50 narrative and useful armor; detailed design review pending",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\SPEC.md",
+            "role": "original candidate contract with explicit proposed expansion boundary",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\catalog.json",
+            "role": "unchanged eight-task catalog; no expansion IDs or armor implemented",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\tools\\epic05.py",
+            "role": "reviewed unchanged generator fixes first campaign at eight tasks; expansion needs deliberate versioned design",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\plugins\\epic05.pl",
+            "role": "reviewed unchanged task/attunement/charm service; no armor delivery adapter",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\lore\\structure.md",
+            "role": "Last Lantern original fiction proposal, not live NPCs or canonical claims",
+            "state": "unchanged"
+          }
+        ],
+        "other_drift_count": 9
+      },
+      "wiki_knowledge": {
+        "exit_code": 1,
+        "scoped_files": [
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\unreleased.json",
+            "role": "unpublished Last Lantern design preview; original candidate remains uninstalled",
+            "state": "unchanged"
+          },
+          {
+            "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\recent-changes.json",
+            "role": "unpublished dated proposal entry; no release or player acceptance claim",
+            "state": "unchanged"
+          }
+        ],
+        "other_drift_count": 16
+      }
+    }
+  },
+  "checks": [
+    {
+      "check": "python unittest test_wiki test_refresh",
+      "result": "20 passed",
+      "environment": "tempfile.tempdir set to workspace .qa-temp; initial sandbox OS-temp failures resolved without test changes"
+    },
+    {
+      "check": "whole-wiki impact review",
+      "result": "41 maintained articles; two explicit proposal previews; released catalogs/assets and global review ledger unchanged"
+    },
+    {
+      "check": "design/source consistency review",
+      "result": "12 playable chapters = 3 opening + 1 of 5 paths + 8 continuation chapters; 16 definitions; 8 armor pieces = boots/gloves/two wrists/arms/legs/head/chest; 7 material regions. Existing eight-task executable catalog, native/quest/client content and era.json unchanged."
+    },
+    {
+      "check": "review passes",
+      "result": "Reviewed story/reward continuity, power and multiclass/SSF boundaries, native custody/receipt/instance failure requirements, proposal vs implementation/publication labels. No independent reviewer or gameplay acceptance claimed."
+    }
+  ]
+}

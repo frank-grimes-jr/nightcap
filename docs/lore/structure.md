@@ -21,12 +21,20 @@ personal chapters. [Quest scope](../quests/camil-chapterhouse/SPEC.md).
 
 ## Wayfarer's Oath
 
-October 1, 2026 candidate: the Ancient Chronicler records a character's journeys
-and forges them into Wayfarer's Oath, an Epic 0.5 charm with five earned
-archetype attunements. This is local gameplay flavor, not a new claim about
-EverQuest canon. No class ancestry or exclusive deity allegiance is implied.
-Extended lore and bespoke wave trials remain undesigned; current scope is in
-`docs/adventure-journal/SPEC.md`.
+The October 1 built candidate has eight tasks and one five-attunement charm;
+it remains unreleased. November 6's proposed continuation, **The Last Lantern**,
+follows a lost expedition into level-50 Classic endgame. The Chronicler erased
+its failure, scout Mera Vell searches for her companions, quartermaster Oren
+refits the player's earned armor, and the Hollow Witness sold the company's
+names to survive. Captain Selene Marris's final retreat and the surviving
+porter return through letters, rescues and the closing Commonlands campfire.
+All are original Nightcap fiction. Class ancestry and deity allegiance do not
+restrict eligibility. Eight useful armor pieces complete a coordinated set;
+the charm keeps the existing five earned choices and shared cooldown.
+[Campaign, sample dialogue and unresolved implementation details](../adventure-journal/CAMPAIGN.md).
+This direction is a reviewable proposal, not implemented scenes or player
+acceptance. Exact encounter identities, placements and the final chapter script
+remain subject to review and source audit. Do not describe these actors as live.
 
 ## East Commonlands tunnel residents
 

@@ -1,0 +1,148 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -862,4 +862,20 @@
+ 
+ PoK stock derives from `docs/pok/hub-stock-audit.json` original class levels and catalog policy, not widened spell columns. Use `tools/pok_hub*.py` and `tools/pok-hub-era.ps1` only from a checkout where present and after reading its release procedure. Current GM restock has guarded canonical SQL; don't revive old unguarded refresh logic.
+ 
+-Adventure Journal / Epic 0.5 remains a **candidate**, not recorded production: native Tasks own progression; `nightcap_epic05_state` owns attunement/cooldown only. Pair native `Epic05Contract()`, plugins, item 900501, tasks 9500â€“9507 and spells 42800â€“42805; gate starts disabled. Explore=5 credits movement; Touch=11 is a dynamic-zone switch. `docs/adventure-journal/README.md` is the implementation route, not permission to enable it.
++Adventure Journal / Epic 0.5 remains an **unreleased eight-task candidate**;
++the original compiled/tested scope is not recorded installed or player-accepted.
++November6 owner intent extends it through Classic level50 with useful coordinated
++progression armor. The Last Lantern proposal in
++E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame/docs/adventure-journal/CAMPAIGN.md
++defines12playthrough chapters/16quest definitions, recurring companions and8armor
++pieces across7visible regions, with40/46/final earned refits. Detailed story/reward
++review precedes implementation; new scenes, armor, stats/materials and IDs are not
++built or verified. Original catalog/plugins/native/client contracts are unchanged.
++Native Tasks still own progress; nightcap_epic05_state owns attunement/cooldown.
++Pair Epic05Contract(), plugins, item900501, tasks9500-9507 and spells42800-42805;
++the gate starts disabled. Explore=5 credits movement; Touch=11 is a dynamic-zone
++switch. Exact original checks/install boundaries remain in README.md, QA.md and
++RELEASE.md. The expansion requires audited Classic materials, durable native
++reward/refit receipts, preserved augments/custody and native appearance/balance QA;
++LORE is not an ownership fence. No new runtime/cache/client reload is needed for
++this proposal. Future implementation must ship its reviewed matching package.--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,20 @@
+ # Official player wiki and Features
++
++
++## Adventure Journal endgame — November6 unpublished design proposal
++
++Source E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame. The owner requested
++a living level50story and confirmed useful coordinated armor. The Last Lantern
++proposal defines12chapters,16quest definitions and8pieces over7visible regions;
++it is not implemented/installed or accepted in game. All41authored guides and
++generated catalogs reviewed. Only In development/Change Log get explicit design
++previews; Features keeps its Not released link, Home/commands/current acquisitions
++and generated item/zone values remain. Original eight-task/charm build status is
++preserved. No public publication is claimed; never republish this whole checkout
++over newer public evidence. Twenty wiki/content/refresh checks pass with workspace
++temp; historical global source drift remains REVIEW REQUIRED with no blanket
++ledger advance. docs/adventure-journal/{CAMPAIGN.md,endgame-review.json} owns scope,
++checks and the pending detailed design/implementation/native/material/balance gates.
+ 
+ ## Advanced loot reliability — November6 signed candidate, unpublished
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -149,7 +149,8 @@
+     "character_stats_font_20261106_published": "91b992d9c2cb3f13eef3c419633fb109d440da4c plus verified font publication records",
+     "character_stats_single_total_20261106_published": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
+     "dungeon_readiness_deployed_20261106": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6; OVH/wiki verified; owner gameplay QA open",
+-    "advanced_loot_reliability_candidate_20261106": "b61fdfddb96a8215434905afde5181ed92d3afbc; signed2026110605/proxy0.13.5 prepared only; owner approval/native QA pending"
++    "advanced_loot_reliability_candidate_20261106": "b61fdfddb96a8215434905afde5181ed92d3afbc; signed2026110605/proxy0.13.5 prepared only; owner approval/native QA pending",
++    "adventure_journal_endgame_proposal_20261106": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree"
+   },
+   "topics": {
+     "operations": [
+@@ -5953,12 +5954,6 @@
+         "sha256": "be9df510a034cc02a187ae83ee5662f43c4bdbe859c6d06aafad675b9594b393"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+-        "path": "docs/adventure-journal/README.md",
+-        "role": "candidate task/attunement system, not deployed",
+-        "sha256": "ef1a8d9eaa3d21c54b3d6c2d6b549ffd54706a2579db753f42583d61fabe88ec"
+-      },
+-      {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit",
+         "path": "docs/ops/travel-client-audit-20261012/README.md",
+         "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+@@ -8589,6 +8584,55 @@
+         "revision": "ef9ce5099cb263b729f2ba7063f887d66e35df60",
+         "sha256": "ded47c70b8ec937cab2a67bb1d22b02bf4d6670b8850726450be7037aceaeb30",
+         "role": "Reviewed deployed correction and preservation evidence; owner visual QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/README.md",
++        "role": "eight-task built candidate; Last Lantern expansion proposed only; not installed",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "5b3e8a0763df1733e4cdbd89a19331213966db7217c037a7f80ed85524214c11"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/CAMPAIGN.md",
++        "role": "owner-requested level50 narrative and useful armor; detailed design review pending",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "578c19bcb3d5784bb06cd700d1fc32e4a95b8d8d4b8ee02eb6496fb8340fc4f0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/SPEC.md",
++        "role": "original candidate contract with explicit proposed expansion boundary",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "1ae7238ab6e87a221973f139a9edc76e9215776c7fd697ca1d763cce233a504d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/catalog.json",
++        "role": "unchanged eight-task catalog; no expansion IDs or armor implemented",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "ee8a2c8310f4cdc47b583c394330faf3d20d83d325e41b9ef54024420950248e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/epic05.py",
++        "role": "reviewed unchanged generator fixes first campaign at eight tasks; expansion needs deliberate versioned design",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "e517daa12673a214bb7ed6433c2e9c441cf4169550fee76baa387f26053b6769"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/plugins/epic05.pl",
++        "role": "reviewed unchanged task/attunement/charm service; no armor delivery adapter",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "afac000668b1d16898f5f567081e9821c054f07ddb074ead861d0cd763a6f64c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/lore/structure.md",
++        "role": "Last Lantern original fiction proposal, not live NPCs or canonical claims",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "261dd4d0ed3ca74913a66426c4f1e9fec764a95b4b2fe6b2fc8df8f4fd3f6a49"
+       }
+     ],
+     "client": [
+@@ -15376,6 +15420,20 @@
+         "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+         "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
+         "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/unreleased.json",
++        "role": "unpublished Last Lantern design preview; original candidate remains uninstalled",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "9afb9e6ed32eb780d233877a1971d0ca1c11e8872cfc11827b404f63e5b0ff81"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "unpublished dated proposal entry; no release or player acceptance claim",
++        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "sha256": "90fb2ab27378af53847f5a8c9a3fee80ca6a56babf8b222179db3bd23da3e7ee"
+       }
+     ],
+     "factions": [

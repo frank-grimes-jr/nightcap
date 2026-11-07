@@ -1,5 +1,12 @@
 # Adventure Journal and archetype Epic 0.5
 
+November 6: the owner requests a continuing story through Classic endgame and
+useful armor with a coordinated appearance. [The Last Lantern](CAMPAIGN.md)
+specifies the proposed expansion for review. It adds eight later shared chapters
+and progressive armor; the implementation described here and in catalog.json
+still has only the original eight quests. Expansion implementation, installation
+and gameplay acceptance are not claimed.
+
 Accepted intent: October 1, 2026. The owner approved an in-game adventure journal
 whose first campaign earns an archetype Epic 0.5. This is a candidate, not a live
 deployment or a record of manual acceptance.

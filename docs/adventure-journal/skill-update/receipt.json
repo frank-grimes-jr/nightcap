@@ -1,0 +1,21 @@
+{
+  "applied": true,
+  "skill": "C:/Users/verre/.codex/skills/nightcap-development",
+  "files": [
+    {
+      "path": "references/world.md",
+      "before_sha256": "b4b1913b6631715beffd597b262673287f00e9a32ee539a11387af9040f76dfd",
+      "after_sha256": "0aa066c18d212f187aa68ed00e3f11ce2e5d1c1c11017302a9b5a7dfa07b516d"
+    },
+    {
+      "path": "references/wiki.md",
+      "before_sha256": "1179c60dc779ec290f83badf3a40e86f433ab01a36076d8016a97019a1562d11",
+      "after_sha256": "22fa53d3424a317bee7f034d577f097b5da1048fd4cd8f1e1fbd6370a628538f"
+    },
+    {
+      "path": "references/sources.json",
+      "before_sha256": "2202cd748fa29a78b7a8c8552a334603ac141676aee5b4a1758c150e728ba990",
+      "after_sha256": "4da0afe183aa01fba7d8a67e240f375e56aacc8fe2ea1a81ff2e73f2103432b6"
+    }
+  ]
+}
