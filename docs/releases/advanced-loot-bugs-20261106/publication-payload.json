@@ -1,0 +1,17 @@
+{
+  "status": "local publication payload ready; not uploaded/published",
+  "path": "eq-client-dll/build/advanced-loot-release/advanced-loot-2026110605.tar.gz",
+  "sha256": "c24cfd3234c1dfc71c5c876297373bf4a4641cad54716ce2795948e33a4bb612",
+  "size": 266795,
+  "files": {
+    "channel.json": "3f02f08d31734883dc6269fc2e0e1980750e491f6d335f7ae91d384bfd9daa92",
+    "dinput8.dll": "b3b0bd536986eaa34b4741bfaec72ee15435b25972004e778a55be136a6019d8",
+    "nightcap-patch-sites.json": "0af0b52a2c6911f35ca6dd304c6284263aae0ec4b556fc01b8d7e1d6fdff8c9a",
+    "previous-channel.json": "ee56323a1780ef5481c3c55e195ec4831969b82f3aed839b81ec3300b31d4dd0",
+    "publish.py": "5df03affb85ed2b4d4094798c42b5eca4b5dcaa7e38e0736cbe9db3e73c40800",
+    "test_publish.py": "2868d2595c4e9e032814b7d2b7895c3ed7ea999516601bda95c6e9d726012edb",
+    "uifiles/nightcap/equi_petinfowindow.xml": "306734eeaf42ffceb8f7a4586d8c0e8348fc95abccbc6930edf7b2a1542cb41b"
+  },
+  "signing_material_included": false,
+  "candidate_release": 2026110605
+}

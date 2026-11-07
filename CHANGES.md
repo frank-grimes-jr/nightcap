@@ -2,7 +2,14 @@
 
 ## 2026-11-06 — Advanced loot reliability and controls candidate
 
+Signed candidate2026110605/proxy0.13.5 is assembled over current2026110604:
+three replacements,145other descriptors/URLs plus history/tombstones retained.
+Signature and exact runtime pair verify. Scoped XML preparation preserves every
+non-loot byte. Not published; main/live QA approval and native acceptance pending.
+
 Rearm Drops after closing Filters so new kills can auto-open loot. Preserve an
+independent Drops count so new loot beyond the first page is detected after
+browsing Filters, while an unchanged queue respects a deliberate close. Preserve an
 open screen across skin reload and show Drops after closed Settings receives
 new loot. Search accepts bounded printable text in native byte/UTF16 storage.
 Enlarge stock icons to32px and put Inspect item beside the main actions.

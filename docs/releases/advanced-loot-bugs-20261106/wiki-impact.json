@@ -1,9 +1,12 @@
 {
   "date": "2026-11-06",
   "scope": {
-    "maintained": 24,
-    "generated_items": 15,
-    "generated_zones": 2
+    "maintained_articles": 24,
+    "authored_item_articles": 15,
+    "authored_zone_articles": 2,
+    "all_built_articles": 500,
+    "all_item_routes": 421,
+    "all_zone_routes": 53
   },
   "publication": "not authorized/performed for this candidate",
   "generated_pages": "Names, definitions, acquisition, zones, rates, balances and catalog values unchanged; no regeneration required.",
@@ -172,5 +175,6 @@
       "loot_context": []
     }
   ],
-  "source_checker": "wiki-source-review.json retains historical REVIEW REQUIRED; no global ledger advancement."
+  "source_checker": "wiki-source-review.json retains historical REVIEW REQUIRED; no global ledger advancement.",
+  "candidate_status": "Signed client2026110605/proxy0.13.5 assembled locally; no publication. Source/current-page preview decisions unchanged."
 }

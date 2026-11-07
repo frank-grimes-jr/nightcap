@@ -1,8 +1,9 @@
 # Advanced loot reliability and controls — November 6, 2026
 
 Candidate on `codex/advanced-loot-bugs`, based on locally observed
-`origin/main` d5c895d3. Built/tested locally; no signed publication, production
-change or owner in-game acceptance is claimed.
+`origin/main` d5c895d3. Signed candidate2026110605/proxy0.13.5 is prepared and
+verified locally, replacing exactly three assets over live2026110604. No
+publication, production change or owner in-game acceptance is claimed.
 
 ## Problems and behavior
 
@@ -14,6 +15,12 @@ drop opens the main list, including after closing Settings. Enabled and Open
 on new loot remain required; Never/automatic collection and loot rights remain
 server-owned. An open Filters page continues showing Filters until closed or
 Back to loot is selected.
+
+The last Drops total is retained separately from the saved-rule count. This
+also detects a newly queued ninth item while returning from Filters with the
+same first eight rows. An unchanged queue respects the player's close. The
+cross-view/page regression failed before this correction and passes afterward.
+The retained count is presentation-only and resets with the character context.
 
 A skin reload destroys and recreates the native screen. Previously creation
 always hid it, and already-seen tokens did not reopen it. The destruction
@@ -55,6 +62,29 @@ This is a self-review of correctness, bounds, native lifetime, authority,
 compatibility and scope; no independent reviewer or visual acceptance is claimed.
 
 ## Delivery and recovery
+
+`signed-candidate.json` and `candidate-verification.json` verify the shipped-key
+signature, all148descriptors and exact preservation of145other descriptors/URLs,
+history and tombstones. The three replacements are DLL, matching versioned
+catalog and Pet Info XML. Source catalog regeneration changes only the proxy
+version/hash contract, retaining all120native sites. The local signature does
+not reserve a release counter; recheck the live baseline before any publication.
+
+`prepare_client.py` reads the fresh, hash-pinned live Pet Info XML and replaces
+only its100loot controls/screen blocks. All bytes outside those spans, including
+the native Schema and pet controls, are retained. Three tests cover LF/CRLF,
+idempotence, missing/duplicate controls and drift refusal. `prepare.go` authenticates
+the baseline envelope and actual baseline runtime bytes, checks the exact
+candidate DLL/catalog/executable pair, then signs locally. `verify.go` separately
+verifies signature/inventory/history preservation. Signing material stays local.
+
+All23preparation/publisher checks pass on Linux with no skips (real fsync,
+symlinks, mode bits and interrupted-write recovery); Windows passes with five
+POSIX skips. Tests use a disposable network-isolated container, read-only source
+and temporary files, not the running game services. `publish.py` pins both
+envelopes/assets, checks all retained assets and public controls, holds service
+fingerprints and writes the channel last under the deployment lock. Main/live
+publication remains owner-gated. `release-validation.json` records current scope.
 
 Deliver the DLL, its matching catalog/config and newly generated
 `uifiles/nightcap/equi_petinfowindow.xml` together through the existing signed
