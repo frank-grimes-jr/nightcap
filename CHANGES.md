@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-11-07 — Native task-save acknowledgement and retry repair
+
+The campaign audit found native SaveClientState could return success after failed
+writes and discard the completed-history retry watermark. Preserve failed header
+and activity dirty flags, retain completion retries on any failed history write,
+skip shared-history rows without dropping later quests, and return the real save
+result. Campaign completions save before deleting their active checkpoint; a
+failed write leaves that task available for retry. Use no-retry SQL; identical
+REPLACE retries keep their original identity.
+Source: server-mods/code/zone/task_manager.cpp. Compiled failure-injection and
+idempotent retry controls: tools/tests/test_lantern_task_save.py. Candidate only;
+matching native release and campaign durable-history checks remain in progress.
+Wiki impact: task persistence reliability belongs in the campaign release notes;
+no chapter, item budget, command or existing quest requirement changes here.
+
 ## 2026-11-07 — Last Lantern release authorized; native reward foundation
 
 The owner approved the campaign direction and requested main/server release with

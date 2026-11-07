@@ -1,0 +1,9 @@
+{
+  "retained_source": "/tmp/nightcap-augment-audit-20261106-v2/source/zone/task_manager.cpp",
+  "before_sha256": "cbbd91050291cecafb25a3a9a6b6928d4d1015e5c42d233e2139b327bc5f18f4",
+  "scope": "native save acknowledgement and retry watermark repair required by campaign durable rewards",
+  "retained_before_sha256": {
+    "task_manager.cpp": "cbbd91050291cecafb25a3a9a6b6928d4d1015e5c42d233e2139b327bc5f18f4",
+    "task_client_state.cpp": "f9256e7a23f293b8e3eca7d5b0f235561f17827088af349d72c6b59bff021948"
+  }
+}

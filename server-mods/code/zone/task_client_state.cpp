@@ -894,6 +894,13 @@ int ClientTaskState::IncrementDoneCount(
 		// Unlock subsequent activities for this task
 		bool task_complete = UnlockActivities(client, *info);
 		LogTasks("task_complete is [{}]", task_complete);
+		// Campaign completion must be durable before removing its active checkpoint.
+		// Failed native writes retain the dirty task/history for an idempotent retry.
+		if (task_complete && info->task_id>=9500 && info->task_id<=9515 &&
+			!TaskManager::Instance()->SaveClientState(client,this)) {
+			client->Message(Chat::Yellow,"Your journal completion is waiting for storage. Keep this task; speak with the company again to retry.");
+			return count;
+		}
 		// shared tasks only send update messages on activity completion
 		if (task_data->type == TaskType::Shared) {
 			client->MessageString(Chat::DefaultText, TASK_UPDATED, task_data->title.c_str());

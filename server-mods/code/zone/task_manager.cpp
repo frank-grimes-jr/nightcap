@@ -292,6 +292,8 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 
 	constexpr const char *ERR_MYSQLERROR = "Error in TaskManager::SaveClientState {}";
 
+	bool saved = true;
+	bool completed_saved = true;
 	int character_id = client->CharacterID();
 
 	LogTasks("character_id [{}]", character_id);
@@ -306,6 +308,7 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 			}
 
 			const auto task_data = GetTaskData(task_id);
+			if (!task_data) { saved=false; continue; }
 
 			int slot = active_task.slot;
 			if (active_task.updated) {
@@ -328,9 +331,10 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 					active_task.was_rewarded
 				);
 
-				auto results = database.QueryDatabase(query);
+				auto results = database.QueryDatabase(query, false);
 				if (!results.Success()) {
 					LogError(ERR_MYSQLERROR, results.ErrorMessage().c_str());
+					saved = false;
 				}
 				else {
 					active_task.updated = false;
@@ -382,14 +386,14 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 				continue;
 			}
 
-			auto results = database.QueryDatabase(query);
+			auto results = database.QueryDatabase(query, false);
 
 			if (!results.Success()) {
 				LogError(ERR_MYSQLERROR, results.ErrorMessage().c_str());
+				saved = false;
 				continue;
 			}
 
-			active_task.updated = false;
 			for (int activity_index = 0; activity_index < task_data->activity_count; ++activity_index) {
 				active_task.activity[activity_index].updated = false;
 			}
@@ -399,7 +403,7 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 	if (!RuleB(TaskSystem, RecordCompletedTasks) || (cts->m_completed_tasks.size() <=
 													 (unsigned int) cts->m_last_completed_task_loaded)) {
 		cts->m_last_completed_task_loaded = cts->m_completed_tasks.size();
-		return true;
+		return saved;
 	}
 
 	const char *completed_task_query = "REPLACE INTO completed_tasks (charid, completedtime, taskid, activityid) "
@@ -417,12 +421,12 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 
 		const auto task_data = GetTaskData(task_id);
 		if (!task_data) {
-			continue;
+			saved=false; completed_saved=false; continue;
 		}
 
 		// we don't record completed shared tasks in the task quest log
 		if (task_data->type == TaskType::Shared) {
-			break;
+			continue;
 		}
 
 		// First we save a record with an activity_id of -1.
@@ -437,9 +441,10 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 			-1
 		);
 
-		auto results = database.QueryDatabase(query);
+		auto results = database.QueryDatabase(query, false);
 		if (!results.Success()) {
 			LogError(ERR_MYSQLERROR, results.ErrorMessage().c_str());
+			saved = false; completed_saved = false;
 			continue;
 		}
 
@@ -462,15 +467,16 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 				task_id, activity_id
 			);
 
-			results = database.QueryDatabase(query);
+			results = database.QueryDatabase(query, false);
 			if (!results.Success()) {
 				LogError(ERR_MYSQLERROR, results.ErrorMessage().c_str());
+				saved = false; completed_saved = false;
 			}
 		}
 	}
 
-	cts->m_last_completed_task_loaded = cts->m_completed_tasks.size();
-	return true;
+	if (completed_saved) { cts->m_last_completed_task_loaded = cts->m_completed_tasks.size(); }
+	return saved;
 }
 
 int TaskManager::FirstTaskInSet(int task_set)
