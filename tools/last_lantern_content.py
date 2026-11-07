@@ -92,7 +92,8 @@ def manual(task, activity, step, label, zone, count=1, public=False):
     return dict(taskid=task, activityid=activity, req_activity_id=-1, step=step,
                 activitytype=2, target_name=label, description_override=label,
                 goalmethod=2, goalcount=count, npc_match_list='', zones=str(zone),
-                zone_version=0 if public else 80, optional=0)
+                zone_version=0 if public else 80, optional=0,
+                min_x=0,max_x=0,min_y=0,max_y=0,min_z=0,max_z=0)
 
 
 def compile_tasks():

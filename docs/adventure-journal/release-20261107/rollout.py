@@ -9,10 +9,10 @@ import argparse,fcntl,hashlib,importlib.util,json,os,re,shutil,subprocess,time
 from pathlib import Path
 
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/last-lantern-20261107-v2')
+STAGE=Path('/opt/nightcap/releases/last-lantern-20261107-v3')
 EVIDENCE=STAGE/'evidence'
-TAG='nightcap-game:last-lantern-20261107-v2'
-DATABASE='nightcap_dungeon_stage_1107a11ce001'
+TAG='nightcap-game:last-lantern-20261107-v3'
+DATABASE='nightcap_dungeon_stage_1107a11ce002'
 NEW_TABLES={'nightcap_epic05_control','nightcap_epic05_state','nightcap_lantern_control',
  'nightcap_lantern_slots','nightcap_lantern_refits','nightcap_lantern_runs',
  'nightcap_lantern_members','nightcap_lantern_memorials'}

@@ -17890,7 +17890,13 @@
       "npc_match_list": "",
       "zones": "65",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9500,
@@ -17905,7 +17911,13 @@
       "npc_match_list": "",
       "zones": "63",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9500,
@@ -17920,7 +17932,13 @@
       "npc_match_list": "",
       "zones": "11",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9500,
@@ -17935,7 +17953,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9501,
@@ -17992,7 +18016,13 @@
       "npc_match_list": "",
       "zones": "63",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9501,
@@ -18007,7 +18037,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9502,
@@ -18064,7 +18100,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9503,
@@ -18394,7 +18436,13 @@
       "npc_match_list": "",
       "zones": "66",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9508,
@@ -18409,7 +18457,13 @@
       "npc_match_list": "",
       "zones": "66",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9508,
@@ -18424,7 +18478,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9509,
@@ -18439,7 +18499,13 @@
       "npc_match_list": "",
       "zones": "32",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9509,
@@ -18454,7 +18520,13 @@
       "npc_match_list": "",
       "zones": "32",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9509,
@@ -18469,7 +18541,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9510,
@@ -18484,7 +18562,13 @@
       "npc_match_list": "",
       "zones": "48",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9510,
@@ -18499,7 +18583,13 @@
       "npc_match_list": "",
       "zones": "48",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9510,
@@ -18514,7 +18604,13 @@
       "npc_match_list": "",
       "zones": "48",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9510,
@@ -18529,7 +18625,13 @@
       "npc_match_list": "",
       "zones": "48",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9510,
@@ -18544,7 +18646,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9511,
@@ -18559,7 +18667,13 @@
       "npc_match_list": "",
       "zones": "39",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9511,
@@ -18574,7 +18688,13 @@
       "npc_match_list": "",
       "zones": "39",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9511,
@@ -18589,7 +18709,13 @@
       "npc_match_list": "",
       "zones": "39",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9511,
@@ -18604,7 +18730,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9512,
@@ -18619,7 +18751,13 @@
       "npc_match_list": "",
       "zones": "72",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9512,
@@ -18634,7 +18772,13 @@
       "npc_match_list": "",
       "zones": "72",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9512,
@@ -18649,7 +18793,13 @@
       "npc_match_list": "",
       "zones": "72",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9512,
@@ -18664,7 +18814,13 @@
       "npc_match_list": "",
       "zones": "72",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9512,
@@ -18679,7 +18835,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9513,
@@ -18694,7 +18856,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9513,
@@ -18709,7 +18877,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9513,
@@ -18724,7 +18898,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9513,
@@ -18739,7 +18919,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9513,
@@ -18754,7 +18940,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9514,
@@ -18769,7 +18961,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9514,
@@ -18784,7 +18982,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9514,
@@ -18799,7 +19003,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9514,
@@ -18814,7 +19024,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9515,
@@ -18829,7 +19045,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9515,
@@ -18844,7 +19066,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9515,
@@ -18859,7 +19087,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9515,
@@ -18874,7 +19108,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9515,
@@ -18889,7 +19129,13 @@
       "npc_match_list": "",
       "zones": "76",
       "zone_version": 80,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     },
     {
       "taskid": 9515,
@@ -18904,7 +19150,13 @@
       "npc_match_list": "",
       "zones": "22",
       "zone_version": 0,
-      "optional": 0
+      "optional": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "min_z": 0,
+      "max_z": 0
     }
   ],
   "npc_types": [
