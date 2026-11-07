@@ -88,6 +88,7 @@ int main() {
 	Click("Refresh"); assert(requests.size() == 2 && Text("Status") == "Connecting to loot...");
 	Snapshot s; s.session = 1; s.identity = {42,22,0,7,"Fixture"}; s.settings = 7;
 	SnapshotReady(s); assert(IsEnabled("Setting0") && Text("Setting0") == "[On] Advanced loot");
+	AdvancedLootScreen::Show(true);
 	Click("Setting2"); assert(requests.back() == "#advloot settings 1 1 3");
 	s.settings = 3; SnapshotReady(s); assert(Text("Setting2") == "[Off] Open on new loot");
 	Click("Drops"); SnapshotReady(s); assert(Visible("Empty") && !Visible("Setting0"));
@@ -103,8 +104,9 @@ int main() {
 	assert(!Visible("Icon0"));
 	Click("Filter2"); assert(requests.back() == "#advloot filter 1 5 13073 2");
 	s.rows[0].filter = Filter::Never; SnapshotReady(s); assert(Text("Filter2") == "> Never loot");
-	Click("Back"); Click("More"); assert(Visible("Inspect") && Visible("Leave") && !Visible("Need") && !Visible("Setting0"));
+	Click("Back"); assert(Visible("Inspect"));
 	Click("Inspect"); assert(requests.back() == "#advloot act 1 6 11 7 0"); SnapshotReady(s);
+	Click("More"); assert(!Visible("Inspect") && Visible("Leave") && !Visible("Need") && !Visible("Setting0"));
 	Click("Back"); s.rows[0].capabilities ^= Capability(Action::Take) | Capability(Action::TakeNoTrade); SnapshotReady(s);
 	const auto count = requests.size(); Click("Take"); assert(requests.size() == count && Text("Take") == "Confirm NO TRADE");
 	Click("Refresh"); assert(Text("Take") == "Confirm NO TRADE");
@@ -232,6 +234,56 @@ int main() {
 	assert(Visible("Icon0") && images[controls.at("NCAL_Icon0")->bytes] == 4321);
 	s.rows[0].icon = 0; SnapshotReady(s); assert(!Visible("Icon0"));
 	s.rows[0].icon = 1234; SnapshotReady(s); assert(Visible("Icon0"));
+	alignas(4) unsigned char search_rep[40]{};
+	*reinterpret_cast<uint32_t *>(search_rep + 4) = 10;
+	*reinterpret_cast<uint32_t *>(search_rep + 8) = 4;
+	*reinterpret_cast<uint32_t *>(search_rep + 12) = 1;
+	for (unsigned i = 0; i < 4; ++i) { search_rep[0x14 + i * 2] = "Bone"[i]; }
+	*reinterpret_cast<void **>(controls.at("NCAL_SearchText")->bytes + 0x1ec) = search_rep;
+	Click("SearchText", 6);
+	assert(requests.back() == "#advloot view 1 " + std::to_string(s.revision) + " 1 0 426f6e65"); SnapshotReady(s);
+	Click("Clear"); assert(requests.back() == "#advloot view 1 " + std::to_string(s.revision) + " 1 0 -"); SnapshotReady(s);
+	Click("Row0"); assert(Visible("Inspect")); Click("Inspect");
+	assert(requests.back() == "#advloot act 1 " + std::to_string(s.revision) + " " + std::to_string(s.rows[0].token) + " 7 0"); SnapshotReady(s);
+	// Closing Filters must return the subscription to Drops, otherwise the
+	// server keeps publishing saved rules and new kills cannot auto-open it.
+	AdvancedLootScreen::Show(false); Pulse();
+	assert(requests.back() == "#advloot view 1 " + std::to_string(s.revision) + " 0 0 -");
+	s.view = View::Drops; s.rows.clear(); s.total = 0; SnapshotReady(s);
+	s.rows = {row}; s.total = 1; SnapshotReady(s);
+	assert(AdvancedLootScreen::Visible() && Visible("Row0") && !Visible("Back"));
+	Click("Row0"); assert(Visible("Inspect"));
+	Click("Inspect");
+	assert(requests.back() == "#advloot act 1 " + std::to_string(s.revision) + " " + std::to_string(row.token) + " 7 0"); SnapshotReady(s);
+	// Skin reload destroys the native window, but must restore an already
+	// open queue even when there are no new tokens in the next snapshot.
+	AdvancedLootScreen::Destroy(); Pulse(1100);
+	assert(AdvancedLootScreen::Visible() && Visible("Row0"));
+	Click("Options"); AdvancedLootScreen::Show(false);
+	s.rows[0].token = 5000; SnapshotReady(s);
+	assert(AdvancedLootScreen::Visible() && Visible("Row0") && !Visible("Setting0"));
+	// Respect a deliberate close through reload and the player's AutoShow choice.
+	AdvancedLootScreen::Show(false); AdvancedLootScreen::Destroy(); Pulse(1100);
+	assert(!AdvancedLootScreen::Visible());
+	s.settings &= ~AutoShow; ++s.rows[0].token; SnapshotReady(s);
+	assert(!AdvancedLootScreen::Visible());
+	s.settings |= AutoShow; SnapshotReady(s); assert(!AdvancedLootScreen::Visible());
+	++s.rows[0].token; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	// A kill beyond the visible page still opens after Filters. Comparing
+	// the rule count with the new drop count loses the previous queue size.
+	s.rows.resize(8, s.rows[0]);
+	for (unsigned i = 0; i < 8; ++i) { s.rows[i].token = 6000 + i; }
+	s.total = 8; SnapshotReady(s);
+	const auto drop_rows = s.rows;
+	Click("Filters"); s.view = View::Filters; s.rows.clear(); s.total = 0; SnapshotReady(s);
+	AdvancedLootScreen::Show(false); Pulse();
+	s.view = View::Drops; s.rows = drop_rows; s.total = 9; SnapshotReady(s);
+	assert(AdvancedLootScreen::Visible() && Visible("Row7"));
+	Click("Filters"); s.view = View::Filters; s.rows.clear(); s.total = 0; SnapshotReady(s);
+	AdvancedLootScreen::Show(false); Pulse();
+	s.view = View::Drops; s.rows = drop_rows; s.total = 9; SnapshotReady(s);
+	assert(!AdvancedLootScreen::Visible()); // unchanged queue respects the close
+	s.total = 10; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
 	assert(!AdvancedLootUI::Consume("ordinary chat"));
 	AdvancedLootScreen::Destroy(); assert(!AdvancedLootScreen::Window());
 	std::cout << "PASS: native notification ABI; panels, timeout/retry, commands, snapshots, NO TRADE, inline rule toggles and empty-queue auto-close\n";

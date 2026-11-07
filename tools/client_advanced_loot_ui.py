@@ -53,41 +53,41 @@ def add_advanced_loot(root):
     # Fits the supported 640x480 viewport, including the native title bar.
     # Settings, item rules and extra actions replace the list instead of
     # competing with it. The paired controller owns child visibility.
-    box(screen, 12, 12, 588, 430)
+    box(screen, 12, 4, 588, 472)
     control('Label', 'Status', 'Connecting to loot...', 10, 8, 474, 18)
     control('Button', 'Refresh', 'Refresh', 490, 6, 76, 22)
     control('Button', 'Drops', '< Back to loot', 10, 32, 164)
     control('Button', 'All', 'Loot All', 10, 32, 164, tooltip='Collect eligible drops from your kills throughout this zone')
     control('Button', 'Filters', 'Filters', 180, 32, 116)
     control('Button', 'Options', 'Settings', 466, 32, 100)
-    control('Label', 'Page', '', 326, 291, 170, 18)
-    control('Button', 'Previous', '<', 502, 288, 30)
-    control('Button', 'Next', '>', 536, 288, 30)
+    control('Label', 'Page', '', 326, 349, 170, 18)
+    control('Button', 'Previous', '<', 502, 346, 30)
+    control('Button', 'Next', '>', 536, 346, 30)
     control('Editbox', 'SearchText', '', 10, 62, 374, 22, 'Search item names (32 characters)')
     control('Button', 'Search', 'Search', 390, 62, 88, 22)
     control('Button', 'Clear', 'Clear', 484, 62, 82, 22)
     for index in range(8):
-        control('Button', f'Icon{index}', '', 10, 90 + index * 24, 22, 22, 'Select this item')
+        control('Button', f'Icon{index}', '', 10, 90 + index * 32, 32, 32, 'Select this item')
         icon = root[-1]
-        for tag, pairs in [('DecalOffset', [('X', 1), ('Y', 1)]),
-                           ('DecalSize', [('CX', 20), ('CY', 20)])]:
+        for tag, pairs in [('DecalOffset', [('X', 0), ('Y', 0)]),
+                           ('DecalSize', [('CX', 32), ('CY', 32)])]:
             node = ET.SubElement(icon, tag)
             for key, number in pairs:
                 value(node, key, number)
-        control('Button', f'Row{index}', '', 36, 90 + index * 24, 214, 22, 'Select this item')
-        control('Label', f'Source{index}', '', 256, 93 + index * 24, 90, 18)
-        control('Button', f'Always{index}', '[ ] Always Loot', 352, 90 + index * 24, 106, 22,
+        control('Button', f'Row{index}', '', 48, 95 + index * 32, 202, 22, 'Select this item')
+        control('Label', f'Source{index}', '', 256, 97 + index * 32, 90, 18)
+        control('Button', f'Always{index}', '[ ] Always Loot', 352, 95 + index * 32, 106, 22,
                 'Always loot this item when allowed; click again for Ask each time')
-        control('Button', f'Never{index}', '[ ] Never Loot', 464, 90 + index * 24, 102, 22,
+        control('Button', f'Never{index}', '[ ] Never Loot', 464, 95 + index * 32, 102, 22,
                 'Never loot this item; click again for Ask each time')
-        control('Button', f'Ignore{index}', 'Remove', 490, 90 + index * 24, 76, 22,
+        control('Button', f'Ignore{index}', 'Remove', 490, 95 + index * 32, 76, 22,
                 'Remove this saved rule and return to Ask each time')
     control('Label', 'Empty', 'No items waiting. Loot from your kills appears here.', 22, 126, 532, 22)
-    control('Label', 'Selected', '', 10, 288, 306, 20)
+    control('Label', 'Selected', '', 10, 346, 306, 20)
     for suffix, title, x, width in [('Take', 'Loot item', 10, 124), ('Rule', 'Item rule...', 140, 132),
-                                   ('More', 'More...', 278, 100)]:
-        control('Button', suffix, title, x, 314, width, 28)
-    control('Label', 'Help', '', 10, 354, 556, 40)
+                                   ('More', 'More...', 278, 100), ('Inspect', 'Inspect item', 384, 118)]:
+        control('Button', suffix, title, x, 372, width, 28)
+    control('Label', 'Help', '', 10, 408, 556, 36)
 
     # Detail panels share this body; only one panel is visible at a time.
     control('Button', 'Back', '< Back', 10, 62, 92)
@@ -100,7 +100,7 @@ def add_advanced_loot(root):
     for index, (title, description) in enumerate(choices):
         control('Button', f'Filter{index}', title, 16, 102 + index * 44, 160, 28)
         control('Label', f'FilterHelp{index}', description, 188, 107 + index * 44, 370, 22)
-    extras = [('Inspect', 'Inspect item'), ('Leave', 'Leave on corpse'), ('Find', 'Find corpse'),
+    extras = [('Leave', 'Leave on corpse'), ('Find', 'Find corpse'),
               ('Need', 'Need'), ('Greed', 'Greed'), ('Pass', 'Pass'),
               ('Roll', 'Start group roll'), ('FreeGrab', 'Allow anyone to loot'), ('Assign', 'Give to target')]
     for index, (suffix, title) in enumerate(extras):

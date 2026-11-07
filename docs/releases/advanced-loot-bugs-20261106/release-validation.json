@@ -1,0 +1,29 @@
+{
+  "status": "PASS; signed candidate, not published",
+  "date": "2026-11-06",
+  "candidate_release": 2026110605,
+  "proxy_version": "0.13.5",
+  "baseline_release": 2026110604,
+  "baseline_channel_sha256": "ee56323a1780ef5481c3c55e195ec4831969b82f3aed839b81ec3300b31d4dd0",
+  "changed_assets": 3,
+  "retained_descriptors_and_urls": 145,
+  "signed_inventory": 148,
+  "history_and_tombstones": "retained exactly",
+  "non_loot_XML_bytes": "retained exactly",
+  "tests": {
+    "x86_loot_fixtures": 5,
+    "xml_layout_tests": 7,
+    "runtime_programs_rebuilt": 28,
+    "versioned_shared_native_executables": 11,
+    "candidate_DLL_process": "Loads in disposable host; expected unsupported_executable fail-closed health at0.13.5. No game launched.",
+    "manifest_and_preflight_go": "PASS",
+    "assets_go": "PASS after sandbox loopback/junction rerun",
+    "publisher_preparation_windows": "23tests;5POSIX skips",
+    "publisher_preparation_linux": "23tests; no skips; actual fsync and mode/symlink checks",
+    "cross_view_page_growth": "Failed before fix; passes at final source. Retains separate Drops count across Filters; catches new off-page loot without reopening an unchanged queue."
+  },
+  "publication": "Pending owner sign-off. Local signature neither publishes nor reserves counter. Fresh baseline/service checks required at approved publication.",
+  "owner_native_visual_and_gameplay_QA": "pending; exact steps README.md",
+  "final_candidate_channel_sha256": "3f02f08d31734883dc6269fc2e0e1980750e491f6d335f7ae91d384bfd9daa92",
+  "publication_payload": "publication-payload.json; local7-file archive validated; not uploaded."
+}

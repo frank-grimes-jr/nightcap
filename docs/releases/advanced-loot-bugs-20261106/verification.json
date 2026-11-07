@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-06",
+  "baseline": "d5c895d3a304d7bae9dc234ee1107b845592dabe",
+  "status": "signed local candidate2026110605/proxy0.13.5; unpublished; owner native QA pending",
+  "checks": {
+    "advanced_loot_x86": "5 fixture executables pass; red UTF16/subscription tests observed before repair",
+    "layout": "7 tests pass: 32px icons, main Inspect, eight rows, 640x480 and non-overlap",
+    "shared_python_ui": "5 gameplay + 3 pet tests pass",
+    "runtime_build": "All28programs rebuilt at proxy0.13.5 with /W4 /WX.",
+    "runtime_execution": "13 selected shared executables pass; augment fixture25checks; initial invocation without required client-path argument returned2, corrected invocation passes",
+    "dll_build": "x86 build passed; DirectInput exports retained",
+    "catalog": "120sites unchanged; generator --check and exact original RoF2 signatures pass",
+    "wiki": "20 wiki/content/refresh tests pass using workspace-local TEMP/TMP after sandbox temporary-path failures",
+    "wiki_drift": "REVIEW REQUIRED; historical source drift retained; task-specific whole-wiki impact review in README",
+    "non_loot_xml": "all original non-NCAL elements unchanged by old/new add_advanced_loot on the same baseline",
+    "release_contract": "proxy0.13.5 and catalog regenerated; all120native sites unchanged; candidate signature and exact executable/pair preflight passed",
+    "signed_delta": "3replacements;145other descriptors/URLs, all history and tombstones preserved against freshly captured signed2026110604",
+    "signed_xml": "Scoped update on verified live XML preserves every non-loot byte;3preparation tests pass",
+    "launcher_go": "manifest/preflight pass; asset installer suite passes with loopback/junction permissions after sandbox denial",
+    "release_runtime": "Signed runtime config and0.13.5 health fixture plus9shared native executables pass. A missing runtime-config path invocation returned3; corrected signed-config invocation passes.",
+    "candidate_dll_process": "Actual signed candidateDLL loaded in disposable runtime-host process and fails closed with unsupported_executable; health binds proxy0.13.5/process identity. No game launched.",
+    "publisher_windows": "23tests pass with5POSIX-only skips; those5also pass on Linux.",
+    "publisher_linux": "All23preparation/publisher tests pass in a disposable network-isolated Linux container, real directory/file fsync, symlink/mode/umask and fault recovery; no skips. Source mount read-only, writes confined to temporary filesystem.",
+    "cross_view_paging": "Controller regression fails on prior candidate and passes after retaining the last Drops total across Filters. A ninth item beyond the first8opens; an unchanged9-item queue stays closed; a tenth item reopens."
+  },
+  "artifacts": {
+    "dll": {
+      "path": "eq-client-dll/build/advanced-loot-release/signed-v2/dinput8.dll",
+      "sha256": "b3b0bd536986eaa34b4741bfaec72ee15435b25972004e778a55be136a6019d8"
+    },
+    "candidate_xml": {
+      "path": "eq-client-dll/build/advanced-loot-release/signed-v2/uifiles/nightcap/equi_petinfowindow.xml",
+      "sha256": "306734eeaf42ffceb8f7a4586d8c0e8348fc95abccbc6930edf7b2a1542cb41b"
+    },
+    "catalog": {
+      "path": "eq-client-dll/build/advanced-loot-release/signed-v2/nightcap-patch-sites.json",
+      "sha256": "0af0b52a2c6911f35ca6dd304c6284263aae0ec4b556fc01b8d7e1d6fdff8c9a"
+    },
+    "signed_channel": {
+      "path": "eq-client-dll/build/advanced-loot-release/signed-v2/channel.json",
+      "sha256": "3f02f08d31734883dc6269fc2e0e1980750e491f6d335f7ae91d384bfd9daa92"
+    }
+  },
+  "delivery": "Prepared signed2026110605 against fresh verified signed2026110604; not uploaded/published. Recheck current baseline before authorized publication. Full EQ exit/Play required afterward; no server reload."
+}

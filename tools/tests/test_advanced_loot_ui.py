@@ -37,11 +37,11 @@ class AdvancedLootUI(unittest.TestCase):
     def test_visible_buttons_do_not_overlap_in_each_panel(self):
         navigation = {'Filters', 'Options', 'Refresh'}
         panels = [
-            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'{p}{i}' for p in ('Icon', 'Row', 'Source', 'Always', 'Never') for i in range(8)},
-            {'Drops', 'Search', 'Clear', 'Previous', 'Next', 'Rule', 'More'} | {f'{p}{i}' for p in ('Icon', 'Row', 'Ignore') for i in range(8)},
+            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All', 'Inspect'} | {f'{p}{i}' for p in ('Icon', 'Row', 'Source', 'Always', 'Never') for i in range(8)},
+            {'Drops', 'Search', 'Clear', 'Previous', 'Next', 'Rule', 'More', 'Inspect'} | {f'{p}{i}' for p in ('Icon', 'Row', 'Ignore') for i in range(8)},
             {'Back'} | {f'Filter{i}' for i in range(5)},
             {'Back'} | {f'Setting{i}' for i in range(6)},
-            {'Back', 'Inspect', 'Leave', 'Find', 'Need', 'Greed', 'Pass', 'Roll', 'FreeGrab', 'Assign'},
+            {'Back', 'Leave', 'Find', 'Need', 'Greed', 'Pass', 'Roll', 'FreeGrab', 'Assign'},
         ]
         for panel in panels:
             boxes = []
@@ -67,9 +67,13 @@ class AdvancedLootUI(unittest.TestCase):
         for i in range(8):
             icon = self.controls[f'Icon{i}']
             self.assertEqual(icon.tag, 'Button')
-            self.assertEqual(icon.findtext('DecalSize/CX'), '20')
-            self.assertEqual(icon.findtext('DecalSize/CY'), '20')
-            self.assertEqual(icon.findtext('Location/Y'), self.controls[f'Row{i}'].findtext('Location/Y'))
+            self.assertEqual(icon.findtext('DecalSize/CX'), '32')
+            self.assertEqual(icon.findtext('DecalSize/CY'), '32')
+            self.assertEqual(icon.findtext('Size/CX'), '32')
+            self.assertEqual(icon.findtext('Size/CY'), '32')
+
+    def test_inspect_is_in_main_action_bar(self):
+        self.assertEqual(self.controls['Inspect'].findtext('Location/Y'), self.controls['Take'].findtext('Location/Y'))
 
 
 if __name__ == '__main__':

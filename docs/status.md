@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## November6 — Advanced loot signed candidate; not published
+
+Candidate fixes hidden Filters preventing new-drop auto-open, visibility loss
+on skin reload and native UTF16 Search rejection. Stock icons are32px; Inspect
+is on the main list. Candidate2026110605/proxy0.13.5 verifies three replacements
+and145retained descriptors/URLs/history. Automated regressions/build/client
+guards pass; main approval, client publication and native QA remain pending. No server or
+installed-client change. [Evidence and exact QA](releases/advanced-loot-bugs-20261106/README.md).
+
 ## November6 — Instance Keeper Raid/Grind repair deployed for live QA
 
 Owner-approved main PR415/44a8247d is deployed on OVH; player access is open.

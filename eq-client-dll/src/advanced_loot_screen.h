@@ -35,7 +35,7 @@ class AdvancedLootScreen {
 public:
 	using Notify = bool (*)(void *sender, uint32_t message, void *data);
 	using Frame = void (*)();
-	using Destroyed = void (*)();
+	using Destroyed = void (*)(bool visible);
 private:
 	using Destructor = void *(__thiscall *)(void *, unsigned);
 	using NativeNotify = int (__thiscall *)(void *, void *, uint32_t, void *);
@@ -57,9 +57,10 @@ private:
 		// Clear first: a callback or skin reload may otherwise retain a freed
 		// window. Forward the exact native deleting flags and allocator path.
 		destroying_ = true;
+		const bool visible = self == window_ && Visible();
 		if (self == window_) { window_ = nullptr; }
 		*static_cast<void ***>(self) = api_.vtable;
-		if (destroyed_) { destroyed_(); }
+		if (destroyed_) { destroyed_(visible); }
 		void *result = reinterpret_cast<Destructor>(api_.vtable[1])(self, flags);
 		destroying_ = false;
 		return result;
@@ -155,17 +156,23 @@ public:
 	}
 	static bool EditText(void *control, char (&output)[33]) {
 		// CEditBaseWnd::InputText at 0x1ec. Read only a bounded ASCII CXStr,
-		// rejecting tagged/Unicode input. Never retain its native buffer.
+		// accepting printable ASCII from byte or UTF16 storage. Native editing
+		// can convert ordinary English input to UTF16. Capacity is in bytes.
+		// Never retain its native buffer.
 		if (!window_ || !control) { return false; }
 		__try {
 			const auto rep = *reinterpret_cast<const unsigned char **>(static_cast<unsigned char *>(control) + 0x1ec);
 			if (!rep) { output[0] = 0; return true; }
 			const auto length = *reinterpret_cast<const uint32_t *>(rep + 8);
-			if (*reinterpret_cast<const uint32_t *>(rep + 12) != 0 || length > 32 ||
-				*reinterpret_cast<const uint32_t *>(rep + 4) <= length || rep[0x14 + length] != 0) { return false; }
-			for (uint32_t i = 0; i < length; ++i) {
-				if (rep[0x14 + i] < 32 || rep[0x14 + i] > 126) { return false; }
-				output[i] = static_cast<char>(rep[0x14 + i]);
+			const auto encoding = *reinterpret_cast<const uint32_t *>(rep + 12);
+			if (length > 32 || encoding > 1) { return false; }
+			const uint32_t stride = encoding ? 2 : 1;
+			if (*reinterpret_cast<const uint32_t *>(rep + 4) < (length + 1) * stride) { return false; }
+			for (uint32_t i = 0; i <= length; ++i) {
+				uint16_t character = rep[0x14 + i * stride];
+				if (encoding) { character |= uint16_t(rep[0x15 + i * stride]) << 8; }
+				if (i == length) { if (character) { return false; } }
+				else { if (character < 32 || character > 126) { return false; } output[i] = static_cast<char>(character); }
 			}
 			output[length] = 0;
 			return true;

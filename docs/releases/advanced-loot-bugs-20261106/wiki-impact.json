@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-06",
+  "scope": {
+    "maintained_articles": 24,
+    "authored_item_articles": 15,
+    "authored_zone_articles": 2,
+    "all_built_articles": 500,
+    "all_item_routes": 421,
+    "all_zone_routes": 53
+  },
+  "publication": "not authorized/performed for this candidate",
+  "generated_pages": "Names, definitions, acquisition, zones, rates, balances and catalog values unchanged; no regeneration required.",
+  "articles": [
+    {
+      "article": "about.json",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "advanced-loot.json",
+      "sha256": "d94aee1eee019341aae700b15bab58015de98ffa6f24a16648e13163dc7b3a51",
+      "decision": "Correct already-live Never instruction; add explicitly unreleased repair preview. Keep live instructions separate.",
+      "loot_context": [
+        "h2 id=\"advanced-loot\">Custom loot window</h2><p>Open <code>/advloot</code> to see personal and shared drops together. Inspect an item, find its corpse, or leave that d",
+        "<h2 id=\"loot-filters\">Ignore unwanted drops</h2><p>Click Never Loot beside an item to save Never for your character. Click the checked choice again, or Remove it from ",
+        "tting</h2><p>Eligible earned coins can be collected through advanced loot. Auto Split shares them with connected group or raid members in the current zone; the looter keeps ",
+        "tings also control saved rules, coin splitting, and whether advanced loot is enabled. Turn it off to use ordinary corpse looting.</p>",
+        "<h2 id=\"row-controls\">Always Loot and Never Loot on each row</h2><p>Always Loot and Never Loot are available on each main-page item row. Choosing on",
+        "rs typed filter search, enlarges stock item icons and moves Inspect item onto the main list after selecting a row. This update is not yet available through the launcher; in"
+      ]
+    },
+    {
+      "article": "ascension.json",
+      "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "ashen-compact.json",
+      "sha256": "ae5e25dbe84c86576d6d4feaca6175a378f83f0a19fa641a388706bc9df2ba6c",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "augment-audit.json",
+      "sha256": "194de492e964abbee8cf3657f98919dad14c0bb338c0a5276fdee32144461f1e",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "build-lab.json",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "camil-vigil.json",
+      "sha256": "e99aadc821e59045685d112c3dca6c8e9facd7827668dcede096a069425524ad",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "combat.json",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "commands.json",
+      "sha256": "bfe05e4176dfc072f94765b06da89b8e23ac26e0142a8da84cb2d4990fde71c8",
+      "decision": "Existing command, normal Play/skin recovery and system links stay accurate. Candidate delivery adds no live instruction or feature claim.",
+      "loot_context": [
+        " are aliases for 100/0.</td></tr><tr><th scope=\"row\"><code>/advloot</code></th><td>Open the <a href=\"advanced-loot.html\">custom loot window</a>.</td></tr><tr><th scope"
+      ]
+    },
+    {
+      "article": "dungeon-modes.json",
+      "sha256": "fc69adbcc04b4bce5d1c12a8763899f439f8308a938e860346dc90a701875ff4",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "equipment.json",
+      "sha256": "8b2c65b360400037db0ff17985dc398430e97cea60db6ecec3887a5a33a3daba",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "features.json",
+      "sha256": "59b96399dd138134aa0c989dbf2e6ef5a6a1c8680219c362832f3a0b3bd35f77",
+      "decision": "Existing command, normal Play/skin recovery and system links stay accurate. Candidate delivery adds no live instruction or feature claim.",
+      "loot_context": []
+    },
+    {
+      "article": "getting-started.json",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+      "decision": "Existing command, normal Play/skin recovery and system links stay accurate. Candidate delivery adds no live instruction or feature claim.",
+      "loot_context": [
+        "oose your next goal</h2><p>Try <a href=\"advanced-loot.html\">advanced loot</a>, plan a <a href=\"pets.html\">pet roster</a>, discover <a href=\"waypoints.html\">waypoints</a>, hu"
+      ]
+    },
+    {
+      "article": "index.json",
+      "sha256": "70831829b9b9ff5f0addf396c0b0a74f8835dc1465449ff4d0adec016b56bb8b",
+      "decision": "Existing command, normal Play/skin recovery and system links stay accurate. Candidate delivery adds no live instruction or feature claim.",
+      "loot_context": []
+    },
+    {
+      "article": "launcher.json",
+      "sha256": "9e433342745b079fd6db2101060c2f3fbf95fd1b0f664e6c9f621ec49d46b4e7",
+      "decision": "Existing command, normal Play/skin recovery and system links stay accurate. Candidate delivery adds no live instruction or feature claim.",
+      "loot_context": [
+        "nightcap 1</code>. Then check Bazaar Sell / My Listings and Advanced Loot. Your personal window settings are preserved.</p>"
+      ]
+    },
+    {
+      "article": "loot-finder.json",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "multiclass.json",
+      "sha256": "9069c796329e8dd5f79e673f75ee1a41644a1c4647574e9e65f615fac3645bb1",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "pets.json",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "recent-changes.json",
+      "sha256": "10ce195846f933dc4284feee2364a0eaa24a20484ff4d8f3346dcde5b3e0a07a",
+      "decision": "Record candidate once, without claiming delivery or player acceptance.",
+      "loot_context": [
+        "<h2 id=\"advanced-loot-repair-preview-20261106\">November6: Advanced loot repair candidate \u2014 Not released</h2><p>New-drop opening after Filters, skin reload visibility, filt",
+        "<li><a href=\"advanced-loot.html#row-controls\">Always Loot / Never Loot controls</a>, effective Spell Damage on <a href=\"combat.html#throw-stone\">Throw Stone</a>, and reta",
+        "trols \u2192</a></div></section><section class=\"feature-row\"><h3>Advanced loot and bulk selling</h3><div><p>Use personal loot queues, loot preferences and group rolls. Sell All k",
+        "dventures & quests</h2><ul><li><a href=\"advanced-loot.html\">Advanced loot</a><small>Personal drops, filters and group rolls.</small></li><li><a href=\"ascension.html\">Ascensi",
+        " nightcap 1</code>. Check the Bazaar Sell / My Listings and Advanced Loot controls; visible acceptance remains open.</p>"
+      ]
+    },
+    {
+      "article": "tradeskills.json",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "travel.json",
+      "sha256": "25d934e1aa9622696430d5d1f52368c01550044d633d3af590358c9f29e78703",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "tunnel.json",
+      "sha256": "f6f98106259efd36f1a81a5e04cc3c1dd089b0a00f8eef5eed3578671bbdf1ca",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "unreleased.json",
+      "sha256": "599c745d69d9083095434256319dbacccbe9b9e12bee574e91d4f0863327bb32",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    },
+    {
+      "article": "waypoints.json",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+      "decision": "No player-facing mechanics, instructions or release-status change from this client repair.",
+      "loot_context": []
+    }
+  ],
+  "source_checker": "wiki-source-review.json retains historical REVIEW REQUIRED; no global ledger advancement.",
+  "candidate_status": "Signed client2026110605/proxy0.13.5 assembled locally; no publication. Source/current-page preview decisions unchanged."
+}
