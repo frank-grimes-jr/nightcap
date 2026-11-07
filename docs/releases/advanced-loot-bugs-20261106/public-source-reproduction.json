@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "source": "current published Keeper wiki source copied read-only; fresh build reproduces510public files exactly",
+  "baseline_release": "20261106-dungeon-readiness-v1",
+  "files": 510,
+  "no_unreleased_main_previews": true
+}
