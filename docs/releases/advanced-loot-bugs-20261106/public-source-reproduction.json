@@ -1,7 +1,23 @@
 {
   "status": "PASS",
-  "source": "current published Keeper wiki source copied read-only; fresh build reproduces510public files exactly",
   "baseline_release": "20261106-dungeon-readiness-v1",
+  "baseline_public_files_reproduced_before_edits": 510,
+  "published_release": "20261107-advanced-loot-v1",
   "files": 510,
-  "no_unreleased_main_previews": true
+  "base_source_revision": "4718c471af667b56934ed77dbbfd49895074f745",
+  "source_inputs": 85,
+  "overrides": [
+    "wiki/articles/commands.json",
+    "wiki/articles/dungeon-modes.json",
+    "wiki/articles/equipment.json",
+    "wiki/articles/features.json",
+    "wiki/articles/item-upgrades.json",
+    "wiki/articles/recent-changes.json",
+    "wiki/articles/unreleased.json",
+    "wiki/articles/zone-hunt.json",
+    "wiki/build.py"
+  ],
+  "method": "Normalize reviewed source inputs toLF; apply published-source-overrides.patch with git apply --unidiff-zero; build; compare every public output SHA256.",
+  "patch_sha256": "126ef35b0c91143ce7f6650770fb1b1948e7a0446f12aed74a374749a0f36841",
+  "unrelated_main_previews_not_published": true
 }

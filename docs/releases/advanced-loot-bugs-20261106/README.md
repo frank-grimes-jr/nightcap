@@ -16,6 +16,13 @@ Preparation receipts below retain their original pre-publication scope; actual
 publication is proved by client-published.json, client-public-verification.json,
 wiki-publication.json and wiki-public-verification.json.
 
+The published wiki is reproducible from source4718c471 plus nine reviewed
+overrides in published-source-overrides.patch. Normalize the85reviewed source
+inputs toLF, apply with `git apply --unidiff-zero`, then build: all510public
+hashes match. public-source-reproduction.json records the exact base and patch
+hash. Preserve these public-source overrides when main contains unrelated
+unpublished previews; do not republish an entire older/main mirror.
+
 ## Problems and behavior
 
 Closing the native window while browsing Filters left its server subscription
