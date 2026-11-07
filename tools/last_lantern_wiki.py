@@ -65,6 +65,8 @@ def maintain(wiki):
         a.update(body=body,updated='2026-11-07');a['sources']=list(dict.fromkeys(a['sources']+[SOURCE]));write(wiki,name,a)
 
 def main():
+    if 'from last_lantern_catalog import' in (WIKI/'catalog.py').read_text(encoding='utf-8'):
+        raise SystemExit('One-time projection already installed; edit its maintained source files directly.')
     maintain(WIKI)
     # Publication is built over the byte-reproduced current public source, keeping
     # unrelated main previews unpublished. Its own articles get the same scoped edits.

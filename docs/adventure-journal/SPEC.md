@@ -1,5 +1,11 @@
 # Adventure Journal and archetype Epic 0.5
 
+Historical eight-task foundation. The current level20–50 implementation and
+one-shot release package are in [release-20261107/README.md](release-20261107/README.md);
+use [CAMPAIGN-QA.md](release-20261107/CAMPAIGN-QA.md) for current player testing.
+Do not install this older prototype migration independently.
+
+
 November 6: the owner requests a continuing story through Classic endgame and
 useful armor with a coordinated appearance. [The Last Lantern](CAMPAIGN.md)
 specifies the proposed expansion for review. It adds eight later shared chapters

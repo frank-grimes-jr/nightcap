@@ -6,7 +6,7 @@ from last_lantern_content import ROOT
 
 HERE=ROOT/'docs/adventure-journal/release-20261107'
 ART=ROOT/'artifacts/last-lantern-20261107'
-STAGE='/opt/nightcap/releases/last-lantern-20261107-v3'
+STAGE='/opt/nightcap/releases/last-lantern-20261107-v4'
 
 def remote(code,timeout=900):
     r=subprocess.run(SSH,input=code,text=True,encoding='utf-8',capture_output=True,timeout=timeout)
@@ -42,7 +42,7 @@ print(json.dumps({'prior_operator_sha256':hashlib.sha256(path.read_bytes()).hexd
 
 def package():
     before=json.loads((ART/'release-probe.json').read_text())
-    stage=ART/'payload-v3';stage.mkdir(exist_ok=False)
+    stage=ART/'payload-v4';stage.mkdir(exist_ok=False)
     proof=json.loads((HERE/'native-build.json').read_text());assert proof['status']=='PASS'
     binaries={n:proof['shipping']['candidate-'+n] for n in ('zone','world','shared_memory')}
     (stage/'bin').mkdir()
@@ -67,14 +67,14 @@ def package():
     # All required migration guard tables exist as empty schemas; only public
     # definitions are copied. No player rows enter this rehearsal database.
     definitions=json.loads((HERE/'production-schema.json').read_text())
-    extra={'instance_list','character_activities','character_advloot_claims','character_corpses','instance_list_player','logsys_categories','rule_sets','rule_values','variables','content_flags','zone'}
+    extra={'discord_webhooks','damageshieldtypes','instance_list','character_activities','character_advloot_claims','character_corpses','instance_list_player','logsys_categories','rule_sets','rule_values','variables','content_flags','zone'}
     tables=sorted((set(definitions)|extra)&set(before['tables']))
-    public={'items','spells_new','npc_types','spawn2','spawnentry','spawngroup','tasks','task_activities','titles','lootdrop_entries','merchantlist','tradeskill_recipe_entries','logsys_categories','rule_sets','rule_values','variables','content_flags','zone'}
+    public={'damageshieldtypes','items','spells_new','npc_types','spawn2','spawnentry','spawngroup','tasks','task_activities','titles','lootdrop_entries','merchantlist','tradeskill_recipe_entries','logsys_categories','rule_sets','rule_values','variables','content_flags','zone'}
     files={p.relative_to(stage).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in stage.rglob('*') if p.is_file()}
     manifest={k:before[k] for k in ('prior_operator_sha256','base_image_id','base_hashes','game_network','runtime_before')}
     manifest.update(owner_authorization='Push it to server and main. Ensure this is posted in the client notes',binaries=binaries,runtime_after=after,files=files,staging_tables=tables,public_clone_tables=sorted(public&set(tables)),source_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip())
     (stage/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    archive=ART/'last-lantern-release-v3.tar.gz'
+    archive=ART/'last-lantern-release-v4.tar.gz'
     with tarfile.open(archive,'w:gz') as t:
         for p in sorted(stage.rglob('*')):
             if p.is_file():t.add(p,arcname=p.relative_to(stage).as_posix(),recursive=False)
@@ -82,9 +82,9 @@ def package():
     (HERE/'package.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 
 def stage():
-    receipt=json.loads((HERE/'package.json').read_text());archive=ART/'last-lantern-release-v3.tar.gz'
+    receipt=json.loads((HERE/'package.json').read_text());archive=ART/'last-lantern-release-v4.tar.gz'
     assert hashlib.sha256(archive.read_bytes()).hexdigest()==receipt['archive_sha256']
-    ssh=SSH[:-1];destination=ssh[-1];upload='/home/ubuntu/last-lantern-release-20261107-v3.tar.gz'
+    ssh=SSH[:-1];destination=ssh[-1];upload='/home/ubuntu/last-lantern-release-20261107-v4.tar.gz'
     subprocess.run(['C:/Windows/System32/OpenSSH/scp.exe',*ssh[1:-1],str(archive),destination+':'+upload],check=True,timeout=600)
     result=remote(f'''from pathlib import Path
 import hashlib,json,os,subprocess,tarfile

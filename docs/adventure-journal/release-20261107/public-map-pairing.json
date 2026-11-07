@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "maps": {
+    "ecommons": "861fa497df139138b13d08b6e16f2d50c6f1a0ccc3f0fa4ce0afadddb6a17915",
+    "guktop": "225531e47c92e702a24a0c7a34bc5be64f59efd1fd0c9e92c48d3b95e00d3038",
+    "runnyeye": "204eac659a2e56d2efeff25f0e5e1d77e071e5875b6c0e3ebd53a17dc0151a8f"
+  },
+  "scope": "Public companion/courier native map geometry matches production"
+}

@@ -1,5 +1,11 @@
 # Epic 0.5: exact native and balance QA
 
+Historical eight-task foundation. The current level20–50 implementation and
+one-shot release package are in [release-20261107/README.md](release-20261107/README.md);
+use [CAMPAIGN-QA.md](release-20261107/CAMPAIGN-QA.md) for current player testing.
+Do not install this older prototype migration independently.
+
+
 All checks below remain **manual / not yet accepted** until a dated result is
 recorded. Automated evidence does not establish rendered UI, encounter balance
 or real client acceptance. Use the matched test runtime and a separate QA client;

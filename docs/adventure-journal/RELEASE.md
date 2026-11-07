@@ -1,5 +1,11 @@
 # Epic 0.5 installation and recovery
 
+Historical eight-task foundation. The current level20–50 implementation and
+one-shot release package are in [release-20261107/README.md](release-20261107/README.md);
+use [CAMPAIGN-QA.md](release-20261107/CAMPAIGN-QA.md) for current player testing.
+Do not install this older prototype migration independently.
+
+
 Status: candidate only. Follow the repository's `feature` → `dev` → `test`
 policy. Main and hosted activation require the recorded manual acceptance gate.
 Do not treat prior release-specific production exceptions as this release's

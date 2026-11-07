@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "preserved_items": 309871,
+  "added_items": 129,
+  "armor_afterimages": 128,
+  "preserved_spell_record_bytes": 107707648,
+  "item_bytes": 1332,
+  "elapsed_seconds": 2.15,
+  "probe_sha256": "8f7f6e28e72b1feb36944f0fd2e904a9c96993b52826370f49d1664c469164d8"
+}

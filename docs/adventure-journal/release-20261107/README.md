@@ -48,11 +48,20 @@ Automated evidence: test_lantern_*; actual native compile logs; guarded disposab
 MariaDB migration and real one-connection refit rehearsal (complete metadata,
 rollback, replay, unrelated-player corpse, ambiguous committed acknowledgement).
 Current public combat definitions are captured separately under balance/.
-Full encounter calibration, final native relink/cache and deployment remain open.
+Thirty-two earned-gear native arena runs pass across progression tiers, continuous
+three-wave resources, three deterministic seeds and three level50 builds. Explicit
+purchases spend48–98AA for fresh stages and500for the developed control. The
+pre-final builds use seven Restored pieces and a Normal chest; no reward from
+the finale is equipped beforehand. All worn support gear is current Normal, with
+no pets, augments or preparation buffs. Failed drafts remain separate; this is
+not whole-scene or all-class balance acceptance.
+All three shipping baselines reproduce exactly; candidate world/zone/shared-memory
+links and stripped ELF identity checks pass. Production cache/deployment preflight
+continues under the one-shot release operator.
 
 Signed client candidate2026110701 preserves all148 inventory descriptors except
 spells_us.txt, retaining proxy0.13.5/catalog and all38 prior notes. Six campaign
-entries are prepared in the client notes. The signature and exact executable
+changes are prepared together in the new client-note entry. The signature and exact executable
 preflight pass. Publication is still pending; client-candidate.json owns that
 boundary. No protected or installed game client is modified.
 

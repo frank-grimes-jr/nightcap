@@ -9,10 +9,10 @@ import argparse,fcntl,hashlib,importlib.util,json,os,re,shutil,subprocess,time
 from pathlib import Path
 
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/last-lantern-20261107-v3')
+STAGE=Path('/opt/nightcap/releases/last-lantern-20261107-v4')
 EVIDENCE=STAGE/'evidence'
-TAG='nightcap-game:last-lantern-20261107-v3'
-DATABASE='nightcap_dungeon_stage_1107a11ce002'
+TAG='nightcap-game:last-lantern-20261107-v4'
+DATABASE='nightcap_dungeon_stage_1107a11ce003'
 NEW_TABLES={'nightcap_epic05_control','nightcap_epic05_state','nightcap_lantern_control',
  'nightcap_lantern_slots','nightcap_lantern_refits','nightcap_lantern_runs',
  'nightcap_lantern_members','nightcap_lantern_memorials'}
@@ -131,6 +131,10 @@ def preflight():
       'rules':p.rules(),'caches':h.caches(),'publication':h.publication()}
     assert r.runtime()==runtime(False),'Quest preimages differ'
     save(EVIDENCE/'preflight-started.json',before)
+    dry=EVIDENCE/'boot-preflight';dry.mkdir(mode=0o700)
+    previous_evidence=base.EVIDENCE;base.EVIDENCE=dry
+    try:base.boot_state(saved())
+    finally:base.EVIDENCE=previous_evidence
     before['image']=build_image()
     assert sha(ROOT/'data/public/channel.json')==sha(STAGE/'client/previous-channel.json'),'Signed client baseline drift'
     spec=importlib.util.spec_from_file_location('rehearsal_publisher',STAGE/'client/publish.py')
@@ -182,10 +186,11 @@ def prepare_cache(image,database,folder):
     command=['docker','run','--rm','--network',m['game_network'],'--user','0:0','-v',str(folder)+':/srv/nightcap','-w','/srv/nightcap','--entrypoint','/opt/nightcap/bin/shared_memory',image,'items','spells']
     with (folder/'loader.log').open('w') as log:
         subprocess.run(command,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=600)
+    assert not re.search(r'MySQL Error|Unknown column|SQL syntax', (folder/'loader.log').read_text(),re.I),'Cache generator SQL error'
     live=ROOT/'data/server/shared'
     # Execute the small checker using the exact image's C++ runtime dependencies.
     cmd=['docker','run','--rm','--network','none','-v',str(STAGE)+':/release:ro','-v',str(live)+':/old:ro',
-         '-v',str(folder/'shared')+':/new:ro','--entrypoint','/release/cache_check',image,'/old/items','/new/items','/old/spells','/new/spells']
+         '-v',str(folder/'shared')+':/new:ro','--user','0:0','--entrypoint','/release/cache_check',image,'/old/items','/new/items','/old/spells','/new/spells']
     output=subprocess.check_output(cmd,text=True,timeout=120)
     proof=json.loads(output);assert proof['status']=='PASS' and proof['added_items']==129
     save(folder/'verification.json',proof)
