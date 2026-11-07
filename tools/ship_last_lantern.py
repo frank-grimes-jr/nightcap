@@ -47,9 +47,9 @@ def package():
     binaries={n:proof['shipping']['candidate-'+n] for n in ('zone','world','shared_memory')}
     (stage/'bin').mkdir()
     for n,pin in binaries.items():
-        subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v2/candidate-'+n+'.stripped',str(stage/'bin'/n)],check=True,capture_output=True)
+        subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v1/candidate-'+n+'.stripped',str(stage/'bin'/n)],check=True,capture_output=True)
         assert hashlib.sha256((stage/'bin'/n).read_bytes()).hexdigest()==pin
-    subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v2/cache_check',str(stage/'cache_check')],check=True,capture_output=True)
+    subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v1/cache_check',str(stage/'cache_check')],check=True,capture_output=True)
     for name in ('rollout.py','native-build.json','last-lantern-catalog.json','last-lantern-setup.sql','last-lantern-enable.sql','last-lantern-disable.sql'):
         source=HERE/name if (HERE/name).exists() else HERE.parent/name
         (stage/name).write_bytes(source.read_bytes())
