@@ -3,18 +3,18 @@ import hashlib,json,subprocess
 from pathlib import Path
 from ship_last_lantern import ROOT,HERE,ART,SSH,STAGE,remote
 
-RELEASE='20261107-last-lantern-v1'
-PREVIOUS='20261107-advanced-loot-v1'
+RELEASE='20261107-last-lantern-v2'
+PREVIOUS='20261107-last-lantern-v1'
 
 def main():
     deployed=json.loads((HERE/'production-verification.json').read_text());assert deployed['gateway_open']
     client=json.loads((HERE/'client-public-verification.json').read_text());assert client['hosted'] and client['release']==2026110701
-    candidate=json.loads((HERE/'wiki-candidate.json').read_text());assert candidate['files']==613 and candidate['baseline_files']==510
+    candidate=json.loads((HERE/'wiki-candidate.json').read_text());assert candidate['files']==613 and candidate['baseline_files']==613
     archive=ART/(RELEASE+'.tar.gz');manifest=archive.with_suffix('.json')
     wiki=ART/'wiki-source/wiki'
     files=[archive,manifest]+[wiki/n for n in ('update.py','deploy.py','test_update.py','test_deploy.py','nginx.conf')]
     pins={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
-    upload='/home/ubuntu/wiki-last-lantern-20261107-v1';stage='/opt/nightcap/releases/wiki-last-lantern-20261107-v1'
+    upload='/home/ubuntu/wiki-last-lantern-20261107-v2';stage='/opt/nightcap/releases/wiki-last-lantern-20261107-v2'
     ssh=SSH[:-1]
     subprocess.run(ssh+['mkdir -m 700 '+upload],check=True,timeout=30)
     subprocess.run(['C:/Windows/System32/OpenSSH/scp.exe',*ssh[1:-1],*map(str,files),ssh[-1]+':'+upload+'/'],check=True,timeout=300)

@@ -1,20 +1,23 @@
-# Adventure Journal / Epic 0.5 candidate
+# Adventure Journal — The Last Lantern
 
-**November 7 approved implementation:** [The Last Lantern](CAMPAIGN.md) extends
-one playthrough to twelve chapters through level50, with returning companions,
-eight personal progression armor pieces, four legal fits, earned refits and a
-planar finale. Sixteen Task definitions include five alternative oath trials.
-Native/content implementation and automated/database checks are present; release
-and player acceptance are tracked separately in [the release record](release-20261107/README.md).
-Nothing is installed until its dated activation receipt is recorded.
+**November7: deployed for live QA.** [The Last Lantern](CAMPAIGN.md) carries one
+playthrough through twelve chapters to level50: returning companions, eight
+personal progression armor pieces, four legal fits, earned refits and a planar
+finale. Sixteen Task definitions include five alternative oath trials. The paired
+OVH runtime, signed client2026110701, wiki and private guide are published.
+[Release evidence and forward recovery](release-20261107/README.md) ·
+[Exact normal-player QA](release-20261107/CAMPAIGN-QA.md). Player appearance,
+whole-scene/path and combined-balance acceptance remain open.
 
 The original eight-task catalog below remains the underlying path/spell contract,
 not the full release package. Use last-lantern-setup.sql and the reviewed campaign
 operator for the expansion; the old setup.sql alone cannot install this runtime.
 
-October 1, 2026. This candidate adds eight native journal adventures and one
-archetype relic. It is prepared for the normal `dev` → `test` flow. Production
-enablement and manual gameplay acceptance are not recorded here.
+## Historical eight-task foundation
+
+The October1 catalog below supplies the original shared objectives, five path
+trials and bounded charm powers. It is retained for audit and is not the full
+current release. November7 deployment and remaining player QA are recorded above.
 
 Start at the Ancient Chronicler (NPC 999220) in the East Commonlands tunnel.
 Say **journal**. Three shared chapters at levels 20, 25 and 30 lead to five

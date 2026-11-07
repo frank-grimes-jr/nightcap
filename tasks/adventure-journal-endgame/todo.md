@@ -11,9 +11,11 @@
 - [x] First three chapters and five oath trials with companions/rewards.
 - [x] Separate campaign instance lifecycle and first rescue scene.
 - [x] Chapters5–12, refits, finale and memorial campfire.
-- [ ] Native build, real database rehearsal, policy/integration/balance checks.
-- [ ] Main promotion and paired production activation with exact receipts.
-- [ ] Signed client notes, scoped wiki publication and HTTPS verification.
-- [ ] Installed knowledge, source fingerprints, status, CHANGES and exact player QA.
+- [x] Native build, real database rehearsal, policy/integration/balance checks.
+- [x] Main promotion and paired production activation with exact receipts.
+- [x] Signed client notes, scoped wiki publication and HTTPS verification.
+- [x] Installed knowledge, source fingerprints, status, CHANGES and exact player QA.
 
-Native task-save acknowledgement/checkpoint repair is committed separately; direct NPC death dispatch, ordered wave credit and storage-exception containment have compiled regressions. Combat calibration, final release operator and public activation remain open.
+Native task-save acknowledgement/checkpoint repair is committed separately; direct NPC death dispatch, ordered wave credit and storage-exception containment have compiled regressions. The32run combat matrix, exact native/cache pair, guarded production activation,
+signed client notes, scoped wiki and player-guide publication now pass. Normal
+player appearance, full scenes/paths, pets/groups/SSF and balance QA remain open.

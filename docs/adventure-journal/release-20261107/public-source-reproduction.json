@@ -1,0 +1,546 @@
+{
+  "base_revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096",
+  "source_inputs": [
+    {
+      "path": "config/aa-policy.json",
+      "base_exists": true,
+      "base_sha256": "e244028ee437376a165238a144c76dc3ce24f4fb7e378c377c53c2bde28b68ee",
+      "sha256": "e244028ee437376a165238a144c76dc3ce24f4fb7e378c377c53c2bde28b68ee"
+    },
+    {
+      "path": "config/augment-specialties.json",
+      "base_exists": true,
+      "base_sha256": "1d5435aa49a06c005c522b02d8425449f848966ee36e18d2a304cb43d93db9d2",
+      "sha256": "1d5435aa49a06c005c522b02d8425449f848966ee36e18d2a304cb43d93db9d2"
+    },
+    {
+      "path": "config/chapterhouse-access.json",
+      "base_exists": true,
+      "base_sha256": "690272ba226a8076287dac6dce1455dedb3f974f7b7334747031199eba378792",
+      "sha256": "690272ba226a8076287dac6dce1455dedb3f974f7b7334747031199eba378792"
+    },
+    {
+      "path": "config/thj-item-parity.json",
+      "base_exists": true,
+      "base_sha256": "2fa82fe66cfa2214eaca364c50028dc0130acaf1e25feeea4f045c6fc72daf00",
+      "sha256": "2fa82fe66cfa2214eaca364c50028dc0130acaf1e25feeea4f045c6fc72daf00"
+    },
+    {
+      "path": "config/warhelm-access.json",
+      "base_exists": true,
+      "base_sha256": "bcbb4bc3e32b5334f5a8f751042d41084740761183574f344e1e9035fa776f9a",
+      "sha256": "bcbb4bc3e32b5334f5a8f751042d41084740761183574f344e1e9035fa776f9a"
+    },
+    {
+      "path": "config/zone-hunt-rates.json",
+      "base_exists": true,
+      "base_sha256": "8f15e3183019a52ae7d726a31f1c5d3df448ff4667fcd741b15249ba2b719c2f",
+      "sha256": "8f15e3183019a52ae7d726a31f1c5d3df448ff4667fcd741b15249ba2b719c2f"
+    },
+    {
+      "path": "wiki/articles/about.json",
+      "base_exists": true,
+      "base_sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "base_exists": true,
+      "base_sha256": "007275978669fff6eba2c479af95f901784f7ffa7bc4644a1dae51110d1cfaf6",
+      "sha256": "007275978669fff6eba2c479af95f901784f7ffa7bc4644a1dae51110d1cfaf6"
+    },
+    {
+      "path": "wiki/articles/adventure-journal.json",
+      "base_exists": true,
+      "base_sha256": "d6b21973d87f1b77c4d57a848b43c26c6ee15e3a9e9e728c8912c1a400e4e6b0",
+      "sha256": "d6b21973d87f1b77c4d57a848b43c26c6ee15e3a9e9e728c8912c1a400e4e6b0"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "base_exists": true,
+      "base_sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f",
+      "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f"
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "base_exists": true,
+      "base_sha256": "ae5e25dbe84c86576d6d4feaca6175a378f83f0a19fa641a388706bc9df2ba6c",
+      "sha256": "ae5e25dbe84c86576d6d4feaca6175a378f83f0a19fa641a388706bc9df2ba6c"
+    },
+    {
+      "path": "wiki/articles/augment-audit.json",
+      "base_exists": true,
+      "base_sha256": "194de492e964abbee8cf3657f98919dad14c0bb338c0a5276fdee32144461f1e",
+      "sha256": "194de492e964abbee8cf3657f98919dad14c0bb338c0a5276fdee32144461f1e"
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "base_exists": true,
+      "base_sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58"
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "base_exists": true,
+      "base_sha256": "e99aadc821e59045685d112c3dca6c8e9facd7827668dcede096a069425524ad",
+      "sha256": "e99aadc821e59045685d112c3dca6c8e9facd7827668dcede096a069425524ad"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "base_exists": true,
+      "base_sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f",
+      "sha256": "737d80f7c628fcff2a5868d8a4551c6189e6f6bb020e912e745fca352b4cf90f"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "base_exists": true,
+      "base_sha256": "bfe05e4176dfc072f94765b06da89b8e23ac26e0142a8da84cb2d4990fde71c8",
+      "sha256": "f084e67c8da67361d957a60f11909f823ff77d1550592403fcde149fd311d21e"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "base_exists": true,
+      "base_sha256": "fc69adbcc04b4bce5d1c12a8763899f439f8308a938e860346dc90a701875ff4",
+      "sha256": "de36965b37b7cf67eae37a3f3315e17f4eae2b9a20318a653d7502210aa01154"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "base_exists": true,
+      "base_sha256": "1ab414e40980502595cc3ff83aa3a43ea4a894d1279a8df849928153837e62dd",
+      "sha256": "492b620ded2ab8afa1ebd335232b87e33ef9060ea45f2b0fe5d22c2f66a9bd2b"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "base_exists": true,
+      "base_sha256": "97e9107e332ff3621c3f902c582910b76c903356fec2b395675551c86e801a4c",
+      "sha256": "b7072b508ddd1c8ff67ad4c4290770ba049856ea3dac574dd6c693a091818b05"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "base_exists": true,
+      "base_sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "base_exists": true,
+      "base_sha256": "602e9e8489a5b8f37e70a060c55606e970ce8ea8dcd85720f1263eff24cea987",
+      "sha256": "602e9e8489a5b8f37e70a060c55606e970ce8ea8dcd85720f1263eff24cea987"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "base_exists": true,
+      "base_sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e"
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "base_exists": true,
+      "base_sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0"
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "base_exists": true,
+      "base_sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c"
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "base_exists": true,
+      "base_sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb"
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "base_exists": true,
+      "base_sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d"
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "base_exists": true,
+      "base_sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb"
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "base_exists": true,
+      "base_sha256": "aea9f156efac1e2bcebfc5ef159f2cc99adab2a7e1f8f7727a283ba2f8863dc4",
+      "sha256": "aea9f156efac1e2bcebfc5ef159f2cc99adab2a7e1f8f7727a283ba2f8863dc4"
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "base_exists": true,
+      "base_sha256": "a67e8015fd384f35fcc13d930730d49cc817bc49aa2559724d0495ef82a9ec7f",
+      "sha256": "a67e8015fd384f35fcc13d930730d49cc817bc49aa2559724d0495ef82a9ec7f"
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "base_exists": true,
+      "base_sha256": "c2769c03a2a74ac493eb41248c6764c30c082f639d3d0810e56cbeb68dc62bf1",
+      "sha256": "c2769c03a2a74ac493eb41248c6764c30c082f639d3d0810e56cbeb68dc62bf1"
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "base_exists": true,
+      "base_sha256": "2dece2f1ecd7711a91ac11d04edcfb89a1d676f783c967307835f2a9a54e0ded",
+      "sha256": "2dece2f1ecd7711a91ac11d04edcfb89a1d676f783c967307835f2a9a54e0ded"
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "base_exists": true,
+      "base_sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9"
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "base_exists": true,
+      "base_sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020"
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "base_exists": true,
+      "base_sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d"
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "base_exists": true,
+      "base_sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "base_exists": true,
+      "base_sha256": "7e3dfd9a722cfbc5042b0d92d09936de8d159d299406fd843a58b5d1179d8385",
+      "sha256": "8ca4264530f50bc4f1ed3096dede67e9c5332e48a8448436ed48a5b026f337d2"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "base_exists": true,
+      "base_sha256": "9e433342745b079fd6db2101060c2f3fbf95fd1b0f664e6c9f621ec49d46b4e7",
+      "sha256": "9e433342745b079fd6db2101060c2f3fbf95fd1b0f664e6c9f621ec49d46b4e7"
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "base_exists": true,
+      "base_sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a",
+      "sha256": "608b552449bf5a4326631995658fb0740724f08e9ae176a26e9986fb88e9a56a"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "base_exists": true,
+      "base_sha256": "9069c796329e8dd5f79e673f75ee1a41644a1c4647574e9e65f615fac3645bb1",
+      "sha256": "9069c796329e8dd5f79e673f75ee1a41644a1c4647574e9e65f615fac3645bb1"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "base_exists": true,
+      "base_sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "base_exists": true,
+      "base_sha256": "66d8bf583dc762152e41c4a0293dd3f9e07b55f302418d99a30ef53952988acc",
+      "sha256": "85c064e34396a56c1e9cf154e851232f22a36beafcafa6eb6ecc59c0d799eec7"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "base_exists": true,
+      "base_sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "base_exists": true,
+      "base_sha256": "4857d513bcfd22df6fc8fec96c7f015b8144e5b64ce702e5ced2253b2062880b",
+      "sha256": "4857d513bcfd22df6fc8fec96c7f015b8144e5b64ce702e5ced2253b2062880b"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "base_exists": true,
+      "base_sha256": "f8642b146b013a94a79a405fa30cd452aa67fd5f9680d700c8f04dbfa9d3c87c",
+      "sha256": "f8642b146b013a94a79a405fa30cd452aa67fd5f9680d700c8f04dbfa9d3c87c"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "base_exists": true,
+      "base_sha256": "e316143cd87c42a44cbf7e6a9b7e971c4b9aa32a808f8ca05c4d9feb68d66bbe",
+      "sha256": "4589b346af81f37e840d8038a9438e44ea4933fa335f4bc7e23a3507cf8ba55d"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "base_exists": true,
+      "base_sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "base_exists": true,
+      "base_sha256": "9d0ea49479ae354c55bdc3ec6f308e05f2dd6ad36c00ec540040dd39f64956ba",
+      "sha256": "6b09e21a1275ad7489857d533770155b70bd292faaf7c5b8150d237b7893ab6c"
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "base_exists": true,
+      "base_sha256": "2c5efd23028146024172b77d3ff03a863b838710a918ffad49cbb09b7054d48b",
+      "sha256": "2c5efd23028146024172b77d3ff03a863b838710a918ffad49cbb09b7054d48b"
+    },
+    {
+      "path": "wiki/assets/build-lab-model.js",
+      "base_exists": true,
+      "base_sha256": "f536223af3fc18c9dc1b1816687d68bbec077671e05a2d11553b916d9cc28ca9",
+      "sha256": "f536223af3fc18c9dc1b1816687d68bbec077671e05a2d11553b916d9cc28ca9"
+    },
+    {
+      "path": "wiki/assets/build-lab.css",
+      "base_exists": true,
+      "base_sha256": "6ca5e305dd6a71323af1c4c29092f9ab9803e766dc7257555f7cae8aa3dadbb6",
+      "sha256": "6ca5e305dd6a71323af1c4c29092f9ab9803e766dc7257555f7cae8aa3dadbb6"
+    },
+    {
+      "path": "wiki/assets/build-lab.js",
+      "base_exists": true,
+      "base_sha256": "79db2d68f0b30e5d3352bc959ff16052330c3ff00da54dd6f76eb13f46737988",
+      "sha256": "79db2d68f0b30e5d3352bc959ff16052330c3ff00da54dd6f76eb13f46737988"
+    },
+    {
+      "path": "wiki/assets/clarity.css",
+      "base_exists": true,
+      "base_sha256": "f3c4659231b27fb648f1ffb26d899f91d0cd32bd9462ef9ccc5d1aeddfaac77d",
+      "sha256": "f3c4659231b27fb648f1ffb26d899f91d0cd32bd9462ef9ccc5d1aeddfaac77d"
+    },
+    {
+      "path": "wiki/assets/equipment.css",
+      "base_exists": true,
+      "base_sha256": "0269620068fd9f1368b55ba32d3218dede16180137b548b2e0bc0423d469f81e",
+      "sha256": "0269620068fd9f1368b55ba32d3218dede16180137b548b2e0bc0423d469f81e"
+    },
+    {
+      "path": "wiki/assets/equipment.js",
+      "base_exists": true,
+      "base_sha256": "13129ff73586ba151757d299d2e3698175e377e2816049abaa898f98dddfa81a",
+      "sha256": "13129ff73586ba151757d299d2e3698175e377e2816049abaa898f98dddfa81a"
+    },
+    {
+      "path": "wiki/assets/experience.css",
+      "base_exists": true,
+      "base_sha256": "98b5cc2063cfb56d7496d30f0c0a37870a3f13d0b3a892de49aecbb847fdd04d",
+      "sha256": "98b5cc2063cfb56d7496d30f0c0a37870a3f13d0b3a892de49aecbb847fdd04d"
+    },
+    {
+      "path": "wiki/assets/experience.js",
+      "base_exists": true,
+      "base_sha256": "c2ff1b84a7be739e4b0424fdaf1f46de2bd8c753e3507764bcd922abbf0cd7f3",
+      "sha256": "c2ff1b84a7be739e4b0424fdaf1f46de2bd8c753e3507764bcd922abbf0cd7f3"
+    },
+    {
+      "path": "wiki/assets/loot-finder-model.js",
+      "base_exists": true,
+      "base_sha256": "094ceb12548129e6722ed82b5a526edc57781ee6f664b704c0fa5b9531f0a6a5",
+      "sha256": "094ceb12548129e6722ed82b5a526edc57781ee6f664b704c0fa5b9531f0a6a5"
+    },
+    {
+      "path": "wiki/assets/loot-finder.css",
+      "base_exists": true,
+      "base_sha256": "498e3efdb50a2129a87d7d287bc5f97d4e56bb5f5e39fbcecb0ed1a5c69f81f3",
+      "sha256": "498e3efdb50a2129a87d7d287bc5f97d4e56bb5f5e39fbcecb0ed1a5c69f81f3"
+    },
+    {
+      "path": "wiki/assets/loot-finder.js",
+      "base_exists": true,
+      "base_sha256": "a69b4e56a5d55d992f377b80db852b8f59d818276cd2f6c3b4211df40cf32e48",
+      "sha256": "a69b4e56a5d55d992f377b80db852b8f59d818276cd2f6c3b4211df40cf32e48"
+    },
+    {
+      "path": "wiki/assets/moon.svg",
+      "base_exists": true,
+      "base_sha256": "0ef4eea758c62828f83d8b33bd964763a5d32146bbbd2bdc99571553650f4433",
+      "sha256": "0ef4eea758c62828f83d8b33bd964763a5d32146bbbd2bdc99571553650f4433"
+    },
+    {
+      "path": "wiki/assets/search.js",
+      "base_exists": true,
+      "base_sha256": "f33093bb862b528fb148cfaec97cc55975732cabfa07ed07fca0e08d3feacf06",
+      "sha256": "f33093bb862b528fb148cfaec97cc55975732cabfa07ed07fca0e08d3feacf06"
+    },
+    {
+      "path": "wiki/assets/traders-at-dusk.png",
+      "base_exists": true,
+      "base_sha256": "7ab2445d59587db5c93cf8eb52a99b701bc902e1c99ba1f975aceb02c37d21c3",
+      "sha256": "7ab2445d59587db5c93cf8eb52a99b701bc902e1c99ba1f975aceb02c37d21c3"
+    },
+    {
+      "path": "wiki/assets/wiki.css",
+      "base_exists": true,
+      "base_sha256": "8a08286d86e82e366105422985a3a8290c63d6c19961092530e6ed3689f1cdf8",
+      "sha256": "8a08286d86e82e366105422985a3a8290c63d6c19961092530e6ed3689f1cdf8"
+    },
+    {
+      "path": "wiki/augment-candidate.json",
+      "base_exists": true,
+      "base_sha256": "a0ec0c24b30802671fee372832c8b04943664bb0ea149b15aa8c7d92aa86d595",
+      "sha256": "a0ec0c24b30802671fee372832c8b04943664bb0ea149b15aa8c7d92aa86d595"
+    },
+    {
+      "path": "wiki/augment_candidate.py",
+      "base_exists": true,
+      "base_sha256": "6b2a8f2dab7be6d77fe21f64908a10edc5f67a02d87f3c87c5d1664619a91bfe",
+      "sha256": "6b2a8f2dab7be6d77fe21f64908a10edc5f67a02d87f3c87c5d1664619a91bfe"
+    },
+    {
+      "path": "wiki/build-lab-data.json",
+      "base_exists": true,
+      "base_sha256": "8df9482901e73b42906cff14dd0680a51e95ee9e5c53a2f5385bc1c263ccd706",
+      "sha256": "8df9482901e73b42906cff14dd0680a51e95ee9e5c53a2f5385bc1c263ccd706"
+    },
+    {
+      "path": "wiki/build.py",
+      "base_exists": true,
+      "base_sha256": "052d44a82e83862a7f1c0f2c760cdd37f71eb81b98e7aa95ef743ae45b6cd273",
+      "sha256": "b5585937d4c570af43aa15321e13646387a34567176efc5b3fbdadc373c7408d"
+    },
+    {
+      "path": "wiki/build_lab.py",
+      "base_exists": true,
+      "base_sha256": "bbe6dabcc38e3fb150cec3a4096cd309d1517adcb9dbe36942917180aa884de7",
+      "sha256": "bbe6dabcc38e3fb150cec3a4096cd309d1517adcb9dbe36942917180aa884de7"
+    },
+    {
+      "path": "wiki/capture_loot_remote.py",
+      "base_exists": true,
+      "base_sha256": "be04993c7c6d3d2b7f276233b85a3f486e65839fcfeea71528feeaf8e8d96e84",
+      "sha256": "be04993c7c6d3d2b7f276233b85a3f486e65839fcfeea71528feeaf8e8d96e84"
+    },
+    {
+      "path": "wiki/catalog.json",
+      "base_exists": true,
+      "base_sha256": "ef024afcdbcf38d9271ab00d1c2d98fedc77d1992c88b6bba086c301476f6551",
+      "sha256": "ef024afcdbcf38d9271ab00d1c2d98fedc77d1992c88b6bba086c301476f6551"
+    },
+    {
+      "path": "wiki/catalog.py",
+      "base_exists": true,
+      "base_sha256": "f3acb32684cff2fd95a0c187309cd6dd747af3908561fd9f1ac0d36c0beab8ad",
+      "sha256": "f3acb32684cff2fd95a0c187309cd6dd747af3908561fd9f1ac0d36c0beab8ad"
+    },
+    {
+      "path": "wiki/chapterhouse_catalog.py",
+      "base_exists": true,
+      "base_sha256": "7028cacf937196a44c6508e9eb84f0d4e2affe2d085f60ceb0240d0e6c7a3034",
+      "sha256": "7028cacf937196a44c6508e9eb84f0d4e2affe2d085f60ceb0240d0e6c7a3034"
+    },
+    {
+      "path": "wiki/check_refresh.py",
+      "base_exists": true,
+      "base_sha256": "88bf2559f478f171a489860553e156168ba264acb8cd29e7fc28cbeffd0c0a26",
+      "sha256": "88bf2559f478f171a489860553e156168ba264acb8cd29e7fc28cbeffd0c0a26"
+    },
+    {
+      "path": "wiki/content-review.json",
+      "base_exists": true,
+      "base_sha256": "2a513099bd959216e17762e66ecff50d81aa5b4f145d8856dc5b4a90eab03303",
+      "sha256": "2a513099bd959216e17762e66ecff50d81aa5b4f145d8856dc5b4a90eab03303"
+    },
+    {
+      "path": "wiki/deploy.py",
+      "base_exists": true,
+      "base_sha256": "61287b87b690d5071020dd687f222c5e10d9cfac8789e703938dadc7601a5837",
+      "sha256": "61287b87b690d5071020dd687f222c5e10d9cfac8789e703938dadc7601a5837"
+    },
+    {
+      "path": "wiki/equipment.py",
+      "base_exists": true,
+      "base_sha256": "c94d70b67f0ac136e46db24d231273e514050527615928ca4686a77b42018152",
+      "sha256": "c94d70b67f0ac136e46db24d231273e514050527615928ca4686a77b42018152"
+    },
+    {
+      "path": "wiki/experience.py",
+      "base_exists": true,
+      "base_sha256": "e5b22ddbbf7b820b82ec38d009b7fa709d7638a2d9a18a8097fe6c83af8ca0d1",
+      "sha256": "e5b22ddbbf7b820b82ec38d009b7fa709d7638a2d9a18a8097fe6c83af8ca0d1"
+    },
+    {
+      "path": "wiki/last-lantern-catalog.json",
+      "base_exists": true,
+      "base_sha256": "0a29497839994b9ae2b6144a754093299f7db271a3409f02d3bdd06103a83fa7",
+      "sha256": "0a29497839994b9ae2b6144a754093299f7db271a3409f02d3bdd06103a83fa7"
+    },
+    {
+      "path": "wiki/last_lantern_catalog.py",
+      "base_exists": true,
+      "base_sha256": "7490a40f24dc887c4ce176c9e0489f46f7a0d9ea14d099a2a6d97e0c122d84a8",
+      "sha256": "7490a40f24dc887c4ce176c9e0489f46f7a0d9ea14d099a2a6d97e0c122d84a8"
+    },
+    {
+      "path": "wiki/loot_capture.py",
+      "base_exists": true,
+      "base_sha256": "903d2f3716e0b0d6dd35dd314d71163d0df5e16a6d9e3d0ed3d982db5550d0d0",
+      "sha256": "903d2f3716e0b0d6dd35dd314d71163d0df5e16a6d9e3d0ed3d982db5550d0d0"
+    },
+    {
+      "path": "wiki/loot_finder.py",
+      "base_exists": true,
+      "base_sha256": "f99d806cd57bc7c2484c7b209afacb5ab0ff76b9f3db04e5b389b1cdd0caca56",
+      "sha256": "f99d806cd57bc7c2484c7b209afacb5ab0ff76b9f3db04e5b389b1cdd0caca56"
+    },
+    {
+      "path": "wiki/loot_install.py",
+      "base_exists": true,
+      "base_sha256": "82d301c861e72a528128f2231a80a5296a7a56745beb2c4d66b540e880b831cc",
+      "sha256": "82d301c861e72a528128f2231a80a5296a7a56745beb2c4d66b540e880b831cc"
+    },
+    {
+      "path": "wiki/loot_model.py",
+      "base_exists": true,
+      "base_sha256": "0a0c35e431c7cf02ad3a2e2296549e5b2a661137c16671986b00e10b157bf4aa",
+      "sha256": "0a0c35e431c7cf02ad3a2e2296549e5b2a661137c16671986b00e10b157bf4aa"
+    },
+    {
+      "path": "wiki/loot_refresh.py",
+      "base_exists": true,
+      "base_sha256": "c8188ed7ccb6ce8506b42d2a30287b38a0397037599fcfcfec9659252a7c0bd5",
+      "sha256": "c8188ed7ccb6ce8506b42d2a30287b38a0397037599fcfcfec9659252a7c0bd5"
+    },
+    {
+      "path": "wiki/preview_loot.py",
+      "base_exists": true,
+      "base_sha256": "b62a5fa4944cd99b19523c316037d21855641e3ac781d0b812561e8f3ca6bc6e",
+      "sha256": "b62a5fa4944cd99b19523c316037d21855641e3ac781d0b812561e8f3ca6bc6e"
+    },
+    {
+      "path": "wiki/update.py",
+      "base_exists": true,
+      "base_sha256": "5abac3f6c22f6bb1b19be74ddc3cdc0e7a3638cb570920459e5e620ee8fa1680",
+      "sha256": "5abac3f6c22f6bb1b19be74ddc3cdc0e7a3638cb570920459e5e620ee8fa1680"
+    },
+    {
+      "path": "wiki/verify_loot_linux.py",
+      "base_exists": true,
+      "base_sha256": "e44384f70f43287d61d74b7ac043b251997442c68dcec863cf44241959358d84",
+      "sha256": "e44384f70f43287d61d74b7ac043b251997442c68dcec863cf44241959358d84"
+    },
+    {
+      "path": "wiki/verify_loot_native.py",
+      "base_exists": true,
+      "base_sha256": "d8e7ad092e004819ab2c9b2fbb0208295258a98027677e170ae1f931f338eab2",
+      "sha256": "d8e7ad092e004819ab2c9b2fbb0208295258a98027677e170ae1f931f338eab2"
+    },
+    {
+      "path": "wiki/verify_loot_nginx.py",
+      "base_exists": true,
+      "base_sha256": "ad117b1c35c028f987b32522787a73100398184c2719d7d3af5dce406de393b1",
+      "sha256": "ad117b1c35c028f987b32522787a73100398184c2719d7d3af5dce406de393b1"
+    }
+  ],
+  "patch_sha256": "3ddbbfd223da51471ce15b32b70229febd55e1fc7fc596f7539e3f35b1d27adf",
+  "public_release": "20261107-last-lantern-v2",
+  "platform": "Windows Python3.14; input LF normalization and existing builder output contract",
+  "scope": "Exact current public build inputs; excludes unrelated main previews; source ledgers are not served",
+  "status": "PASS",
+  "public_files": 613,
+  "source_bytes_verified": true
+}

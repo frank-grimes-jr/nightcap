@@ -195,7 +195,7 @@ def fixture(level,profile='war-pal-mnk',developed=False):
     equipment=[dict(slot=slot,id=rows[design]['id']) for design,slot in slots.items()]
     equipment += [dict(slot=10,id=rows[3]['id']),dict(slot=4,id=rows[16]['id']),dict(slot=16,id=rows[17]['id'])]
     grade=0 if level<=40 else 1 if level<=46 else 2
-    earned=1 if level<=25 else 3 if level<=38 else 4 if level<=40 else 6 if level<=46 else 7
+    earned=1 if level<=25 else 3 if level<=38 else 4 if level<=40 else 5 if level<=42 else 6 if level<=46 else 7
     fit=1 if profile!='war-clr-wiz' else 3
     armor=compile_items()
     for item in armor:

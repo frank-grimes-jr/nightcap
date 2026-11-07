@@ -10,11 +10,23 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261021-aa-million-guide-v1`, selected by
+- Active release: `20261107-last-lantern-guide-v1`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - The website operation preserves all five container identities/start times,
   both patch channels, the existing setup guide and friend ZIP. It does not
   restart the game or mutate the database; gameplay deployment is recorded separately.
+
+## November7 journal correction
+
+The active private guide replaces only its obsolete Adventure Journal section
+with the installed level20–50 Last Lantern route, outfit/refits and paired client
+update. All unrelated published HTML bytes and four assets are retained. Origin
+rollback, all five HTTPS hashes/security/private-cache headers, existing access
+rules and service identities verify. This website publication writes no gameplay
+or client channel data. Current Nginx bytes remain identical; the existing
+publisher reloads that configuration during its pointer rehearsal.
+Evidence: docs/adventure-journal/release-20261107/player-guide-* and
+guide-public-verification.json. Gameplay acceptance remains open.
 
 ## October 21 AA million-point and XP boost publication
 

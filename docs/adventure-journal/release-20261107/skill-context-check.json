@@ -1,0 +1,293 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "adventure-journal": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\CAMPAIGN.md",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\SPEC.md",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\catalog.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\tools\\epic05.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\plugins\\epic05.pl",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\lore\\structure.md",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\last_lantern.inc",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\dungeon_service.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\dungeon_service.h",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\highkeep_rescue.inc",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\spawn2.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\attack.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\tools\\tests\\test_lantern_runtime.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\tools\\tests\\test_lantern_task_save.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\common\\last_lantern_scene_policy.h",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\common\\last_lantern_catalog.h",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\task_manager.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\task_client_state.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\plugins\\epic05_store.pl",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\production-verification.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\common\\shareddb.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\pets.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\advanced_loot_inventory.h",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\tools\\tests\\rehearse_last_lantern.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\cache-private-validation.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\common\\last_lantern_policy.h",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\common\\last_lantern_inventory.h",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\server-mods\\code\\zone\\advanced_loot_inventory.cpp",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\last-lantern-catalog.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\database-rehearsal.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\eq-launcher\\patch-notes.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\client-public-verification.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\CHANGES.md",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\status.md",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\ops\\player-website.md",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\index.html",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\post-publication-verification.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\rollout.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\native-build.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\tools\\last_lantern_balance.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\balance\\calibration.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\balance\\native-build-manifest.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\public-source-reproduction.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\player-guide-publication.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\catalog.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\features.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\index.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\tunnel.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\travel.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\equipment.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\articles\\adventure-journal.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\last-lantern-catalog.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\wiki\\last_lantern_catalog.py",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\wiki-impact.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\adventure-journal-endgame\\docs\\adventure-journal\\release-20261107\\wiki-publication.json",
+        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

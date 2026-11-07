@@ -1,0 +1,116 @@
+{
+  "runtime": {
+    "image_id": "sha256:56605b9ea493f1dd0298da16f7367b1be1138c4c75a62b0f972d9d4f31977e1c",
+    "started_at": "2026-11-07T15:49:40.680634544Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "game": {
+    "id": "abaf6125f9a678ad6a26efc0ace1cf16bad4c2e69179b62d07759b719f1187cb",
+    "image_id": "sha256:56605b9ea493f1dd0298da16f7367b1be1138c4c75a62b0f972d9d4f31977e1c",
+    "started_at": "2026-11-07T15:49:40.680634544Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "117",
+      "0",
+      "4",
+      "2.500000",
+      "2026-11-06 21:21:02"
+    ],
+    "after": [
+      "1",
+      "1",
+      "118",
+      "0",
+      "4",
+      "2.500000",
+      "2026-11-07 15:49:55"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "checks": {
+    "items": 128,
+    "tasks": 16,
+    "task_activities": 64,
+    "npc_types": 19
+  },
+  "gateway_open": true,
+  "client_release": 2026110701,
+  "owner_gameplay_accepted": false,
+  "database_restored": false,
+  "content_installed": true
+}

@@ -1,7 +1,7 @@
 {
   "reviewed_source": "e3c1a9c282a542c5744ac689ff3353b4ff6bb3be",
   "include_worktree": true,
-  "deployment_status": "authorized; preflight in progress; no publication claim yet",
+  "deployment_status": "paired OVH/client/wiki/private-guide release published; normal-player QA remains open",
   "changed": [
     "adventure-journal",
     "features",
@@ -65,5 +65,8 @@
     "zone-kael": "reviewed: no changed mechanics, acquisition, command or value; existing guide retained"
   },
   "browser_qa": "UNVERIFIED: no browser connector; native Firefox app approval timed out; static/link/search checks proceed",
-  "global_ledger": "Unrelated source drift retained for separate review"
+  "global_ledger": "Unrelated source drift retained for separate review",
+  "private_guide": "Obsolete journal section replaced in exact live baseline; other HTML bytes/four assets/private access preserved",
+  "loot_finder": "No mob-drop rows added: claimed campaign rewards use their own reachable-equipment directory",
+  "candidate_notice_review": "v2 removes old id=journal notices and clarifies historical Change Log entries; both anchors retained"
 }

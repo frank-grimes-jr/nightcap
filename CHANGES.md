@@ -1,5 +1,29 @@
 # CHANGES
 
+## 2026-11-07 — Last Lantern paired release deployed for live QA
+
+Main8d75f8da and the guarded OVH v4release install the level20–50 campaign,
+12playthrough chapters/16Tasks/64activities, eight private company memories,
+recurring companions, eight useful coordinated armor pieces/four legal fits,
+earned40/46/50 refits, oath charm and memorial/title. Native durability, ordered
+party/pet/swarm credit and stable claim/refit receipts preserve earned progress
+and full item metadata. All309,871old cached items and unrelated spells remain.
+
+Current-baseline/native ELF reproduction,128armor afterimages,13compiled
+controls, real MariaDB/24DBI checks,53quest assertions and32combat controls pass.
+Stopped backup, saved-state model, one market rotation, healthy native hashes
+and zero runtime restarts verify. No old player snapshot was restored. Recover
+forward with the new personal-item/cache policy after claims.
+
+Signed2026110701 publishes six campaign changes in client notes and paired
+spells, preserving147asset URLs/38older notes. All148HTTPS files/signature and
+actual DLL/catalog pairing verify. Wiki613files and the journal-only private
+guide correction publish with unrelated content/assets/access preserved. The
+wiki correction removes superseded candidate notices while retaining anchors
+and dated history. Normal-player scene/pathing/group/pet/SSF/armor and balance
+acceptance remain open; browser visual QA was unavailable. Evidence and exact
+player QA: docs/adventure-journal/release-20261107/.
+
 ## 2026-11-07 — Native task-save acknowledgement and retry repair
 
 The campaign audit found native SaveClientState could return success after failed

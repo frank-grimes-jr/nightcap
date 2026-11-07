@@ -13,10 +13,14 @@ def main():
     wiki=json.loads((OUT/'wiki-publication.json').read_text())
     assert deployed['gateway_open'] and deployed['content_installed'] and not deployed['database_restored']
     assert client['release']==2026110701 and client['hosted'] and wiki['result']=='PASS'
+    assert json.loads((OUT/'wiki-public-verification.json').read_text(encoding='utf-8'))['status']=='PASS'
+    assert json.loads((OUT/'guide-public-verification.json').read_text(encoding='utf-8'))['result']=='PASS'
     names=['SKILL.md']+['references/'+n+'.md' for n in ('world','items','client','operations','balance','wiki')]+['references/sources.json']
     before={n:(SKILL/n).read_text(encoding='utf-8') for n in names};after=dict(before)
     route='E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame'
-    world='''Adventure Journal / Epic0.5 is now **The Last Lantern**, deployed November7 for
+    world='''## Adventure Journal — The Last Lantern
+
+Adventure Journal / Epic0.5 is now **The Last Lantern**, deployed November7 for
 live QA; normal-player acceptance remains OPEN. See docs/adventure-journal/
 release-20261107/{README.md,production-verification.json,CAMPAIGN-QA.md} in
 ROOT. Twelve chapters per playthrough use16Task definitions9500–9515,
@@ -55,6 +59,9 @@ race/gender armor appearance and combined balance remain separate player QA.
 Source: last_lantern.inc, last_lantern_{policy,scene_policy,inventory,catalog}.h,
 task_{manager,client_state}.cpp, advanced_loot_inventory.cpp, epic05{,_store}.pl.
 Tests: test_lantern_*; real MariaDB refit/SQL/24DBI controls;53quest assertions.
+Use context.py --topic adventure-journal --check for this feature’s current source.
+Native follow distance is squared:36keeps an escort within6units; actual pathing
+and visible appearance remain normal-player QA.
 '''.replace('ROOT',route)
     text=after['references/world.md'];start=text.index('Adventure Journal / Epic 0.5 remains an **unreleased eight-task candidate**;')
     end=text.find('\n\n',start);end=len(text) if end<0 else end
@@ -103,18 +110,21 @@ Keep measured failures and assumptions: arena controls are not pathing, guardian
 brand, all-class or whole-expedition certification. Actual live QA remains open.
 Source tools/last_lantern_balance.py and release-20261107/balance/{calibration.json,
 draft-calibration.json,native-build-manifest.json}; never infer optimal builds.''',
-      'wiki':'''Wiki20261107-last-lantern-v1 is published after the paired campaign/client
+      'wiki':'''Wiki20261107-last-lantern-v2 is published after the paired campaign/client
 release. Reproduced all510previous public files from the authenticated current
 source before scoped changes;613public files now include103new pages. Reviewed
 all42authored articles, generated directories, acquisition/catalog values and
 release labels. New guide + separate100reachable armor variants/charm directory;
 Features/Home/equipment/tunnel/travel/In development/Change Log and seven zone
 contexts updated. Hunt values, loot finder sources and unrelated guides retained.
+Both scoped publications retain the103new pages; v2 removes superseded candidate text.
 All public manifest hashes, private denials, security headers and pointer rollback
 verify in release-20261107/wiki-* evidence. Global unrelated source drift remains
 REVIEW REQUIRED; no blind ledger advance. Browser visual QA is explicitly
 unverified: no browser connector and native app approval timeout. Normal-player
-armor and campaign acceptance remain OPEN; status is Live testing.'''
+armor and campaign acceptance remain OPEN; status is Live testing. The private
+player guide also replaces only its obsolete journal section, preserving all
+other HTML/four assets/private access; all five HTTPS hashes and headers pass.'''
     }
     for topic,body in sections.items():
         name='references/'+topic+'.md';text=after[name]
@@ -124,33 +134,38 @@ armor and campaign acceptance remain OPEN; status is Live testing.'''
         text=text.split('\n',1)[0]+'\n\n'+heading+'\n\n'+body+'\n'+text.split('\n',1)[1]
         after[name]=text
     after['references/balance.md']=after['references/balance.md'].replace('Adventure Journal/Epic 0.5 and portions of combat/item and living-economy work are candidates;','The Last Lantern has its November7 live-QA release boundary; portions of combat/item and living-economy work remain candidates;')
-    after['SKILL.md']=after['SKILL.md'].replace('Tunnel NPCs, travel, waypoints, instances, Perl bindings','Tunnel NPCs, travel, instances, Adventure Journal, Perl bindings')
+    row='| Journal campaign, earned outfits, private company memories | [Quests and world](references/world.md) / `adventure-journal` |\n'
+    marker='| Player faction standings, bars and #factions |'
+    assert marker in after['SKILL.md']
+    after['SKILL.md']=after['SKILL.md'].replace(marker,row+marker)
     sources=json.loads(after['references/sources.json']);rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     paths={
       'world':['server-mods/code/zone/last_lantern.inc','server-mods/code/zone/dungeon_service.cpp','server-mods/code/zone/dungeon_service.h','server-mods/code/zone/highkeep_rescue.inc','server-mods/code/zone/spawn2.cpp','server-mods/code/zone/attack.cpp','tools/epic05.py','tools/tests/test_lantern_runtime.py','tools/tests/test_lantern_task_save.py','server-mods/code/common/last_lantern_scene_policy.h','server-mods/code/common/last_lantern_catalog.h','server-mods/code/zone/task_manager.cpp','server-mods/code/zone/task_client_state.cpp','server-mods/plugins/epic05.pl','server-mods/plugins/epic05_store.pl','docs/adventure-journal/CAMPAIGN.md','docs/adventure-journal/SPEC.md','docs/adventure-journal/catalog.json','docs/lore/structure.md','docs/adventure-journal/release-20261107/production-verification.json'],
       'items':['server-mods/code/common/shareddb.cpp','server-mods/code/zone/pets.cpp','server-mods/code/zone/advanced_loot_inventory.h','tools/tests/rehearse_last_lantern.py','docs/adventure-journal/release-20261107/cache-private-validation.json','server-mods/code/common/last_lantern_policy.h','server-mods/code/common/last_lantern_inventory.h','server-mods/code/zone/advanced_loot_inventory.cpp','docs/adventure-journal/last-lantern-catalog.json','docs/adventure-journal/release-20261107/database-rehearsal.json'],
       'client':['eq-launcher/patch-notes.json','docs/adventure-journal/release-20261107/client-public-verification.json'],
-      'operations':['docs/adventure-journal/release-20261107/rollout.py','docs/adventure-journal/release-20261107/production-verification.json','docs/adventure-journal/release-20261107/native-build.json'],
+      'operations':['CHANGES.md','docs/status.md','docs/ops/player-website.md','index.html','docs/adventure-journal/release-20261107/post-publication-verification.json','docs/adventure-journal/release-20261107/rollout.py','docs/adventure-journal/release-20261107/production-verification.json','docs/adventure-journal/release-20261107/native-build.json'],
       'balance':['tools/last_lantern_balance.py','docs/adventure-journal/release-20261107/balance/calibration.json','docs/adventure-journal/release-20261107/balance/native-build-manifest.json'],
-      'wiki':['wiki/catalog.py','wiki/articles/features.json','wiki/articles/index.json','wiki/articles/tunnel.json','wiki/articles/travel.json','wiki/articles/equipment.json','wiki/articles/adventure-journal.json','wiki/last-lantern-catalog.json','wiki/last_lantern_catalog.py','wiki/articles/unreleased.json','wiki/articles/recent-changes.json','docs/adventure-journal/release-20261107/wiki-impact.json','docs/adventure-journal/release-20261107/wiki-publication.json']}
+      'wiki':['docs/adventure-journal/release-20261107/public-source-reproduction.json','docs/adventure-journal/release-20261107/player-guide-publication.json','wiki/catalog.py','wiki/articles/features.json','wiki/articles/index.json','wiki/articles/tunnel.json','wiki/articles/travel.json','wiki/articles/equipment.json','wiki/articles/adventure-journal.json','wiki/last-lantern-catalog.json','wiki/last_lantern_catalog.py','wiki/articles/unreleased.json','wiki/articles/recent-changes.json','docs/adventure-journal/release-20261107/wiki-impact.json','docs/adventure-journal/release-20261107/wiki-publication.json']}
     for topic,files in paths.items():
         for path in files:
-            row=dict(root=route,path=path,role='Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open',revision=rev+' plus verified release evidence',sha256=hashlib.sha256((ROOT/path).read_bytes()).hexdigest())
+            row=dict(root=route,path=path,role='Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open',revision=rev+' + reviewed release working tree and verified receipts',sha256=hashlib.sha256((ROOT/path).read_bytes()).hexdigest())
             existing=next((r for r in sources['topics'][topic] if r['root']==route and r['path']==path),None)
             if existing:existing.update(row)
             else:sources['topics'][topic].append(row)
     sources['observed_revisions']['last_lantern_live_qa_20261107']=rev
-    sources['topics']['adventure-journal']=[r for t in ('world','items','client','operations','balance','wiki') for r in sources['topics'][t] if r['root']==route and r['path'] in paths[t]]
+    selected={r['path']:r for t in ('world','items','client','operations','balance','wiki') for r in sources['topics'][t] if r['root']==route and r['path'] in paths[t]}
+    sources['topics']['adventure-journal']=list(selected.values())
     after['references/sources.json']=json.dumps(sources,indent=2)+'\n'
     patch=''
     for name in names:
-        patch+=''.join(difflib.unified_diff(before[name].splitlines(keepends=True),after[name].splitlines(keepends=True),fromfile='a/'+name,tofile='b/'+name))
+        rows=difflib.unified_diff(before[name].splitlines(keepends=True),after[name].splitlines(keepends=True),fromfile='a/'+name,tofile='b/'+name)
+        patch+=''.join(row if row.endswith('\n') else row+'\n\\ No newline at end of file\n' for row in rows)
     (OUT/'installed-skill.patch').write_text(patch,encoding='utf-8')
     if args.apply:
         for name in names:
             assert (SKILL/name).read_text(encoding='utf-8')==before[name],'Concurrent skill edit; re-review'
             (SKILL/name).write_bytes(after[name].encode('utf-8'))
-    (OUT/'skill-maintenance.json').write_text(json.dumps({'applied':args.apply,'reviewed_revision':rev,'files':{n:hashlib.sha256(after[n].encode()).hexdigest() for n in names},'normal_player_accepted':False},indent=2)+'\n')
+    (OUT/'skill-maintenance.json').write_text(json.dumps({'applied':args.apply,'reviewed_revision':rev,'working_tree_reviewed':True,'files':{n:hashlib.sha256(after[n].encode()).hexdigest() for n in names},'normal_player_accepted':False},indent=2)+'\n')
     print('Installed skill refreshed' if args.apply else 'Exact skill patch prepared; installation pending')
 
 if __name__=='__main__':main()

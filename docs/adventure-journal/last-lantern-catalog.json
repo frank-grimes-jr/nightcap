@@ -1,6 +1,6 @@
 {
   "revision": 2026110701,
-  "status": "built content candidate; not installed or player accepted",
+  "status": "reviewed definitions; deployment and player acceptance are recorded separately in release-20261107",
   "items": [
     {
       "ac": 4,

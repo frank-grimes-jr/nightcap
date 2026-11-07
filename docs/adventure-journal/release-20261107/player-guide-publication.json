@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "release": "20261107-last-lantern-guide-v1",
+  "stage": {
+    "result": "STAGED_AND_ROLLBACK_REHEARSED",
+    "release": "20261107-last-lantern-guide-v1"
+  },
+  "activation": {
+    "result": "ORIGIN_VERIFIED",
+    "release": "20261107-last-lantern-guide-v1",
+    "files": 5
+  },
+  "assets_preserved": 4,
+  "only_journal_section_changed": true,
+  "services_preserved": true,
+  "private_access_preserved": true
+}

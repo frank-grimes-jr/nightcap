@@ -250,7 +250,7 @@ def native_catalog():
 
 def main():
     tasks, activities = compile_tasks()
-    data = dict(revision=REVISION, status='built content candidate; not installed or player accepted',
+    data = dict(revision=REVISION, status='reviewed definitions; deployment and player acceptance are recorded separately in release-20261107',
                 items=compile_items(), tasks=tasks, task_activities=activities,
                 npc_types=compile_npcs(), scenes=SCENES)
     (OUT / 'last-lantern-catalog.json').write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')

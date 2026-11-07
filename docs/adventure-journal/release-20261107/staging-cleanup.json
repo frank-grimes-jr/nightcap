@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "removed_temporary_schemas": [
+    "nightcap_dungeon_stage_1107a11ce001",
+    "nightcap_dungeon_stage_1107a11ce002",
+    "nightcap_dungeon_stage_1107a11ce003"
+  ],
+  "private_rehearsal_rows_confirmed_empty": true,
+  "production_database_changed": false,
+  "service_identities_preserved": true,
+  "release_images_cache_and_backups_retained": true
+}

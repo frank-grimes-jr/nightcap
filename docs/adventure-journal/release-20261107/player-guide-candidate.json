@@ -1,0 +1,23 @@
+{
+  "status": "candidate_not_published",
+  "previous": "20261023-aa-level-guide-v1",
+  "release": "20261107-last-lantern-guide-v1",
+  "manifest": {
+    "index.html": "3e3ed18c2f7a615643cfc5fe2c47c80197413b1fed45538c929f15c8b935b3ca",
+    "site-assets/site.css": "f4d4fb3b22cedd35ea20984538d65705124bae56a94d6195202fa1585021e37c",
+    "site-assets/moon.svg": "0ef4eea758c62828f83d8b33bd964763a5d32146bbbd2bdc99571553650f4433",
+    "site-assets/traders-at-dusk.png": "7ab2445d59587db5c93cf8eb52a99b701bc902e1c99ba1f975aceb02c37d21c3",
+    "site-assets/master-of-three.png": "0905d672ef824f6b08e51f841dd5c17f8f270a56ad75c53df9f645907845c18b"
+  },
+  "before": {
+    "index.html": "37bc4a4535fb458841ab96fb67289dcf86fe64f7276c2eb51b4e28226d45db6c",
+    "site-assets/site.css": "f4d4fb3b22cedd35ea20984538d65705124bae56a94d6195202fa1585021e37c",
+    "site-assets/moon.svg": "0ef4eea758c62828f83d8b33bd964763a5d32146bbbd2bdc99571553650f4433",
+    "site-assets/traders-at-dusk.png": "7ab2445d59587db5c93cf8eb52a99b701bc902e1c99ba1f975aceb02c37d21c3",
+    "site-assets/master-of-three.png": "0905d672ef824f6b08e51f841dd5c17f8f270a56ad75c53df9f645907845c18b"
+  },
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "unchanged_outside_journal_sha256": "54e79fd0624da8ab4cb1487230849bd739e2dc774cdea407b68dda1077117549",
+  "assets_preserved": 4,
+  "source": "Exact published private-guide bytes with only its journal section replaced; unrelated main changes excluded"
+}

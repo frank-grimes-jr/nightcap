@@ -1,15 +1,15 @@
 # Wayfarer's Oath: The Last Lantern
 
-Status: approved direction; implementation in progress, November 7, 2026.
+Status: deployed for live QA, November 7, 2026; normal-player acceptance remains open.
 The owner explicitly requested main/server deployment and client notes after
 reviewing this campaign. This authorizes this release, not gameplay acceptance.
 Implementation plan: [ordered slices](../../tasks/adventure-journal-endgame/plan.md).
 
 The owner requested a
 living story through endgame and confirmed useful progression armor with a
-coordinated appearance. The implemented candidate now has sixteen native Tasks, eight private memory scenes
+coordinated appearance. The installed implementation has sixteen native Tasks, eight private memory scenes
 and the complete armor/refit system. The original eight-task catalog is preserved
-as its path/spell foundation. Release, measured tuning and player acceptance are
+as its path/spell foundation. Deployment, measured tuning and player acceptance are
 tracked separately in release-20261107/. This document does not establish installation.
 
 ## The experience
@@ -211,23 +211,29 @@ New encounter integration must audit the current managed-instance lifecycle,
 credit, receipts and corpses. Prefer a separate campaign contract with isolated
 checkpoints. It may use reviewed Keeper infrastructure but cannot advance a
 Raid/Grind completion, mint its rewards or let reset replay campaign deliveries.
-Existing eight quests retain their exact IDs and earned history; new IDs are
-unassigned until collision checks and an additive migration are reviewed.
+The original eight task IDs remain9500–9507; continuations use9508–9515.
+Collision audits reserve armor964000–964127, charm900501, spells42800–42805,
+actors998900–998939 (nineteen definitions), six public spawn IDs9113000–9113005
+and title995501. The guarded additive migration and exact generated catalog are
+in last-lantern-setup.sql and last-lantern-catalog.json; current release evidence
+is separate from normal-player acceptance.
 
 Rescues have short routes and reset only their encounter on failure. An earlier
 chapter and its rewards never reset. Connected eligible helpers may join under
 normal instance/credit rules; SSF is supported solo without player assistance.
 Do not balance by primary-class counters or demand a particular spell/AA.
 
-Proposed finale phases:
+Implemented finale phases:
 
-1. **The borrowed names:** expose three bindings using readable interrupt and
-   positioning windows. Each binding restores a recorded companion voice.
-2. **The broken company:** protect the standard through a bounded add sequence;
-   telegraphed unsafe ground forces movement without unavoidable class checks.
-3. **The witness remains:** a direct fight with a manageable pressure cycle.
-   Earlier objectives change the dialogue and available safe positions, never
-   permit an unearned instant kill or endlessly multiplying pet exploit.
+1. **The borrowed names:** hail three bindings and hear the remembered voices.
+2. **The broken company:** protect the standard through three two-enemy waves.
+3. **The witness remains:** face the recorder. Every18seconds his shout/yellow
+   message marks a player's feet; move at least10units within3seconds, or stun
+   him before impact. No client cast bar or visible ground decal is promised.
+
+Return to the Commonlands campfire to close the story. The earlier inscription
+changes its acknowledgement, not combat positions or reward power. Oren offers
+the final chest/robe and Complete refits after durable chapter completion.
 
 Tuned add counts, damage, HP, cast timings and reset boundaries follow measured
 fresh/developed level-50 runs. Excessive HP, uninterruptible unavoidable deaths,
@@ -238,8 +244,10 @@ this campaign's ordinary finale.
 
 ## Implementation order and proof
 
-This is a reviewable specification, not a completed implementation plan. After
-design approval, split implementation into independently verifiable slices:
+The following slices are implemented. The owner authorized November7 main/server
+release and client notes before manual acceptance; this is specific to this
+release. Native/database/arena verification and deployment receipts are complete;
+normal-player appearance and full-scene acceptance remain open.
 
 1. **Audit and reserve:** capture current content, item bands, native materials,
    map routes, SSF restrictions, task hooks and durable inventory adapters.
@@ -254,8 +262,9 @@ design approval, split implementation into independently verifiable slices:
 5. **Planar act:** chapters 9-12, checkpoints, three-phase finale, completion
    receipts, final outfit and title. Measure each supported representative build.
 6. **Release candidate:** matching native/content/cache/client package where
-   needed; staged and reviewed wiki, full native/manual QA, dev -> test. Main
-   and production follow the owner's normal sign-off boundary.
+   needed; native/data checks and the scoped wiki/client publication pass. The
+   owner's explicit November7 request authorizes main/production for live QA;
+   normal-player manual acceptance is retained as a separate open gate.
 
 Existing implementation locations: `tools/epic05.py`, `tools/epic05_capture.py`,
 `server-mods/plugins/epic05*.pl`, `server-mods/quests/ecommons/The_Ancient_Chronicler.pl`,
@@ -303,7 +312,10 @@ command. No build or gameplay test result for the expansion is claimed here.
   and public wiki publication remain separate statuses. A reviewed proposal is
   not built content; built content is not installed or player-accepted.
 
-Review needed before implementation: chapter/story direction and guaranteed
-eight-piece reward structure. Content audit then resolves exact new identities,
-placements, legal fit masks, material/tint feasibility and numeric item/encounter
-budgets. None of those are claimed verified by this design document.
+Implementation audits resolved the new identities, placements, fit masks,
+materials/tints and numeric budgets. Thirty-two native earned-gear controls,
+whole-cache preservation, durable refit/database tests and matching production
+readbacks are recorded in release-20261107/. These establish the implemented and
+installed boundary. Full normal-account story/path/group/pet/SSF, visible armor,
+escort/brand execution and combined balance remain player QA; automated evidence
+does not establish that acceptance.

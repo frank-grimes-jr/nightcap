@@ -1,0 +1,16 @@
+{
+  "applied": true,
+  "reviewed_revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096",
+  "working_tree_reviewed": true,
+  "files": {
+    "SKILL.md": "886d6780b16e8299b00fd933c958d9b864b95adcff0542be84f72481ce9a3408",
+    "references/world.md": "83c5eeb2a9b96b88f9b95920fb699494a279ad327482468983a4137db7fd30e9",
+    "references/items.md": "b6c5895f193420a240400d96233786b87db4d71446a84a89506883efc0557627",
+    "references/client.md": "de31df1c1735c44e654b9043a3cac3c609a014e610315d5e44b6265ca7f9b96f",
+    "references/operations.md": "8195d5be17bd1d9a056176ea07e8543895d8b08286574b9a3f7ca7990e6d23e2",
+    "references/balance.md": "ee43ba2fa91f3110eb66f4c6f7219f2afbefb2be0cf9b9989da967d5abfb6a24",
+    "references/wiki.md": "e043646eb15c5a61eb5a8135ac1b33e49ebb2b6083eb464fc217ae5c3b522764",
+    "references/sources.json": "f0534be71b5fd2424d0f33813ed6f6dc9b140bb803ec4e79bc59b1fa39766834"
+  },
+  "normal_player_accepted": false
+}

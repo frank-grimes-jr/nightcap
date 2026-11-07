@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "release": "20261107-last-lantern-v2",
+  "previous_release": "20261107-last-lantern-v1",
+  "files": 613,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "OK",
+  "changed_existing": [
+    "features.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ],
+  "preserved_files": 609,
+  "added_files": 0,
+  "package_sha256": "a46e2f03eb25adf9a6d65299b0fcc73465d1358b8ffbff5a4c023f5d92cd85d7",
+  "scope": "Last Lantern guide/reachable rewards/context; authenticated current public source; unrelated main previews remain unpublished"
+}

@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "runtime": {
+    "image_id": "sha256:56605b9ea493f1dd0298da16f7367b1be1138c4c75a62b0f972d9d4f31977e1c",
+    "started_at": "2026-11-07T15:49:40.680634544Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ],
+      [
+        "zone",
+        "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "services": {
+    "game": {
+      "id": "abaf6125f9a678ad6a26efc0ace1cf16bad4c2e69179b62d07759b719f1187cb",
+      "image_id": "sha256:56605b9ea493f1dd0298da16f7367b1be1138c4c75a62b0f972d9d4f31977e1c",
+      "started_at": "2026-11-07T15:49:40.680634544Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-11-07T15:56:08.492715223Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-11-03T14:43:33.34444028Z",
+      "restarts": 3,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "caches": {
+    "items": "c841133a65084263091f9c1fa7d62ea0cfb4da2e83f788c2a2f2a6f8fae9321c",
+    "spells": "20b3cbe91e0c0481993ca2f242daedab3294761fe87f7737eaf13e659162c483"
+  },
+  "gateway_open": true,
+  "tasks_enabled": 16,
+  "wiki": "20261107-last-lantern-v2",
+  "player_guide": "20261107-last-lantern-guide-v1",
+  "client_release": 2026110701,
+  "owner_gameplay_accepted": false,
+  "stopped_backup_recorded": true,
+  "reviewed_overlay_sources": 16,
+  "current_overlay_matches_shipping_source": true
+}

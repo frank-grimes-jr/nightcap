@@ -1,19 +1,23 @@
 # Current Nightcap status
 
-## November7 — Last Lantern implemented candidate; release authorized
+## November7 — The Last Lantern deployed for live QA
 
-The owner approved main/server release and client notes. The implementation now
-contains sixteen native Task definitions (twelve chapters per playthrough), eight
-separate private memory scenes, recurring companions, eight useful coordinated
-armor pieces, four fits, earned40/46/50 refits, the oath charm and a memorial/title.
-Durable native Tasks control eligibility; claims/refits use stable receipts and
-complete inventory-row preservation. Twelve focused compiled controls and the
-real MariaDB migration/refit rehearsal pass; additional runtime/storage and oath
-checks, native relink/cache and measured combat calibration continue.
-Signed client2026110701 is prepared with the current proxy/catalog and all38 old
-notes preserved. Main promotion, actual server activation, client/wiki publication
-and owner gameplay acceptance are not yet recorded.
-[Implementation and recovery](adventure-journal/release-20261107/README.md).
+Main8d75f8da contains the campaign; the paired OVH runtime is healthy with
+admissions open. Twelve chapters per playthrough use16Tasks/64activities, eight
+private memories, recurring companions, eight useful coordinated armor pieces,
+four fits, earned40/46/50 refits, the oath charm and memorial/title.
+Native Tasks authorize progress; stable receipts and atomic refits preserve
+complete item instances. All309,871old cached items and unrelated spell records
+are preserved;128armor afterimages and the129new items verify. Thirteen compiled
+controls, real MariaDB/24DBI checks,53quest assertions and32native combat runs pass.
+Signed2026110701 is published: all148HTTPS assets, signature, preserved38older
+notes and current proxy/catalog pair verify. Wiki20261107-last-lantern-v2 has613
+files, retaining unrelated current content; the private guide's journal-only
+correction preserves its four assets/access rules. Fully exit the game, press
+launcher Play, and hail the Ancient Chronicler in East Commonlands at level20.
+Normal-player paths, scene/pathing/brand, group/pet/SSF, armor rendering and full
+combined-balance acceptance remain OPEN. No stale player snapshot was restored.
+[Deployment, forward recovery and exact QA](adventure-journal/release-20261107/README.md).
 
 ## November7 — Advanced loot repair published for live QA
 
@@ -1310,16 +1314,13 @@ verify; only the pet UI changed from 2026100103. Production services and other
 assets are preserved. Close the game and click Play in the normal launcher to
 apply it. Existing saved window sizes remain; resize down if needed. Rendered
 acceptance remains open in the [repair report](releases/pet-window-layout-20261001.md).
-## Adventure Journal / Epic 0.5 candidate
+## Adventure Journal / Epic0.5 — current Last Lantern release
 
-The [Adventure Journal](adventure-journal/README.md) adds eight native tasks and
-one archetype charm through the EC Chronicler. Guardian, Striker, Arcanist,
-Warden and Binder are earned independently of primary class, with one durable
-shared cooldown and hub-only attunement changes. The release gate starts
-disabled. Content, quest, native-function and disposable database checks are
-recorded with the candidate; client spells are staged separately. Native client
-and balance acceptance remain open in the [exact QA route](adventure-journal/QA.md).
-This entry does not record a production deployment.
+The original eight-task foundation is superseded by the November7 installed
+[Last Lantern campaign](adventure-journal/release-20261107/README.md). Use its
+paired operator and [normal-player QA](adventure-journal/release-20261107/CAMPAIGN-QA.md),
+including the level50 continuation and earned outfit; do not install the old
+prototype migration independently. Deployment is verified; player acceptance is open.
 
 ## Character-selection crash repair deployed for owner QA
 

@@ -1,0 +1,1096 @@
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -21,6 +21,7 @@
+ | Tradeskills, loot tiers, augments, upgrades, trade/LORE, sell-all | [Items and economy](references/items.md) / `items` |
+ | Power Source item XP candidate | [Items and economy](references/items.md) / `item-xp` |
+ | Tunnel NPCs, travel, waypoints, instances, Perl bindings | [Quests and world](references/world.md) / `world` |
++| Journal campaign, earned outfits, private company memories | [Quests and world](references/world.md) / `adventure-journal` |
+ | Player faction standings, bars and #factions | [Quests and world](references/world.md) / `factions` |
+ | RoF2 UI, pets, buffs, models, signed client delivery | [Client and pets](references/client.md) / `client` |
+ | GM, player access, launcher and hosting | [Administration](references/admin.md) / `admin` |
+--- a/references/world.md
++++ b/references/world.md
+@@ -862,20 +862,47 @@
+ 
+ PoK stock derives from `docs/pok/hub-stock-audit.json` original class levels and catalog policy, not widened spell columns. Use `tools/pok_hub*.py` and `tools/pok-hub-era.ps1` only from a checkout where present and after reading its release procedure. Current GM restock has guarded canonical SQL; don't revive old unguarded refresh logic.
+ 
+-Adventure Journal / Epic 0.5 remains an **unreleased eight-task candidate**;
+-the original compiled/tested scope is not recorded installed or player-accepted.
+-November6 owner intent extends it through Classic level50 with useful coordinated
+-progression armor. The Last Lantern proposal in
+-E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame/docs/adventure-journal/CAMPAIGN.md
+-defines12playthrough chapters/16quest definitions, recurring companions and8armor
+-pieces across7visible regions, with40/46/final earned refits. Detailed story/reward
+-review precedes implementation; new scenes, armor, stats/materials and IDs are not
+-built or verified. Original catalog/plugins/native/client contracts are unchanged.
+-Native Tasks still own progress; nightcap_epic05_state owns attunement/cooldown.
+-Pair Epic05Contract(), plugins, item900501, tasks9500-9507 and spells42800-42805;
+-the gate starts disabled. Explore=5 credits movement; Touch=11 is a dynamic-zone
+-switch. Exact original checks/install boundaries remain in README.md, QA.md and
+-RELEASE.md. The expansion requires audited Classic materials, durable native
+-reward/refit receipts, preserved augments/custody and native appearance/balance QA;
+-LORE is not an ownership fence. No new runtime/cache/client reload is needed for
+-this proposal. Future implementation must ship its reviewed matching package.
+\ No newline at end of file
++## Adventure Journal — The Last Lantern
++
++Adventure Journal / Epic0.5 is now **The Last Lantern**, deployed November7 for
++live QA; normal-player acceptance remains OPEN. See docs/adventure-journal/
++release-20261107/{README.md,production-verification.json,CAMPAIGN-QA.md} in
++E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame. Twelve chapters per playthrough use16Task definitions9500–9515,
++64activities, three shared chapters and one of five optional oath paths, then
++eight continuations through50. Six public companions/couriers complement eight
++private company memories in version80 (Unrest, LowerGuk, SolB, CT, Hole, Fear,
++original Hate76 twice). Existing Keeper186 runs/rewards remain separate.
++Native completed_tasks, not another story mask, authorizes progression, claims
++and charm powers. Campaign completion saves before deleting its active checkpoint;
++failed native SQL acknowledgements retain dirty flags/history retries. Private
++UUID/start/version/membership, live prerequisites, ordered wave counts, range and
++the normalized pet/swarm killer's current native party fence combat credit.
++Transient actors grant no XP/loot/checklist/corpse-state reward and reset on retry.
++The independent return companion survives attempt cleanup. New spawn2 points are
++created by the retained saved-state loader without deleting unrelated snapshots.
++Chronicler999220 in EastCommonlands22 starts at20; Oren998901 handles eight armor
++slots (two wrists share a visible region). Four legal fits and40/46/final50 earned
++refits use items964000–964127;900620 remains the existing Reforging Box. Only100
++armor definitions are reachable; do not publish unused lower grades as rewards.
++Stable character/slot UUID receipts freeze first claims. Missing receipted gear
++does not yield free replacements. Same-slot refits CAS the complete inventory row,
++GUID, ownership and operation receipt in one InnoDB transaction, preserving augments,
++custom dye, binding and ornaments. Uncertain commit acknowledgements quarantine;
++inspect receipts and recover forward. A pending fit made illegal by class release
++needs offline operator review, not another freely mutable reservation.
++Item900501 and spells42800–42805 retain bounded powers and600second shared cooldown.
++Attunement/click also require durable native history; legacy Perl forge cannot mint
++an unreceipted charm. Pair native Epic05Contract, three plugins, item script, public
++bindings, all16Tasks, control tables, effective item policy and signed2026110701.
++World/zone/shared-memory links reproduce current shipping baselines before changes.
++The new cache validates128armor afterimages and preserves every unrelated native
++item/spell record. Keep this personal-item policy after any claim; never restore
++old player snapshots or use an older FreeTrade cache generator for recovery.
++Full normal-account scenes, oath paths, group/pet/SSF, pathing, brand mechanics,
++race/gender armor appearance and combined balance remain separate player QA.
++Source: last_lantern.inc, last_lantern_{policy,scene_policy,inventory,catalog}.h,
++task_{manager,client_state}.cpp, advanced_loot_inventory.cpp, epic05{,_store}.pl.
++Tests: test_lantern_*; real MariaDB refit/SQL/24DBI controls;53quest assertions.
++Use context.py --topic adventure-journal --check for this feature’s current source.
++Native follow distance is squared:36keeps an escort within6units; actual pathing
++and visible appearance remain normal-player QA.
+\ No newline at end of file
+--- a/references/items.md
++++ b/references/items.md
+@@ -1,4 +1,19 @@
+ # Items, loot, forging and economy
++
++## Last Lantern — November7 paired release for live QA
++
++Eight personal Last Lantern pieces/four fits use964000–964127;100variants
++are reachable. Effective policy runs AFTER global FreeTrade: no trade/transfer/pet,
++zero resale, permanent, no attuning/LORE workaround. Current FVNoDropFlag=0 is a
++reviewed invariant; global FV bypass changes require another route audit. Refit
++preserves all saved instance metadata/GUID and only updates default colors, not
++custom dye. Stable first-claim UUID + complete inventory CAS/ownership/operation
++receipt prevent cloning and uncertain retries. Keep new cache/native consumers
++during forward recovery; never restore stale inventories. Source common/
++last_lantern_{policy,inventory}.h and zone/advanced_loot_inventory.cpp; real
++MariaDB rollback/replay/lost-ack and metadata controls in release-20261107/.
++Normal dungeon-derived budgets, one type22socket on six major pieces, none on
++wrists, no haste/heroics/focus/set bonus. Rendering and full balance QA stay open.
+ 
+ ## Zone-state placeholder loot — November1 deployed
+ 
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,4 +1,15 @@
+ # RoF2 client, pets and buff effects
++
++## Last Lantern — November7 paired release for live QA
++
++Signed game2026110701 adds six oath spell rows and one client-note entry
++containing six campaign changes. Retains proxy0.13.5, current catalog,147asset
++descriptors/URLs and all38previous notes;148HTTPS files, production signature and
++actual executable/proxy/catalog pair verify. Exit EQ and use normal Play. No
++launcher minimum bump, desktop-channel or installed/protected client write.
++Native world/zone/shared-memory and generated cache are the reviewed pair.
++Actual race/gender armor rendering remains unaccepted; model/material IDs alone
++are not visible-player QA. Evidence docs/adventure-journal/release-20261107/.
+ 
+ ## Advanced loot reliability — November7 published for live QA
+ 
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,4 +1,19 @@
+ # Source authority, builds and reloads
++
++## Last Lantern — November7 paired release for live QA
++
++Owner explicitly authorized main/server and client notes for this release.
++Use docs/adventure-journal/release-20261107/rollout.py and its exact package/receipts,
++not an old zone-only operator. Preflight cloned only public definitions into a
++named isolated schema, rehearsed the actual signed client and verified every
++unrelated cached item/spell record. Activation uses deployment/GM locks, zero
++native players, closed gateway plus125second auth drain, clean supervised shutdown,
++stopped full backup, exact saved-state boot-expiry model and one market rotation.
++Three native binaries + owned quest bindings/content/cache are paired; old login,
++UCS, supervisor, rules, existing content and player data remain. Failure holds
++admissions. After content installation or claims, recover forward with the personal
++item policy and receipts; never restore an old player snapshot. Main deployment
++does not complete normal-player campaign/rendering/balance acceptance.
+ 
+ ## Current native baseline — November6 Instance Keeper readiness repair
+ 
+--- a/references/balance.md
++++ b/references/balance.md
+@@ -1,4 +1,18 @@
+ # Combat and balance knowledge
++
++## Last Lantern — November7 paired release for live QA
++
++32native earned-gear runs calibrate Last Lantern scene tiers, uninterrupted
++three-wave resource use, three seeds and W/P/M, W/Cl/Wiz, W/Cl/Mnk finales.
++Fresh controls buy48–98explicit level-legal AA; developed control spends500.
++Pre-final builds wear seven Restored pieces and a Normal chest; support gear is
++current Normal, no augments, pets or preparation buffs. Caster control uses its
++Normal two-handed staff. Draft400kHP/450–900damage boss failed; final6000HP/50–110
++damage plus avoided/stunned brand preserves a story challenge below raid loot.
++Keep measured failures and assumptions: arena controls are not pathing, guardian,
++brand, all-class or whole-expedition certification. Actual live QA remains open.
++Source tools/last_lantern_balance.py and release-20261107/balance/{calibration.json,
++draft-calibration.json,native-build-manifest.json}; never infer optimal builds.
+ 
+ ## NPC Death Touch removed — November3 deployed, owner QA open
+ 
+@@ -566,7 +580,7 @@
+ 
+ ## Evidence limits and known gaps
+ 
+-Owner acceptance is feature-specific: July mana-gauge and held-Monk milestones, Permafrost portal function and the October pet-summon crash report have scoped confirmations. Many deployed systems still have visual or combined-balance QA open. Adventure Journal/Epic 0.5 and portions of combat/item and living-economy work are candidates; old THJ gap-map claims that all pets/upgrades/augments are missing are obsolete.
++Owner acceptance is feature-specific: July mana-gauge and held-Monk milestones, Permafrost portal function and the October pet-summon crash report have scoped confirmations. Many deployed systems still have visual or combined-balance QA open. The Last Lantern has its November7 live-QA release boundary; portions of combat/item and living-economy work remain candidates; old THJ gap-map claims that all pets/upgrades/augments are missing are obsolete.
+ 
+ Historical-document hash tests can fail when their source is rewritten. Preserve historical reports and add follow-ups rather than relabeling old candidate evidence as current acceptance. Use current raw SQL/effective cache/runtime distinctions: FreeTrade and DisableLore deliberately change effective items without rewriting original SQL, so old acquisition/gear assumptions must be reviewed before new balance studies.
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,20 +1,24 @@
+ # Official player wiki and Features
+ 
+-
+-## Adventure Journal endgame — November6 unpublished design proposal
+-
+-Source E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame. The owner requested
+-a living level50story and confirmed useful coordinated armor. The Last Lantern
+-proposal defines12chapters,16quest definitions and8pieces over7visible regions;
+-it is not implemented/installed or accepted in game. All41authored guides and
+-generated catalogs reviewed. Only In development/Change Log get explicit design
+-previews; Features keeps its Not released link, Home/commands/current acquisitions
+-and generated item/zone values remain. Original eight-task/charm build status is
+-preserved. No public publication is claimed; never republish this whole checkout
+-over newer public evidence. Twenty wiki/content/refresh checks pass with workspace
+-temp; historical global source drift remains REVIEW REQUIRED with no blanket
+-ledger advance. docs/adventure-journal/{CAMPAIGN.md,endgame-review.json} owns scope,
+-checks and the pending detailed design/implementation/native/material/balance gates.
++## Last Lantern — November7 paired release for live QA
++
++Wiki20261107-last-lantern-v2 is published after the paired campaign/client
++release. Reproduced all510previous public files from the authenticated current
++source before scoped changes;613public files now include103new pages. Reviewed
++all42authored articles, generated directories, acquisition/catalog values and
++release labels. New guide + separate100reachable armor variants/charm directory;
++Features/Home/equipment/tunnel/travel/In development/Change Log and seven zone
++contexts updated. Hunt values, loot finder sources and unrelated guides retained.
++Both scoped publications retain the103new pages; v2 removes superseded candidate text.
++All public manifest hashes, private denials, security headers and pointer rollback
++verify in release-20261107/wiki-* evidence. Global unrelated source drift remains
++REVIEW REQUIRED; no blind ledger advance. Browser visual QA is explicitly
++unverified: no browser connector and native app approval timeout. Normal-player
++armor and campaign acceptance remain OPEN; status is Live testing. The private
++player guide also replaces only its obsolete journal section, preserving all
++other HTML/four assets/private access; all five HTTPS hashes and headers pass.
++
++
+ 
+ ## Advanced loot reliability — November7 published for live QA
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -150,7 +150,8 @@
+     "character_stats_single_total_20261106_published": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
+     "dungeon_readiness_deployed_20261106": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6; OVH/wiki verified; owner gameplay QA open",
+     "adventure_journal_endgame_proposal_20261106": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-    "advanced_loot_reliability_published_20261107": "38fa68a5146215d5a17736d21c2d28f3b4c333f8; main PR418/af4170d8, signed2026110605/proxy0.13.5 and wiki20261107-advanced-loot-v1 verified; owner native QA pending"
++    "advanced_loot_reliability_published_20261107": "38fa68a5146215d5a17736d21c2d28f3b4c333f8; main PR418/af4170d8, signed2026110605/proxy0.13.5 and wiki20261107-advanced-loot-v1 verified; owner native QA pending",
++    "last_lantern_live_qa_20261107": "8d75f8daf7fdd4513075430aaa5379dc0358c096"
+   },
+   "topics": {
+     "operations": [
+@@ -1968,6 +1969,62 @@
+         "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+         "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
+         "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "CHANGES.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "daeac50c9d13185f15220a3f6ace009236edfdc9a84c3c5f9ebc45d1a1d0b1bb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/status.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f4cc06bc7a22e6a981421ce2fea6659f5a556b2852b8e6cc0673871453c809f4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/ops/player-website.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "bd896e0282b8bf05f49da8cc5e4e8731ad18316ccabee30ffb07e741fda62f4b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "index.html",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "3e3ed18c2f7a615643cfc5fe2c47c80197413b1fed45538c929f15c8b935b3ca"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/post-publication-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "188973c2a7344f1761b797394ae6f3f9b7a07edfa95ed4d9679dc171905b13b4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/rollout.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "92bd9251948b503a646997f2e76844fbba9a5d018c4c31fe052bec5fa76d8ff7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/production-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0f3e33b940c134d8280cecdfb7120acfbfd9204441229ba6224efd3863e85299"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/native-build.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e46e8973f4e20d24bb581091b73df63d9641c17da37649b4e48de20c5d901812"
+       }
+     ],
+     "multiclass": [
+@@ -5912,6 +5969,76 @@
+         "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+         "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
+         "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/shareddb.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "59ce058e1cf4a5a70b00b26c566a1848e8fe3b0114bfd5fe43e38df4167885f9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/pets.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "9f304b029626e23b03ef8b26c73a57a03accd52fc613a97170708fefd35fa460"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/advanced_loot_inventory.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "4e96bf6babe65b15f3328bab00fad436930a7a754cc95583607fd43ffe45a325"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/tests/rehearse_last_lantern.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e390d1f135533059815d7e0cdf945039f947f9ddfd6c8de599e0a55477b985a7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/cache-private-validation.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "5f61a923298d8ca05750451cec92b1845c50ff4db581b37cf7446eb445f71073"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_policy.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "cda7885f131857257fcb76f4985488c36f33831413e61d617027c3618cae7100"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_inventory.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "a2113bceb668d5660aae253ba6539a89d0ccebdf07b4facd66927085dc86e363"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/advanced_loot_inventory.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e35fbbd881b7c6e5b45eefbf12af770e5c069b7d6575e91c4360c37b719f24eb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/last-lantern-catalog.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "9387ed5e4dd3915d8919e679de5a74f6f869ec91ef50c638fc553aae689530dc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/database-rehearsal.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "80b70c82a81f79a6f5cc4ab0475bacc697f6d93dcda172c4b690db2a86d31539"
+       }
+     ],
+     "world": [
+@@ -8595,44 +8722,142 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "docs/adventure-journal/CAMPAIGN.md",
+-        "role": "owner-requested level50 narrative and useful armor; detailed design review pending",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "578c19bcb3d5784bb06cd700d1fc32e4a95b8d8d4b8ee02eb6496fb8340fc4f0"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e79ef3eb37a5f99b9848f29784337bcc6a3f67cb3b23a0bc4c539c18885bd19d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "docs/adventure-journal/SPEC.md",
+-        "role": "original candidate contract with explicit proposed expansion boundary",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "1ae7238ab6e87a221973f139a9edc76e9215776c7fd697ca1d763cce233a504d"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "be8453cbd55c6197cf1966239a074ecbf2bea6d64786ea54067478626c31653e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "docs/adventure-journal/catalog.json",
+-        "role": "unchanged eight-task catalog; no expansion IDs or armor implemented",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
+         "sha256": "ee8a2c8310f4cdc47b583c394330faf3d20d83d325e41b9ef54024420950248e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "tools/epic05.py",
+-        "role": "reviewed unchanged generator fixes first campaign at eight tasks; expansion needs deliberate versioned design",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "e517daa12673a214bb7ed6433c2e9c441cf4169550fee76baa387f26053b6769"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f5e5161869a818f98146bd9a1f763a16eb58f42d8d597ff64ee0248b349a8bdb"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "server-mods/plugins/epic05.pl",
+-        "role": "reviewed unchanged task/attunement/charm service; no armor delivery adapter",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "afac000668b1d16898f5f567081e9821c054f07ddb074ead861d0cd763a6f64c"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "bb8df9d0681f24b7a808fb8b46a2fbb78980a58eb74ed21e81dc77d9fdd1a9f1"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "docs/lore/structure.md",
+-        "role": "Last Lantern original fiction proposal, not live NPCs or canonical claims",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "261dd4d0ed3ca74913a66426c4f1e9fec764a95b4b2fe6b2fc8df8f4fd3f6a49"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b671c120c8184a205e86730afa423203571912f9ed004efa2a6b3a2ae21714b9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/last_lantern.inc",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f194c1106019f8b4c70572d810c91ef1babd180edc73db6ae267640b5d77e20e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/dungeon_service.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "8c7e9458794afd4d1a3eeb781845e368f6cdafc612a7f3780b3de0752d6d0fdc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/dungeon_service.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f211a4096e8bceb329aa23dbe418d1a44db8b1b65c27fa349569a302a174fa39"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/highkeep_rescue.inc",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0a455a7b25f1f44d6869e84c1484f12be2a983fe50ebe81fa6818bba08d789a3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/spawn2.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b87eac5b11e1d17de2a76c516b154c2cc2b15d31c0a264371c613510135b0c85"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/attack.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "d6af96f9e56e94779e32dbb3694f71ab36ad451d6a61d630bec0a71b01090c3a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/tests/test_lantern_runtime.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0107bcaf4644d45c7502cf4caa8abc7e8cb920647a9a1eef35299c128a722fc3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/tests/test_lantern_task_save.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "ec0646831f222cc88ac6af23bf8fda48eb786496c26513118f0c01b384d08436"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_scene_policy.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b47f016ce62831340fbf6e81aad1922f5850eced11d58a0b4508d47c08924611"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_catalog.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "fb41baaeacb5017729a1c7d559256b98784419495d62c2806e240bd607a42458"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/task_manager.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "186674284be6b4bf44b20700576b98773f9145b756065832e779f208476b1813"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/task_client_state.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "201802b361ec74a90a3fda9cee7ce3300e5f7f7357ad8a5a27b58dfe50b8e4ff"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/plugins/epic05_store.pl",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f3e5bd45fed2da13aa03ccf6957890f2d77da024d89fd79445718b8689ad8fa8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/production-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0f3e33b940c134d8280cecdfb7120acfbfd9204441229ba6224efd3863e85299"
+       }
+     ],
+     "client": [
+@@ -11145,6 +11370,20 @@
+         "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
+         "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
+         "sha256": "bf3dc2b7ec7fa64fd915f507b7f4c686fa248eebac4f67dd5d8549e5b66c1b82"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "eq-launcher/patch-notes.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "384d934a6530ee18b0639cf5425620071e2b4d7a353d13477a9e93887e02b22b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/client-public-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "1fce4f3ee2bc8a6bdcff2cf5736085ed798dd77611801e452bc45b7ed3a70a39"
+       }
+     ],
+     "admin": [
+@@ -12794,6 +13033,27 @@
+         "role": "Verified October28 paired release receipt; owner gameplay QA open",
+         "revision": "074ae26742fb21ee5b247c92be07ca63a98e0085",
+         "sha256": "cddeb0cae667a46c247cee655516f380431622c87d04f38dfe5572cb0677509f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/last_lantern_balance.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "88c6c18f8ab300bfe3544ebea674999d9cd95b62c08f4a579c9138bbea06711c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/balance/calibration.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "9a9575c7b38353c5a2408b722999eec2bf2b428eb9bcb673a97e6c867c3f9434"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/balance/native-build-manifest.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "6afd4432c68f2083a93af7e2a5e150e0178454d0d05a6777942d5fbd46b9323a"
+       }
+     ],
+     "wiki": [
+@@ -15424,16 +15684,107 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "wiki/articles/unreleased.json",
+-        "role": "unpublished Last Lantern design preview; original candidate remains uninstalled",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "9afb9e6ed32eb780d233877a1971d0ca1c11e8872cfc11827b404f63e5b0ff81"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "4574e986ff5e5f89bf180d688a43cb54cb28ac49bc54ee46ceddd3f0b8dad1cc"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+         "path": "wiki/articles/recent-changes.json",
+-        "role": "unpublished dated proposal entry; no release or player acceptance claim",
+-        "revision": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+-        "sha256": "90fb2ab27378af53847f5a8c9a3fee80ca6a56babf8b222179db3bd23da3e7ee"
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0acff20d2d6791fa673daafe25b56b193395c9687c39f33b8ae00eb5ece6ed31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/public-source-reproduction.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "d9899f3bbf8cd9f18c86fcb793d4f52cb1e625dd83ec314c1d3db71c6204c018"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/player-guide-publication.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "3f5c414f643b8bbe6f12afd24aa8918cea17bb89c02e486f0eb3bcbe5ef54dc8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/catalog.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b2031e18667188c00f0def60b970076b860144220addbd8d74dcd45fbecad1ce"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "3fc57b687be8950b8777590138cbd25a1d64d17c43865b756d6b75f850c107de"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "a01b9d3ad64b4dbf1f4c1b061425bcbd40adebf44001a8f2da8c88d75d73ddca"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/tunnel.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "ca2b2a5044c7278cd3603703607aab81416ab0f7fc97b47c585e51b979cd5c6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/travel.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "d40cc55a6012c181035e001ae2d841edc5459d07dbb786b9b296132fb5cafff8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "78bdfa1ceba587239d4be6c6ec39ff75e378f01d7fed03b914e9884ffbb21c85"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/adventure-journal.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "7ce63e89bd0a791c9f13a38c25eb3827abc82c470d684eae7c60de79c96ff1aa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/last-lantern-catalog.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b5fd7868c0965a481d9d30179910b63bcd56105397e324c9eacab41478afa519"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/last_lantern_catalog.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "bd57ea0b23517de42425d7295f4f85de83929ad56a4fea09ea8b66132ecf5bb5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/wiki-impact.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "2271c91a34e74de8471b51a6c21e15e278bd2b6f625e10f936514a64130432c1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/wiki-publication.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "a0c5ae83218c33f336b48df22ce32d75d7e7be2c3bb2dbbd74ed638474d601f3"
+       }
+     ],
+     "factions": [
+@@ -17231,6 +17582,407 @@
+         "revision": "38fa68a5146215d5a17736d21c2d28f3b4c333f8",
+         "sha256": "126ef35b0c91143ce7f6650770fb1b1948e7a0446f12aed74a374749a0f36841"
+       }
++    ],
++    "adventure-journal": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/CAMPAIGN.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e79ef3eb37a5f99b9848f29784337bcc6a3f67cb3b23a0bc4c539c18885bd19d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/SPEC.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "be8453cbd55c6197cf1966239a074ecbf2bea6d64786ea54067478626c31653e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/catalog.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "ee8a2c8310f4cdc47b583c394330faf3d20d83d325e41b9ef54024420950248e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/epic05.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f5e5161869a818f98146bd9a1f763a16eb58f42d8d597ff64ee0248b349a8bdb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/plugins/epic05.pl",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "bb8df9d0681f24b7a808fb8b46a2fbb78980a58eb74ed21e81dc77d9fdd1a9f1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/lore/structure.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b671c120c8184a205e86730afa423203571912f9ed004efa2a6b3a2ae21714b9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/last_lantern.inc",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f194c1106019f8b4c70572d810c91ef1babd180edc73db6ae267640b5d77e20e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/dungeon_service.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "8c7e9458794afd4d1a3eeb781845e368f6cdafc612a7f3780b3de0752d6d0fdc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/dungeon_service.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f211a4096e8bceb329aa23dbe418d1a44db8b1b65c27fa349569a302a174fa39"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/highkeep_rescue.inc",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0a455a7b25f1f44d6869e84c1484f12be2a983fe50ebe81fa6818bba08d789a3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/spawn2.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b87eac5b11e1d17de2a76c516b154c2cc2b15d31c0a264371c613510135b0c85"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/attack.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "d6af96f9e56e94779e32dbb3694f71ab36ad451d6a61d630bec0a71b01090c3a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/tests/test_lantern_runtime.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0107bcaf4644d45c7502cf4caa8abc7e8cb920647a9a1eef35299c128a722fc3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/tests/test_lantern_task_save.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "ec0646831f222cc88ac6af23bf8fda48eb786496c26513118f0c01b384d08436"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_scene_policy.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b47f016ce62831340fbf6e81aad1922f5850eced11d58a0b4508d47c08924611"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_catalog.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "fb41baaeacb5017729a1c7d559256b98784419495d62c2806e240bd607a42458"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/task_manager.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "186674284be6b4bf44b20700576b98773f9145b756065832e779f208476b1813"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/task_client_state.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "201802b361ec74a90a3fda9cee7ce3300e5f7f7357ad8a5a27b58dfe50b8e4ff"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/plugins/epic05_store.pl",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f3e5bd45fed2da13aa03ccf6957890f2d77da024d89fd79445718b8689ad8fa8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/production-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0f3e33b940c134d8280cecdfb7120acfbfd9204441229ba6224efd3863e85299"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/shareddb.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "59ce058e1cf4a5a70b00b26c566a1848e8fe3b0114bfd5fe43e38df4167885f9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/pets.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "9f304b029626e23b03ef8b26c73a57a03accd52fc613a97170708fefd35fa460"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/advanced_loot_inventory.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "4e96bf6babe65b15f3328bab00fad436930a7a754cc95583607fd43ffe45a325"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/tests/rehearse_last_lantern.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e390d1f135533059815d7e0cdf945039f947f9ddfd6c8de599e0a55477b985a7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/cache-private-validation.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "5f61a923298d8ca05750451cec92b1845c50ff4db581b37cf7446eb445f71073"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_policy.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "cda7885f131857257fcb76f4985488c36f33831413e61d617027c3618cae7100"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/common/last_lantern_inventory.h",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "a2113bceb668d5660aae253ba6539a89d0ccebdf07b4facd66927085dc86e363"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "server-mods/code/zone/advanced_loot_inventory.cpp",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e35fbbd881b7c6e5b45eefbf12af770e5c069b7d6575e91c4360c37b719f24eb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/last-lantern-catalog.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "9387ed5e4dd3915d8919e679de5a74f6f869ec91ef50c638fc553aae689530dc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/database-rehearsal.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "80b70c82a81f79a6f5cc4ab0475bacc697f6d93dcda172c4b690db2a86d31539"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "eq-launcher/patch-notes.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "384d934a6530ee18b0639cf5425620071e2b4d7a353d13477a9e93887e02b22b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/client-public-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "1fce4f3ee2bc8a6bdcff2cf5736085ed798dd77611801e452bc45b7ed3a70a39"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "CHANGES.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "daeac50c9d13185f15220a3f6ace009236edfdc9a84c3c5f9ebc45d1a1d0b1bb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/status.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "f4cc06bc7a22e6a981421ce2fea6659f5a556b2852b8e6cc0673871453c809f4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/ops/player-website.md",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "bd896e0282b8bf05f49da8cc5e4e8731ad18316ccabee30ffb07e741fda62f4b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "index.html",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "3e3ed18c2f7a615643cfc5fe2c47c80197413b1fed45538c929f15c8b935b3ca"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/post-publication-verification.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "188973c2a7344f1761b797394ae6f3f9b7a07edfa95ed4d9679dc171905b13b4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/rollout.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "92bd9251948b503a646997f2e76844fbba9a5d018c4c31fe052bec5fa76d8ff7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/native-build.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "e46e8973f4e20d24bb581091b73df63d9641c17da37649b4e48de20c5d901812"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "tools/last_lantern_balance.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "88c6c18f8ab300bfe3544ebea674999d9cd95b62c08f4a579c9138bbea06711c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/balance/calibration.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "9a9575c7b38353c5a2408b722999eec2bf2b428eb9bcb673a97e6c867c3f9434"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/balance/native-build-manifest.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "6afd4432c68f2083a93af7e2a5e150e0178454d0d05a6777942d5fbd46b9323a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "4574e986ff5e5f89bf180d688a43cb54cb28ac49bc54ee46ceddd3f0b8dad1cc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "0acff20d2d6791fa673daafe25b56b193395c9687c39f33b8ae00eb5ece6ed31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/public-source-reproduction.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "d9899f3bbf8cd9f18c86fcb793d4f52cb1e625dd83ec314c1d3db71c6204c018"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/player-guide-publication.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "3f5c414f643b8bbe6f12afd24aa8918cea17bb89c02e486f0eb3bcbe5ef54dc8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/catalog.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b2031e18667188c00f0def60b970076b860144220addbd8d74dcd45fbecad1ce"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "3fc57b687be8950b8777590138cbd25a1d64d17c43865b756d6b75f850c107de"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "a01b9d3ad64b4dbf1f4c1b061425bcbd40adebf44001a8f2da8c88d75d73ddca"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/tunnel.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "ca2b2a5044c7278cd3603703607aab81416ab0f7fc97b47c585e51b979cd5c6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/travel.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "d40cc55a6012c181035e001ae2d841edc5459d07dbb786b9b296132fb5cafff8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "78bdfa1ceba587239d4be6c6ec39ff75e378f01d7fed03b914e9884ffbb21c85"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/articles/adventure-journal.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "7ce63e89bd0a791c9f13a38c25eb3827abc82c470d684eae7c60de79c96ff1aa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/last-lantern-catalog.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "b5fd7868c0965a481d9d30179910b63bcd56105397e324c9eacab41478afa519"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "wiki/last_lantern_catalog.py",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "bd57ea0b23517de42425d7295f4f85de83929ad56a4fea09ea8b66132ecf5bb5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/wiki-impact.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "2271c91a34e74de8471b51a6c21e15e278bd2b6f625e10f936514a64130432c1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
++        "path": "docs/adventure-journal/release-20261107/wiki-publication.json",
++        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
++        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
++        "sha256": "a0c5ae83218c33f336b48df22ce32d75d7e7be2c3bb2dbbd74ed638474d601f3"
++      }
+     ]
+   }
+ }

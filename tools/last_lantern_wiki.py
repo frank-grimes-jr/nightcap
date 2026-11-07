@@ -54,10 +54,10 @@ def maintain(wiki):
     for name in ('features','index','equipment','unreleased','recent-changes'):
         p=wiki/'articles'/f'{name}.json';a=json.loads(p.read_text(encoding='utf-8'));body=a['body']
         # Replace only the superseded Adventure Journal preview; preserve anchors.
-        body=re.sub(r'<h2 id="(?:adventure-journal|adventure-journal-endgame)[^"]*".*?(?=<h2 |\Z)','',body,flags=re.S)
+        body=re.sub(r'<h2 id="(?:journal|adventure-journal|adventure-journal-endgame)[^"]*".*?(?=<h2 |\Z)','',body,flags=re.S)
         if name=='features':
             body=re.sub(r'<(?:li|p)[^>]*>[^<]*(?:<[^>]+>)*Adventure Journal.*?</(?:li|p)>','',body,flags=re.S)
-            body+='<h2 id="adventure-journal">A story and an outfit to level50</h2><p><a href="adventure-journal.html">Wayfarer’s Oath: The Last Lantern</a> follows a lost company through twelve chapters, five optional oath paths, private memory encounters and eight useful coordinated armor pieces. Live testing.</p>'
+            body+='<h2 id="adventure-journal">A story and an outfit to level50</h2><p><a href="adventure-journal.html">Wayfarer’s Oath: The Last Lantern</a> follows a lost company through twelve chapters, a choice of five oath paths, private memory encounters and eight useful coordinated armor pieces. Live testing.</p>'
         elif name=='index':body+='<p>Looking for a continuing story? Begin <a href="adventure-journal.html">The Last Lantern</a> at level20 and carry an earned armor outfit through level50.</p>'
         elif name=='equipment':body+='<h2 id="last-lantern">Last Lantern campaign armor</h2><p>Earn eight personal armor pieces over the <a href="adventure-journal.html">level20–50 Adventure Journal</a>, with legal woven, leather, chain or plate fits and earned refits. <a href="last-lantern-equipment.html">Exact stats and chapters</a>. Live testing; harder endgame loot remains worthwhile.</p>'
         elif name=='unreleased':body+='<h2 id="adventure-journal">Adventure Journal — live testing</h2><p><a href="adventure-journal.html">The Last Lantern campaign</a>, its oath charm and progression outfit are installed. Full player encounter, pathing and rendered armor acceptance remain open.</p>'

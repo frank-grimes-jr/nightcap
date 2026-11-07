@@ -84,7 +84,10 @@ class WikiTests(unittest.TestCase):
         self.assertIn('#aaexp 0–100',self.articles['commands']['body'])
         self.assertNotIn('40%',self.articles['commands']['body'])
         self.assertEqual(self.articles['unreleased']['status'],'Not released')
-        self.assertIn('not installed',self.articles['unreleased']['body'])
+        journal=self.articles['unreleased']['body'].split('<h2 id="journal">',1)[1].split('<h2 ',1)[0]
+        self.assertIn('is installed',journal)
+        self.assertNotIn('not installed',journal)
+        self.assertNotIn('design proposal',journal)
         self.assertIn('no merchant resale value',self.articles['zone-hunt']['body'])
         self.assertIn('nighttime-undead restriction applies to equipment only',self.articles['zone-kithicor']['body'])
 
