@@ -9,9 +9,9 @@ import argparse,fcntl,hashlib,importlib.util,json,os,re,shutil,subprocess,time
 from pathlib import Path
 
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/last-lantern-20261107-v1')
+STAGE=Path('/opt/nightcap/releases/last-lantern-20261107-v2')
 EVIDENCE=STAGE/'evidence'
-TAG='nightcap-game:last-lantern-20261107-v1'
+TAG='nightcap-game:last-lantern-20261107-v2'
 DATABASE='nightcap_dungeon_stage_1107a11ce001'
 NEW_TABLES={'nightcap_epic05_control','nightcap_epic05_state','nightcap_lantern_control',
  'nightcap_lantern_slots','nightcap_lantern_refits','nightcap_lantern_runs',
@@ -132,6 +132,27 @@ def preflight():
     assert r.runtime()==runtime(False),'Quest preimages differ'
     save(EVIDENCE/'preflight-started.json',before)
     before['image']=build_image()
+    assert sha(ROOT/'data/public/channel.json')==sha(STAGE/'client/previous-channel.json'),'Signed client baseline drift'
+    spec=importlib.util.spec_from_file_location('rehearsal_publisher',STAGE/'client/publish.py')
+    publisher=importlib.util.module_from_spec(spec);spec.loader.exec_module(publisher)
+    assert sha(ROOT/'data/public/channel.json')==publisher.OLD
+    public=ROOT/'data/public';clone=EVIDENCE/'client-rehearsal';clone.mkdir()
+    for path in public.iterdir():
+        if path.is_file():shutil.copyfile(path,clone/path.name)
+    manifest=json.loads(__import__('base64').b64decode(read(STAGE/'client/previous-channel.json')['manifest']))
+    for file in manifest['files']:
+        prefix='https://play.nightcapgame.org/';assert file['url'].startswith(prefix)
+        relative=file['url'][len(prefix):];source=public/relative;target=clone/relative
+        assert source.resolve().is_relative_to(public) and not source.is_symlink()
+        target.parent.mkdir(parents=True,exist_ok=True)
+        if not target.exists():os.link(source,target)
+    (clone/'release').mkdir(exist_ok=True)
+    client_proof=publisher.publish(STAGE/'client',clone,lambda:{'isolated_rehearsal':True})
+    assert sha(public/'channel.json')==publisher.OLD
+    save(EVIDENCE/'client-rehearsal.json',client_proof)
+    assert sql("SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='World:FVNoDropFlag';").strip()=='0'
+    assert sql("SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='TaskSystem:RecordCompletedTasks';").strip()=='true'
+
     # Full rehearsal uses only public content; custody/task/player tables are empty.
     assert not sql("SELECT SCHEMA_NAME FROM information_schema.schemata WHERE schema_name='"+DATABASE+"';").strip()
     sql('CREATE DATABASE `'+DATABASE+'`;')

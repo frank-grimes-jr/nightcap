@@ -6,7 +6,7 @@ from last_lantern_content import ROOT
 
 HERE=ROOT/'docs/adventure-journal/release-20261107'
 ART=ROOT/'artifacts/last-lantern-20261107'
-STAGE='/opt/nightcap/releases/last-lantern-20261107-v1'
+STAGE='/opt/nightcap/releases/last-lantern-20261107-v2'
 
 def remote(code,timeout=900):
     r=subprocess.run(SSH,input=code,text=True,encoding='utf-8',capture_output=True,timeout=timeout)
@@ -42,14 +42,14 @@ print(json.dumps({'prior_operator_sha256':hashlib.sha256(path.read_bytes()).hexd
 
 def package():
     before=json.loads((ART/'release-probe.json').read_text())
-    stage=ART/'payload';stage.mkdir(exist_ok=False)
+    stage=ART/'payload-v2';stage.mkdir(exist_ok=False)
     proof=json.loads((HERE/'native-build.json').read_text());assert proof['status']=='PASS'
     binaries={n:proof['shipping']['candidate-'+n] for n in ('zone','world','shared_memory')}
     (stage/'bin').mkdir()
     for n,pin in binaries.items():
-        subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v1/candidate-'+n+'.stripped',str(stage/'bin'/n)],check=True,capture_output=True)
+        subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v2/candidate-'+n+'.stripped',str(stage/'bin'/n)],check=True,capture_output=True)
         assert hashlib.sha256((stage/'bin'/n).read_bytes()).hexdigest()==pin
-    subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v1/cache_check',str(stage/'cache_check')],check=True,capture_output=True)
+    subprocess.run(['docker','cp','akk-stack-eqemu-server-1:/tmp/nightcap-last-lantern-20261107-v2/cache_check',str(stage/'cache_check')],check=True,capture_output=True)
     for name in ('rollout.py','native-build.json','last-lantern-catalog.json','last-lantern-setup.sql','last-lantern-enable.sql','last-lantern-disable.sql'):
         source=HERE/name if (HERE/name).exists() else HERE.parent/name
         (stage/name).write_bytes(source.read_bytes())
@@ -74,7 +74,7 @@ def package():
     manifest={k:before[k] for k in ('prior_operator_sha256','base_image_id','base_hashes','game_network','runtime_before')}
     manifest.update(owner_authorization='Push it to server and main. Ensure this is posted in the client notes',binaries=binaries,runtime_after=after,files=files,staging_tables=tables,public_clone_tables=sorted(public&set(tables)),source_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip())
     (stage/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    archive=ART/'last-lantern-release.tar.gz'
+    archive=ART/'last-lantern-release-v2.tar.gz'
     with tarfile.open(archive,'w:gz') as t:
         for p in sorted(stage.rglob('*')):
             if p.is_file():t.add(p,arcname=p.relative_to(stage).as_posix(),recursive=False)
@@ -82,9 +82,9 @@ def package():
     (HERE/'package.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
 
 def stage():
-    receipt=json.loads((HERE/'package.json').read_text());archive=ART/'last-lantern-release.tar.gz'
+    receipt=json.loads((HERE/'package.json').read_text());archive=ART/'last-lantern-release-v2.tar.gz'
     assert hashlib.sha256(archive.read_bytes()).hexdigest()==receipt['archive_sha256']
-    ssh=SSH[:-1];destination=ssh[-1];upload='/home/ubuntu/last-lantern-release-20261107.tar.gz'
+    ssh=SSH[:-1];destination=ssh[-1];upload='/home/ubuntu/last-lantern-release-20261107-v2.tar.gz'
     subprocess.run(['C:/Windows/System32/OpenSSH/scp.exe',*ssh[1:-1],str(archive),destination+':'+upload],check=True,timeout=600)
     result=remote(f'''from pathlib import Path
 import hashlib,json,os,subprocess,tarfile
