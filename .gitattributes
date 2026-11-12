@@ -279,3 +279,11 @@ docs/releases/quick-buff-20261112/*.patch text eol=lf -whitespace
 docs/releases/quick-buff-20261112/*.json text eol=lf
 docs/releases/quick-buff-20261112/*.log text eol=lf
 docs/releases/quick-buff-20261112/*.md text eol=lf
+
+# Preserve follow-up source and evidence fingerprints.
+docs/releases/quick-buff-20261112/hotkey-fix/* text eol=lf
+tools/*quick_buff*hotkey*.py text eol=lf
+tools/tests/test_quick_buff_hotkey*.py text eol=lf
+eq-client-dll/tests/aa-reuse-native.cpp text eol=lf
+tools/tests/test_aa_cooldown_identity.py text eol=lf
+docs/releases/quick-buff-20261112/hotkey-fix/*.patch text eol=lf -whitespace

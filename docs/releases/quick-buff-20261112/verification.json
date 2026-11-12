@@ -1,5 +1,5 @@
 {
-  "status": "DEPLOYED_FOR_LIVE_QA",
+  "status": "V1_DEPLOYED_SUPERSEDED_BY_HOTKEY_FIX",
   "date": "2026-11-12",
   "main_pr": 422,
   "main_merge_revision": "a2ae50f0f42680c1daaff27dd55636a80cea75dd",
@@ -11,21 +11,6 @@
     "wiki-public-verification.json"
   ],
   "release_checks": "release-checks.json",
-  "current_linux_fault_checks": {
-    "status": "PASS",
-    "checks": [
-      {
-        "folder": "docs/releases/quick-buff-20261112/client",
-        "tests": 20,
-        "status": "PASS"
-      },
-      {
-        "folder": "tools/tests",
-        "tests": 8,
-        "status": "PASS"
-      }
-    ]
-  },
   "fresh_context_review": "review.json; all concrete findings resolved; additional cross-model review declined by owner",
   "initial_source_candidate_checks": {
     "date": "2026-11-12",
@@ -104,5 +89,32 @@
       "tools/tests/test_gameplay_policies.py": "2f0c63a95eecd037b2df90c2ba5464e1b4019829ab2d86429ae8f20d54c6a57f"
     }
   },
-  "owner_native_and_balance_acceptance": "OPEN; exact steps in README.md"
+  "owner_native_and_balance_acceptance": "OPEN; exact steps in README.md",
+  "manual_qa_result": {
+    "Make_Hotkey": "FAIL on Palwar owned rank3",
+    "gameplay_balance": "OPEN"
+  },
+  "followup": {
+    "main_pr": 423,
+    "main_merge_revision": "60d5136245e3c73a785783acfec7ed4068497065",
+    "native_receipt": "hotkey-fix/production-verification.json",
+    "tests": "hotkey-fix/release-checks.json",
+    "status": "DEPLOYED_FOR_LIVE_QA",
+    "owner_acceptance": "OPEN"
+  },
+  "v1_linux_fault_checks": {
+    "status": "PASS",
+    "checks": [
+      {
+        "folder": "docs/releases/quick-buff-20261112/client",
+        "tests": 20,
+        "status": "PASS"
+      },
+      {
+        "folder": "tools/tests",
+        "tests": 8,
+        "status": "PASS"
+      }
+    ]
+  }
 }

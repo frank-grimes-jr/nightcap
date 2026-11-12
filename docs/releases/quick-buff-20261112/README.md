@@ -1,6 +1,6 @@
 # Quick Buff native Make Hotkey follow-up
 
-The owner reported v1 **Make Hotkey disabled on Palwar**, who owns rank3. This is a confirmed manual QA failure, not an ownership problem. Follow-up `hotkey-fix/` is built and awaiting deployment; remaining gameplay/balance QA stays OPEN.
+The owner reported v1 **Make Hotkey disabled on Palwar**, who owns rank3. This is a confirmed manual QA failure, not an ownership problem. Follow-up `hotkey-fix/` (PR423/60d51362, zone3eeb72c9) is deployed with access restored; remaining gameplay/balance QA stays OPEN.
 
 The pinned RoF2 executable disables creation when base reuse<=0 (native gate0x6081E4, ability+0x64). The authoritative rank retains zero reuse; only family48 packet presentation uses1. Every family48 timer packet is a reset `(begin0,end=current time)`, so no one-second deadline exists. Generic native AA detail may show nominal1second; actual readiness is immediate. No new client download or AA grant.
 
@@ -13,7 +13,7 @@ After deployment, relog Palwar, select Quick Buff in the AA window, verify **Mak
 Requested and confirmed by the owner: an AA hotkey immediately casts the buffs
 memorized on the player's spell bar, costs 50% of **maximum** mana once per
 activation, targets the caster, retains normal group/pet delivery, and has no
-reuse delay. Main PR422/a2ae50f0 and the guarded paired release are deployed, with admissions open. All12zone workers run1fe268a1; world/shared_memory retain the augment-icon repair. Signed client2026111201 and wiki20261112-quick-buff-v1 are published. Native hotkey/delivery and balance acceptance remain open.
+reuse delay. The initial paired release is main PR422/a2ae50f0; the Make Hotkey follow-up is PR423/60d51362. All12zone workers now run3eeb72c9 with admissions open; world/shared_memory retain the augment-icon repair. Signed client2026111201 remains unchanged, and wiki20261112-quick-buff-v2 is published and verified. Native visible hotkey/delivery and balance acceptance remain open.
 
 ## Implementation and decisions
 
@@ -21,8 +21,9 @@ reuse delay. Main PR422/a2ae50f0 and the guarded paired release are deployed, wi
   and class masks. Every existing rank activates the same behavior. The old
   passive buff-casting haste is removed from the loaded AA graph.
 - `common/quick_buff.h` applies the runtime AA metadata projection on load or
-  reload. Type 3, no passive effects, zero reuse, and string 147 hotkey labels
-  enable the native AA window's Make Hotkey action. Existing instant self spell
+  reload. Type 3, no passive effects, server reuse0, wire-only reuse1, and string147
+  hotkey labels enable the native AA window's Make Hotkey action. Every own
+  timer packet is a reset, retaining immediate readiness. Existing instant self spell
   8 is solely a RoF2 presentation marker; Quick Buff never casts Cleanse.
 - `zone/aa.cpp` dispatches after earned-state, rank/class, charge and native-slot
   checks. Family 48 never consults a cooldown. Other AA timers are unchanged.

@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "verified_at": 1794516260.9150903,
+  "source_revision": "6c3240a2ce452fa75f90fcac721663bc6a6bb02a",
+  "main_pr": 423,
+  "main_merge_revision": "60d5136245e3c73a785783acfec7ed4068497065",
+  "runtime": {
+    "image_id": "sha256:faf2e410d1b1927ef6e27d9cb187cf00ba58c7e06307fea9bef29a655efbc0d1",
+    "started_at": "2026-11-12T20:33:06.666235036Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "95fc228a5a8d852cd6a43a1c21fd8d029c5df721bb322fe6cb756da15882e675"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ],
+      [
+        "zone",
+        "3eeb72c9adf0f7cc19baf144b1d5365d392415980eb87618774e2ae5205f4ae2"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "client_release": 2026111201,
+  "client_channel_sha256": "e0201dd35be1501208c6783eeb3c6194e2d7b9ec080f70ef4f09f52d744dacd5",
+  "stopped_full_backup": {
+    "path": "/opt/nightcap/releases/quick-buff-20261112-v2/evidence/activation/private-backup/peq-before.sql.gz",
+    "sha256": "a9659ba2412949925ab4cb33d877b3c7c51f0f6136e5e2717cccc8e288ce2fb7",
+    "compressed_bytes": 66202782,
+    "uncompressed_bytes": 476827365,
+    "gzip_integrity": "passed"
+  },
+  "db_web_tunnel_unchanged": true,
+  "quests_plugins_cache_unchanged": true,
+  "client_update_required": false,
+  "database_restored": false,
+  "owner_visual_accepted": false
+}
