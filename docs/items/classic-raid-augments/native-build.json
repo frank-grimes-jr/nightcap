@@ -1,0 +1,131 @@
+{
+  "base_commit": "105a250f49d95a9ffff338c98910508d51ea56e1",
+  "bin_sha256": {
+    "shared_memory": "d0c16a94e061c5eb5207fc8abf4ffcbcf586afb85cdb78352eafd61861f22bb0",
+    "world": "9c200f8ba91cf064d435bb6a53eab94f65335698410d98bd8c49b0ca655f0b18",
+    "zone": "55b61a76798fe7a796d2c61cc864c6bf66c8ce0d46c77a5c0a4305d77347b06d"
+  },
+  "compiled_sources": {
+    "common/item_instance.cpp": {
+      "candidate": "aeed8b1ca09351a54ae3549c08b619ee811a4dbc85d195a55c684f28d1e3fb02",
+      "source": "aeed8b1ca09351a54ae3549c08b619ee811a4dbc85d195a55c684f28d1e3fb02"
+    },
+    "common/ptimer.h": {
+      "candidate": "6245589eea0e2065ae5769d873b8c7ab8010038848319a9ad075dbef68cb5c13",
+      "source": "6245589eea0e2065ae5769d873b8c7ab8010038848319a9ad075dbef68cb5c13"
+    },
+    "common/raid_augment.h": {
+      "candidate": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08",
+      "source": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08"
+    },
+    "common/raid_augment_sources.h": {
+      "candidate": "b10d5b44884f4bf327d474fddb11b1401ac7d991145cc23426bcc4b8eed422e6",
+      "source": "b10d5b44884f4bf327d474fddb11b1401ac7d991145cc23426bcc4b8eed422e6"
+    },
+    "common/shareddb.cpp": {
+      "candidate": "a3f5c344efd907ae56beee517de2ccf4a3bf64ca00ad367628c187c19d460a9f",
+      "source": "a3f5c344efd907ae56beee517de2ccf4a3bf64ca00ad367628c187c19d460a9f"
+    },
+    "zone/attack.cpp": {
+      "candidate": "3f838d174d19d92caa71458bc3f9fbf681355769cedf2a31fd64ceffb133c997",
+      "source": "3f838d174d19d92caa71458bc3f9fbf681355769cedf2a31fd64ceffb133c997"
+    },
+    "zone/beacon.cpp": {
+      "candidate": "97f0cb48be9a0792be8d75ab50ad2ed1c9dc657c65de0d03942d4970b84202d7",
+      "source": "97f0cb48be9a0792be8d75ab50ad2ed1c9dc657c65de0d03942d4970b84202d7"
+    },
+    "zone/beacon.h": {
+      "candidate": "6958973d12691c8d09bf3f8547eff286cbb1a26cf2abebca872163058a0ec761",
+      "source": "6958973d12691c8d09bf3f8547eff286cbb1a26cf2abebca872163058a0ec761"
+    },
+    "zone/bonuses.cpp": {
+      "candidate": "a0a25de905fcb02045517bc40c83c9416c8261c627b63d347c86dc26d50b1463",
+      "source": "a0a25de905fcb02045517bc40c83c9416c8261c627b63d347c86dc26d50b1463"
+    },
+    "zone/client.cpp": {
+      "candidate": "7cc02b51425d2e7649b66c91ed4e7052adb6a50aaf7a9c2208935a49f243b86b",
+      "source": "7cc02b51425d2e7649b66c91ed4e7052adb6a50aaf7a9c2208935a49f243b86b"
+    },
+    "zone/client.h": {
+      "candidate": "a070680a5df7df96bc9590dbb892c180ea956dbc0b506a56fb23b64eb4c2b714",
+      "source": "a070680a5df7df96bc9590dbb892c180ea956dbc0b506a56fb23b64eb4c2b714"
+    },
+    "zone/client_packet.cpp": {
+      "candidate": "c395f0c63051e421e081b9ab9611b1663303c52d5c35982b2213123f16fe5280",
+      "source": "c395f0c63051e421e081b9ab9611b1663303c52d5c35982b2213123f16fe5280"
+    },
+    "zone/client_process.cpp": {
+      "candidate": "69e3288f505d66d489ad69d63f9e9c362691b4c29806a15ae92421846f956211",
+      "source": "69e3288f505d66d489ad69d63f9e9c362691b4c29806a15ae92421846f956211"
+    },
+    "zone/dungeon_service.cpp": {
+      "candidate": "79f82f24448167ba964baf750e28b0d9381eee099f269551d9fa21e74f7ccd3a",
+      "source": "79f82f24448167ba964baf750e28b0d9381eee099f269551d9fa21e74f7ccd3a"
+    },
+    "zone/dungeon_service.h": {
+      "candidate": "8081a850e986d337e4796369fdf187d5842d77aec8f5637608796e07dd961d7f",
+      "source": "8081a850e986d337e4796369fdf187d5842d77aec8f5637608796e07dd961d7f"
+    },
+    "zone/inventory.cpp": {
+      "candidate": "4b17f9bff36edb6394a84409805b049a3645df64c069ab13cb40b35ed3cebe30",
+      "source": "4b17f9bff36edb6394a84409805b049a3645df64c069ab13cb40b35ed3cebe30"
+    },
+    "zone/mob.h": {
+      "candidate": "6991931b1d2d08fdf7727c1cf024d8dcd05dadb357b98bd07871f57e29f674a8",
+      "source": "6991931b1d2d08fdf7727c1cf024d8dcd05dadb357b98bd07871f57e29f674a8"
+    },
+    "zone/object.cpp": {
+      "candidate": "2afcecdce423b26eba7a7a62cf08326853fda174961108c034192a704a61307a",
+      "source": "2afcecdce423b26eba7a7a62cf08326853fda174961108c034192a704a61307a"
+    },
+    "zone/parcels.cpp": {
+      "candidate": "859d182ce54318992afab50841ad75bd39d26043836ddfd2a9b483c3c4a8a462",
+      "source": "859d182ce54318992afab50841ad75bd39d26043836ddfd2a9b483c3c4a8a462"
+    },
+    "zone/pet_armor.cpp": {
+      "candidate": "aa99e8219e94d70129e36626173f83459dacdea255aba576ce259d7a12e4c22c",
+      "source": "aa99e8219e94d70129e36626173f83459dacdea255aba576ce259d7a12e4c22c"
+    },
+    "zone/raid_augment.h": {
+      "candidate": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2",
+      "source": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2"
+    },
+    "zone/raid_augment.inc": {
+      "candidate": "ca817cd0363f577a00aff1781edf7f74b95125689b360b87ce8bcdd5d6082ac9",
+      "source": "ca817cd0363f577a00aff1781edf7f74b95125689b360b87ce8bcdd5d6082ac9"
+    },
+    "zone/raid_augment_custody.h": {
+      "candidate": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612",
+      "source": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612"
+    },
+    "zone/raid_augment_delivery.h": {
+      "candidate": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b",
+      "source": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b"
+    },
+    "zone/special_attacks.cpp": {
+      "candidate": "2267565d6af7ac570745e55d1117e55be5ac52c986f364c6eec538bb31b413e9",
+      "source": "2267565d6af7ac570745e55d1117e55be5ac52c986f364c6eec538bb31b413e9"
+    },
+    "zone/spell_effects.cpp": {
+      "candidate": "9fb4fe4a1b5dc3b7c0c0dd417bfed06edb4abbc2282ea970a9fdde9074be0311",
+      "source": "ef80232ff02ed3b2ce1f622e3d5e0dc75abb40a0d7d3e690523a8e830cf8ca0a"
+    },
+    "zone/spells.cpp": {
+      "candidate": "19eb84b55026b697eaf442e35eaf4ec00315d0878d12a7217eb61d8fadb0e19e",
+      "source": "19eb84b55026b697eaf442e35eaf4ec00315d0878d12a7217eb61d8fadb0e19e"
+    },
+    "zone/tradeskills.cpp": {
+      "candidate": "ded8644977109e648be32ca7b7a9c0ce8f48595554da12fc6f4acfff3ec81197",
+      "source": "ded8644977109e648be32ca7b7a9c0ce8f48595554da12fc6f4acfff3ec81197"
+    },
+    "zone/trading.cpp": {
+      "candidate": "5dc61828e957f2b5ef80a7c95a6430d3e6198a174fcc617ddfc173a8dc4750c7",
+      "source": "5dc61828e957f2b5ef80a7c95a6430d3e6198a174fcc617ddfc173a8dc4750c7"
+    },
+    "zone/zone_hunt.cpp": {
+      "candidate": "55f27caf8075ddabdb3a15e8b98a6a7524722a6246591ca612edc852093f7b36",
+      "source": "55f27caf8075ddabdb3a15e8b98a6a7524722a6246591ca612edc852093f7b36"
+    }
+  },
+  "scope": "Isolated Linux no-optimization development build over retained Nov 12 source. Hashes normalized to LF. Includes retained changes outside Git."
+}

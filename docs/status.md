@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 12, 2026 · Classic raid augment candidate
+
+Sixteen individually LORE chest augments use independent boss rolls and a shared 90-second capstone cooldown. Public Yael acquisition and player balance acceptance remain open. [Evidence and exact QA](items/classic-raid-augments/README.md).
+
 ## November 6 — Zone augment audit candidate; not deployed
 
 Fresh production audit covers 58 augment families, 232 definitions and all
