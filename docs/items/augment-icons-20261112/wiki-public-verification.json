@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "release": "20261112-augment-icons-v1",
+  "files": 613,
+  "security_headers": true,
+  "private_denials": {
+    "/channel.json": 403,
+    "/launcher-channel.json": 403,
+    "/nightcap-friends.zip": 403,
+    "/guide.html": 403,
+    "/.env": 403
+  },
+  "scope": "All613canonical HTTPS hashes;607retained files; no client/gameplay acceptance inferred"
+}

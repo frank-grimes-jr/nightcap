@@ -1,0 +1,6 @@
+{
+  "status": "Remote activation completed and verified; original local stdout transport was closed afterward",
+  "evidence": "Host evidence/activation/verified-closed.json; subsequent open/deployed.json; independent production-verification.json PASS",
+  "action_replayed": false,
+  "cleanup": "Identified local Python activation log-capture process25656 and its SSH child3336 only; no production process stopped. Transport returned4294967295 after explicit cleanup. Raw diagnostic retained privately in artifacts/augment-icons-20261112/remote-error.txt."
+}
