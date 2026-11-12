@@ -4,6 +4,9 @@
 
 namespace NightcapQuickBuff {
 constexpr int Family = 48;
+// RoF2 disables Make Hotkey for a zero base reuse. This wire-only marker
+// never becomes a deadline: every Quick Buff timer packet is a reset.
+inline int ClientPresentationReuse(int family, int server_reuse) { return family == Family ? 1 : server_reuse; }
 inline bool IsRank(int rank) { return rank >= 147 && rank <= 149; }
 inline int32_t ManaCost(int64_t maximum) {
 	return maximum <= 0 ? 0 : static_cast<int32_t>(std::max<int64_t>(1,

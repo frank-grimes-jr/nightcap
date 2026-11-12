@@ -382,8 +382,14 @@ void quick_buff_activation() {
  check(c.casts.size()==2,"Quick Buff dispatch acquired a cooldown");
  c.catalog.clear();c.SendAlternateAdvancementRank(48,1);
  check(c.catalog.size()==1&&c.catalog.back().type==3&&c.catalog.back().total_effects==0&&
-  c.catalog.back().spell_refresh==0&&c.catalog.back().upper_hotkey_sid==147,
+  c.catalog.back().spell_refresh==1&&rank->recast_time==0&&c.catalog.back().upper_hotkey_sid==147,
   "Quick Buff catalog is still passive or lacks its hotkey");
+ c.actions.clear();c.SendAlternateAdvancementTimer(48,0,0);
+ check(c.actions.size()==1&&c.actions.back().begin==0&&c.actions.back().end==clock_now,
+  "Quick Buff completion starts a client cooldown instead of resetting");
+ c.actions.clear();c.SendAlternateAdvancementTimer(48,clock_now+99,clock_now);
+ check(c.actions.size()==1&&c.actions.back().begin==0&&c.actions.back().end==clock_now,
+  "stale Quick Buff deadline is resent to the client");
  c.valid=false;c.ActivateAlternateAdvancementAbility(147,99);
  check(c.casts.size()==2,"invalid earned state activated Quick Buff");
  c.valid=true;c.held=1u<<Class::Warrior;c.ActivateAlternateAdvancementAbility(147,99);

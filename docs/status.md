@@ -1,15 +1,24 @@
 # Current Nightcap status
 
-## November 12 — Quick Buff hotkey candidate, not deployed
+## 2026-11-12 — Quick Buff Make Hotkey correction (built; deployment pending)
 
-Quick Buff now has source for an activated, zero-reuse hotkey that immediately
-casts eligible memorized buffs on self, with normal group/pet delivery, for 50%
-maximum mana. All existing ranks remain earned; passive buff haste is replaced.
-Compiled behavior/AA packet tests and complete modified translation-unit syntax
-checks pass. Full zone build, current signed client text, native hotkey/delivery
-and balance acceptance remain pending. No live gameplay or wiki was changed.
-[Scope, verification, pairing and exact QA](releases/quick-buff-20261112/README.md).
+Owner testing found the AA-window Make Hotkey control disabled on earned rank3. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.
 
+
+## November12 — Quick Buff hotkey deployed for live QA
+
+Main PR422/a2ae50f0 and the guarded paired release are live; admissions open.
+Quick Buff instantly casts eligible memorized buffs for50%maximum mana once,
+with no reuse and normal self/group/pet delivery. Existing earned ranks remain;
+passive buff haste is replaced. All12zone workers run1fe268a1, preserving the
+current augment-icon world/shared pair and newer Hate source. Full build, native
+regressions,28Linux publication/operator fault checks, stopped backup and normal
+boot/market/data preservation pass. Signed2026111201 verifies all148HTTPS assets;
+wiki20261112-quick-buff-v1 publishes six changed outputs with607retained. No
+player snapshot restore. Fully exit EverQuest, press launcher Play, select Quick
+Buff in the AA window and choose Make Hotkey. Visible hotkey/delivery, group/pet
+and combined-balance acceptance remain OPEN.
+[Release, recovery and exact QA](releases/quick-buff-20261112/README.md).
 
 ## November 12 — Augment icons repaired and fix deployed
 

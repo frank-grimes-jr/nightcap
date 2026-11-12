@@ -1,16 +1,25 @@
 # CHANGES
 
-## 2026-11-12 — Quick Buff hotkey candidate (not deployed)
+## 2026-11-12 — Quick Buff Make Hotkey correction (built; deployment pending)
 
-Quick Buff family 48/ranks 147–149 now project as an activated AA instead of
-passive buff haste. The hotkey immediately attempts each eligible memorized buff
-on self with native group/pet delivery, debits 50% maximum mana once and has no
-reuse. Earned ownership/class gates, reagents, stacking and unrelated timers stay
-native. Adds compiled dispatcher/packet checks and a scoped unsigned client-text
-builder. Full zone rebuild, signed text pairing and in-game/balance QA are still
-required; no server/client/wiki publication occurred. Exact checks and rollout:
+Owner testing found the AA-window Make Hotkey control disabled on earned rank3. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.
+
+
+## 2026-11-12 — Quick Buff hotkey deployed for live QA
+
+Quick Buff family48/ranks147–149 now provide an activated hotkey: immediate
+eligible memorized buffs on self with native group/pet delivery, one50%maximum
+mana cost and no reuse. The old passive haste is replaced; earned ranks, class/
+level/scribed gates, instruments/reagents, stacking and other timers remain.
+Independent review corrected secondary Bard instruments without starting a new
+pulse. Full zone1fe268a1 preserves the current augment repair and newer native
+Hate catalog; all12workers verify. Signed client2026111201 changes one text asset,
+retaining147descriptors/URLs; wiki20261112-quick-buff-v1 retains607of613files.
+Fresh stopped backup, exact boot/market and service/data preservation checks pass;
+no player snapshot restored. Owner authorized main/live testing via PR422/a2ae50f0;
+visible hotkey/delivery and balance acceptance remain open. Fully exit EQ and use
+launcher Play. Source, release proof and exact QA:
 `docs/releases/quick-buff-20261112/README.md`.
-
 
 ## 2026-11-12 — Augment icon fix and five-item repair deployed
 
