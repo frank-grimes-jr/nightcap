@@ -12,6 +12,7 @@
 #include <iterator>
 #include <vector>
 #include "../src/patch_catalog.h"
+#include "../../server-mods/code/common/quick_buff.h"
 #pragma comment(lib,"advapi32.lib")
 
 static unsigned checks=0,failures=0;
@@ -68,6 +69,18 @@ using Ready=BYTE(__thiscall*)(void*,void*,void*,int*,int*);
 using HasTimers=BYTE(__thiscall*)(void*,BYTE);
 using Calculated=int(__thiscall*)(void*,void*,void*);
 struct Packet {int begin,ability,end;};
+// Execute the pinned Make Hotkey positive-reuse predicate. Rank lookup and
+// ownership are established before this slice in the native window routine.
+static int __declspec(naked) __cdecl HotkeyReuseGate(void*,void*) {
+    __asm {
+        push ebx
+        mov eax,[esp+12]
+        xor ebx,ebx
+        call dword ptr [esp+8]
+        pop ebx
+        ret
+    }
+}
 using Receive=void(__cdecl*)(const Packet*);
 static DWORD GetterException(Get get,void* character,int id) {
     __try {get(character,id);return 0;}
@@ -171,6 +184,23 @@ int main(int argc,char** argv) {
     Expect(ready(manager,character,first,&remaining,&total)!=0 && ready(manager,character,second,&remaining,&total)!=0,"clearing all100 slots removes stale projected identities");
     send(2,2000000,2000000);
     Expect(ready(manager,character,first,&remaining,&total)!=0 && !ready(manager,character,second,&remaining,&total),"deadline resend after clear restores only assigned family");
+    const BYTE expected_gate[]={0x39,0x58,0x64,0x0F,0x8E,0x2E,0x01,0x00,0x00};
+    Check(!memcmp(image+0x2081E4,expected_gate,sizeof(expected_gate)),"pinned Make Hotkey reuse predicate");
+    const BYTE allowed[]={0xB8,0x01,0x00,0x00,0x00,0xC3},rejected[]={0x33,0xC0,0xC3};
+    memcpy(image+0x2081ED,allowed,sizeof(allowed));memcpy(image+0x20831B,rejected,sizeof(rejected));
+    int quick_group=4;Group(first,&quick_group,1,0,48);
+    Expect(!HotkeyReuseGate(image+0x2081E4,first),"native zero reuse reproduces disabled Make Hotkey");
+    const int wire_reuse=NightcapQuickBuff::ClientPresentationReuse(48,0);
+    Group(first,&quick_group,1,wire_reuse,48);
+    Expect(HotkeyReuseGate(image+0x2081E4,first)!=0,"Quick Buff presentation must enable native Make Hotkey");
+    Group(first,&quick_group,1,1,48);send(4,0,0);
+    Expect(!ready(manager,character,first,&remaining,&total) && remaining==1,"positive presentation plus start packet creates an unwanted wait");
+    for(int press=0;press<3;++press) {
+        send(4,0,2000000);
+        Expect(ready(manager,character,first,&remaining,&total)!=0,"Quick Buff reset is ready immediately without advancing native clock");
+    }
+    Expect(NightcapQuickBuff::ClientPresentationReuse(109,600)==600 && NightcapQuickBuff::ClientPresentationReuse(1,0)==0,
+           "unrelated AA presentation remains unchanged");
     VirtualFree(image,0,MEM_RELEASE);
     std::cout<<"native AA reuse checks="<<checks<<" failures="<<failures<<'\n';
     return failures?1:0;

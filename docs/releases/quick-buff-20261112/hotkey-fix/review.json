@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "reviewer": "fresh-context quick_buff_release_review",
+  "scope": "wire reuse1 only family48 plus central reset packets; exact native Make Hotkey gate and readiness receiver",
+  "findings_resolved": true,
+  "caveat": "Generic native AA details can display nominal1second; actual cooldown0. Visible button/double-press remain manual QA.",
+  "cross_model_review": "Owner declined; retained scoped choice"
+}

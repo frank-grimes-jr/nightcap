@@ -1,0 +1,417 @@
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -18,7 +18,7 @@
+ |---|---|
+ | Source authority, branch/worktree drift, build and reload | [Operations](references/operations.md) / `operations` |
+ | Classes, spells, skills, AA ownership, XP | [Multiclass and progression](references/multiclass.md) / `multiclass` |
+-| Quick Buff AA hotkey candidate | [Multiclass and progression](references/multiclass.md) / `quick-buff` |
++| Quick Buff AA hotkey | [Multiclass and progression](references/multiclass.md) / `quick-buff` |
+ | Tradeskills, loot tiers, augments, upgrades, trade/LORE, sell-all | [Items and economy](references/items.md) / `items` |
+ | Power Source item XP candidate | [Items and economy](references/items.md) / `item-xp` |
+ | Tunnel NPCs, travel, waypoints, instances, Perl bindings | [Quests and world](references/world.md) / `world` |
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -1,37 +1,51 @@
+ # Multiclass, spells, skills and advancement
+ 
+-## Quick Buff — November 12 source candidate, not deployed
+-
+-Owner-confirmed behavior: AA hotkey casts eligible memorized buffs immediately
+-on self, normal group/pet delivery, one cost of50%maximum mana, no reuse.
+-Family48/ranks147–149 retain earned state, class masks and purchase costs; their
+-loaded graph becomes active type3 and loses the old passive haste. common/quick_buff.h
+-projects metadata on load; existing spell8 is presentation only and never cast.
+-zone/aa.cpp retains earned/rank/class/charge/native-slot authorization before
+-CastQuickBuff. zone/aa_quick_buff.inc snapshots/deduplicates buffs, checks canonical
+-held-class/current-level/scribed access and native caster/zone/target gates, then
+-debits once before native instant CastSpell calls. Native reagents, stacking,
+-range, events and group/pet delivery remain. Completion failures do not refund
+-the activation. No eligible buffs/insufficient mana costs nothing. Active casting,
+-recovery, death, unconsciousness and recursive activation are rejected.
+-
+-Only active Quick Buff completion skips spell reuse and10ms recovery; its zero
+-family timer leaves unrelated deadlines intact. New Client member means a full
+-zone rebuild is mandatory. No SQL/rule/cache/quest/new spell asset or DLL delta.
+-tools/quick_buff_client.py produces only unsigned scoped147hotkey/description
+-strings from the authenticated current dbstr; pair via normal signed delivery,
+-full EQ exit/launcher Play. AA reload alone cannot install native behavior; use
+-supported whole-runtime activation, never kill a production zone.
+-
+-Source E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey, branch feature/quick-buff-hotkey,
+-baseb7e404b2. tools/tests/test_quick_buff.py compiles actual dispatcher/projection;
+-test_aa_cooldown_identity.py compiles activation/packet guards and unrelated timer
+-regressions. Both full modified translation units pass retained-Nov7-header syntax
+-checks; native-compile.json records exact pins. Not a full link/runtime/client QA.
+-docs/releases/quick-buff-20261112/README.md owns behavior, rollout/recovery and
+-exact East Commonlands player/balance QA. Server/client/wiki publication and
+-owner acceptance remain OPEN. Wiki candidate edits are local only; global source
+-drift remains REVIEW REQUIRED. Reviewed fingerprints: context.py --topic quick-buff.
++## Quick Buff — November12 deployed for live QA
++
++Owner authorized main/live testing; PR422/a2ae50f0 contains the reviewed release.
++Family48/ranks147–149 are an earned activated hotkey: immediately attempt eligible
++memorized duration buffs on self, normal group/pet delivery, one floor(maxmana/2)
++cost (minimum1for positive pool), full cost required, zero reuse. All existing
++rank ownership/costs/class masks stay; passive buff haste is replaced. Native
++canonical held-class/current-level/scribed eligibility, caster/zone/target checks,
++reagents, stacking and events remain. Completion failure does not refund the
++activation. Empty/ineligible bar costs nothing. Snapshot/dedup the bar; reject
++death/unconsciousness, existing casting/recovery and reentry. No new AA grants.
++
++common/quick_buff.h projects active metadata on AA load; spell8 is presentation
++only and never cast. zone/aa.cpp authorizes before CastQuickBuff; aa_quick_buff.inc
++debits once before synchronous native zero-time/zero-individual-mana casts.
++spells.cpp limits reuse/recovery bypass to active Quick Buff. bard_component_mode
++retains instrument-type validation for primary/secondary Bard without component
++consumption or a new song pulse/melody. Other spell/item/discipline/AA clocks stay.
++Client gained a member: full zone/common/GM/Lua/Perl rebuild is mandatory.
++
++Shipping zone1fe268a18c45190f43ea25290c95ad852561029da5cacb024d7c99a91d40abd4
++preserves Augment icon world95fc228a/shared_memoryb60c4dfc, metadata-aware systems,
++newer retained Hate catalog mapping/count223 and all quests/rules/cache/content.
++Git's older176header must not replace that native dependency. Reproduction patch:
++docs/releases/quick-buff-20261112/retained-native-overlay.patch. The isolated
++command_augstats declaration only repairs the source snapshot; no body/layout
++change. Shipping predecessor reproduced; full-build.json pins2856source files,
++full target and stripped ELF identity. Native method/AA packet/reagent tests and
++28Linux publisher/operator fault checks pass; fresh-context findings resolved.
++
++Supported whole-runtime deployment uses deploy/GM locks, zero clients,125second
++auth drain, clean stop, fresh stopped full backup, exact normal saved-state boot
++and one-market-rotation checks. Signed text publishes while admissions remain
++closed; exact channel hash gates reopening. No player snapshot/data restoration.
++After any public counter, recover client text at a higher counter with current
++unrelated assets; never replay terminal actions. AA reload alone cannot install C++.
++
++Signed2026111201 changes dbstr147types2/3/4 only;147other descriptors/URLs and the
++proxy/catalog/config pair remain. Exit EQ/launcher Play, then AA window → Quick
++Buff → Make Hotkey. No SQL/schema/rule/cache/quest/DLL/new spell-asset delta.
++Source E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey; source/tests include
++tools/{quick_buff_client.py,tests/test_quick_buff.py,tests/test_quick_buff_reagents.py,
++tests/test_aa_cooldown_identity.py,tests/test_quick_buff_rollout.py}.
++Exact source/proof/rollout/recovery/player steps: docs/releases/quick-buff-20261112/.
++Server/client/wiki verification is complete; native hotkey/delivery, ordinary
++player and combined-build balance acceptance remain OPEN. No automatic acceptance.
+ 
+ ## Rogue tome learning and AA audit - October 24, deployed for live testing
+ 
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,4 +1,24 @@
+ # Source authority, builds and reloads
++
++## Current native baseline — November12 Quick Buff live QA
++
++PR422/a2ae50f0; E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey,
++docs/releases/quick-buff-20261112/. Full zone1fe268a1 preserves current
++world95fc228a/shared_memoryb60c4dfc and Augment icon repair; all12workers and
++native/service identities verify. No content/rule/schema/cache/quest/player-data
++rewrite. Authenticated full source retains newer Hate mapping/count223 despite
++older Git176header; exact reproduction overlay and2856source pins are retained.
++Full zone/common/GM/Lua/Perl build and stripped ELF identity pass. Client layout
++changed: do not replace this full build with a two-TU retained-object relink.
++
++Use this release's one-shot rollout.py and immutable stage receipts, never old
++terminal operators. Deployment/GM locks, zero-player125second admission drain,
++clean whole-runtime stop, fresh stopped full backup, normal saved boot/one market
++rotation and exact preservation checks precede publication/reopening. Signed
++client2026111201 is checked while admissions stay closed. Failure holds access;
++no player snapshot restore. Client recovery requires higher signed counter and
++current unrelated assets. Never kill one production zone. Gameplay/balance and
++visible native hotkey acceptance remain open; publication is not acceptance.
+ 
+ ## Last Lantern — November7 paired release for live QA
+ 
+@@ -15,7 +35,7 @@
+ item policy and receipts; never restore an old player snapshot. Main deployment
+ does not complete normal-player campaign/rendering/balance acceptance.
+ 
+-## Current native baseline — November 12 augment icons
++## Augment icon repair — November12 deployed
+ 
+ Main PR420/1568fb71, source00ee567f, worktree
+ E:/EQ_Local_Dev/_worktrees/augment-item-icons. Paired native zone2fc2d72b,
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,4 +1,20 @@
+ # RoF2 client, pets and buff effects
++
++## Quick Buff — November12 signed text published
++
++Signed2026111201 replaces2026110701; only dbstr_us.txt changes. Types147/2and3
++add Quick Buff labels;147/4explains instant memorized buffs,50%maximum mana and
++zero reuse. All other strings,147asset descriptors/URLs, proxy0.13.5/catalog/
++config, previous notes and tombstones remain. Local signing seed never uploaded.
++Shipped-key signature, actual executable/proxy/catalog pair and all148canonical
++HTTPS sizes/hashes verify. Fully exit EQ/use launcher Play, then Make Hotkey in
++the AA window. Paired zone1fe268a1 is deployed; actual native appearance/delivery
++and owner gameplay/balance acceptance remain OPEN. No protected client write.
++Proof/source: quick-buff-hotkey worktree, docs/releases/quick-buff-20261112/;
++tools/quick_buff_client.py + prepare_client.go/verify_client.go. Publisher guards
++all retained bytes and changes channel last while gateway is closed under the
++native release lock; verified channel gates opening. Newer public counters require
++forward repair, retaining all current unrelated assets and player activity.
+ 
+ ## Heroic stats — November12 production audit; main Inventory candidate
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -32,17 +32,21 @@
+ No raw player rows/backups/repair SQL enter the public artifact. Preserve the
+ Last Lantern613-file catalog/reward projections and unrelated released content.
+ 
+-## Quick Buff — November 12 unpublished candidate
+-
+-Current source candidate: E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey. Combat,
+-Multiclass, Features, In development and Change Log explicitly label the activated
+-Quick Buff hotkey Not released: instant eligible memorized buffs,50%maximum mana,
+-no reuse, normal self/group/pet delivery and spell restrictions. All42authored
+-article sources and generated/catalog impacts reviewed; Home navigation, commands,
+-item/zone/acquisition values stay accurate without edits. Fifteen wiki checks pass.
+-No public release, signed client publication or gameplay activation occurred.
+-Evidence: docs/releases/quick-buff-20261112/wiki-review.json and wiki-refresh.json.
+-Historical global source drift remains REVIEW REQUIRED, not blanket-approved.
++## Quick Buff — November12 published for live testing
++
++Wiki20261112-quick-buff-v1 replaces20261112-augment-icons-v1. Exact613previous
++public outputs reproduced before Combat, Multiclass, Features, In development,
++Change Log and search change;607files retained. All42authored article/Home/
++command/catalog/generated-page impacts reviewed; no item/zone/acquisition values
++change. Features keeps the character-systems grouping. Instructions name native
++Make Hotkey, immediate memorized buffs,50%maximum mana, zero reuse, normal group/
++pet delivery and spell restrictions. All613HTTPS hashes/security headers and
++five private/source denials pass. Pointer rollback rehearsed; private downloads,
++config and all five service identities retained. No Nginx reload. Global unrelated
++source drift remains REVIEW REQUIRED; no blanket ledger advance. Exact public
++source is the authenticated artifact tree, not an older full Git mirror. Evidence
++and preparation/publishing tools: quick-buff-hotkey/docs/releases/quick-buff-20261112/.
++Native hotkey/delivery and balance acceptance remain OPEN.
+ 
+ ## Khaleid Fear port — November12 deployed; wiki publication pending
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -154,13 +154,34 @@
+     "last_lantern_live_qa_20261107": "8d75f8daf7fdd4513075430aaa5379dc0358c096",
+     "augment_icons_candidate_20261112": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a + reviewed candidate file hashes",
+     "khaleid_fear_candidate_20261112": "bc191346; deployed November12 18:13UTC; 37 installed-file checks/12 reload acknowledgments; owner QA pending",
+-    "quick_buff_candidate_20261112": "b7e404b2 + reviewed feature/quick-buff-hotkey working changes; not deployed",
+     "heroic_stats_inventory_20261112": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate; production read-only/native hashes match November7; display unsigned/unpublished; pixels pending",
+     "augment_icons_deployed_20261112": "main PR420/1568fb710b6441fe70bca5f9fc40f6dd805c20dc; source00ee567f; reviewed release hashes and verified activation/publication",
+-    "hunt_augment_expansion_candidate_20261112": "212e0b650b1a96cfdd82defb2de6cbb7c88be0fc"
++    "hunt_augment_expansion_candidate_20261112": "212e0b650b1a96cfdd82defb2de6cbb7c88be0fc",
++    "quick_buff_deployed_20261112": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch"
+   },
+   "topics": {
+     "operations": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/rollout.py",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "6e308276ced55044380bb664f3e8e778a6f5d3028d308ac3b37cd067980af100"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/full-build.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "e7b7a18149ede573b8b040906bddf4faefaed05b50c4c7a4706dcfd4a2da9e2f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/production-verification.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "4f7ebaf880cdb7258342deaecc60a730c51a02ffaba3109bb91c107818f88d64"
++      },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+         "path": "AGENTS.md",
+@@ -8911,6 +8932,13 @@
+     ],
+     "client": [
+       {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/client-public-verification.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "9c0442fec03f9169ce52834fe2e44dfa92d795be6161fe430ed545c1396f409a"
++      },
++      {
+         "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+         "path": "eq-client-dll/src/pet_management.h",
+         "role": "client roster/native availability contract",
+@@ -13114,6 +13142,13 @@
+     ],
+     "wiki": [
+       {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/wiki-public-verification.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "ddf10dc07ec14533cf383b25372f73d65f94779ca26b8962412e80ffb6b1b232"
++      },
++      {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+         "path": "docs/releases/wiki-features-20261016/README.md",
+         "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+@@ -18124,86 +18159,121 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "server-mods/code/common/quick_buff.h",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
+         "sha256": "841489c43b68cfa2cd66128521edf137a8e889cf172ae283061b35643bfdf951"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "server-mods/code/zone/aa.cpp",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "4d302c72ef3826f291f1a3bb223bcdf77721d523e088d500ba2a04b293335852"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "server-mods/code/zone/aa_quick_buff.inc",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
+         "sha256": "4af4930a7bffd12cd6d8a9e1d872663fd50cd0094f7f79ea1ac48497572e9d7c"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+-        "path": "server-mods/code/zone/aa.cpp",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "4d302c72ef3826f291f1a3bb223bcdf77721d523e088d500ba2a04b293335852"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "server-mods/code/zone/client.h",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
+         "sha256": "99d3e472043df9a5d0ba2372eaf80d01fb3bb4b16e0aff1d1da84c540ca1bd97"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "server-mods/code/zone/spells.cpp",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "bf0ad9b85366ea08dd1248d05e224a0332b02e64f62f4a292de44476e9dcc98b"
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "f3b63fba212261a6d8167dcc954f93556ceeb80aa40300cc4807db5a2c6a65fe"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "tools/quick_buff_client.py",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
+         "sha256": "2ecf764bb3f2874e152a1eacf514da67134fc2d273aacb2b713fee4409dbab7e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "tools/tests/test_quick_buff.py",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
+         "sha256": "a4f13d619c5596d75df9e98777f2e8b17f2a86e9c2a17703daef4236b1383e3e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "tools/tests/test_quick_buff_reagents.py",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "38b43d6268651ba260683c3297df2aab1586b1cf5bf37b44ebac9ace39ebe813"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "tools/tests/test_aa_cooldown_identity.py",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
+         "sha256": "539ba0b2f6d13fa4926b89d70e6ee39ff855da7a3da8b8800b769736865f0bfa"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+-        "path": "tools/tests/test_gameplay_policies.py",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "2f0c63a95eecd037b2df90c2ba5464e1b4019829ab2d86429ae8f20d54c6a57f"
++        "path": "tools/tests/test_quick_buff_rollout.py",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "cff9b7874fdbce188842809d045fcff85681a4844a50fb3235f9a85917561c62"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "docs/releases/quick-buff-20261112/README.md",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "2973e2469c2d74e8db71b075c4abb59c025ccd768745ba7ae03cafee99e21202"
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "4fbd5773626b602dfcb0594274d2205cbee75a344003534245efb0e8cf4e01f9"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+-        "path": "docs/releases/quick-buff-20261112/native-compile.json",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "9090f92cef7598c447332ca599c91c075a9d64afa5db48c9c671fdf1391676eb"
++        "path": "docs/releases/quick-buff-20261112/rollout.py",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "6e308276ced55044380bb664f3e8e778a6f5d3028d308ac3b37cd067980af100"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+-        "path": "docs/releases/quick-buff-20261112/wiki-review.json",
+-        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+-        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "7900a5f20ed5afd80d73571546871d6f4776fab7c391e80ef41c060b1d02662f"
++        "path": "docs/releases/quick-buff-20261112/full-build.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "e7b7a18149ede573b8b040906bddf4faefaed05b50c4c7a4706dcfd4a2da9e2f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/production-verification.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "4f7ebaf880cdb7258342deaecc60a730c51a02ffaba3109bb91c107818f88d64"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/client-public-verification.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "9c0442fec03f9169ce52834fe2e44dfa92d795be6161fe430ed545c1396f409a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/wiki-public-verification.json",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "ddf10dc07ec14533cf383b25372f73d65f94779ca26b8962412e80ffb6b1b232"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "docs/releases/quick-buff-20261112/retained-native-overlay.patch",
++        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
++        "revision": "maina2ae50f0/PR422 + verified November12 release receipts; native sourcea78fa630 plus retained-native-overlay.patch",
++        "sha256": "dd8980d6f1727be5be33cbec4935370c75d5cafec03c5f070d1e3f0ec03e86d5"
+       }
+     ],
+     "heroic-stats": [

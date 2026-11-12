@@ -1,7 +1,7 @@
 {
   "reviewed_at": "2026-11-12",
-  "source_base": "b7e404b2 + Quick Buff worktree changes",
-  "status": "unreleased, not published",
+  "source_base": "main a2ae50f0 / PR422 plus verified native source overlay and publication receipts",
+  "status": "published for live testing; owner gameplay and balance acceptance OPEN",
   "articles": [
     {
       "path": "wiki/articles/about.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "wiki/articles/combat.json",
-      "decision": "candidate guidance updated"
+      "decision": "live-testing guidance updated and published"
     },
     {
       "path": "wiki/articles/commands.json",
@@ -53,7 +53,7 @@
     },
     {
       "path": "wiki/articles/features.json",
-      "decision": "candidate guidance updated"
+      "decision": "live-testing guidance updated and published"
     },
     {
       "path": "wiki/articles/getting-started.json",
@@ -133,7 +133,7 @@
     },
     {
       "path": "wiki/articles/multiclass.json",
-      "decision": "candidate guidance updated"
+      "decision": "live-testing guidance updated and published"
     },
     {
       "path": "wiki/articles/pets.json",
@@ -141,7 +141,7 @@
     },
     {
       "path": "wiki/articles/recent-changes.json",
-      "decision": "candidate guidance updated"
+      "decision": "live-testing guidance updated and published"
     },
     {
       "path": "wiki/articles/tradeskills.json",
@@ -157,7 +157,7 @@
     },
     {
       "path": "wiki/articles/unreleased.json",
-      "decision": "candidate guidance updated"
+      "decision": "live-testing guidance updated and published"
     },
     {
       "path": "wiki/articles/waypoints.json",
@@ -173,17 +173,18 @@
     }
   ],
   "decisions": {
-    "Features": "Candidate link added; not presented as a live capability",
+    "Features": "Native hotkey entry in character systems grouping, linked to Combat instructions",
     "Home": "Existing previews navigation remains accurate; no live summary changes",
-    "Guides": "Combat and Multiclass own candidate behavior",
+    "Guides": "Combat and Multiclass own current hotkey instructions and restrictions",
     "Commands": "Native AA Make Hotkey only; no new slash command",
     "Catalog and generated item/zone pages": "No item values, loot, acquisition, NPCs, zones, rates or expansion gates change",
-    "Change Log and In development": "Explicit Not released notices added",
-    "Publication": "None; preserve current public release and global source ledger; review drift separately"
+    "Change Log and In development": "Deployed for live testing; native acceptance stays open",
+    "Publication": "20261112-quick-buff-v1, 613 files, six changed and 607 preserved; exact HTTPS verification required by accompanying receipt"
   },
   "catalog_inputs_unchanged": {
     "wiki/catalog.json": "ef024afcdbcf38d9271ab00d1c2d98fedc77d1992c88b6bba086c301476f6551",
     "wiki/catalog.py": "f3acb32684cff2fd95a0c187309cd6dd747af3908561fd9f1ac0d36c0beab8ad",
     "wiki/equipment.py": "c94d70b67f0ac136e46db24d231273e514050527615928ca4686a77b42018152"
-  }
+  },
+  "publication": "wiki-publication.json and wiki-public-verification.json; current public source reproduced before six output changes; global source ledger unchanged"
 }

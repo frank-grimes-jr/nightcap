@@ -1,77 +1,108 @@
 {
+  "status": "DEPLOYED_FOR_LIVE_QA",
   "date": "2026-11-12",
-  "source_base": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a",
-  "branch": "feature/quick-buff-hotkey",
-  "automated_status": "PASS",
-  "tests_passed": 59,
-  "checks": [
-    {
-      "name": "Quick Buff dispatcher, metadata and client text",
-      "command": "python -B -m unittest discover -s tools/tests -p test_quick_buff.py -v",
-      "tests": 3,
-      "status": "PASS"
-    },
-    {
-      "name": "AA identity, activation and wire packets",
-      "command": "python -B -m unittest discover -s tools/tests -p test_aa_cooldown_identity.py -v",
-      "tests": 17,
-      "status": "PASS"
-    },
-    {
-      "name": "AA buff duration and ticking",
-      "command": "python -B -m unittest discover -s tools/tests -p test_aa_temporary_buffs.py -v",
-      "tests": 21,
-      "status": "PASS"
-    },
-    {
-      "name": "Spell/death gameplay policies",
-      "command": "python -B -m unittest discover -s tools/tests -p test_gameplay_policies.py -v",
-      "tests": 2,
-      "status": "PASS"
-    },
-    {
-      "name": "THJ native resource policies",
-      "command": "python -B -m unittest discover -s tools/tests -p test_thj_behavior_native.py -v",
-      "tests": 1,
-      "status": "PASS"
-    },
-    {
-      "name": "Whole wiki content, generated pages, links and packaging",
-      "command": "python -B -m unittest discover -s wiki -p test_wiki.py -v",
-      "tests": 15,
-      "status": "PASS"
-    }
+  "main_pr": 422,
+  "main_merge_revision": "a2ae50f0f42680c1daaff27dd55636a80cea75dd",
+  "native_receipt": "production-verification.json",
+  "full_build_receipt": "full-build.json",
+  "signed_client_receipt": "client-public-verification.json",
+  "wiki_receipts": [
+    "wiki-publication.json",
+    "wiki-public-verification.json"
   ],
-  "native_checks": {
+  "release_checks": "release-checks.json",
+  "current_linux_fault_checks": {
     "status": "PASS",
-    "complete_translation_units": [
-      "aa.cpp",
-      "spells.cpp"
+    "checks": [
+      {
+        "folder": "docs/releases/quick-buff-20261112/client",
+        "tests": 20,
+        "status": "PASS"
+      },
+      {
+        "folder": "tools/tests",
+        "tests": 8,
+        "status": "PASS"
+      }
+    ]
+  },
+  "fresh_context_review": "review.json; all concrete findings resolved; additional cross-model review declined by owner",
+  "initial_source_candidate_checks": {
+    "date": "2026-11-12",
+    "source_base": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a",
+    "branch": "feature/quick-buff-hotkey",
+    "automated_status": "PASS",
+    "tests_passed": 59,
+    "checks": [
+      {
+        "name": "Quick Buff dispatcher, metadata and client text",
+        "command": "python -B -m unittest discover -s tools/tests -p test_quick_buff.py -v",
+        "tests": 3,
+        "status": "PASS"
+      },
+      {
+        "name": "AA identity, activation and wire packets",
+        "command": "python -B -m unittest discover -s tools/tests -p test_aa_cooldown_identity.py -v",
+        "tests": 17,
+        "status": "PASS"
+      },
+      {
+        "name": "AA buff duration and ticking",
+        "command": "python -B -m unittest discover -s tools/tests -p test_aa_temporary_buffs.py -v",
+        "tests": 21,
+        "status": "PASS"
+      },
+      {
+        "name": "Spell/death gameplay policies",
+        "command": "python -B -m unittest discover -s tools/tests -p test_gameplay_policies.py -v",
+        "tests": 2,
+        "status": "PASS"
+      },
+      {
+        "name": "THJ native resource policies",
+        "command": "python -B -m unittest discover -s tools/tests -p test_thj_behavior_native.py -v",
+        "tests": 1,
+        "status": "PASS"
+      },
+      {
+        "name": "Whole wiki content, generated pages, links and packaging",
+        "command": "python -B -m unittest discover -s wiki -p test_wiki.py -v",
+        "tests": 15,
+        "status": "PASS"
+      }
     ],
-    "receipt": "native-compile.json",
-    "boundary": "syntax only, no full zone build/link"
+    "native_checks": {
+      "status": "PASS",
+      "complete_translation_units": [
+        "aa.cpp",
+        "spells.cpp"
+      ],
+      "receipt": "native-compile.json",
+      "boundary": "syntax only, no full zone build/link"
+    },
+    "review": {
+      "correctness": "Earned/class/rank guards precede dispatch; canonical spell eligibility, flat mana debit, immediate native casts and zero AA timer reviewed",
+      "security": "No new remote interface; native owned-AA authorization and spell/reagent/target restrictions retained",
+      "scope": "Only Quick Buff behavior, dependent test fixture, candidate documentation/wiki and installed knowledge changed"
+    },
+    "release_status": {
+      "server_deployed": false,
+      "signed_client_published": false,
+      "wiki_published": false,
+      "full_zone_link": "pending before release",
+      "native_hotkey_delivery_and_balance_QA": "OPEN"
+    },
+    "source_sha256": {
+      "server-mods/code/common/quick_buff.h": "841489c43b68cfa2cd66128521edf137a8e889cf172ae283061b35643bfdf951",
+      "server-mods/code/zone/aa_quick_buff.inc": "4af4930a7bffd12cd6d8a9e1d872663fd50cd0094f7f79ea1ac48497572e9d7c",
+      "server-mods/code/zone/aa.cpp": "4d302c72ef3826f291f1a3bb223bcdf77721d523e088d500ba2a04b293335852",
+      "server-mods/code/zone/client.h": "99d3e472043df9a5d0ba2372eaf80d01fb3bb4b16e0aff1d1da84c540ca1bd97",
+      "server-mods/code/zone/spells.cpp": "bf0ad9b85366ea08dd1248d05e224a0332b02e64f62f4a292de44476e9dcc98b",
+      "tools/quick_buff_client.py": "2ecf764bb3f2874e152a1eacf514da67134fc2d273aacb2b713fee4409dbab7e",
+      "tools/tests/test_quick_buff.py": "a4f13d619c5596d75df9e98777f2e8b17f2a86e9c2a17703daef4236b1383e3e",
+      "tools/tests/test_aa_cooldown_identity.py": "539ba0b2f6d13fa4926b89d70e6ee39ff855da7a3da8b8800b769736865f0bfa",
+      "tools/tests/test_gameplay_policies.py": "2f0c63a95eecd037b2df90c2ba5464e1b4019829ab2d86429ae8f20d54c6a57f"
+    }
   },
-  "review": {
-    "correctness": "Earned/class/rank guards precede dispatch; canonical spell eligibility, flat mana debit, immediate native casts and zero AA timer reviewed",
-    "security": "No new remote interface; native owned-AA authorization and spell/reagent/target restrictions retained",
-    "scope": "Only Quick Buff behavior, dependent test fixture, candidate documentation/wiki and installed knowledge changed"
-  },
-  "release_status": {
-    "server_deployed": false,
-    "signed_client_published": false,
-    "wiki_published": false,
-    "full_zone_link": "pending before release",
-    "native_hotkey_delivery_and_balance_QA": "OPEN"
-  },
-  "source_sha256": {
-    "server-mods/code/common/quick_buff.h": "841489c43b68cfa2cd66128521edf137a8e889cf172ae283061b35643bfdf951",
-    "server-mods/code/zone/aa_quick_buff.inc": "4af4930a7bffd12cd6d8a9e1d872663fd50cd0094f7f79ea1ac48497572e9d7c",
-    "server-mods/code/zone/aa.cpp": "4d302c72ef3826f291f1a3bb223bcdf77721d523e088d500ba2a04b293335852",
-    "server-mods/code/zone/client.h": "99d3e472043df9a5d0ba2372eaf80d01fb3bb4b16e0aff1d1da84c540ca1bd97",
-    "server-mods/code/zone/spells.cpp": "bf0ad9b85366ea08dd1248d05e224a0332b02e64f62f4a292de44476e9dcc98b",
-    "tools/quick_buff_client.py": "2ecf764bb3f2874e152a1eacf514da67134fc2d273aacb2b713fee4409dbab7e",
-    "tools/tests/test_quick_buff.py": "a4f13d619c5596d75df9e98777f2e8b17f2a86e9c2a17703daef4236b1383e3e",
-    "tools/tests/test_aa_cooldown_identity.py": "539ba0b2f6d13fa4926b89d70e6ee39ff855da7a3da8b8800b769736865f0bfa",
-    "tools/tests/test_gameplay_policies.py": "2f0c63a95eecd037b2df90c2ba5464e1b4019829ab2d86429ae8f20d54c6a57f"
-  }
+  "owner_native_and_balance_acceptance": "OPEN; exact steps in README.md"
 }

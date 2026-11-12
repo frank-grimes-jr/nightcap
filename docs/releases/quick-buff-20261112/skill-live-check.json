@@ -1,0 +1,93 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "quick-buff": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\common\\quick_buff.h",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\aa.cpp",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\aa_quick_buff.inc",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\client.h",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\quick_buff_client.py",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff.py",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff_reagents.py",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_aa_cooldown_identity.py",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff_rollout.py",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\README.md",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\rollout.py",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\full-build.json",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\production-verification.json",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\client-public-verification.json",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\wiki-public-verification.json",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\retained-native-overlay.patch",
+        "role": "Reviewed deployed Quick Buff implementation/test/pairing evidence; owner acceptance OPEN",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

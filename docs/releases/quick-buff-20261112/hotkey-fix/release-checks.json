@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "native_build_sha256": "c04dfcba057e6785699587d13a1a43158ed95277b211d8c0fadae12172bae9b0",
+  "tests": {
+    "pinned_RoF2_native_gate_and_receiver": {
+      "checks": 36,
+      "failures": 0,
+      "red_baseline_failures": 1
+    },
+    "aa_cooldown_identity": {
+      "tests": 17,
+      "failures": 0
+    },
+    "followup_rollout_faults": {
+      "tests": 9,
+      "failures": 0
+    }
+  },
+  "reviewed_source_sha256": {
+    "eq-client-dll\\tests\\aa-reuse-native.cpp": "36191c360ec345228d0e9eacda08e583abce9c37e5df2e9ea1c820c3ac6b67a0",
+    "tools\\tests\\test_quick_buff_hotkey_native.py": "399ad48f275f8799b5d4dfb312602066eab636f728f53103f844148832f6010b",
+    "tools\\tests\\test_aa_cooldown_identity.py": "fd931654451027a1f5d4f1670109c28b08777cc44ec28bcc126739c7db5d9316",
+    "tools\\tests\\test_quick_buff_hotkey_rollout.py": "a209a977431aba4271784e1497a9555353fbc99c993ecd688a488115126be643"
+  },
+  "owner_manual_acceptance": "OPEN: v1 Make Hotkey failed for Palwar; v2 needs visible creation and repeated activation"
+}

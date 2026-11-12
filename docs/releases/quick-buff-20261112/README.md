@@ -1,9 +1,19 @@
-# Quick Buff activated AA candidate — November 12, 2026
+# Quick Buff native Make Hotkey follow-up
+
+The owner reported v1 **Make Hotkey disabled on Palwar**, who owns rank3. This is a confirmed manual QA failure, not an ownership problem. Follow-up `hotkey-fix/` is built and awaiting deployment; remaining gameplay/balance QA stays OPEN.
+
+The pinned RoF2 executable disables creation when base reuse<=0 (native gate0x6081E4, ability+0x64). The authoritative rank retains zero reuse; only family48 packet presentation uses1. Every family48 timer packet is a reset `(begin0,end=current time)`, so no one-second deadline exists. Generic native AA detail may show nominal1second; actual readiness is immediate. No new client download or AA grant.
+
+The exact native gate/receiver fixture failed against the old metadata and passes36checks after correction. AA identity17tests and follow-up rollout9fault tests pass; fresh-context native-path review has no blocker. `hotkey-fix/native-build.json` reproduces the deployed full-build zone1fe268a1, compiles only AA/spells against an isolated source clone, pins unchanged link inputs and Client layout, and produces zone3eeb72c9. The original full-build requirement remains for the v1 Client member change; this follow-up starts from that completed build.
+
+After deployment, relog Palwar, select Quick Buff in the AA window, verify **Make Hotkey** enables, place it on a bar, then activate with sufficient mana and eligible memorized buffs. Confirm one50% maximum-mana debit, immediate buffs, no cooldown; restore mana and repeat immediately. Verify ordinary AA timers remain independent. Native UI/gameplay acceptance remains OPEN until owner testing.
+
+# Quick Buff activated AA — deployed for live QA, November 12, 2026
 
 Requested and confirmed by the owner: an AA hotkey immediately casts the buffs
 memorized on the player's spell bar, costs 50% of **maximum** mana once per
 activation, targets the caster, retains normal group/pet delivery, and has no
-reuse delay. This source candidate is not deployed or accepted in game.
+reuse delay. Main PR422/a2ae50f0 and the guarded paired release are deployed, with admissions open. All12zone workers run1fe268a1; world/shared_memory retain the augment-icon repair. Signed client2026111201 and wiki20261112-quick-buff-v1 are published. Native hotkey/delivery and balance acceptance remain open.
 
 ## Implementation and decisions
 
@@ -56,20 +66,17 @@ original spell/death assertions pass. Baseline failure evidence is retained in
 `native-compile.json` records successful complete `aa.cpp` and `spells.cpp` syntax
 checks against an isolated November 7 retained source snapshot. The baseline
 versions of all three modified existing files exactly matched task HEAD before
-overlay. This is not a full zone link or a runtime/client test. The new Client
-member requires a **full zone rebuild**, not a retained-object two-file relink.
+overlay. Those initial syntax checks are separate from the completed full zone link and production verification in full-build.json and production-verification.json. The new Client member required a **full zone rebuild**, not a retained-object two-file relink.
 
 No database, rule, spell cache, quests, signed DLL or reference client was changed.
-Before activation, build the full zone against the current integrated release,
-rerun tests, prepare current signed `dbstr_us.txt` using `tools/quick_buff_client.py`,
-and publish it through the existing authenticated client-delivery flow. Do not
+This release built the full zone against the authenticated current native baseline, reran focused checks and published signed `dbstr_us.txt` using `tools/quick_buff_client.py` and the existing authenticated client-delivery flow. For future changes, retain that same source/pairing discipline. Do not
 reuse an old full client manifest. No new spell asset is needed. Fully exit EQ
 and use launcher Play for the paired text update. The server binary must load the
 new AA graph; AA reload alone cannot install the C++ behavior. Production requires
 the supported whole-runtime release procedure; never kill one zone worker.
 
 Follow feature → dev automated verification → test manual QA → main after fresh
-owner sign-off. No gameplay deployment or wiki publication was performed here.
+owner sign-off. For this release the owner explicitly authorized main/live QA before manual acceptance; server, signed client and wiki are now deployed and verified. Future releases retain the default branch policy.
 Rollback uses a compatible prior full zone build and restores the scoped client
 text through a newer signed release. Keep earned/player state; never restore a
 player snapshot. No SQL rollback or AA refund is needed.
@@ -81,7 +88,7 @@ can test the Quick Buff hotkey in game.” This authorizes this release's main/l
 QA promotion before manual acceptance; it does not change future branch policy.
 The owner confirmed logged out and declined an optional cross-model review.
 A fresh-context source/operator review found one Bard instrument issue, now fixed
-and covered by the actual extracted native reagent branch. Seven operator fault
+and covered by the actual extracted native reagent branch. Eight operator fault
 checks and twenty publisher recovery checks pass on Linux without skips.
 
 Fresh production probe identifies the newer augment-icon image c8cc0951 with
@@ -104,7 +111,7 @@ all613current public files, then changes only five guides and search (607retaine
 Neither prepared artifact is a publication receipt. `rollout.py` requires exact
 staged build/source/review/test pins, keeps deployment/GM locks, zero players and
 125-second auth drain, clean full-runtime stop, fresh stopped full backup, exact
-saved-state boot and one-market-rotation verification, and separate guarded reopen.
+saved-state boot and one-market-rotation verification, and separate guarded reopen. Signed client text is published with admissions still closed under the same locks; its exact hash must pass before reopening.
 Any failed mutation holds access closed. No content, rules, caches, quests,
 world/shared binaries, player snapshots or inventory rows are rewritten.
 
