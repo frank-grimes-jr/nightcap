@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## November12 — Heroic stats active; Inventory display candidate
+
+Production read-only checks confirm heroic stats enabled on the retained
+November7 world/zone pair. Signed2026110701 already has gold heroic totals in
+Inventory > Stats. A one-XML candidate adds them beside the seven main-Inventory
+attributes, preserving native normal-stat coloring, all existing controls and
+147other client asset descriptors. No gameplay tuning/restart/DB write.
+21focused checks pass; signing, promotion/publication and visible owner QA remain
+pending. Wiki candidate guidance is local, not published.
+[Evidence and exact QA](releases/heroic-stats-inventory-20261112/README.md).
+
 ## November7 — The Last Lantern deployed for live QA
 
 Main8d75f8da contains the campaign; the paired OVH runtime is healthy with

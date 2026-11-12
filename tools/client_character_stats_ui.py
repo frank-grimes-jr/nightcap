@@ -1,9 +1,69 @@
 """Extend the existing Stats page; stage outside the read-only client reference."""
 import xml.etree.ElementTree as ET
+from copy import deepcopy
+import re
 
 PAIRS=['Shielding','SpellShield','DamageShielding','DoTShielding','DamageShieldMitigation',
        'Avoidance','Accuracy','StunResist','StrikeThrough','HealAmount','SpellDamage','Clairvoyance','CombatEffects']
 SHIELD_BLOCK_TIP='Total shield-block chance, including equipped augment bonuses. Requires a shield; facing and attack counters still apply. Only the strongest augment shield-block bonus applies.'
+
+
+def add_inventory_heroics(root):
+    """Expose RoF2's native heroic labels in the main Inventory stat column."""
+    page=root.find("Page[@item='IW_InvPage']")
+    if page is None:raise ValueError('Missing Inventory page')
+    stats=[('STR','Strength'),('STA','Stamina'),('AGI','Agility'),
+           ('DEX','Dexterity'),('WIS','Wisdom'),('INT','Intelligence'),('CHA','Charisma')]
+    # Check the complete input before mutation; the shipped skin owns this layout.
+    for short,full in stats:
+        if root.find("Label[@item='IW_Heroic"+full+"']") is not None:
+            raise ValueError('Inventory heroic labels already present')
+        total=root.find("Label[@item='IW_"+short+"Number']")
+        native=root.find("Label[@item='IWS_Heroic"+full+"']")
+        if total is None or native is None:raise ValueError('Missing native stat: '+short)
+        if int(total.findtext('Location/X'))+int(total.findtext('Size/CX'))>81:
+            raise ValueError('Unsupported Inventory stat column: '+short)
+    for short,full in stats:
+        total=root.find("Label[@item='IW_"+short+"Number']")
+        native=root.find("Label[@item='IWS_Heroic"+full+"']")
+        for suffix,x,width in [('Plus',81,8),('',89,31)]:
+            node=deepcopy(native)
+            name='IW_Heroic'+full+suffix
+            node.set('item',name)
+            screen=node.find('ScreenID')
+            if screen is None:screen=ET.SubElement(node,'ScreenID')
+            screen.text=name
+            node.find('Location/X').text=str(x)
+            node.find('Location/Y').text=total.findtext('Location/Y')
+            node.find('Size/CX').text=str(width)
+            if suffix:
+                node.remove(node.find('EQType'))
+                node.find('Text').text='+'
+            tip=ET.SubElement(node,'TooltipReference')
+            tip.text='Heroic '+full+' from usable equipped items and augments. Included in the total to the left; also raises the stat cap.'
+            root.append(node)
+            ET.SubElement(page,'Pieces').text=name
+
+
+def inventory_heroics_xml(raw):
+    """Add labels to published XML while preserving every existing source byte."""
+    root=ET.fromstring(raw)
+    add_inventory_heroics(root)
+    labels=[n for n in root.findall('Label') if n.get('item','').startswith('IW_Heroic')]
+    if len(labels)!=14:raise ValueError('Unexpected heroic label inventory')
+    pages=list(re.finditer(rb'<Page\s+item="IW_InvPage">.*?</Page>',raw,re.DOTALL))
+    if len(pages)!=1 or raw.count(b'</XML>')!=1:raise ValueError('Unsupported XML layout')
+    pieces=b''.join(b'\n\t\t<Pieces>'+n.get('item').encode('ascii')+b'</Pieces>' for n in labels)
+    offset=pages[0].end()-len(b'</Page>')
+    result=raw[:offset]+pieces+b'\n\t'+raw[offset:]
+    rendered=[]
+    for node in labels:
+        node.tail=None
+        ET.indent(node,space='\t')
+        rendered.append(ET.tostring(node,encoding='utf-8'))
+    result=result.replace(b'</XML>',b'\n'+b'\n'.join(rendered)+b'\n</XML>')
+    ET.fromstring(result)
+    return result
 
 
 def show_total_shield_block(root):
@@ -44,6 +104,7 @@ def add_character_stats(root):
     tile=root.find("TileLayoutBox[@item='IW_Stats']")
     if page is None or tile is None or root.find("Screen[@item='NCST_Bonuses']") is not None:
         raise ValueError('Unsupported or already updated Stats page')
+    add_inventory_heroics(root)
     def put(node,tag,text):
         child=node.find(tag)
         if child is None:child=ET.SubElement(node,tag)

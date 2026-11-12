@@ -1,0 +1,10 @@
+{
+  "tools/client_character_stats_ui.py": "63ba78acf94350c553b7098eedba46705421b839fc82e849656882c32940a955",
+  "tools/tests/test_client_character_stats.py": "d4bf465e907db679a308b05eca7248bc177bd633fbbfbd6056f26095d62748f3",
+  "tools/probe_heroic_stats.py": "6cb08fdb4ad15821e779b079c680702ebf980ae036527873430580116e1bd7ba",
+  "tools/stage_heroic_stats_client.py": "3b27514f68475cb634168d6c56adf050eee2f3312bb92384519cdc5cc71db6c3",
+  "server-mods/code/zone/bonuses.cpp": "04554adfc84a0b2143b4bf922ceec67413026938c8e114c8f3193896e547630f",
+  "server-mods/code/zone/client_mods.cpp": "8cf3972665ad6e3ff6dd0de20ab78909a31fb1025d03353b83bc52d2af795743",
+  "server-mods/code/common/patches/rof2.cpp": "168f49ca150f6131ba4456f5adfb696225744cc63b455d65e8e70e1213e73001",
+  "server-mods/code/common/ruletypes.h": "17dca09145970355eeb968482a4f42419cda64f509f7e711845ec84747e19a3f"
+}

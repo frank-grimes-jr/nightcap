@@ -247,3 +247,11 @@ docs/items/paladin-weapon-grip/balance/release/evidence.json text eol=lf
 
 # Keep reviewed Last Lantern source/knowledge patches exact on Windows.
 docs/adventure-journal/release-20261107/*.patch text eol=lf
+
+# Preserve reviewed heroic-stat source/evidence fingerprints across checkouts.
+tools/client_character_stats_ui.py text eol=lf
+tools/tests/test_client_character_stats.py text eol=lf
+tools/probe_heroic_stats.py text eol=lf
+tools/stage_heroic_stats_client.py text eol=lf
+docs/releases/heroic-stats-inventory-20261112/* text eol=lf
+docs/releases/heroic-stats-inventory-20261112/*.patch text eol=lf -whitespace

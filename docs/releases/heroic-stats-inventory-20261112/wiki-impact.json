@@ -1,0 +1,226 @@
+{
+  "authored_articles_reviewed": 42,
+  "articles": [
+    {
+      "article": "about.json",
+      "status": "Reference",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "advanced-loot.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "adventure-journal.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "ascension.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "ashen-compact.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "augment-audit.json",
+      "status": "Live testing",
+      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+    },
+    {
+      "article": "build-lab.json",
+      "status": "Reference",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "camil-vigil.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "combat.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "commands.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "equipment.json",
+      "status": "Live testing",
+      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+    },
+    {
+      "article": "features.json",
+      "status": "Live testing",
+      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+    },
+    {
+      "article": "getting-started.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "index.json",
+      "status": "Reference",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-960420.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-960421.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-960422.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-960423.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-960424.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-960425.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961020.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961021.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961022.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961023.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961030.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961031.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-961032.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-990510.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "item-upgrades.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "launcher.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "loot-finder.json",
+      "status": "Reference",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "multiclass.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "pets.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "recent-changes.json",
+      "status": "Reference",
+      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+    },
+    {
+      "article": "tradeskills.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "travel.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "tunnel.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "unreleased.json",
+      "status": "Not released",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "waypoints.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "zone-hunt.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    },
+    {
+      "article": "zone-kael.json",
+      "status": "Live testing",
+      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+    }
+  ],
+  "changed_articles": [
+    "equipment.json",
+    "augment-audit.json",
+    "features.json",
+    "recent-changes.json"
+  ],
+  "home": "No extra release announcement; existing equipment path remains valid",
+  "commands": "No command or command behavior added",
+  "catalogs": "No item/zone acquisition, values or generation change",
+  "publication": "Pending; local articles do not establish public publication",
+  "refresh": "Global unrelated drift remains review-required; no ledger advance"
+}

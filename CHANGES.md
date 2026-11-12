@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-11-12 — Heroic stats confirmed; Inventory display candidate
+
+Read-only OVH checks confirm heroic multipliers1.0 and Nightcap melee/spell
+scaling enabled on the retained November7 runtime. Existing Stats has gold
+heroic totals; the main Inventory panel omitted them. Prepared one XML delta
+with native heroic labels beside all seven attributes, retaining normal native
+coloring and all prior controls. No rule/balance/player/client-install change.
+21focused checks pass; signing/publication and native visual acceptance remain
+pending. Wiki guides/Features/Change Log reviewed with explicit candidate labels.
+Evidence: docs/releases/heroic-stats-inventory-20261112/.
+
 ## 2026-11-07 — Last Lantern paired release deployed for live QA
 
 Main8d75f8da and the guarded OVH v4release install the level20–50 campaign,
