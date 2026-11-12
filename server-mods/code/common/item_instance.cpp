@@ -535,24 +535,12 @@ bool EQ::ItemInstance::IsOrnamentationAugment(EQ::ItemInstance* augment) const
 		return false;
 	}
 
-	const std::string& idfile = augment_item->IDFile;
-
-	if (
-		EQ::ValueWithin(
-			augment->GetAugmentType(),
-			OrnamentationAugmentTypes::StandardOrnamentation,
-			OrnamentationAugmentTypes::SpecialOrnamentation
-		) ||
-		(
-			idfile != "IT63" &&
-			idfile != "IT64"
-		) ||
-		augment_item->HerosForgeModel
-	) {
-		return true;
-	}
-
-	return false;
+	// AugType is a bitmask, not a socket number. Ordinary stat augments can
+	// have an empty or non-placeholder IDFile; neither makes them cosmetic.
+	constexpr uint32 ornament_types =
+		(1u << (OrnamentationAugmentTypes::StandardOrnamentation - 1)) |
+		(1u << (OrnamentationAugmentTypes::SpecialOrnamentation - 1));
+	return (augment_item->AugType & ornament_types) != 0 || augment_item->HerosForgeModel != 0;
 }
 
 EQ::ItemInstance* EQ::ItemInstance::GetOrnamentationAugment() const

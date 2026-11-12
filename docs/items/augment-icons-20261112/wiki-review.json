@@ -1,0 +1,178 @@
+{
+  "date": "2026-11-12",
+  "publication": "not authorized or performed",
+  "recorded_public_baseline": "docs/adventure-journal/release-20261107/wiki-public-verification.json; no fresh probe",
+  "source_drift": "Historical global REVIEW REQUIRED retained; current main includes unrelated old previews, so do not republish a full mirror.",
+  "authored_articles": [
+    {
+      "slug": "about",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "advanced-loot",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "adventure-journal",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "ascension",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "ashen-compact",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "augment-audit",
+      "decision": "Not released candidate note added"
+    },
+    {
+      "slug": "build-lab",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "camil-vigil",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "combat",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "commands",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "dungeon-modes",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "equipment",
+      "decision": "Not released candidate note added"
+    },
+    {
+      "slug": "features",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "getting-started",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "index",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-960420",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-960421",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-960422",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-960423",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-960424",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-960425",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961020",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961021",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961022",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961023",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961030",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961031",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-961032",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-990510",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "item-upgrades",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "launcher",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "loot-finder",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "multiclass",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "pets",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "recent-changes",
+      "decision": "Not released candidate note added"
+    },
+    {
+      "slug": "tradeskills",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "travel",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "tunnel",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "unreleased",
+      "decision": "Not released candidate note added"
+    },
+    {
+      "slug": "waypoints",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    },
+    {
+      "slug": "zone-hunt",
+      "decision": "Not released candidate note added"
+    },
+    {
+      "slug": "zone-kael",
+      "decision": "No edit: ordinary augment icon classification adds no changes to this guide/reward/command contract."
+    }
+  ],
+  "generated_catalogs": "No item/stat/artwork/drop/acquisition values change; generated item/zone pages and indexes need no catalog edits.",
+  "home_features_commands": "No new player system or command; owning guides and candidate history are sufficient."
+}
