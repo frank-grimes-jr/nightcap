@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-12",
+  "branch": "feature/dot-no-initial-damage",
+  "base_revision": "423f9c3bde9da5e25fe6682abdf61bf60cccc5a3",
+  "status": "PASS for changed behavior; unrelated existing wiki provenance drift remains",
+  "source_sha256": {
+    "server-mods/code/zone/spell_effects.cpp": "df4300a4873fb1bb7f9244b0715deb4f0dc239ee7b270e702cb5f39412947183",
+    "tools/tests/test_dot_initial_damage.py": "ad6a89e5d0b291a3b5067be607c5744e0eb3e9a41764ed85be4b89ae3200a6d6",
+    "docs/balance/dot-initial-damage-20261112/README.md": "87178fe91a5ab0cd510a68a8aeb139367471409550f0b12b70d64bd524429556",
+    "docs/balance/dot-initial-damage-20261112/native-build.json": "4327ada23639df0a4599df50889b031baeab889f048078eacfe09c131bf3ca0c",
+    "wiki/articles/combat.json": "ea5949d9bb944bdae59834a12ba6cb82d133d59838ffe5d24a3c69c5b0f8780c",
+    "wiki/articles/unreleased.json": "9f6b710a9ae60045f4f6d3de556ed0d97d0d812c041cc457c5662ce48e901316",
+    "wiki/articles/recent-changes.json": "0e782b9e7a45d76be3dd086fe55623b73ed818614c586539aad04fb098e9f996"
+  },
+  "red": "Compiled old landing branch fails: DoT landing still deals amplified direct damage or taps resources",
+  "green": {
+    "dot_initial_damage": 2,
+    "gameplay_policies": 2,
+    "thj_spell_scaling": 2,
+    "thj_behavior_native": 1,
+    "client_spell_cast_times": 4
+  },
+  "native_build": "PASS; exact shipping baseline 3eeb72c9 reproduced, whole changed TU compiled and candidate zone linked; retained input hashes unchanged",
+  "wiki_tests": {
+    "passed": 22,
+    "failed": 1,
+    "failure": "Build Lab frozen source provenance for unchanged server-mods/code/zone/effects.cpp; expected a306af31, current raw 8d4eeb1d, HEAD blob 3df62fd5; file text equals HEAD after CRLF normalization. Existing source drift, no pins advanced."
+  },
+  "wiki_review": {
+    "authored_articles_reviewed": 42,
+    "affected": [
+      "combat",
+      "unreleased",
+      "recent-changes"
+    ],
+    "features_home_commands_catalogs": "No additional changes: existing Features links Combat/development; no live announcement, commands/item/zone/acquisition or Build Lab arithmetic change",
+    "source_drift": "REVIEW REQUIRED, including historical unrelated drift; ledger unchanged",
+    "published": false
+  },
+  "review": {
+    "correctness": "Guard uses same canonical caster/spell policy as instant casting, calculated negative effect sign, before scaling and resource taps. Positive healing and non-client behavior retained. Normal tick method untouched.",
+    "architecture": "No duplicate classifier, new ABI, rule, schema, spell or client format. Five-line change.",
+    "security_performance": "No new external input, data write or credentials. Fixed-size twelve-effect scan only for negative landing effect; no hot tick change.",
+    "limits": "Boundary-fake native regressions and local catalog; not full encounter or owner integration acceptance. Triggered AA/spell procs remain native."
+  },
+  "deployed": false,
+  "owner_gameplay_accepted": false
+}

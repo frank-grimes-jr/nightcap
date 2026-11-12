@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-11-12 — Player DoT landing damage removed (source candidate)
+
+Player instant DoTs skip only their negative CurrentHPOnce landing effects,
+including direct-damage scaling and resource taps. Instant casting, ordinary
+DoT/Bard ticks, positive one-time heals, debuffs, nukes and non-player casting
+retain native paths. Pure DoTs already have no initial hit. SELECT-only local
+catalog review distinguishes 980 definitions with a hit from 2,646 without;
+these include later/NPC content, not the active legal spell pool. Native landing
+regression reproduces the old amplified hit and passes the fix; neighboring
+spell/timing checks and isolated native build are recorded in the evidence.
+No SQL/client/rule change or live deployment. Wiki changes are Not released and
+unpublished; owner gameplay/balance QA remains open. Exact QA, build/rollback
+boundary and reviewed evidence: docs/balance/dot-initial-damage-20261112/.
+
 ## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
 
 Owner testing found the AA-window Make Hotkey control disabled on earned rank3. Follow-up PR423/60d51362 is deployed with zone3eeb72c9; admissions restored after guarded backup/restart and native/saved-state checks. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Wiki20261112-quick-buff-v2 verifies613public files/headers with610retained and five private denials; all five services stay unchanged during publication. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.
