@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-11-12
+
+### Earned titles - disabled candidate
+
+- Add 77 cosmetic per-character titles: slayer families, named dragons, 21 Classic Raid clears, 34 skill masteries, Master Artisan, level 50 and Last Lantern completion. Durable personal ledgers count; general kill counters begin on activation.
+- Extend native title selection with stable IDs and permanent awards, finalized-death/saved-skill hooks and #titles progress. No player power or item rewards change. Three additive InnoDB tables install disabled. Existing titles and worn selections remain.
+- Generate native definitions and wiki requirements together; update guides/Features/Home/commands/previews/Change Log. Tests, QA and recovery: docs/titles/. Not deployed, published or manually accepted.
+
+
 ## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
 
 Owner testing found the AA-window Make Hotkey control disabled on earned rank3. Follow-up PR423/60d51362 is deployed with zone3eeb72c9; admissions restored after guarded backup/restart and native/saved-state checks. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Wiki20261112-quick-buff-v2 verifies613public files/headers with610retained and five private denials; all five services stay unchanged during publication. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.

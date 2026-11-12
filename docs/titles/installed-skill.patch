@@ -1,0 +1,195 @@
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -24,0 +25 @@
++| Earned titles, slayer/dragon ranks, expansion conquest and skill mastery | [Earned titles](references/titles.md) / `titles` |
+--- a/references/titles.md
++++ b/references/titles.md
+@@ -0,0 +1,47 @@
++# Earned cosmetic titles — November12 candidate
++
++Source E:/EQ_Local_Dev/_worktrees/earned-titles, feature/earned-titles based on
++origin/main423f9c3b. 77title definitions are generated with the wiki by
++tools/earned_titles.py. Topic `titles` checks the reviewed implementation/evidence.
++This is disabled source, not deployed, published or player accepted.
++
++Native title selection/HasTitle authorizes permanent per-character awards using
++IDs1900000000–1900000999. Existing database IDs in that range suspend this system.
++No power/item/currency/XP or automatic worn-title change. Stable issued IDs must
++never be reused. Three new InnoDB tables install disabled; separate enabled row
++and catalog_version1 fence activation. Keep awards/counters during recovery.
++
++Slayer totals100/1000/10000; undead100/1000/5000; giants100/1000; dragons1/10/100.
++Native finalized deaths and normalized owner/party credit fence counting. Victims
++must have native spawn points and be unowned/non-transient/non-merchant/non-chest;
++ordinary status0, loaded/connected/alive members within200units and non-gray con
++qualify. New counters start at activation, saturate10000 and are never backfilled
++from guesses. Failed/uncertain cosmetic writes log without replay or combat veto.
++Named home-zone Nagafen/Vox/dracoliche victories can recover from personal boss
++ledger credit. General totals cannot. Native body types determine families.
++
++Personal completed_at>0 Keeper ledgers own full-clear titles; Raid mode1 across
++all21Classic zones owns Conqueror of Classic. Normalize historical Hate76 to186;
++Chapterhouse760/Kael113 cannot substitute. Partial/global/other-member credit is
++insufficient.34skill titles require level50+ and persisted/loaded raw skill at the
++highest held-class native level50 cap; zero caps and skill bonuses do not qualify.
++Existing race/class/crafting/New Tanaan policy remains. Seven crafts together
++earn Master Artisan. Native completed_tasks9515/activity-1 owns Last Lantern.
++Awards survive class release; the title list/#titles lazily reconciles old goals.
++Finalized kills and successfully saved skill updates reconcile immediately.
++
++Source: common/earned_title_{policy,catalog}.h; zone/earned_titles.{h,inc},
++titles.cpp, attack.cpp, client.cpp, command.{cpp,h}. Four focused test groups
++include compiled policy and actual adapter/failure controls. Four complete native
++units syntax-compile against retained November12 inputs;10isolated MariaDB checks
++pass. Commands/hashes: docs/titles/native-compile.json and storage-tests.json.
++No full linked shipping build or native player QA is claimed. Activation requires
++the matching zone build/storage, no new Client layout/rules/cache/quest/client.
++Production native refresh uses guarded whole-runtime activation, not worker kills.
++
++Contract, exact player QA, activation/recovery and whole-wiki assessment live in
++docs/titles/{SPEC,QA,README,wiki-impact}.md. New Titles guide plus Features/Home,
++commands/previews/Change Log and five owning guides retain Not released labels.
++607HTML pages/links/privacy/search build checks pass. No web browser is connected,
++so rendered/mobile and RoF2 picker/nameplate acceptance remain open. Global wiki
++historical drift stays REVIEW REQUIRED; no blind ledger advance or publication.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,0 +2,9 @@
++
++## Earned titles — November12 disabled candidate
++
++77cosmetic titles have a generated Not released Titles guide, Features/Home and
++command/owning-guide links in E:/EQ_Local_Dev/_worktrees/earned-titles. See
++references/titles.md and docs/titles/wiki-impact.md.607HTML pages/link/privacy/
++search checks pass; browser/rendered QA is unavailable. No gameplay activation or
++public publication. Preserve global REVIEW REQUIRED and newer public source.
++
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -161 +161,2 @@
+-    "imitate_death_candidate_20261112": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate"
++    "imitate_death_candidate_20261112": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++    "earned_titles_candidate_20261112": "origin/main423f9c3b plus reviewed feature/earned-titles working changes; disabled, not deployed/published/accepted"
+@@ -18788,0 +18790,122 @@
++    ],
++    "titles": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "tools/earned_titles.py",
++        "role": "Reviewed 77-title source catalog and native/wiki generator",
++        "sha256": "5d2c68e17cb53f104e81d335c96a87b203d370edd26089b400cf25b6603f5529"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/common/earned_title_policy.h",
++        "role": "Threshold, cap, Classic checklist and credit policy",
++        "sha256": "3e821bff5f4949670a60745f58da2318960ceab6f9b99393edf9fa5ab9e85f34"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/common/earned_title_catalog.h",
++        "role": "Generated stable title IDs and exact requirements",
++        "sha256": "b17e926c5c2bc18a8c6e4c231bbdcb22858d6cb63e99beebd305d928da4b8156"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/earned_titles.h",
++        "role": "Title adapter interface",
++        "sha256": "438112641a849608be66f33018e1bf9ed64aff9df4c480bd1922ab8ba938c3bc"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/earned_titles.inc",
++        "role": "Persistent counters/awards, native ledgers and guarded reconciliation",
++        "sha256": "fbf4994130d9ea8dbd929803c3577f0169a00b44214f5f1ed52d9f897d2c655f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/titles.cpp",
++        "role": "Native earned title packet/selection integration",
++        "sha256": "8e705936f8c6d945074ab5af07e066505434ffbc347b3f940e9931fd9653769b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/attack.cpp",
++        "role": "Finalized native death hook and captured ownership",
++        "sha256": "a78d33eba8dc728250a20611cdecedf63a95b2ddf3fad1e2ebb96df357099fbb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/client.cpp",
++        "role": "Successfully saved skill update hook and native multiclass caps",
++        "sha256": "283325ab7cf3d389229f9602575d739982367c56c2df3117c6ac878fede02ca4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/command.cpp",
++        "role": "Player #titles registration and pagination",
++        "sha256": "4edcea68831c83b68ad377efea166f84f7b4efb1e7e3680dfb4293f47c2c2417"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "server-mods/code/zone/command.h",
++        "role": "Native command declaration",
++        "sha256": "c48e4702b9f3bf4da032022bf847537c745cd16375161acd4e686442840cfb2b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "tools/tests/test_earned_titles.py",
++        "role": "Compiled policy, actual adapter and generation regression groups",
++        "sha256": "7d9ee0791810706395b3a897e78c718b7855ec48bcc40a11b2d3de870b899f26"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "tools/tests/earned_titles_service_fixture.cpp",
++        "role": "Durable/failed/uncertain storage and selection controls",
++        "sha256": "f119572c3908aba62b6cf9eca9498001386e1a79be4c8dccb6a3b74d321142e9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/setup.sql",
++        "role": "Three additive disabled InnoDB tables",
++        "sha256": "dcf143645a019f94071958f35e493ea703a3fca0644521ba54e9021f185d68a0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/native-compile.json",
++        "role": "Four native syntax compile commands and source hashes; no deployment",
++        "sha256": "10cd253f96e86fdd38f445b3fcbdc36fb38c48f49c29989074903b98d5bc3ffe"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/storage-tests.json",
++        "role": "Ten real isolated MariaDB checks",
++        "sha256": "13f44a935316007f4859d70ebe3ac392a0c01224c5d499378f9edcd875978974"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/SPEC.md",
++        "role": "Candidate contract, assumptions and alternatives",
++        "sha256": "3e6b1f29bda1bbac7ee2d81c16ae6a393ac446f6e9c45fcc39c446f09accaa27"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/QA.md",
++        "role": "Exact normal-player acceptance gates, all OPEN",
++        "sha256": "9f228b9f7381de5bbffbddd2b17985c46040f8f5a8693da7c6aa26320dd667cf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/README.md",
++        "role": "Verification, activation and forward recovery boundary",
++        "sha256": "6d7704168ee13682e7619e72d36c1f32186bd8ed73ca45230012f0c666d45fd5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/titles/wiki-impact.md",
++        "role": "Whole-wiki scoped candidate review and unavailable visual QA",
++        "sha256": "cc1da98b23d394e1841da1e9cc20fbc873fe9bf6acac416aaf7757e330bdd1d8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "wiki/articles/titles.json",
++        "role": "Generated unreleased player title requirements",
++        "sha256": "c11bd6e5b3598525b8c4c006371b6ca55aa1df2cd207d5190c54111e035e3717"
++      }

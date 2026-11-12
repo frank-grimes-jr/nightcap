@@ -149,7 +149,7 @@ class WikiTests(unittest.TestCase):
 
     def test_features_guides_and_change_log_are_distinct_destinations(self):
         features=self.articles['features']['body']
-        self.assertEqual(features.count('class="feature-row"'),14)
+        self.assertEqual(features.count('class="feature-row"'),15)
         for group in ['custom-adventures','custom-builds','custom-world','custom-tools']:
             self.assertIn(group,self.pages['features.html'].ids)
         for target in ['dungeon-modes','camil-vigil','zone-hunt','ascension','waypoints','tunnel']:
