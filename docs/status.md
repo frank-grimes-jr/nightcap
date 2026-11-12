@@ -1,5 +1,19 @@
 # Current Nightcap status
 
+## 2026-11-12 — Player DoT landing damage removed (source candidate)
+
+Player instant DoTs skip only their negative CurrentHPOnce landing effects,
+including direct-damage scaling and resource taps. Instant casting, ordinary
+DoT/Bard ticks, positive one-time heals, debuffs, nukes and non-player casting
+retain native paths. Pure DoTs already have no initial hit. SELECT-only local
+catalog review distinguishes 980 definitions with a hit from 2,646 without;
+these include later/NPC content, not the active legal spell pool. Native landing
+regression reproduces the old amplified hit and passes the fix; neighboring
+spell/timing checks and isolated native build are recorded in the evidence.
+No SQL/client/rule change or live deployment. Wiki changes are Not released and
+unpublished; owner gameplay/balance QA remains open. Exact QA, build/rollback
+boundary and reviewed evidence: docs/balance/dot-initial-damage-20261112/.
+
 ## 2026-11-12 — Imitate Death zero cooldown (source candidate)
 
 Remove the 18-minute AA reuse from Monk Imitate Death (family 420), including

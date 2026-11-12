@@ -1,0 +1,7 @@
+test_captured_catalog_distinguishes_initial_hits_from_ticks (test_dot_initial_damage.DotInitialDamage.test_captured_catalog_distinguishes_initial_hits_from_ticks) ... ok
+test_native_landing_and_instant_cast_policy (test_dot_initial_damage.DotInitialDamage.test_native_landing_and_instant_cast_policy) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 15.414s
+
+OK
