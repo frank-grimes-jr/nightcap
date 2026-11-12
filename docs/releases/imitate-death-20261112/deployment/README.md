@@ -15,7 +15,7 @@ header warnings. No unrelated source was replaced from the older Git mirror.
 The initial build proof stopped on a non-normalized dependency path after
 successful compile/link. `build_imitate_death_release.py --finalize-existing`
 normalizes and re-verifies existing outputs, without rebuilding or modifying
-live state. Both diagnostic and success logs are retained.
+live state. Both diagnostic and success logs are retained. A local activation SSH transport later stalled after the host action completed. Completed host receipts and the separate successful opening action were checked before closing that exact local transport; no action was replayed or game process interrupted.
 
 `rollout.py` is a task-scoped one-shot operator derived from the verified Quick
 Buff release. Its nine Linux fault tests pass. Preflight authenticates current

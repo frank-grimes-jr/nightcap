@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
   "source_base": "423f9c3b",
-  "state": "source candidate, not deployed",
+  "state": "main and production deployed for live QA",
   "checks": {
     "aa_native_methods": "18 tests PASS; 46,872 ordered family pairs, 2,416 same-family cases; aa-tests.txt",
     "adjacent_cooldown_duration": "27 tests PASS",
@@ -9,8 +9,10 @@
     "wiki_content_refresh": "20 tests PASS; expected invalid-revision negative-test diagnostic",
     "wiki_build": "606 pages built",
     "diff_whitespace": "PASS",
-    "installed_knowledge": "Updated multiclass reference and six reviewed source fingerprints; all six unchanged on check. Fifteen unrelated historical source pins retain existing drift; no blind refresh.",
-    "wiki_drift": "REVIEW REQUIRED; existing broad drift plus scoped candidate; ledger unchanged"
+    "installed_knowledge": "Live multiclass/operations/wiki references updated; skill validator PASS and all 25 scoped fingerprints unchanged. Unrelated historical drift remains explicitly unrefreshed.",
+    "wiki_drift": "REVIEW REQUIRED; existing broad drift plus scoped candidate; ledger unchanged",
+    "linux_native_build": "PASS: shipping predecessor reproduced, one TU compiled; 2857 source/840 dependency/146 link inputs and ELF/runtime identity verified",
+    "linux_release_operator": "9 fault tests PASS"
   },
   "review": {
     "correctness": "Family 420 only. Zero server reuse and scoped stale-wait retirement. Explicit reset packets prevent nominal client reuse. All existing authorization/casting and spell effects retained. Negative focus cannot recreate reuse.",
@@ -18,9 +20,9 @@
     "scope": "No basic Feign Death, Quick Buff behavior, other AA/skill/item timers, client asset or gameplay unlock changes."
   },
   "pending": [
-    "Full Linux zone build against current retained native baseline",
-    "Authorized promotion and production deployment",
-    "Authorized public wiki publication",
-    "Owner native hotkey/aggro behavior and combined-build balance QA"
-  ]
+    "Owner native Make Hotkey/repeat activation/aggro behavior QA",
+    "Owner representative multiclass encounter and balance acceptance"
+  ],
+  "deployment": "deployment/production-verification.json: PASS; gateway open; current native/client/content/cache/service preservation verified",
+  "publication": "deployment/wiki-public-verification.json: PASS; all 613 HTTPS hashes/security headers, 610 files preserved, five private paths denied"
 }

@@ -1,14 +1,21 @@
 # CHANGES
 
-## 2026-11-12 — Imitate Death zero cooldown (source candidate)
+## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
 
-Remove the 18-minute AA reuse from Monk Imitate Death (family 420), including
-its old saved wait. Keep earned/class/casting gates and existing spell effects.
-RoF2 advertises a nominal one second for Make Hotkey while reset packets keep
-actual readiness immediate; unrelated timers and basic Feign Death stay intact.
-Native regressions and pinned-client checks pass. Deployment, publication and
-owner gameplay/balance QA remain pending. Exact proof, reload/recovery and QA:
-`docs/releases/imitate-death-20261112/README.md`.
+Owner explicitly requested live implementation. Main PR425/1d763739 and zone
+7bb5bd17 are deployed; all 12 workers and the unchanged world/shared-memory pair
+verify, with player admissions reopened. Family420 has no authoritative reuse,
+including old saved waits. Earned Monk access, native casting and existing effects
+remain; basic Feign Death and unrelated timers stay unchanged. RoF2's nominal
+one-second display enables Make Hotkey while reset packets keep actual reuse zero.
+No client download is needed; relog to refresh AA state. Current shipping binary
+reproduced before the one-TU change, with 2857 source files/840 dependencies and
+146 retained link inputs verified. Stopped full backup, normal saved-state/market
+and service/content/cache/client preservation pass; no player snapshot restored.
+Wiki20261112-imitate-death-v1 publishes Combat/Change Log/search with 610 of 613
+files retained. Public HTTPS verification is recorded separately. Native in-game
+hotkey/aggro and combined-build balance acceptance remain OPEN. Exact proof,
+transport recovery and player QA: `docs/releases/imitate-death-20261112/`.
 
 ## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
 

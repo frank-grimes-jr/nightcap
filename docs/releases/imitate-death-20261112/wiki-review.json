@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "source": "423f9c3b + this worktree",
-  "state": "source candidate only; not deployed or publicly published",
+  "source": "Main PR425/1d763739; source5642fcc1; verified authorized live deployment",
+  "state": "Deployed for live QA; wiki release20261112-imitate-death-v1 published, separate HTTPS verification receipt",
   "articles": [
     {
       "slug": "about",
@@ -37,7 +37,7 @@
     },
     {
       "slug": "combat",
-      "impact": "candidate guidance/history updated"
+      "impact": "live-testing instructions/history updated, preserving existing guide content"
     },
     {
       "slug": "commands",
@@ -141,7 +141,7 @@
     },
     {
       "slug": "recent-changes",
-      "impact": "candidate guidance/history updated"
+      "impact": "live-testing instructions/history updated, preserving existing guide content"
     },
     {
       "slug": "tradeskills",
@@ -174,7 +174,7 @@
   ],
   "generated_item_zone_catalog": "No changes: AA reuse does not change item/zone definitions, acquisition or catalog values. Build Lab data unchanged.",
   "home_features_commands": "No new feature directory entry or home announcement for a minor unreleased AA adjustment; existing live mechanics and commands unchanged.",
-  "release_labels": "Candidate sections explicitly Not released; existing Live testing labels preserved.",
+  "release_labels": "Combat and Change Log now state live testing; no owner gameplay or balance acceptance claimed.",
   "refresh": "REVIEW REQUIRED: broad pre-existing ledger drift plus this candidate. No global ledger advance.",
-  "operations": "Checked current main and November12 Quick Buff deployment evidence; no production probe or write in this task."
+  "operations": "Fresh production probe, closed-access verification, successful open action and independent production-verification.json; fresh stopped backup, all12workers, existing native pair/content/cache/client and DB/web/tunnel preserved."
 }
