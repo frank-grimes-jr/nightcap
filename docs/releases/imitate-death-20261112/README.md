@@ -1,7 +1,7 @@
 # Imitate Death without cooldown
 
-Owner request: Monk Imitate Death should have no cooldown. Source candidate based
-on current origin/main 423f9c3b. Not deployed or accepted in game.
+Owner request: Monk Imitate Death should have no cooldown. Main PR425/1d763739, source5642fcc1, is deployed for live QA with zone7bb5bd17.
+Player admissions are open. In-game and balance acceptance remain OPEN.
 
 Family 420 / retained rank 1255 / spell 5918 previously had 1080 seconds base
 reuse. `common/imitate_death.h` projects zero reuse for this family on AA load.
@@ -37,8 +37,7 @@ This is a zone binary change; AA reload alone cannot install it. No SQL migratio
 rule, cache, quest, Client layout, world/shared-memory or signed client change is
 required by this patch. Preserve the current native dependencies and deployed
 Quick Buff/augment/Last Lantern systems when building. Use the supported guarded
-whole-runtime release procedure; never kill one production zone. Deployment and
-test-to-main promotion remain pending owner approval under normal branch policy.
+whole-runtime release procedure; never kill one production zone. The owner explicitly authorized this release's main/live deployment with "Implement on live". The normal branch policy remains for other releases.
 Rollback uses the prior verified zone with current player data; never restore a
 player snapshot. Already cleared Imitate Death waits are intentionally not restored.
 
@@ -60,4 +59,4 @@ player snapshot. Already cleared Imitate Death waits are intentionally not resto
 6. Assess repeated aggro escape against representative solo/multiclass encounters;
    record success/failure, NPC reset behavior and balance separately from UI QA.
 
-Wiki impact review: `wiki-review.json`. Local candidate prose is not publication.
+Wiki impact review: `wiki-review.json`. The guarded public release is 20261112-imitate-death-v1; deployment/wiki receipts live in `deployment/`. Publication does not establish gameplay acceptance.

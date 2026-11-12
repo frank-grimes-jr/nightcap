@@ -1,0 +1,7 @@
+{
+  "server_side_activation": "PASS: verified-closed.json; followed by successful open action and deployed.json",
+  "local_activation_transport": "SSH client did not return after server-side action completed and deployment lock released. Its exact local process was closed only after deployed.json and open action success were verified.",
+  "replayed_actions": false,
+  "runtime_interrupted_by_cleanup": false,
+  "independent_verification": "PASS: production-verification.json; current native/service/client preservation verified through fresh connection"
+}

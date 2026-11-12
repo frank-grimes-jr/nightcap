@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "verified_at": 1794521864.2066336,
+  "source_revision": "5642fcc1c46ecb78def27f45875fb3246c04080f",
+  "runtime": {
+    "image_id": "sha256:421cec4f53aa5e736c41ac2dd5fe7af4028fa2fc234c718941530bdccc399332",
+    "started_at": "2026-11-12T22:04:32.726639891Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "95fc228a5a8d852cd6a43a1c21fd8d029c5df721bb322fe6cb756da15882e675"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ],
+      [
+        "zone",
+        "7bb5bd176dc73932e020aec780cc33e1ea9a719990fc6e47439d9a69978c36c7"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "client_release": 2026111201,
+  "client_channel_sha256": "e0201dd35be1501208c6783eeb3c6194e2d7b9ec080f70ef4f09f52d744dacd5",
+  "stopped_full_backup": {
+    "path": "/opt/nightcap/releases/imitate-death-20261112-v1/evidence/activation/private-backup/peq-before.sql.gz",
+    "sha256": "dc9407cedc757ab8802b022b94ca7e788c54136f194ddde37083d16b9253abe1",
+    "compressed_bytes": 66344914,
+    "uncompressed_bytes": 478554727,
+    "gzip_integrity": "passed"
+  },
+  "db_web_tunnel_unchanged": true,
+  "quests_plugins_cache_unchanged": true,
+  "client_update_required": false,
+  "database_restored": false,
+  "owner_visual_accepted": false
+}
