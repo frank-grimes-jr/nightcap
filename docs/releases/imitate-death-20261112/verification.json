@@ -9,7 +9,7 @@
     "wiki_content_refresh": "20 tests PASS; expected invalid-revision negative-test diagnostic",
     "wiki_build": "606 pages built",
     "diff_whitespace": "PASS",
-    "installed_knowledge": "Live multiclass/operations/wiki references updated; skill validator PASS and all 25 scoped fingerprints unchanged. Unrelated historical drift remains explicitly unrefreshed.",
+    "installed_knowledge": "Live multiclass/operations/wiki references updated; skill validator PASS and all 26 scoped fingerprints unchanged after preserving the concurrent unpublished DoT candidate. Unrelated historical drift remains explicitly unrefreshed.",
     "wiki_drift": "REVIEW REQUIRED; existing broad drift plus scoped candidate; ledger unchanged",
     "linux_native_build": "PASS: shipping predecessor reproduced, one TU compiled; 2857 source/840 dependency/146 link inputs and ELF/runtime identity verified",
     "linux_release_operator": "9 fault tests PASS"
@@ -24,5 +24,6 @@
     "Owner representative multiclass encounter and balance acceptance"
   ],
   "deployment": "deployment/production-verification.json: PASS; gateway open; current native/client/content/cache/service preservation verified",
-  "publication": "deployment/wiki-public-verification.json: PASS; all 613 HTTPS hashes/security headers, 610 files preserved, five private paths denied"
+  "publication": "deployment/wiki-public-verification.json: PASS; all 613 HTTPS hashes/security headers, 610 files preserved, five private paths denied",
+  "concurrent_source": "deployment/concurrent-source-review.json: only documentation conflicts resolved; no native or public DoT candidate activation"
 }

@@ -3,6 +3,7 @@ import argparse
 import difflib
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[4]
@@ -18,7 +19,9 @@ def section(text, heading, replacement):
     return text[:start]+replacement+'\n'+(text[end+1:] if end>=0 else '')
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true')
+    parser.add_argument('--patch-name',default='installed-skill-live.patch');args=parser.parse_args()
+    assert Path(args.patch_name).name==args.patch_name
     live=json.loads((OUT/'production-verification.json').read_text(encoding='utf-8'))
     wiki=json.loads((OUT/'wiki-public-verification.json').read_text(encoding='utf-8'))
     build=json.loads((OUT/'native-build.json').read_text(encoding='utf-8'))
@@ -56,7 +59,8 @@ one-shot operator, receipts and in-game steps: docs/releases/imitate-death-20261
 Never replay terminal actions or kill one production zone. Owner hotkey/aggro and
 combined-build balance acceptance remain OPEN; deployment is not acceptance.
 '''
-    after[names[0]]=section(before[names[0]],'Imitate Death — November 12 source candidate',note)
+    current_heading=('Imitate Death — November 12 source candidate' if '## Imitate Death — November 12 source candidate' in before[names[0]] else 'Imitate Death — November 12 deployed for live QA')
+    after[names[0]]=section(before[names[0]],current_heading,note)
     ops=before[names[1]].replace('## Current native baseline — November12 Quick Buff live QA','## Quick Buff — November12 retained predecessor')
     opsnote='''## Current native baseline — November12 Imitate Death live QA
 
@@ -96,10 +100,14 @@ All613HTTPS hashes/security headers and five private denials pass. Guarded updat
 rehearses recovery and preserves all five services, channel/config/downloads;
 no Nginx reload or global source-ledger advance. Unrelated drift remains REVIEW
 REQUIRED. Source and receipts: imitate-death-no-cooldown/docs/releases/imitate-death-20261112/deployment/.
+Concurrent main PR426 adds a separately labeled, unpublished DoT candidate to
+authoring sources. It is not in this native or public wiki payload. Preserve
+both scopes; never infer candidate deployment from the integrated source tree.
 '''
     after[names[2]]=section(before[names[2]],'Imitate Death — November12 published for live testing',wikinote)
     manifest=json.loads(before[names[3]])
-    revision='main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN'
+    authoring=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    revision=f'live main PR425/1d763739 source5642fcc1; authoring {authoring} + reviewed worktree; owner QA OPEN'
     manifest['observed_revisions']['imitate_death_deployed_20261112']=revision
     manifest['observed_revisions'].pop('imitate_death_candidate_20261112',None)
     paths=['server-mods/code/common/imitate_death.h','server-mods/code/zone/aa.cpp',
@@ -109,6 +117,7 @@ REQUIRED. Source and receipts: imitate-death-no-cooldown/docs/releases/imitate-d
     paths+=['docs/releases/imitate-death-20261112/deployment/'+n for n in
             ('README.md','rollout.py','native-build.json','release-checks.json','review.json',
              'production-verification.json','wiki-publication.json','wiki-public-verification.json')]
+    paths+=['docs/releases/imitate-death-20261112/deployment/concurrent-source-review.json']
     paths+=['wiki/articles/combat.json','wiki/articles/recent-changes.json']
     paths+=['tools/'+n for n in ('run_imitate_death_release.py','ship_imitate_death_release.py',
              'verify_imitate_death_release.py','test_imitate_death_linux.py','prepare_imitate_death_wiki.py',
@@ -123,7 +132,7 @@ REQUIRED. Source and receipts: imitate-death-no-cooldown/docs/releases/imitate-d
         manifest['topics'][topic]=selected+[e for e in manifest['topics'][topic] if e['path'] not in scoped]
     after[names[3]]=json.dumps(manifest,ensure_ascii=False,indent=2)+'\n'
     patch=''.join(''.join(difflib.unified_diff(before[n].splitlines(True),after[n].splitlines(True),fromfile='a/'+n,tofile='b/'+n)) for n in names)
-    (OUT/'installed-skill-live.patch').write_text(patch,encoding='utf-8',newline='\n')
+    (OUT/args.patch_name).write_text(patch,encoding='utf-8',newline='\n')
     if args.write:
         for n,text in after.items():(SKILL/n).write_text(text,encoding='utf-8',newline='\n')
     print('installed' if args.write else 'prepared')
