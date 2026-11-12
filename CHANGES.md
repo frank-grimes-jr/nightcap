@@ -1,19 +1,26 @@
 # CHANGES
 
-## 2026-11-12 — Stat augment icon correction (local candidate)
+## 2026-11-12 — Augment icon fix and five-item repair deployed
 
-Correct ornament detection in `ItemInstance`: inspect the type-20/type-21
-AugType bits rather than literal socket numbers, and stop treating an empty or
-ordinary model ID as cosmetic intent. Preserve genuine ornaments and the existing
-Hero's Forge fallback. Compiled production-method regressions reproduce the old
-type-22 icon replacement and pass with the fix; related augment/trade/metadata
-checks are recorded in `docs/items/augment-icons-20261112/`.
+Main PR420/1568fb71 corrects ornament detection to use actual type20/21 bits and
+reject empty/ordinary model IDs as cosmetic intent. Native augmentation handlers
+refresh cosmetics only for real ornament changes, preserving mold/quest overrides
+during stat-only insert/remove/swap/destroy. Real ornaments remain supported.
 
-Not deployed or published. Existing saved wrong cosmetic overrides need a fresh,
-exactly scoped forward repair; relogging alone is insufficient. No bulk inventory
-rewrite, client asset, schema, rule or item-stat change. Whole-runtime activation
-and owner visual QA remain open. Wiki candidate notes and installed knowledge
-maintenance accompany the fix; see the evidence for their separate status.
+Three live binary baselines reproduce exactly before isolated compilation/relink;
+ELF identities,182actual dependencies/179authenticated source headers,17focused
+checks and real MariaDB rollback/drift/forward/replay rehearsal pass. Supported
+whole-runtime activation retains Last Lantern and all newer source/data systems.
+
+Owner-authorized repair changes only ornament_icon in five confirmed equipped
+Palwar rows. All205inventory rows retain their augments and every other field;
+unrelated inventory is unchanged. Fresh stopped full backup, normal saved-state/
+market checks, native/service identities and reopened admissions verify. No player
+snapshot restore, client update, definition/stat/rule/cache-format change.
+
+Wiki20261112-augment-icons-v1 verifies all613public hashes/headers/private denials,
+retaining607files. Owner visual/gameplay QA remains open. Exact evidence, guarded
+operator, recovery limits and QA: docs/items/augment-icons-20261112/.
 
 ## 2026-11-07 — Last Lantern paired release deployed for live QA
 

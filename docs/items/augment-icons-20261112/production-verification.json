@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "verified_at": 1794506349.742637,
+  "source_revision": "00ee567f078a155993bc4302456e1e2713e79520",
+  "main_pr": 420,
+  "main_merge_revision": "1568fb710b6441fe70bca5f9fc40f6dd805c20dc",
+  "runtime": {
+    "image_id": "sha256:c8cc095194376c3e1b63b898af23bf7eaf550d9028aadcddba2247ea6d595005",
+    "started_at": "2026-11-12T17:45:13.806624008Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "95fc228a5a8d852cd6a43a1c21fd8d029c5df721bb322fe6cb756da15882e675"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ],
+      [
+        "zone",
+        "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "repair": {
+    "repaired_rows": 5,
+    "preserved_character_rows": 205,
+    "unchanged_fields_except_ornament_icon": true,
+    "unrelated_inventory_unchanged": true,
+    "augments_preserved": true
+  },
+  "stopped_full_backup": {
+    "path": "/opt/nightcap/releases/augment-icons-20261112-v1/evidence/activation/private-backup/peq-before.sql.gz",
+    "sha256": "d0373fd9b244b3a947b45c25d0ecb5fa0984292528a6641c976cdd90804be380",
+    "compressed_bytes": 66064381,
+    "uncompressed_bytes": 475646695,
+    "gzip_integrity": "passed"
+  },
+  "db_web_tunnel_unchanged": true,
+  "quests_plugins_cache_unchanged": true,
+  "client_update_required": false,
+  "database_restored": false,
+  "owner_visual_accepted": false
+}
