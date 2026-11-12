@@ -39,6 +39,24 @@ struct ItemInstance {
 }
 // NATIVE_METHODS
 constexpr uint32 Type(unsigned number) { return 1u << (number - 1); }
+namespace AugmentActions { enum Action { Insert, Swap, Remove, Destroy }; }
+namespace EQ { namespace invslot { constexpr int slotCursor = 30; } }
+void Change(EQ::ItemInstance& host, AugmentActions::Action action, int index, EQ::ItemInstance* cursor) {
+ struct { AugmentActions::Action augment_action; int augment_index; } request{action, index};
+ auto* in_augment = &request;
+ auto* tobe_auged = &host;
+ struct Inventory {
+  EQ::ItemInstance* cursor;
+  EQ::ItemInstance* GetItem(int) { return cursor; }
+ } user_inv{cursor};
+ // The decision and refresh block are extracted from the actual packet handler.
+ // Only the socket/cursor storage mutation between them is doubled.
+ // NATIVE_AUGMENT_DECISION
+ host.augments[index] = (action == AugmentActions::Insert || action == AugmentActions::Swap) ? cursor : nullptr;
+ // NATIVE_AUGMENT_REFRESH
+ // Keep boundary variables used by the unpatched RED fixture too.
+ (void)in_augment; (void)user_inv;
+}
 int main() {
  EQ::ItemData base, stat, ornament;
  EQ::ItemInstance host, aug, cosmetic, missing;
@@ -90,5 +108,30 @@ int main() {
  CHECK(!host.UpdateOrnamentationInfo());
  CHECK(host.icon == 0 && host.model == 0 && host.hero == 0);
  CHECK(host.augments[0] == &aug && stat.Icon == 944 && base.Icon == 100);
+
+ // Mold/quest cosmetics are instance overrides without a socket ornament.
+ // Ordinary stat insert/swap/remove/destroy must preserve all three fields.
+ for (auto action : {AugmentActions::Insert, AugmentActions::Swap, AugmentActions::Remove, AugmentActions::Destroy}) {
+  host.icon = 777; host.model = 333; host.hero = 7;
+  host.augments[0] = &aug;
+  Change(host, action, 0, &aug);
+  CHECK(host.icon == 777 && host.model == 333 && host.hero == 7);
+ }
+ ornament.AugType = Type(20); std::snprintf(ornament.IDFile, sizeof(ornament.IDFile), "%s", "IT321");
+ // A real ornament on the cursor is irrelevant to a Remove/Destroy request.
+ for (auto action : {AugmentActions::Remove, AugmentActions::Destroy}) {
+  host.icon = 777; host.model = 333; host.hero = 7; host.augments[0] = &aug;
+  Change(host, action, 0, &cosmetic);
+  CHECK(host.icon == 777 && host.model == 333 && host.hero == 7);
+ }
+ for (auto action : {AugmentActions::Insert, AugmentActions::Swap}) {
+  host.augments[0] = &aug; Change(host, action, 0, &cosmetic);
+  CHECK(host.icon == 700 && host.model == 321 && host.hero == 0);
+ }
+ for (auto action : {AugmentActions::Swap, AugmentActions::Remove, AugmentActions::Destroy}) {
+  host.augments[0] = &cosmetic; host.icon = 700; host.model = 321;
+  Change(host, action, 0, &aug);
+  CHECK(host.icon == 0 && host.model == 0 && host.hero == 0);
+ }
  std::puts("augment ornament native controls passed");
 }

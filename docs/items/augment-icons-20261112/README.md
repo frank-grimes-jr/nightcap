@@ -1,7 +1,8 @@
 # Stat augments replacing equipment icons
 
-Status: local source candidate, not built as a complete game runtime, deployed,
-published or accepted in game. Base: origin/main b7e404b2, fetched November 12,
+Status: owner-authorized deployment preparation November 12; native build and
+isolated repair rehearsal pass. Activation/publication/visual acceptance remain
+separate gates. Base: origin/main b7e404b2, fetched November 12,
 2026. Worktree: `E:/EQ_Local_Dev/_worktrees/augment-item-icons`, branch
 `codex/augment-item-icons`. The default workspace has older source and unrelated
 edits and was not modified.
@@ -24,6 +25,53 @@ cosmetic intent. Real type-20/type-21 ornaments, combined type masks and Hero's
 Forge still work; an ordinary augment earlier in the socket list cannot hide
 the real ornament. Item power, stacking, socket eligibility and artwork are not
 changed. No item definitions, schema, rule, cache format or client assets change.
+
+Independent release review additionally found that unconditional recalculation
+would clear a genuine mold/quest cosmetic override on stat-only operations. The
+three native packet-handler calls now run only when the old target socket or an
+Insert/Swap cursor item is a genuine ornament. The decision is captured before
+callbacks/mutation; unrelated cursor ornaments do not affect Remove/Destroy.
+The expanded actual-body/caller regression failed before these gates and passes
+afterward, including transformation preservation and real ornament transitions.
+
+## Authorized release preparation
+
+Owner request: “Deploy the fix and repair the affected item icons, preserving
+the augments and all other item data.” Owner confirmed Palwar logged out. Fresh
+production probe matches the November 7 Last Lantern pair; all three native
+baselines reproduce byte-for-byte. The retained overlay applies exactly two
+reviewed source deltas and compiles both common-library variants and the packet
+unit. Three matching candidate binaries link; ELF loaded-byte checks pass. The
+actual three dependency closures cover 182 files, including 179 authenticated
+source-header dependencies. See `native-build.json` and the build/audit tools.
+V1's patch utility rejected CRLF context without changing production; V2 verifies
+complete normalized retained/base equality before writing the exact two files.
+
+Fresh private captures identify exactly five equipped Palwar items: slots 2, 12,
+17, 18 and 19, items 404301, 404345, 204852, 404856 and 204917. Three match current
+augment gem icons; chest/legs still have old Understone icon 517, authenticated
+by the November 6 definition preimage for augment 940280. All five have no real
+socket ornament and zero saved/base Hero's Forge and model overrides. Restore
+the owner-requested base icons by changing only `ornament_icon` to zero.
+
+`repair.py` hashes each complete SQL JSON row on the server, locks the exact
+character/slot/item preimage, changes one column, and checks the full afterimage
+inside one transaction. All 205 character rows and all unrelated inventory rows
+are checked. The real MariaDB rehearsal proves atomic rollback, last-target
+metadata drift rejection, successful five-field repair and replay refusal.
+Raw player rows, backups, SQL and diagnostics remain private; none enter wiki
+artifacts. `rollout.py` retains deployment/GM locks, zero-player/auth drain,
+supported whole-runtime stop, fresh stopped full backup, normal saved-state and
+market boot checks, native hashes, unchanged content/rules/cache/quests/client
+and verified reopening. No player snapshots are restored. Rehearsal V1 used an
+unsupported staging-schema prefix and stopped before row loading; V2 uses the
+transport's accepted isolated prefix and passes all checks.
+
+Independent review also found a preexisting Hero's Forge load/raw-save defect.
+It is excluded from this release: naive loader changes would corrupt shorthand
+values. The five repaired rows have zero saved/base HF, and every other field is
+verified unchanged. Preserve this separate follow-up; do not silently broaden
+the icon repair into a global cosmetic migration.
 
 Source: `server-mods/code/common/item_instance.cpp`, specifically
 `IsOrnamentationAugment`, `GetOrnamentationAugment`, `UpdateOrnamentationInfo`.
