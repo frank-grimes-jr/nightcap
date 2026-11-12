@@ -16,6 +16,8 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "common/raid_augment.h"
+#include "zone/raid_augment_custody.h"
 #include "client.h"
 
 #include "common/events/player_event_logs.h"
@@ -131,6 +133,12 @@ void Object::HandleAugmentation(Client* user, const AugmentItem_Struct* in_augme
 		return;
 	}
 
+	// Sealer output moves from an external world container to the character's cursor.
+	// A carried sealer's components are already in this character's LORE custody.
+	if (worldo && NightcapRaidAug::IncomingTrophies{}.Conflict(*user, container)) {
+		user->MessageString(Chat::Red, DUP_LORE);
+		return;
+	}
 	bool delete_items = false;
 
 	EQ::ItemInstance *item_one_to_push = nullptr, *item_two_to_push = nullptr;
@@ -140,6 +148,10 @@ void Object::HandleAugmentation(Client* user, const AugmentItem_Struct* in_augme
 			((slot = tobe_auged->AvailableAugmentSlot(auged_with->GetAugmentType())) != -1) &&
 			tobe_auged->AvailableWearSlot(auged_with->GetItem()->Slots)
 		) {
+			if (NightcapRaidAug::IsReward(auged_with->GetID()) && !NightcapRaidAug::CanInsert(*tobe_auged, slot, false)) {
+				user->Message(Chat::Red, "One raid augment fits a type-22 socket on chest armor.");
+				return;
+			}
 			tobe_auged->PutAugment(slot, *auged_with);
 
 			EQ::ItemInstance *aug = tobe_auged->GetAugment(slot);

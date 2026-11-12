@@ -1,3 +1,4 @@
+#include "common/raid_augment_sources.h"
 #include "zone/dungeon_service.h"
 #include "common/dungeon_catalog.h"
 #include "common/chapterhouse_policy.h"
@@ -473,6 +474,42 @@ bool PrepareLoot(NPC *npc, bool owned) {
 		return true;
 	} catch (const std::exception &e) {
 		healthy=false; LogError("Dungeon loot staging failed [{}]",e.what()); return false;
+	}
+}
+
+bool PrepareRaidAugment(NPC *npc, Mob *killer, bool owned)
+{
+	if (!zone || !killer || owned || npc->IsQueuedForCorpse() || npc->HasOwner() || npc->GetSwarmInfo() ||
+		npc->GetSwarmOwner() || npc->IsMerc() || zone->GetInstanceVersion() || Campaign()) { return true; }
+	const auto *drop = NightcapRaidAug::FindDrop(zone->GetZoneID(), npc->GetNPCTypeID());
+	if (!drop || !database.GetItem(drop->item) || !npc->GetEntityVariable("raid-augment-rolled").empty()) { return true; }
+	try {
+		unsigned roll = 0;
+		if (Managed()) {
+			const auto spawn = npc->GetSpawnPointID();
+			const auto *boss = Objective(spawn, npc->GetNPCTypeID());
+			if (current.mode != Mode::Raid || !boss || deaths.count(spawn) || objectives.count(boss->objective)) { return true; }
+			bool member = false;
+			for (auto *client : Credit(npc, killer)) {
+				if (Query(fmt::format("SELECT 1 FROM nightcap_dungeon_members WHERE run_id={} AND character_id={}",
+					Q(current.id), client->CharacterID())).RowCount()) { member = true; break; }
+			}
+			if (!member) { return true; }
+			roll = Roll(current.seed, spawn, 410, 100);
+		} else {
+			if (zone->GetInstanceID() || zone->GetZoneID() == 186) { return true; }
+			roll = zone->random.Int(0, 99);
+		}
+		if (roll < drop->percent) {
+			const auto before = npc->GetLootItems().size();
+			npc->AddItem(drop->item, 1, false);
+			if (npc->GetLootItems().size() != before + 1) { throw std::runtime_error("item not added"); }
+		}
+		npc->SetEntityVariable("raid-augment-rolled", "1");
+		return true;
+	} catch (const std::exception &e) {
+		LogError("Raid augment staging failed for NPC [{}]: [{}]", npc->GetNPCTypeID(), e.what());
+		return false;
 	}
 }
 

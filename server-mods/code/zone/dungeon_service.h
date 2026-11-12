@@ -29,6 +29,7 @@ uint32_t RespawnDelay(uint32_t spawn);
 bool RequiredSpawn(uint32_t spawn);
 // Called after quest death veto, before death packets/respawn timers/XP.
 bool PrepareLoot(NPC *npc, bool owned);
+bool PrepareRaidAugment(NPC *npc, Mob *killer, bool owned);
 bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse);
 bool Keeper(Client *client, NPC *keeper, const std::string &action);
 void Connected(Client *client);

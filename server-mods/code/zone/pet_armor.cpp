@@ -1,3 +1,4 @@
+#include "common/raid_augment.h"
 #include "zone/pet_armor.h"
 #include "zone/zonedb.h"
 #include "common/strings.h"
@@ -93,7 +94,7 @@ bool Allowed(const EQ::ItemInstance *inst, uint8 index)
 		!item->NoRent || item->NoPet || item->IsQuestItem() || !(item->Slots & (1u << Slots[index]))) { return false; }
 	for (int i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
 		const auto aug = inst->GetAugment(i);
-		if (aug && (!aug->GetItem()->NoRent || aug->IsEvolving() || aug->IsScaling())) { return false; }
+		if (aug && (NightcapRaidAug::IsReward(aug->GetID()) || !aug->GetItem()->NoRent || aug->IsEvolving() || aug->IsScaling())) { return false; }
 	}
 	return true;
 }

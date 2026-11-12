@@ -5841,6 +5841,7 @@ void Client::DecrementAggroCount()
 		return;
 
 	AggroCount--;
+	if (!AggroCount) { raid_augment.ClearSpend(); }
 
 	if(!RuleB(Character, RestRegenEnabled))
 		return;
