@@ -69,3 +69,6 @@ eq-launcher/cmd/last-lantern-verify/
 
 # Private Imitate Death build, staging and publication payloads.
 /artifacts/imitate-death-20261112/
+
+# Private DoT build, staging, diagnostics and authenticated wiki source.
+/artifacts/dot-no-initial-damage-20261112/

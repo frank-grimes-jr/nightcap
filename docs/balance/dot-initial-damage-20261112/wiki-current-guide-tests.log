@@ -1,0 +1,8 @@
+test_every_local_link_asset_and_anchor (test_wiki.WikiTests.test_every_local_link_asset_and_anchor) ... ok
+test_search_index_has_all_articles_without_internal_sources (test_wiki.WikiTests.test_search_index_has_all_articles_without_internal_sources) ... ok
+test_public_payload_excludes_private_material (test_wiki.WikiTests.test_public_payload_excludes_private_material) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 53.535s
+
+OK

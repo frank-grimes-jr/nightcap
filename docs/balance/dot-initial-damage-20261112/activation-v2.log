@@ -1,0 +1,17 @@
+ Container nightcap-production-gateway-1 Stopping
+ Container nightcap-production-gateway-1 Stopped
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+ Container nightcap-production-game-1 Stopping
+ Container nightcap-production-game-1 Stopped
+ Container nightcap-production-game-1 Recreate
+ Container nightcap-production-game-1 Recreated
+ Container nightcap-production-game-1 Starting
+ Container nightcap-production-game-1 Started
+ Container nightcap-production-game-1 Waiting
+ Container nightcap-production-game-1 Healthy
+Quick Buff zone verified; access remains closed.
+DoT release action verified: activate

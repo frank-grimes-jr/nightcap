@@ -50,3 +50,51 @@ Receipts and post-release status are appended after observing the actual result;
 this plan alone does not establish deployment. Exact owner in-game steps are in
 README.md, especially Disease Cloud/Poison Bolt versus Clinging Darkness/Heat
 Blood, repeated casts, normal ticks and standalone nukes.
+
+## Serialized release and replacement package
+
+PR426 merged at `a97c55d0078967791430c02534c8513b9a9e427d`, preserving the
+concurrent main Imitate Death change and both guide/changelog entries. The first
+DoT stage passed preflight but its activation could not acquire the deployment
+lock held by that release. It failed before calling activation, closing access
+or changing runtime; no DoT activation receipt was created. Keep its proof and
+`activation-v1-lock-refusal.log`; do not replay that old package.
+
+The replacement DoT stage is `dot-no-initial-damage-20261112-v2`. Its isolated
+build authenticates all 2,857 Imitate Death source files and retained inputs,
+reproduces the `7bb5bd17` predecessor, then compiles the whole changed DoT
+translation unit and links candidate
+`7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5`.
+`native-build-current-baseline.json` records that proof. The Imitate Death AA
+object is preserved; the additional source delta is only spell-effects.cpp.
+Stage authentication tests pass with the new stage identity. The replacement
+requires a fresh live baseline after the earlier release and its wiki publication
+complete, plus a new one-shot preflight, backup and state-preservation cycle.
+
+## Observed result
+
+Stage v2 is deployed; admissions are open. Independent verification records all
+12zone workers at7b61b5ac, restart count0 and native/quest/database errors0, with
+world95fc228a/shared_memoryb60c4dfc, signed2026111201, cache, quests and DB/web/
+tunnel identities preserved. The fresh stopped backup passes gzip integrity;
+normal saved-state expiry and exactly one market rotation passed. No player
+snapshot restore or spell/rule/schema edit occurred.
+
+Wiki20261112-dot-ticks-v2 is published from the authenticated Imitate Death source
+artifact. All613HTTPS hashes/security headers and five private404denials pass;
+609outputs remain exact, all five services/private downloads/config stay intact,
+and pointer rollback was rehearsed without Nginx reload. Review ledger and the
+historical unrelated Build Lab source-pin failure remain unchanged.
+
+Read deployment-receipt.json for exact host receipt pins, production-verification.json
+for independent live identity/backup proof, and wiki-publication.json plus
+wiki-public-verification.json for separate publication/HTTPS evidence. Owner
+in-game and combined-build balance acceptance remain OPEN; this is a release
+for their requested testing, not completed player acceptance.
+
+The later main earned-titles source promotion (PR428/f689f7aa) remains a separate
+disabled candidate. Its source and Not released authoring guidance are preserved
+in the documentation merge; it is not activated or added to this native/public
+artifact. Actual shipping source, build hashes and release receipts above remain
+authoritative rather than the newer integrated checkout. See
+concurrent-source-review.json.

@@ -1,5 +1,24 @@
 # Current Nightcap status
 
+## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
+
+Player instant DoTs now skip only their negative one-time landing damage,
+including direct-damage scaling and resource taps. Instant casting, normal ticks,
+positive one-time heals, debuffs, ordinary nukes and non-player behavior remain.
+Main gameplay PR426/a97c55d0 and source8a351145 deploy zone7b61b5ac on all12workers,
+preserving the intervening Imitate Death fix, Quick Buff, native pair, quests,
+caches and client2026111201. No client download or SQL/rule/schema change.
+The fresh production audit distinguishes986initial-hit definitions from2643
+without; this is not the legal player pool. Eleven focused spell/timing tests,
+15Linux release-fault tests, shipping reproduction and full-TU compile/link pass.
+Stopped backup, exact saved-state/market checks and independent healthy/native
+verification pass; player access is open and no player snapshot was restored.
+Wiki20261112-dot-ticks-v2 verifies613HTTPS files/headers and five private denials,
+retaining609outputs and all services/config/downloads. Historical global wiki
+source drift and the pre-existing Build Lab pin failure remain flagged. Owner
+in-game/balance acceptance is OPEN. Exact proof and arena/spell QA:
+docs/balance/dot-initial-damage-20261112/.
+
 ## Earned titles - November 12 candidate
 
 77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Owner authorized source promotion to main on November 12. Normal-player QA, deployment and publication remain pending.
@@ -20,20 +39,6 @@ Wiki20261112-imitate-death-v1 publishes Combat/Change Log/search with 610 of 613
 files retained. Public HTTPS verification is recorded separately. Native in-game
 hotkey/aggro and combined-build balance acceptance remain OPEN. Exact proof,
 transport recovery and player QA: `docs/releases/imitate-death-20261112/`.
-
-## 2026-11-12 — Player DoT landing damage removed (source candidate)
-
-Player instant DoTs skip only their negative CurrentHPOnce landing effects,
-including direct-damage scaling and resource taps. Instant casting, ordinary
-DoT/Bard ticks, positive one-time heals, debuffs, nukes and non-player casting
-retain native paths. Pure DoTs already have no initial hit. SELECT-only local
-catalog review distinguishes 980 definitions with a hit from 2,646 without;
-these include later/NPC content, not the active legal spell pool. Native landing
-regression reproduces the old amplified hit and passes the fix; neighboring
-spell/timing checks and isolated native build are recorded in the evidence.
-No SQL/client/rule change or live deployment. Wiki changes are Not released and
-unpublished; owner gameplay/balance QA remains open. Exact QA, build/rollback
-boundary and reviewed evidence: docs/balance/dot-initial-damage-20261112/.
 
 ## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
 

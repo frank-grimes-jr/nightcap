@@ -1,0 +1,60 @@
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -31,0 +32,4 @@
++
++The later earned-titles main promotion PR428/f689f7aa is a separate disabled
++source candidate. It is not in this shipping native/public payload. Preserve its
++authoring scope and use actual build/host receipts, not newest Git alone.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -23,0 +24,5 @@
++
++The later main earned-titles candidate (PR428/f689f7aa) stays disabled and
++unpublished. Its extra authoring guide and Home/Features/command context are
++preserved in the repository; the verified613-file DoT artifact excludes that
++preview. concurrent-source-review.json records the explicit source/public scope.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -18976,3 +18976,3 @@
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "0a79a9e703b5097fe92cb15aca42a3474c8d2b3dafa3bf06dc51b267187986f8"
++        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
++        "revision": "8a351145 shipping source + reviewed post-release merged authoring scope 2e8b3bd4",
++        "sha256": "7806e851a05e4df8b1cf871bae9b87dfd81ab0418399f880fed435a0e6d7fc89"
+@@ -18983,3 +18983,3 @@
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "d0296806fef908a5086d8d3428aa141a1e7b07a12d40d3f26256941f7ef022c9"
++        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
++        "revision": "8a351145 shipping source + reviewed post-release merged authoring scope 2e8b3bd4",
++        "sha256": "0bf16d662deee2e5b220ffa33a2dce65edc53299d96b7e435f8b08e8ced2d427"
+@@ -19032,3 +19032,3 @@
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "3aa70d9042eb6ab07e2f732171a7075fa0c9457d3a5338c013e129703140cc5f"
++        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
++        "revision": "8a351145 shipping source + reviewed post-release merged authoring scope 2e8b3bd4",
++        "sha256": "ad89ee59cbb7b92c64511b32a491b4d148200531697178fdde4da4bac04f92fd"
+@@ -19039,3 +19039,3 @@
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "3c653606e9b7bec2cf49df4f94b160c090d5e0d593b3eb15ee4c3f108c5aa74a"
++        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
++        "revision": "8a351145 shipping source + reviewed post-release merged authoring scope 2e8b3bd4",
++        "sha256": "46b010bac590c6481ac115d3248bb3a66b3d3c47f696d57ff28898c4ace0f128"
+@@ -19046,3 +19046,3 @@
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "a0756d11cf07af641200144676449e023c9e87deaeb26208a82b89678bf560cd"
++        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
++        "revision": "8a351145 shipping source + reviewed post-release merged authoring scope 2e8b3bd4",
++        "sha256": "77455cee7b83cc2cc4649b88a949a174824c1ad47cf831114830b3257a8c0113"
+@@ -19104,0 +19105,7 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/concurrent-source-review.json",
++        "sha256": "de1b286c4de4f26d4f4647b2ba9a2225b16157f61d729c53503549f7a08a1046",
++        "revision": "2e8b3bd4",
++        "role": "Reviewed source promotion scope: earned titles disabled/unpublished while DoT native/wiki deployment remains separately verified"

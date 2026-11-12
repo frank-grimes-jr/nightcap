@@ -1,0 +1,20 @@
+{
+  "status": "DEPLOYED_FOR_OWNER_QA",
+  "source_revision": "8a351145",
+  "gameplay_main_pr": 426,
+  "main_merge_revision": "a97c55d0078967791430c02534c8513b9a9e427d",
+  "zone_sha256": "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5",
+  "zone_workers": 12,
+  "native_errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "gateway_open": true,
+  "client_update_required": false,
+  "wiki_release": "20261112-dot-ticks-v2",
+  "wiki_public_files": 613,
+  "wiki_retained_files": 609,
+  "owner_gameplay_accepted": false,
+  "historical_wiki_source_drift": "REVIEW REQUIRED; unrelated Build Lab pin unchanged"
+}

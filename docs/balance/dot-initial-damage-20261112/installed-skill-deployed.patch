@@ -1,0 +1,298 @@
+--- a/references/balance.md
++++ b/references/balance.md
+@@ -3,27 +3,36 @@
+-## Player DoT landing damage — November12 unreleased candidate
+-
+-Source E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, base423f9c3b;
+-feature/dot-no-initial-damage. Mob::SpellEffect's CurrentHPOnce case skips only
+-calculated-negative SPA79 when caster->IsInstantCastDot identifies that same
+-spell. Reuse the player-only classifier: it includes one-tick, life-tap and Bard
+-DoTs unlike generic AI IsDamageOverTimeSpell. No initial hit, DD amplification or
+-ResourceTap from that slot; normal ticks/instant casting, positive HPOnce heals,
+-debuffs/nukes/non-client paths remain. No hardcoded spell IDs or SQL rewrite.
+-
+-SELECT-only local public catalog:3626DoTs,980with996negative SPA79slots,
+-2646without; not production/current legal pool. Disease Cloud340/Poison Bolt348
+-have hits; Clinging Darkness344/Heat Blood360do not. Positive Reckless Health871
+-is preserved. Captured DoTs have no SPA147/350alternative direct handlers; native
+-triggered AA/spell procs are separate and unchanged. tools/tests/test_dot_initial_damage.py
+-executes real landing branches and classifier; RED amplified-hit failure then
+-GREEN passes, with9neighboring policy/scaling/timing tests. Exact shipping Quick
+-Buff v2 zone3eeb72c9reproduces before isolated whole-TU compile/candidate link
+-(dfa5c614). Source/evidence: docs/balance/dot-initial-damage-20261112/.
+-
+-Not deployed, not owner-accepted. Zone rebuild/supported whole-runtime restart
+-required; no client/rule/schema/cache-format change. Preserve current Quick Buff
+-Client-layout-compatible inputs and paired world/shared/cache/quests/client.
+-Fresh environment evidence and existing deployment/owner QA gates still apply.
+-Wiki edits are labeled Not released and unpublished.22wiki checks pass;1existing
+-Build Lab effects.cpp provenance drift remains, with global REVIEW REQUIRED and
+-no blind ledger/pin advance. Exact arena spell/tick/recast/gear/AA QA is in README.
++## Player DoT landing damage — November 12 deployed for live QA
++
++Source E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage; gameplay PR426/a97c55d0,
++release source8a351145, immutable stage dot-no-initial-damage-20261112-v2.
++Mob::SpellEffect skips only calculated-negative CurrentHPOnce (SPA79) when the
++caster's existing IsInstantCastDot identifies that same spell. Reuse this player-
++only policy: it includes one-tick, life-tap and Bard DoTs excluded by generic AI
++IsDamageOverTimeSpell. The removed hit receives no DD scaling or ResourceTap.
++Normal ticks/instant casts, positive heals, debuffs, nukes and non-client paths
++remain. Triggered AA/spell procs are separate unchanged mechanics.
++
++Fresh SELECT-only production capture: 3,629 DoT definitions, 986 with 1,002
++negative one-time slots, 2,643 without. This includes NPC/later definitions,
++not the legal player pool. Disease Cloud340/Poison Bolt348 have hits; Clinging
++Darkness344/Heat Blood360 do not. Positive Reckless Health871 is retained.
++No captured DoT contains alternative direct handlers SPA147/350/509. None of
++the eight pinned Build Lab spells has the removed hit; arithmetic stays intact.
++
++Actual landing/classifier regression goes RED then GREEN; 11 focused spell/
++timing tests and 15 release-fault tests pass, including Linux. The first package
++never activated because another release held the lock. Replacement authenticates
++2,857 source files, reproduces Imitate Death zone7bb5bd17, compiles the full DoT
++TU and links with 143 retained object/library inputs. All 12 live workers verify
++7b61b5ac, restart/error counts zero, with Imitate Death and Quick Buff preserved.
++
++Evidence and exact arena Dot_QA_Dummy/spell/recast/tick/gear/AA checks:
++docs/balance/dot-initial-damage-20261112/{README.md,DEPLOYMENT.md} and native-build-
++current-baseline.json, production-verification.json, production-audit.json.
++Fresh stopped backup, native saved-state/one-market rotation and preservation
++checks passed; access is open. No snapshot restored. Future activation needs a
++zone build and supported whole-runtime restart, not a rule/quest reload. Keep
++current paired world/shared/cache/quests/client; no rule/schema/client change.
++Wiki20261112-dot-ticks-v2 verifies all 613 HTTPS outputs, five private denials and
++609 retained files. Owner in-game/combined-build balance acceptance remains OPEN;
++publication and native fixtures are not acceptance. Historical unrelated wiki
++source drift/Build Lab provenance failure remain flagged, without pin advance.
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -3,22 +3,29 @@
+-## Current native baseline — November12 Imitate Death live QA
+-
+-PR425/1d763739; source5642fcc1. Shipping zone7bb5bd17 replaces3eeb72c9 while
+-world95fc228a/shared_memoryb60c4dfc and all current dependencies remain. Checkout
+-E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown; docs/releases/imitate-death-20261112/deployment/.
+-Current shipping predecessor reproduced exactly,2857source/840compile dependencies
+-and146retained link inputs authenticate; one AA TU compile/relink, ELF/runtime
+-identity and9Linux operator fault tests pass. Current Client layout, Quick Buff
+-and newer retained Hate mapping/count223 stay; older Git mirrors are not a build
+-source replacement. No content/rule/schema/cache/quest/client change.
+-
+-Use this release's one-shot operator and receipts. Zero players, deployment/GM
+-locks,125secondclosed-admission drain, clean whole-runtime stop, fresh stopped
+-backup, exact saved-state expiry/one-market-rotation and12workers verify. Access
+-reopened with DB/web/tunnel identity, native pair, player data, cache and signed
+-2026111201 unchanged. Wiki publication occurs afterward under its own guarded
+-content updater; all613HTTPS files/header protections verify with610retained.
+-Failure holds admissions; never replay actions, kill one zone or restore player
+-snapshots. Relog for zero-reuse Imitate Death; gameplay/balance acceptance OPEN.
+-One local activation SSH client stalled after the host action completed. Exact
+-host receipts and successful open/independent verification were authoritative;
+-only that local transport was closed. No live action was replayed or interrupted.
++## Current native baseline — November 12 DoT live QA
++
++Gameplay PR426/a97c55d0, release source8a351145; checkout
++E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, docs/balance/dot-initial-damage-20261112/.
++Stage v2 deploys zone7b61b5ac over the verified Imitate Death7bb5bd17 baseline,
++retaining world95fc228a/shared_memoryb60c4dfc, signed client2026111201, Quick Buff,
++Imitate Death zero reuse, current Client layout and retained Hate mapping223.
++Older Git/default overlays remain unsuitable replacements for shipping source.
++2,857 source pins and 143 retained object/library inputs authenticate; the
++predecessor reproduces before a full spell-effects TU compile and zone relink.
++No rule/schema/content/cache/quest/client rewrite or extra download is required.
++
++The initial DoT package passed preflight but lost the deployment lock before any
++activation. It never changed admissions/runtime. Wait for a concurrent release,
++then capture its actual current native/publication baseline and rebuild; never
++force an old package over it. New immutable v2 stage and 15 Linux fault tests
++precede a fresh one-shot preflight/activation. Deployment/GM locks, zero players,
++125-second admission drain, clean whole-game stop, stopped full backup, exact
++native saved-state boot model and one market rotation verify. All 12 workers,
++zero restart/native/quest/DB errors and unchanged DB/web/tunnel, quests, caches,
++client and native pair pass; admissions are open. Never kill one production zone,
++replay a completed action or restore an old player snapshot. Completed host
++receipts outrank a stalled local SSH helper; close only that local transport.
++
++Wiki20261112-dot-ticks-v2 publishes only three guides and search after exact
++previous-source reproduction. All 613 HTTPS hashes/headers, five private denials,
++pointer rollback and all five service identities verify; 609 files stay exact.
++No Nginx reload or global review-ledger advance. Normal-player DoT/Imitate Death/
++Quick Buff and combined-build balance acceptance remain separately OPEN.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -3 +3,23 @@
+-## Imitate Death — November12 published for live testing
++## DoT landing damage — November 12 published for live testing
++
++Source E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, gameplay PR426/a97c55d0;
++release source8a351145. Wiki20261112-dot-ticks-v2 replaces Imitate Death v1 after
++its exact authenticated 613-output source reproduces. Combat, In development,
++Change Log and search change; 609 files retain exact bytes. All 42 authored
++articles plus Home/Features/commands and generated item/zone/catalog impacts
++were reviewed. Existing Features links the owning guide; no new Home notice,
++command, reward/item/zone value or Build Lab arithmetic change is needed.
++Instant player DoTs lose their separate initial hit; normal ticks, positive
++heals, ordinary nukes and NPC casting keep their existing paths. No download.
++
++All 613 HTTPS hashes/security headers and five private404denials pass. The
++content updater rehearses pointer rollback and preserves all five services,
++channel/config/private downloads without Nginx reload. Current native DoT
++zone7b61b5ac preserves Imitate Death and Quick Buff; acceptance stays OPEN.
++Historical global REVIEW REQUIRED and the unchanged Build Lab frozen-source
++mismatch remain explicit; no blind ledger/pin refresh. Exact proof and review:
++docs/balance/dot-initial-damage-20261112/{DEPLOYMENT.md,wiki-publication.json,
++wiki-public-verification.json,supplemental-review.json}. Never publish an older
++mirror or an unrelated unreleased preview while maintaining this guide.
++
++## Imitate Death — November12 retained release
+@@ -17,3 +39,3 @@
+-Concurrent main PR426 adds a separately labeled, unpublished DoT candidate to
+-authoring sources. It is not in this native or public wiki payload. Preserve
+-both scopes; never infer candidate deployment from the integrated source tree.
++The Imitate Death payload itself did not include the concurrent DoT candidate.
++The newer separately verified DoT release above now includes that guard while
++preserving Imitate Death. Neither publication grants owner gameplay acceptance.
+@@ -29,13 +50,0 @@
+-
+-## DoT landing damage — November12 unpublished candidate
+-
+-E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, base423f9c3b. All42authored
+-articles and Home/Features/commands/generated item/zone/catalog impacts reviewed.
+-Combat/In development/Change Log add a Not released player-DoT preview: remove
+-only separate negative initial HPOnce hits; instant casting/ticks/positive heals
+-and other casting remain. Features already links Combat/development; no new live
+-Home announcement, command/catalog values or Build Lab arithmetic changes.
+-22wiki checks pass; existing unchanged effects.cpp Build Lab provenance mismatch
+-remains an explicit failure. Actual HEAD+worktree refresh returns REVIEW REQUIRED;
+-no global ledger advance. No publication/deployment/gameplay acceptance claimed.
+-Evidence: docs/balance/dot-initial-damage-20261112/{README.md,verification.json}.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -162 +162,2 @@
+-    "imitate_death_deployed_20261112": "live main PR425/1d763739 source5642fcc1; authoring b7f457ea79b41bedcf1a879539b5a1ec662fe121 + reviewed worktree; owner QA OPEN"
++    "imitate_death_deployed_20261112": "live main PR425/1d763739 source5642fcc1; authoring b7f457ea79b41bedcf1a879539b5a1ec662fe121 + reviewed worktree; owner QA OPEN",
++    "dot_no_initial_damage_live_20261112": "8a351145"
+@@ -12699,2 +12700,2 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+@@ -18933,2 +18934,2 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+@@ -18940,2 +18941,2 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+@@ -18942,0 +18944,14 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "server-mods/code/zone/aa.cpp",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "4b411cc28164148ff4cb054fb167436a578e781480bb46ba87fc58b6a7caca46"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "server-mods/code/common/imitate_death.h",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "59fbf1ce77983de8118bd53152c6e6373072c698a48a39d8a1798fe668dd02b7"
+@@ -18947,2 +18962,2 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+@@ -18949,0 +18965,7 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/tests/test_dot_rollout.py",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "47e3e154bc8bc4332f349a5e67d844cbdda4b9970123edeff65148c9951830c2"
+@@ -18954,3 +18976,3 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
+-        "sha256": "87178fe91a5ab0cd510a68a8aeb139367471409550f0b12b70d64bd524429556"
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "0a79a9e703b5097fe92cb15aca42a3474c8d2b3dafa3bf06dc51b267187986f8"
+@@ -18960,4 +18982,4 @@
+-        "path": "docs/balance/dot-initial-damage-20261112/native-build.json",
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
+-        "sha256": "4327ada23639df0a4599df50889b031baeab889f048078eacfe09c131bf3ca0c"
++        "path": "docs/balance/dot-initial-damage-20261112/DEPLOYMENT.md",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "d0296806fef908a5086d8d3428aa141a1e7b07a12d40d3f26256941f7ef022c9"
+@@ -18967,4 +18989,39 @@
+-        "path": "docs/balance/dot-initial-damage-20261112/verification.json",
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
+-        "sha256": "2197504c262ef78451c74f1e5ba3da6406641cb5b3ef9853b2f25ef70a7f77a1"
++        "path": "docs/balance/dot-initial-damage-20261112/native-build-current-baseline.json",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "8758be883eabcb1e9c353a296edfe2bdecc6f716b94d5ebc71e2c5df21ebe43d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/production-verification.json",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "8bbe3bde2acf67fa6f01477456f5adad532cdd46f56be25f340be3403d7fb24d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/release-result.json",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "a9bcd0ae4f3e6ce42f7486bde79ec3ebd8d803e09058dc2236eaea332bfdc7c5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/wiki-publication.json",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "2b81d318d8221998d11b7d2827177591589a5e5b26477064c81a01bf17aff2f2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/wiki-public-verification.json",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "78619959ce5b631c67819264089d2f43e78087cfa4ed31e8b3f4c9915b75deb2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/supplemental-review.json",
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "10ef05b684926df9f91c7faef793b5851081cd42589341d7859a578333f9b21e"
+@@ -18975,3 +19032,3 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
+-        "sha256": "ea5949d9bb944bdae59834a12ba6cb82d133d59838ffe5d24a3c69c5b0f8780c"
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "3aa70d9042eb6ab07e2f732171a7075fa0c9457d3a5338c013e129703140cc5f"
+@@ -18982,3 +19039,3 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
+-        "sha256": "9f6b710a9ae60045f4f6d3de556ed0d97d0d812c041cc457c5662ce48e901316"
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "3c653606e9b7bec2cf49df4f94b160c090d5e0d593b3eb15ee4c3f108c5aa74a"
+@@ -18989,3 +19046,3 @@
+-        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+-        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
+-        "sha256": "0e782b9e7a45d76be3dd086fe55623b73ed818614c586539aad04fb098e9f996"
++        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
++        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
++        "sha256": "a0756d11cf07af641200144676449e023c9e87deaeb26208a82b89678bf560cd"

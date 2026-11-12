@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "verified_at": 1794523937.5134766,
+  "source_revision": "8a351145",
+  "runtime": {
+    "image_id": "sha256:476924d40d50fee3786401c4c860404e48bbf8f8bc174b98bba4bd7cfa277429",
+    "started_at": "2026-11-12T22:39:51.82106593Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "95fc228a5a8d852cd6a43a1c21fd8d029c5df721bb322fe6cb756da15882e675"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ],
+      [
+        "zone",
+        "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "client_release": 2026111201,
+  "client_channel_sha256": "e0201dd35be1501208c6783eeb3c6194e2d7b9ec080f70ef4f09f52d744dacd5",
+  "stopped_full_backup": {
+    "path": "/opt/nightcap/releases/dot-no-initial-damage-20261112-v2/evidence/activation/private-backup/peq-before.sql.gz",
+    "sha256": "e383b5c64f358f9d124d4aea0de5b166fb3dcc249e3d9a2573f515c6bdc1781d",
+    "compressed_bytes": 66344961,
+    "uncompressed_bytes": 478554729,
+    "gzip_integrity": "passed"
+  },
+  "db_web_tunnel_unchanged": true,
+  "quests_plugins_cache_unchanged": true,
+  "client_update_required": false,
+  "database_restored": false,
+  "owner_gameplay_accepted": false
+}

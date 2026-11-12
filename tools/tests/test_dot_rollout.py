@@ -64,7 +64,7 @@ class DotRollout(unittest.TestCase):
         self.assertEqual(result.STAGE, self.mod.STAGE)
         self.assertEqual(result.EVIDENCE, self.mod.STAGE / 'evidence')
         self.assertEqual(result.m['binaries'], self.manifest['binaries'])
-        self.assertEqual(result.TAG, 'nightcap-game:dot-no-initial-damage-20261112-v1')
+        self.assertEqual(result.TAG, 'nightcap-game:dot-no-initial-damage-20261112-v2')
 
     def test_rejects_unreviewed_prior_operator(self):
         self.mod.PRIOR.write_text('different operator')

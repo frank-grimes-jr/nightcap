@@ -1,0 +1,16 @@
+{
+  "result": "prepared_not_published",
+  "baseline_release": "20261112-quick-buff-v2",
+  "release": "20261112-dot-ticks-v1",
+  "files": 613,
+  "changed_existing": [
+    "combat.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ],
+  "preserved_files": 609,
+  "public_source_reproduced": true,
+  "public_checks_passed": 3,
+  "whole_wiki_review": "All42authored sources, Home, Features, commands, catalogs and generated item/zone impacts assessed; only three owning/status/history guides and search change"
+}

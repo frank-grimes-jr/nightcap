@@ -12,7 +12,7 @@ import os
 from pathlib import Path
 
 ROOT = Path('/opt/nightcap/deploy/production')
-STAGE = Path('/opt/nightcap/releases/dot-no-initial-damage-20261112-v1')
+STAGE = Path('/opt/nightcap/releases/dot-no-initial-damage-20261112-v2')
 AUTHORIZATION = 'Deploy it to the live server so I can test it in game.'
 PRIOR = Path('/opt/nightcap/releases/quick-buff-20261112-v2/rollout.py')
 PRIOR_SHA256 = '2c54fb5b25dc52186aca32ee8090a3efb78b44638b70408aa0801c7309c0e964'
@@ -51,7 +51,7 @@ def initialize():
     # their exact drain, stopped backup, boot/market, hold and preservation gates.
     prior.STAGE = STAGE
     prior.EVIDENCE = STAGE / 'evidence'
-    prior.TAG = 'nightcap-game:dot-no-initial-damage-20261112-v1'
+    prior.TAG = 'nightcap-game:dot-no-initial-damage-20261112-v2'
     prior.m = manifest
     return prior
 
