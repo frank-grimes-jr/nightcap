@@ -1,8 +1,39 @@
-# Player DoT initial damage — November 12 candidate
+# Player DoT initial damage — November 12 live QA
 
-**Not deployed. Owner in-game and combined-build balance acceptance remain open.**
-Source starts at current integrated `origin/main` 423f9c3b in the isolated
-`feature/dot-no-initial-damage` worktree. The default workspace is older and dirty.
+**Deployed for live QA; player access is open. Owner in-game and combined-build balance acceptance remain open.**
+Initial source started from integrated `origin/main` 423f9c3b in the isolated
+`feature/dot-no-initial-damage` worktree. The release source8a351145 preserves the subsequently deployed Imitate Death fix. The default workspace is older and dirty.
+
+## Observed deployment
+
+Main gameplay PR426/a97c55d0 and immutable DoT stage v2 are deployed. All12zone
+workers independently verify7b61b5ac, restart count0 and native/quest/database
+error counts0. This supersedes7bb5bd17 while preserving Imitate Death zero reuse,
+Quick Buff, world95fc228a/shared_memoryb60c4dfc, quests, caches and signed
+client2026111201. No client download or SQL spell/rule/schema change is needed.
+
+A fresh stopped full backup, exact native saved-state boot model and one market
+rotation passed before access reopened. No player snapshot was restored. Native
+proof: production-verification.json, deployment-receipt.json and DEPLOYMENT.md.
+The initial v1 DoT package never activated: the concurrent release held the lock.
+The replacement authenticates2857source files and143unique retained object/library
+inputs, reproduces the shipping Imitate Death zone, then compiles the whole DoT
+translation unit and links the final zone. Native proof is in
+native-build-current-baseline.json; the first candidate proof remains historical.
+
+The fresh production SELECT-only audit found3629DoT definitions:986with1002
+negative one-time damage slots and2643without. These include NPC/later content,
+not the active legal player pool. The original local fixture remains separately
+dated. No production DoT has SPA147,350or509alternative direct-HP handlers.
+The eight pinned Build Lab spells have no removed initial hit; their arithmetic
+stays unchanged. See production-audit.json and supplemental-review.json.
+
+Wiki20261112-dot-ticks-v2 is published and verified: all613HTTPS hashes/headers,
+five private denials, pointer rollback and all five service identities pass.
+609previous outputs retain exact bytes; only Combat, In development, Change Log
+and search change. Global historical drift remains REVIEW REQUIRED, including
+the separately documented unchanged Build Lab provenance mismatch. Nothing here
+establishes owner normal-player or encounter-balance acceptance.
 
 ## Contract and implementation
 
@@ -75,12 +106,13 @@ pre-Quick Buff Client-layout build. Before any authorized deployment, refresh
 production identity/content evidence and use the current guarded deployment
 process, admission drain, stopped backup and saved-state preservation checks.
 Rollback is the previous paired runtime with current player data retained;
-never restore a stale player snapshot. No deployment is authorized by this note.
+never restore a stale player snapshot. The owner explicitly authorized this release for live testing; that does not accept gameplay or waive future deployment gates.
 
-## Exact in-game QA after an authorized test release
+## Owner in-game QA (open)
 
-1. In `arena`, use a stationary durable test NPC. Disable autoattack, pets and
-   damage procs; capture combat timestamps and target HP. Test the same earned
+1. In `arena`, have a GM create a temporary passive target named
+   `Dot_QA_Dummy` with at least100,000HP, without persistent spawn/definition
+   changes. Disable autoattack, pets and damage procs; capture combat timestamps and target HP. Test the same earned
    build, effective Spell Damage, focus, AAs and mana before/after.
 2. Cast Disease Cloud 340 and Poison Bolt 348 immediately after a known tick.
    Both cast instantly, apply their debuff and cost normal mana, but cause no
@@ -105,12 +137,13 @@ observed results and failures before the normal test-to-main promotion gate.
 
 ## Wiki impact
 
-Reviewed all authored guides, Features, Home, commands and generated item/zone
-catalogs against this five-line behavior change. Combat, In development and
-Change Log describe a **Not released** preview. Existing Features already links
-Combat and development previews; no new live feature/Home announcement is
-appropriate. Commands, item/zone stats, acquisition, catalog/Build Lab arithmetic
-and legal pools do not change. Global historical source drift remains REVIEW
-REQUIRED; do not blindly advance `content-review.json`. The local edits are not
-published. Future authorized publication must reproduce the then-current public
-artifact and preserve all unrelated outputs and release labels.
+All42authored articles, Features/Home/commands and generated item/zone/catalog
+impacts were reviewed. Combat, In development and Change Log now describe the
+installed live-testing behavior. Features already links the owning guide; no new
+Home announcement, command, item/zone stats, rewards or Build Lab arithmetic is
+needed. The source tree reproduced all613previous Imitate Death public outputs
+before four scoped outputs changed. Publication and all HTTPS hashes/headers
+verify;609outputs, private downloads, config and all five services are retained.
+No Nginx reload or blanket content-review ledger advance occurred. The existing
+Build Lab effects.cpp frozen-pin mismatch is documented, not silently refreshed.
+Source review, publication and owner gameplay/balance acceptance remain distinct.

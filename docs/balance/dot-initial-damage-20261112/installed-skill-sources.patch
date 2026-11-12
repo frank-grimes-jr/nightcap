@@ -1,0 +1,59 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -19048,0 +19049,56 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/rollout.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "0d0695c36b4eedc415f10adc0402a4676817151c4d02e83882eafa5ecf9b4696"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/build_native.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "85b3d9e11030192d7230fd41870fb990cfd329524fc21e4c5aaa1b57a48d80cf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/dot_release_remote.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "1da8af703c9f57c18a24de6aeaa7d5d0f21343454b42527ead4a871e27daacf2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/prepare_dot_wiki.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "bd9c35a9276aa585a468be4f1ce921cc5ea1d71c399be589d98a33784fd30640"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/publish_dot_wiki.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "5ddc36f0b22a18ae7e8c8862f61be81f0f1b0fef55eeb42418f9c37f0e1f2c20"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/verify_dot_wiki.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "3dd0245a99b510d6374e11b61ce5ba98a1f14f7f43503f015f4072f3695cf7ff"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/verify_dot_release.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "3119daa9c08211ea4efd9e67e40007df0b335ce8240172a630c1282163b76185"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/tests/test_quick_buff_hotkey_rollout.py",
++        "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
++        "revision": "8a351145 + reviewed release worktree and receipts 2026-11-12",
++        "sha256": "a209a977431aba4271784e1497a9555353fbc99c993ecd688a488115126be643"

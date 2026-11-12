@@ -1,0 +1,13 @@
+{
+  "status": "PREFLIGHT_PASS",
+  "manifest_sha256": "4d929a7a95ca984c1b07409a36675b6f5920429b973272668b1d703bccfc92c7",
+  "source_revision": "8a351145",
+  "base_image_id": "sha256:421cec4f53aa5e736c41ac2dd5fe7af4028fa2fc234c718941530bdccc399332",
+  "candidate_image_id": "sha256:476924d40d50fee3786401c4c860404e48bbf8f8bc174b98bba4bd7cfa277429",
+  "binaries": {
+    "zone": "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5"
+  },
+  "linux_release_fault_tests": 15,
+  "runtime_changed": false,
+  "activation_started": false
+}

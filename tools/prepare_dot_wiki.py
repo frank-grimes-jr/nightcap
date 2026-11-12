@@ -59,7 +59,9 @@ if __name__ == '__main__':
     build.package(out, ART / (RELEASE + '.tar.gz'))
     report = {'result': 'prepared_not_published', 'baseline_release': PREVIOUS,
               'release': RELEASE, 'files': len(current), 'changed_existing': changed,
-              'preserved_files': len(current) - len(changed), 'public_source_reproduced': True,
+              'preserved_files': len(current) - len(changed),
+              'baseline_source_reproduced': True, 'public_source_reproduced': False,
+              'requires_baseline_publication': PREVIOUS,
               'public_checks_passed': 3, 'whole_wiki_review': 'All42authored sources, Home, Features, commands, catalogs and generated item/zone impacts assessed; only three owning/status/history guides and search change'}
     (HERE / 'wiki-candidate.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report))

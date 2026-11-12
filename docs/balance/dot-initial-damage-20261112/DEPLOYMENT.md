@@ -70,3 +70,24 @@ object is preserved; the additional source delta is only spell-effects.cpp.
 Stage authentication tests pass with the new stage identity. The replacement
 requires a fresh live baseline after the earlier release and its wiki publication
 complete, plus a new one-shot preflight, backup and state-preservation cycle.
+
+## Observed result
+
+Stage v2 is deployed; admissions are open. Independent verification records all
+12zone workers at7b61b5ac, restart count0 and native/quest/database errors0, with
+world95fc228a/shared_memoryb60c4dfc, signed2026111201, cache, quests and DB/web/
+tunnel identities preserved. The fresh stopped backup passes gzip integrity;
+normal saved-state expiry and exactly one market rotation passed. No player
+snapshot restore or spell/rule/schema edit occurred.
+
+Wiki20261112-dot-ticks-v2 is published from the authenticated Imitate Death source
+artifact. All613HTTPS hashes/security headers and five private404denials pass;
+609outputs remain exact, all five services/private downloads/config stay intact,
+and pointer rollback was rehearsed without Nginx reload. Review ledger and the
+historical unrelated Build Lab source-pin failure remain unchanged.
+
+Read deployment-receipt.json for exact host receipt pins, production-verification.json
+for independent live identity/backup proof, and wiki-publication.json plus
+wiki-public-verification.json for separate publication/HTTPS evidence. Owner
+in-game and combined-build balance acceptance remain OPEN; this is a release
+for their requested testing, not completed player acceptance.
