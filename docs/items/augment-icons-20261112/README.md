@@ -123,8 +123,9 @@ the full current row, current socket definitions and any known intentional
 cosmetic choice. Matching an augment icon alone does not prove an override was
 accidental. Preserve augments, charges, color, binding, custom data and GUID;
 guard the exact preimage and change only confirmed erroneous cosmetic fields.
-Do not bulk-clear ornaments or restore an old player inventory. No production
-capture, inventory repair or deployment is claimed in this change.
+Do not bulk-clear ornaments or restore an old player inventory. The November12
+activation and five identified repairs are complete; future incidents require
+fresh evidence and an authorized scope rather than replaying this operation.
 
 ## Owner in-game QA after authorized activation
 
