@@ -147,3 +147,10 @@ verify;609outputs, private downloads, config and all five services are retained.
 No Nginx reload or blanket content-review ledger advance occurred. The existing
 Build Lab effects.cpp frozen-pin mismatch is documented, not silently refreshed.
 Source review, publication and owner gameplay/balance acceptance remain distinct.
+
+The later main earned-titles source promotion (PR428/f689f7aa) remains a separate
+disabled candidate. Its source and Not released authoring guidance are preserved
+in the documentation merge; it is not activated or added to this native/public
+artifact. Actual shipping source, build hashes and release receipts above remain
+authoritative rather than the newer integrated checkout. See
+concurrent-source-review.json.

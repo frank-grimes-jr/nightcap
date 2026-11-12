@@ -1,3 +1,4 @@
+#include "zone/earned_titles.h"
 #include "zone/advanced_loot.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
@@ -2308,13 +2309,14 @@ void Client::SetSkill(EQ::skills::SkillType skillid, uint16 value) {
 		return;
 	m_pp.skills[skillid] = value; // We need to be able to #setskill 254 and 255 to reset skills
 
-	database.SaveCharacterSkill(CharacterID(), skillid, value);
+	const bool skill_saved = database.SaveCharacterSkill(CharacterID(), skillid, value);
 	auto outapp = new EQApplicationPacket(OP_SkillUpdate, sizeof(SkillUpdate_Struct));
 	SkillUpdate_Struct* skill = (SkillUpdate_Struct*)outapp->pBuffer;
 	skill->skillId=skillid;
 	skill->value=value;
 	QueuePacket(outapp);
 	safe_delete(outapp);
+	if (skill_saved) { NightcapTitles::CheckSkill(this, static_cast<unsigned>(skillid)); }
 }
 
 // Commands, quests and native AA controls share eligibility and percentage

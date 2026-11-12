@@ -1,4 +1,5 @@
 #include "zone/dungeon_service.h"
+#include "zone/earned_titles.h"
 #include "common/warhelm_policy.h"
 #include "zone/zone_hunt.h"
 /*	EQEMu: Everquest Server Emulator
@@ -3094,6 +3095,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 	entity_list.UpdateFindableNPCState(this, true);
 
 	m_combat_record.Stop();
+	NightcapTitles::RecordKill(this, give_exp_client, hunt_owned || is_merchant || is_ldon_treasure || IsQueuedForCorpse() || NightcapAshen::Transient(GetNPCTypeID()));
 
 	if (give_exp_client && !IsCorpse()) {
 		const auto& v = give_exp_client->GetRaidOrGroupOrSelf(true);

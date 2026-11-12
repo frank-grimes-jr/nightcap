@@ -91,3 +91,10 @@ for independent live identity/backup proof, and wiki-publication.json plus
 wiki-public-verification.json for separate publication/HTTPS evidence. Owner
 in-game and combined-build balance acceptance remain OPEN; this is a release
 for their requested testing, not completed player acceptance.
+
+The later main earned-titles source promotion (PR428/f689f7aa) remains a separate
+disabled candidate. Its source and Not released authoring guidance are preserved
+in the documentation merge; it is not activated or added to this native/public
+artifact. Actual shipping source, build hashes and release receipts above remain
+authoritative rather than the newer integrated checkout. See
+concurrent-source-review.json.

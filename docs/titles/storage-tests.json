@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": [
+    "new installation disabled",
+    "three InnoDB tables",
+    "award unique identity",
+    "idempotent award and first timestamp preserved",
+    "reapply preserves active control and awards",
+    "concurrent counters atomic without lost increments",
+    "counter saturation",
+    "concurrent grants stay unique",
+    "awards are per character",
+    "disable preserves earned state"
+  ],
+  "scope": "Disposable MariaDB10.11, network none; no runtime/player DB access"
+}
