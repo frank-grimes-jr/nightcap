@@ -1654,6 +1654,9 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 		}
 	}
 
+	// Quick Buff delivers songs once, while still accepting the native
+	// instrument type for a held Bard class. Do not start a song pulse/melody.
+	const bool bard_component_mode = bard_song_mode || (quick_buff && IsBardSong(spell_id));
 	// Check for consumables and Reagent focus items
 	// first check for component reduction
 	if(IsClient()) {
@@ -1680,7 +1683,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 					continue;
 
 				// bard components are requirements for a certain instrument type, not a specific item
-				if(bard_song_mode) {
+				if(bard_component_mode) {
 					bool HasInstrument = true;
 					int InstComponent = spells[spell_id].no_expend_reagent[0];
 
@@ -1780,7 +1783,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 			else if (!RuleB(Character, PetsUseReagents) && (IsEffectInSpell(spell_id, SpellEffect::SummonPet) || IsEffectInSpell(spell_id, SpellEffect::NecPet))) {
 				//bypass reagent cost
 			}
-			else if (!bard_song_mode)
+			else if (!bard_component_mode)
 			{
 				int noexpend;
 				for(int t_count = 0; t_count < 4; t_count++) {
