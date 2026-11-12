@@ -1,0 +1,178 @@
+{
+  "reviewed_at": "2026-11-12",
+  "source_ref": "60d5136245e3c73a785783acfec7ed4068497065 + current worktree",
+  "status": "published and verified for live testing; owner acceptance OPEN",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/adventure-journal.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/augment-audit.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "decision": "corrected hotkey creation/nominal1second detail and history; live QA remains open"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "decision": "corrected hotkey creation/nominal1second detail and history; live QA remains open"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "decision": "reviewed; v2 metadata correction has no effect on this guide or player values"
+    }
+  ],
+  "generated_catalogs_home_features_commands": "No new effects; preserve all current613outputs except combat/history/search",
+  "source_reproduced": true,
+  "global_source_drift": "REVIEW REQUIRED; no blanket ledger advance"
+}

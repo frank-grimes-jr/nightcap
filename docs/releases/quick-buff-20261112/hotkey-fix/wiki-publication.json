@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "release": "20261112-quick-buff-v2",
+  "previous_release": "20261112-quick-buff-v1",
+  "files": 613,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "OK",
+  "changed_existing": [
+    "combat.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 610,
+  "source_reproduced": true
+}

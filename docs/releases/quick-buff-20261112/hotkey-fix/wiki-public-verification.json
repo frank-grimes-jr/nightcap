@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "release": "20261112-quick-buff-v2",
+  "files": 613,
+  "verified_bytes": 8726766,
+  "all_public_sha256_and_security_headers": true,
+  "private_denials": {
+    "README.md": 404,
+    "content-review.json": 404,
+    "articles/combat.json": 404,
+    "catalog.json": 404,
+    ".git/config": 404
+  },
+  "owner_gameplay_acceptance": "OPEN"
+}
