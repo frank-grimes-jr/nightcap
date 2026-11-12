@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-12",
+  "source": "423f9c3b + this worktree",
+  "state": "source candidate only; not deployed or publicly published",
+  "articles": [
+    {
+      "slug": "about",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "advanced-loot",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "adventure-journal",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "ascension",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "ashen-compact",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "augment-audit",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "build-lab",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "camil-vigil",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "combat",
+      "impact": "candidate guidance/history updated"
+    },
+    {
+      "slug": "commands",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "dungeon-modes",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "equipment",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "features",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "getting-started",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "index",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-960420",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-960421",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-960422",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-960423",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-960424",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-960425",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961020",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961021",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961022",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961023",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961030",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961031",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-961032",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-990510",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "item-upgrades",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "launcher",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "loot-finder",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "multiclass",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "pets",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "recent-changes",
+      "impact": "candidate guidance/history updated"
+    },
+    {
+      "slug": "tradeskills",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "travel",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "tunnel",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "unreleased",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "waypoints",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "zone-hunt",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    },
+    {
+      "slug": "zone-kael",
+      "impact": "no change: no live instructions, rewards, commands or feature availability altered"
+    }
+  ],
+  "generated_item_zone_catalog": "No changes: AA reuse does not change item/zone definitions, acquisition or catalog values. Build Lab data unchanged.",
+  "home_features_commands": "No new feature directory entry or home announcement for a minor unreleased AA adjustment; existing live mechanics and commands unchanged.",
+  "release_labels": "Candidate sections explicitly Not released; existing Live testing labels preserved.",
+  "refresh": "REVIEW REQUIRED: broad pre-existing ledger drift plus this candidate. No global ledger advance.",
+  "operations": "Checked current main and November12 Quick Buff deployment evidence; no production probe or write in this task."
+}

@@ -1,0 +1,114 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -1,4 +1,25 @@
+ # Multiclass, spells, skills and advancement
++
++## Imitate Death — November 12 source candidate
++
++Owner requests no cooldown. Family 420 (retained rank 1255/spell 5918) projects
++zero reuse in common/imitate_death.h on AA load. zone/aa.cpp retires only its
++saved wait on authorized activation/resend and forces zero cast reuse even with
++negative focus. Ownership, held-class/casting/standing checks and spell effects
++remain; basic Feign Death skill reuse is unchanged. RoF2 catalog advertises 1 for
++Make Hotkey; every family 420 timer packet resets (begin 0/end now), so no actual
++reuse. Generic details can show nominal 1 second. No Client layout, SQL, rule,
++cache, quest, world/shared-memory or signed client change required by this patch.
++Zone binary deployment still needs the current retained native baseline and
++guarded whole-runtime procedure; AA reload alone is insufficient.
++
++Source: E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown, based on main
++423f9c3b. tools/tests/test_aa_cooldown_identity.py tests actual native methods,
++stale waits, repeated use, focus and guards. Adjacent cooldown regressions pass;
++eq-client-dll/tests/aa-reuse-native.cpp executes 47 pinned client checks.
++docs/releases/imitate-death-20261112/ owns proof, wiki impact and exact QA.
++Source candidate only: full Linux zone build, deployment, public wiki publication
++and owner gameplay/balance acceptance remain pending. No standing release approval.
+ 
+ ## Quick Buff — November12 deployed for live QA
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -157,7 +157,8 @@
+     "heroic_stats_inventory_20261112": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate; production read-only/native hashes match November7; display unsigned/unpublished; pixels pending",
+     "augment_icons_deployed_20261112": "main PR420/1568fb710b6441fe70bca5f9fc40f6dd805c20dc; source00ee567f; reviewed release hashes and verified activation/publication",
+     "hunt_augment_expansion_candidate_20261112": "212e0b650b1a96cfdd82defb2de6cbb7c88be0fc",
+-    "quick_buff_deployed_20261112": "PR423/main60d51362; source6c3240a2; verified v2 metadata follow-up, owner acceptance OPEN"
++    "quick_buff_deployed_20261112": "PR423/main60d51362; source6c3240a2; verified v2 metadata follow-up, owner acceptance OPEN",
++    "imitate_death_candidate_20261112": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate"
+   },
+   "topics": {
+     "operations": [
+@@ -2077,17 +2078,52 @@
+     ],
+     "multiclass": [
+       {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "server-mods/code/common/imitate_death.h",
++        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "sha256": "fd4be8418a3cdd91ebde56f46031fbd706819ae3787a5213a64b88955c01851d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "server-mods/code/zone/aa.cpp",
++        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "sha256": "4b411cc28164148ff4cb054fb167436a578e781480bb46ba87fc58b6a7caca46"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/tests/test_aa_cooldown_identity.py",
++        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "sha256": "58649ab76415a18238732c5f7563d48566d5efe1819a27c51c78f637886a9b37"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "eq-client-dll/tests/aa-reuse-native.cpp",
++        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "sha256": "e0459fac6a6a277e74bcc825a636bb28797e6d79fc009f86f379a9e47a21e583"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/README.md",
++        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "sha256": "ed1fbf712fd8f8d8b4065890d15b2866df043650a215e24f0dde8b1d8cf2a238"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/wiki-review.json",
++        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
++        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "sha256": "144b3c02b2aea51e708c63f87e278bc8ddbd36684ddb56e113315cca25d92908"
++      },
++      {
+         "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+         "path": "server-mods/plugins/multiclass.pl",
+         "role": "canonical class membership and atomic release caller",
+         "sha256": "e3c30f45db984578c0fe6c8179b5a836580927ed8b4dfecaacc33b4aa7c76596"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/artifacts/rogue-audit-20261024/source",
+-        "path": "server-mods/code/zone/aa.cpp",
+-        "role": "Oct24 audited level1 AA packets, client eligibility/purchase/activation; production rogue catalog matches policy",
+-        "revision": "7fe3a78385ee8a3f64a6079ac3f789da7057f113 reviewed Oct24 audit; source unchanged",
+-        "sha256": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/artifacts/rogue-audit-20261024/source",
+@@ -2893,13 +2929,6 @@
+         "role": "Reviewed cooldown identity candidate; not deployed",
+         "revision": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+         "sha256": "f6247f1226cac1f1ca3c2dab46ad89ee7469616a04a68112bdb69371b44e1d5b"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+-        "path": "tools/tests/test_aa_cooldown_identity.py",
+-        "role": "Reviewed cooldown identity candidate; not deployed",
+-        "revision": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+-        "sha256": "bff97860389cba0c37f8105512d1c5e53b5bd87f6889bef648258bfdf95cb24e"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
