@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/dot-no-initial-damage-20261112-v1/rollout.py", line 76, in <module>
+    main()
+  File "/opt/nightcap/releases/dot-no-initial-damage-20261112-v1/rollout.py", line 67, in main
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 11] Resource temporarily unavailable
