@@ -149,8 +149,16 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 			buffs[buffslot].hit_number = numhit;
 		}
 
-		if (spells[spell_id].endurance_upkeep > 0)
+		if (spells[spell_id].endurance_upkeep > 0) {
 			SetEndurUpkeep(true);
+			if (IsClient() && buffs[buffslot].spellid == spell_id) {
+				const auto *origin = NightcapRaidAug::CastOrigin::current;
+				const bool paid_cast = caster == this && origin && origin->caster == this &&
+					origin->spell == spell_id && !origin->triggered && (origin->gem || origin->discipline) &&
+					!NightcapRaidAug::IsExchangeSpell(spell_id);
+				CastToClient()->raid_direct_upkeep[buffslot] = paid_cast ? spell_id : 0;
+			}
+		}
 
 		if (IsClient() && CastToClient()->ClientVersionBit() & EQ::versions::maskUFAndLater)
 		{
@@ -4688,6 +4696,7 @@ void Mob::BuffFadeBySlot(int slot, bool iRecalcBonuses)
 		RemoveNimbusEffect(spells[buffs[slot].spellid].nimbus_effect);
 
 	buffs[slot].spellid = SPELL_UNKNOWN;
+	if (IsClient()) { CastToClient()->raid_direct_upkeep[slot] = 0; }
 	if(IsPet() && GetOwner() && GetOwner()->IsClient()) {
 		SendPetBuffsToClient();
 	}
@@ -9759,6 +9768,7 @@ bool Mob::TrySpellProjectile(Mob* spell_target, uint16 spell_id, float speed) {
 		ProjectileAtk[slot].hit_increment = static_cast<uint16>(hit); //This projected hit time if target does NOT MOVE
 		ProjectileAtk[slot].target_id = spell_target->GetID();
 		ProjectileAtk[slot].wpn_dmg = spell_id; //Store spell_id in weapon damage field
+		ProjectileAtk[slot].raid_delivery = NightcapRaidAug::CaptureDelivery(this, spell_id);
 		ProjectileAtk[slot].origin_x = GetX();
 		ProjectileAtk[slot].origin_y = GetY();
 		ProjectileAtk[slot].origin_z = GetZ();

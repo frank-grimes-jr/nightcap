@@ -16,6 +16,8 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "common/raid_augment.h"
+#include "zone/raid_augment_custody.h"
 #include "client.h"
 
 #include "common/eqemu_logsys.h"
@@ -27,6 +29,7 @@
 #include "zone/bot.h"
 #include "zone/queryserv.h"
 #include "zone/quest_parser_collection.h"
+#include "zone/string_ids.h"
 #include "zone/worldserver.h"
 #include "zone/zonedb.h"
 #include "zone/advanced_loot_inventory.h"
@@ -380,6 +383,7 @@ bool Client::SummonItem(uint32 item_id, int16 charges, uint32 aug1, uint32 aug2,
 	uint32 classes = item->Classes;
 	uint32 races = item->Races;
 	uint32 slots = item->Slots;
+	bool has_raid_augment = false;
 	bool enforce_wearable = RuleB(Inventory, EnforceAugmentWear);
 	bool enforce_restrictions = RuleB(Inventory, EnforceAugmentRestriction);
 	bool enforce_usable = RuleB(Inventory, EnforceAugmentUsability);
@@ -415,6 +419,11 @@ bool Client::SummonItem(uint32 item_id, int16 charges, uint32 aug1, uint32 aug2,
 			}
 		}
 		else {
+			if (NightcapRaidAug::IsReward(augments[iter])) {
+				if (has_raid_augment || !NightcapRaidAug::IsHost(item->Slots) ||
+					item->AugSlotType[iter] != NightcapRaidAug::SocketType) { return false; }
+				has_raid_augment = true;
+			}
 			// check that there is not a lore conflict between augment and existing inventory
 			if(CheckLoreConflict(augtest)) {
 				// DuplicateLoreMessage(augtest->ID);
@@ -1904,6 +1913,13 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 	uint32 dstitemid = 0;
 	EQ::ItemInstance* src_inst = m_inv.GetItem(src_slot_id);
 	EQ::ItemInstance* dst_inst = m_inv.GetItem(dst_slot_id);
+	if (is_shared_bank(src_slot_check) != is_shared_bank(dst_slot_check)) {
+		const bool withdrawing = is_shared_bank(src_slot_check);
+		if (NightcapRaidAug::IncomingTrophies{}.Conflict(*this, withdrawing ? src_inst : dst_inst, withdrawing ? dst_inst : src_inst)) {
+			MessageString(Chat::Yellow, DUP_LORE);
+			return false;
+		}
+	}
 	// Validate both swap directions; ordinary items may occupy this slot only
 	// through a complete, supported training family. Native power sources retain
 	// their existing rules. Removing a training item remains possible when off.
@@ -2064,6 +2080,15 @@ bool Client::SwapItem(MoveItem_Struct* move_in) {
 
 	// Step 3: Check for interaction with World Container (tradeskills)
 	if(m_tradeskill_object != nullptr) {
+		const auto world_slot = [](int16 slot) { return EQ::ValueWithin(slot, EQ::invslot::WORLD_BEGIN, EQ::invslot::WORLD_END); };
+		if (world_slot(src_slot_id) || world_slot(dst_slot_id)) {
+			const bool picking_up = world_slot(src_slot_id);
+			const auto incoming = m_tradeskill_object->GetItem(EQ::InventoryProfile::CalcBagIdx(picking_up ? src_slot_id : dst_slot_id));
+			if (NightcapRaidAug::IncomingTrophies{}.Conflict(*this, incoming, picking_up ? nullptr : src_inst)) {
+				MessageString(Chat::Yellow, DUP_LORE);
+				return false;
+			}
+		}
 		if (src_slot_id >= EQ::invslot::WORLD_BEGIN && src_slot_id <= EQ::invslot::WORLD_END) {
 			// Picking up item from world container
 			EQ::ItemInstance* inst = m_tradeskill_object->PopItem(EQ::InventoryProfile::CalcBagIdx(src_slot_id));

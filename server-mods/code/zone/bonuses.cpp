@@ -64,6 +64,7 @@ void NPC::CalcBonuses()
 
 void Client::CalcBonuses()
 {
+	NightcapRaidAug::Refresh(*this);
 	memset(&itembonuses, 0, sizeof(StatBonuses));
 	CalcItemBonuses(&itembonuses);
 	CalcHeroicBonuses(&itembonuses);
@@ -273,6 +274,8 @@ void Mob::AddItemBonuses(const EQ::ItemInstance* inst, StatBonuses* b, bool is_a
 	if (!inst || !inst->IsClassCommon()) {
 		return;
 	}
+
+	if (!is_augment && NightcapRaidAug::IsReward(inst->GetID())) { return; }
 
 	if (inst->GetAugmentType() == 0 && is_augment) {
 		return;
@@ -519,6 +522,10 @@ void Mob::AddItemBonuses(const EQ::ItemInstance* inst, StatBonuses* b, bool is_a
 				continue;
 			}
 
+			if (NightcapRaidAug::IsReward(augment->GetID()) &&
+				(!IsClient() || is_tribute || inst != GetInv().GetItem(EQ::invslot::slotChest) ||
+				CastToClient()->raid_augment.item != augment->GetID() || CastToClient()->raid_augment.socket != i ||
+				inst->GetItem()->AugSlotType[i] != NightcapRaidAug::SocketType)) { continue; }
 			AddItemBonuses(augment, b, true, false, recommended_level);
 		}
 	}

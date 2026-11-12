@@ -62,6 +62,7 @@ enum : int {	//values for pTimerType
 	pTimerMonkCombatAbilityEnd = 599,
 	pTimerPeqzoneReuse = 900,
 	pTimerMercReuse = 901,
+	pTimerRaidAugment = 903,
 	pTimerMercSuspend = 902,
 	pTimerAAStart = 0x100000,		// start + AA ability (family) ID; not a client timer slot
 	pTimerAAEnd = 0x1fffff,
