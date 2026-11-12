@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-12",
+  "scope": "Local source and compiled extracted-method fixture only",
+  "base_revision": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a",
+  "red": "Compiled old actual methods; executable failed at !host.IsOrnamentationAugment(type22 empty-IDFile augment).",
+  "green": "Same native regression passes after predicate correction.",
+  "focused_regressions": {
+    "initial_run": {
+      "total": 23,
+      "passed": 22,
+      "environment_error": "Existing test_zone_hunt_native.test_no_resale_survives_free_trade opened UTF-8 client_packet.cpp with Windows cp1252."
+    },
+    "utf8_rerun": {
+      "test": "test_zone_hunt_native.NativeZoneHunt.test_no_resale_survives_free_trade",
+      "passed": 1
+    },
+    "effective_result": "All 23 checks passed; full runtime not built."
+  },
+  "wiki": {
+    "test_wiki_and_test_refresh": {
+      "passed": 20
+    },
+    "refresh_result": "REVIEW REQUIRED; historical unrelated source drift; ledger retained",
+    "impact_review": "wiki-review.json; 42 authored articles and generated catalog impacts",
+    "final_five_note_site_checks": {
+      "passed": 3,
+      "checks": [
+        "all local links/assets/anchors",
+        "complete search without internal sources",
+        "public payload privacy"
+      ]
+    }
+  },
+  "review": {
+    "correctness": "Bitmask conversion matches native socket eligibility; real type20/type21 and HeroForge support preserved; ordinary IDFile cannot confer cosmetic intent.",
+    "security_privacy": "No production access, private player data, DB mutations or new external input path.",
+    "scope": "Only ornament predicate changes in native code. No item/stat/rule/schema/cache/client change.",
+    "performance": "Constant-time mask check removes string construction/comparisons; existing six-socket traversal retained."
+  },
+  "gates": {
+    "full_native_build": "pending",
+    "deployment": "not performed",
+    "saved_row_repair": "not performed; fresh scoped evidence required",
+    "public_wiki": "not published",
+    "owner_in_game_QA": "pending"
+  },
+  "hashes": {
+    "server-mods\\code\\common\\item_instance.cpp": "12205d83f93c66d55f3c55b0c9c693484e54bea5ff8d9dda382e58f182ed0d84",
+    "tools\\tests\\test_augment_ornament_native.py": "77372cc661aad6b209017874a1872ba92230be3ea854d17fe650da74c0f156e5",
+    "tools\\tests\\fixtures\\augment_ornament.cpp": "539749f4f58ed0cef4a8c4cdcff02d138ca2b66ff4173bc2c59ce1aafbc6f9a1"
+  }
+}

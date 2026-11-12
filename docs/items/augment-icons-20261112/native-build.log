@@ -1,0 +1,10 @@
+{"baseline_reproduced": "zone", "sha256": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"}
+{"baseline_reproduced": "world", "sha256": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0"}
+{"baseline_reproduced": "shared_memory", "sha256": "f66dd110de5bdc8f95b7455c12a17f4acd4aa18ab1fa131882d85eb6130e4985"}
+{"compiled": "item_instance.cpp", "consumer": "zone"}
+{"compiled": "item_instance.cpp", "consumer": "world"}
+{"linked": "zone", "sha256": "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397"}
+{"linked": "world", "sha256": "95fc228a5a8d852cd6a43a1c21fd8d029c5df721bb322fe6cb756da15882e675"}
+{"linked": "shared_memory", "sha256": "b60c4dfc1eeb7a5d74b1888686a7e06eafe4e2863cc96f55cf2d1cb951ddef22"}
+{"status": "PASS", "shipping": {"baseline-zone": "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04", "baseline-world": "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0", "baseline-shared_memory": "f66dd110de5bdc8f95b7455c12a17f4acd4aa18ab1fa131882d85eb6130e4985", "candidate-zone": "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397", "candidate-world": "95fc228a5a8d852cd6a43a1c21fd8d029c5df721bb322fe6cb756da15882e675", "candidate-shared_memory": "b60c4dfc1eeb7a5d74b1888686a7e06eafe4e2863cc96f55cf2d1cb951ddef22"}}
+

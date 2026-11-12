@@ -3233,6 +3233,13 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 			}
 		}
 
+		// Stat-only changes must retain explicit mold/quest cosmetic overrides.
+		// Inspect the target before removal; the cursor matters only on insertion.
+		const bool update_ornamentation =
+			tobe_auged->IsOrnamentationAugment(tobe_auged->GetAugment(in_augment->augment_index)) ||
+			((in_augment->augment_action == AugmentActions::Insert || in_augment->augment_action == AugmentActions::Swap) &&
+			 tobe_auged->IsOrnamentationAugment(user_inv.GetItem(EQ::invslot::slotCursor)));
+
 		switch (in_augment->augment_action) {
 			case AugmentActions::Insert:
 			case AugmentActions::Swap:
@@ -3291,7 +3298,9 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 						}
 
 						tobe_auged->PutAugment(in_augment->augment_index, *new_aug);
-						tobe_auged->UpdateOrnamentationInfo();
+						if (update_ornamentation) {
+							tobe_auged->UpdateOrnamentationInfo();
+						}
 
 						aug = tobe_auged->GetAugment(in_augment->augment_index);
 						if (aug) {
@@ -3405,7 +3414,9 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 				}
 
 				old_aug = tobe_auged->RemoveAugment(in_augment->augment_index);
-				tobe_auged->UpdateOrnamentationInfo();
+				if (update_ornamentation) {
+					tobe_auged->UpdateOrnamentationInfo();
+				}
 
 				item_one_to_push = tobe_auged->Clone();
 				if (old_aug) {
@@ -3483,7 +3494,9 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 				}
 
 				tobe_auged->DeleteAugment(in_augment->augment_index);
-				tobe_auged->UpdateOrnamentationInfo();
+				if (update_ornamentation) {
+					tobe_auged->UpdateOrnamentationInfo();
+				}
 
 				item_one_to_push = tobe_auged->Clone();
 				if (item_one_to_push) {

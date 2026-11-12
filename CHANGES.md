@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-11-12 — Stat augment icon correction (local candidate)
+
+Correct ornament detection in `ItemInstance`: inspect the type-20/type-21
+AugType bits rather than literal socket numbers, and stop treating an empty or
+ordinary model ID as cosmetic intent. Preserve genuine ornaments and the existing
+Hero's Forge fallback. Compiled production-method regressions reproduce the old
+type-22 icon replacement and pass with the fix; related augment/trade/metadata
+checks are recorded in `docs/items/augment-icons-20261112/`.
+
+Not deployed or published. Existing saved wrong cosmetic overrides need a fresh,
+exactly scoped forward repair; relogging alone is insufficient. No bulk inventory
+rewrite, client asset, schema, rule or item-stat change. Whole-runtime activation
+and owner visual QA remain open. Wiki candidate notes and installed knowledge
+maintenance accompany the fix; see the evidence for their separate status.
+
 ## 2026-11-07 — Last Lantern paired release deployed for live QA
 
 Main8d75f8da and the guarded OVH v4release install the level20–50 campaign,
