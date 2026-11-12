@@ -1,0 +1,30 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -18120,10 +18120,17 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
++        "path": "tools/tests/test_gameplay_policies.py",
++        "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
++        "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
++        "sha256": "2f0c63a95eecd037b2df90c2ba5464e1b4019829ab2d86429ae8f20d54c6a57f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "docs/releases/quick-buff-20261112/README.md",
+         "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+         "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "9ecbc9a5f93dfe7f6b6a8f0ade475345d1e5397d8781010d082d35b310b0ab70"
++        "sha256": "2973e2469c2d74e8db71b075c4abb59c025ccd768745ba7ae03cafee99e21202"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+@@ -18137,7 +18144,7 @@
+         "path": "docs/releases/quick-buff-20261112/wiki-review.json",
+         "role": "Reviewed Quick Buff source/test/evidence candidate; no deployment or native acceptance",
+         "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
+-        "sha256": "effa5381e6ddc810380c071d30fe71e2665034abf064f519bf9cd3d4cb3946a5"
++        "sha256": "7900a5f20ed5afd80d73571546871d6f4776fab7c391e80ef41c060b1d02662f"
+       }
+     ]
+   }

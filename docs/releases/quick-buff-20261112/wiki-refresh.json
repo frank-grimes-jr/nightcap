@@ -1,0 +1,30 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-24",
+  "source_ref": "HEAD",
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "changed_source_count": 1195,
+  "reviewed_scope": "Quick Buff live-release delta; entire current public source reproduced; unrelated historical drift remains REVIEW REQUIRED",
+  "quick_buff_sources": [
+    "server-mods/code/common/quick_buff.h",
+    "server-mods/code/zone/aa.cpp",
+    "server-mods/code/zone/aa_quick_buff.inc",
+    "server-mods/code/zone/client.h",
+    "server-mods/code/zone/spells.cpp",
+    "tools/build_quick_buff_release.py",
+    "tools/check_quick_buff_native.py",
+    "tools/finalize_quick_buff_release.py",
+    "tools/prepare_quick_buff_wiki.py",
+    "tools/probe_quick_buff_release.py",
+    "tools/publish_quick_buff_wiki.py",
+    "tools/quick_buff_client.py",
+    "tools/quick_buff_remote.py",
+    "tools/ship_quick_buff_release.py",
+    "tools/test_quick_buff_linux.py",
+    "tools/tests/test_quick_buff.py",
+    "tools/tests/test_quick_buff_reagents.py",
+    "tools/tests/test_quick_buff_rollout.py",
+    "tools/update_quick_buff_skill.py",
+    "tools/verify_quick_buff_wiki.py"
+  ]
+}

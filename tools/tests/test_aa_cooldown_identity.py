@@ -34,6 +34,7 @@ FIXTURE = r'''
 #include <string>
 #include <vector>
 #include "common/nightcap_aa_policy.h"
+#include "common/quick_buff.h"
 using uint8=uint8_t;using uint16=uint16_t;using uint32=uint32_t;using int64=int64_t;
 /* TIMER_DECLARATIONS */
 uint32 clock_now=100000;
@@ -168,6 +169,7 @@ struct Client {
  bool SpellFinished(int,Mob*,EQ::spells::CastingSlot,int,int,int,bool,int,pTimerType timer,
   int duration,bool,int rank_id) {return CompleteCast(rank_id,timer,duration);}
  void ActivateAlternateAdvancementAbility(int,int);
+ void CastQuickBuff(int rank) {casts.push_back(rank);}
  void SendAlternateAdvancementRank(int,int);
  void SendAlternateAdvancementTimer(int,int,int);
  void SendAlternateAdvancementTimers();
@@ -366,6 +368,27 @@ void focused_resend() {
  clock_now+=300;c.actions.clear();c.SendAlternateAdvancementTimers();
  check(active_wire_timers(c,{258}).empty(),"expired AA recreated an active client countdown");
 }
+void quick_buff_activation() {
+ add_rank(48,147,1,-1,0,0,3,25134);
+ auto* rank=zone->GetAlternateAdvancementRank(147);
+ rank->effects.push_back({127,50,0,1});
+ NightcapQuickBuff::Configure(48,*rank->base_ability,*rank);
+ Client c;c.held|=first_class(rank->base_ability->classes);
+ c.ActivateAlternateAdvancementAbility(147,99);
+ check(c.casts.empty(),"unearned Quick Buff activated");
+ own(c,147);c.p_timers.Start(pTimerAAStart+48,999);
+ c.ActivateAlternateAdvancementAbility(147,99);
+ c.ActivateAlternateAdvancementAbility(147,99);
+ check(c.casts.size()==2,"Quick Buff dispatch acquired a cooldown");
+ c.catalog.clear();c.SendAlternateAdvancementRank(48,1);
+ check(c.catalog.size()==1&&c.catalog.back().type==3&&c.catalog.back().total_effects==0&&
+  c.catalog.back().spell_refresh==0&&c.catalog.back().upper_hotkey_sid==147,
+  "Quick Buff catalog is still passive or lacks its hotkey");
+ c.valid=false;c.ActivateAlternateAdvancementAbility(147,99);
+ check(c.casts.size()==2,"invalid earned state activated Quick Buff");
+ c.valid=true;c.held=1u<<Class::Warrior;c.ActivateAlternateAdvancementAbility(147,99);
+ check(c.casts.size()==2,"released class activated Quick Buff");
+}
 void completion_pulses() {
  for(const auto& row:zone->aa_ranks_values) {
   Client c;own(c,row.first);const int slot=wire_group(c,row.first);
@@ -399,6 +422,7 @@ int main(int argc,char** argv) {
   else if(s=="class-remap")class_remap();
   else if(s=="focused-resend")focused_resend();
   else if(s=="completion-pulses")completion_pulses();
+  else if(s=="quick-buff")quick_buff_activation();
   else throw std::runtime_error("unknown scenario");
   std::cout<<s<<": PASS\n";return 0;
  } catch(const std::exception& e) {std::cerr<<e.what()<<'\n';return 1;}
@@ -500,6 +524,7 @@ class AACooldownIdentityTests(unittest.TestCase):
     def test_class_slot_remap_preserves_family_deadlines(self): self.scenario("class-remap")
     def test_resend_focus_changes_preserve_stored_remaining_time(self): self.scenario("focused-resend")
     def test_native_successful_completion_pulses_target_catalog_slots(self): self.scenario("completion-pulses")
+    def test_quick_buff_earned_activation_and_native_hotkey_catalog(self): self.scenario("quick-buff")
 
 
 if __name__ == "__main__":

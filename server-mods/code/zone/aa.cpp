@@ -1,4 +1,5 @@
 #include "../common/nightcap_thj_behaviors.h"
+#include "../common/quick_buff.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -1504,6 +1505,8 @@ void Client::IncrementAlternateAdvancementRank(int rank_id) {
 	GrantAlternateAdvancementAbility(rank->base_ability->id, points + 1, true);
 }
 
+#include "aa_quick_buff.inc"
+
 void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 	if (!HasValidEarnedAAState()) {
 		Message(Chat::Red, "Alternate advancement is temporarily unavailable. Please reconnect.");
@@ -1548,6 +1551,10 @@ void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 		return;
 	}
 	//check cooldown
+	if (ability->id == NightcapQuickBuff::Family && NightcapQuickBuff::IsRank(rank_id)) {
+		CastQuickBuff(rank_id);
+		return;
+	}
 	if (!p_timers.Expired(&database, pTimerAAStart + ability->id, false)) {
 		uint32 aaremain = p_timers.GetRemainingTime(pTimerAAStart + ability->id);
 		uint32 aaremain_hr = aaremain / (60 * 60);
@@ -2022,6 +2029,7 @@ void Zone::LoadAlternateAdvancement() {
 			current->base_ability = ability.second.get();
 			current->current_value = i;
 			current->recast_time = NightcapPetScaling::AAReuse(ability.first, i, current->recast_time);
+			NightcapQuickBuff::Configure(ability.first, *ability.second, *current);
 
 			if(current->prev) {
 				current->total_cost = current->cost + current->prev->total_cost;

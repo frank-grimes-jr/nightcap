@@ -1,0 +1,25 @@
+--- a/server-mods/code/common/dungeon_catalog.h
++++ b/server-mods/code/common/dungeon_catalog.h
+@@ -197,8 +197,9 @@
+ 	{73,73092},
+ };
+ inline constexpr Dungeon LegacyHate = {76,998812,3,4,19,"hateplane"};
++inline constexpr const char *HateSpawnSourceSQL = "CASE p.spawn_id WHEN 9402109 THEN 2109 WHEN 9402084 THEN 2084 WHEN 9402074 THEN 2074 WHEN 9401913 THEN 1913 WHEN 9402706 THEN 2706 WHEN 9403786 THEN 3786 WHEN 9402108 THEN 2108 WHEN 9402080 THEN 2080 WHEN 9401887 THEN 1887 WHEN 9403788 THEN 3788 WHEN 9402083 THEN 2083 WHEN 9403787 THEN 3787 WHEN 9402086 THEN 2086 WHEN 9402078 THEN 2078 WHEN 9402105 THEN 2105 WHEN 9402008 THEN 2008 WHEN 9401912 THEN 1912 WHEN 9402106 THEN 2106 WHEN 9402085 THEN 2085 WHEN 9401915 THEN 1915 WHEN 9402076 THEN 2076 WHEN 9402073 THEN 2073 WHEN 9401841 THEN 1841 WHEN 9402072 THEN 2072 WHEN 9402075 THEN 2075 WHEN 9402054 THEN 2054 WHEN 9402057 THEN 2057 WHEN 9401988 THEN 1988 WHEN 9401846 THEN 1846 WHEN 9402019 THEN 2019 WHEN 9402055 THEN 2055 WHEN 9401920 THEN 1920 WHEN 9402110 THEN 2110 WHEN 9402021 THEN 2021 WHEN 9402015 THEN 2015 WHEN 9402004 THEN 2004 WHEN 9401989 THEN 1989 WHEN 9401987 THEN 1987 WHEN 9401843 THEN 1843 WHEN 9402052 THEN 2052 WHEN 9401921 THEN 1921 WHEN 9402007 THEN 2007 WHEN 9401917 THEN 1917 WHEN 9402051 THEN 2051 WHEN 9401919 THEN 1919 WHEN 9401911 THEN 1911 WHEN 9401985 THEN 1985 ELSE p.spawn_id END";
+ inline constexpr float HateBookX=-673.0f, HateBookY=313.0f, HateBookZ=3.0f;
+ inline constexpr uint32_t SkyKeyService = 998814;
+-inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==186 ? 176 : zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : zone==760 ? 35 : zone==113 ? 35 : 0; }
++inline unsigned PrivateSpawnCount(uint32_t zone) { return zone==186 ? 223 : zone==48 ? 188 : zone==71 ? 12 : zone==76 ? 1 : zone==760 ? 35 : zone==113 ? 35 : 0; }
+ inline const Dungeon *FindDungeon(uint32_t zone) { if (zone==76) { return &LegacyHate; } for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }
+ }
+--- a/server-mods/code/zone/command.h
++++ b/server-mods/code/zone/command.h
+@@ -89,8 +89,8 @@
+ void command_exptoggle(Client *c, const Seperator *sep);
+ void command_evolvingitems(Client *c, const Seperator *sep);
+ void command_faction(Client *c, const Seperator *sep);
++void command_itemxp(Client *c, const Seperator *sep);
+ void command_factions(Client *c, const Seperator *sep);
+-void command_itemxp(Client *c, const Seperator *sep);
+ void command_faction_association(Client *c, const Seperator *sep);
+ void command_feature(Client *c, const Seperator *sep);
+ void command_find(Client *c, const Seperator *sep);

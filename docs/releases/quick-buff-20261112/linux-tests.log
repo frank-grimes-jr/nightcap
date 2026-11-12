@@ -1,0 +1,67 @@
+test_candidate_and_baseline_drift_fail_before_writes (test_publish.PublicationTests.test_candidate_and_baseline_drift_fail_before_writes) ... ok
+test_foreign_nested_file_rejected (test_publish.PublicationTests.test_foreign_nested_file_rejected) ... ok
+test_immutable_drift_rejected_before_channel_write (test_publish.PublicationTests.test_immutable_drift_rejected_before_channel_write) ... ok
+test_interrupted_archive_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_archive_write_recovers_valid_prefix_only) ... ok
+test_interrupted_channel_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_channel_write_recovers_valid_prefix_only) ... ok
+test_interrupted_writes_recover_without_partial_channel (test_publish.PublicationTests.test_interrupted_writes_recover_without_partial_channel) ... ok
+test_invalid_baseline_does_not_change_existing_release_bytes_or_permissions (test_publish.PublicationTests.test_invalid_baseline_does_not_change_existing_release_bytes_or_permissions) ... ok
+test_missing_new_asset_and_foreign_inventory_are_rejected (test_publish.PublicationTests.test_missing_new_asset_and_foreign_inventory_are_rejected) ... ok
+test_nested_partial_rejects_corruption_then_recovers (test_publish.PublicationTests.test_nested_partial_rejects_corruption_then_recovers) ... ok
+test_nested_symlink_rejected_without_channel_change (test_publish.PublicationTests.test_nested_symlink_rejected_without_channel_change) ... ok
+test_private_umask_creates_publicly_traversable_release_and_readable_files (test_publish.PublicationTests.test_private_umask_creates_publicly_traversable_release_and_readable_files) ... ok
+test_public_control_drift_keeps_old_channel (test_publish.PublicationTests.test_public_control_drift_keeps_old_channel) ... ok
+test_publish_repeat_and_preservation (test_publish.PublicationTests.test_publish_repeat_and_preservation) ... ok
+test_retained_asset_drift_keeps_old_channel (test_publish.PublicationTests.test_retained_asset_drift_keeps_old_channel) ... ok
+test_service_drift_keeps_old_channel (test_publish.PublicationTests.test_service_drift_keeps_old_channel) ... ok
+test_symlink_release_rejected (test_publish.PublicationTests.test_symlink_release_rejected) ... ok
+test_verified_existing_release_directory_permissions_are_repaired (test_publish.PublicationTests.test_verified_existing_release_directory_permissions_are_repaired) ... ok
+test_all_running_services_and_healthy_game_db_are_accepted (test_publish.ServiceTests.test_all_running_services_and_healthy_game_db_are_accepted) ... ok
+test_each_stopped_or_oom_service_is_rejected (test_publish.ServiceTests.test_each_stopped_or_oom_service_is_rejected) ... ok
+test_unhealthy_or_missing_game_database_health_is_rejected (test_publish.ServiceTests.test_unhealthy_or_missing_game_database_health_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.649s
+
+OK
+
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Quick Buff zone verified; access remains closed.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+test_backup_failure_cannot_select_or_start_candidate (test_quick_buff_rollout.Rollout.test_backup_failure_cannot_select_or_start_candidate) ... ok
+test_client_failure_keeps_admissions_closed (test_quick_buff_rollout.Rollout.test_client_failure_keeps_admissions_closed) ... ok
+test_native_failure_holds_access_closed (test_quick_buff_rollout.Rollout.test_native_failure_holds_access_closed) ... ok
+test_open_failure_holds_and_never_starts_gateway (test_quick_buff_rollout.Rollout.test_open_failure_holds_and_never_starts_gateway) ... ok
+test_player_during_drain_holds_without_stopping_game (test_quick_buff_rollout.Rollout.test_player_during_drain_holds_without_stopping_game) ... ok
+test_reject_online_before_any_mutation (test_quick_buff_rollout.Rollout.test_reject_online_before_any_mutation) ... ok
+test_success_verifies_closed_and_never_opens_implicitly (test_quick_buff_rollout.Rollout.test_success_verifies_closed_and_never_opens_implicitly) ... ok
+test_unexpected_saved_state_holds (test_quick_buff_rollout.Rollout.test_unexpected_saved_state_holds) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.147s
+
+OK
+
+REPORT={"status": "PASS", "checks": [{"folder": "docs/releases/quick-buff-20261112/client", "tests": 20, "status": "PASS"}, {"folder": "tools/tests", "tests": 8, "status": "PASS"}]}

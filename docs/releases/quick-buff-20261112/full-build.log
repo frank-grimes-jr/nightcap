@@ -1,0 +1,6 @@
+Current shipping zone reproduced exactly.
+Fresh CMake zone build configured.
+
+Traceback (most recent call last):
+  File "<stdin>", line 46, in <module>
+AssertionError

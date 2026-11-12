@@ -61,3 +61,8 @@ docs/adventure-journal/release-20261107/balance/*.log
 eq-launcher/cmd/last-lantern-verify/
 # Private production probes, captures, error diagnostics and upload payloads.
 /artifacts/augment-icons-20261112/
+
+# Quick Buff private build/signing/runtime artifacts
+/artifacts/quick-buff-20261112/
+/eq-launcher/cmd/quick-buff-sign/
+/eq-launcher/cmd/quick-buff-verify/
