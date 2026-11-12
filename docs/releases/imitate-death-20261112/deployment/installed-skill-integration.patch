@@ -1,0 +1,72 @@
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -14,6 +14,9 @@
+ rehearses recovery and preserves all five services, channel/config/downloads;
+ no Nginx reload or global source-ledger advance. Unrelated drift remains REVIEW
+ REQUIRED. Source and receipts: imitate-death-no-cooldown/docs/releases/imitate-death-20261112/deployment/.
++Concurrent main PR426 adds a separately labeled, unpublished DoT candidate to
++authoring sources. It is not in this native or public wiki payload. Preserve
++both scopes; never infer candidate deployment from the integrated source tree.
+ 
+ ## Earned titles — November12 disabled candidate
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -220,6 +220,13 @@
+         "sha256": "9a7eef97e40c90f4335333660c0ce4711f4e575528fed22305f454d5dddb9301"
+       },
+       {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/concurrent-source-review.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "17f5bfe0efe6e04d977a8cc7af28629646c4e92a599d3c36e552e4a7b39c74f8"
++      },
++      {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "docs/releases/quick-buff-20261112/hotkey-fix/native-build.json",
+         "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+@@ -2248,17 +2255,24 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/concurrent-source-review.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "17f5bfe0efe6e04d977a8cc7af28629646c4e92a599d3c36e552e4a7b39c74f8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "wiki/articles/combat.json",
+         "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+         "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+-        "sha256": "b6e1ab9548d2da4aa1e49f64ce3fe846a4174534f75de630b28f0fcdb9cf4a4c"
++        "sha256": "f1cbe97d263eedde3111ed90131ba7fac29439d860b05f14e108eacdc36c8e21"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "wiki/articles/recent-changes.json",
+         "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+         "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+-        "sha256": "34f4d22feef74db541fed93e9fbbb316484a3798e9c9371b4bcddf46f6f583c6"
++        "sha256": "08df036645640c68b85ba536134eb88deb55c60928252cd30dee180e50edf682"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+@@ -13400,14 +13414,14 @@
+         "path": "wiki/articles/combat.json",
+         "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+         "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+-        "sha256": "b6e1ab9548d2da4aa1e49f64ce3fe846a4174534f75de630b28f0fcdb9cf4a4c"
++        "sha256": "f1cbe97d263eedde3111ed90131ba7fac29439d860b05f14e108eacdc36c8e21"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "wiki/articles/recent-changes.json",
+         "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+         "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+-        "sha256": "34f4d22feef74db541fed93e9fbbb316484a3798e9c9371b4bcddf46f6f583c6"
++        "sha256": "08df036645640c68b85ba536134eb88deb55c60928252cd30dee180e50edf682"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",

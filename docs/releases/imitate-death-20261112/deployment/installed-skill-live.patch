@@ -1,0 +1,467 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -1,25 +1,34 @@
+ # Multiclass, spells, skills and advancement
+ 
+-## Imitate Death — November 12 source candidate
+-
+-Owner requests no cooldown. Family 420 (retained rank 1255/spell 5918) projects
+-zero reuse in common/imitate_death.h on AA load. zone/aa.cpp retires only its
+-saved wait on authorized activation/resend and forces zero cast reuse even with
+-negative focus. Ownership, held-class/casting/standing checks and spell effects
+-remain; basic Feign Death skill reuse is unchanged. RoF2 catalog advertises 1 for
+-Make Hotkey; every family 420 timer packet resets (begin 0/end now), so no actual
+-reuse. Generic details can show nominal 1 second. No Client layout, SQL, rule,
+-cache, quest, world/shared-memory or signed client change required by this patch.
+-Zone binary deployment still needs the current retained native baseline and
+-guarded whole-runtime procedure; AA reload alone is insufficient.
+-
+-Source: E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown, based on main
+-423f9c3b. tools/tests/test_aa_cooldown_identity.py tests actual native methods,
+-stale waits, repeated use, focus and guards. Adjacent cooldown regressions pass;
+-eq-client-dll/tests/aa-reuse-native.cpp executes 47 pinned client checks.
+-docs/releases/imitate-death-20261112/ owns proof, wiki impact and exact QA.
+-Source candidate only: full Linux zone build, deployment, public wiki publication
+-and owner gameplay/balance acceptance remain pending. No standing release approval.
++## Imitate Death — November 12 deployed for live QA
++
++Owner explicitly requested live deployment. Main PR425/1d763739, source5642fcc1,
++E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown. Family420 (retained rank1255,
++spell5918) has zero authoritative reuse. common/imitate_death.h projects AA load;
++zone/aa.cpp retires only this family's saved wait on authorized activation/resend
++and passes zero reuse even under negative focus. Earned/class/casting/standing
++checks and original spell effects remain; basic Feign Death skill reuse stays.
++RoF2 advertises1for Make Hotkey; every family420 timer packet resets(begin0,end
++now), including stale resends. Generic detail can show1second; actual reuse is0.
++Relog and create the hotkey. No signed client/SQL/rule/cache/quest/layout change.
++
++Shipping zone7bb5bd17 preserves world95fc228a/shared_memoryb60c4dfc, Quick Buff,
++augment repair, Last Lantern and newer retained Hate source. Current deployed
++zone3eeb72c9 reproduced exactly; one affected TU compiled against2857authenticated
++source files,840actual dependencies and146unchanged link inputs. ELF loaded-byte
++identity passes. Native AA18/adjacent27tests, pinned RoF2 instructions47checks and
++Linux operator9fault tests pass. The proof-only dependency-path normalization
++failure was corrected by re-verifying completed artifacts, without replaying live
++actions. Transient preflight lock contention preceded any action/receipt.
++
++Guarded immutable image deployment has fresh stopped backup,125secondadmission
++drain, clean whole-runtime stop, normal saved-state/one-market-rotation proof,
++all12zone and unchanged native/service/content/cache/client verification. Access
++is open; no player snapshot restored. Wiki20261112-imitate-death-v1 verifies613
++public hashes/headers with610retained and five private denials. Exact release,
++one-shot operator, receipts and in-game steps: docs/releases/imitate-death-20261112/.
++Never replay terminal actions or kill one production zone. Owner hotkey/aggro and
++combined-build balance acceptance remain OPEN; deployment is not acceptance.
+ 
+ ## Quick Buff — November12 deployed for live QA
+ 
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,6 +1,29 @@
+ # Source authority, builds and reloads
+ 
+-## Current native baseline — November12 Quick Buff live QA
++## Current native baseline — November12 Imitate Death live QA
++
++PR425/1d763739; source5642fcc1. Shipping zone7bb5bd17 replaces3eeb72c9 while
++world95fc228a/shared_memoryb60c4dfc and all current dependencies remain. Checkout
++E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown; docs/releases/imitate-death-20261112/deployment/.
++Current shipping predecessor reproduced exactly,2857source/840compile dependencies
++and146retained link inputs authenticate; one AA TU compile/relink, ELF/runtime
++identity and9Linux operator fault tests pass. Current Client layout, Quick Buff
++and newer retained Hate mapping/count223 stay; older Git mirrors are not a build
++source replacement. No content/rule/schema/cache/quest/client change.
++
++Use this release's one-shot operator and receipts. Zero players, deployment/GM
++locks,125secondclosed-admission drain, clean whole-runtime stop, fresh stopped
++backup, exact saved-state expiry/one-market-rotation and12workers verify. Access
++reopened with DB/web/tunnel identity, native pair, player data, cache and signed
++2026111201 unchanged. Wiki publication occurs afterward under its own guarded
++content updater; all613HTTPS files/header protections verify with610retained.
++Failure holds admissions; never replay actions, kill one zone or restore player
++snapshots. Relog for zero-reuse Imitate Death; gameplay/balance acceptance OPEN.
++One local activation SSH client stalled after the host action completed. Exact
++host receipts and successful open/independent verification were authoritative;
++only that local transport was closed. No live action was replayed or interrupted.
++
++## Quick Buff — November12 retained predecessor
+ 
+ PR423/60d51362 (v1 PR422/a2ae50f0); E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey,
+ docs/releases/quick-buff-20261112/. Full zone3eeb72c9 preserves current
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,19 @@
+ # Official player wiki and Features
++
++## Imitate Death — November12 published for live testing
++
++Wiki20261112-imitate-death-v1 supersedes Quick Buff v2 for public content only.
++Authenticated previous613outputs reproduce; Combat, Change Log and search change,
++610files retain exact bytes. All42authored sources, Home/Features/commands and
++generated item/zone/catalog impacts reviewed. Imitate Death has no ability reuse,
++old saved wait retired, earned Monk/casting checks retained; native generic detail
++can show1second to support Make Hotkey. Basic Feign Death and Quick Buff stay.
++Relog; no client update. Gameplay/balance acceptance remains OPEN.
++
++All613HTTPS hashes/security headers and five private denials pass. Guarded update
++rehearses recovery and preserves all five services, channel/config/downloads;
++no Nginx reload or global source-ledger advance. Unrelated drift remains REVIEW
++REQUIRED. Source and receipts: imitate-death-no-cooldown/docs/releases/imitate-death-20261112/deployment/.
+ 
+ ## Earned titles — November12 disabled candidate
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -158,11 +158,67 @@
+     "augment_icons_deployed_20261112": "main PR420/1568fb710b6441fe70bca5f9fc40f6dd805c20dc; source00ee567f; reviewed release hashes and verified activation/publication",
+     "hunt_augment_expansion_candidate_20261112": "212e0b650b1a96cfdd82defb2de6cbb7c88be0fc",
+     "quick_buff_deployed_20261112": "PR423/main60d51362; source6c3240a2; verified v2 metadata follow-up, owner acceptance OPEN",
+-    "imitate_death_candidate_20261112": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-    "earned_titles_candidate_20261112": "origin/main423f9c3b plus reviewed feature/earned-titles working changes; disabled, not deployed/published/accepted"
++    "earned_titles_candidate_20261112": "origin/main423f9c3b plus reviewed feature/earned-titles working changes; disabled, not deployed/published/accepted",
++    "imitate_death_deployed_20261112": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN"
+   },
+   "topics": {
+     "operations": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/README.md",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "65a92eec4931fcd030a4ebfe62ab5e0a198f3c5d89b9c3b073bf9c356b31de0e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/rollout.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "473545af3532d6f51fccf1dea9fddb8c9023f7d72a8c627ebdd77061a1ef2c43"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/native-build.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "01d343fc35addb939c37c69481e819b361f8623ce6310177a19d6b8ef8dc5751"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/release-checks.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "1063a985ce400e5c66334f97f7f3e67b500d94760f065f55f734d295595b8377"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/review.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "385e96508d8482a9c9cb76e1abb7addf95f2c2c2f8736a9cd8fd3dd09c24105a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/production-verification.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "1f4a45fb896bcea477249de7627c312324770152e9b3eb612c85a887f71a33c3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/wiki-publication.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "a2b558d8b4cfd30943995e5c253b588d1bb45f154cd0bd856fde8173ee40c2a0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/wiki-public-verification.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "9a7eef97e40c90f4335333660c0ce4711f4e575528fed22305f454d5dddb9301"
++      },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "docs/releases/quick-buff-20261112/hotkey-fix/native-build.json",
+@@ -2081,44 +2137,177 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "server-mods/code/common/imitate_death.h",
+-        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+         "sha256": "fd4be8418a3cdd91ebde56f46031fbd706819ae3787a5213a64b88955c01851d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "server-mods/code/zone/aa.cpp",
+-        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+         "sha256": "4b411cc28164148ff4cb054fb167436a578e781480bb46ba87fc58b6a7caca46"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "tools/tests/test_aa_cooldown_identity.py",
+-        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+         "sha256": "58649ab76415a18238732c5f7563d48566d5efe1819a27c51c78f637886a9b37"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "eq-client-dll/tests/aa-reuse-native.cpp",
+-        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
+         "sha256": "e0459fac6a6a277e74bcc825a636bb28797e6d79fc009f86f379a9e47a21e583"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/tests/test_imitate_death_rollout.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "ff7bf71db698d687711951ce2dab9681e2a82ff6715cbceeb0c8f8c5ac5ee080"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/build_imitate_death_release.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "06740fbda2f6a635398477bafe4c0d2081abf5f295c02e1c866587f47111cfc5"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "docs/releases/imitate-death-20261112/README.md",
+-        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
+-        "sha256": "ed1fbf712fd8f8d8b4065890d15b2866df043650a215e24f0dde8b1d8cf2a238"
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "620e529ae7a9529b6ad010209e6570b07e6fbf91baeaf472380ebfd6a87a8932"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "docs/releases/imitate-death-20261112/wiki-review.json",
+-        "revision": "feature/imitate-death-no-cooldown; main 423f9c3b + reviewed candidate",
+-        "role": "Reviewed no-reuse Imitate Death source/test evidence; not deployed or player accepted",
+-        "sha256": "144b3c02b2aea51e708c63f87e278bc8ddbd36684ddb56e113315cca25d92908"
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "999a0c5f2b3da21cd6d8c9c6a3810264c66312c58d5c72dea248bb092d3a5278"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/README.md",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "65a92eec4931fcd030a4ebfe62ab5e0a198f3c5d89b9c3b073bf9c356b31de0e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/rollout.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "473545af3532d6f51fccf1dea9fddb8c9023f7d72a8c627ebdd77061a1ef2c43"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/native-build.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "01d343fc35addb939c37c69481e819b361f8623ce6310177a19d6b8ef8dc5751"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/release-checks.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "1063a985ce400e5c66334f97f7f3e67b500d94760f065f55f734d295595b8377"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/review.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "385e96508d8482a9c9cb76e1abb7addf95f2c2c2f8736a9cd8fd3dd09c24105a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/production-verification.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "1f4a45fb896bcea477249de7627c312324770152e9b3eb612c85a887f71a33c3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/wiki-publication.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "a2b558d8b4cfd30943995e5c253b588d1bb45f154cd0bd856fde8173ee40c2a0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/wiki-public-verification.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "9a7eef97e40c90f4335333660c0ce4711f4e575528fed22305f454d5dddb9301"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "b6e1ab9548d2da4aa1e49f64ce3fe846a4174534f75de630b28f0fcdb9cf4a4c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "34f4d22feef74db541fed93e9fbbb316484a3798e9c9371b4bcddf46f6f583c6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/run_imitate_death_release.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "6e162a87b8f03d45c803265a7d5648d883cda8c20b9aeb88f681418e22d9ee59"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/ship_imitate_death_release.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "aa851242f02d25139a9e0e815c6a38b805e5132c44d217588726504d53573676"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/verify_imitate_death_release.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "3d5537d22b7dfdef1fe62b94df93dba74429ff380c8ec7f57f4d2404ac005f67"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/test_imitate_death_linux.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "32d75ec38410e2b1c023071f9d1b48314e22093c12fcd45f5cb0fdb245881951"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/prepare_imitate_death_wiki.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "e5a1cbc8fa2546a075f36d288a3b456aa66a52da9dee7357e3fac8a2de361d55"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/publish_imitate_death_wiki.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "1670ec45bf3a06cf172eba6894ac1ba85e01bd51b5cf4ee262349f325b005f1c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "tools/verify_imitate_death_wiki.py",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "19d09b97885607bcbda7adcd7b28154f6bb92bfeb3646cd3f64fcd5a6f27e3fe"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+@@ -13193,6 +13382,34 @@
+     ],
+     "wiki": [
+       {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/wiki-publication.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "a2b558d8b4cfd30943995e5c253b588d1bb45f154cd0bd856fde8173ee40c2a0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "docs/releases/imitate-death-20261112/deployment/wiki-public-verification.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "9a7eef97e40c90f4335333660c0ce4711f4e575528fed22305f454d5dddb9301"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "b6e1ab9548d2da4aa1e49f64ce3fe846a4174534f75de630b28f0fcdb9cf4a4c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
++        "revision": "main PR425/1d763739; source5642fcc1; verified live zero-reuse release, owner QA OPEN",
++        "sha256": "34f4d22feef74db541fed93e9fbbb316484a3798e9c9371b4bcddf46f6f583c6"
++      },
++      {
+         "root": "E:/EQ_Local_Dev/_worktrees/quick-buff-hotkey",
+         "path": "docs/releases/quick-buff-20261112/hotkey-fix/wiki-public-verification.json",
+         "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+@@ -14758,13 +14975,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-clarity",
+-        "path": "wiki/articles/combat.json",
+-        "role": "Reviewed current wiki editorial structure, content or verified publication",
+-        "revision": "7f5f3331ece87706acf75bd32b9bb75b055a564a",
+-        "sha256": "3a32fdc1890c2153d2f42464c78dd8e66129ec3eef2f84524ef0b758b8a91142"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-clarity",
+         "path": "wiki/articles/getting-started.json",
+         "role": "Reviewed current wiki editorial structure, content or verified publication",
+         "revision": "7f5f3331ece87706acf75bd32b9bb75b055a564a",
+@@ -15531,13 +15741,6 @@
+         "sha256": "c05664c265a638b13388d99df171df631b354232fda1e1b9c4f3cdb4543c0fd4"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/advanced-loot-bugs",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed published loot2026110605/proxy0.13.5/main PR418 and wiki20261107-advanced-loot-v1; all148client/510wiki HTTPS hashes verify; services preserved; owner native acceptance pending",
+-        "revision": "38fa68a5146215d5a17736d21c2d28f3b4c333f8",
+-        "sha256": "f63474d3906139d409d27eae17fff5fd281176e9d284dd1da62c32c415b1a3aa"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/cast-bar-timing",
+         "path": "wiki/articles/unreleased.json",
+         "role": "October30 owner confirms reported Diiv cast-bar issue fixed; broader regression matrix separate",
+@@ -15649,13 +15852,6 @@
+         "role": "Reviewed Hate density and safe census; deployed for owner QA, not visually accepted"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/advanced-loot-bugs",
+-        "path": "wiki/articles/recent-changes.json",
+-        "revision": "38fa68a5146215d5a17736d21c2d28f3b4c333f8",
+-        "sha256": "f63474d3906139d409d27eae17fff5fd281176e9d284dd1da62c32c415b1a3aa",
+-        "role": "Reviewed published loot2026110605/proxy0.13.5/main PR418 and wiki20261107-advanced-loot-v1; all148client/510wiki HTTPS hashes verify; services preserved; owner native acceptance pending"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-density",
+         "path": "docs/dungeons/hate-density-20261030/release/wiki-review.json",
+         "revision": "575d21a60e6f5ef876d88ce3e35835c1c464afd1",
+@@ -15836,13 +16032,6 @@
+         "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+         "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
+         "sha256": "4574e986ff5e5f89bf180d688a43cb54cb28ac49bc54ee46ceddd3f0b8dad1cc"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+-        "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
+-        "sha256": "0acff20d2d6791fa673daafe25b56b193395c9687c39f33b8ae00eb5ece6ed31"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/adventure-journal-endgame",
