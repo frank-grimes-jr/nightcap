@@ -74,6 +74,40 @@ Rollback uses a compatible prior full zone build and restores the scoped client
 text through a newer signed release. Keep earned/player state; never restore a
 player snapshot. No SQL rollback or AA refund is needed.
 
+## November 12 live-release preparation
+
+The owner explicitly requested: “Build it and deploy it to the live server so I
+can test the Quick Buff hotkey in game.” This authorizes this release's main/live
+QA promotion before manual acceptance; it does not change future branch policy.
+The owner confirmed logged out and declined an optional cross-model review.
+A fresh-context source/operator review found one Bard instrument issue, now fixed
+and covered by the actual extracted native reagent branch. Seven operator fault
+checks and twenty publisher recovery checks pass on Linux without skips.
+
+Fresh production probe identifies the newer augment-icon image c8cc0951 with
+zone2fc2d72b, world95fc228a and shared_memoryb60c4dfc. Full source build starts
+from that retained source and reproduces the shipping baseline exactly first.
+The repo overlay has an older Hate header (176 instead of the released223 and
+missing the spawn-source mapping); preserve the retained newer header. The fresh
+snapshot also needs the already-released augstats declaration. Exact two-header
+source reproduction is retained in `retained-native-overlay.patch`; no dungeon
+behavior is being changed. Full build and final correction receipts authenticate
+all source files. Initial build's old immutable source assertion is expected to
+reject the two reviewed snapshot corrections; finalization verifies their exact
+hashes and reruns the complete zone target before producing the shipping receipt.
+
+Signed client2026111201 changes only dbstr_us.txt, preserves147other descriptors,
+URLs and the proxy/catalog/config pair, and adds three live-QA patch notes. The
+local production seed is never uploaded. The scoped publisher checks every
+retained asset and changes the signed channel last. Wiki preparation reproduces
+all613current public files, then changes only five guides and search (607retained).
+Neither prepared artifact is a publication receipt. `rollout.py` requires exact
+staged build/source/review/test pins, keeps deployment/GM locks, zero players and
+125-second auth drain, clean full-runtime stop, fresh stopped full backup, exact
+saved-state boot and one-market-rotation verification, and separate guarded reopen.
+Any failed mutation holds access closed. No content, rules, caches, quests,
+world/shared binaries, player snapshots or inventory rows are rewritten.
+
 ## Exact in-game QA after a test release
 
 1. In East Commonlands, use a normal character with a held Cleric, Druid or

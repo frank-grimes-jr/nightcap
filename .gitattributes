@@ -258,3 +258,23 @@ tools/quick_buff_client.py text eol=lf
 tools/tests/test_quick_buff.py text eol=lf
 tools/update_quick_buff_skill.py text eol=lf
 docs/releases/quick-buff-20261112/*.patch text eol=lf
+
+# Quick Buff live release source and audit bytes.
+tools/build_quick_buff_release.py text eol=lf
+tools/finalize_quick_buff_release.py text eol=lf
+tools/prepare_quick_buff_wiki.py text eol=lf
+tools/probe_quick_buff_release.py text eol=lf
+tools/publish_quick_buff_wiki.py text eol=lf
+tools/quick_buff_remote.py text eol=lf
+tools/ship_quick_buff_release.py text eol=lf
+tools/test_quick_buff_linux.py text eol=lf
+tools/verify_quick_buff_wiki.py text eol=lf
+tools/tests/test_quick_buff_reagents.py text eol=lf
+tools/tests/test_quick_buff_rollout.py text eol=lf
+docs/releases/quick-buff-20261112/*.go text eol=lf
+docs/releases/quick-buff-20261112/*.py text eol=lf
+docs/releases/quick-buff-20261112/client/*.py text eol=lf
+docs/releases/quick-buff-20261112/*.patch text eol=lf -whitespace
+docs/releases/quick-buff-20261112/*.json text eol=lf
+docs/releases/quick-buff-20261112/*.log text eol=lf
+docs/releases/quick-buff-20261112/*.md text eol=lf

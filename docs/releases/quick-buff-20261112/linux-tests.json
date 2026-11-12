@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "folder": "docs/releases/quick-buff-20261112/client",
+      "tests": 20,
+      "status": "PASS"
+    },
+    {
+      "folder": "tools/tests",
+      "tests": 8,
+      "status": "PASS"
+    }
+  ]
+}
