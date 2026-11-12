@@ -1,8 +1,9 @@
 # Stat augments replacing equipment icons
 
-Status: owner-authorized deployment preparation November 12; native build and
-isolated repair rehearsal pass. Activation/publication/visual acceptance remain
-separate gates. Base: origin/main b7e404b2, fetched November 12,
+Status: deployed and repaired November 12, 2026; admissions open. Main PR420/
+1568fb71, built source00ee567f. Full native identity, five-row data preservation
+and public wiki verification pass. Owner visual/gameplay acceptance remains
+open. Original release base: origin/main b7e404b2, fetched November 12,
 2026. Worktree: `E:/EQ_Local_Dev/_worktrees/augment-item-icons`, branch
 `codex/augment-item-icons`. The default workspace has older source and unrelated
 edits and was not modified.
@@ -122,8 +123,9 @@ the full current row, current socket definitions and any known intentional
 cosmetic choice. Matching an augment icon alone does not prove an override was
 accidental. Preserve augments, charges, color, binding, custom data and GUID;
 guard the exact preimage and change only confirmed erroneous cosmetic fields.
-Do not bulk-clear ornaments or restore an old player inventory. No production
-capture, inventory repair or deployment is claimed in this change.
+Do not bulk-clear ornaments or restore an old player inventory. The November12
+activation and five identified repairs are complete; future incidents require
+fresh evidence and an authorized scope rather than replaying this operation.
 
 ## Owner in-game QA after authorized activation
 
@@ -143,18 +145,19 @@ capture, inventory repair or deployment is claimed in this change.
    slots, verify those items retain all earned data and correct icons through
    a relog. Verify unrelated intentional ornaments are unchanged.
 
-Full native build, deployment, saved-row repair and owner visual/gameplay
-acceptance remain separate open gates.
+Native build, activation and the five identified saved-row repairs are complete.
+Owner visual/gameplay acceptance remains open. See production-verification.json.
+The completed operator is one-shot; never replay activation or repair SQL.
 
 ## Wiki impact review
 
-Reviewed all 42 authored articles, Home and Features, commands, generated item/
-zone/catalog projections and current November 7 release evidence. The owning
-Equipment and Zone hunt guides, In development and Change Log receive explicit
-Not released candidate notes. Home/Features need no new feature entry for this
-display repair; commands, rewards, item/zone values and acquisition are unchanged.
-Generated pages therefore need no catalog edits. Existing release labels remain.
-`wiki/check_refresh.py --repo . --ref HEAD --include-worktree` reports historical
-global drift; the complete result is retained without advancing its ledger.
-Local previews are not public publication. The latest reviewed publication evidence records the November 7 release; this
-change does not perform a fresh public probe or authorize publication.
+Reviewed all42authored articles, Home, Features, commands and generated item/zone
+catalogs. Equipment, Zone hunt, augment audit, In development and Change Log now
+describe the deployed fix and open visual QA. Home/Features need no minor-fix
+announcement; commands, values, acquisition and generated catalogs do not change.
+Exact prior613-file public source reproduced before six output changes;607files
+retained. Wiki20261112-augment-icons-v1 is published: all613canonical HTTPS hashes,
+security headers, five private denials and publisher rollback checks pass. All
+five service identities and private downloads/config remain. No Nginx reload.
+Historical global source drift remains REVIEW REQUIRED; no blanket ledger advance.
+See wiki-candidate.json, wiki-publication.json and wiki-public-verification.json.

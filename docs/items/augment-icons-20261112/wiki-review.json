@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "publication": "not authorized or performed",
+  "publication": "20261112-augment-icons-v1;613canonical HTTPS hashes verified;607files retained",
   "recorded_public_baseline": "docs/adventure-journal/release-20261107/wiki-public-verification.json; no fresh probe",
   "source_drift": "Historical global REVIEW REQUIRED retained; current main includes unrelated old previews, so do not republish a full mirror.",
   "authored_articles": [
@@ -26,7 +26,7 @@
     },
     {
       "slug": "augment-audit",
-      "decision": "Not released candidate note added"
+      "decision": "Deployed guide/status/history correction; owner visual QA remains open"
     },
     {
       "slug": "build-lab",
@@ -50,7 +50,7 @@
     },
     {
       "slug": "equipment",
-      "decision": "Not released candidate note added"
+      "decision": "Deployed guide/status/history correction; owner visual QA remains open"
     },
     {
       "slug": "features",
@@ -142,7 +142,7 @@
     },
     {
       "slug": "recent-changes",
-      "decision": "Not released candidate note added"
+      "decision": "Deployed guide/status/history correction; owner visual QA remains open"
     },
     {
       "slug": "tradeskills",
@@ -158,7 +158,7 @@
     },
     {
       "slug": "unreleased",
-      "decision": "Not released candidate note added"
+      "decision": "Deployed guide/status/history correction; owner visual QA remains open"
     },
     {
       "slug": "waypoints",
@@ -166,7 +166,7 @@
     },
     {
       "slug": "zone-hunt",
-      "decision": "Not released candidate note added"
+      "decision": "Deployed guide/status/history correction; owner visual QA remains open"
     },
     {
       "slug": "zone-kael",

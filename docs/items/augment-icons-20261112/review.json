@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-12",
+  "independent_reviewer": "fresh-context subagent review_icon_fix",
+  "additional_cross_model": "offered; owner explicitly skipped",
+  "findings": [
+    {
+      "issue": "Stat-only operations could erase explicit transformation cosmetics",
+      "resolution": "Native packet handler computes ornament-change gate from old target and Insert/Swap cursor before callbacks; all3 refresh calls gated; RED/GREEN caller regression and real ornament transition coverage pass."
+    },
+    {
+      "issue": "Naive saved Hero Forge load change would corrupt shorthand on repeated save/load",
+      "resolution": "Excluded unrelated HF migration; all5 target rows have zero base/saved HF and model override. Preserve every other DB field exactly; durable follow-up recorded."
+    },
+    {
+      "issue": "Broad signature candidates alone insufficient repair authority",
+      "resolution": "Restrict to5 identified equipped slot/item keys, owner-requested base icons, current/historical audited augment afterimages, fresh stopped full-row guards. No bank/cursor/global resets."
+    },
+    {
+      "issue": "Compiler dependency closure and source-delta provenance",
+      "resolution": "Reproduce all3 live binaries, verify all retained source hashes, require exact normalized Git-base equality of both changed files, inspect182actual deps including179authenticated source headers, record compiler and full link inputs."
+    },
+    {
+      "issue": "Post-open checks must allow legitimate campaign progress",
+      "resolution": "Complete saved/mutable/repair checks while closed. Post-open unchanged check excludes mutable Last Lantern table digests while retaining native/services/publication/cache/rules/immutable content checks."
+    }
+  ],
+  "final_review": "No additional blocker found in native gates, operator aliases, guarded SQL, rollback/replay rejection or five-slot scope; listed availability finding corrected before staging."
+}

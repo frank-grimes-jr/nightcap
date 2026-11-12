@@ -10,14 +10,17 @@ checks pass. Full zone build, current signed client text, native hotkey/delivery
 and balance acceptance remain pending. No live gameplay or wiki was changed.
 [Scope, verification, pairing and exact QA](releases/quick-buff-20261112/README.md).
 
-## November 12 — Stat augment icons: local correction candidate
 
-The server incorrectly classified ordinary augments as cosmetic ornaments and
-copied their icons onto equipment. The local correction uses the real ornament
-type bits and preserves Hero's Forge. Compiled production-method regression
-passes; [cause, checks, recovery limits and exact owner QA](items/augment-icons-20261112/README.md).
-Full native build, activation and already-affected saved-row repair remain open.
-No production/player/client changes or public wiki publication are claimed.
+## November 12 — Augment icons repaired and fix deployed
+
+Main PR420/1568fb71 and the matched native world/zone/shared_memory pair are
+deployed; access is open. Stat augments preserve host icons and existing cosmetic
+transformations. Five confirmed Palwar icon overrides were repaired with all
+augments and every other field preserved across205inventory rows; unrelated
+inventory is unchanged. Fresh stopped backup, native/boot/market checks and
+independent running identity verification pass. No client update is required.
+Wiki20261112-augment-icons-v1 verifies all613public hashes;607files retained.
+Owner visual/gameplay acceptance stays open. [Evidence and exact QA](items/augment-icons-20261112/README.md).
 
 ## November7 — The Last Lantern deployed for live QA
 

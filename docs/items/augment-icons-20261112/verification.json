@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "scope": "Local source and compiled extracted-method fixture only",
+  "scope": "Compiled production methods/caller gates, authenticated native release, real SQL rehearsal and deployed repair/publication",
   "base_revision": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a",
   "red": "Compiled old actual methods; executable failed at !host.IsOrnamentationAugment(type22 empty-IDFile augment).",
   "green": "Same native regression passes after predicate correction.",
@@ -38,15 +38,20 @@
     "performance": "Constant-time mask check removes string construction/comparisons; existing six-socket traversal retained."
   },
   "gates": {
-    "full_native_build": "pending",
-    "deployment": "not performed",
-    "saved_row_repair": "not performed; fresh scoped evidence required",
-    "public_wiki": "not published",
-    "owner_in_game_QA": "pending"
+    "native_build": "PASS; three baseline reproductions and candidate identities",
+    "deployment": "PASS; admissions open",
+    "saved_row_repair": "PASS;5one-column changes,205rows otherwise preserved",
+    "public_wiki": "PASS;613HTTPS hashes,607retained files",
+    "owner_in_game_QA": "OPEN"
   },
   "hashes": {
     "server-mods\\code\\common\\item_instance.cpp": "12205d83f93c66d55f3c55b0c9c693484e54bea5ff8d9dda382e58f182ed0d84",
-    "tools\\tests\\test_augment_ornament_native.py": "77372cc661aad6b209017874a1872ba92230be3ea854d17fe650da74c0f156e5",
-    "tools\\tests\\fixtures\\augment_ornament.cpp": "539749f4f58ed0cef4a8c4cdcff02d138ca2b66ff4173bc2c59ce1aafbc6f9a1"
+    "tools\\tests\\test_augment_ornament_native.py": "2ff9bf3caea7804d97e0a3c26534df35cb8acb209a663af40abb6c1feed4a60c",
+    "tools\\tests\\fixtures\\augment_ornament.cpp": "cdb7c0a7530bc38d46800d3c6d5af4b823507a1d1c2767a458cc9680eaa6fd07",
+    "server-mods/code/zone/client_packet.cpp": "f73c4cb95c712caa11888fb3484f295f4bfaf810cd61d9db7f51217ce47c9632"
+  },
+  "release_focused_checks": {
+    "passed": 17,
+    "includes": "expanded transformation/cursor/real-ornament insert/remove/swap/destroy regression"
   }
 }

@@ -1,6 +1,7 @@
 # Preserve exact captured bytes used by the native encounter evidence manifests.
 docs/items/augment-icons-20261112/installed-skill.patch -text -whitespace
 docs/items/augment-icons-20261112/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/items/augment-icons-20261112/*.log -text -whitespace
 docs/dungeons/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/dungeons/**/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/dungeons/**/*.patch -text -whitespace
