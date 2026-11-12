@@ -316,6 +316,11 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 			case SpellEffect::CurrentHPOnce:	// used in buffs usually, see Courage
 			{
+				// Instant player DoTs deal damage on ticks, without a separate landing hit.
+				// Keep positive HP effects and non-player casting on their native paths.
+				if (effect_value < 0 && caster && caster->IsInstantCastDot(spell_id)) {
+					break;
+				}
 				if (RuleB(Spells, NightcapTHJBehaviors) && spell_id == 2775 && caster && caster->IsClient()) {
 					const int64 spent = NightcapTHJ::PercentMana(caster->GetMaxMana(), 50);
 					const int64 base_heal = spent * 2;

@@ -1,0 +1,124 @@
+--- a/references/balance.md
++++ b/references/balance.md
+@@ -1,0 +2,28 @@
++
++## Player DoT landing damage — November12 unreleased candidate
++
++Source E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, base423f9c3b;
++feature/dot-no-initial-damage. Mob::SpellEffect's CurrentHPOnce case skips only
++calculated-negative SPA79 when caster->IsInstantCastDot identifies that same
++spell. Reuse the player-only classifier: it includes one-tick, life-tap and Bard
++DoTs unlike generic AI IsDamageOverTimeSpell. No initial hit, DD amplification or
++ResourceTap from that slot; normal ticks/instant casting, positive HPOnce heals,
++debuffs/nukes/non-client paths remain. No hardcoded spell IDs or SQL rewrite.
++
++SELECT-only local public catalog:3626DoTs,980with996negative SPA79slots,
++2646without; not production/current legal pool. Disease Cloud340/Poison Bolt348
++have hits; Clinging Darkness344/Heat Blood360do not. Positive Reckless Health871
++is preserved. Captured DoTs have no SPA147/350alternative direct handlers; native
++triggered AA/spell procs are separate and unchanged. tools/tests/test_dot_initial_damage.py
++executes real landing branches and classifier; RED amplified-hit failure then
++GREEN passes, with9neighboring policy/scaling/timing tests. Exact shipping Quick
++Buff v2 zone3eeb72c9reproduces before isolated whole-TU compile/candidate link
++(dfa5c614). Source/evidence: docs/balance/dot-initial-damage-20261112/.
++
++Not deployed, not owner-accepted. Zone rebuild/supported whole-runtime restart
++required; no client/rule/schema/cache-format change. Preserve current Quick Buff
++Client-layout-compatible inputs and paired world/shared/cache/quests/client.
++Fresh environment evidence and existing deployment/owner QA gates still apply.
++Wiki edits are labeled Not released and unpublished.22wiki checks pass;1existing
++Build Lab effects.cpp provenance drift remains, with global REVIEW REQUIRED and
++no blind ledger/pin advance. Exact arena spell/tick/recast/gear/AA QA is in README.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -2,0 +3,12 @@
++## DoT landing damage — November12 unpublished candidate
++
++E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, base423f9c3b. All42authored
++articles and Home/Features/commands/generated item/zone/catalog impacts reviewed.
++Combat/In development/Change Log add a Not released player-DoT preview: remove
++only separate negative initial HPOnce hits; instant casting/ticks/positive heals
++and other casting remain. Features already links Combat/development; no new live
++Home announcement, command/catalog values or Build Lab arithmetic changes.
++22wiki checks pass; existing unchanged effects.cpp Build Lab provenance mismatch
++remains an explicit failure. Actual HEAD+worktree refresh returns REVIEW REQUIRED;
++no global ledger advance. No publication/deployment/gameplay acceptance claimed.
++Evidence: docs/balance/dot-initial-damage-20261112/{README.md,verification.json}.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -12493 +12493 @@
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
+@@ -12495,3 +12495,3 @@
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51"
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "df4300a4873fb1bb7f9244b0715deb4f0dc239ee7b270e702cb5f39412947183"
+@@ -18723,0 +18724,65 @@
++    ],
++    "dot-initial-damage": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "server-mods/code/zone/spell_effects.cpp",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "df4300a4873fb1bb7f9244b0715deb4f0dc239ee7b270e702cb5f39412947183"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "server-mods/code/zone/spells.cpp",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "f3b63fba212261a6d8167dcc954f93556ceeb80aa40300cc4807db5a2c6a65fe"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "tools/tests/test_dot_initial_damage.py",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "ad6a89e5d0b291a3b5067be607c5744e0eb3e9a41764ed85be4b89ae3200a6d6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/README.md",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "87178fe91a5ab0cd510a68a8aeb139367471409550f0b12b70d64bd524429556"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/native-build.json",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "4327ada23639df0a4599df50889b031baeab889f048078eacfe09c131bf3ca0c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "docs/balance/dot-initial-damage-20261112/verification.json",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "2197504c262ef78451c74f1e5ba3da6406641cb5b3ef9853b2f25ef70a7f77a1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "ea5949d9bb944bdae59834a12ba6cb82d133d59838ffe5d24a3c69c5b0f8780c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "9f6b710a9ae60045f4f6d3de556ed0d97d0d812c041cc457c5662ce48e901316"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
++        "revision": "423f9c3b + reviewed DoT worktree 2026-11-12",
++        "sha256": "0e782b9e7a45d76be3dd086fe55623b73ed818614c586539aad04fb098e9f996"
++      }
