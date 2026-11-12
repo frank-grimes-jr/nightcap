@@ -1,4 +1,5 @@
 #include "../common/nightcap_thj_behaviors.h"
+#include "../common/quick_buff.h"
 #include "zone/dungeon_service.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
@@ -1486,6 +1487,8 @@ void Mob::StopCastSpell(int32 spell_id, bool send_spellbar_enable)
 void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slot,
 							int32  mana_used, uint32 inventory_slot, int16 resist_adjust)
 {
+	const bool quick_buff = IsClient() && slot == CastingSlot::AltAbility &&
+		CastToClient()->m_quick_buff_active && NightcapQuickBuff::IsRank(casting_spell_aa_id);
 	if (!IsValidSpell(spell_id))
 	{
 		LogSpells("Casting of [{}] canceled: invalid spell id", spell_id);
@@ -1496,7 +1499,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 	bool IsFromItem = false;
 	EQ::ItemInstance *item = nullptr;
 
-	if(IsClient() && slot != CastingSlot::Item && slot != CastingSlot::PotionBelt && spells[spell_id].recast_time > 1000) { // 10 is item
+	if(IsClient() && !quick_buff && slot != CastingSlot::Item && slot != CastingSlot::PotionBelt && spells[spell_id].recast_time > 1000) { // 10 is item
 		if(!CastToClient()->GetPTimers().Expired(&database, pTimerSpellStart + spell_id, false)) {
 			//should we issue a message or send them a spell gem packet?
 			MessageString(Chat::Red, SPELL_RECAST);
@@ -1935,8 +1938,10 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 	// set the rapid recast timer for next time around
 	// Why do we have this? It mostly just causes issues when things are working correctly
 	// It also needs to be <users's ping to not cause issues
-	delaytimer = true;
-	spellend_timer.Start(10, true);
+	if (!quick_buff) {
+		delaytimer = true;
+		spellend_timer.Start(10, true);
+	}
 
 	LogSpells("Spell casting of [{}] is finished", spell_id);
 

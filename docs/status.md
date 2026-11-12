@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## November 12 — Quick Buff hotkey candidate, not deployed
+
+Quick Buff now has source for an activated, zero-reuse hotkey that immediately
+casts eligible memorized buffs on self, with normal group/pet delivery, for 50%
+maximum mana. All existing ranks remain earned; passive buff haste is replaced.
+Compiled behavior/AA packet tests and complete modified translation-unit syntax
+checks pass. Full zone build, current signed client text, native hotkey/delivery
+and balance acceptance remain pending. No live gameplay or wiki was changed.
+[Scope, verification, pairing and exact QA](releases/quick-buff-20261112/README.md).
+
 ## November7 — The Last Lantern deployed for live QA
 
 Main8d75f8da contains the campaign; the paired OVH runtime is healthy with

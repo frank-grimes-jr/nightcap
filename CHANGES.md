@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-11-12 — Quick Buff hotkey candidate (not deployed)
+
+Quick Buff family 48/ranks 147–149 now project as an activated AA instead of
+passive buff haste. The hotkey immediately attempts each eligible memorized buff
+on self with native group/pet delivery, debits 50% maximum mana once and has no
+reuse. Earned ownership/class gates, reagents, stacking and unrelated timers stay
+native. Adds compiled dispatcher/packet checks and a scoped unsigned client-text
+builder. Full zone rebuild, signed text pairing and in-game/balance QA are still
+required; no server/client/wiki publication occurred. Exact checks and rollout:
+`docs/releases/quick-buff-20261112/README.md`.
+
 ## 2026-11-07 — Last Lantern paired release deployed for live QA
 
 Main8d75f8da and the guarded OVH v4release install the level20–50 campaign,

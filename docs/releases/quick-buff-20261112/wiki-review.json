@@ -1,0 +1,189 @@
+{
+  "reviewed_at": "2026-11-12",
+  "source_base": "b7e404b2 + Quick Buff worktree changes",
+  "status": "unreleased, not published",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/adventure-journal.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/ashen-compact.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/augment-audit.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/build-lab.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/camil-vigil.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-960420.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-960421.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-960422.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-960423.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-960424.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-960425.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961020.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961021.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961022.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961023.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961030.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961031.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-961032.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-990510.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/loot-finder.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    },
+    {
+      "path": "wiki/articles/zone-kael.json",
+      "decision": "reviewed: no effect on this guide, item, zone or acquisition value"
+    }
+  ],
+  "decisions": {
+    "Features": "Candidate link added; not presented as a live capability",
+    "Home": "Existing previews navigation remains accurate; no live summary changes",
+    "Guides": "Combat and Multiclass own candidate behavior",
+    "Commands": "Native AA Make Hotkey only; no new slash command",
+    "Catalog and generated item/zone pages": "No item values, loot, acquisition, NPCs, zones, rates or expansion gates change",
+    "Change Log and In development": "Explicit Not released notices added",
+    "Publication": "None; preserve current public release and global source ledger; review drift separately"
+  },
+  "catalog_inputs_unchanged": {
+    "wiki/catalog.json": "ef024afcdbcf38d9271ab00d1c2d98fedc77d1992c88b6bba086c301476f6551",
+    "wiki/catalog.py": "f3acb32684cff2fd95a0c187309cd6dd747af3908561fd9f1ac0d36c0beab8ad",
+    "wiki/equipment.py": "c94d70b67f0ac136e46db24d231273e514050527615928ca4686a77b42018152"
+  }
+}

@@ -1,0 +1,31 @@
+test_native_spell_and_death_behavior (test_gameplay_policies.GameplayPolicies.test_native_spell_and_death_behavior) ... FAIL
+
+======================================================================
+FAIL: test_native_spell_and_death_behavior (test_gameplay_policies.GameplayPolicies.test_native_spell_and_death_behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\EQ_Local_Dev\_worktrees\quick-buff-hotkey\tools\tests\test_gameplay_policies.py", line 117, in test_native_spell_and_death_behavior
+    self.assertEqual(build.returncode, 0, (out / "build.log").read_text())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : test.cpp
+test.cpp(149): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(266): error C2065: 'Spells': undeclared identifier
+test.cpp(266): error C2065: 'NightcapTHJBehaviors': undeclared identifier
+test.cpp(266): error C3861: 'RuleB': identifier not found
+test.cpp(266): error C2653: 'NightcapTHJ': is not a class or namespace name
+test.cpp(266): error C3861: 'FixedDuration': identifier not found
+test.cpp(267): error C2653: 'NightcapTHJ': is not a class or namespace name
+test.cpp(267): error C3861: 'BoundDuration': identifier not found
+test.cpp(328): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(329): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(330): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(330): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(346): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(347): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+test.cpp(348): warning C4244: 'argument': conversion from 'int' to 'uint16', possible loss of data
+
+
+----------------------------------------------------------------------
+Ran 1 test in 7.624s
+
+FAILED (failures=1)

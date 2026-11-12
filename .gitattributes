@@ -247,3 +247,12 @@ docs/items/paladin-weapon-grip/balance/release/evidence.json text eol=lf
 
 # Keep reviewed Last Lantern source/knowledge patches exact on Windows.
 docs/adventure-journal/release-20261107/*.patch text eol=lf
+
+# Keep Quick Buff source fingerprints and installed-skill patch exact on Windows.
+server-mods/code/common/quick_buff.h text eol=lf
+server-mods/code/zone/aa_quick_buff.inc text eol=lf
+tools/check_quick_buff_native.py text eol=lf
+tools/quick_buff_client.py text eol=lf
+tools/tests/test_quick_buff.py text eol=lf
+tools/update_quick_buff_skill.py text eol=lf
+docs/releases/quick-buff-20261112/*.patch text eol=lf

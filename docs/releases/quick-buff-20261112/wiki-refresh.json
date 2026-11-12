@@ -1,0 +1,18 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-24",
+  "source_ref": "HEAD",
+  "changed_sources": [
+    "server-mods/code/common/quick_buff.h",
+    "server-mods/code/zone/aa.cpp",
+    "server-mods/code/zone/aa_quick_buff.inc",
+    "server-mods/code/zone/client.h",
+    "server-mods/code/zone/spells.cpp",
+    "tools/check_quick_buff_native.py",
+    "tools/quick_buff_client.py",
+    "tools/tests/test_quick_buff.py"
+  ],
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "changed_source_count": 1146,
+  "quick_buff_scoped_review": "wiki-review.json: reviewed this candidate; unrelated historic drift remains open"
+}
