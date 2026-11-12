@@ -1,0 +1,9 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-24",
+  "source_ref": "HEAD",
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "changed_source_count": 1352,
+  "full_output_sha256": "cdefc279ff2ac2b30f430034dcab1d4b4fe1eb58dee0b4d66da6de43eb3253b7",
+  "assessment": "Current-main integration reviewed. Titles remain disabled; historical unrelated drift remains REVIEW REQUIRED. Ledger not advanced."
+}

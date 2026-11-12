@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## Earned titles - November 12 candidate
+
+77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Owner authorized source promotion to main on November 12. Normal-player QA, deployment and publication remain pending.
+
 ## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
 
 Owner explicitly requested live implementation. Main PR425/1d763739 and zone

@@ -1,0 +1,12 @@
+{
+  "status": "INSTALLED",
+  "validation": "skill-creator quick_validate passes; all20 reviewed title fingerprints unchanged",
+  "files": {
+    "SKILL.md": "9dcab985241c5996c53118c76ed4ea87ed5df8f03fd35709a41e2ddc0252384f",
+    "references/titles.md": "1255da2dbe19e6a7c1bb3a1e5170fe9e72d9d0cc80cf1c836e4f70e6e688b6c5",
+    "references/wiki.md": "929a8420833fb47c584257cc3a4f5a9716449a85bf7e5aa3fe0207109b9a4ec9",
+    "references/sources.json": "e22d15eea798e63a7f12a9fe2da55cd39dca2609d0b81403c9ce145f2893cb42"
+  },
+  "patch": "installed-skill.patch",
+  "scope": "Disabled source candidate; no deployment/publication or owner acceptance"
+}

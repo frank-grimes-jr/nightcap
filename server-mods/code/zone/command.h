@@ -214,3 +214,5 @@ void command_zsave(Client *c, const Seperator *sep);
 void command_bot(Client*c, const Seperator *sep);
 
 void command_advloot(Client *c, const Seperator *sep);
+
+void command_titles(Client *c, const Seperator *sep);

@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-11-12
+
+### Earned titles - disabled candidate
+
+- Add 77 cosmetic per-character titles: slayer families, named dragons, 21 Classic Raid clears, 34 skill masteries, Master Artisan, level 50 and Last Lantern completion. Durable personal ledgers count; general kill counters begin on activation.
+- Extend native title selection with stable IDs and permanent awards, finalized-death/saved-skill hooks and #titles progress. No player power or item rewards change. Three additive InnoDB tables install disabled. Existing titles and worn selections remain.
+- Generate native definitions and wiki requirements together; update guides/Features/Home/commands/previews/Change Log. Tests, QA and recovery: docs/titles/. Not deployed, published or manually accepted.
+
 ## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
 
 Owner explicitly requested live implementation. Main PR425/1d763739 and zone

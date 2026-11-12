@@ -1,3 +1,4 @@
+#include "zone/earned_titles.h"
 #include "command.h"
 
 #include "common/data_bucket.h"
@@ -79,6 +80,7 @@ int command_init(void)
 	}
 
 	if (
+		command_add("titles", "[page] - View earned titles and their requirements.", AccountStatus::Player, command_titles) ||
 		command_add("itemxp", "View training progress for the item in your Power Source slot.", AccountStatus::Player, command_itemxp) ||
 		command_add("factions", "[page] [name] or target - View your faction standings, values and bars.", AccountStatus::Player, command_factions) ||
 		command_add("nightcappet", "Manage your pet armor.", AccountStatus::Player, command_nightcappet) ||
@@ -798,4 +800,10 @@ void command_bot(Client *c, const Seperator *sep)
 	} else {
 		c->Message(Chat::Red, "Bots are disabled on this server.");
 	}
+}
+
+void command_titles(Client *c, const Seperator *sep)
+{
+	if (sep->argnum>1 || (sep->argnum==1 && !sep->IsNumber(1))) { c->Message(Chat::White,"Usage: #titles [page]"); return; }
+	NightcapTitles::Show(c,sep->argnum ? Strings::ToUnsignedInt(sep->arg[1]) : 1);
 }
