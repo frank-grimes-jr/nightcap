@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Injected mid-repair failure rolls back every row",
+    "Unrelated metadata drift in last target rejects and rolls back earlier updates",
+    "Five exact icon-only changes preserve all205 rows/augments/NULLs/metadata",
+    "Replay rejects without data changes"
+  ],
+  "verified": {
+    "repaired_rows": 5,
+    "preserved_character_rows": 205,
+    "unchanged_fields_except_ornament_icon": true,
+    "unrelated_inventory_unchanged": true,
+    "augments_preserved": true
+  },
+  "production_inventory_written": false
+}

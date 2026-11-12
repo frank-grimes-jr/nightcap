@@ -1,0 +1,92 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -1,4 +1,32 @@
+ # Items, loot, forging and economy
++
++## Stat augment icons — November 12 local correction, not deployed
++
++Source E:/EQ_Local_Dev/_worktrees/augment-item-icons, codex/augment-item-icons;
++docs/items/augment-icons-20261112/README.md owns cause, tests and exact owner QA.
++ItemInstance::IsOrnamentationAugment previously accepted empty/ordinary IDFile
++as cosmetic intent and compared AugType masks to literal socket numbers20/21.
++UpdateOrnamentationInfo then copied ordinary Hunt augment icons to host items.
++Candidate checks actual type20/21bits and retains explicit Hero's Forge fallback.
++Stat augments cannot win by IDFile; real ornaments behind them remain supported.
++Actual three production bodies/enum compile and run in
++tools/tests/test_augment_ornament_native.py + fixtures/augment_ornament.cpp.
++Old type22/empty-IDFile case fails before fix and passes after. Related augment,
++trade and metadata controls pass; no full runtime build or owner rendering claim.
++
++No definitions/rules/schema/ItemData/cache-format/client change. Rebuild affected
++native consumers from current released retained source; preserve metadata-aware
++world/zone/shared_memory and newer releases. OVH needs supported whole-runtime
++activation; quest/rule reload cannot load C++. No new client download/cache rebuild
++is needed by this predicate change. Existing saved ornament_icon/ornament_idfile
++reload unchanged, so relogging alone is not a repair. Capture identified affected
++rows freshly, prove accidental cosmetic origin, guard full preimages and repair
++only confirmed cosmetic fields. Preserve earned augments/charges/dye/binding/
++custom data/GUID. Never bulk-clear ornaments or restore player snapshots.
++Source-only candidate: deployment, existing-row repair and owner visual QA OPEN.
++All42authored wiki articles plus generated/catalog/home/Features/commands reviewed;
++five owning/status/history previews say Not released. Historical global wiki
++drift stays REVIEW REQUIRED; no ledger advance or publication is claimed.
+ 
+ ## Last Lantern — November7 paired release for live QA
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -151,7 +151,8 @@
+     "dungeon_readiness_deployed_20261106": "44a8247d01d75c16fb5e6190a0f13c8c5da3acd6; OVH/wiki verified; owner gameplay QA open",
+     "adventure_journal_endgame_proposal_20261106": "d5c895d3a304d7bae9dc234ee1107b845592dabe + reviewed design working tree",
+     "advanced_loot_reliability_published_20261107": "38fa68a5146215d5a17736d21c2d28f3b4c333f8; main PR418/af4170d8, signed2026110605/proxy0.13.5 and wiki20261107-advanced-loot-v1 verified; owner native QA pending",
+-    "last_lantern_live_qa_20261107": "8d75f8daf7fdd4513075430aaa5379dc0358c096"
++    "last_lantern_live_qa_20261107": "8d75f8daf7fdd4513075430aaa5379dc0358c096",
++    "augment_icons_candidate_20261112": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a + reviewed candidate file hashes"
+   },
+   "topics": {
+     "operations": [
+@@ -17990,6 +17991,44 @@
+         "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
+         "sha256": "a0c5ae83218c33f336b48df22ce32d75d7e7be2c3bb2dbbd74ed638474d601f3"
+       }
++    ],
++    "augment-icons": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
++        "path": "server-mods/code/common/item_instance.cpp",
++        "role": "Reviewed ornament-mask predicate and actual selection/update bodies; local candidate only",
++        "sha256": "12205d83f93c66d55f3c55b0c9c693484e54bea5ff8d9dda382e58f182ed0d84"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
++        "path": "server-mods/code/common/item_instance.h",
++        "role": "Actual ornament socket enum and instance cosmetic accessors",
++        "sha256": "39d2318a51d9298d1bfc43f2ce609f68027df00466be4534be01d2d4b823cd45"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
++        "path": "tools/tests/test_augment_ornament_native.py",
++        "role": "Actual production-method native regression runner",
++        "sha256": "77372cc661aad6b209017874a1872ba92230be3ea854d17fe650da74c0f156e5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
++        "path": "tools/tests/fixtures/augment_ornament.cpp",
++        "role": "Stat/ornament/socket/missing-data/stale-field controls",
++        "sha256": "539749f4f58ed0cef4a8c4cdcff02d138ca2b66ff4173bc2c59ce1aafbc6f9a1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
++        "path": "docs/items/augment-icons-20261112/README.md",
++        "role": "Cause, source/test boundary, safe recovery limits, exact player QA and whole-wiki impact",
++        "sha256": "d85d268e9bf4d08bb6f8002a44f9b04e0ea9bc5cde130c70f50375e95762ff33"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
++        "path": "docs/items/augment-icons-20261112/verification.json",
++        "role": "Dated focused and wiki verification; not deployment or player acceptance",
++        "sha256": "32c4d0b8315b00be3a9c526484bba1412ee5712015fec6579dc3f822d0c55310"
++      }
+     ]
+   }
+ }

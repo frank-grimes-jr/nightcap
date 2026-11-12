@@ -59,3 +59,5 @@ docs/adventure-journal/release-20261107/balance/*-catalog.log
 docs/adventure-journal/release-20261107/balance/*-summary.json
 docs/adventure-journal/release-20261107/balance/*.log
 eq-launcher/cmd/last-lantern-verify/
+# Private production probes, captures, error diagnostics and upload payloads.
+/artifacts/augment-icons-20261112/

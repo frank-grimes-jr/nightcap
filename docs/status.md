@@ -10,6 +10,15 @@ checks pass. Full zone build, current signed client text, native hotkey/delivery
 and balance acceptance remain pending. No live gameplay or wiki was changed.
 [Scope, verification, pairing and exact QA](releases/quick-buff-20261112/README.md).
 
+## November 12 — Stat augment icons: local correction candidate
+
+The server incorrectly classified ordinary augments as cosmetic ornaments and
+copied their icons onto equipment. The local correction uses the real ornament
+type bits and preserves Hero's Forge. Compiled production-method regression
+passes; [cause, checks, recovery limits and exact owner QA](items/augment-icons-20261112/README.md).
+Full native build, activation and already-affected saved-row repair remain open.
+No production/player/client changes or public wiki publication are claimed.
+
 ## November7 — The Last Lantern deployed for live QA
 
 Main8d75f8da contains the campaign; the paired OVH runtime is healthy with
