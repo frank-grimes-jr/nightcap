@@ -1,0 +1,20 @@
+{
+  "slug": "classic-raid-augments",
+  "title": "Classic raid augments",
+  "summary": "Level-50 chest augments from dragons and the planes.",
+  "body": "<p>Level-50 raid augments share one type-22 socket on chest armor. Each is individually LORE. You can collect different trophies and wear one at a time. Each boss makes one independent roll for the corpse. Managed runs require Raid objective credit.</p><table><thead><tr><th>Encounter</th><th>Augment</th><th>Chance</th><th>Benefit</th></tr></thead><tbody><tr><td>Lady Vox</td><td>Frostbound Pearl</td><td>25%</td><td>+8 Healing Amount, +4 heroic WIS, +10 cold resist</td></tr><tr><td>Lord Nagafen</td><td>Cinderfang</td><td>25%</td><td>+8 Spell Damage, +4 ATK, +10 fire resist</td></tr><tr><td>Phinigel Autropos</td><td>Deepwater Pearl</td><td>15%</td><td>+4 Healing Amount, +4 Spell Damage, +10 cold resist</td></tr><tr><td>Master Yael</td><td>Underfoot Sliver</td><td>15%</td><td>+6 AC, +40 HP, +10 magic resist</td></tr><tr><td>Dread, Fright or Terror</td><td>Dreadbone</td><td>15%</td><td>+4 heroic STA, +3 Avoidance, +8 disease resist</td></tr><tr><td>a dracoliche</td><td>Hollow Fang</td><td>15%</td><td>+4 heroic STR, +4 Accuracy, +8 disease resist</td></tr><tr><td>Hand of the Maestro or Maestro of Rancor</td><td>Shard of Discord</td><td>15%</td><td>+6 ATK, +4 Spell Damage, +2 Accuracy</td></tr><tr><td>Magi P`Tasa</td><td>Ashen Sigil</td><td>15%</td><td>+6 Spell Damage, +3 heroic INT, +20 mana</td></tr><tr><td>a thunder spirit princess or Protector of Sky</td><td>Clouded Opal</td><td>15%</td><td>+2 Avoidance, +25 HP, +8 magic resist</td></tr><tr><td>Gorgalosk or Keeper of Souls</td><td>Soulglass</td><td>15%</td><td>+4 Healing Amount, +3 heroic WIS, +20 mana</td></tr><tr><td>The Spiroc Guardian, The Spiroc Lord or Sister of the Spire</td><td>Cloudglass Lens</td><td>15%</td><td>+4 heroic DEX, +4 Accuracy, +8 magic resist</td></tr><tr><td>Bazzt Zzzt</td><td>Amber Wing</td><td>15%</td><td>+3 heroic DEX, +4 ATK, +8 poison resist</td></tr><tr><td>Noble Dojorn, Overseer of Air or the Hand of Veeshan</td><td>Efreeti Opal</td><td>15%</td><td>+4 Spell Damage, +4 Accuracy, +8 magic resist</td></tr><tr><td>Cazic-Thule</td><td>Faceless Aegis</td><td>50%</td><td>When a direct hostile hit leaves you alive below 35% HP, gain a 120-point rune for up to 12 seconds.</td></tr><tr><td>Innoruuk</td><td>Heart of Spite</td><td>50%</td><td>A direct melee, ranged or gem spell hit restores up to 90 missing HP.</td></tr><tr><td>Eye of Veeshan</td><td>Prism of the Eighth Isle</td><td>50%</td><td>Spend 10% of maximum mana or endurance in combat to recover 1% of that pool, up to 50 points.</td></tr></tbody></table><p>The three final-boss effects share 90 seconds of reuse across swaps, zoning and relogging. Only eligible Hunt augments raise the special Spell Damage or Healing Amount cap. The Hand of Veeshan belongs to the public efreeti chain. The Eye is the Sky Raid finale. Master Yael’s public spawn route still needs confirmation.</p>",
+  "category": "Equipment",
+  "status": "Not released",
+  "updated": "2026-11-12",
+  "sources": [
+    "config/classic-raid-augments.json",
+    "docs/items/classic-raid-augments/README.md"
+  ],
+  "keywords": [
+    "raids",
+    "chest augments",
+    "LORE",
+    "raid bosses"
+  ],
+  "reviewed_at": "2026-11-12"
+}
