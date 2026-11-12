@@ -1,0 +1,6 @@
+{
+  "source": "origin/main a97c55d0; concurrent PR426",
+  "resolution": "Preserve both DoT source-candidate entry and Imitate Death verified live entry. Only CHANGES.md and docs/status.md conflicted.",
+  "shipping_boundary": "DoT spell_effects.cpp change is not part of deployed Imitate Death binary7bb5bd17. No additional native activation or wiki publication performed for the concurrent candidate.",
+  "wiki": "Current authoring source retains its separately labeled DoT candidate; the verified authenticated Imitate Death public payload remains scoped to Combat/Change Log/search only. Source fingerprints refreshed only after reviewing this distinction."
+}

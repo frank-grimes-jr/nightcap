@@ -1,0 +1,11 @@
+test_binds_authenticated_stage_to_existing_preservation_functions (test_dot_rollout.DotRollout.test_binds_authenticated_stage_to_existing_preservation_functions) ... ok
+test_rejects_client_channel_replacement (test_dot_rollout.DotRollout.test_rejects_client_channel_replacement) ... ok
+test_rejects_extra_native_source_changes (test_dot_rollout.DotRollout.test_rejects_extra_native_source_changes) ... ok
+test_rejects_source_payload_drift (test_dot_rollout.DotRollout.test_rejects_source_payload_drift) ... ok
+test_rejects_unreviewed_prior_operator (test_dot_rollout.DotRollout.test_rejects_unreviewed_prior_operator) ... ok
+test_rejects_wrong_shipping_base (test_dot_rollout.DotRollout.test_rejects_wrong_shipping_base) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.275s
+
+OK

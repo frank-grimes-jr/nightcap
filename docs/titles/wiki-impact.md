@@ -33,3 +33,11 @@ pass; local site builds607HTML pages. Browser preview was attempted, but the CUA
 inventory has only MCP Apps and no web browser. Rendered desktop/mobile checks
 are therefore unverified. RoF2 title-picker/nameplate/player acceptance remains
 a separate QA gate. Public publication and gameplay activation: NOT PERFORMED.
+
+## Main integration review
+
+Owner requested "Push to main" on November12. Integrated origin/main105a250f,
+preserving its newer Imitate Death deployment/Combat guidance and DoT source-only
+preview exactly, with title additions alongside them. This changes source status
+only: titles remain Not released, historical wiki drift requires review, and no
+public website or server activation is authorized.

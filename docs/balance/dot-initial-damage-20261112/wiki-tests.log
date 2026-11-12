@@ -1,0 +1,41 @@
+test_chapterhouse_separates_augments_equipment_and_quest_delivery (test_wiki.WikiTests.test_chapterhouse_separates_augments_equipment_and_quest_delivery) ... ok
+test_current_mechanics_and_unreleased_labels (test_wiki.WikiTests.test_current_mechanics_and_unreleased_labels) ... ok
+test_equipment_groups_variants_and_keeps_every_item_reachable (test_wiki.WikiTests.test_equipment_groups_variants_and_keeps_every_item_reachable) ... ok
+test_every_local_link_asset_and_anchor (test_wiki.WikiTests.test_every_local_link_asset_and_anchor) ... ok
+test_features_and_updated_guides_are_reachable (test_wiki.WikiTests.test_features_and_updated_guides_are_reachable) ... ok
+test_features_guides_and_change_log_are_distinct_destinations (test_wiki.WikiTests.test_features_guides_and_change_log_are_distinct_destinations) ... ok
+test_generated_reward_pages_use_current_upgrade_costs (test_wiki.WikiTests.test_generated_reward_pages_use_current_upgrade_costs) ... ok
+test_home_focuses_on_guides_and_progressive_navigation (test_wiki.WikiTests.test_home_focuses_on_guides_and_progressive_navigation) ... ok
+test_interactive_shell_and_public_asset_allowlist (test_wiki.WikiTests.test_interactive_shell_and_public_asset_allowlist) ... ok
+test_old_guide_anchors_and_moved_notices_remain_reachable (test_wiki.WikiTests.test_old_guide_anchors_and_moved_notices_remain_reachable) ... ok
+test_only_enabled_reward_catalog (test_wiki.WikiTests.test_only_enabled_reward_catalog) ... ok
+test_package_is_exact_and_immutable (test_wiki.WikiTests.test_package_is_exact_and_immutable) ... ok
+test_public_payload_excludes_private_material (test_wiki.WikiTests.test_public_payload_excludes_private_material) ... ok
+test_search_index_has_all_articles_without_internal_sources (test_wiki.WikiTests.test_search_index_has_all_articles_without_internal_sources) ... ok
+test_zone_pages_publish_configured_rates (test_wiki.WikiTests.test_zone_pages_publish_configured_rates) ... ok
+test_missing_revision_cannot_pass (test_refresh.RefreshTests.test_missing_revision_cannot_pass) ... fatal: Needed a single revision
+ok
+test_new_system_and_deleted_source_require_review (test_refresh.RefreshTests.test_new_system_and_deleted_source_require_review) ... ok
+test_staged_change_canceled_only_in_working_copy_still_requires_review (test_refresh.RefreshTests.test_staged_change_canceled_only_in_working_copy_still_requires_review) ... ok
+test_unrelated_files_do_not_require_content_review (test_refresh.RefreshTests.test_unrelated_files_do_not_require_content_review) ... ok
+test_working_tree_tracks_staged_unstaged_and_untracked (test_refresh.RefreshTests.test_working_tree_tracks_staged_unstaged_and_untracked) ... ok
+test_frozen_formula_and_fixture_inputs_match_review (test_build_lab.BuildLabTests.test_frozen_formula_and_fixture_inputs_match_review) ... FAIL
+test_projected_data_and_original_class_access (test_build_lab.BuildLabTests.test_projected_data_and_original_class_access) ... ok
+test_workbench_has_no_inline_executable_script_or_external_dependency (test_build_lab.BuildLabTests.test_workbench_has_no_inline_executable_script_or_external_dependency) ... ok
+
+======================================================================
+FAIL: test_frozen_formula_and_fixture_inputs_match_review (test_build_lab.BuildLabTests.test_frozen_formula_and_fixture_inputs_match_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\EQ_Local_Dev\_worktrees\dot-no-initial-damage\wiki\test_build_lab.py", line 23, in test_frozen_formula_and_fixture_inputs_match_review
+    self.assertEqual(hashlib.sha256((root/name).read_bytes()).hexdigest(),expected,name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '8d4eeb1d0dadf0ab614381c4da22a23e3d67f8ad3c9946865d11ca5fd01f4c47' != 'a306af310942ac2dd35d47b28cdd09d203bbb214943d6fbf827c5b63a1063da1'
+- 8d4eeb1d0dadf0ab614381c4da22a23e3d67f8ad3c9946865d11ca5fd01f4c47
++ a306af310942ac2dd35d47b28cdd09d203bbb214943d6fbf827c5b63a1063da1
+ : server-mods/code/zone/effects.cpp
+
+----------------------------------------------------------------------
+Ran 23 tests in 57.081s
+
+FAILED (failures=1)

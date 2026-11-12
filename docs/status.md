@@ -2,8 +2,38 @@
 
 ## Earned titles - November 12 candidate
 
-77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Normal-player QA and main/deployment/publication gates remain open.
+77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Owner authorized source promotion to main on November 12. Normal-player QA, deployment and publication remain pending.
 
+## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
+
+Owner explicitly requested live implementation. Main PR425/1d763739 and zone
+7bb5bd17 are deployed; all 12 workers and the unchanged world/shared-memory pair
+verify, with player admissions reopened. Family420 has no authoritative reuse,
+including old saved waits. Earned Monk access, native casting and existing effects
+remain; basic Feign Death and unrelated timers stay unchanged. RoF2's nominal
+one-second display enables Make Hotkey while reset packets keep actual reuse zero.
+No client download is needed; relog to refresh AA state. Current shipping binary
+reproduced before the one-TU change, with 2857 source files/840 dependencies and
+146 retained link inputs verified. Stopped full backup, normal saved-state/market
+and service/content/cache/client preservation pass; no player snapshot restored.
+Wiki20261112-imitate-death-v1 publishes Combat/Change Log/search with 610 of 613
+files retained. Public HTTPS verification is recorded separately. Native in-game
+hotkey/aggro and combined-build balance acceptance remain OPEN. Exact proof,
+transport recovery and player QA: `docs/releases/imitate-death-20261112/`.
+
+## 2026-11-12 — Player DoT landing damage removed (source candidate)
+
+Player instant DoTs skip only their negative CurrentHPOnce landing effects,
+including direct-damage scaling and resource taps. Instant casting, ordinary
+DoT/Bard ticks, positive one-time heals, debuffs, nukes and non-player casting
+retain native paths. Pure DoTs already have no initial hit. SELECT-only local
+catalog review distinguishes 980 definitions with a hit from 2,646 without;
+these include later/NPC content, not the active legal spell pool. Native landing
+regression reproduces the old amplified hit and passes the fix; neighboring
+spell/timing checks and isolated native build are recorded in the evidence.
+No SQL/client/rule change or live deployment. Wiki changes are Not released and
+unpublished; owner gameplay/balance QA remains open. Exact QA, build/rollback
+boundary and reviewed evidence: docs/balance/dot-initial-damage-20261112/.
 
 ## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
 

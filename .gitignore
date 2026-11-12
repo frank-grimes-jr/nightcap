@@ -66,3 +66,6 @@ eq-launcher/cmd/last-lantern-verify/
 /artifacts/quick-buff-20261112/
 /eq-launcher/cmd/quick-buff-sign/
 /eq-launcher/cmd/quick-buff-verify/
+
+# Private Imitate Death build, staging and publication payloads.
+/artifacts/imitate-death-20261112/

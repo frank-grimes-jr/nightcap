@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-12",
+  "authorization": "Owner: Push to main. Source promotion only; not manual gameplay acceptance or runtime/wiki activation.",
+  "integration_base": "105a250f49d95a9ffff338c98910508d51ea56e1",
+  "feature_commit": "caaaf784",
+  "native_title_files_unchanged_from_passed_compile": 9,
+  "preserved_current_main_native_files": [
+    "server-mods/code/zone/aa.cpp",
+    "server-mods/code/zone/spell_effects.cpp",
+    "server-mods/code/common/imitate_death.h"
+  ],
+  "wiki_merge": "Current main body preserved for Combat/Change Log/In development; appended title candidate sections; combined source ledgers.",
+  "checks": {
+    "earned_titles_groups": "4 PASS",
+    "wiki_refresh_groups": "20 PASS",
+    "generator": "PASS",
+    "native_compile_hash_identity": "9 PASS",
+    "current_main_staged_native_identity": "PASS"
+  },
+  "runtime": "disabled; no deployment",
+  "player_QA": "OPEN",
+  "public_wiki": "Not published; Not released labels retained"
+}

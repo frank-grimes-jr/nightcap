@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "reviewer": "author review with separate correctness, preservation/security and scope passes; automated native and fault-test evidence",
+  "authorization": "Implement on live",
+  "source_delta": [
+    "common/imitate_death.h",
+    "zone/aa.cpp"
+  ],
+  "findings": [
+    {
+      "issue": "Clang dependency paths contain zone/../common",
+      "resolution": "Normalize resolved paths in proof; re-verify already linked output without changing or replaying live actions."
+    },
+    {
+      "issue": "Retained wiki test had an obsolete fixed result count",
+      "resolution": "Use current main search regression, which verifies exact item identities and latest campaign entry; public payload unchanged by test update."
+    }
+  ],
+  "preservation": "Retained complete native source, unchanged Client layout and current Quick Buff aa/spells objects; baseline byte reproduction required. Only zone binary changes. No content, schema, cache, quest, rule, player or client asset edit.",
+  "deployment": "Actual operator tested for backup, native, saved-state and publication failures; zero-player/closed admission drain, full-runtime clean stop, stopped backup, exact boot/market and service preservation gates.",
+  "acceptance": "Owner authorizes live deployment; gameplay and balance acceptance remain OPEN."
+}

@@ -30,9 +30,11 @@ unit controls, a full linked build, deployment and rendered player acceptance.
 
 ## Activation and recovery boundary
 
-Activation has not been executed. Under the normal branch policy, integrate via
-dev and test with the attached QA; main needs current owner sign-off. A later
-authorized release must reproduce the current shipping baseline and preserve all
+Activation has not been executed. On November12 the owner explicitly requested
+"Push to main", authorizing this source promotion before manual acceptance.
+The normal branch policy remains for future work; all attached player QA stays
+OPEN. This instruction does not authorize server activation or public publication.
+A later authorized release must reproduce the current shipping baseline and preserve all
 intervening fixes before building/releasing a zone binary. No Client layout,
 shared ItemData, rules catalog, item cache, quest or client change is required.
 Production native child exits restart the entire runtime: use its supported

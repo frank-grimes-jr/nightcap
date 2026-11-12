@@ -35,6 +35,7 @@ FIXTURE = r'''
 #include <vector>
 #include "common/nightcap_aa_policy.h"
 #include "common/quick_buff.h"
+#include "common/imitate_death.h"
 using uint8=uint8_t;using uint16=uint16_t;using uint32=uint32_t;using int64=int64_t;
 /* TIMER_DECLARATIONS */
 uint32 clock_now=100000;
@@ -247,6 +248,7 @@ void same_family() {
  int cases=0;
  for(const auto& first:zone->aa_ranks_values)for(const auto& second:zone->aa_ranks_values) {
   if(first.second.base_ability!=second.second.base_ability)continue;
+  if(first.second.recast_time==0)continue; // Explicit no-reuse family has its own checks.
   Client c;own(c,first.first);own(c,second.first);
   check(wire_group(c,first.first)==wire_group(c,second.first),"same-family catalog groups diverge");
   c.ActivateAlternateAdvancementAbility(first.first,1);
@@ -395,12 +397,40 @@ void quick_buff_activation() {
  c.valid=true;c.held=1u<<Class::Warrior;c.ActivateAlternateAdvancementAbility(147,99);
  check(c.casts.size()==2,"released class activated Quick Buff");
 }
+void imitate_death() {
+ Client c;own(c,1255);own(c,233);
+ auto* rank=zone->GetAlternateAdvancementRank(1255);
+ // Model the zero-reuse catalog, then exercise actual activation/resend code.
+ check(rank->recast_time==0 && rank->spell==5918,"Imitate Death projection changed spell or retained reuse");
+ c.p_timers.Start(pTimerAAStart+420,1080);
+ c.ActivateAlternateAdvancementAbility(233,1);
+ c.actions.clear();c.SendAlternateAdvancementTimers();
+ check(c.p_timers.Expired(&database,pTimerAAStart+420,false),"saved Imitate Death wait survived resend");
+ check(c.p_timers.GetRemainingTime(pTimerAAStart+98)==1800,"cleared unrelated Purify Body wait");
+ c.SendAlternateAdvancementRank(420,1);
+ check(c.catalog.back().spell_refresh==1,"Imitate Death Make Hotkey is disabled");
+ c.actions.clear();
+ for(int focus:{0,120,-60}) {c.reduction=focus;c.ActivateAlternateAdvancementAbility(1255,1);}
+ check(c.casts.size()==4,"Imitate Death cannot repeat without advancing clock");
+ check(c.p_timers.Expired(&database,pTimerAAStart+420,false),"Imitate Death starts a server wait");
+ check(c.actions.size()==3,"Imitate Death completion packets missing");
+ for(const auto& action:c.actions)check(action.begin==0 && action.end==clock_now,"Imitate Death starts client countdown");
+ c.p_timers.Start(pTimerAAStart+420,1080);c.ActivateAlternateAdvancementAbility(1255,1);
+ check(c.casts.size()==5,"stale wait blocks activation before resend");
+ for(int guard=0;guard<5;++guard) {
+  Client denied;own(denied,1255);
+  if(guard==0)denied.valid=false;if(guard==1)denied.earned.clear();
+  if(guard==2)denied.held=0;if(guard==3)denied.cast_ok=false;if(guard==4)denied.appearance=99;
+  denied.ActivateAlternateAdvancementAbility(1255,1);
+  check(denied.casts.empty() && denied.p_timers.values.empty(),"Imitate Death bypasses native authorization/casting");
+ }
+}
 void completion_pulses() {
  for(const auto& row:zone->aa_ranks_values) {
   Client c;own(c,row.first);const int slot=wire_group(c,row.first);
   c.ActivateAlternateAdvancementAbility(row.first,1);
   check(c.actions.size()==1 && c.actions.back().ability==slot &&
-   c.actions.back().begin==0 && c.actions.back().end==0,
+   c.actions.back().begin==0 && c.actions.back().end==(row.second.base_ability->id==420?clock_now:0),
    "successful rank "+std::to_string(row.first)+" did not start its catalog slot");
   c.actions.clear();c.PublishAACompletion(0);
   check(c.actions.size()==1 && c.actions.back().ability==slot,
@@ -429,6 +459,7 @@ int main(int argc,char** argv) {
   else if(s=="focused-resend")focused_resend();
   else if(s=="completion-pulses")completion_pulses();
   else if(s=="quick-buff")quick_buff_activation();
+  else if(s=="imitate-death")imitate_death();
   else throw std::runtime_error("unknown scenario");
   std::cout<<s<<": PASS\n";return 0;
  } catch(const std::exception& e) {std::cerr<<e.what()<<'\n';return 1;}
@@ -463,6 +494,7 @@ def native_content():
         values = [row["ability_id"], row["rank_id"], row["ordinal"], rank["spell"],
                   rank["spell_type"], rank["recast_time"], row["expansion"], row["classes"]]
         lines.append(" add_rank(" + ",".join(map(str, values)) + ");")
+        lines.append(f" NightcapImitateDeath::Configure({row['ability_id']},zone->aa_ranks_values[{row['rank_id']}]);")
         representatives.setdefault(row["ability_id"], row["rank_id"])
     lines.append(" family_representatives={" + ",".join(map(str, representatives.values())) + "};")
     lines.append("}\n")
@@ -531,6 +563,7 @@ class AACooldownIdentityTests(unittest.TestCase):
     def test_resend_focus_changes_preserve_stored_remaining_time(self): self.scenario("focused-resend")
     def test_native_successful_completion_pulses_target_catalog_slots(self): self.scenario("completion-pulses")
     def test_quick_buff_earned_activation_and_native_hotkey_catalog(self): self.scenario("quick-buff")
+    def test_imitate_death_immediate_reuse_stale_waits_and_guards(self): self.scenario("imitate-death")
 
 
 if __name__ == "__main__":
