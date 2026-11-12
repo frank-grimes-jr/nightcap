@@ -1,0 +1,14 @@
+{
+  "result": "prepared_not_published",
+  "baseline_release": "20261112-quick-buff-v2",
+  "release": "20261112-imitate-death-v1",
+  "files": 613,
+  "changed_existing": [
+    "combat.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 610,
+  "public_source_reproduced": true,
+  "whole_wiki_review": "All 42 authored sources and generated item/zone/catalog/Home/Features/commands impacts reviewed; only Combat, Change Log and search change. Live-testing labels preserved; owner QA open."
+}

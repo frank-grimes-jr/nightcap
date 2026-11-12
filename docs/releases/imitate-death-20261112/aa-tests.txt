@@ -1,0 +1,26 @@
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 70.518s
+
+OK
+46872 ordered cases across 217 families
+all-pairs: PASS
+46872 ordered cases across 217 families
+all-catalog: PASS
+2416 ordered same-family rank cases
+same-family: PASS
+class-remap: PASS
+death-reset: PASS
+imitate-death: PASS
+completion-pulses: PASS
+purify-rampage: PASS
+quick-buff: PASS
+rampage-purify: PASS
+relog: PASS
+resend: PASS
+focused-resend: PASS
+reset-all: PASS
+reset-one: PASS
+reset-argument: PASS
+guards: PASS
+purchase-stability: PASS

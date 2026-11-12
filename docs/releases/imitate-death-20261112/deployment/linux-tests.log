@@ -1,0 +1,44 @@
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Imitate Death zero cooldown deployed; access restored.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+Imitate Death zone verified; access remains closed.
+Draining admissions: 0/125 seconds.
+Draining admissions: 25/125 seconds.
+Draining admissions: 50/125 seconds.
+Draining admissions: 75/125 seconds.
+Draining admissions: 100/125 seconds.
+test_backup_failure_cannot_select_or_start_candidate (test_imitate_death_rollout.Rollout.test_backup_failure_cannot_select_or_start_candidate) ... ok
+test_native_failure_holds_access_closed (test_imitate_death_rollout.Rollout.test_native_failure_holds_access_closed) ... ok
+test_open_failure_holds_and_never_starts_gateway (test_imitate_death_rollout.Rollout.test_open_failure_holds_and_never_starts_gateway) ... ok
+test_open_preserves_client_and_retains_acceptance_gate (test_imitate_death_rollout.Rollout.test_open_preserves_client_and_retains_acceptance_gate) ... ok
+test_player_during_drain_holds_without_stopping_game (test_imitate_death_rollout.Rollout.test_player_during_drain_holds_without_stopping_game) ... ok
+test_publication_drift_keeps_admissions_closed (test_imitate_death_rollout.Rollout.test_publication_drift_keeps_admissions_closed) ... ok
+test_reject_online_before_any_mutation (test_imitate_death_rollout.Rollout.test_reject_online_before_any_mutation) ... ok
+test_success_verifies_closed_and_never_opens_implicitly (test_imitate_death_rollout.Rollout.test_success_verifies_closed_and_never_opens_implicitly) ... ok
+test_unexpected_saved_state_holds (test_imitate_death_rollout.Rollout.test_unexpected_saved_state_holds) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.387s
+
+OK
+
+REPORT={"status": "PASS", "checks": [{"folder": "tools/tests", "tests": 9, "status": "PASS"}]}
+

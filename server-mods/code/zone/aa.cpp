@@ -1,5 +1,6 @@
 #include "../common/nightcap_thj_behaviors.h"
 #include "../common/quick_buff.h"
+#include "../common/imitate_death.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -1176,7 +1177,8 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	aai->type = ability->type;
 	aai->spell = rank->spell;
 	aai->spell_type = cooldown_slot;
-	aai->spell_refresh = NightcapQuickBuff::ClientPresentationReuse(ability->id, rank->recast_time);
+	aai->spell_refresh = NightcapImitateDeath::ClientPresentationReuse(ability->id,
+		NightcapQuickBuff::ClientPresentationReuse(ability->id, rank->recast_time));
 	// Multiclass client display: the client both hides AAs whose class list excludes
 	// the character's class AND files them into tabs (Class/Archetype/General) from
 	// that same list. The server already authorized this AA (CanUse via the multiclass
@@ -1290,7 +1292,7 @@ int Client::GetAlternateAdvancementTimerSlot(int family_id) {
 
 // The public argument is a stable AA family ID. Only this boundary uses a wire slot.
 void Client::SendAlternateAdvancementTimer(int family_id, int begin, int end) {
-	if (family_id == NightcapQuickBuff::Family) {
+	if (family_id == NightcapQuickBuff::Family || family_id == NightcapImitateDeath::Family) {
 		begin = 0;
 		end = time(nullptr);
 	}
@@ -1323,6 +1325,11 @@ void Client::SendAlternateAdvancementTimers() {
 		auto *ability = pair.first;
 		auto *rank = pair.second;
 		if (!ability || !rank || !CanUseAlternateAdvancementRank(rank)) { continue; }
+		if (ability->id == NightcapImitateDeath::Family) {
+			// Retire this family's pre-update saved wait; keep every other deadline.
+			p_timers.Clear(&database, pTimerAAStart + ability->id);
+			continue;
+		}
 		const uint32 remaining = p_timers.GetRemainingTime(pTimerAAStart + ability->id);
 		if (!remaining) { continue; }
 		const int effective_reuse = rank->recast_time - GetAlternateAdvancementCooldownReduction(rank);
@@ -1559,6 +1566,9 @@ void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 		CastQuickBuff(rank_id);
 		return;
 	}
+	if (ability->id == NightcapImitateDeath::Family) {
+		p_timers.Clear(&database, pTimerAAStart + ability->id);
+	}
 	if (!p_timers.Expired(&database, pTimerAAStart + ability->id, false)) {
 		uint32 aaremain = p_timers.GetRemainingTime(pTimerAAStart + ability->id);
 		uint32 aaremain_hr = aaremain / (60 * 60);
@@ -1581,6 +1591,7 @@ void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 	if (timer_duration < 0) {
 		timer_duration = 0;
 	}
+	if (ability->id == NightcapImitateDeath::Family) { timer_duration = 0; }
 
 	if (!IsCastWhileInvisibleSpell(rank->spell))
 		CommonBreakInvisible();
@@ -2034,6 +2045,7 @@ void Zone::LoadAlternateAdvancement() {
 			current->current_value = i;
 			current->recast_time = NightcapPetScaling::AAReuse(ability.first, i, current->recast_time);
 			NightcapQuickBuff::Configure(ability.first, *ability.second, *current);
+			NightcapImitateDeath::Configure(ability.first, *current);
 
 			if(current->prev) {
 				current->total_cost = current->cost + current->prev->total_cost;
