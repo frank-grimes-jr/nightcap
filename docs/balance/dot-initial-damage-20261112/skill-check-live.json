@@ -35,12 +35,12 @@
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\docs\\balance\\dot-initial-damage-20261112\\README.md",
-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\docs\\balance\\dot-initial-damage-20261112\\DEPLOYMENT.md",
-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
         "state": "unchanged"
       },
       {
@@ -75,17 +75,17 @@
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\wiki\\articles\\combat.json",
-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\wiki\\articles\\unreleased.json",
-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\wiki\\articles\\recent-changes.json",
-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+        "role": "Reviewed deployed DoT record/guide with separately disabled titles authoring scope retained; exact public artifact verified separately, owner acceptance OPEN",
         "state": "unchanged"
       },
       {
@@ -126,6 +126,11 @@
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\tools\\tests\\test_quick_buff_hotkey_rollout.py",
         "role": "Reviewed actual DoT release operator, transport, publication, verification or retained failure controls; deployed proof separate from owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\docs\\balance\\dot-initial-damage-20261112\\concurrent-source-review.json",
+        "role": "Reviewed source promotion scope: earned titles disabled/unpublished while DoT native/wiki deployment remains separately verified",
         "state": "unchanged"
       }
     ]
