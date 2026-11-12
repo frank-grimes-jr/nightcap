@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## 2026-11-12 — Imitate Death zero cooldown (source candidate)
+
+Remove the 18-minute AA reuse from Monk Imitate Death (family 420), including
+its old saved wait. Keep earned/class/casting gates and existing spell effects.
+RoF2 advertises a nominal one second for Make Hotkey while reset packets keep
+actual readiness immediate; unrelated timers and basic Feign Death stay intact.
+Native regressions and pinned-client checks pass. Deployment, publication and
+owner gameplay/balance QA remain pending. Exact proof, reload/recovery and QA:
+`docs/releases/imitate-death-20261112/README.md`.
+
 ## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
 
 Owner testing found the AA-window Make Hotkey control disabled on earned rank3. Follow-up PR423/60d51362 is deployed with zone3eeb72c9; admissions restored after guarded backup/restart and native/saved-state checks. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Wiki20261112-quick-buff-v2 verifies613public files/headers with610retained and five private denials; all five services stay unchanged during publication. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.

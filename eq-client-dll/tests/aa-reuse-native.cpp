@@ -13,6 +13,7 @@
 #include <vector>
 #include "../src/patch_catalog.h"
 #include "../../server-mods/code/common/quick_buff.h"
+#include "../../server-mods/code/common/imitate_death.h"
 #pragma comment(lib,"advapi32.lib")
 
 static unsigned checks=0,failures=0;
@@ -201,6 +202,16 @@ int main(int argc,char** argv) {
     }
     Expect(NightcapQuickBuff::ClientPresentationReuse(109,600)==600 && NightcapQuickBuff::ClientPresentationReuse(1,0)==0,
            "unrelated AA presentation remains unchanged");
+    Group(first,&quick_group,1,NightcapImitateDeath::ClientPresentationReuse(420,0),1255);
+    Expect(HotkeyReuseGate(image+0x2081E4,first)!=0,"Imitate Death enables native Make Hotkey");
+    for(int focus:{0,120,-60}) {
+        focus_reduction=focus;
+        for(int press=0;press<3;++press) {
+            send(4,0,2000000);
+            Expect(ready(manager,character,first,&remaining,&total)!=0,"Imitate Death resets ready without advancing native clock");
+        }
+    }
+    Expect(NightcapImitateDeath::ClientPresentationReuse(98,1800)==1800,"Purify Body reuse preserved");
     VirtualFree(image,0,MEM_RELEASE);
     std::cout<<"native AA reuse checks="<<checks<<" failures="<<failures<<'\n';
     return failures?1:0;
