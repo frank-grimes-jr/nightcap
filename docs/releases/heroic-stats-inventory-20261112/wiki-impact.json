@@ -1,226 +1,224 @@
 {
-  "authored_articles_reviewed": 42,
-  "articles": [
+  "reviewed": [
     {
-      "article": "about.json",
+      "article": "about",
       "status": "Reference",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "advanced-loot.json",
+      "article": "advanced-loot",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "adventure-journal.json",
+      "article": "adventure-journal",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "ascension.json",
+      "article": "ascension",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "ashen-compact.json",
+      "article": "ashen-compact",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "augment-audit.json",
+      "article": "augment-audit",
       "status": "Live testing",
-      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+      "assessment": "Inventory instructions/status/history updated"
     },
     {
-      "article": "build-lab.json",
+      "article": "build-lab",
       "status": "Reference",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "camil-vigil.json",
+      "article": "camil-vigil",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "combat.json",
+      "article": "combat",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "commands.json",
+      "article": "commands",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "dungeon-modes.json",
+      "article": "dungeon-modes",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "equipment.json",
+      "article": "equipment",
       "status": "Live testing",
-      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+      "assessment": "Inventory instructions/status/history updated"
     },
     {
-      "article": "features.json",
+      "article": "features",
       "status": "Live testing",
-      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+      "assessment": "Inventory instructions/status/history updated"
     },
     {
-      "article": "getting-started.json",
+      "article": "getting-started",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "index.json",
+      "article": "index",
       "status": "Reference",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-960420.json",
+      "article": "item-960420",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-960421.json",
+      "article": "item-960421",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-960422.json",
+      "article": "item-960422",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-960423.json",
+      "article": "item-960423",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-960424.json",
+      "article": "item-960424",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-960425.json",
+      "article": "item-960425",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961020.json",
+      "article": "item-961020",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961021.json",
+      "article": "item-961021",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961022.json",
+      "article": "item-961022",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961023.json",
+      "article": "item-961023",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961030.json",
+      "article": "item-961030",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961031.json",
+      "article": "item-961031",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-961032.json",
+      "article": "item-961032",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-990510.json",
+      "article": "item-990510",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "item-upgrades.json",
+      "article": "item-upgrades",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "launcher.json",
+      "article": "launcher",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "loot-finder.json",
+      "article": "loot-finder",
       "status": "Reference",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "multiclass.json",
+      "article": "multiclass",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "pets.json",
+      "article": "pets",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "recent-changes.json",
+      "article": "recent-changes",
       "status": "Reference",
-      "assessment": "Updated existing heroic instructions and explicit unpublished candidate"
+      "assessment": "Inventory instructions/status/history updated"
     },
     {
-      "article": "tradeskills.json",
-      "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
-    },
-    {
-      "article": "travel.json",
-      "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
-    },
-    {
-      "article": "tunnel.json",
-      "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
-    },
-    {
-      "article": "unreleased.json",
+      "article": "titles",
       "status": "Not released",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "waypoints.json",
+      "article": "tradeskills",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "zone-hunt.json",
+      "article": "travel",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     },
     {
-      "article": "zone-kael.json",
+      "article": "tunnel",
       "status": "Live testing",
-      "assessment": "No effect on gameplay, access, commands, rewards or guide instructions"
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "unreleased",
+      "status": "Not released",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "waypoints",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "zone-hunt",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "zone-kael",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
     }
   ],
-  "changed_articles": [
-    "equipment.json",
-    "augment-audit.json",
-    "features.json",
-    "recent-changes.json"
-  ],
-  "home": "No extra release announcement; existing equipment path remains valid",
-  "commands": "No command or command behavior added",
-  "catalogs": "No item/zone acquisition, values or generation change",
-  "publication": "Pending; local articles do not establish public publication",
-  "refresh": "Global unrelated drift remains review-required; no ledger advance"
+  "home": "Existing equipment path stays valid; no extra announcement",
+  "commands": "No player command needed; existing detailed Stats and augstats remain",
+  "catalogs": "No item/zone stats, acquisition, reward or balance changes",
+  "release_labels": "Live testing after matched server/client publication; title preview remains Not released",
+  "global_refresh": "Unrelated source drift remains review-required; no ledger advance"
 }

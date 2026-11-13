@@ -520,7 +520,7 @@ public:
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
 	void RefreshNightcapUI();
-	void RefreshEquippedStats();
+	void RefreshEquippedStats(bool include_inventory = false);
 	bool EnableAARecommendations() {
 		const bool first = !m_nightcap_aa_recommendations_enabled;
 		m_nightcap_aa_recommendations_enabled = true;

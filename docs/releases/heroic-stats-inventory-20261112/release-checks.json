@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "native_build_sha256": "0db08b9d69d69f874fb466f0c961b5c6ac20561b4766c54003280202a24dc164",
+  "focused_tests": 16,
+  "runtime_groups": 11,
+  "catalog_original_byte_guards": 120,
+  "wrapper_fault_tests": 9,
+  "retained_operator_fault_tests": 9,
+  "client_publisher_tests_windows": {
+    "total": 21,
+    "passed": 16,
+    "posix_only_skips": 5
+  },
+  "wiki_content_refresh_tests": 20,
+  "public_wiki_source_reproduced": true,
+  "native_visual_acceptance": "OPEN",
+  "linux_publication_tests": "required during private stage before preflight"
+}

@@ -1,22 +1,22 @@
 {
-  "reviewed_date": "2026-11-12",
-  "status": "candidate_reviewed_not_published",
-  "correctness": "Native EQTypes copied from the matching existing heroic labels; all seven main Inventory rows covered. Existing normal totals and native coloring are unchanged. Positive and zero display use the native label implementation. Visible owner QA remains pending.",
-  "regression_scope": "Candidate structural comparison retains every original control and reference; 14 additive controls and 14 owning-page references only. Normal generator and delta both use the same helper. Reapplication and incomplete layouts fail closed.",
-  "simplicity_architecture": "One helper in the existing character-stat generator, with a scoped additive transform for currently published XML. No new protocol, runtime hook, server command or polling mechanism.",
-  "security_privacy": "Production probes use read-only transactions and existing pinned SSH trust. Evidence contains no player identities or credentials. Generated local captures/candidate are ignored. Protected and installed clients remain untouched.",
-  "performance": "Fourteen native labels; no added network requests, database queries or periodic server work during gameplay.",
-  "validation": {
-    "character_ui_tests": 5,
-    "gameplay_ui_tests": 5,
-    "resource_controls": 11,
-    "wiki_content_and_refresh_tests": 20,
-    "wiki_build_pages": 606,
-    "skill_validator": "passed",
-    "heroic_stats_source_fingerprints": "11 unchanged",
-    "wiki_global_refresh": "REVIEW REQUIRED for existing and current source drift; no unrelated ledger entries advanced",
-    "native_visual_acceptance": "pending",
-    "signed_client_publication": "pending",
-    "wiki_publication": "pending"
-  }
+  "status": "PASS",
+  "scope": "Two independent adversarial source/release reviews; additional cross-model review declined by owner",
+  "findings_resolved": [
+    "Explicit mutually exclusive label alignments",
+    "Hosted verifier retains actual current Quick Buff dbstr descriptor",
+    "Admission reopen requires hosted verification of the exact published channel and shipped signature",
+    "Standalone publisher disabled; paired rollout owns publication under deployment/GM locks behind closed gateway"
+  ],
+  "combat_mapping": {
+    "MIT": "GetMitigationAC cached combat value",
+    "AVD": "GetTotalDefense; -1 displays Auto",
+    "AC": "Conventional native client display",
+    "ATK": "GetTotalATK conventional rating",
+    "DMG": "GetSpellDmg",
+    "HEAL": "GetHealAmt"
+  },
+  "attributes": "Current/GetMax*/GetHeroic* server getters; actual cap includes heroic allowance",
+  "compatibility": "NCST1 remains byte-compatible; separate negotiated NCIV1; stale/replay/identity guards",
+  "scope_preserved": "No bonus, balance, schema, item/cache, quest or player-state edits. Deployed source/pair reproduced before isolated compile.",
+  "native_visual_player_acceptance": "OPEN"
 }

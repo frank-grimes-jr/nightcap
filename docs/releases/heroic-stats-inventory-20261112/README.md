@@ -1,91 +1,80 @@
-# Heroic stats and the Inventory attribute column
+# Inventory combat stats, caps and heroic totals
 
-Production was checked read-only on November 12, 2026. Heroic stats are already
-enabled: STR/STA/AGI/DEX/INT/WIS multipliers are 1.0, and Nightcap heroic melee
-and spell scaling rules are true. `HeroicStatsUseDataBucketsToScale=false` only
-disables optional additional bucket scaling; it does not disable heroics.
-The optional direct heroic INT-to-Spell Damage and WIS-to-Healing Amount
-multiplier rules remain zero; those are separate from existing heroic benefits
-and Nightcap's earned augment cap headroom. No balance rule needs changing.
+The owner explicitly authorized the screenshot layout and live-testing publication.
+Exact acceptance criteria and combat/stat sources are in SPEC.md. The November12
+read-only probe confirmed heroic mechanics already active; this release changes
+the display and read-only stat delivery, with no balance, item or player edits.
 
-The current signed client is 2026110701. Its retained Inventory XML is the
-November 6 single-Shield-Block asset. Inventory > Stats already contains native
-gold/yellow heroic labels, EQTypes 251–257. The main Inventory tab has no such
-labels beside STR/STA/AGI/DEX/WIS/INT/CHA. This is a display omission, not a
-disabled game mechanic.
+## Reviewed implementation and current release state
 
-## Candidate
+Main Inventory shows HP/MP/endurance, AC/MIT/AVD/ATK/DMG/HEAL, XP/AA XP, attributes,
+resists and weight. Attributes use green current, white /actual cap and gold signed
+heroics. The actual cap includes heroic allowance; heroics are a component already
+included in totals. AC retains the conventional native display. MIT is the cached
+combat mitigation AC; AVD is total server defense, not item mod2 Avoidance. Auto
+preserves the automatic-avoidance sentinel. Ratings are not percentages or DPS.
 
-`tools/client_character_stats_ui.py` adds seven gold `+` signs and seven native
-heroic values to the main Inventory tab. It copies the matching existing Stats
-labels, retaining their native EQTypes and gold RGB 214/178/40. Existing normal
-attribute labels, values, native coloring, equipment controls and every other
-page remain unchanged. Totals already include heroics; the tooltip explicitly
-warns against adding the yellow number a second time. No command or server poll
-is introduced. Zero heroics displays +0 using the existing client behavior.
+The panel/window widen40px and extend56px, keeping normal fonts and scroll access.
+Equipment/bag/button behavior and other tabs remain. The normal generator and
+scoped transform use tools/client_inventory_summary_ui.py. It modifies only the
+owning current Inventory controls, preserving unrelated signed XML bytes.
 
-The normal generator calls this helper. `inventory_heroics_xml` also supports
-an additive delta over the actual currently published XML, preserving all
-existing bytes rather than regenerating from an older protected client.
-`tools/stage_heroic_stats_client.py` checks the captured manifest descriptor and
-all existing controls before writing the one-file candidate. Rerunning on an
-already patched or incomplete input fails closed.
+NCST1 and its33fields remain unchanged. Only the negotiated inventory subcommand
+sends NCIV1; old clients continue stats without new frames. Identity, sequence,
+8second freshness, one/sec client and3sec server throttle, silent chat and state
+clearing remain. Client::RefreshEquippedStats gains only a nonvirtual parameter;
+no Client member/vtable/ItemData/cache layout changes. Source-only patch applies
+to retained deployed source, excluding unrelated unshipped title gameplay.
 
-Source branch: `feature/heroic-stats-inventory`, based on origin/main b7e404b2.
-Baseline/candidate hashes and production findings are in `verification.json`.
-The candidate is in `artifacts/heroic-stats/candidate/uifiles/nightcap/equi_inventory.xml`.
-It is unsigned and unpublished. No production files, rules, player records,
-installed game files or protected reference-client files were changed.
+Current DoT zone7b61b5ac reproduces byte-for-byte before compiling the two affected
+retained command unity units. Candidate zoneb737e641 preserves world95fc228a,
+shared_memoryb60c4dfc, Quick Buff, Imitate Death, DoT ticks and all current content.
+Signed client2026111202/proxy0.13.6 changes DLL/catalog/Inventory XML only;145other
+descriptors/URLs, Quick Buff strings, history/tombstones and config remain.
+The candidate is signed and locally verified, not yet deployed/published.
 
-## Verification and release boundary
+## Checks and rollout
 
-The Inventory regression fails against the original generator and passes with
-the fix. Five character UI tests, five gameplay UI tests and eleven resource
-controls pass, including heroic stat/cap and base-class mana checks. Native
-pixel rendering and equipment-refresh acceptance remain pending. Python test
-import failures from incorrect search paths were corrected by using the owning
-module's directory/PYTHONPATH; the final suites pass without test changes.
+16focused native/protocol/XML checks,11DLL runtime groups,120exact-client guards,
+9new rollout gates and9retained operator fault checks pass. The Windows publisher
+suite passes16with5POSIX-only skips; all21must pass in Linux before preflight.
+Independent reviews resolved alignment, retained-string verification, exact hosted
+receipt binding and standalone publisher bypass. Owner declined extra cross-model.
+The public wiki's614files reproduce exactly; only four guides/history plus search
+change,609files remain.20wiki tests pass; unrelated refresh drift stays explicit.
 
-Release work must freshly verify the production channel and native pair, sign
-a higher game release containing only this XML, preserve the other 147 asset
-descriptors/URLs and all notes/tombstones, and use the guarded client publisher.
-Run the publisher's Linux recovery tests before publication and verify the
-served signed envelope/XML and retained DLL/catalog afterward. No server build,
-restart, cache reload or gameplay tuning is required. Client pairing remains
-the current proxy/catalog/config and all current spell/world assets.
+rollout.py inherits the current one-shot operator's deploy/GM locks, zero players,
+125second closed admission drain, clean whole-runtime stop, stopped full backup,
+saved-state boot model, one market rotation and preservation/failure-hold gates.
+Do not kill a single production zone or replay terminal actions. Native activation
+keeps admissions closed; publish-client is the only permitted publication path.
+Verify the exact hosted signature/channel/assets before open. Private signing
+seed never leaves the local machine. Client/wiki publication receipts will be
+recorded after observing the actual outcome; planning is not deployment proof.
 
-The repository requires owner sign-off for test-to-main promotion. The initial
-request authorizes this investigation and candidate; no new main promotion or
-public release is claimed. Recovery after publication must use a higher signed
-counter restoring the previous XML while preserving newer unrelated assets.
-Never downgrade a counter or restore player snapshots.
+Recovery uses current player state and a fresh guarded prior-image transition;
+never restore an old player snapshot. Client recovery needs a higher signed
+counter restoring the prior matching assets while retaining newer unrelated files.
 
 ## Exact owner in-game QA
 
-1. After an approved signed release, fully exit EQ and use normal launcher Play.
-   Use the managed Nightcap skin and open Inventory's main tab.
-2. Confirm STR, STA, AGI, DEX, WIS, INT and CHA retain their existing normal
-   stat coloring and each has a yellow/gold `+N` immediately beside it.
-   Open Stats and compare each yellow value with the same attribute there.
-3. Equip/remove owned heroic gear or a legal augment and compare both tabs.
-   For example, Passwatch Flint (940032) grants heroic STR2/DEX2 and Hillside
-   Dewstone (940024) grants heroic AGI1/WIS1 before eligibility/scaling. Use an
-   eligible character and existing earned items; do not grant test gear to a player.
-4. Confirm bagged items provide no worn bonus, and zero heroics shows +0.
-   Compare the final normal total and HP/mana/endurance before/after without
-   adding the displayed yellow total again. Existing stat caps and recommended
-   level scaling still apply.
-5. Check all seven rows, long values, Inventory resize, Stats scrolling,
-   zone/relog/skin reload and an ordinary character without heroic equipment.
-   Check bags, equipment drag/drop, pet armor and the single Shield Block row.
+1. After publication, fully exit EQ and use normal launcher Play. Open main
+   Inventory with the managed Nightcap skin. Confirm combat rows appear above XP
+   and the seven attributes, using the normal font without clipping or overlap.
+2. Confirm green current / white cap / yellow signed heroic for STR/STA/AGI/DEX/
+   WIS/INT/CHA. +0 is legitimate with no heroics. The actual cap includes heroic
+   allowance, unlike a base-only cap: never add the yellow component again.
+3. With owned eligible gear, equip/remove a heroic item or legal augment, change
+   shield and apply/remove ordinary stat/defense buffs. Values should update within
+   the existing throttle. Bagged and training items must not supply worn bonuses.
+4. MIT is the current server mitigation rating; AVD is its complete hit-check
+   defense rating, separate from item Avoidance/Dodge/Shield Block. Auto denotes
+   the existing automatic-avoidance effect; it is not guaranteed against every
+   attack rule. DMG/HEAL are capped stat bonuses, not actual cast amounts.
+5. Check ordinary and large values, low/high/zero heroics, XP/AA bars, weight,
+   scroll access with saved window sizes, bags, gear drag/drop and all bottom
+   buttons. Other Stats/Pet Armor/AA tabs and the single Shield Block total remain.
+6. Zone, relog, change character and reload the skin. Old values must expire to
+   -- while refreshing; no internal frames, target-NPC callback or log spam.
 
-## Wiki impact
-
-Reviewed all 42 authored articles, Home, Features, commands, launcher guidance,
-catalog/item/zone projections and release labels. Equipment, Augment guide,
-Features and Change Log receive the existing Stats-tab instruction and a
-clearly labeled unpublished main-tab preview. Home needs no extra release
-announcement; commands, acquisition, generated catalog values and gameplay
-guides retain their current behavior. Public wiki publication is pending.
-Global source drift stays review-required; do not advance unrelated ledger
-entries or publish unrelated previews with this client-only change.
+Visible player/native acceptance and broader combined-build balance remain OPEN.

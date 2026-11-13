@@ -5,6 +5,7 @@
 #include "zone/zone_hunt.h"
 #include "zone/zone.h"
 #include "common/equipped_stats_protocol.h"
+#include "common/inventory_stats_protocol.h"
 #include "common/spdat.h"
 #include "common/nightcap_thj_behaviors.h"
 
@@ -71,7 +72,23 @@ static NightcapStats::Snapshot CaptureEquippedStats(Client &c)
 	return s;
 }
 
-void Client::RefreshEquippedStats()
+static NightcapInventory::Snapshot CaptureInventoryStats(Client &c)
+{
+	using namespace NightcapInventory;
+	Snapshot s;
+	// Match the values actually consumed by combat; never recompute cached MIT
+	// or substitute item mod2 Avoidance for the complete hit-check defense rating.
+	s.values = {
+		c.GetMitigationAC(), c.GetTotalDefense(), static_cast<int32_t>(std::min<uint32_t>(c.GetTotalATK(), INT32_MAX)),
+		c.GetSpellDmg(), c.GetHealAmt(),
+		c.GetSTR(), c.GetSTA(), c.GetAGI(), c.GetDEX(), c.GetWIS(), c.GetINT(), c.GetCHA(),
+		c.GetMaxSTR(), c.GetMaxSTA(), c.GetMaxAGI(), c.GetMaxDEX(), c.GetMaxWIS(), c.GetMaxINT(), c.GetMaxCHA(),
+		c.GetHeroicSTR(), c.GetHeroicSTA(), c.GetHeroicAGI(), c.GetHeroicDEX(), c.GetHeroicWIS(), c.GetHeroicINT(), c.GetHeroicCHA()
+	};
+	return s;
+}
+
+void Client::RefreshEquippedStats(bool include_inventory)
 {
 	if (!zone || !m_nightcap_ui_enabled || !m_nightcap_ui_generation || !m_nightcap_ui_refresh_timer.Check(false)) { return; }
 	m_nightcap_ui_refresh_timer.Start(3000); // Preserve the existing class-UI throttle.
@@ -80,6 +97,13 @@ void Client::RefreshEquippedStats()
 	snapshot.sequence = Timer::GetCurrentTime();
 	const auto message = NightcapStats::Encode(snapshot);
 	if (!message.empty()) { Message(Chat::White, "%s", message.c_str()); }
+	if (include_inventory) {
+		auto inventory = CaptureInventoryStats(*this);
+		inventory.identity = snapshot.identity;
+		inventory.sequence = snapshot.sequence;
+		const auto frame = NightcapInventory::Encode(inventory);
+		if (!frame.empty()) { Message(Chat::White, "%s", frame.c_str()); }
+	}
 }
 
 // Self-only, read-only view of calculated server bonuses. Never reconstruct
@@ -119,6 +143,8 @@ void command_nightcapui(Client *c, const Seperator *sep)
 {
 	if (sep->argnum == 1 && !strcmp(sep->arg[1], "stats")) {
 		c->RefreshEquippedStats();
+	} else if (sep->argnum == 1 && !strcmp(sep->arg[1], "inventory")) {
+		c->RefreshEquippedStats(true);
 	} else if (sep->argnum == 1 && !strcmp(sep->arg[1], "recommended")) {
 		const bool first = c->EnableAARecommendations();
 		c->RefreshNightcapUI();

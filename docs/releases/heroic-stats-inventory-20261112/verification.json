@@ -1,91 +1,27 @@
 {
-  "status": "unsigned_candidate_not_published",
-  "baseline_release": 2026110701,
-  "baseline_channel_sha256": "859547b78d249ab3b47c0e7bfbc68706ea0da83a525954e61b2e9d224f117b99",
-  "baseline_xml_sha256": "cf0402a36438a2a667add72cb37c259fd276a7ac1ac444fae7f8e7f63eb05648",
-  "candidate_xml_sha256": "0622dc1c2f3ffeacd6b3ac045d45ad07c7b98e63d8e2c053b48f69330a9f800c",
-  "candidate_size": 204524,
-  "changed_assets": 1,
-  "retained_descriptors": 147,
-  "native_eqtypes": [
-    251,
-    252,
-    254,
-    253,
-    255,
-    256,
-    257
-  ],
-  "added_controls": 14,
-  "existing_controls_preserved": true,
-  "server_rule_changes": false,
-  "native_visual_qa": "pending",
-  "captured_utc": "2026-11-12T17:26:58.077868+00:00",
-  "production_rules": "ruleset_id\trule_name\trule_value\n1\tCharacter:HeroicAgilityMultiplier\t1.0000000000000\n1\tCharacter:HeroicDexterityMultiplier\t1.0000000000000\n1\tCharacter:HeroicIntelligenceIncreaseSpellDmgMultiplier\t0.0000000000000\n1\tCharacter:HeroicIntelligenceMultiplier\t1.0000000000000\n1\tCharacter:HeroicStaminaMultiplier\t1.0000000000000\n1\tCharacter:HeroicStatsUseDataBucketsToScale\tfalse\n1\tCharacter:HeroicStrengthMultiplier\t1.0000000000000\n1\tCharacter:HeroicWisdomIncreaseHealAmtMultiplier\t0.0000000000000\n1\tCharacter:HeroicWisdomMultiplier\t1.0000000000000\n1\tCombat:NightcapHeroicMeleeScaling\ttrue\n1\tSpells:NightcapHeroicSpellScaling\ttrue\n",
-  "production_image": "sha256:56605b9ea493f1dd0298da16f7367b1be1138c4c75a62b0f972d9d4f31977e1c",
-  "native_process_hashes_match_retained_release": true,
-  "native_processes": [
-    [
-      "world",
-      "6ad73c8418fa0f35bac50ac0d4ae8f71be03f31b381fdf59c7a1b3f84ee934a0"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ],
-    [
-      "zone",
-      "740be894a5ad7444eadb79b10b0f0f5f76b2118e421ba73e7d03b8e27ab1ca04"
-    ]
-  ],
-  "ruleset_variable": "",
-  "zone_rulesets": "ruleset\tzone_rows\n0\t28\n1\t217\n2\t359\n3\t1\n4\t2\n5\t7\n20\t4\n",
-  "heroic_content_count": "heroic_items\thunt_augments\n112685\t280\n",
-  "examples": "id\tName\theroic_str\theroic_sta\theroic_dex\theroic_agi\theroic_int\theroic_wis\theroic_cha\n940024\tHillside Dewstone\t0\t0\t0\t1\t0\t1\t0\n940025\tHillside Dewstone (Polished)\t0\t0\t0\t1\t0\t1\t0\n940026\tHillside Dewstone (Exalted)\t0\t0\t0\t2\t0\t2\t0\n940027\tHillside Dewstone (Ascension)\t0\t0\t0\t3\t0\t3\t0\n940031\tPathfinder's Barkwrap (Ascension)\t0\t0\t0\t1\t0\t1\t0\n940032\tPasswatch Flint\t2\t0\t2\t0\t0\t0\t0\n940033\tPasswatch Flint (Polished)\t3\t0\t3\t0\t0\t0\t0\n940034\tPasswatch Flint (Exalted)\t4\t0\t4\t0\t0\t0\t0\n",
-  "tests": {
-    "character_ui": 5,
-    "gameplay_ui": 5,
-    "resource_controls": 11
+  "status": "AUTHORIZED_SIGNED_CANDIDATE_NOT_DEPLOYED",
+  "owner_authorization": "Yes, implement it to match the screenshot, including the caps and combat stats above. Use the correct server values for MIT and AVD, and publish it for live testing.",
+  "native_build": "native-build.json",
+  "candidate_zone": "b737e641008b0816706a14478e7d2fde5b5930829f7e1bba4b6954b3c4fda598",
+  "baseline_zone": "7b61b5acdf3ba89b5326ac1bf13bb777fe7f02ea00a8cde622a10bc3835e8bf5",
+  "client": {
+    "archive_sha256": {
+      "dinput8.dll": "df16b336eb0a8f744e588bcbc092125d0090fd18b50aa269c38017901a029d2d",
+      "nightcap-patch-sites.json": "f2a3e4c735e830dd97b261b7b8aa173d4ecaffa01b515bc89167b2c0da68a0f9",
+      "uifiles/nightcap/equi_inventory.xml": "545e9692f01bde1071bab4c927a66b13a6a9b2c07b638ad48e2c2cbd8bff5ab2"
+    },
+    "assets_preserved": 145,
+    "candidate_proxy_catalog_pair": "passed",
+    "changed_assets": 3,
+    "channel_sha256": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+    "exact_executable_preflight": "passed",
+    "native_player_acceptance": "pending",
+    "previous_channel_sha256": "e0201dd35be1501208c6783eeb3c6194e2d7b9ec080f70ef4f09f52d744dacd5",
+    "previous_release": 2026111201,
+    "release": 2026111202,
+    "signature": "verified against shipped production key",
+    "status": "signed_candidate_not_published",
+    "unchanged_asset_urls_preserved": true
   },
-  "published": false
+  "player_qa": "OPEN"
 }

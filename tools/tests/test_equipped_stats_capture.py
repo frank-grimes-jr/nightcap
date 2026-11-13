@@ -15,7 +15,9 @@ class EquippedStatsCapture(unittest.TestCase):
         self.assertLess(dispatch.index('command_subsettings'),quiet)
         self.assertLess(quiet,dispatch.index('EVENT_GM_COMMAND'))
         self.assertLess(quiet,dispatch.index('RecordPlayerEventLogWithClient'))
-        self.assertIn('sep.argnum == 1 && !strcmp(sep.arg[1], "stats")',dispatch[quiet:quiet+200])
+        self.assertIn('sep.argnum == 1',dispatch[quiet:quiet+260])
+        self.assertIn('!strcmp(sep.arg[1], "stats")',dispatch[quiet:quiet+260])
+        self.assertIn('!strcmp(sep.arg[1], "inventory")',dispatch[quiet:quiet+260])
     def test_actual_collection_excludes_bags_training_ineligible_and_stacks_strongest(self):
         text=(ROOT/'server-mods/code/zone/gm_commands/nightcapui.cpp').read_text()
         bodies=native.body(text,'static void AddEquippedFocus(')+'\n'+native.body(text,'static NightcapStats::Snapshot CaptureEquippedStats(')

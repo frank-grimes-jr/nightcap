@@ -1,0 +1,20 @@
+{
+  "status": "PREPARED_NOT_PUBLISHED",
+  "release": "20261112-inventory-combat-v1",
+  "previous_release": "20261112-earned-titles-v1",
+  "public_source_reproduced": true,
+  "files": 614,
+  "changed_existing": [
+    "augment-audit.html",
+    "equipment.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "added": [],
+  "removed": [],
+  "preserved_files": 609,
+  "authored_articles_reviewed": 43,
+  "native_visual_QA": "OPEN",
+  "publication": "pending"
+}
