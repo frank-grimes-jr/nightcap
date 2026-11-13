@@ -5,6 +5,13 @@ Exact acceptance criteria and combat/stat sources are in SPEC.md. The November12
 read-only probe confirmed heroic mechanics already active; this release changes
 the display and read-only stat delivery, with no balance, item or player edits.
 
+The frozen reviewed source/evidence snapshot is commit `b70292be` at
+`E:/EQ_Local_Dev/_worktrees/inventory-published-20261112`. Later integrated main
+also contains a separate raid-augment candidate. That later source is not proof
+of what this Inventory release deployed; retain the native build and paired
+receipts below. Installed skill fingerprints route to the frozen snapshot rather
+than blindly accepting subsequent changes to the same headers.
+
 ## Reviewed implementation and current release state
 
 Main Inventory shows HP/MP/endurance, AC/MIT/AVD/ATK/DMG/HEAL, XP/AA XP, attributes,

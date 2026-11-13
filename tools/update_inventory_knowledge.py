@@ -5,9 +5,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 from inventory_release_support import ROOT,HERE
 
 SKILL=Path('C:/Users/verre/.codex/skills/nightcap-development')
+REVIEWED=ROOT.parent/'inventory-published-20261112'
+REVIEWED_REVISION='b70292be18a9d2d7427dc289f14c6730a52a1dfc'
 
 
 def main():
@@ -16,12 +19,15 @@ def main():
     client=json.loads((HERE/'client-public-verification.json').read_text(encoding='utf-8'))
     wiki=json.loads((HERE/'wiki-public-verification.json').read_text(encoding='utf-8'))
     assert native['gateway_open'] and client['hosted'] and client['release']==2026111202 and wiki['status']=='PASS'
+    assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=REVIEWED,text=True).strip()==REVIEWED_REVISION
     original={p:(SKILL/p).read_text(encoding='utf-8') for p in ('references/client.md','references/operations.md','references/wiki.md','references/sources.json')}
     updated=dict(original)
     client_note='''## Inventory combat summary and heroics — November12 live testing
 
 Owner authorized main/live publication before acceptance. PR434/ab2e8d87 and
-E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory own source and
+E:/EQ_Local_Dev/_worktrees/inventory-published-20261112 owns the frozen b70292be
+published snapshot. Later main includes an unshipped raid-augment candidate;
+do not substitute its headers or clear that unrelated drift. The snapshot's
 docs/releases/heroic-stats-inventory-20261112/ owns exact build/rollout/client/
 wiki receipts and QA. Heroic mechanics were already enabled (standard1.0,
 Nightcap melee/spell scaling true); bucket scaling=false does not disable them.
@@ -82,7 +88,8 @@ stays review-required; visible player/combined balance acceptance remains OPEN.
         'November6 source E:/EQ_Local_Dev/_worktrees/character-stats-shield-block;\ncurrent Inventory/native pairing is the November12 combat-summary section above;',1)
     operations='''## Current native baseline — November12 Inventory live testing
 
-PR434/ab2e8d87, source5dabfb6d; E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory,
+PR434/ab2e8d87, source5dabfb6d; frozen b70292be evidence/source snapshot in
+E:/EQ_Local_Dev/_worktrees/inventory-published-20261112,
 docs/releases/heroic-stats-inventory-20261112/. Zoneb737e641 is deployed above the
 reproduced DoT7b61b5ac baseline. World95fc228a/shared_memoryb60c4dfc and current
 Client/ItemData/cache layouts remain. Four-source read-only UI delta compiles
@@ -108,7 +115,8 @@ paired-deployed receipt/files client pin for current state and future wrappers.
     pos=op.index('\n')+1;updated['references/operations.md']=op[:pos]+'\n'+operations+op[pos:].lstrip('\n')
     wiki_note='''## Inventory combat summary — November12 published for live testing
 
-E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory; docs/releases/heroic-stats-inventory-20261112/.
+Frozen published b70292be source: E:/EQ_Local_Dev/_worktrees/inventory-published-20261112;
+docs/releases/heroic-stats-inventory-20261112/. Newer main raid previews are separate.
 Wiki20261112-inventory-combat-v1 follows paired zoneb737e641/client2026111202.
 The current earned-title-preview614outputs reproduce exactly before only
 Equipment, Augment guide, Features, Change Log and search change;609outputs
@@ -127,12 +135,18 @@ visible acceptance stays OPEN. Never publish an older whole mirror.
     paths=list(json.loads((HERE/'source-fingerprints.json').read_text(encoding='utf-8')))
     paths += ['docs/releases/heroic-stats-inventory-20261112/'+n for n in ('README.md','SPEC.md','native-build.json',
         'native-deployment.json','client-public-verification.json','wiki-publication.json','wiki-public-verification.json','review.json','rollout.py')]
-    entries=[{'root':ROOT.as_posix(),'path':p,'role':'Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN',
-              'revision':'PR434/ab2e8d87 + observed paired publication evidence','sha256':hashlib.sha256((ROOT/p).read_bytes()).hexdigest()} for p in paths]
+    # Inspect exact committed content before accepting checkout-specific bytes.
+    # This preserves the publication boundary when newer main changes the same header.
+    for p in paths:
+        reviewed=(REVIEWED/p).read_bytes()
+        committed=subprocess.check_output(['git','show',REVIEWED_REVISION+':'+p],cwd=ROOT)
+        assert reviewed.replace(b'\r\n',b'\n')==committed.replace(b'\r\n',b'\n'),p
+    entries=[{'root':REVIEWED.as_posix(),'path':p,'role':'Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN',
+              'revision':'b70292be frozen published snapshot; PR434/ab2e8d87 and observed pairing','sha256':hashlib.sha256((REVIEWED/p).read_bytes()).hexdigest()} for p in paths]
     manifest['topics']['heroic-stats']=entries
     for row in manifest['topics'].get('character-stats-display',[]):
         if row['path'] in paths:row.update(next(e for e in entries if e['path']==row['path']))
-    manifest['observed_revisions']['heroic_stats_inventory_20261112']='PR434/ab2e8d87; source5dabfb6d; zoneb737e641/client2026111202/proxy0.13.6/wiki20261112-inventory-combat-v1 published and verified; owner visible acceptance OPEN'
+    manifest['observed_revisions']['heroic_stats_inventory_20261112']='PR434/ab2e8d87; source5dabfb6d/frozen published b70292be snapshot; zoneb737e641/client2026111202/proxy0.13.6/wiki20261112-inventory-combat-v1 verified; later main raid code is separate; visible acceptance OPEN'
     updated['references/sources.json']=json.dumps(manifest,indent=2,ensure_ascii=False)+'\n'
     patch=''.join(''.join(difflib.unified_diff(original[p].splitlines(True),updated[p].splitlines(True),fromfile='a/'+p,tofile='b/'+p)) for p in original)
     (HERE/'installed-skill.patch').write_text(patch,encoding='utf-8',newline='\n')

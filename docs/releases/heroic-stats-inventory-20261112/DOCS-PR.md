@@ -12,3 +12,7 @@ public write occurred before the lock stop. Retires the obsolete candidate skill
 updater, retains reproducible publication/verification helpers, and prevents
 preparation from overwriting completed deployment evidence. No additional native,
 client, database or gameplay deployment is performed by this evidence update.
+
+Preserves the concurrent main raid-augment candidate without claiming it shipped
+in this release. Pins the24 reviewed source/evidence entries to the frozen
+published b70292be checkout so later header changes remain explicit review drift.
