@@ -4,6 +4,14 @@
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared 90-second capstone cooldown. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](items/classic-raid-augments/README.md).
 
+## November12 — Inventory combat summary ready for authorized live testing
+
+Reviewed native/server-source build and signed2026111202/proxy0.13.6 candidate
+add front-page combat ratings, actual caps and gold heroic totals. MIT/AVD use
+the server combat getters; mechanics and progression remain. Activation/client
+and wiki publication are pending; owner native visual acceptance stays open.
+[Release, preservation checks and exact QA](releases/heroic-stats-inventory-20261112/README.md).
+
 ## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
 
 Player instant DoTs now skip only their negative one-time landing damage,

@@ -1,5 +1,6 @@
 """Extend the existing Stats page; stage outside the read-only client reference."""
 import xml.etree.ElementTree as ET
+from client_inventory_summary_ui import add_inventory_summary
 
 PAIRS=['Shielding','SpellShield','DamageShielding','DoTShielding','DamageShieldMitigation',
        'Avoidance','Accuracy','StunResist','StrikeThrough','HealAmount','SpellDamage','Clairvoyance','CombatEffects']
@@ -44,6 +45,7 @@ def add_character_stats(root):
     tile=root.find("TileLayoutBox[@item='IW_Stats']")
     if page is None or tile is None or root.find("Screen[@item='NCST_Bonuses']") is not None:
         raise ValueError('Unsupported or already updated Stats page')
+    add_inventory_summary(root)
     def put(node,tag,text):
         child=node.find(tag)
         if child is None:child=ET.SubElement(node,tag)

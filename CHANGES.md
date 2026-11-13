@@ -4,6 +4,17 @@
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared capstone cooldown with a guaranteed 90-second minimum. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).
 
+## 2026-11-12 — Inventory combat summary and caps prepared for live testing
+
+Owner authorized screenshot layout and paired publication. Main Inventory now
+contains combat ratings and server current/cap/heroic attributes; MIT uses cached
+combat AC and AVD total defense, with Auto preserving the native sentinel.
+Separate negotiated snapshot keeps old Stats clients compatible. No balance or
+player-state change. Current deployed source reproduces before native rebuild;
+signed2026111202/proxy0.13.6 and scoped614-file wiki candidate are prepared.
+Deployment/publication and owner visual QA are pending. Evidence:
+docs/releases/heroic-stats-inventory-20261112/.
+
 ## 2026-11-12 — Titles wiki preview published
 
 Owner requested "Push to wiki". Release20261112-earned-titles-v1 adds the complete77-title requirements guide and related navigation/owning-guide context as Not released. Reproduced all613prior public outputs, retained600exact files and verified all614new HTTPS hashes/headers plus private denials. Twenty site/refresh and16Linux publisher/recovery tests pass; pointer rollback, five services/config/channel/private downloads are preserved. Main source is separate from activation: title runtime and player QA remain pending. Evidence/recovery: docs/titles/wiki-release/.

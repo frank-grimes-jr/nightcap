@@ -1,0 +1,224 @@
+{
+  "reviewed": [
+    {
+      "article": "about",
+      "status": "Reference",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "advanced-loot",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "adventure-journal",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "ascension",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "ashen-compact",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "augment-audit",
+      "status": "Live testing",
+      "assessment": "Inventory instructions/status/history updated"
+    },
+    {
+      "article": "build-lab",
+      "status": "Reference",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "camil-vigil",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "combat",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "commands",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "dungeon-modes",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "equipment",
+      "status": "Live testing",
+      "assessment": "Inventory instructions/status/history updated"
+    },
+    {
+      "article": "features",
+      "status": "Live testing",
+      "assessment": "Inventory instructions/status/history updated"
+    },
+    {
+      "article": "getting-started",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "index",
+      "status": "Reference",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-960420",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-960421",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-960422",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-960423",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-960424",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-960425",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961020",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961021",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961022",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961023",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961030",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961031",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-961032",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-990510",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "item-upgrades",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "launcher",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "loot-finder",
+      "status": "Reference",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "multiclass",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "pets",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "recent-changes",
+      "status": "Reference",
+      "assessment": "Inventory instructions/status/history updated"
+    },
+    {
+      "article": "titles",
+      "status": "Not released",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "tradeskills",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "travel",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "tunnel",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "unreleased",
+      "status": "Not released",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "waypoints",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "zone-hunt",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    },
+    {
+      "article": "zone-kael",
+      "status": "Live testing",
+      "assessment": "No change to guide, access, commands, gameplay or rewards"
+    }
+  ],
+  "home": "Existing equipment path stays valid; no extra announcement",
+  "commands": "No player command needed; existing detailed Stats and augstats remain",
+  "catalogs": "No item/zone stats, acquisition, reward or balance changes",
+  "release_labels": "Live testing after matched server/client publication; title preview remains Not released",
+  "global_refresh": "Unrelated source drift remains review-required; no ledger advance"
+}

@@ -10,6 +10,7 @@
 #include "bazaar_panel_controller.h"
 #include "augment_item_description.h"
 #include "equipped_stats_state.h"
+#include "inventory_stats_state.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -77,6 +78,7 @@ static uintptr_t base = 0;
 static const char* install_failure = "not_started";
 static UIState state;
 static EquippedStatsState equipped_stats;
+static InventoryStatsState inventory_stats;
 static ULONGLONG next_stats_refresh = 0;
 static PetState pets;
 static PetManagement pet_management;
@@ -432,17 +434,18 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
     if (!CurrentManagementIdentity()) RequestManagementRefresh();
     LootPulse();
     if ((type>=10100 && type<10100+static_cast<int>(NightcapStats::Count)) ||
-        (type>=10200 && type<=10205) || (type>=10300 && type<=10312) || type==10400) {
+        (type>=10200 && type<=10205) || (type>=10300 && type<=10312) || type==10400 || InventoryStatsState::Handles(type)) {
         const auto now=GetTickCount64();
         const bool current=CurrentIdentity();
-        if(current && now>=next_stats_refresh && ExecuteUIRequest("#nightcapui stats")) {
+        if(current && now>=next_stats_refresh && ExecuteUIRequest("#nightcapui inventory")) {
             equipped_stats.Requested(state.Identity(),now);next_stats_refresh=now+1000;
         }
         const auto identity=current?state.Identity():NightcapStats::Identity{};
-        const auto text=equipped_stats.Label(type,identity,now);
+        const bool inventory=InventoryStatsState::Handles(type);
+        const auto text=inventory?inventory_stats.Label(type,identity,now):equipped_stats.Label(type,identity,now);
         reinterpret_cast<AssignString>(base+kUIStringAssignRva)(output,text.c_str());
         if(override_color)*override_color=true;
-        if(color)*color=equipped_stats.Ready(identity,now)?0xFF00FF00:0xFFAAAAAA;
+        if(color)*color=inventory?inventory_stats.Color(type,identity,now):equipped_stats.Ready(identity,now)?0xFF00FF00:0xFFAAAAAA;
         return true;
     }
     if (type >= 10030 && type <= 10033) {
@@ -474,6 +477,10 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
         if(CurrentIdentity())equipped_stats.Consume(message,state.Identity(),GetTickCount64());
         return; // Internal frames never leak into chat, including stale/malformed ones.
     }
+    if(message && !strncmp(message,"[NCIV1]",7)) {
+        if(CurrentIdentity())inventory_stats.Consume(message,state.Identity(),GetTickCount64());
+        return;
+    }
     if (ConsumeCraftReply(message)) return;
     if (ConsumeBazaarReply(message)) return;
     if (message && AdvancedLootUI::Consume(message)) return;
@@ -490,7 +497,7 @@ inline void __fastcall StateHook(void* self, void*, int next) {
     if (next != 5) ResetBazaarPanel();
     if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
     if (next != 5) AdvancedLootUI::Reset();
-    if (next != 5) { equipped_stats.Clear(); next_stats_refresh=0; state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
+    if (next != 5) { equipped_stats.Clear(); inventory_stats.Clear(); next_stats_refresh=0; state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
     if (next == 5) RequestRefresh();
 }

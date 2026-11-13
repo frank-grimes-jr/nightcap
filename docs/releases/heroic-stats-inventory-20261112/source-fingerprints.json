@@ -1,0 +1,17 @@
+{
+  "tools/client_inventory_summary_ui.py": "5475236539cf91368b8b1a49850fb8330c7bdf044ae8c2bf95c36948c3967623",
+  "tools/client_character_stats_ui.py": "eb72b4cc209d7214266d7398860401825398740ef9f31e92866d096878f5cc5e",
+  "tools/tests/test_client_character_stats.py": "84bd64857fbe229d89dbc904cd25a77d37dcc6ced3873b69a8b5fddaa56a0563",
+  "tools/tests/test_inventory_stats_protocol.py": "6dbfe05e93b98f498304387170757856fcafd741a39d1ded61e5feb27b5b2c6b",
+  "tools/tests/test_inventory_stats_capture.py": "71c64e672035ffac15008517e730b4d48997cec097c006f99e6422a2fce7fb3f",
+  "server-mods/code/common/inventory_stats_protocol.h": "c84467931aa0a6ccc37d5e824dc43b8852fa91f208c5219dd681028c570866a1",
+  "server-mods/code/zone/gm_commands/nightcapui.cpp": "da939d3f0a36b62febaee4ca0e1608fadc7c98429d0a4cf7febcbd91ab4bb85a",
+  "server-mods/code/zone/command.cpp": "13354f9370fe00007e1e93a308872d0286b885955d1d56673199bbe0f7a17cae",
+  "server-mods/code/zone/client.h": "ad6151280b6dd3299348f40e4128e172c682bfc58fbab80c2d1f0bc0ce36e26b",
+  "eq-client-dll/src/inventory_stats_state.h": "90d9bd278a18d5cf65fdc2f58dd523a413e15f6eb953156c01cf88e3f8165aa6",
+  "eq-client-dll/src/ui_hooks.h": "07c75f8f6805c1b88a9b317864ec59e15e52fcbd5762bdead80cb2a1093abd4b",
+  "eq-client-dll/tests/equipped-stats-labels.cpp": "8eb4f8bebb07e9e90ee02199a7962ae6a2863f2aa522f7bf86e088a9e734782d",
+  "eq-client-dll/config/patch-sites.json": "f2a3e4c735e830dd97b261b7b8aa173d4ecaffa01b515bc89167b2c0da68a0f9",
+  "eq-client-dll/src/runtime_contract.h": "896ce3361908dba6f0498cb1b0e69a6ce225089a5eabee239e23e4b23330f92e",
+  "eq-launcher/internal/preflight/catalog.json": "f2a3e4c735e830dd97b261b7b8aa173d4ecaffa01b515bc89167b2c0da68a0f9"
+}
