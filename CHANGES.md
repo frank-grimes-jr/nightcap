@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 13, 2026 · Stock worn ATK test candidate
+
+135 stock families receive reviewed ATK values across their three upgrades in the candidate. Six conflicting or exceptional observations retain the existing values. The 250 base cap and custom content remain in force. A 926-row isolated migration, rollback and native cap checks passed. See the [item list and in-game checks](docs/items/stock-worn-atk/README.md).
+
 ## November 12, 2026 · Classic raid augment candidate
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared capstone cooldown with a guaranteed 90-second minimum. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).

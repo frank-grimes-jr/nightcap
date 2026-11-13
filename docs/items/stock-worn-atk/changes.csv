@@ -1,0 +1,406 @@
+base_id,name,item_id,tier,before_atk,after_atk
+2630,Whispering Air Bangle,202630,Polished,20,22
+2630,Whispering Air Bangle,402630,Exalted,20,23
+2630,Whispering Air Bangle,602630,Ascended,20,25
+4118,Miserable Bauble,204118,Polished,0,3
+4118,Miserable Bauble,404118,Exalted,0,7
+4118,Miserable Bauble,604118,Ascended,0,10
+4119,Earring of Celestial Energy,204119,Polished,0,3
+4119,Earring of Celestial Energy,404119,Exalted,0,5
+4119,Earring of Celestial Energy,604119,Ascended,0,8
+4139,Karana's Tear,204139,Polished,0,6
+4139,Karana's Tear,404139,Exalted,0,12
+4139,Karana's Tear,604139,Ascended,0,18
+7962,Corrupted Shissar Claidhmore,207962,Polished,0,3
+7962,Corrupted Shissar Claidhmore,407962,Exalted,0,7
+7962,Corrupted Shissar Claidhmore,607962,Ascended,0,10
+8288,Yttrium Wrapped Sleeves,208288,Polished,0,3
+8288,Yttrium Wrapped Sleeves,408288,Exalted,0,7
+8288,Yttrium Wrapped Sleeves,608288,Ascended,0,10
+8782,Necklace of Celestial Energy,208782,Polished,0,6
+8782,Necklace of Celestial Energy,408782,Exalted,0,12
+8782,Necklace of Celestial Energy,608782,Ascended,0,18
+8977,Collar of Catastrophe,208977,Polished,30,32
+8977,Collar of Catastrophe,408977,Exalted,30,33
+8977,Collar of Catastrophe,608977,Ascended,30,35
+9462,Mask of the Insightful,209462,Polished,0,3
+9462,Mask of the Insightful,409462,Exalted,0,5
+9462,Mask of the Insightful,609462,Ascended,0,8
+9469,Radiant Mask of the Disease Lord,209469,Polished,15,16
+9469,Radiant Mask of the Disease Lord,409469,Exalted,15,18
+9469,Radiant Mask of the Disease Lord,609469,Ascended,15,19
+9479,Lava Forged Face Guard,209479,Polished,10,11
+9479,Lava Forged Face Guard,409479,Exalted,10,13
+9479,Lava Forged Face Guard,609479,Ascended,10,14
+9480,Fine Hammered Faceguard,209480,Polished,30,31
+9480,Fine Hammered Faceguard,409480,Exalted,30,33
+9480,Fine Hammered Faceguard,609480,Ascended,30,34
+9483,Visor of Endless Sight,209483,Polished,0,3
+9483,Visor of Endless Sight,409483,Exalted,0,7
+9483,Visor of Endless Sight,609483,Ascended,0,10
+9485,Grimfaced Visor,209485,Polished,20,22
+9485,Grimfaced Visor,409485,Exalted,20,23
+9485,Grimfaced Visor,609485,Ascended,20,25
+9488,Abalone Engraved Tribal Mask,209488,Polished,0,3
+9488,Abalone Engraved Tribal Mask,409488,Exalted,0,7
+9488,Abalone Engraved Tribal Mask,609488,Ascended,0,10
+9490,Primal Mask of the Earthcrafter,209490,Polished,0,2
+9490,Primal Mask of the Earthcrafter,409490,Exalted,0,4
+9490,Primal Mask of the Earthcrafter,609490,Ascended,0,6
+9574,Eye of Dreams,209574,Polished,0,7
+9574,Eye of Dreams,409574,Exalted,0,13
+9574,Eye of Dreams,609574,Ascended,0,20
+9812,Trydan's Helm of Nobility,209812,Polished,0,6
+9812,Trydan's Helm of Nobility,409812,Exalted,0,13
+9812,Trydan's Helm of Nobility,609812,Ascended,0,19
+9959,Band of Swirling Air,209959,Polished,0,5
+9959,Band of Swirling Air,409959,Exalted,0,10
+9959,Band of Swirling Air,609959,Ascended,0,15
+10137,Ring of Flowing Stones,210137,Polished,0,4
+10137,Ring of Flowing Stones,410137,Exalted,0,9
+10137,Ring of Flowing Stones,610137,Ascended,0,13
+10234,Simple Ring of Purity,210234,Polished,0,3
+10234,Simple Ring of Purity,410234,Exalted,0,7
+10234,Simple Ring of Purity,610234,Ascended,0,10
+10242,Earring of Embedded Coral,210242,Polished,0,3
+10242,Earring of Embedded Coral,410242,Exalted,0,7
+10242,Earring of Embedded Coral,610242,Ascended,0,10
+10654,Moss Encrusted Band,210654,Polished,25,28
+10654,Moss Encrusted Band,410654,Exalted,25,30
+10654,Moss Encrusted Band,610654,Ascended,25,33
+10948,Timestone Adorned Ring,210948,Polished,0,6
+10948,Timestone Adorned Ring,410948,Exalted,0,12
+10948,Timestone Adorned Ring,610948,Ascended,0,18
+11096,Clay Bracers of the Golem,211096,Polished,0,2
+11096,Clay Bracers of the Golem,411096,Exalted,0,3
+11096,Clay Bracers of the Golem,611096,Ascended,0,5
+11103,Bracers of Earthen Energy,211103,Polished,0,2
+11103,Bracers of Earthen Energy,411103,Exalted,0,3
+11103,Bracers of Earthen Energy,611103,Ascended,0,5
+11163,Trydan's Bracer of Nobility,211163,Polished,15,16
+11163,Trydan's Bracer of Nobility,411163,Exalted,15,18
+11163,Trydan's Bracer of Nobility,611163,Ascended,15,19
+11426,Shellplated Armguards,211426,Polished,0,5
+11426,Shellplated Armguards,411426,Exalted,0,9
+11426,Shellplated Armguards,611426,Ascended,0,14
+11435,Ton Po's Sleeves of Composure,211435,Polished,30,32
+11435,Ton Po's Sleeves of Composure,411435,Exalted,30,33
+11435,Ton Po's Sleeves of Composure,611435,Ascended,30,35
+11438,Trydan's Armplates of Nobility,211438,Polished,25,27
+11438,Trydan's Armplates of Nobility,411438,Exalted,25,28
+11438,Trydan's Armplates of Nobility,611438,Ascended,25,30
+12054,Cord of the Pyre,212054,Polished,30,31
+12054,Cord of the Pyre,412054,Exalted,30,33
+12054,Cord of the Pyre,612054,Ascended,30,34
+12082,Cloak of Combustion,212082,Polished,0,8
+12082,Cloak of Combustion,412082,Exalted,0,15
+12082,Cloak of Combustion,612082,Ascended,0,23
+12592,Great Mask of Flame,212592,Polished,30,32
+12592,Great Mask of Flame,412592,Exalted,30,33
+12592,Great Mask of Flame,612592,Ascended,30,35
+12627,Trydan's Gauntlets of Nobility,212627,Polished,30,32
+12627,Trydan's Gauntlets of Nobility,412627,Exalted,30,33
+12627,Trydan's Gauntlets of Nobility,612627,Ascended,30,35
+13647,Mantle of Pure Spirit,213647,Polished,0,3
+13647,Mantle of Pure Spirit,413647,Exalted,0,7
+13647,Mantle of Pure Spirit,613647,Ascended,0,10
+13672,Exquisite Phoenix Feather Mantle,213672,Polished,30,32
+13672,Exquisite Phoenix Feather Mantle,413672,Exalted,30,33
+13672,Exquisite Phoenix Feather Mantle,613672,Ascended,30,35
+13694,Sharkbone Plated Shoulderpads,213694,Polished,20,22
+13694,Sharkbone Plated Shoulderpads,413694,Exalted,20,25
+13694,Sharkbone Plated Shoulderpads,613694,Ascended,20,27
+14961,Mail of Storms,214961,Polished,35,37
+14961,Mail of Storms,414961,Exalted,35,40
+14961,Mail of Storms,614961,Ascended,35,42
+15751,Jaylia's Valiant Chestplate,215751,Polished,0,4
+15751,Jaylia's Valiant Chestplate,415751,Exalted,0,7
+15751,Jaylia's Valiant Chestplate,615751,Ascended,0,11
+15806,Cape Embroidered with Runes,215806,Polished,0,2
+15806,Cape Embroidered with Runes,415806,Exalted,0,4
+15806,Cape Embroidered with Runes,615806,Ascended,0,6
+15840,Cloak of Flickering Flame,215840,Polished,0,3
+15840,Cloak of Flickering Flame,415840,Exalted,0,7
+15840,Cloak of Flickering Flame,615840,Ascended,0,10
+15841,Ensorcelled Metalcloth Cape,215841,Polished,0,4
+15841,Ensorcelled Metalcloth Cape,415841,Exalted,0,9
+15841,Ensorcelled Metalcloth Cape,615841,Ascended,0,13
+15842,Cloak of Retribution,215842,Polished,0,2
+15842,Cloak of Retribution,415842,Exalted,0,4
+15842,Cloak of Retribution,615842,Ascended,0,6
+15847,Celestial Cloak,215847,Polished,0,7
+15847,Celestial Cloak,415847,Exalted,0,15
+15847,Celestial Cloak,615847,Ascended,0,22
+15873,Valiant Belt of Fallen Heroes,215873,Polished,0,4
+15873,Valiant Belt of Fallen Heroes,415873,Exalted,0,8
+15873,Valiant Belt of Fallen Heroes,615873,Ascended,0,12
+15877,Belt of Tidal Energy,215877,Polished,0,2
+15877,Belt of Tidal Energy,415877,Exalted,0,3
+15877,Belt of Tidal Energy,615877,Ascended,0,5
+15927,Belt of Temporal Bindings,215927,Polished,0,7
+15927,Belt of Temporal Bindings,415927,Exalted,0,13
+15927,Belt of Temporal Bindings,615927,Ascended,0,20
+16254,Runed Signet,216254,Polished,0,5
+16254,Runed Signet,416254,Exalted,0,10
+16254,Runed Signet,616254,Ascended,0,15
+16256,Marked Runed Signet,216256,Polished,0,6
+16256,Marked Runed Signet,416256,Exalted,0,11
+16256,Marked Runed Signet,616256,Ascended,0,17
+16637,Leaf-jointed Cloak,216637,Polished,20,22
+16637,Leaf-jointed Cloak,416637,Exalted,20,23
+16637,Leaf-jointed Cloak,616637,Ascended,20,25
+16727,Ton Po's Leggings of Composure,216727,Polished,40,42
+16727,Ton Po's Leggings of Composure,416727,Exalted,40,45
+16727,Ton Po's Leggings of Composure,616727,Ascended,40,47
+16757,Trydan's Greaves of Nobility,216757,Polished,40,42
+16757,Trydan's Greaves of Nobility,416757,Exalted,40,45
+16757,Trydan's Greaves of Nobility,616757,Ascended,40,47
+19082,Boots of the Warmaster,219082,Polished,20,21
+19082,Boots of the Warmaster,419082,Exalted,20,23
+19082,Boots of the Warmaster,619082,Ascended,20,24
+19094,Sable Shoes of Flame,219094,Polished,0,6
+19094,Sable Shoes of Flame,419094,Exalted,0,13
+19094,Sable Shoes of Flame,619094,Ascended,0,19
+19144,Flowing Moss Mantle,219144,Polished,0,3
+19144,Flowing Moss Mantle,419144,Exalted,0,6
+19144,Flowing Moss Mantle,619144,Ascended,0,9
+19446,Ton Po's Sandals of Composure,219446,Polished,20,22
+19446,Ton Po's Sandals of Composure,419446,Exalted,20,23
+19446,Ton Po's Sandals of Composure,619446,Ascended,20,25
+19838,Askr's Thunderous Boots,219838,Polished,20,21
+19838,Askr's Thunderous Boots,419838,Exalted,20,23
+19838,Askr's Thunderous Boots,619838,Ascended,20,24
+20454,Stone Etched Mallet,220454,Polished,0,6
+20454,Stone Etched Mallet,420454,Exalted,0,12
+20454,Stone Etched Mallet,620454,Ascended,0,18
+20618,Fang of Flame,220618,Polished,10,11
+20618,Fang of Flame,420618,Exalted,10,12
+20618,Fang of Flame,620618,Ascended,10,13
+20621,Earthen Bile,220621,Polished,20,22
+20621,Earthen Bile,420621,Exalted,20,23
+20621,Earthen Bile,620621,Ascended,20,25
+20625,Serrated Dart of Energy,220625,Polished,0,3
+20625,Serrated Dart of Energy,420625,Exalted,0,7
+20625,Serrated Dart of Energy,620625,Ascended,0,10
+21993,Bracer of the Inferno,221993,Polished,0,7
+21993,Bracer of the Inferno,421993,Exalted,0,13
+21993,Bracer of the Inferno,621993,Ascended,0,20
+21996,Cloak of Ferocity,221996,Polished,15,17
+21996,Cloak of Ferocity,421996,Exalted,15,18
+21996,Cloak of Ferocity,621996,Ascended,15,20
+21999,Hoop of the Enlightened,221999,Polished,0,3
+21999,Hoop of the Enlightened,421999,Exalted,0,6
+21999,Hoop of the Enlightened,621999,Ascended,0,9
+22894,Hammer of the Timeweaver,222894,Polished,0,8
+22894,Hammer of the Timeweaver,422894,Exalted,0,15
+22894,Hammer of the Timeweaver,622894,Ascended,0,23
+22972,Clawed Earthcrafter's Hoop,222972,Polished,20,22
+22972,Clawed Earthcrafter's Hoop,422972,Exalted,20,23
+22972,Clawed Earthcrafter's Hoop,622972,Ascended,20,25
+23498,Hopebringer,223498,Polished,0,3
+23498,Hopebringer,423498,Exalted,0,5
+23498,Hopebringer,623498,Ascended,0,8
+24692,Jagged Timeforged Blade,224692,Polished,0,7
+24692,Jagged Timeforged Blade,424692,Exalted,0,13
+24692,Jagged Timeforged Blade,624692,Ascended,0,20
+24999,Staff of Transcendence,224999,Polished,0,10
+24999,Staff of Transcendence,424999,Exalted,0,20
+24999,Staff of Transcendence,624999,Ascended,0,30
+25844,Pulsing Emerald Hoop,225844,Polished,0,3
+25844,Pulsing Emerald Hoop,425844,Exalted,0,5
+25844,Pulsing Emerald Hoop,625844,Ascended,0,8
+25986,Plankton Laced Greatsword,225986,Polished,0,3
+25986,Plankton Laced Greatsword,425986,Exalted,0,6
+25986,Plankton Laced Greatsword,625986,Ascended,0,9
+26554,Divine Hammer of Consternation,226554,Polished,0,3
+26554,Divine Hammer of Consternation,426554,Exalted,0,5
+26554,Divine Hammer of Consternation,626554,Ascended,0,8
+26557,Jenniy's Two-tone Cuirass,226557,Polished,0,2
+26557,Jenniy's Two-tone Cuirass,426557,Exalted,0,5
+26557,Jenniy's Two-tone Cuirass,626557,Ascended,0,7
+26563,Shiny Trinket of Speed,226563,Polished,0,4
+26563,Shiny Trinket of Speed,426563,Exalted,0,9
+26563,Shiny Trinket of Speed,626563,Ascended,0,13
+26587,The Sword of Ssraeshza,226587,Polished,0,7
+26587,The Sword of Ssraeshza,426587,Exalted,0,13
+26587,The Sword of Ssraeshza,626587,Ascended,0,20
+26752,Bracelet of Darkness,226752,Polished,0,3
+26752,Bracelet of Darkness,426752,Exalted,0,7
+26752,Bracelet of Darkness,626752,Ascended,0,10
+26761,Belt of Mastery,226761,Polished,10,11
+26761,Belt of Mastery,426761,Exalted,10,11
+26761,Belt of Mastery,626761,Ascended,10,12
+26765,Silver Steel Cloak,226765,Polished,0,2
+26765,Silver Steel Cloak,426765,Exalted,0,3
+26765,Silver Steel Cloak,626765,Ascended,0,5
+26770,Great Shadow Platemail,226770,Polished,50,52
+26770,Great Shadow Platemail,426770,Exalted,50,55
+26770,Great Shadow Platemail,626770,Ascended,50,57
+26771,Armguard of Shadows,226771,Polished,50,51
+26771,Armguard of Shadows,426771,Exalted,50,52
+26771,Armguard of Shadows,626771,Ascended,50,53
+26775,Earring of Eradication,226775,Polished,15,16
+26775,Earring of Eradication,426775,Exalted,15,17
+26775,Earring of Eradication,626775,Ascended,15,18
+26785,Mask of Judgement,226785,Polished,0,4
+26785,Mask of Judgement,426785,Exalted,0,9
+26785,Mask of Judgement,626785,Ascended,0,13
+26787,Wristband of Judgement,226787,Polished,0,2
+26787,Wristband of Judgement,426787,Exalted,0,3
+26787,Wristband of Judgement,626787,Ascended,0,5
+26799,Globe of Mystical Protection,226799,Polished,0,3
+26799,Globe of Mystical Protection,426799,Exalted,0,7
+26799,Globe of Mystical Protection,626799,Ascended,0,10
+26988,Winged Storm Boots,226988,Polished,0,4
+26988,Winged Storm Boots,426988,Exalted,0,9
+26988,Winged Storm Boots,626988,Ascended,0,13
+26992,Ring of Force,226992,Polished,15,17
+26992,Ring of Force,426992,Exalted,15,18
+26992,Ring of Force,626992,Ascended,15,20
+27297,Warden's Buckler,227297,Polished,0,4
+27297,Warden's Buckler,427297,Exalted,0,8
+27297,Warden's Buckler,627297,Ascended,0,12
+27818,Bow of the Tempest,227818,Polished,30,33
+27818,Bow of the Tempest,427818,Exalted,30,35
+27818,Bow of the Tempest,627818,Ascended,30,38
+28605,Coif of Flowing Time,228605,Polished,20,21
+28605,Coif of Flowing Time,428605,Exalted,20,23
+28605,Coif of Flowing Time,628605,Ascended,20,24
+28655,Smooth Onyx Torque,228655,Polished,0,3
+28655,Smooth Onyx Torque,428655,Exalted,0,6
+28655,Smooth Onyx Torque,628655,Ascended,0,9
+28656,Tactician's Shield,228656,Polished,0,3
+28656,Tactician's Shield,428656,Exalted,0,6
+28656,Tactician's Shield,628656,Ascended,0,9
+28657,Fiery Crystal Guard,228657,Polished,20,22
+28657,Fiery Crystal Guard,428657,Exalted,20,23
+28657,Fiery Crystal Guard,628657,Ascended,20,25
+28663,Runewarded Belt,228663,Polished,30,32
+28663,Runewarded Belt,428663,Exalted,30,33
+28663,Runewarded Belt,628663,Ascended,30,35
+28667,Bracer of Precision,228667,Polished,20,22
+28667,Bracer of Precision,428667,Exalted,20,23
+28667,Bracer of Precision,628667,Ascended,20,25
+28883,Shaded Amice,228883,Polished,0,5
+28883,Shaded Amice,428883,Exalted,0,10
+28883,Shaded Amice,628883,Ascended,0,15
+28884,Ring of Rage,228884,Polished,10,11
+28884,Ring of Rage,428884,Exalted,10,11
+28884,Ring of Rage,628884,Ascended,10,12
+28888,Shadow Footpads,228888,Polished,0,2
+28888,Shadow Footpads,428888,Exalted,0,5
+28888,Shadow Footpads,628888,Ascended,0,7
+28939,Hoop of Chaos,228939,Polished,10,11
+28939,Hoop of Chaos,428939,Exalted,10,11
+28939,Hoop of Chaos,628939,Ascended,10,12
+28940,Shadow Pearl Earring,228940,Polished,0,3
+28940,Shadow Pearl Earring,428940,Exalted,0,5
+28940,Shadow Pearl Earring,628940,Ascended,0,8
+28943,Cloudy Mark,228943,Polished,10,11
+28943,Cloudy Mark,428943,Exalted,10,11
+28943,Cloudy Mark,628943,Ascended,10,12
+28965,Leggings of Fiery Might,228965,Polished,0,3
+28965,Leggings of Fiery Might,428965,Exalted,0,7
+28965,Leggings of Fiery Might,628965,Ascended,0,10
+28973,Tiny Bone Bracelet,228973,Polished,0,2
+28973,Tiny Bone Bracelet,428973,Exalted,0,5
+28973,Tiny Bone Bracelet,628973,Ascended,0,7
+28974,Great Maul of Slaughter,228974,Polished,0,8
+28974,Great Maul of Slaughter,428974,Exalted,0,17
+28974,Great Maul of Slaughter,628974,Ascended,0,25
+28990,Shield of Spiked Energy,228990,Polished,0,6
+28990,Shield of Spiked Energy,428990,Exalted,0,12
+28990,Shield of Spiked Energy,628990,Ascended,0,18
+28996,Bracer of Black Blood,228996,Polished,20,21
+28996,Bracer of Black Blood,428996,Exalted,20,22
+28996,Bracer of Black Blood,628996,Ascended,20,23
+29172,"Vanazir, Dreamer's Despair",229172,Polished,0,5
+29172,"Vanazir, Dreamer's Despair",429172,Exalted,0,10
+29172,"Vanazir, Dreamer's Despair",629172,Ascended,0,15
+29174,Mask of Strategic Insight,229174,Polished,25,27
+29174,Mask of Strategic Insight,429174,Exalted,25,28
+29174,Mask of Strategic Insight,629174,Ascended,25,30
+30525,Ivory Crystal Greaves,230525,Polished,0,3
+30525,Ivory Crystal Greaves,430525,Exalted,0,6
+30525,Ivory Crystal Greaves,630525,Ascended,0,9
+30551,Yttrium Studded Mantle,230551,Polished,0,4
+30551,Yttrium Studded Mantle,430551,Exalted,0,8
+30551,Yttrium Studded Mantle,630551,Ascended,0,12
+30564,Vengeful Mail of the Void,230564,Polished,0,6
+30564,Vengeful Mail of the Void,430564,Exalted,0,11
+30564,Vengeful Mail of the Void,630564,Ascended,0,17
+31223,Brother Xave's Headband,231223,Polished,0,4
+31223,Brother Xave's Headband,431223,Exalted,0,9
+31223,Brother Xave's Headband,631223,Ascended,0,13
+31233,Akkirus' Mask of Warfare,231233,Polished,0,3
+31233,Akkirus' Mask of Warfare,431233,Exalted,0,7
+31233,Akkirus' Mask of Warfare,631233,Ascended,0,10
+31235,Feeliux's Cord of Velocity,231235,Polished,0,8
+31235,Feeliux's Cord of Velocity,431235,Exalted,0,17
+31235,Feeliux's Cord of Velocity,631235,Ascended,0,25
+31238,Maclaer's Boots of Silence,231238,Polished,0,7
+31238,Maclaer's Boots of Silence,431238,Exalted,0,13
+31238,Maclaer's Boots of Silence,631238,Ascended,0,20
+31347,Silver Disk,231347,Polished,0,4
+31347,Silver Disk,431347,Exalted,0,9
+31347,Silver Disk,631347,Ascended,0,13
+31603,Girdle of Stability,231603,Polished,30,31
+31603,Girdle of Stability,431603,Exalted,30,33
+31603,Girdle of Stability,631603,Ascended,30,34
+32106,Jade Hoop of Speed,232106,Polished,0,3
+32106,Jade Hoop of Speed,432106,Exalted,0,7
+32106,Jade Hoop of Speed,632106,Ascended,0,10
+32110,Wristband of Icy Vengeance,232110,Polished,0,3
+32110,Wristband of Icy Vengeance,432110,Exalted,0,7
+32110,Wristband of Icy Vengeance,632110,Ascended,0,10
+32322,Idol of the Fallen,232322,Polished,0,3
+32322,Idol of the Fallen,432322,Exalted,0,5
+32322,Idol of the Fallen,632322,Ascended,0,8
+35003,Intricate Wooden Figurine,235003,Polished,0,4
+35003,Intricate Wooden Figurine,435003,Exalted,0,9
+35003,Intricate Wooden Figurine,635003,Ascended,0,13
+35004,Intricate Wooden Figurine,235004,Polished,0,3
+35004,Intricate Wooden Figurine,435004,Exalted,0,5
+35004,Intricate Wooden Figurine,635004,Ascended,0,8
+35007,Intricate Wooden Figurine,235007,Polished,0,4
+35007,Intricate Wooden Figurine,435007,Exalted,0,9
+35007,Intricate Wooden Figurine,635007,Ascended,0,13
+35016,Intricate Wooden Figurine,235016,Polished,0,5
+35016,Intricate Wooden Figurine,435016,Exalted,0,10
+35016,Intricate Wooden Figurine,635016,Ascended,0,15
+47644,Trydan's Chestplate of Nobility,247644,Polished,0,9
+47644,Trydan's Chestplate of Nobility,447644,Exalted,0,19
+47644,Trydan's Chestplate of Nobility,647644,Ascended,0,28
+47650,Ton Po's Chestwraps of Composure,247650,Polished,0,9
+47650,Ton Po's Chestwraps of Composure,447650,Exalted,0,19
+47650,Ton Po's Chestwraps of Composure,647650,Ascended,0,28
+51221,Crown of the Twisted,251221,Polished,10,11
+51221,Crown of the Twisted,451221,Exalted,10,13
+51221,Crown of the Twisted,651221,Ascended,10,14
+55508,Galladan's Stormwrath Sleeves,255508,Polished,30,32
+55508,Galladan's Stormwrath Sleeves,455508,Exalted,30,33
+55508,Galladan's Stormwrath Sleeves,655508,Ascended,30,35
+55509,Galladan's Stormwrath Boots,255509,Polished,20,21
+55509,Galladan's Stormwrath Boots,455509,Exalted,20,23
+55509,Galladan's Stormwrath Boots,655509,Ascended,20,24
+55511,Galladan's Stormwrath Tunic,255511,Polished,0,5
+55511,Galladan's Stormwrath Tunic,455511,Exalted,0,10
+55511,Galladan's Stormwrath Tunic,655511,Ascended,0,15
+55512,Galladan's Stormwrath Leggings,255512,Polished,40,42
+55512,Galladan's Stormwrath Leggings,455512,Exalted,40,43
+55512,Galladan's Stormwrath Leggings,655512,Ascended,40,45
+55513,Galladan's Stormwrath Coif,255513,Polished,0,5
+55513,Galladan's Stormwrath Coif,455513,Exalted,0,10
+55513,Galladan's Stormwrath Coif,655513,Ascended,0,15
+61180,Black Enchanted Amulet,261180,Polished,0,2
+61180,Black Enchanted Amulet,461180,Exalted,0,3
+61180,Black Enchanted Amulet,661180,Ascended,0,5
+62429,Blazing Bracers of Discovery,262429,Polished,10,11
+62429,Blazing Bracers of Discovery,462429,Exalted,10,11
+62429,Blazing Bracers of Discovery,662429,Ascended,10,12
+62431,Plated Boots of Ill Fates,262431,Polished,10,11
+62431,Plated Boots of Ill Fates,462431,Exalted,10,12
+62431,Plated Boots of Ill Fates,662431,Ascended,10,13
+68197,Temporal Chainmail Sleeves,268197,Polished,25,26
+68197,Temporal Chainmail Sleeves,468197,Exalted,25,27
+68197,Temporal Chainmail Sleeves,668197,Ascended,25,28

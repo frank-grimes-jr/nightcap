@@ -1,0 +1,8 @@
+{
+  "sha256_lf": "edee9aa0f16b0c4f083e78eaea342e9d641ac60d51b575f0d64a50e84f6e3324",
+  "baseline_sha256_lf": "43f2a067b38589be89aaf866a8c50313add63c6aff655371851842f7f9f8c1cb",
+  "byte_length_lf": 57711423,
+  "validated_changes": 405,
+  "source": "tools/thj_stock_scaling.py --bootstrap eq-solo-gm/scripts/thj-stock-bootstrap.sql",
+  "baseline": "docs/releases/thj-behaviors-20261019/stock-bootstrap.sql.gz"
+}
