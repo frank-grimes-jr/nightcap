@@ -39,5 +39,16 @@
     "Owner RoF2 gameplay and balance",
     "Master Yael public spawn route"
   ],
-  "production_writes": false
+  "production_writes": false,
+  "measured_balance": {
+    "baseline_runs": 1104,
+    "baseline_kill_screens": 138,
+    "baseline_kill_flags": 0,
+    "baseline_healing_screens": 203,
+    "baseline_healing_flags": 29,
+    "post_timer_runs": 150,
+    "post_timer_min_reuse_ms": 90350,
+    "dreadbone_fresh_runs": 24,
+    "source": "balance/README.md"
+  }
 }

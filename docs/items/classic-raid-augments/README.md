@@ -18,6 +18,12 @@ All three native binaries compiled and linked against a retained local Nightcap 
 
 The wiki builds 607 pages, with all 16 names and five guide links checked. Twenty-two wiki/refresh/augment tests passed. A separate frozen Build Lab test reports a pre-existing effects.cpp fingerprint mismatch on the branch base, and the whole-wiki reviewed-source ledger also reports historical drift. Neither ledger was advanced. The usual upkeep for a restored discipline buff counts toward Prism after a fresh direct cast because persisted buffs omit cast origin. See the candidate balance evidence and open owner QA below.
 
+## Measured balance
+
+The [encounter study](balance/README.md) covers all 16 trophies across four level-50 builds and four bosses, with 500 legally spent AA points on each build. The original 1,104 seeded fights produced 138 comparable three-kill screens. No trophy beat the fastest of six measured Hunt choices by more than 5%. Of 203 comparable healing screens, 29 exceeded 5%. The empty-socket control accounted for most of the excess. The remaining Dreadbone/Eye result was checked in 24 fresh fights. Dreadbone and both Hunt controls won five of six attempts, and Dreadbone healed 5.58% less per second than the healing Hunt control over all attempts.
+
+The fight timestamps exposed a capstone reuse as short as 89.10 seconds. After correcting the persistent timer, 150 targeted fights produced 44 repeat-activation intervals with a 90.35-second observed minimum. All 105 Hunt and empty controls reproduced their original results. The 45 paired capstone fights had the same win/loss outcomes. Five healing flags remain in the targeted comparison. The study records their controls and interpretation. RoF2 player QA still needs a real chest, a relog, an eligible boss corpse and native encounters in their home zones.
+
 ## Player acceptance on a test stack
 
 1. At level 50 compare a chest with a type-22 socket to an otherwise identical one without it. Insert a trophy, replace it with another, extract it and relog. Try head armor, a loose trophy in the chest slot, pet armor and the Power Source slot. Try two identical awards, a chest already holding the same trophy, and two different trophies. Verify ordinary equipment and augment behavior with existing regression suites.
