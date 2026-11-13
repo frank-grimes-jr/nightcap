@@ -1,3 +1,4 @@
+#include "common/raid_augment.h"
 #include "common/dungeon_policy.h"
 #include "common/last_lantern_policy.h"
 /*	EQEMu: Everquest Server Emulator
@@ -1008,8 +1009,8 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 		item.SummonedFlag    = e.summonedflag;
 
 		// Lore
-		item.LoreGroup = disable_lore ? 0 : e.loregroup;
-		item.LoreFlag  = !disable_lore && item.LoreGroup != 0;
+		item.LoreGroup = NightcapRaidAug::IsReward(item.ID) ? -1 : (disable_lore ? 0 : e.loregroup);
+		item.LoreFlag  = item.LoreGroup != 0;
 
 		// Type
 		item.AugType  = e.augtype;

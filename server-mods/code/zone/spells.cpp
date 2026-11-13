@@ -397,7 +397,12 @@ bool Mob::DoCastSpell(uint16 spell_id, uint16 target_id, CastingSlot slot,
 		LogSpells("Spell casting canceled: fizzled. [{}] mana has been consumed", use_mana);
 
 		// fizzle 1/4 the mana away
-		Mob::SetMana(GetMana() - use_mana); // We send StopCasting which will update mana
+		const auto before = GetMana();
+		Mob::SetMana(before - use_mana); // We send StopCasting which will update mana
+		if (IsClient() && !aa_id && CastToClient()->raid_augment.item == NightcapRaidAug::Prism &&
+			!NightcapRaidAug::IsExchangeSpell(spell_id)) {
+			NightcapRaidAug::Spend(*CastToClient(), before - GetMana(), true);
+		}
 		StopCasting();
 
 		MessageString(Chat::SpellFailure, fizzle_msg);
@@ -2498,6 +2503,16 @@ bool Mob::DetermineSpellTargets(uint16 spell_id, Mob *&spell_target, Mob *&ae_ce
 // only used from CastedSpellFinished, and procs
 // we can't interrupt in this, or anything called from this!
 // if you need to abort the casting, return false
+bool NightcapRaidAug::IsExchangeSpell(uint16_t spell_id)
+{
+	return IsSelfConversionSpell(spell_id) || IsManaTapSpell(spell_id) ||
+		IsEffectInSpell(spell_id, SpellEffect::CurrentMana) || IsEffectInSpell(spell_id, SpellEffect::CurrentManaOnce) ||
+		IsEffectInSpell(spell_id, SpellEffect::CurrentEndurance) || IsEffectInSpell(spell_id, SpellEffect::CurrentEnduranceOnce) ||
+		IsEffectInSpell(spell_id, SpellEffect::ResourceTap) || IsEffectInSpell(spell_id, SpellEffect::Instant_Mana_Pct) ||
+		IsEffectInSpell(spell_id, SpellEffect::Instant_Endurance_Pct) || IsEffectInSpell(spell_id, SpellEffect::ManaBurn) ||
+		IsEffectInSpell(spell_id, SpellEffect::HealGroupFromMana) || IsEffectInSpell(spell_id, SpellEffect::HPToMana);
+}
+
 bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, int32 mana_used,
 						uint32 inventory_slot, int16 resist_adjust, bool isproc, int level_override,
 						uint32 timer, uint32 timer_duration, bool from_casted_spell, uint32 aa_id)
@@ -2507,6 +2522,9 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 	if(!IsValidSpell(spell_id))
 		return false;
 
+	const bool raid_gem = IsClient() && from_casted_spell && slot < CastingSlot::MaxGems && !isproc && !aa_id;
+	NightcapRaidAug::CastOrigin raid_origin(this, spell_id, raid_gem, isproc || IsFromTriggeredSpell(slot, inventory_slot),
+		slot == CastingSlot::Discipline && !isproc && !aa_id);
 	const bool thj_resource = RuleB(Spells, NightcapTHJBehaviors) && IsClient() && NightcapTHJ::ResourcePercent(spell_id);
 	const int32 thj_mana = thj_resource ? NightcapTHJ::PercentMana(GetMaxMana(), NightcapTHJ::ResourcePercent(spell_id)) : 0;
 	if (thj_resource) {
@@ -2872,6 +2890,9 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 		}
 	}
 
+	const bool raid_spend = IsClient() && CastToClient()->raid_augment.item == NightcapRaidAug::Prism &&
+		(raid_gem || (slot == CastingSlot::Discipline && !isproc && !aa_id)) &&
+		!NightcapRaidAug::IsExchangeSpell(spell_id);
 	bool mgb = HasMGB() && spells[spell_id].can_mgb;
 	// if this was a spell slot or an ability use up the mana for it
 	if (thj_resource) {
@@ -2890,7 +2911,11 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 			mana_used = GetMana();
 		LogSpells("Spell [{}]: consuming [{}] mana", spell_id, mana_used);
 		if (!DoHPToManaCovert(mana_used)) {
-			SetMana(GetMana() - mana_used);
+			const auto before_mana = GetMana();
+			SetMana(before_mana - mana_used);
+			if (raid_spend) {
+				NightcapRaidAug::Spend(*CastToClient(), before_mana - GetMana(), true);
+			}
 			TryTriggerOnCastRequirement();
 		}
 	}
@@ -2901,7 +2926,11 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 		auto end_cost = (int64)spells[spell_id].endurance_cost;
 		if (mgb)
 			end_cost *= 2;
-		SetEndurance(GetEndurance() - EQ::ClampUpper(end_cost, GetEndurance()));
+		const auto before_endurance = GetEndurance();
+		SetEndurance(before_endurance - EQ::ClampUpper(end_cost, before_endurance));
+		if (raid_spend) {
+			NightcapRaidAug::Spend(*CastToClient(), before_endurance - GetEndurance(), false);
+		}
 		TryTriggerOnCastRequirement();
 	}
 	if (mgb) {

@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 12, 2026 · Classic raid augment candidate
+
+Sixteen individually LORE chest augments use independent boss rolls and a shared 90-second capstone cooldown. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](items/classic-raid-augments/README.md).
+
 ## November12 — Inventory combat summary published for live testing
 
 PR434/ab2e8d87, zoneb737e641 and signed2026111202/proxy0.13.6 are deployed;

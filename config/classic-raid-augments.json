@@ -1,0 +1,323 @@
+[
+  {
+    "id": 963200,
+    "name": "Frostbound Pearl",
+    "icon": 966,
+    "lore": "Healing, wisdom and cold protection.",
+    "stats": {
+      "healamt": 8,
+      "heroic_wis": 4,
+      "cr": 10
+    },
+    "sources": [
+      [
+        73,
+        73057,
+        25
+      ]
+    ]
+  },
+  {
+    "id": 963201,
+    "name": "Cinderfang",
+    "icon": 959,
+    "lore": "Flame-tempered power and fire protection.",
+    "stats": {
+      "spelldmg": 8,
+      "attack": 4,
+      "fr": 10
+    },
+    "sources": [
+      [
+        32,
+        32040,
+        25
+      ]
+    ]
+  },
+  {
+    "id": 963202,
+    "name": "Deepwater Pearl",
+    "icon": 945,
+    "lore": "Damage and healing from the depths.",
+    "stats": {
+      "healamt": 4,
+      "spelldmg": 4,
+      "cr": 10
+    },
+    "sources": [
+      [
+        64,
+        64001,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963203,
+    "name": "Underfoot Sliver",
+    "icon": 946,
+    "lore": "Stone from the depths of the Hole.",
+    "stats": {
+      "ac": 6,
+      "hp": 40,
+      "mr": 10
+    },
+    "sources": [
+      [
+        39,
+        39138,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963204,
+    "name": "Dreadbone",
+    "icon": 966,
+    "lore": "Strength to endure the Plane of Fear.",
+    "stats": {
+      "heroic_sta": 4,
+      "avoidance": 3,
+      "dr": 8
+    },
+    "sources": [
+      [
+        72,
+        72000,
+        15
+      ],
+      [
+        72,
+        72004,
+        15
+      ],
+      [
+        72,
+        72002,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963205,
+    "name": "Hollow Fang",
+    "icon": 949,
+    "lore": "A splinter of ancient dracoliche bone.",
+    "stats": {
+      "heroic_str": 4,
+      "accuracy": 4,
+      "dr": 8
+    },
+    "sources": [
+      [
+        72,
+        72090,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963206,
+    "name": "Shard of Discord",
+    "icon": 953,
+    "lore": "An echo of the Maestro's discord.",
+    "stats": {
+      "attack": 6,
+      "spelldmg": 4,
+      "accuracy": 2
+    },
+    "sources": [
+      [
+        76,
+        76015,
+        15
+      ],
+      [
+        76,
+        76011,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963207,
+    "name": "Ashen Sigil",
+    "icon": 957,
+    "lore": "A mark of the Magi of Hate.",
+    "stats": {
+      "spelldmg": 6,
+      "heroic_int": 3,
+      "mana": 20
+    },
+    "sources": [
+      [
+        76,
+        76019,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963208,
+    "name": "Clouded Opal",
+    "icon": 967,
+    "lore": "A ward from the first islands of Sky.",
+    "stats": {
+      "avoidance": 2,
+      "hp": 25,
+      "mr": 8
+    },
+    "sources": [
+      [
+        71,
+        71032,
+        15
+      ],
+      [
+        71,
+        71059,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963209,
+    "name": "Soulglass",
+    "icon": 962,
+    "lore": "A fragment of captured sky.",
+    "stats": {
+      "healamt": 4,
+      "heroic_wis": 3,
+      "mana": 20
+    },
+    "sources": [
+      [
+        71,
+        71021,
+        15
+      ],
+      [
+        71,
+        71075,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963210,
+    "name": "Cloudglass Lens",
+    "icon": 960,
+    "lore": "A hunter's view across the islands.",
+    "stats": {
+      "heroic_dex": 4,
+      "accuracy": 4,
+      "mr": 8
+    },
+    "sources": [
+      [
+        71,
+        71013,
+        15
+      ],
+      [
+        71,
+        71012,
+        15
+      ],
+      [
+        71,
+        71076,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963211,
+    "name": "Amber Wing",
+    "icon": 948,
+    "lore": "A wing preserved in island amber.",
+    "stats": {
+      "heroic_dex": 3,
+      "attack": 4,
+      "pr": 8
+    },
+    "sources": [
+      [
+        71,
+        71072,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963212,
+    "name": "Efreeti Opal",
+    "icon": 954,
+    "lore": "A jewel from the efreeti of Sky.",
+    "stats": {
+      "spelldmg": 4,
+      "accuracy": 4,
+      "mr": 8
+    },
+    "sources": [
+      [
+        71,
+        71057,
+        15
+      ],
+      [
+        71,
+        71034,
+        15
+      ],
+      [
+        71,
+        71060,
+        15
+      ]
+    ]
+  },
+  {
+    "id": 963213,
+    "name": "Faceless Aegis",
+    "icon": 966,
+    "lore": "Below 35% HP: 120-point ward for 12 seconds. Shared 90s reuse.",
+    "stats": {},
+    "sources": [
+      [
+        72,
+        72003,
+        50
+      ]
+    ]
+  },
+  {
+    "id": 963214,
+    "name": "Heart of Spite",
+    "icon": 953,
+    "lore": "Direct hit: heal up to 90 missing HP. Shared 90s reuse.",
+    "stats": {},
+    "sources": [
+      [
+        76,
+        76007,
+        50
+      ]
+    ]
+  },
+  {
+    "id": 963215,
+    "name": "Prism of the Eighth Isle",
+    "icon": 965,
+    "lore": "Spend 10% in combat: recover 1% of that pool (max 50). Shared 90s.",
+    "stats": {},
+    "sources": [
+      [
+        71,
+        71065,
+        50
+      ]
+    ]
+  }
+]

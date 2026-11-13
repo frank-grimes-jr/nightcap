@@ -17,6 +17,7 @@
 */
 
 #include "client.h"
+#include "zone/raid_augment_custody.h"
 
 #include "common/bazaar.h"
 #include "common/eq_packet_structs.h"
@@ -695,6 +696,7 @@ bool Client::CheckTradeLoreConflict(Client* other)
 
 	bool has_lore_item = false;
 	std::vector<uint32> lore_item_ids;
+	NightcapRaidAug::IncomingTrophies trophies;
 
 	for (int16 index = EQ::invslot::TRADE_BEGIN; index <= EQ::invslot::TRADE_END; ++index) {
 		const auto inst = m_inv[index];
@@ -702,7 +704,11 @@ bool Client::CheckTradeLoreConflict(Client* other)
 			continue;
 		}
 
-		if (other->CheckLoreConflict(inst->GetItem())) {
+		if (const auto id = trophies.Conflict(*other, inst)) {
+			lore_item_ids.emplace_back(id);
+			has_lore_item = true;
+		}
+		if (!NightcapRaidAug::IsReward(inst->GetID()) && other->CheckLoreConflict(inst->GetItem())) {
 			lore_item_ids.emplace_back(inst->GetItem()->ID);
 
 			has_lore_item = true;
@@ -715,7 +721,7 @@ bool Client::CheckTradeLoreConflict(Client* other)
 			continue;
 		}
 
-		if (other->CheckLoreConflict(inst->GetItem())) {
+		if (!NightcapRaidAug::IsReward(inst->GetID()) && other->CheckLoreConflict(inst->GetItem())) {
 			lore_item_ids.emplace_back(inst->GetItem()->ID);
 
 			has_lore_item = true;
@@ -727,7 +733,7 @@ bool Client::CheckTradeLoreConflict(Client* other)
 			Message(
 				Chat::Red,
 				fmt::format(
-					"{} already has a lore {} in their inventory.",
+					"This trade would give {} a duplicate lore {}.",
 					other->GetCleanName(),
 					database.CreateItemLink(lore_item_id)
 				).c_str()
@@ -1364,6 +1370,12 @@ void Client::BuyTraderItem(TraderBuy_Struct *tbs, Client *Trader, const EQApplic
 
 	if (!buy_item) {
 		LogTrading("Unable to find item id <red>[{}] item_sn <red>[{}] on trader", tbs->item_id, tbs->serial_number);
+		TradeRequestFailed(app);
+		return;
+	}
+
+	if (NightcapRaidAug::IncomingTrophies{}.Conflict(*this, buy_item)) {
+		MessageString(Chat::Red, DUP_LORE);
 		TradeRequestFailed(app);
 		return;
 	}
