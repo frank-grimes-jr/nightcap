@@ -33,6 +33,7 @@
 #include "zone/heal_rotation.h"
 #include "zone/pathfinder_interface.h"
 #include "zone/position.h"
+#include "zone/raid_augment_delivery.h"
 
 #include <any>
 #include <memory>
@@ -1770,7 +1771,10 @@ protected:
 	uint32 bardsong_target_id;
 
 	bool ActiveProjectileATK;
-	tProjatk ProjectileAtk[MAX_SPELL_PROJECTILE];
+	struct SpellProjectile : tProjatk {
+		NightcapRaidAug::Delivery raid_delivery = NightcapRaidAug::Delivery::Triggered;
+	};
+	SpellProjectile ProjectileAtk[MAX_SPELL_PROJECTILE];
 
 	glm::vec3 m_RewindLocation;
 

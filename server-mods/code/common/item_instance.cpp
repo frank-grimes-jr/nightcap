@@ -16,6 +16,7 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "common/raid_augment.h"
 #include "inventory_profile.h"
 
 #include "common/data_verification.h"
@@ -261,6 +262,7 @@ bool EQ::ItemInstance::IsRaceEquipable(uint16 race) const
 // Can equip at this slot?
 bool EQ::ItemInstance::IsEquipable(int16 slot_id) const
 {
+	if (m_item && NightcapRaidAug::IsReward(m_item->ID)) { return false; }
 	if (slot_id == EQ::invslot::slotPowerSource && RuleB(Items, PowerSourceItemXP) &&
 		NightcapItemXP::Candidate(m_item) && !IsEvolving() && !IsScaling()) { return true; }
 	if (!m_item || !m_item->Slots) {
@@ -949,6 +951,8 @@ EQ::ItemInstance* EQ::ItemInstance::Clone() const
 }
 
 bool EQ::ItemInstance::IsSlotAllowed(int16 slot_id) const {
+	if (slot_id >= EQ::invslot::EQUIPMENT_BEGIN && slot_id <= EQ::invslot::EQUIPMENT_END &&
+		m_item && NightcapRaidAug::IsReward(m_item->ID)) { return false; }
 	if (!m_item) { return false; }
 	else if (slot_id == EQ::invslot::slotPowerSource && RuleB(Items, PowerSourceItemXP) &&
 		NightcapItemXP::Candidate(m_item) && !IsEvolving() && !IsScaling()) { return true; }
