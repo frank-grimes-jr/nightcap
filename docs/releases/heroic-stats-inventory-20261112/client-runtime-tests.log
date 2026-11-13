@@ -1,0 +1,16 @@
+test_health_atomic_replacement (__main__.RuntimeTests.test_health_atomic_replacement) ... ok
+test_native_aa_allocation (__main__.RuntimeTests.test_native_aa_allocation) ... ok
+test_native_monk_reuse (__main__.RuntimeTests.test_native_monk_reuse) ... ok
+test_native_multiclass_equipment (__main__.RuntimeTests.test_native_multiclass_equipment) ... ok
+test_native_multiclass_trainers (__main__.RuntimeTests.test_native_multiclass_trainers) ... ok
+test_paladin_grip_native (__main__.RuntimeTests.test_paladin_grip_native) ... ok
+test_patch_failure_injection (__main__.RuntimeTests.test_patch_failure_injection) ... ok
+test_recommended_aa_policy_and_native_filter (__main__.RuntimeTests.test_recommended_aa_policy_and_native_filter) ... ok
+test_required_failures_never_return_to_host (__main__.RuntimeTests.test_required_failures_never_return_to_host) ... ok
+test_ui_state_and_hooks (__main__.RuntimeTests.test_ui_state_and_hooks) ... ok
+test_unload_before_forwarding (__main__.RuntimeTests.test_unload_before_forwarding) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 9.032s
+
+OK

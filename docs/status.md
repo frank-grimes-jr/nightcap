@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## November12 — Inventory combat summary ready for authorized live testing
+
+Reviewed native/server-source build and signed2026111202/proxy0.13.6 candidate
+add front-page combat ratings, actual caps and gold heroic totals. MIT/AVD use
+the server combat getters; mechanics and progression remain. Activation/client
+and wiki publication are pending; owner native visual acceptance stays open.
+[Release, preservation checks and exact QA](releases/heroic-stats-inventory-20261112/README.md).
+
 ## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
 
 Player instant DoTs now skip only their negative one-time landing damage,

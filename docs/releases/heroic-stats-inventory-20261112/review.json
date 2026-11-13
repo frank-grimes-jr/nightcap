@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Two independent adversarial source/release reviews; additional cross-model review declined by owner",
+  "findings_resolved": [
+    "Explicit mutually exclusive label alignments",
+    "Hosted verifier retains actual current Quick Buff dbstr descriptor",
+    "Admission reopen requires hosted verification of the exact published channel and shipped signature",
+    "Standalone publisher disabled; paired rollout owns publication under deployment/GM locks behind closed gateway"
+  ],
+  "combat_mapping": {
+    "MIT": "GetMitigationAC cached combat value",
+    "AVD": "GetTotalDefense; -1 displays Auto",
+    "AC": "Conventional native client display",
+    "ATK": "GetTotalATK conventional rating",
+    "DMG": "GetSpellDmg",
+    "HEAL": "GetHealAmt"
+  },
+  "attributes": "Current/GetMax*/GetHeroic* server getters; actual cap includes heroic allowance",
+  "compatibility": "NCST1 remains byte-compatible; separate negotiated NCIV1; stale/replay/identity guards",
+  "scope_preserved": "No bonus, balance, schema, item/cache, quest or player-state edits. Deployed source/pair reproduced before isolated compile.",
+  "native_visual_player_acceptance": "OPEN"
+}

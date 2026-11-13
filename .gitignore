@@ -73,3 +73,6 @@ eq-launcher/cmd/last-lantern-verify/
 # Private DoT build, staging, diagnostics and authenticated wiki source.
 /artifacts/dot-no-initial-damage-20261112/
 /artifacts/titles-wiki-20261112/
+
+# Generated Inventory combat-stat release artifacts.
+/artifacts/heroic-stats/
