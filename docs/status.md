@@ -4,13 +4,19 @@
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared 90-second capstone cooldown. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](items/classic-raid-augments/README.md).
 
-## November12 — Inventory combat summary ready for authorized live testing
+## November12 — Inventory combat summary published for live testing
 
-Reviewed native/server-source build and signed2026111202/proxy0.13.6 candidate
-add front-page combat ratings, actual caps and gold heroic totals. MIT/AVD use
-the server combat getters; mechanics and progression remain. Activation/client
-and wiki publication are pending; owner native visual acceptance stays open.
-[Release, preservation checks and exact QA](releases/heroic-stats-inventory-20261112/README.md).
+PR434/ab2e8d87, zoneb737e641 and signed2026111202/proxy0.13.6 are deployed;
+admissions open. Main Inventory shows AC/MIT/AVD/ATK/DMG/HEAL and green current,
+white actual caps, gold heroics. MIT/AVD are server combat ratings; heroics are
+already included in current values/caps. No balance or player-state repair.
+
+All12workers, stopped backup/save-state/market/preservation checks and required
+native/fault suites pass.148canonical HTTPS client assets/signature/pair and
+614public wiki hashes/security/private denials verify;145other client descriptors
+and609wiki outputs preserved. Fully exit EQ/use normal launcher Play. Native
+visual, gear/buff/shield and lifecycle owner QA remains OPEN.
+[Observed release and exact QA](releases/heroic-stats-inventory-20261112/README.md).
 
 ## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
 

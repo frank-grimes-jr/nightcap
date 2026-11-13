@@ -14,5 +14,10 @@
   "wiki_content_refresh_tests": 20,
   "public_wiki_source_reproduced": true,
   "native_visual_acceptance": "OPEN",
-  "linux_publication_tests": "required during private stage before preflight"
+  "linux_publication_tests": {
+    "rollout": 18,
+    "client_publisher": 21,
+    "wiki_publisher": 16,
+    "status": "all passed"
+  }
 }

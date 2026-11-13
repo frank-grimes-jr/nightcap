@@ -1,0 +1,9 @@
+{
+  "status": "STAGED_LINUX_TESTS_PASS",
+  "manifest_sha256": "a5d57c9ca3923e8b0b8b5056b8eaa8acfaada43db7eb6f945f5bcad2f5711e68",
+  "checks": {
+    "rollout": "OK",
+    "client_publisher": "OK"
+  },
+  "runtime_changed": false
+}

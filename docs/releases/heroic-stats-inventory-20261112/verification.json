@@ -1,5 +1,5 @@
 {
-  "status": "AUTHORIZED_SIGNED_CANDIDATE_NOT_DEPLOYED",
+  "status": "PAIRED_NATIVE_CLIENT_WIKI_PUBLISHED_FOR_LIVE_TESTING",
   "owner_authorization": "Yes, implement it to match the screenshot, including the caps and combat stats above. Use the correct server values for MIT and AVD, and publish it for live testing.",
   "native_build": "native-build.json",
   "candidate_zone": "b737e641008b0816706a14478e7d2fde5b5930829f7e1bba4b6954b3c4fda598",
@@ -23,5 +23,9 @@
     "status": "signed_candidate_not_published",
     "unchanged_asset_urls_preserved": true
   },
-  "player_qa": "OPEN"
+  "player_qa": "OPEN",
+  "native_deployment": "native-deployment.json",
+  "client_publication": "client-publication.json",
+  "client_verification": "client-public-verification.json",
+  "wiki_verification": "wiki-public-verification.json"
 }

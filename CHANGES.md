@@ -4,15 +4,20 @@
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared capstone cooldown with a guaranteed 90-second minimum. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).
 
-## 2026-11-12 — Inventory combat summary and caps prepared for live testing
+## 2026-11-12 — Inventory combat stats, caps and heroics published for live testing
 
-Owner authorized screenshot layout and paired publication. Main Inventory now
-contains combat ratings and server current/cap/heroic attributes; MIT uses cached
-combat AC and AVD total defense, with Auto preserving the native sentinel.
-Separate negotiated snapshot keeps old Stats clients compatible. No balance or
-player-state change. Current deployed source reproduces before native rebuild;
-signed2026111202/proxy0.13.6 and scoped614-file wiki candidate are prepared.
-Deployment/publication and owner visual QA are pending. Evidence:
+PR434/ab2e8d87 and paired zoneb737e641/client2026111202/proxy0.13.6 publish the
+front-page combat summary and server current/cap/heroic attributes. MIT uses
+cached combat AC; AVD total defense preserves Auto; native composite AC stays.
+Heroic mechanics, power and progression are unchanged. Legacy NCST1 clients
+remain compatible; normal fonts, equipment semantics and other tabs remain.
+
+Exact deployed predecessor reproduction,16focused/11runtime/120native guards,
+18Linux rollout/21client-publisher faults, stopped backup, saved-state/one-market
+rotation and all12workers verify.148HTTPS client assets/signature/pair and
+614wiki hashes/headers/private denials pass;145client descriptors and609wiki
+outputs retained. Admissions open. Exit EQ/use launcher Play. Owner visible and
+combined-build gameplay acceptance remain OPEN. Evidence and exact QA:
 docs/releases/heroic-stats-inventory-20261112/.
 
 ## 2026-11-12 — Titles wiki preview published
