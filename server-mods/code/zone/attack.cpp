@@ -2658,6 +2658,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		}
 
 		if (!NightcapDungeon::PrepareLoot(this, hunt_owned)) { return false; }
+		if (!NightcapDungeon::PrepareRaidAugment(this, killer, hunt_owned)) { return false; }
 		// Scripted encounter loot cleanup must finish before the zone augment
 		// roll, including High Keep's unowned prison-break guards.
 		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
@@ -4370,7 +4371,11 @@ void Mob::CommonDamage(Mob* attacker, int64 &damage, const uint16 spell_id, cons
 			damage = 0;
 		}
 
+		if (IsClient()) { NightcapRaidAug::Incoming(*CastToClient(), attacker, damage); }
 		SetHP(int64(GetHP() - damage));
+		if (!iBuffTic && !FromDamageShield) {
+			NightcapRaidAug::AfterHit(*this, attacker, damage, spell_id, spell_id == SPELL_UNKNOWN);
+		}
 
 		if (HasDied()) {
 			bool IsSaved = false;

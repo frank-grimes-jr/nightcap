@@ -1,0 +1,226 @@
+{
+  "prespecified_seeds": [
+    1115,
+    1116,
+    1117,
+    1118,
+    1119,
+    1120
+  ],
+  "npc": 71065,
+  "arms": {
+    "963204": {
+      "outcomes_by_seed": [
+        "boss_death",
+        "boss_death",
+        "timeout",
+        "boss_death",
+        "boss_death",
+        "boss_death"
+      ],
+      "elapsed_seconds_by_seed": [
+        679.2,
+        549.8,
+        900.0,
+        549.35,
+        505.15,
+        508.5
+      ],
+      "final_sampled_owner_hp_by_seed": [
+        2971,
+        3209,
+        4389,
+        2897,
+        3866,
+        3139
+      ],
+      "lowest_sampled_owner_hp_by_seed": [
+        745,
+        689,
+        281,
+        772,
+        1626,
+        1015
+      ],
+      "effective_hp_per_second_by_seed": [
+        119.828,
+        104.689,
+        125.344,
+        96.656,
+        106.758,
+        93.904
+      ],
+      "median_effective_hp_per_second_all_attempts": 105.724,
+      "wins": 5
+    },
+    "0": {
+      "outcomes_by_seed": [
+        "boss_death",
+        "boss_death",
+        "timeout",
+        "boss_death",
+        "boss_death",
+        "player_death"
+      ],
+      "elapsed_seconds_by_seed": [
+        729.6,
+        525.4,
+        900.0,
+        534.1,
+        523.05,
+        490.6
+      ],
+      "final_sampled_owner_hp_by_seed": [
+        2594,
+        3337,
+        3404,
+        3883,
+        3151,
+        -500
+      ],
+      "lowest_sampled_owner_hp_by_seed": [
+        682,
+        1425,
+        386,
+        602,
+        765,
+        -500
+      ],
+      "effective_hp_per_second_by_seed": [
+        125.369,
+        103.325,
+        120.101,
+        103.587,
+        108.15,
+        99.815
+      ],
+      "median_effective_hp_per_second_all_attempts": 105.869,
+      "wins": 4
+    },
+    "940483": {
+      "outcomes_by_seed": [
+        "boss_death",
+        "boss_death",
+        "timeout",
+        "boss_death",
+        "boss_death",
+        "boss_death"
+      ],
+      "elapsed_seconds_by_seed": [
+        769.2,
+        792.8,
+        900.0,
+        561.9,
+        530.75,
+        493.25
+      ],
+      "final_sampled_owner_hp_by_seed": [
+        1667,
+        785,
+        3824,
+        2848,
+        3426,
+        5492
+      ],
+      "lowest_sampled_owner_hp_by_seed": [
+        117,
+        785,
+        1612,
+        1211,
+        1388,
+        1640
+      ],
+      "effective_hp_per_second_by_seed": [
+        119.987,
+        116.968,
+        134.252,
+        101.5,
+        106.975,
+        105.198
+      ],
+      "median_effective_hp_per_second_all_attempts": 111.971,
+      "wins": 5
+    },
+    "940507": {
+      "outcomes_by_seed": [
+        "boss_death",
+        "boss_death",
+        "timeout",
+        "boss_death",
+        "boss_death",
+        "boss_death"
+      ],
+      "elapsed_seconds_by_seed": [
+        753.0,
+        785.7,
+        900.0,
+        541.35,
+        521.6,
+        507.15
+      ],
+      "final_sampled_owner_hp_by_seed": [
+        3380,
+        3981,
+        4046,
+        4020,
+        4013,
+        2913
+      ],
+      "lowest_sampled_owner_hp_by_seed": [
+        573,
+        961,
+        1783,
+        1001,
+        674,
+        1363
+      ],
+      "effective_hp_per_second_by_seed": [
+        124.849,
+        120.024,
+        137.784,
+        101.001,
+        112.531,
+        97.902
+      ],
+      "median_effective_hp_per_second_all_attempts": 116.277,
+      "wins": 5
+    }
+  },
+  "paired_with_dreadbone": {
+    "0": {
+      "jointly_winning_seeds": [
+        1115,
+        1116,
+        1118,
+        1119
+      ],
+      "dreadbone_median_joint_win_s": 549.575,
+      "control_median_joint_win_s": 529.75,
+      "all_attempt_median_hps_delta_pct": -0.137
+    },
+    "940483": {
+      "jointly_winning_seeds": [
+        1115,
+        1116,
+        1118,
+        1119,
+        1120
+      ],
+      "dreadbone_median_joint_win_s": 549.35,
+      "control_median_joint_win_s": 561.9,
+      "all_attempt_median_hps_delta_pct": -5.58
+    },
+    "940507": {
+      "jointly_winning_seeds": [
+        1115,
+        1116,
+        1118,
+        1119,
+        1120
+      ],
+      "dreadbone_median_joint_win_s": 549.35,
+      "control_median_joint_win_s": 541.35,
+      "all_attempt_median_hps_delta_pct": -9.076
+    }
+  }
+}

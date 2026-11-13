@@ -2054,6 +2054,7 @@ void Client::DoEnduranceUpkeep() {
 		return;
 
 	int upkeep_sum = 0;
+	int raid_upkeep = 0;
 	int cost_redux = spellbonuses.EnduranceReduction + itembonuses.EnduranceReduction + aabonuses.EnduranceReduction;
 
 	bool has_effect = false;
@@ -2074,13 +2075,16 @@ void Client::DoEnduranceUpkeep() {
 					BuffFadeBySlot(buffs_i);
 				} else {
 					upkeep_sum += upkeep;
+					if (raid_direct_upkeep[buffs_i] == buffs[buffs_i].spellid) { raid_upkeep += upkeep; }
 				}
 			}
 		}
 	}
 
 	if(upkeep_sum != 0){
-		SetEndurance(GetEndurance() - upkeep_sum);
+		const auto before = GetEndurance();
+		SetEndurance(before - upkeep_sum);
+		NightcapRaidAug::Spend(*this, std::min<int64>(raid_upkeep, before - GetEndurance()), false);
 		TryTriggerOnCastRequirement();
 	}
 
