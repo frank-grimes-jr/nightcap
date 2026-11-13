@@ -1,0 +1,12 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -19271 +19271 @@
+-        "sha256": "97b3b4e08a3f6f89f23bf92ba21b8fb7b2b064b858eb7daf3c921974dd77055c"
++        "sha256": "e78bf365dc0c9d18c97f348eb992a4a3f17132c94792aec6b5698a2ff0304de6"
+@@ -19277,0 +19278,6 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/earned-titles",
++        "path": "docs/ops/nightcap-wiki.md",
++        "role": "Current614-file publication authority with earlier hosting snapshots explicitly retained",
++        "sha256": "be87a3b452954ea536aa06f5fc7a64c0acea11c62e34fef0010667e984230753"

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "native_build_sha256": "01d343fc35addb939c37c69481e819b361f8623ce6310177a19d6b8ef8dc5751",
+  "source_files": 2857,
+  "compile_dependencies": 840,
+  "retained_link_inputs": 146,
+  "native_methods": "18 AA tests pass; 27 adjacent cooldown tests pass",
+  "pinned_rof2": "47 checks pass",
+  "linux_rollout": {
+    "status": "PASS",
+    "checks": [
+      {
+        "folder": "tools/tests",
+        "tests": 9,
+        "status": "PASS"
+      }
+    ]
+  },
+  "wiki": "20 Python checks, current-main search checks and 7 equipment checks pass; authenticated baseline reproduced; 610/613 files retained",
+  "review": "review.json; owner authorizes live deployment, gameplay acceptance OPEN"
+}

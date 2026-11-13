@@ -105,7 +105,9 @@ class GameplayPolicies(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="nightcap-policy-") as tmp:
             out = Path(tmp)
             header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
-            (out / "test.cpp").write_text('#include "' + header + '"\n#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' + FIXTURE + policy_helpers(source) + "\n".join(bodies) + CONTROLS)
+            thj_header = (ROOT / 'server-mods/code/common/nightcap_thj_behaviors.h').as_posix()
+            rules = '#include "' + thj_header + '"\n#define RuleB(category, rule) true\n'
+            (out / "test.cpp").write_text(rules + '#include "' + header + '"\n#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' + FIXTURE + policy_helpers(source) + "\n".join(bodies) + CONTROLS)
             if os.name == "nt":
                 compiler_env = Path("C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat")
                 self.assertTrue(compiler_env.is_file(), "MSVC x86 build tools missing")

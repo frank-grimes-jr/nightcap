@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED",
+  "release": "20261112-earned-titles-v1",
+  "previous_release": "20261112-dot-ticks-v2",
+  "public_source_reproduced": true,
+  "files": 614,
+  "added": [
+    "titles.html"
+  ],
+  "removed": [],
+  "changed_existing": [
+    "adventure-journal.html",
+    "all-pages.html",
+    "combat.html",
+    "commands.html",
+    "dungeon-modes.html",
+    "features.html",
+    "index.html",
+    "multiclass.html",
+    "recent-changes.html",
+    "search-index.json",
+    "sitemap.xml",
+    "tradeskills.html",
+    "unreleased.html"
+  ],
+  "preserved_files": 600,
+  "authoring_articles_reviewed": 43,
+  "player_status": "Titles Not released; server not activated; native player QA OPEN",
+  "whole_wiki_review": "New titles directory plus owning guides/navigation/history. Unrelated guides, all existing item/zone values, acquisitions, catalog, client and service behavior preserved. No source-ledger advance."
+}

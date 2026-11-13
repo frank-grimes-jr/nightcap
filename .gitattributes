@@ -1,4 +1,7 @@
 # Preserve exact captured bytes used by the native encounter evidence manifests.
+docs/items/augment-icons-20261112/installed-skill.patch -text -whitespace
+docs/items/augment-icons-20261112/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/items/augment-icons-20261112/*.log -text -whitespace
 docs/dungeons/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/dungeons/**/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/dungeons/**/*.patch -text -whitespace
@@ -248,7 +251,44 @@ docs/items/paladin-weapon-grip/balance/release/evidence.json text eol=lf
 # Keep reviewed Last Lantern source/knowledge patches exact on Windows.
 docs/adventure-journal/release-20261107/*.patch text eol=lf
 
-# Preserve reviewed heroic-stat source/evidence fingerprints across checkouts.
+# Keep Quick Buff source fingerprints and installed-skill patch exact on Windows.
+server-mods/code/common/quick_buff.h text eol=lf
+server-mods/code/zone/aa_quick_buff.inc text eol=lf
+tools/check_quick_buff_native.py text eol=lf
+tools/quick_buff_client.py text eol=lf
+tools/tests/test_quick_buff.py text eol=lf
+tools/update_quick_buff_skill.py text eol=lf
+docs/releases/quick-buff-20261112/*.patch text eol=lf
+
+# Quick Buff live release source and audit bytes.
+tools/build_quick_buff_release.py text eol=lf
+tools/finalize_quick_buff_release.py text eol=lf
+tools/prepare_quick_buff_wiki.py text eol=lf
+tools/probe_quick_buff_release.py text eol=lf
+tools/publish_quick_buff_wiki.py text eol=lf
+tools/quick_buff_remote.py text eol=lf
+tools/ship_quick_buff_release.py text eol=lf
+tools/test_quick_buff_linux.py text eol=lf
+tools/verify_quick_buff_wiki.py text eol=lf
+tools/tests/test_quick_buff_reagents.py text eol=lf
+tools/tests/test_quick_buff_rollout.py text eol=lf
+docs/releases/quick-buff-20261112/*.go text eol=lf
+docs/releases/quick-buff-20261112/*.py text eol=lf
+docs/releases/quick-buff-20261112/client/*.py text eol=lf
+docs/releases/quick-buff-20261112/*.patch text eol=lf -whitespace
+docs/releases/quick-buff-20261112/*.json text eol=lf
+docs/releases/quick-buff-20261112/*.log text eol=lf
+docs/releases/quick-buff-20261112/*.md text eol=lf
+
+# Preserve follow-up source and evidence fingerprints.
+docs/releases/quick-buff-20261112/hotkey-fix/* text eol=lf
+tools/*quick_buff*hotkey*.py text eol=lf
+tools/tests/test_quick_buff_hotkey*.py text eol=lf
+eq-client-dll/tests/aa-reuse-native.cpp text eol=lf
+tools/tests/test_aa_cooldown_identity.py text eol=lf
+docs/releases/quick-buff-20261112/hotkey-fix/*.patch text eol=lf -whitespace
+
+# Preserve reviewed Inventory release source and evidence on Windows.
 tools/client_character_stats_ui.py text eol=lf
 tools/tests/test_client_character_stats.py text eol=lf
 tools/probe_heroic_stats.py text eol=lf

@@ -1,15 +1,95 @@
 # CHANGES
 
-## 2026-11-12 — Heroic stats confirmed; Inventory display candidate
+## 2026-11-12 — Titles wiki preview published
 
-Read-only OVH checks confirm heroic multipliers1.0 and Nightcap melee/spell
-scaling enabled on the retained November7 runtime. Existing Stats has gold
-heroic totals; the main Inventory panel omitted them. Prepared one XML delta
-with native heroic labels beside all seven attributes, retaining normal native
-coloring and all prior controls. No rule/balance/player/client-install change.
-21focused checks pass; signing/publication and native visual acceptance remain
-pending. Wiki guides/Features/Change Log reviewed with explicit candidate labels.
-Evidence: docs/releases/heroic-stats-inventory-20261112/.
+Owner requested "Push to wiki". Release20261112-earned-titles-v1 adds the complete77-title requirements guide and related navigation/owning-guide context as Not released. Reproduced all613prior public outputs, retained600exact files and verified all614new HTTPS hashes/headers plus private denials. Twenty site/refresh and16Linux publisher/recovery tests pass; pointer rollback, five services/config/channel/private downloads are preserved. Main source is separate from activation: title runtime and player QA remain pending. Evidence/recovery: docs/titles/wiki-release/.
+
+## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
+
+Player instant DoTs now skip only their negative one-time landing damage,
+including direct-damage scaling and resource taps. Instant casting, normal ticks,
+positive one-time heals, debuffs, ordinary nukes and non-player behavior remain.
+Main gameplay PR426/a97c55d0 and source8a351145 deploy zone7b61b5ac on all12workers,
+preserving the intervening Imitate Death fix, Quick Buff, native pair, quests,
+caches and client2026111201. No client download or SQL/rule/schema change.
+The fresh production audit distinguishes986initial-hit definitions from2643
+without; this is not the legal player pool. Eleven focused spell/timing tests,
+15Linux release-fault tests, shipping reproduction and full-TU compile/link pass.
+Stopped backup, exact saved-state/market checks and independent healthy/native
+verification pass; player access is open and no player snapshot was restored.
+Wiki20261112-dot-ticks-v2 verifies613HTTPS files/headers and five private denials,
+retaining609outputs and all services/config/downloads. Historical global wiki
+source drift and the pre-existing Build Lab pin failure remain flagged. Owner
+in-game/balance acceptance is OPEN. Exact proof and arena/spell QA:
+docs/balance/dot-initial-damage-20261112/.
+
+## 2026-11-12
+
+### Earned titles - disabled candidate
+
+- Add 77 cosmetic per-character titles: slayer families, named dragons, 21 Classic Raid clears, 34 skill masteries, Master Artisan, level 50 and Last Lantern completion. Durable personal ledgers count; general kill counters begin on activation.
+- Extend native title selection with stable IDs and permanent awards, finalized-death/saved-skill hooks and #titles progress. No player power or item rewards change. Three additive InnoDB tables install disabled. Existing titles and worn selections remain.
+- Generate native definitions and wiki requirements together; update guides/Features/Home/commands/previews/Change Log. Tests, QA and recovery: docs/titles/. Not deployed, published or manually accepted.
+
+## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
+
+Owner explicitly requested live implementation. Main PR425/1d763739 and zone
+7bb5bd17 are deployed; all 12 workers and the unchanged world/shared-memory pair
+verify, with player admissions reopened. Family420 has no authoritative reuse,
+including old saved waits. Earned Monk access, native casting and existing effects
+remain; basic Feign Death and unrelated timers stay unchanged. RoF2's nominal
+one-second display enables Make Hotkey while reset packets keep actual reuse zero.
+No client download is needed; relog to refresh AA state. Current shipping binary
+reproduced before the one-TU change, with 2857 source files/840 dependencies and
+146 retained link inputs verified. Stopped full backup, normal saved-state/market
+and service/content/cache/client preservation pass; no player snapshot restored.
+Wiki20261112-imitate-death-v1 publishes Combat/Change Log/search with 610 of 613
+files retained. Public HTTPS verification is recorded separately. Native in-game
+hotkey/aggro and combined-build balance acceptance remain OPEN. Exact proof,
+transport recovery and player QA: `docs/releases/imitate-death-20261112/`.
+
+## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
+
+Owner testing found the AA-window Make Hotkey control disabled on earned rank3. Follow-up PR423/60d51362 is deployed with zone3eeb72c9; admissions restored after guarded backup/restart and native/saved-state checks. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Wiki20261112-quick-buff-v2 verifies613public files/headers with610retained and five private denials; all five services stay unchanged during publication. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.
+
+
+## 2026-11-12 — Quick Buff hotkey deployed for live QA
+
+Quick Buff family48/ranks147–149 now provide an activated hotkey: immediate
+eligible memorized buffs on self with native group/pet delivery, one50%maximum
+mana cost and no reuse. The old passive haste is replaced; earned ranks, class/
+level/scribed gates, instruments/reagents, stacking and other timers remain.
+Independent review corrected secondary Bard instruments without starting a new
+pulse. Full zone1fe268a1 preserves the current augment repair and newer native
+Hate catalog; all12workers verify. Signed client2026111201 changes one text asset,
+retaining147descriptors/URLs; wiki20261112-quick-buff-v1 retains607of613files.
+Fresh stopped backup, exact boot/market and service/data preservation checks pass;
+no player snapshot restored. Owner authorized main/live testing via PR422/a2ae50f0;
+visible hotkey/delivery and balance acceptance remain open. Fully exit EQ and use
+launcher Play. Source, release proof and exact QA:
+`docs/releases/quick-buff-20261112/README.md`.
+
+## 2026-11-12 — Augment icon fix and five-item repair deployed
+
+Main PR420/1568fb71 corrects ornament detection to use actual type20/21 bits and
+reject empty/ordinary model IDs as cosmetic intent. Native augmentation handlers
+refresh cosmetics only for real ornament changes, preserving mold/quest overrides
+during stat-only insert/remove/swap/destroy. Real ornaments remain supported.
+
+Three live binary baselines reproduce exactly before isolated compilation/relink;
+ELF identities,182actual dependencies/179authenticated source headers,17focused
+checks and real MariaDB rollback/drift/forward/replay rehearsal pass. Supported
+whole-runtime activation retains Last Lantern and all newer source/data systems.
+
+Owner-authorized repair changes only ornament_icon in five confirmed equipped
+Palwar rows. All205inventory rows retain their augments and every other field;
+unrelated inventory is unchanged. Fresh stopped full backup, normal saved-state/
+market checks, native/service identities and reopened admissions verify. No player
+snapshot restore, client update, definition/stat/rule/cache-format change.
+
+Wiki20261112-augment-icons-v1 verifies all613public hashes/headers/private denials,
+retaining607files. Owner visual/gameplay QA remains open. Exact evidence, guarded
+operator, recovery limits and QA: docs/items/augment-icons-20261112/.
 
 ## 2026-11-07 — Last Lantern paired release deployed for live QA
 

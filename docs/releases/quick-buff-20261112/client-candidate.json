@@ -1,0 +1,17 @@
+{
+  "archive_sha256": {
+    "dbstr_us.txt": "bfc6713110d56efaad9dc41ee8c68872b3f2d078e3f92a71e6178cc15de08a90"
+  },
+  "assets_preserved": 147,
+  "candidate_proxy_catalog_pair": "passed",
+  "changed_assets": 1,
+  "channel_sha256": "e0201dd35be1501208c6783eeb3c6194e2d7b9ec080f70ef4f09f52d744dacd5",
+  "exact_executable_preflight": "passed",
+  "native_player_acceptance": "pending",
+  "previous_channel_sha256": "859547b78d249ab3b47c0e7bfbc68706ea0da83a525954e61b2e9d224f117b99",
+  "previous_release": 2026110701,
+  "release": 2026111201,
+  "signature": "verified against shipped production key",
+  "status": "signed_candidate_not_published",
+  "unchanged_asset_urls_preserved": true
+}

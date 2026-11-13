@@ -1,15 +1,75 @@
 # Current Nightcap status
 
-## November12 — Heroic stats active; Inventory display candidate
+## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
 
-Production read-only checks confirm heroic stats enabled on the retained
-November7 world/zone pair. Signed2026110701 already has gold heroic totals in
-Inventory > Stats. A one-XML candidate adds them beside the seven main-Inventory
-attributes, preserving native normal-stat coloring, all existing controls and
-147other client asset descriptors. No gameplay tuning/restart/DB write.
-21focused checks pass; signing, promotion/publication and visible owner QA remain
-pending. Wiki candidate guidance is local, not published.
-[Evidence and exact QA](releases/heroic-stats-inventory-20261112/README.md).
+Player instant DoTs now skip only their negative one-time landing damage,
+including direct-damage scaling and resource taps. Instant casting, normal ticks,
+positive one-time heals, debuffs, ordinary nukes and non-player behavior remain.
+Main gameplay PR426/a97c55d0 and source8a351145 deploy zone7b61b5ac on all12workers,
+preserving the intervening Imitate Death fix, Quick Buff, native pair, quests,
+caches and client2026111201. No client download or SQL/rule/schema change.
+The fresh production audit distinguishes986initial-hit definitions from2643
+without; this is not the legal player pool. Eleven focused spell/timing tests,
+15Linux release-fault tests, shipping reproduction and full-TU compile/link pass.
+Stopped backup, exact saved-state/market checks and independent healthy/native
+verification pass; player access is open and no player snapshot was restored.
+Wiki20261112-dot-ticks-v2 verifies613HTTPS files/headers and five private denials,
+retaining609outputs and all services/config/downloads. Historical global wiki
+source drift and the pre-existing Build Lab pin failure remain flagged. Owner
+in-game/balance acceptance is OPEN. Exact proof and arena/spell QA:
+docs/balance/dot-initial-damage-20261112/.
+
+## Earned titles - November 12 candidate
+
+77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Main PR428 is merged. The owner-authorized Titles wiki preview is published in 20261112-earned-titles-v1: all614HTTPS hashes/headers verify, with rollback/private-download/service preservation. Source/evidence: docs/titles/wiki-release/. Native server activation and normal-player QA remain pending; titles are Not released.
+
+## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
+
+Owner explicitly requested live implementation. Main PR425/1d763739 and zone
+7bb5bd17 are deployed; all 12 workers and the unchanged world/shared-memory pair
+verify, with player admissions reopened. Family420 has no authoritative reuse,
+including old saved waits. Earned Monk access, native casting and existing effects
+remain; basic Feign Death and unrelated timers stay unchanged. RoF2's nominal
+one-second display enables Make Hotkey while reset packets keep actual reuse zero.
+No client download is needed; relog to refresh AA state. Current shipping binary
+reproduced before the one-TU change, with 2857 source files/840 dependencies and
+146 retained link inputs verified. Stopped full backup, normal saved-state/market
+and service/content/cache/client preservation pass; no player snapshot restored.
+Wiki20261112-imitate-death-v1 publishes Combat/Change Log/search with 610 of 613
+files retained. Public HTTPS verification is recorded separately. Native in-game
+hotkey/aggro and combined-build balance acceptance remain OPEN. Exact proof,
+transport recovery and player QA: `docs/releases/imitate-death-20261112/`.
+
+## 2026-11-12 — Quick Buff Make Hotkey correction (deployed for live QA)
+
+Owner testing found the AA-window Make Hotkey control disabled on earned rank3. Follow-up PR423/60d51362 is deployed with zone3eeb72c9; admissions restored after guarded backup/restart and native/saved-state checks. RoF2 requires positive presentation reuse; family48 now advertises1 while authoritative reuse stays0 and every own timer packet explicitly resets readiness. No client asset/counter, ownership, mana, content, rule or cache change. Exact native gate/receiver36checks, identity17tests and rollout9fault tests pass. Generic detail may show nominal1second. Wiki20261112-quick-buff-v2 verifies613public files/headers with610retained and five private denials; all five services stay unchanged during publication. Visible creation, repeated activation and balance QA remain OPEN. Evidence: docs/releases/quick-buff-20261112/hotkey-fix/.
+
+
+## November12 — Initial Quick Buff paired release (superseded by hotkey correction above)
+
+Main PR422/a2ae50f0 and the guarded paired release are live; admissions open.
+Quick Buff instantly casts eligible memorized buffs for50%maximum mana once,
+with no reuse and normal self/group/pet delivery. Existing earned ranks remain;
+passive buff haste is replaced. The initial zone1fe268a1 release preserved the
+current augment-icon world/shared pair and newer Hate source. Full build, native
+regressions,28Linux publication/operator fault checks, stopped backup and normal
+boot/market/data preservation pass. Signed2026111201 verifies all148HTTPS assets;
+wiki20261112-quick-buff-v1 publishes six changed outputs with607retained. No
+player snapshot restore. Fully exit EverQuest, press launcher Play, select Quick
+Buff in the AA window and choose Make Hotkey. Visible hotkey/delivery, group/pet
+and combined-balance acceptance remain OPEN.
+[Release, recovery and exact QA](releases/quick-buff-20261112/README.md).
+
+## November 12 — Augment icons repaired and fix deployed
+
+Main PR420/1568fb71 and the matched native world/zone/shared_memory pair are
+deployed; access is open. Stat augments preserve host icons and existing cosmetic
+transformations. Five confirmed Palwar icon overrides were repaired with all
+augments and every other field preserved across205inventory rows; unrelated
+inventory is unchanged. Fresh stopped backup, native/boot/market checks and
+independent running identity verification pass. No client update is required.
+Wiki20261112-augment-icons-v1 verifies all613public hashes;607files retained.
+Owner visual/gameplay acceptance stays open. [Evidence and exact QA](items/augment-icons-20261112/README.md).
 
 ## November7 — The Last Lantern deployed for live QA
 

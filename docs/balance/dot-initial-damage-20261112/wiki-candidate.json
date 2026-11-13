@@ -1,0 +1,19 @@
+{
+  "result": "prepared_not_published",
+  "baseline_release": "20261112-imitate-death-v1",
+  "release": "20261112-dot-ticks-v2",
+  "files": 613,
+  "changed_existing": [
+    "combat.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ],
+  "preserved_files": 609,
+  "baseline_source_reproduced": true,
+  "public_source_reproduced": true,
+  "requires_baseline_publication": "20261112-imitate-death-v1",
+  "public_checks_passed": 3,
+  "whole_wiki_review": "All42authored sources, Home, Features, commands, catalogs and generated item/zone impacts assessed; only three owning/status/history guides and search change",
+  "baseline_publication_verified_in": "live-before-v2.json"
+}

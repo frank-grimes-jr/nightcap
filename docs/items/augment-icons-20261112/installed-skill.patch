@@ -1,0 +1,11 @@
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -18060,7 +18060,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",
+         "path": "docs/items/augment-icons-20261112/README.md",
+         "role": "Cause, source/test boundary, safe recovery limits, exact player QA and whole-wiki impact",
+-        "sha256": "5224921feee6522f7dc3fb33335cb7f5c58ab9519ed909bef93cf1a2ab35388d"
++        "sha256": "c4c5ed4033bffb5a8cc7ff0eab55f45553c785b305cf19331f5a3ba3d05539cf"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/augment-item-icons",

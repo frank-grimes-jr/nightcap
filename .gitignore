@@ -59,5 +59,20 @@ docs/adventure-journal/release-20261107/balance/*-catalog.log
 docs/adventure-journal/release-20261107/balance/*-summary.json
 docs/adventure-journal/release-20261107/balance/*.log
 eq-launcher/cmd/last-lantern-verify/
-# Generated heroic-stat audit and unsigned client candidate.
+# Private production probes, captures, error diagnostics and upload payloads.
+/artifacts/augment-icons-20261112/
+
+# Quick Buff private build/signing/runtime artifacts
+/artifacts/quick-buff-20261112/
+/eq-launcher/cmd/quick-buff-sign/
+/eq-launcher/cmd/quick-buff-verify/
+
+# Private Imitate Death build, staging and publication payloads.
+/artifacts/imitate-death-20261112/
+
+# Private DoT build, staging, diagnostics and authenticated wiki source.
+/artifacts/dot-no-initial-damage-20261112/
+/artifacts/titles-wiki-20261112/
+
+# Generated Inventory combat-stat release artifacts.
 /artifacts/heroic-stats/

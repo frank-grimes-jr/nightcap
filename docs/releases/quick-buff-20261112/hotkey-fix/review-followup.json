@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reviewer": "fresh-context quick_buff_release_review",
+  "native_paths": [
+    "AA hotkey creation0x60AC3E..AD1B",
+    "timer setter0x7C46F0 only direct receiver call0x4B5BFE",
+    "hotbutton ready/render0x55253F..559A reads remaining0x4A3880"
+  ],
+  "native_findings": "No independent local1second deadline; generic reuse detail may show1second. Visible UI/double-press QA remains OPEN.",
+  "release_scope": "v2 rollout and ship concrete delta vs v1; reproduce deployed build, retain146inputs, no Client layout change, no client publication; guarded restart and preservation unchanged",
+  "unresolved_blockers": [],
+  "linux_followup_rollout_tests": 9,
+  "wiki_source_link_tests": 15,
+  "owner_manual_status": "V1 Make Hotkey failure retained; V2 acceptance OPEN",
+  "pinned_client_sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+  "make_hotkey_gate_bytes": "3958640f8e2e010000",
+  "fixture_scope": "Executes gate and AA receiver/readiness in isolated mapped x86 image; protected client file and live process untouched",
+  "final_deployment_documentation_review": "PASS: no material contradictions or overstated acceptance; v1 failure retained, v2 verified deployment separate from pending owner testing"
+}

@@ -1,0 +1,9 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-24",
+  "source_ref": "HEAD",
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "changed_source_count": 1396,
+  "publication_release": "20261112-earned-titles-v1",
+  "scope": "Fresh authenticated public-source reproduction and scoped title preview verified. Historical global source drift remains REVIEW REQUIRED; ledger not advanced."
+}

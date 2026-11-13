@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "source_checks": {
+    "quick_buff_and_reagents_and_rollout": {
+      "tests": 11,
+      "status": "PASS"
+    },
+    "aa_cooldown_identity": {
+      "tests": 17,
+      "status": "PASS"
+    },
+    "native_full_translation_units_original_candidate": "PASS"
+  },
+  "linux_fault_tests": {
+    "status": "PASS",
+    "checks": [
+      {
+        "folder": "docs/releases/quick-buff-20261112/client",
+        "tests": 20,
+        "status": "PASS"
+      },
+      {
+        "folder": "tools/tests",
+        "tests": 8,
+        "status": "PASS"
+      }
+    ]
+  },
+  "manual_acceptance": "OPEN",
+  "wiki_content": {
+    "tests": 15,
+    "status": "PASS",
+    "public_source_reproduced": true,
+    "files": 613,
+    "preserved_files": 607
+  },
+  "signed_client": {
+    "status": "PASS",
+    "release": 2026111201,
+    "changed_assets": 1,
+    "preserved_assets": 147,
+    "signature_and_actual_executable_pair": "PASS",
+    "published": false
+  },
+  "full_build_sha256": "e7b7a18149ede573b8b040906bddf4faefaed05b50c4c7a4706dcfd4a2da9e2f",
+  "full_build": {
+    "status": "PASS",
+    "shipping_zone": "1fe268a18c45190f43ea25290c95ad852561029da5cacb024d7c99a91d40abd4",
+    "baseline_reproduced": "2fc2d72bdc37722f99f2e008bd88a72674865fbf65079184e1df85922347f397",
+    "compile_units_in_fresh_build_graph": 377,
+    "full_source_files": 2856,
+    "runtime_identity": "PASS"
+  },
+  "operator_fault_tests": {
+    "tests": 8,
+    "status": "PASS",
+    "platform": "Linux with real fsync and permissions"
+  }
+}

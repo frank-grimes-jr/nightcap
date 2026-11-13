@@ -1,0 +1,19 @@
+{
+  "result": "prepared_not_published",
+  "baseline_release": "20261112-quick-buff-v1",
+  "release": "20261112-quick-buff-v2",
+  "files": 613,
+  "changed_existing": [
+    "combat.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved_files": 610,
+  "public_source_reproduced": true,
+  "whole_wiki_review": "All42authored sources, Home, commands, catalogs and generated item/zone impacts assessed; only Combat instructions, Change Log and search change",
+  "source_link_tests": {
+    "status": "PASS",
+    "tests": 15,
+    "retained_private_test_updated_from_current_repo": true
+  }
+}

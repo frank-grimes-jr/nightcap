@@ -1,0 +1,13 @@
+
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/opt/nightcap/releases/imitate-death-20261112-v1/rollout.py", line 171, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/opt/nightcap/releases/imitate-death-20261112-v1/rollout.py", line 167, in main
+    fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);fcntl.flock(gm,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable

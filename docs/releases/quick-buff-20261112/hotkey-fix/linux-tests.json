@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "folder": "tools/tests",
+      "tests": 9,
+      "status": "PASS"
+    }
+  ]
+}

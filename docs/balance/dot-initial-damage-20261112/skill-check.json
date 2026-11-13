@@ -1,0 +1,53 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "dot-initial-damage": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\tools\\tests\\test_dot_initial_damage.py",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\docs\\balance\\dot-initial-damage-20261112\\README.md",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\docs\\balance\\dot-initial-damage-20261112\\native-build.json",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\docs\\balance\\dot-initial-damage-20261112\\verification.json",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\wiki\\articles\\combat.json",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dot-no-initial-damage\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed player DoT landing-hit candidate; native build/tests pass, not deployed or owner accepted; wiki unpublished, unrelated provenance drift retained",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

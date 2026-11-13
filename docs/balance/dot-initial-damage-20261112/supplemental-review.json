@@ -1,0 +1,53 @@
+{
+  "environment": "production frozen spell capture plus current reviewed Build Lab projection",
+  "date": "2026-11-12",
+  "alternative_immediate_handlers": {
+    "PercentalHeal_147": 0,
+    "ManaBurn_350": 0,
+    "HealthTransfer_509": 0
+  },
+  "build_lab_spells": [
+    {
+      "id": "54",
+      "name": "Frost Bolt",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "732",
+      "name": "Ice Comet",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "360",
+      "name": "Heat Blood",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "6",
+      "name": "Ignite Blood",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "17",
+      "name": "Light Healing",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "15",
+      "name": "Greater Healing",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "114",
+      "name": "Shock of Swords",
+      "has_separate_initial_DoT_hit": false
+    },
+    {
+      "id": "671",
+      "name": "Starfire",
+      "has_separate_initial_DoT_hit": false
+    }
+  ],
+  "build_lab_arithmetic_impact": "None: none of its eight pinned spells has the removed separate DoT hit",
+  "trigger_scope": "Separate triggered AA/spell proc mechanics remain native; local Bard chant child identities were checked separately without changing them. No blanket ban on every event associated with casting."
+}

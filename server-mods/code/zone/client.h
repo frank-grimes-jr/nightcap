@@ -1148,6 +1148,8 @@ public:
 	bool GrantAlternateAdvancementAbility(int aa_id, int points, bool ignore_cost = false);
 	void IncrementAlternateAdvancementRank(int rank_id);
 	void ActivateAlternateAdvancementAbility(int rank_id, int target_id);
+	void CastQuickBuff(int rank_id);
+	bool m_quick_buff_active = false;
 	void SendAlternateAdvancementPoints();
 	int GetAlternateAdvancementTimerSlot(int family_id);
 	void SendAlternateAdvancementTimer(int family_id, int begin, int end);

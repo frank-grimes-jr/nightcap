@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "validator": "Skill is valid",
+  "reviewed_entries": 30,
+  "topic_result": {
+    "audited_at": "2026-10-12",
+    "scope": "Reviewed local files; not runtime or player QA evidence",
+    "topics": {
+      "quick-buff": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\README.md",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\client-public-verification.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\full-build.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\README.md",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\native-build.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\production-verification.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\release-checks.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\review.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\rollout.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\hotkey-fix\\wiki-public-verification.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\production-verification.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\retained-native-overlay.patch",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\rollout.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\docs\\releases\\quick-buff-20261112\\wiki-public-verification.json",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\eq-client-dll\\tests\\aa-reuse-native.cpp",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\common\\quick_buff.h",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\aa.cpp",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\aa_quick_buff.inc",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\client.h",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\server-mods\\code\\zone\\spells.cpp",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\build_quick_buff_hotkey_fix.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\prepare_quick_buff_hotkey_wiki.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\quick_buff_client.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_aa_cooldown_identity.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff_hotkey_native.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff_hotkey_rollout.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff_reagents.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\tests\\test_quick_buff_rollout.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\quick-buff-hotkey\\tools\\verify_quick_buff_hotkey_fix.py",
+          "role": "Reviewed Quick Buff implementation/native compatibility/deployment evidence; owner acceptance OPEN",
+          "state": "unchanged"
+        }
+      ]
+    }
+  }
+}

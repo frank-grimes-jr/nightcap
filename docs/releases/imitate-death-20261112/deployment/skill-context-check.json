@@ -1,0 +1,1178 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "multiclass": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\server-mods\\code\\common\\imitate_death.h",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\server-mods\\code\\zone\\aa.cpp",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\tests\\test_aa_cooldown_identity.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\eq-client-dll\\tests\\aa-reuse-native.cpp",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\tests\\test_imitate_death_rollout.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\build_imitate_death_release.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\README.md",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\wiki-review.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\README.md",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\rollout.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\native-build.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\release-checks.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\review.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\production-verification.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\wiki-publication.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\wiki-public-verification.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\docs\\releases\\imitate-death-20261112\\deployment\\concurrent-source-review.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\wiki\\articles\\combat.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\run_imitate_death_release.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\ship_imitate_death_release.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\verify_imitate_death_release.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\test_imitate_death_linux.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\prepare_imitate_death_wiki.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\publish_imitate_death_wiki.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\imitate-death-no-cooldown\\tools\\verify_imitate_death_wiki.py",
+        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\plugins\\multiclass.pl",
+        "role": "canonical class membership and atomic release caller",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\rogue-audit-20261024\\source\\server-mods\\code\\common\\spell_class_catalog.h",
+        "role": "Oct24 canonical rogue discipline ownership/levels; widened masks do not establish access",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\adr\\0042-per-character-spell-access.md",
+        "role": "per-character ownership with explicit early-scribing exception",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\go\\work\\aa-point-cost\\docs\\ops\\aa-point-cost-20261012\\README.md",
+        "role": "historical 4000 XP/AA activation and point-conversion behavior; current passive rate supersedes 40 percent",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\go\\work\\aa-point-cost\\tools\\tests\\test_aa_point_cost.py",
+        "role": "162 native-method/point-conversion regression checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\no-death-exp-loss\\server-mods\\code\\zone\\client_process.cpp",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\server-mods\\code\\zone\\effects.cpp",
+        "role": "Canonical held-class LearnDisciplineFromItem, duplicate/full/save validation and compatibility refunds; Oct24 deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\server-mods\\code\\zone\\client_packet.cpp",
+        "role": "Right-click consume only after successful learning; original instance retained on rejection",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\tools\\tests\\test_early_spell_scribing.py",
+        "role": "actual packet/item early-scribing and gem-level regressions",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\tools\\tests\\test_multiclass_spell_access.py",
+        "role": "canonical ownership and server gem-cast regressions",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-client-dll\\src\\ui_hooks.h",
+        "role": "Monk session reset; preserved scribing/trainer/tradeskill hooks",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-client-dll\\src\\dllmain.cpp",
+        "role": "reviewed native submission/commit installation; preserved equipment/spell access",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\eq-client-dll\\tests\\ui-hooks.cpp",
+        "role": "exact native scribe comparison and x86 ABI controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\advanced-loot-bugs\\eq-client-dll\\config\\patch-sites.json",
+        "role": "Reviewed published loot2026110605/proxy0.13.5/main PR418 and wiki20261107-advanced-loot-v1; all148client/510wiki HTTPS hashes verify; services preserved; owner native acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\README.md",
+        "role": "candidate pairing, recovery and exact owner QA; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\verification.json",
+        "role": "compiled native and client evidence; in-game acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\server-receipt.json",
+        "role": "deployed zone and saved-state preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\tools\\tests\\test_trainer_hail.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\tools\\build_trainer_candidate.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\deployment\\native\\rollout.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\deployment\\native\\test_rollout.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\deployment\\native\\manifest.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\server-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\client-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\hosted-verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\server-mods\\code\\zone\\mob.cpp",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\tools\\tests\\test_multiclass_skill_progression.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\tools\\build_skill_progression_candidate.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\build-manifest.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-diff.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-native-gates.txt",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-receipt.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\test_publish.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\verify-production.go",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\final-health.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\manifest.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\rollout.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\test_rollout.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\final-health.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\hosted-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\legacy-tag-restored.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\local-client-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\preflight-summary.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\production-probe.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\server-receipt.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\server-report.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\server-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\aa_tbs_policy.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\verify_aa_tbs_native.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\README.md",
+        "role": "verified deployment, preserved baseline, limits and exact owner QA",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\server-receipt.json",
+        "role": "closed-state player/custom preservation and twelve native hashes",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\final-health.json",
+        "role": "dated post-deployment runtime health; not gameplay acceptance",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\AGENTS.md",
+        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\build_aa_level1_candidate.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\README.md",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\build-manifest.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\verification.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\server-receipt.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\post-notes-health.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\rogue-audit-20261024\\source\\server-mods\\code\\zone\\special_attacks.cpp",
+        "role": "Oct24 reviewed separate level60 assassination rule and retained earned-AA Triple Backstab gate",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\verify_triple_backstab_native.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\README.md",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\activated.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\final-runtime-verification.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\tools\\build_aa_temporary_buffs_candidate.py",
+        "role": "fingerprinted retained-source build of deployed zone",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\README.md",
+        "role": "deployed behavior, client/reload pairing, recovery and pending owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\verification.json",
+        "role": "thirty behavior checks and deployed receipt boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\build-manifest.json",
+        "role": "deployed binary source/link/native build provenance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\content-check.json",
+        "role": "approved production definitions and captured-data native classification",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment.json",
+        "role": "verified OVH running hashes, backup, data preservation and unchanged client",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment\\rollout.py",
+        "role": "reviewed zone-only operator with uncertain-access hold and no SQL restore",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment\\test_rollout.py",
+        "role": "thirty-three offline rollout/recovery controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment\\manifest.json",
+        "role": "immutable staged hashes and reviewed runtime/client baseline",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment\\README.md",
+        "role": "release-specific authorization and guarded operation/recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\no-death-exp-loss\\server-mods\\code\\zone\\attack.cpp",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\tools\\tests\\test_no_death_exp_loss.py",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\no-death-exp-loss\\docs\\ops\\no-death-exp-loss-20261017\\forward.sql",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\no-death-exp-loss\\docs\\ops\\no-death-exp-loss-20261017\\rollback.sql",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\ops\\no-death-exp-loss-20261017\\README.md",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\no-death-exp-loss\\docs\\ops\\no-death-exp-loss-20261017\\preflight.json",
+        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\server-mods\\code\\common\\combat_ability_timer.h",
+        "role": "held-Monk/RoF2 six-skill timer selection and legacy controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\server-mods\\code\\common\\ptimer.h",
+        "role": "reserved persistent Monk timer range500-599; no schema or ABI change",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-client-dll\\src\\monk_reuse.h",
+        "role": "six per-skill records, guarded native methods and SEH submission scope; not published",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\tools\\tests\\test_monk_combat_reuse.py",
+        "role": "actual handlers16 passing tests; native uint32 timer boundary,36 zero/excess and36 positive controls plus existing Monk coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\monk-independent-reuse-20261017\\README.md",
+        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\docs\\releases\\monk-independent-reuse-20261017\\verification.json",
+        "role": "reviewed build/test/source evidence; not gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\ops\\passive-aa-ten-20261017\\README.md",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\result.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\preflight.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\REVIEW.md",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\analysis.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\ops\\test_ten.py",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\ops\\apply.py",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\tools\\tests\\test_cooldown_duration.py",
+        "role": "18 tests/28 native scenarios; real persistent lifecycle/full discipline; zero reuse, negative focus and proc/trigger controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\tools\\tests\\fixtures\\cooldown_persistent_timer.cpp",
+        "role": "pinned actual persistent lifecycle; Start(0) retains duration; extracted retained-source methods, controlled clock/database only",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\cooldown-audit-20261017\\README.md",
+        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\docs\\releases\\cooldown-audit-20261017\\verification.json",
+        "role": "passing native/adjacent regressions and review; six collision failures separately recorded; fullbuild/liveQA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\docs\\releases\\cooldown-audit-20261017\\catalog-summary.json",
+        "role": "dated SELECT-only content counts, canonical eligibility and anonymous saved-timer scope; not live incident attribution",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\docs\\releases\\cooldown-audit-20261017\\reproduce_collisions.py",
+        "role": "actual AA/item key diagnostic; six RED identity defects and five controls, intentionally unresolved",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\server-mods\\code\\common\\aa_recommendations.h",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\server-mods\\code\\zone\\aa_recommendations.inc",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\server-mods\\code\\zone\\gm_commands\\nightcapui.cpp",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\tools\\tests\\test_aa_recommendations.py",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\recommended-aa-20261017\\README.md",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\README.md",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\QA.md",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\production-verification.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\hosted-client-verification.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\docs\\releases\\october-17-2026\\wiki-publication.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\server-mods\\code\\zone\\gm_commands\\resetaa_timer.cpp",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\tools\\audit_cooldown_identities.py",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\README.md",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\REVIEW.md",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\catalog-summary.json",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities\\docs\\releases\\cooldown-identities-20261017\\deployment\\production-verification.json",
+        "role": "Reviewed cooldown deployment, recovery or guide evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-pet-scaling-20261018\\evidence\\aa-native.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\wpm-melee-20261018\\evidence\\aa-native.json",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_doppelganger.h",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\npc.cpp",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_doppelganger.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\wpm_aa.py",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\config\\aa-policy.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\dispositions.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\healing-boon-forward.sql",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\healing-boon-rollback.sql",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\production-content-check.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\summary.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\thj-ranks.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\verification.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\rogue-audit-20261024\\source\\server-mods\\code\\common\\nightcap_aa_policy.h",
+        "role": "Oct24 compiled all1845 rank requirements at1;530 Rogue-accessible live ranks cross-matched; no policy changes",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\all_class_aa.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\build_all_class_aa_candidate.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\fixtures\\aa-all-class-catalog.json.gz",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_aa_tbs_policy.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_all_class_aa.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_all_class_aa_native.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_behavior_content.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behaviors.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\README.md",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\forward.sql",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\rollback.sql",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\production-rule-observation.json",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\verification.json",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_aa_point_cost_40000.py",
+        "role": "October 21 AA pacing deployed/published; 40,000 XP per point, 10% passive, earned progress retained; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_aa_point_cost_40000_sql.py",
+        "role": "October 21 AA pacing deployed/published; 40,000 XP per point, 10% passive, earned progress retained; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\result.json",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\source-pairing.json",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\ops\\apply.py",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\ops\\aa-point-cost-40000-20261021\\ops\\test_apply.py",
+        "role": "Historical40k trial evidence; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-thj-rate-inference-20261021\\comparison.json",
+        "role": "October21 read-only conditional THJ AA pacing inference using observed production mobs/rules; not THJ constant or live gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-thj-rate-inference-20261021\\mobs-level-modifiers.json",
+        "role": "October21 read-only conditional THJ AA pacing inference using observed production mobs/rules; not THJ constant or live gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-thj-rate-inference-20261021\\schema-rules-zones.json",
+        "role": "October21 read-only conditional THJ AA pacing inference using observed production mobs/rules; not THJ constant or live gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-thj-rate-inference-20261021\\source-pairing.json",
+        "role": "October21 read-only conditional THJ AA pacing inference using observed production mobs/rules; not THJ constant or live gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-thj-rate-inference-20261021\\native-comparison.cpp",
+        "role": "October21 read-only conditional THJ AA pacing inference using observed production mobs/rules; not THJ constant or live gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-thj-rate-inference-20261021\\native-comparison.txt",
+        "role": "October21 read-only conditional THJ AA pacing inference using observed production mobs/rules; not THJ constant or live gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\palwar-aa-rate-20261021\\comparison.json",
+        "role": "Private read-only Palwar AA diagnostic: reported one point per dark blue is compatible with40k/potion/ZEM; no tuning change or gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\palwar-aa-rate-20261021\\zone-mobs-buff.json",
+        "role": "Private read-only Palwar AA diagnostic: reported one point per dark blue is compatible with40k/potion/ZEM; no tuning change or gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-options-20261021\\options.json",
+        "role": "Historical pre-release analysis; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-options-20261021\\production-inputs.json",
+        "role": "Historical pre-release analysis; superseded by verified1m AA/XP boost release",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\README.md",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\rollout.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\native-build-manifest.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\deployed.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\verification.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\review.md",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\finish_cache.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\test_finish_cache.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-diagnosis.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-pacing-million-20261021\\cache-source-pairing.json",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_aa_temporary_buffs.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_aa_point_cost_million.py",
+        "role": "Reviewed1m AA/XP boost release and verified deployment/publication; owner gameplay acceptance open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\common\\aa_progression.h",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\common\\ruletypes.h",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\zone\\exp.cpp",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\server-mods\\code\\zone\\client.h",
+        "role": "Non-consuming discipline learning helper declaration",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\zone\\client.cpp",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\zone\\zonedb.cpp",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\server-mods\\code\\zone\\gm_commands\\aa_exp.cpp",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_level_aa.py",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_level_aa_integration.py",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\tools\\tests\\test_passive_aa.py",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-level-progression-20261023\\README.md",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-level-progression-20261023\\matrix.md",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\aa-point-cost-40000\\EQ_Local_Dev\\docs\\releases\\aa-level-progression-20261023\\open-receipt.json",
+        "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\rogue-audit-20261024\\source\\server-mods\\code\\zone\\client_mods.cpp",
+        "role": "Oct24 reviewed canonical held-class GetSpellMinLevel used by discipline activation",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\rogue-tomes-aa-20261024.md",
+        "role": "Read-only rogue audit, verified defects, open AA client reproduction and wiki impact",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\rogue-audit-20261024\\reproduce.py",
+        "role": "Actual native tome-learning reproduction and1845 compiled AA policy checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\tools\\tests\\test_tome_learning.py",
+        "role": "43 actual-method Windows/Linux learning and item-click regression cases",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\docs\\releases\\rogue-tomes-20261024\\README.md",
+        "role": "Verified release, preserved state, exact Karl QA and recovery boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\docs\\releases\\rogue-tomes-20261024\\rollout.py",
+        "role": "Reviewed guarded native zone activation and current-state recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\CodexData\\home\\worktrees\\rogue-tome-learning\\EQ_Local_Dev\\docs\\releases\\rogue-tomes-20261024\\test_rollout.py",
+        "role": "24 operator regression groups on Windows/Linux",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

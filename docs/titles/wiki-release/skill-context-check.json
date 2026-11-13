@@ -1,0 +1,173 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "titles": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\earned_titles.py",
+        "role": "Reviewed 77-title source catalog and native/wiki generator",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\common\\earned_title_policy.h",
+        "role": "Threshold, cap, Classic checklist and credit policy",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\common\\earned_title_catalog.h",
+        "role": "Generated stable title IDs and exact requirements",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\earned_titles.h",
+        "role": "Title adapter interface",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\earned_titles.inc",
+        "role": "Persistent counters/awards, native ledgers and guarded reconciliation",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\titles.cpp",
+        "role": "Native earned title packet/selection integration",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\attack.cpp",
+        "role": "Finalized native death hook and captured ownership",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\client.cpp",
+        "role": "Successfully saved skill update hook and native multiclass caps",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\command.cpp",
+        "role": "Player #titles registration and pagination",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\server-mods\\code\\zone\\command.h",
+        "role": "Native command declaration",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\tests\\test_earned_titles.py",
+        "role": "Compiled policy, actual adapter and generation regression groups",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\tests\\earned_titles_service_fixture.cpp",
+        "role": "Durable/failed/uncertain storage and selection controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\setup.sql",
+        "role": "Three additive disabled InnoDB tables",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\native-compile.json",
+        "role": "Four native syntax compile commands and source hashes; no deployment",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\storage-tests.json",
+        "role": "Ten real isolated MariaDB checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\SPEC.md",
+        "role": "Candidate contract, assumptions and alternatives",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\QA.md",
+        "role": "Exact normal-player acceptance gates, all OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\README.md",
+        "role": "Verification, activation and forward recovery boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-impact.md",
+        "role": "Whole-wiki scoped candidate review and unavailable visual QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\wiki\\articles\\titles.json",
+        "role": "Generated unreleased player title requirements",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\main-integration.json",
+        "role": "Owner-authorized main promotion, preserved current-main native/wiki sources and fresh integration checks; no deployment or acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\prepare_titles_wiki.py",
+        "role": "Authenticated613-output reproduction and scoped preview-only changes",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\check_titles_wiki.py",
+        "role": "Exact77requirements, preview labels and real search/neighbor controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\publish_titles_wiki.py",
+        "role": "Owner-authorized guarded pointer update with preserved services/config/channel/downloads",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\verify_titles_wiki.py",
+        "role": "614public HTTPS hashes/headers and private denials",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\tools\\update_titles_wiki_knowledge.py",
+        "role": "Preimage-checked publication knowledge maintenance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-release\\README.md",
+        "role": "Published guide, exact source and terminal recovery boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\ops\\nightcap-wiki.md",
+        "role": "Current614-file publication authority with earlier hosting snapshots explicitly retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-release\\source-reproduction.json",
+        "role": "Fresh authenticated public baseline reproduction",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-release\\candidate.json",
+        "role": "43-guide review, exact scope and600retained files",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-release\\content-checks.json",
+        "role": "77exact title requirements and browser-search controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-release\\publication.json",
+        "role": "Verified pointer rollback and preserved private/service state",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\earned-titles\\docs\\titles\\wiki-release\\public-verification.json",
+        "role": "All614HTTPS hashes/headers and five private404denials",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

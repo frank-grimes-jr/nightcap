@@ -1,0 +1,8 @@
+{
+  "source_ref": "60d5136245e3c73a785783acfec7ed4068497065",
+  "include_worktree": true,
+  "exit_code": 2,
+  "global_result": "REVIEW REQUIRED",
+  "scoped_review": "All42authored articles, Home/Features/commands/catalog/generated pages assessed. Only combat, history and search change; no unrelated ledger advance.",
+  "checker_output": "fatal: Needed a single revision\nUnable to compare source revisions; wiki review is not verified.\n"
+}

@@ -1,0 +1,17 @@
+{
+  "result": "prepared_not_published",
+  "baseline_release": "20261112-augment-icons-v1",
+  "release": "20261112-quick-buff-v1",
+  "files": 613,
+  "changed_existing": [
+    "combat.html",
+    "features.html",
+    "multiclass.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ],
+  "preserved_files": 607,
+  "public_source_reproduced": true,
+  "whole_wiki_review": "All42authored sources, Home, commands, catalogs and generated item/zone impacts assessed; only five owning/status/history guides plus search change"
+}
