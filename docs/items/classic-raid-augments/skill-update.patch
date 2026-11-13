@@ -1,0 +1,101 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -225,0 +226,6 @@
++
++## Classic raid augments — November 12 feature candidate
++
++Use the `classic-raid-augments` context. The sixteen single-quality LORE trophies (963200–963215) fit one chest-only type-22 socket at level 50. Their per-ID LORE projection is an exception to global suppression, including socketed custody. Independent 25/15/50% corpse rolls cover dragons, secondary bosses and planar finals. Managed drops require Raid objective credit. The three capstones share a persisted 90-second timer. Power Source, pet and displaced Hunt bonuses are excluded. Master Yael 39138 has no confirmed public spawn route; the managed Hole finale is a different NPC.
++
++Feature checkout E:/EQ_Local_Dev/_worktrees/classic-raid-augments. Catalog, source mapping, deterministic tests and SQL: config/classic-raid-augments.json, tools/classic_raid_augments.py, tools/tests/test_raid_augment*. The native timers store whole seconds. Use 91 stored ticks for a 90-second hard minimum across relogs. The local 1,104-fight screen used six Hunt options and an empty socket. Read docs/items/classic-raid-augments/balance/README.md for the corrected-timer cohort, healing flags, mixed outcomes and arena limitations. Native builds and the 16-item cache passed. Review and RoF2 player QA are tracked under docs/items/classic-raid-augments/ and PR 431. Install matching world/zone/shared_memory, apply guarded content and rebuild the cache on the intended test stack. Standard RoF2 LORE and type-22 fields use the existing signed client. No production rollout, public wiki publication or owner acceptance is recorded.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,0 +2,4 @@
++
++## Classic raid augment candidate
++
++The feature checkout adds wiki/articles/classic-raid-augments.json and links from Features, In development, Equipment, Zone augments and Change Log. The preview identifies Yael’s unresolved acquisition route and the shared capstone cooldown. Live catalogs and public pages continue to describe deployed content. See docs/items/classic-raid-augments/README.md and the classic-raid-augments context.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -163,0 +164 @@
++    "classic_raid_augments_candidate_20261112": "c04dc313 hard cooldown, PR 431 scoped dev port; native-only verification and owner QA boundaries in candidate evidence",
+@@ -19313,0 +19315,80 @@
++    ],
++    "classic-raid-augments": [
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "config/classic-raid-augments.json",
++        "role": "Reviewed item values, exact IDs, sources and rates",
++        "sha256": "cf286daf78bba0cc007ddd194b95390df3f95d1ebb26323ef06ad684e24312f9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "server-mods/code/common/raid_augment.h",
++        "role": "Chest-only socket eligibility and reserved IDs",
++        "sha256": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "server-mods/code/zone/raid_augment.inc",
++        "role": "Actual capstone behavior and persistence",
++        "sha256": "7544d7852a7ebb7912102f263be0049691d9ebae4d4dcdad7fe2ad2dc3afa9b7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "server-mods/code/zone/raid_augment_custody.h",
++        "role": "Nested LORE custody on transfers",
++        "sha256": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "server-mods/code/zone/raid_augment_delivery.h",
++        "role": "Direct versus triggered delayed delivery",
++        "sha256": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "server-mods/code/zone/dungeon_service.cpp",
++        "role": "Managed objective credit and shared corpse loot",
++        "sha256": "79f82f24448167ba964baf750e28b0d9381eee099f269551d9fa21e74f7ccd3a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "docs/items/classic-raid-augments/content.sql",
++        "role": "Full-definition isolated insert/replay guard",
++        "sha256": "727a944ac437b83ac29790e0104a6bd8b0b11827cf532c853b7e3ce88a923d4b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "docs/items/classic-raid-augments/native-build.json",
++        "role": "Native development build receipt",
++        "sha256": "d6cf21ace5b06f13b2d06d93e0b42d1a1fa56733d68af67e513ebbd5a9bfa360"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "wiki/articles/classic-raid-augments.json",
++        "role": "Unpublished candidate player guide",
++        "sha256": "5235526cac8dd572f49d8e37ce61e97765cc6035f0835fd24458e8c9a67b6120"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "tools/tests/test_raid_augments.py",
++        "role": "Native handler and boss coverage tests",
++        "sha256": "a67788f1eac1786cda6a48d38941b6e98d33d9c3cfea86b20de304087d57a6fd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "docs/items/classic-raid-augments/balance/README.md",
++        "role": "Native encounter methods, gates, counterfactuals and interpretation",
++        "sha256": "4ab1d5667460fcff8d1665c4a56197893a7f89f574382fbf0f13c1e12cc74cb5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "docs/items/classic-raid-augments/balance/comparisons.csv",
++        "role": "Same-seed healing and kill-time screen; outcome coverage and empty controls",
++        "sha256": "9718959473fa0a9cfe4409871cd7d260c1ba9316097e4d915d778fd64a55d7fb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "path": "docs/items/classic-raid-augments/balance/reuse-fix/verification.json",
++        "role": "Corrected timer and targeted paired results",
++        "sha256": "0a8a6045bf7781d243a066534585b6e617ecdb79ff86af87889e03357e67b793"
++      }

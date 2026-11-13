@@ -1318,17 +1318,16 @@ void Mob::ProjectileAttack()
 		// Check if we hit.
 		if (ProjectileAtk[i].hit_increment <= ProjectileAtk[i].increment) {
 			if (target) {
-				if (IsNPC()) {
-					if (ProjectileAtk[i].skill == EQ::skills::SkillConjuration) {
-						if (IsValidSpell(ProjectileAtk[i].wpn_dmg))
-							SpellOnTarget(ProjectileAtk[i].wpn_dmg, target, false, true,
-								      spells[ProjectileAtk[i].wpn_dmg].resist_difficulty,
-								      true);
-					} else {
-						CastToNPC()->DoRangedAttackDmg(
-						    target, false, ProjectileAtk[i].wpn_dmg, 0,
-						    static_cast<EQ::skills::SkillType>(ProjectileAtk[i].skill));
+				if (ProjectileAtk[i].skill == EQ::skills::SkillConjuration) {
+					const auto spell_id = ProjectileAtk[i].wpn_dmg;
+					if (IsValidSpell(spell_id)) {
+						const auto origin = NightcapRaidAug::OnDelivery(this, spell_id, ProjectileAtk[i].raid_delivery);
+						SpellOnTarget(spell_id, target, false, true, spells[spell_id].resist_difficulty, true);
 					}
+				} else if (IsNPC()) {
+					CastToNPC()->DoRangedAttackDmg(
+					    target, false, ProjectileAtk[i].wpn_dmg, 0,
+					    static_cast<EQ::skills::SkillType>(ProjectileAtk[i].skill));
 				} else {
 					if (ProjectileAtk[i].skill == EQ::skills::SkillArchery)
 						DoArcheryAttackDmg(target, nullptr, nullptr, ProjectileAtk[i].wpn_dmg,
@@ -1339,10 +1338,6 @@ void Mob::ProjectileAttack()
 						DoThrowingAttackDmg(target, nullptr, nullptr, ProjectileAtk[i].wpn_dmg,
 								    0, 0, 0, ProjectileAtk[i].ranged_id,
 								    ProjectileAtk[i].ammo_slot, 4.0f, ProjectileAtk[i].disable_procs);
-					else if (ProjectileAtk[i].skill == EQ::skills::SkillConjuration &&
-						 IsValidSpell(ProjectileAtk[i].wpn_dmg))
-						SpellOnTarget(ProjectileAtk[i].wpn_dmg, target, false, true,
-							      spells[ProjectileAtk[i].wpn_dmg].resist_difficulty, true);
 				}
 			}
 

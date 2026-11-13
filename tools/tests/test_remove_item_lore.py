@@ -14,6 +14,7 @@ class RemoveItemLoreTests(unittest.TestCase):
         source = r"""
 #include <cassert>
 #include <initializer_list>
+#include "common/raid_augment.h"
 namespace EQ { struct ItemData { int ID=42, LoreGroup=0; bool LoreFlag=false; }; }
 constexpr int invWhereSharedBank=1, INVALID_INDEX=-1;
 struct Inventory {
@@ -28,17 +29,21 @@ struct Client {
 """ + gate + r"""
 int main() {
  Client client;
+ for (int id = 963199; id <= 963216; ++id) {
  for (int group : {-1, 0, 42, 1000, 2147483647}) {
   for (bool disable_lore : {false, true}) {
    struct { int loregroup; } e{group};
    EQ::ItemData item;
+   item.ID = id;
 """ + '\n'.join(assignments) + r"""
-   assert(item.LoreGroup == (disable_lore ? 0 : group));
-   assert(item.LoreFlag == (!disable_lore && group != 0));
+   const int expected = (id >= 963200 && id <= 963215) ? -1 : (disable_lore ? 0 : group);
+   assert(item.LoreGroup == expected);
+   assert(item.LoreFlag == (expected != 0));
    for (bool pets : {false, true})
-    assert(client.CheckLoreConflict(&item, pets) == (!disable_lore && group != 0));
+    assert(client.CheckLoreConflict(&item, pets) == (expected != 0));
    assert(e.loregroup == group);
   }
+ }
  }
  assert(!client.CheckLoreConflict(nullptr, true));
 }

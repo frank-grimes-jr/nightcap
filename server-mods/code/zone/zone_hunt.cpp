@@ -147,3 +147,5 @@ int OutputHeadroom(Client &c, bool healing)
 	return Headroom(c.GetLevel(), effective);
 }
 }
+
+#include "zone/raid_augment.inc"

@@ -67,6 +67,7 @@ struct Client:Mob {
  int32 GetRawItemAC();
 };
 Client* Mob::CastToClient(){return static_cast<Client*>(this);}
+namespace NightcapHunt { int OutputShieldBlock(Client&) { return 0; } }
 ''' + methods + r'''
 int main() {
  Client c;EQ::ItemInstance worn,training,power;

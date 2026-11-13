@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-12",
+  "status": "feature candidate; not deployed",
+  "items": 16,
+  "zone_npc_pairs": 25,
+  "catalog_reproducible": true,
+  "native_build": "native-build.json",
+  "sql": {
+    "scope": "Disposable local MariaDB, CREATE TABLE LIKE peq.items, no player data",
+    "passed": [
+      "empty schema install",
+      "identical replay",
+      "non-authored proc-field drift rejected",
+      "name collision rejected",
+      "partial range rejected without repair"
+    ]
+  },
+  "effective_cache": {
+    "candidate_file": "shared_memory",
+    "raid_rows": 16,
+    "ordinary_control": 1,
+    "checked": [
+      "per-item LORE group and flag",
+      "chest-only mask",
+      "type-22 augment bit",
+      "required level 50",
+      "no-pet flag",
+      "stock LORE suppression"
+    ]
+  },
+  "tests": {
+    "native_and_domain_regressions": 27,
+    "wiki_article_refresh_and_augment_regressions": 22,
+    "wiki_pages_generated": 607,
+    "all_sixteen_names_and_five_navigation_links": true,
+    "known_existing_build_lab_failure": "effects.cpp frozen hash mismatch also present on base; no effects.cpp diff; whole wiki refresh ledger reports historical source drift"
+  },
+  "qa_open": [
+    "Owner RoF2 gameplay and balance",
+    "Master Yael public spawn route"
+  ],
+  "production_writes": false,
+  "measured_balance": {
+    "baseline_runs": 1104,
+    "baseline_kill_screens": 138,
+    "baseline_kill_flags": 0,
+    "baseline_healing_screens": 203,
+    "baseline_healing_flags": 29,
+    "post_timer_runs": 150,
+    "post_timer_min_reuse_ms": 90350,
+    "dreadbone_fresh_runs": 24,
+    "source": "balance/README.md"
+  }
+}

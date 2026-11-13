@@ -1,0 +1,57 @@
+# Level-50 raid augment encounter study
+
+November 12 local candidate. The original game zone SHA-256 starts `55b61a76`. The separate diagnostic SHA-256 starts `e7071aac`. See [the link manifest](diagnostic-build.json) for all 145 candidate object/archive inputs and hashes. The matching candidate shared-memory loader generated the private item and spell caches. No existing game database or production service participated.
+
+## Original candidate findings
+
+Across 1,104 fights, 138 of the 256 role/boss/raid-item cells produced three comparable kills. None beat the fastest tested Hunt chest by over 5%. Of 203 comparable effective-healing cells, 29 exceeded 5%. They fall into three groups.
+
+| Healing screen | Hunt comparison | Empty-socket result and disposition |
+|---|---|---|
+| Magician/Necromancer/Shaman · Innoruuk · 15 of 16 raid items | Each won 3/3. Median effective healing rose 6.97–14.89% versus the strongest measured Hunt for HPS. The three capstone medians were each 12.09% slower than the fastest Hunt. | Every flagged item was within +1.11% of empty or lower. Aegis absorbed zero, and its HP/s matched empty. Prism restored 50 mana per fight and also matched empty. Heart healed 90, 25 and 114 total across the three separate fights. The largest measured healing difference versus empty was Heart at +1.11%. |
+| Warrior/Cleric/Wizard · Nagafen · 13 of 16 raid items | One win and two deaths in every flagged row. Seafury Sapphire had the matching outcomes. Mana-preserving Cinder won all three. | Throughput ranged from slightly below empty to +1.94% above it. Failed attempts remain visible in the archive. |
+| Magician/Necromancer/Shaman · Eye of Veeshan · Dreadbone | Two wins and one death. Effective healing was 107.30 HP/s versus 100.48 for Ghoulheart Opal, +6.79%. | Empty won twice and timed out. Several Hunt chests won three times. There is no like-for-like three-seed empty comparison. The outcome warrants an additional player encounter check. |
+
+No fully winning candidate exhibited a greater-than-5% speed or healing improvement against both the strongest tested Hunt comparator and empty. The 29 healing flags are preserved for player QA.
+
+The three-pet Nagafen runs show the importance of selecting the Hunt opponent. The empty socket won at 497.60, 466.50 and 670.85 seconds (median 497.60s). Spiteglass Prism won at a 559.30s median. The three raid medians were 497.60s for Aegis, 486.20s for Heart and 502.10s for Prism. The mana-preserving Cinder of the Ashen Compact won in 334.75, 379.00 and 592.80 seconds (median 379.00s). Heart healed for 90 HP at 39.30s and 158.45s on the first seed. On the remaining two seeds it healed zero HP and matched empty exactly. Aegis absorbed 240, 120 and 360 damage. Prism returned 200, 150 and 200 mana. All arms began with three pets.
+
+Kill-time percentages are unavailable in 118 cells. Cazic accounts for all 64 class/item cells. Other affected cells are all 16 spell/Nagafen, all 16 spell/Eye, all 16 pet/Eye, and six pet/Nagafen. Healing percentages are unavailable in 53 cells: all 16 pet/Cazic and spell/Cazic cells, 15 pet/Eye and six pet/Nagafen. The CSV identifies every item and shows its win, death and timeout counts. No owner sampled exactly zero mana. The mock clients for the three nonpet profiles first sampled zero endurance at combat start; their endurance measurements cannot establish time until exhaustion.
+
+## Corrected cooldown and Dreadbone follow-up
+
+The original native persistent timer permitted an 89.10s interval between two observed Heart activations. The corrected zone `41363ba2` rounds the persisted duration up to 91 whole seconds. Its [independently linked measurement build](reuse-fix/diagnostic-build.json) starts `9aa1906e`.
+
+The corrected candidate ran 150 paired fights. All 105 empty/Hunt controls reproduced their original times, outcomes, low HP and healing counters exactly. None of the 45 capstone fights changed outcome. One changed elapsed time: Warrior/Paladin/Monk wearing Heart against Eye, seed 1114, from 344.40s to 338.40s. The original matched cohort recorded four intervals below 90s out of 45 observed activation pairs. All 44 corrected pairs met 90s, with a shortest observed interval of 90.35s. The five targeted role/boss cells included the Cazic low-HP case and the flagged spell, hybrid and pet scenarios. [Paired verification](reuse-fix/verification.json) · [corrected comparisons](reuse-fix/comparisons.csv) · [per-seed counters and activation times](reuse-fix/measurements.json.gz).
+
+No corrected capstone exceeded the kill-speed screen. Five healing comparisons exceeded 5% against the matched Hunt. In three winning pet/Innoruuk rows the increase over empty was 0%, +1.11%, 0% for Aegis, Heart and Prism. The two mixed spell/Nagafen rows were +0.83% and +1.93% over empty for Aegis and Prism. None supports decreasing an effect magnitude. The original full matrix and corrected target cohort remain separate.
+
+For Dreadbone/Eye, six previously unused seeds (1115–1120) tested Dreadbone, empty, Ghoulheart Opal and Seafury Sapphire, for 24 additional fights on the corrected binary. Dreadbone and each Hunt won five and timed out on seed 1117. Empty won four, timed out on 1117, and the owner died on 1120. Dreadbone's median effective healing across **all six** attempts was 105.72 HP/s versus 105.87 empty, 111.97 Ghoulheart and 116.28 Seafury. Dreadbone's median kill time on the five common Hunt kills was 549.35s versus 561.90s and 541.35s respectively. On the four common empty-socket kills Dreadbone took 549.58s versus 529.75s. Owner minimum sampled HP per Dreadbone attempt was 745, 689, 281, 772, 1626 and 1015. The fixed controller does not cast cures. The original +6.79% mixed-outcome healing signal did not recur. [All 24 outcomes, HP and healing](reuse-fix/dreadbone-eye-summary.json) · [event rows](reuse-fix/dreadbone-eye.json.gz).
+
+## Encounter and character controls
+
+Each profile spends exactly 500 points on explicit ranks accepted by the native purchase gates at level 50. The melee profile holds Warrior/Cleric/Monk, the spell profile Warrior/Cleric/Wizard, the hybrid Warrior/Paladin/Monk, and the pet owner Magician/Necromancer/Shaman. The pet controller summons all three permanent pets, buffs them, recovers resources before combat, then orders attacks and casts support spells. Its three eligible summons are present at combat start. The other profiles start at full HP/mana with trained skills and the indicated gear. Native combat packets exercise all six Monk attacks when available. The hybrid uses Stun, Mend and healing. The spell profile nukes and heals. These are fixed policies and the gear and AAs stay identical within each profile.
+
+Each of the 16 candidates occupies an existing type-22 chest socket, competing one-for-one against a Hunt augment. The diagnostic verifies the native worn raid ID and exports the actual equipped item. The melee, spell and pet fixtures use socket 3. The hybrid uses socket 1 on Ceremonial Battle Breastplate (Ascended). The same host and other gear are used for the empty-socket control. A fresh process, the same deterministic RNG seed and reset synthetic character timers start each independent encounter. The controls use seeds 1112, 1113 and 1114 throughout.
+
+The opponent templates are Lord Nagafen (32040, 32,000 HP), Cazic-Thule (72003, 451,000 HP), Innoruuk (76007, 33,349 HP) and Eye of Veeshan (71065, 32,000 HP). The diagnostic runs their native NPC melee, ability and spell lists on the Solusek B map using the same position, a 50-ms combat pulse and a 900-second time limit. Dungeon traversal, scripted add waves, encounter-specific room geometry and human decisions are outside this arena. Boss data is from a September 21 content fixture, with the two subsequently removed NPC death-touch spells excluded. The October 23 public spell, skill, AA and rule tables and November 6 Hunt audit afterimages supply later content. These dates bound comparisons to the observed local fixture.
+
+Six compatible Ascension Hunt options cover distinct strengths. Emberheart Garnet supplies melee ATK and spell shielding, Ghoulheart Opal healing and heroic WIS, Spiteglass Prism spell damage and heroic INT, Seafury Sapphire accuracy, Xorbb's Glass spell haste, and Cinder of the Ashen Compact mana preservation. The fastest Hunt and the highest-healing Hunt can differ by boss and build. Other obtainable Hunt loadouts, lower progression levels and unlocked AA/gear combinations remain outside this six-option search.
+
+## Reading the evidence
+
+[comparisons.csv](comparisons.csv) contains the per-profile, per-boss, per-augment screen. Kill-time percentages compare the median of three kills to the fastest Hunt that also killed the boss three times. Deaths and timeouts are recorded separately. Healing compares median combat HP/s after overheal against the strongest measured Hunt whose three ordered outcomes match. This uses elapsed time to the terminal event and includes ordinary effective heals to owner and pets, successful direct Mend and Heart. Regeneration and averted damage have separate mechanics. A positive healing difference may follow higher incoming damage, a different fight duration or the loss of defensive chest stats. The empty socket and the native activation counters help test attribution. Blank percentages mean the gate lacked comparable outcomes or a positive healing denominator.
+
+[measurements.json.gz](measurements.json.gz) stores each seed's outcome, elapsed time, lowest sampled owner HP/mana, terminal sampled boss and owner HP, first sample at mana/endurance zero, and actual AA spent. Resource samples are 500 ms apart. A null time indicates the resource never sampled zero. This measure can miss transient depletion and does not represent the first time the controller lacks the cost of an intended spell. The three nonpet profiles also record absorption by ordinary melee runes. Each `raid.events` entry is [combat-relative milliseconds, code, amount]. Codes 0–4 correspond to ward absorption, ward activation, actual Heart healing, returned mana and returned endurance. The separate healing counters record amounts after overheal. Every three-pet measurement preserves the starting roster IDs.
+
+The [synthetic character inputs](fixtures.json), [diagnostic build adapter](build_diagnostic.py), [isolated fixture loader](prepare_fixture.py), [encounter driver](run_cases.py) and [summary calculation](analyze.py) reproduce the comparisons. Run `python analyze.py` beside the archived measurements to regenerate the CSV.
+
+The dedicated MariaDB container used an in-memory data directory with no published ports. Only allowlisted public rows were imported from the offline September backup into the task schema. Empty table definitions support the diagnostic clients. There were zero account/character-data rows. The original inputs are pinned below.
+
+| Input | SHA-256 |
+|---|---|
+| September 21 offline content source | `90679bea5517eaa7928876f8dc7c4f5fc9cd8494dc286479245735c6101c08a6` |
+| October 23 Chapterhouse public combat capture | `4e720d3ae1491e720d5b09c4411ff6fdbf653bd6be1acc6a82e5ba06c15fc274` |
+| November 6 Hunt item preimages/afterimages | `aab03552de59cb5d3ac884a864b2c539d6ae6eefbc90f35fed408a01aa8318e4` |
+| Captured stock socket identities | `a33060e4ced5b05f97e91a192d9511c8d0e1557bf6858719ce32e25e4e71ceb1` |
+| Candidate item SQL | `727a944ac437b83ac29790e0104a6bd8b0b11827cf532c853b7e3ce88a923d4b` |
