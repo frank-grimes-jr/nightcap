@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "source": "25219aac32db57982a2a925879b078d930292f4c",
+  "game": {
+    "id": "a908431e26a58838c9de9774727330c8f0077c5b25cee9179790b82ed895e1aa",
+    "image_id": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+    "started_at": "2026-11-13T02:37:49.268050076Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "runtime": {
+    "image_id": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+    "started_at": "2026-11-13T02:37:49.268050076Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ],
+      [
+        "zone",
+        "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "item_count": 16,
+  "item_cache": "32ed76079cd9eda54311274bbe5a231466c164d24089652f861b51e38de4da54",
+  "unchanged_stock_items": 310000,
+  "client_channel_sha256": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+  "binaries": {
+    "zone": "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823",
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "backup_verified": true,
+  "backup_sha256": "06058ce24da0900cf4c482f19ce6ac57b2f4e749f4b4e9951669df6dfddc3cdd",
+  "receipt_sha256": {
+    "backup.json": "404e22d0c4ee1db57b85433daf00bf8418efc762c8cd183eb2c0788d2a082677",
+    "sql-installed.json": "0f89accdce380749dbeb5fff49df9ed407fbddda3a275c9e7de9b282b8b72f15",
+    "verified-closed.json": "2d1b9ac780e141a3183d435986565e9d8f09867546af82d1f2b7aa02ee53f01f",
+    "deployed.json": "1a57fbe375c24770913d601a1c2e06ae87619600b7030717ca6896c4c7b31d0f"
+  },
+  "errors": {
+    "MySQL Error": 0,
+    "Orphaned Rule": 0,
+    "Unknown column": 0,
+    "Dungeon schema drift": 0,
+    "Dungeon content drift": 0,
+    "Dungeon item cache drift": 0,
+    "Failed to load Alternate Advancement": 0
+  },
+  "player_qa": "open"
+}

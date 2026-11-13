@@ -1,0 +1,29 @@
+{
+  "image": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+  "rehearsal": {
+    "original_items": 310000,
+    "new_items": 310016,
+    "verified_trophies": [
+      963200,
+      963201,
+      963202,
+      963203,
+      963204,
+      963205,
+      963206,
+      963207,
+      963208,
+      963209,
+      963210,
+      963211,
+      963212,
+      963213,
+      963214,
+      963215
+    ],
+    "sha256": "32ed76079cd9eda54311274bbe5a231466c164d24089652f861b51e38de4da54",
+    "raid_rows": "9534fa2a4ced9d9c9c16e4233a2a07519b21a2244d5d389af9d8cfa5a63d17d6"
+  },
+  "predecessor": "sha256:e1c86f73150485dae626d083f265b8836a86f6435d27085ac57924188ff6b03e",
+  "wiki": "releases/20261112-inventory-combat-v1"
+}

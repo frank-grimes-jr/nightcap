@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 12, 2026 · Classic raid boss augments deployed
+
+Main PR 435 promoted the tested level-50 chest trophies. OVH stage v2 installed 16 item definitions and the matching world, zone and cache loader on the active Inventory build. All 310,000 earlier cache records matched byte for byte. Twelve zone workers verified with zero restarts or native, quest or database errors. The existing Deepwater Pearl (33961) and the Phinigel augment (963202) share a name. RoF2 encounter acceptance and Master Yael’s public spawn remain open. [Release and player QA](docs/releases/classic-raid-augments-20261112/QA.md).
+
 ## November 12, 2026 · Classic raid augment candidate
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared capstone cooldown with a guaranteed 90-second minimum. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).

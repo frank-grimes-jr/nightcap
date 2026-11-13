@@ -71,4 +71,5 @@ def catalog_articles():
     for article in articles:
         if article['slug'] in ('zone-unrest','zone-gukbottom','zone-soldungb','zone-cazicthule','zone-hole','zone-fearplane','zone-hateplane'):
             article['body'] += '<h2 id="last-lantern-memory">A company memory</h2><p>The <a href="adventure-journal.html#chapters">Last Lantern campaign</a> revisits this terrain in a separate private journal memory. Enter through the Ancient Chronicler with the active chapter. Public populations, Keeper runs and Hunt reward values remain separate.</p>'
-    return articles
+    from raid_augment_catalog import add_raid_rewards
+    return add_raid_rewards(articles)

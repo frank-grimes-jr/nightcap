@@ -1,0 +1,12 @@
+{
+  "main": "25219aac32db57982a2a925879b078d930292f4c",
+  "test": "9e72a3ceef1852e6052d3e60a391998a193c2c24",
+  "integrated_domain_tests": 41,
+  "wiki_article_refresh_and_augment_checks": 22,
+  "linux_rollout_fault_checks": 3,
+  "public_source_wiki_tests": 20,
+  "catalog_check": "exact",
+  "balance_fights": 1278,
+  "player_qa": "open",
+  "production_install": "see deployed.json and staged.json"
+}
