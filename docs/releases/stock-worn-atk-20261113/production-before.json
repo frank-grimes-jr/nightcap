@@ -1,0 +1,17 @@
+{
+  "game": {
+    "id": "a908431e26a58838c9de9774727330c8f0077c5b25cee9179790b82ed895e1aa",
+    "image_id": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+    "started_at": "2026-11-13T02:37:49.268050076Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "image": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+  "players": 0,
+  "channel": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+  "wiki": "releases/20261112-raid-augments-v1",
+  "prior_operator": "3aefe98ecbb5b492b455ed91ecae78b75129f2fa29c53b6e111dcc6f31651092",
+  "free": 14180384768
+}
