@@ -2,7 +2,7 @@
 
 ## November 12, 2026 · Classic raid augment candidate
 
-Sixteen individually LORE chest augments use independent boss rolls and a shared 90-second capstone cooldown. Public Yael acquisition and player balance acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).
+Sixteen individually LORE chest augments use independent boss rolls and a shared capstone cooldown with a guaranteed 90-second minimum. Public Yael acquisition and player balance acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).
 
 ## 2026-11-06 — Augment audit dev/test integration
 
