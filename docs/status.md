@@ -1,8 +1,12 @@
 # Current Nightcap status
 
+## November 13, 2026 · Stock worn ATK live on production
+
+OVH now serves the updated Polished, Exalted and Ascended tiers for 135 stock gear families. The 405 changes affected only worn ATK. The other 309,611 cached items were byte-identical. All 12 zone workers passed startup checks and admissions reopened. The 250 base worn cap and signed client 2026111202 remain current. Player item-window and encounter checks are open. [Production verification](releases/stock-worn-atk-20261113/README.md) · [Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-worn-atk).
+
 ## November 13, 2026 · Stock worn ATK installed on local test
 
-Local test now serves all 405 approved tier values across 135 stock families. Its legacy ATK generator left 371 rows to update and 34 already correct. All eight zones mapped the verified cache. Tests covered RoF2 item packets, native equip/remove/re-equip, recommended levels, the 250 cap and melee mitigation. Six held families keep their earlier values. Production was not updated. See the [item list and in-game checks](items/stock-worn-atk/README.md).
+Local test now serves all 405 approved tier values across 135 stock families. Its legacy ATK generator left 371 rows to update and 34 already correct. All eight zones mapped the verified cache. Tests covered RoF2 item packets, native equip/remove/re-equip, recommended levels, the 250 cap and melee mitigation. Six held families keep their earlier values. The subsequent OVH deployment is recorded above. See the [item list and in-game checks](items/stock-worn-atk/README.md).
 
 ## November 12, 2026 · Classic raid augments live for player QA
 

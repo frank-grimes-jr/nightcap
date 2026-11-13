@@ -1,0 +1,20 @@
+{
+  "source": "690d67f376d367d9111a978543b623789d5e0c6f",
+  "authorization": "Push to prod",
+  "image": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+  "channel": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+  "prior_operator": "3aefe98ecbb5b492b455ed91ecae78b75129f2fa29c53b6e111dcc6f31651092",
+  "layout": {
+    "size": 1332,
+    "ID": 440,
+    "Attack": 760,
+    "width": 4
+  },
+  "files": {
+    "forward.sql.gz": "5280e0d0d9b36c7be55ffa4832747b8f052664dbf83f233bea32d945e1983d64",
+    "rollback.sql.gz": "74328dc94497e4b4cf2f4523a4d58c5309d4a669255344ed1597dd732a6827e7",
+    "changes.csv": "cbc87a626687306e9ca73c68b95d18c9a6ac3524351c6b2f2122065be102d32a",
+    "production-items.json.gz": "db3323e858085e84153e976fbbbc3a23bd3c92b832a7ea72d634df71e5599687",
+    "release.py": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94"
+  }
+}

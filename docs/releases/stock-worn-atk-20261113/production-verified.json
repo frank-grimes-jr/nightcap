@@ -1,0 +1,51 @@
+{
+  "result": "PASS",
+  "source": "690d67f376d367d9111a978543b623789d5e0c6f",
+  "image": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+  "started_at": "2026-11-13T12:52:08.354160412Z",
+  "workers": 12,
+  "restart_count": 0,
+  "runtime_errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "startup_errors": {
+    "MySQL Error": 0,
+    "Orphaned Rule": 0,
+    "Unknown column": 0,
+    "Dungeon schema drift": 0,
+    "Dungeon content drift": 0,
+    "Dungeon item cache drift": 0,
+    "Failed to load Alternate Advancement": 0
+  },
+  "admissions_open": true,
+  "cache": {
+    "records": 310016,
+    "changed": 405,
+    "byte_identical": 309611,
+    "items_sha256": "d76a214d6bbca2f41de7c9081b29ea94fcf8d33fa3a7dd84282271b859a35ab0",
+    "full_rows_verified": 926,
+    "forward_replay_inverse": true
+  },
+  "full_rows_checked": 926,
+  "normal_guards": 135,
+  "backup_sha256": "95ef1adc181d0cfb2c042f9c6577fbf806429b830bf63e26db29ef8db5ab1aa0",
+  "backup_integrity": true,
+  "client_channel_sha256": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+  "binaries": {
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "zone": "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "client_update_required": false,
+  "receipt_sha256": {
+    "deployed.json": "bfd37884749a76d8af34e5031a9a8e504095b85646818e42140ee55b5fb8a4f4",
+    "verified-closed.json": "f8756a0dcbe8f7615266a0512204f092f33b71ce710def0255000fc248f91df1",
+    "backup.json": "9263ce452b1dedef326602ff26a739680c4dc072891628aa07a82584e98f8ee3",
+    "sql-installed.json": "a4e63da9e3bd3dad83539e388d32de524fcadcbd3f5c768078e54501d29f7452"
+  },
+  "player_qa": "open"
+}

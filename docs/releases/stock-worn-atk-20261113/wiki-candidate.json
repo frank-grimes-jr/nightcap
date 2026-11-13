@@ -1,0 +1,13 @@
+{
+  "release": "20261113-stock-worn-atk-v1",
+  "previous": "20261112-raid-augments-v1",
+  "files": 631,
+  "preserved": 628,
+  "changed": [
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "exact_base_reproduced": true,
+  "table_families": 135
+}

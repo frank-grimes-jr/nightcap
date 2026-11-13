@@ -1,0 +1,8 @@
+{
+  "records": 310016,
+  "changed": 405,
+  "byte_identical": 309611,
+  "items_sha256": "d76a214d6bbca2f41de7c9081b29ea94fcf8d33fa3a7dd84282271b859a35ab0",
+  "full_rows_verified": 926,
+  "forward_replay_inverse": true
+}

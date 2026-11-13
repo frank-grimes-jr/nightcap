@@ -1,6 +1,8 @@
 # Worn ATK on stock tiered equipment
 
-November 13 local test runtime validation. Existing item definitions supply the ATK sent to the RoF2 item window and consumed by the server. The candidate changes only the attack field of 405 existing definitions across 135 stock families. Production was queried read-only. The live default ruleset has a 250 worn ATK cap. The signed client, combat code, cap, acquisition and custom equipment require no changes.
+Deployed to production on November 13. The existing item definitions supply the ATK sent to the RoF2 item window and consumed by the server. The migration changed only the attack field of 405 definitions across 135 stock families. The rebuilt production cache matched the rehearsal, and all 12 zone workers passed verification before admissions reopened. [Production evidence](../../releases/stock-worn-atk-20261113/README.md) · [Published tier values](https://wiki.nightcapgame.org/equipment.html#stock-worn-atk).
+
+The live default ruleset has a 250 worn ATK cap. The signed client, combat code, cap, acquisition and custom equipment require no changes.
 
 ## How families qualified
 
@@ -8,7 +10,7 @@ The linked Legendary values in EquipmentDB agree with the October ATK hypothesis
 
 With positive stock ATK, the target adds ceiling(stock STR / 4) to stock ATK. With zero stock ATK, the target is ceiling((stock STR + stock DEX) / 2). Polished and Exalted use Nightcap’s existing one-third and two-thirds interpolation with half-up rounding. The directly observed tier is Legendary, mapped to Ascended. Stock Normals and every item outside the ID list retain their existing policy. Individual Ascended increases range from the values in the [per-item delta](changes.csv) up to +30 on Staff of Transcendence (requires level 65). Of the 135, 54 have a required level at or below 50, including 36 with a recommended level above 50. Required level alone does not establish era access.
 
-| Stock family | Evidence | Candidate |
+| Stock family | Evidence | Production values |
 |---|---|---|
 | Armguard of Shadows | Normal 50, both top-tier sheets 53 | Polished 51, Exalted 52, Ascended 53 |
 | Heavy Yttrium Chestplate | Normal 15, both top-tier sheets and existing Ascended 20 | Existing 15 / 17 / 18 / 20 |
@@ -27,7 +29,7 @@ The shared loader copies items.attack to ItemData::Attack. RoF2 sends that field
 
 The compiled fixture uses the actual recommended-level function, capped ATK assignment, final clamp and GetTotalATK body. Offense skill 110, primary skill 140 and STR 180 are fixed to isolate the ATK field; the item’s other stats are held equal.
 
-| Ascended Armguard case | Effective worn total, current → candidate | Displayed rating change |
+| Ascended Armguard case | Effective worn total, stock baseline → updated | Displayed rating change |
 |---|---:|---:|
 | Level 60, other worn ATK 0 | 50 → 53 | +4 |
 | Level 50, other worn ATK 0, recommended level 60 | 42 → 44 | +3 |
@@ -37,19 +39,19 @@ The compiled fixture uses the actual recommended-level function, capped ATK assi
 
 ## Local test runtime validation
 
-The persistent local akk-stack database and item cache now contain all 405 intended values. Its older setup had generated ATK at 1.10×, 1.20× and 1.35× stock. All 405 local preimages matched that generator, 34 were already at their targets, and 371 required a write. The test migration used the full local item preimages and changed ATK alone. Its original stock fields, custom sockets and effects were preserved. The forward/rollback pair pinned to the November 13 production snapshot remains the production-source candidate.
+The persistent local akk-stack database and item cache now contain all 405 intended values. Its older setup had generated ATK at 1.10×, 1.20× and 1.35× stock. All 405 local preimages matched that generator, 34 were already at their targets, and 371 required a write. The test migration used the full local item preimages and changed ATK alone. Its original stock fields, custom sockets and effects were preserved. The OVH release used the forward/rollback pair pinned to the full November 13 production preimages.
 
 The stopped, empty test world was backed up before installation. After restart, the world and all eight zone workers mapped the rebuilt item cache and admissions were open. Of 308,928 effective cached item records, 371 differed solely in the ATK field; 308,557 were byte-identical. A probe linked against the local RoF2 encoder decoded 405 actual item-link packets plus eight controls. It verified the Armguard tiers at 50, 51, 52 and 53. The spell cache and server executable hashes remained the same.
 
 A separate native zone diagnostic equipped, removed and re-equipped the cache-loaded Ascended Armguard on a synthetic Ranger at levels 50 and 60. Against a copy of the same item with ATK 50, effective worn ATK rose from 42 to 44 at level 50 and 50 to 53 at 60 before the cap. Inventory rating increased by 3 and 4 respectively. At 250 pre-existing worn ATK there was zero change to rating, melee offense and the paired native mitigation rolls. Each case used 20,000 landed-hit mitigation rolls at a fixed mitigation value of 300. Full encounter DPS remains unmeasured. The actual local predecessor Armguard had 68 ATK.
 
-[Machine-readable DB, cache, packet and equip results](test-runtime.json) · [RoF2 packet probe](rof2_atk.cpp) · [Native equipment and mitigation probe](zone_probe.cpp). Visible RoF2 window rendering and player-driven encounters have not been observed. The public wiki and OVH runtime were outside this test activation.
+[Machine-readable DB, cache, packet and equip results](test-runtime.json) · [RoF2 packet probe](rof2_atk.cpp) · [Native equipment and mitigation probe](zone_probe.cpp). Visible RoF2 window rendering and player-driven encounters have not been observed.
 
 ## Reproduction and test-stack handoff
 
 - Run `python docs/items/stock-worn-atk/plan.py --check` from the repo. It checks both migration files and the item-by-item CSV against all captured fields. The planner rejects unexpected Normal, tier-identity and ATK drift.
 - The local MariaDB rehearsal loaded 926 complete production item rows into a disposable schema. It checked full-row equality after forward, replay, reverse and reverse replay, and rejected late drift on a Normal stat and an unrelated socket before writing any target. The 135 unchanged Normal rows are locked as guards and excluded from UPDATE. Both migrations set only ATK.
 - Fresh setup uses the usual `python tools/thj_stock_scaling.py --bootstrap eq-solo-gm/scripts/thj-stock-bootstrap.sql`. A full comparison against the prior bootstrap isolated exactly the same 405 ATK cells. Its dated receipt is [bootstrap-check.json](bootstrap-check.json). Use forward.sql.gz for an existing test DB and rollback.sql.gz to reverse the same scoped definitions. Rebuild the item cache and reload it in the matching test runtime before checking equipped characters.
-- In RoF2 on a test stack, inspect a clean Ascended Armguard, record / remove / re-equip with other gear fixed, then relog. Repeat at 50 and 60 and below, near and at the cap. Record STR and any buff/AA cap modifiers. Compare the before/after difference for the same item; equipping it also changes STR. Check the unchanged Heavy Yttrium chest, the two conflicting items, an equipped custom Hunt augment and the training slot. Record native combat parses separately before a broader rollout. No live visual or combat parse is claimed.
+- In RoF2 on a test stack, inspect a clean Ascended Armguard, record / remove / re-equip with other gear fixed, then relog. Repeat at 50 and 60 and below, near and at the cap. Record STR and any buff/AA cap modifiers. Compare the before/after difference for the same item; equipping it also changes STR. Check the unchanged Heavy Yttrium chest, the two conflicting items, an equipped custom Hunt augment and the training slot. Record player encounter parses separately from native mitigation samples. No live visual or combat parse is claimed.
 
-Relevant hooks are `tools/thj_stock_scaling.py`, `common/shareddb.cpp`, `common/patches/rof2.cpp`, `zone/bonuses.cpp`, `zone/client.cpp` and the signed Inventory summary in `zone/gm_commands/nightcapui.cpp`. The C++ paths are under `server-mods/code/`. This is a content candidate with a test-only wiki preview.
+Relevant hooks are `tools/thj_stock_scaling.py`, `common/shareddb.cpp`, `common/patches/rof2.cpp`, `zone/bonuses.cpp`, `zone/client.cpp` and the signed Inventory summary in `zone/gm_commands/nightcapui.cpp`. The C++ paths are under `server-mods/code/`.
