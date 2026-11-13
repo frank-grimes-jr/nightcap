@@ -1,8 +1,26 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 29, 2026.
+Updated November 12, 2026.
 
 ## Current state
+
+- Public wiki: https://wiki.nightcapgame.org/. Verified current release is
+  `20261112-earned-titles-v1`, over retained `20261112-dot-ticks-v2`.
+- The [Titles guide](https://wiki.nightcapgame.org/titles.html) lists all 77 planned
+  cosmetic unlocks and their requirements. It is a **Not released preview**;
+  title runtime activation and normal-player QA remain pending.
+- All 614 HTTPS file hashes/security headers and five private denials verify;
+  600 existing files are byte-identical. Pointer rollback, five service identities,
+  config/channel and private downloads are preserved, with no Nginx reload.
+- Exact authenticated source, scope, publication receipts and one-shot recovery:
+  [Titles wiki release](../titles/wiki-release/README.md). Publish from that
+  verified source, never an older main mirror. Source promotion and gameplay
+  activation remain separate.
+
+## Retained hosting snapshots
+
+The dated snapshots below describe earlier releases. The current release and
+recovery authority are above; these historical counts/pointers are not current.
 
 - **Loot finder live:** read-only production capture, any-held-class default,
   active-era item/source/rate filtering and fifteen-minute automatic refresh.

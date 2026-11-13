@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "exact_titles": 77,
+  "generated_article_matches": true,
+  "all_titles_have_exact_requirements": true,
+  "title_context_links": true,
+  "top_title_search_queries": [
+    "Titles",
+    "#titles",
+    "Dragonslayer"
+  ],
+  "node_checks": [
+    {
+      "test": "title-search-check.cjs",
+      "output": "PASS: command ranking, exact items, multiword queries, unsafe text, empty query, load failure"
+    },
+    {
+      "test": "test_equipment.cjs",
+      "output": "\u2714 every exact published variant name finds its single family (90.6283ms)\n\u2714 catalog pages contain families once, covering all 98 across nine pages (44.8261ms)\n\u2714 gear slot and level filters combine, without including augments (2.4165ms)\n\u2714 augments match every compatible socket slot, but not jewelry (0.8925ms)\n\u2714 zone filter selects its two families; query narrows by words (1.0985ms)\n\u2714 required-level sorting is numerical and paging resets safely on narrow results (1.4195ms)\n\u2714 unsafe-looking or unmatched search text returns empty results without markup (0.8425ms)\n\u2139 tests 7\n\u2139 suites 0\n\u2139 pass 7\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 170.9674"
+    },
+    {
+      "test": "test_experience.cjs",
+      "output": "PASS: paths/Back, save/remove/restore, unsafe storage, blocked storage, theme, search relevance/cache/empty/error/retry/race"
+    }
+  ]
+}

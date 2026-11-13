@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "release": "20261112-earned-titles-v1",
+  "files": 614,
+  "verified_bytes": 8769888,
+  "all_public_sha256_and_security_headers": true,
+  "private_denials": {
+    "README.md": 404,
+    "content-review.json": 404,
+    "articles/titles.json": 404,
+    "catalog.json": 404,
+    ".git/config": 404
+  },
+  "title_availability": "Not released preview",
+  "title_gameplay_acceptance": "OPEN",
+  "title_runtime": "not activated"
+}

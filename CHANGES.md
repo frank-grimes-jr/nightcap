@@ -1,5 +1,9 @@
 # CHANGES
 
+## 2026-11-12 — Titles wiki preview published
+
+Owner requested "Push to wiki". Release20261112-earned-titles-v1 adds the complete77-title requirements guide and related navigation/owning-guide context as Not released. Reproduced all613prior public outputs, retained600exact files and verified all614new HTTPS hashes/headers plus private denials. Twenty site/refresh and16Linux publisher/recovery tests pass; pointer rollback, five services/config/channel/private downloads are preserved. Main source is separate from activation: title runtime and player QA remain pending. Evidence/recovery: docs/titles/wiki-release/.
+
 ## 2026-11-12 — Player DoT initial damage removed (deployed for live QA)
 
 Player instant DoTs now skip only their negative one-time landing damage,
