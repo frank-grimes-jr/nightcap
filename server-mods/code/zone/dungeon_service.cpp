@@ -480,7 +480,7 @@ bool PrepareLoot(NPC *npc, bool owned) {
 bool PrepareRaidAugment(NPC *npc, Mob *killer, bool owned)
 {
 	if (!zone || !killer || owned || npc->IsQueuedForCorpse() || npc->HasOwner() || npc->GetSwarmInfo() ||
-		npc->GetSwarmOwner() || npc->IsMerc() || zone->GetInstanceVersion() || Campaign()) { return true; }
+		npc->GetSwarmOwner() || npc->IsMerc() || zone->GetInstanceVersion()) { return true; }
 	const auto *drop = NightcapRaidAug::FindDrop(zone->GetZoneID(), npc->GetNPCTypeID());
 	if (!drop || !database.GetItem(drop->item) || !npc->GetEntityVariable("raid-augment-rolled").empty()) { return true; }
 	try {
