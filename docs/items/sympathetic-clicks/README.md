@@ -2,7 +2,7 @@
 
 ## Two earned Classic clicks
 
-Ascended Runed Lava Pendant (610338) grants Sympathetic Strike I. Its stock source is a lava elemental in Solusek's Eye. Ascended Moonstone Ring (610150) grants Sympathetic Healing I. Its stock source is a frenzied ghoul in Lower Guk. Both are all-class jewelry with existing quality upgrades. This puts the rewards on distinct mid- and late-Classic named camps, lets a player keep their usual weapon, and makes both buffs available to any multiclass character with a qualifying spell. A player can obtain the Ascended version through the ordinary drop or upgrade route. Normal, Polished and Exalted copies remain useful toward the existing upgrade recipe. The Ring retains Extended Range II.
+Ascended Runed Lava Pendant (610338) grants Sympathetic Strike I. Its stock source is a lava elemental in Solusek's Eye. Ascended Moonstone Ring (610150) grants Sympathetic Healing I. Its stock source is a frenzied ghoul in Lower Guk. Both are all-class jewelry with existing quality upgrades. This puts the rewards on distinct mid- and late-Classic named camps, lets a player keep their usual weapon, and makes both buffs available to any multiclass character with a qualifying spell. On the local test world, hunt the named NPC for the ordinary Ascended drop. The test database lacks the Reforging Box state table. On worlds that already have the stock reforging system installed, normal quality-upgrade rules also apply. The Ring retains Extended Range II.
 
 [Named NPCs, spawn and loot weights, full content rehearsal and client pairing](content/README.md).
 
@@ -12,10 +12,14 @@ The THJ item guide supplied the idea of a class-usable click on top-tier gear. N
 
 Equip and click either Ascended item to cast its self buff, then swap back to your preferred gear. Both buffs can be active. The reusable equipped click takes two seconds. Each qualifying original cast can produce one sympathetic effect on the original recipient.
 
-- Strike requires a landed, single-target direct-damage spell cast from a player's spell gem with a base mana cost of at least 10. Bonus damage from an eligible lifetap does not feed the caster's heal.
-- Healing requires a positive-base-mana, single-target direct heal cast from a player's spell gem. The same recipient receives the burst. If an existing worn sympathetic healing focus produces the heal on that cast, it takes precedence.
-- A cast with 10 base mana qualifies for Strike even when mana preservation reduces the amount actually spent. A cheaper spell still falls below the threshold. The added amount has its own fixed base. The new effect has no second outgoing gear, focus or critical multiplier. Normal target protections and missing HP can affect the observed amount.
-- Proc chains, triggered repeats, area spells, periodic ticks and pet-originated casts do not generate another sympathetic result. The buffs themselves do not change worn ATK, Spell Damage or Healing Amount.
+- Strike requires a fully landed, single-target direct-damage spell cast from a player's spell gem with a base mana cost of at least 10. Bonus damage from an eligible lifetap does not feed the caster's heal.
+- Healing requires a positive-base-mana, single-target direct heal cast from a player's spell gem. The same recipient receives the burst. If an existing worn sympathetic healing focus produces a direct heal on any recipient of that cast, it takes precedence. The original focus retains its own targeting.
+- A partial resist produces only the original damage. A cast with 10 base mana qualifies for Strike even when mana preservation reduces the amount actually spent. A cheaper spell still falls below the threshold. The bonus is 5% of the largest eligible original direct HP component, rounded down, with a 48-point maximum. A 19-point result grants zero, a 40-point result grants 2, and a 960-point result grants 48. Healing uses the resolved heal before overheal. The new effect has no second outgoing gear, focus or critical multiplier. Normal target protections and missing HP can affect the observed amount.
+- Proc chains, triggered repeats, area spells, duration spells (including a timed debuff with an initial nuke), periodic ticks and pet-originated casts do not generate another sympathetic result. The buffs themselves do not change worn ATK, Spell Damage or Healing Amount.
+
+## Why a small spell has a smaller bonus
+
+In the flat-amount pilot, adding 48 to a 40-point Minor Healing cast increased that cast by 120%. It still healed fewer HP per second than the ordinary rotation against Vox and Nagafen. A per-cast ceiling alone left an outsized reward for repeatedly using a cheap spell. The 5% limit addresses that case while preserving a separate, bounded combat effect. In a stacked Vox baseline, the cheap nuke already beat the normal nuke in output and mana efficiency with both buffs removed. The candidate does not change that preexisting gear or spell scaling. The balance study measures how much the two new buffs add to each rotation.
 
 ## Release by expansion
 

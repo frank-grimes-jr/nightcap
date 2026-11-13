@@ -13,20 +13,25 @@ class RaidDeliveryTests(unittest.TestCase):
         projectile = native.body(zone("special_attacks.cpp"), "void Mob::ProjectileAttack()")
         impact = native.body(projectile, "if (ProjectileAtk[i].skill == EQ::skills::SkillConjuration)")
         queue = native.body(zone("spell_effects.cpp"), "bool Mob::TrySpellProjectile(")
-        capture = next(line for line in queue.splitlines() if ".raid_delivery =" in line)
+        capture = queue[queue.index("NightcapSympathetic::StoreBolt("):queue.index("ProjectileAtk[slot].origin_x")]
         process = native.body(zone("beacon.cpp"), "bool Beacon::Process()")
         pulse = process[process.index("const bool same_caster"):process.index(";", process.index("entity_list.AESpell(")) + 1]
         setup = native.body(zone("beacon.cpp"), "void Beacon::AELocationSpell(")
         self.assertIn("raid_delivery = NightcapRaidAug::CaptureDelivery(caster, cast_spell_id)", setup)
         native.FreeTradeTests.compile_run(self, """
 #include "zone/raid_augment_delivery.h"
+#include "zone/nightcap_sympathetic.h"
 #include <cassert>
+using uint32 = uint32_t;
 using namespace NightcapRaidAug;
 thread_local const CastOrigin *CastOrigin::current = nullptr;
 namespace EQ { namespace skills { constexpr int SkillConjuration = 1; } }
 struct Spell { int resist_difficulty = 1; } spells[2];
 bool IsValidSpell(int id) { return id == 1; }
-struct Shot { int wpn_dmg=1, skill=1; Delivery raid_delivery=Delivery::Triggered; };
+struct Shot {
+    int wpn_dmg=1, skill=1, ammo_slot=0;
+    uint32 ranged_id=0; bool disable_procs=false; Delivery raid_delivery=Delivery::Triggered;
+};
 class Mob {
 public:
     Shot ProjectileAtk[1];
@@ -35,9 +40,18 @@ public:
     bool IsClient() const {return client;}
     Mob *CastToClient() {return this;}
     uint32_t CharacterID() const {return id;}
+    uint32_t GetSpawnTimeStamp() const {return id;}
     Delivery hit=Delivery::Triggered;
-    void SpellOnTarget(int spell, Mob*, bool, bool, int, bool) { hit=CaptureDelivery(this,spell); }
-    void Queue(int spell_id) { int slot=0;
+    int bonus=0;
+    bool SpellOnTarget(int spell, Mob*, bool, bool, int, bool) {
+        hit=CaptureDelivery(this,spell);
+        if (auto *cast=NightcapSympathetic::Cast::Take()) { cast->Record(NightcapSympathetic::Line::Strike, 100); }
+        return true;
+    }
+    void ApplySympatheticClick(const NightcapSympathetic::Cast &cast) { if (cast.landed) { bonus+=cast.Bonus(); } }
+    void Queue(int spell_id, Mob *spell_target=nullptr) {
+        int slot=0; if (!spell_target) {spell_target=this;}
+        auto *click=NightcapSympathetic::Cast::Take();
 """ + capture + """
     }
     void Impact(Mob *target) { int i=0;
@@ -68,6 +82,15 @@ int main() {
     rain.Pulse(&c); assert(c.hit == Delivery::Triggered);
     { CastOrigin gem(&c,1,true); CastOrigin proc(&c,1,false,true); c.Queue(1); }
     c.Impact(&enemy); assert(c.hit == Delivery::Triggered);
+    NightcapSympathetic::Cast empowered;
+    empowered.effect=NightcapSympathetic::Effect::Strike;
+    {
+        CastOrigin gem(&c,1,true);
+        NightcapSympathetic::Cast::Deliver(&empowered,[&] { c.Queue(1,&enemy); return true; });
+    }
+    c.Impact(&enemy); assert(c.hit==Delivery::Gem && c.bonus==5 && !CastOrigin::current);
+    { CastOrigin proc(&c,1,false,true); c.Queue(1,&enemy); }
+    c.Impact(&enemy); assert(c.hit==Delivery::Triggered && c.bonus==5);
     enemy.client=false;
     { CastOrigin npc(&enemy,1,false); enemy.Queue(1); }
     enemy.Impact(&c); assert(enemy.hit == Delivery::Direct);
