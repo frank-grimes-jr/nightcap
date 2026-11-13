@@ -27,7 +27,9 @@ static bool Activate(Client &c)
 {
 	if (!Ready(c)) { return false; }
 	auto &timers = c.GetPTimers();
-	timers.Start(pTimerRaidAugment, 90);
+	// Persistent timers truncate the start to whole seconds. Round the expiry up
+	// so swaps and reconnects cannot shorten the 90-second minimum.
+	timers.Start(pTimerRaidAugment, 91);
 	// Persist before granting any benefit, including across disconnect/crash.
 	return timers.Get(pTimerRaidAugment)->Store(&database);
 }

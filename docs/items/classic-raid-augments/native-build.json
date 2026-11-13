@@ -3,7 +3,7 @@
   "bin_sha256": {
     "shared_memory": "d0c16a94e061c5eb5207fc8abf4ffcbcf586afb85cdb78352eafd61861f22bb0",
     "world": "9c200f8ba91cf064d435bb6a53eab94f65335698410d98bd8c49b0ca655f0b18",
-    "zone": "55b61a76798fe7a796d2c61cc864c6bf66c8ce0d46c77a5c0a4305d77347b06d"
+    "zone": "41363ba2e88daed416378d0ea3f1255bfe5034381eaed4b388c4bdfe6f28426d"
   },
   "compiled_sources": {
     "common/item_instance.cpp": {
@@ -91,8 +91,8 @@
       "source": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2"
     },
     "zone/raid_augment.inc": {
-      "candidate": "ca817cd0363f577a00aff1781edf7f74b95125689b360b87ce8bcdd5d6082ac9",
-      "source": "ca817cd0363f577a00aff1781edf7f74b95125689b360b87ce8bcdd5d6082ac9"
+      "candidate": "7544d7852a7ebb7912102f263be0049691d9ebae4d4dcdad7fe2ad2dc3afa9b7",
+      "source": "7544d7852a7ebb7912102f263be0049691d9ebae4d4dcdad7fe2ad2dc3afa9b7"
     },
     "zone/raid_augment_custody.h": {
       "candidate": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612",
@@ -127,5 +127,6 @@
       "source": "55f27caf8075ddabdb3a15e8b98a6a7524722a6246591ca612edc852093f7b36"
     }
   },
-  "scope": "Isolated Linux no-optimization development build over retained Nov 12 source. Hashes normalized to LF. Includes retained changes outside Git."
+  "scope": "Isolated Linux no-optimization development build over retained Nov 12 source. Hashes normalized to LF. Includes retained changes outside Git.",
+  "pre_cooldown_roundup_zone": "55b61a76798fe7a796d2c61cc864c6bf66c8ce0d46c77a5c0a4305d77347b06d"
 }
