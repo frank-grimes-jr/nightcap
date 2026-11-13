@@ -6,6 +6,7 @@ from inventory_release_support import ROOT,HERE,ART,AUTHORIZATION,save
 
 
 def main():
+    assert not (HERE/'native-deployment.json').exists(),'Published release: preserve observed evidence; do not replay preparation'
     build=json.loads((ART/'native-build.json').read_text())
     signed=json.loads((ART/'signed/verification.json').read_text())
     assert build['status']=='PASS' and build['baseline_reproduced']
