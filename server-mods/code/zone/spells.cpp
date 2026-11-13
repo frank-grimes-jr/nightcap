@@ -72,6 +72,8 @@ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 #include "mob.h"
 
 #include "common/bodytypes.h"
+#include "common/content/world_content_service.h"
+#include "nightcap_sympathetic.h"
 #include "common/classes.h"
 #include "common/epic05.h"
 #include "common/data_bucket.h"
@@ -109,6 +111,9 @@ extern FastMath      g_Math;
 extern QueryServ    *QServ;
 
 using EQ::spells::CastingSlot;
+using NightcapSympathetic::Cast;
+using NightcapSympathetic::Effect;
+static_assert(Expansion::MaxId == NightcapSympathetic::EraCount, "review sympathetic ranks for new expansions");
 
 static Mob* ResolvePlayerHealTarget(Mob* caster, uint16 spell_id, Mob* spell_target)
 {
@@ -1839,7 +1844,21 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 		StopCasting();
 		return;
 	}
-	if(!SpellFinished(spell_id, spell_target, slot, mana_used, inventory_slot, resist_adjust, false,-1, 0xFFFFFFFF, 0, true))
+	Cast sympathetic;
+	if (IsClient() && slot < CastingSlot::MaxGems && !casting_spell_aa_id &&
+		CastToClient()->GetPP().mem_spells[static_cast<uint32>(slot)] == spell_id &&
+		!IsBuffSpell(spell_id) && !IsBardSong(spell_id) && !IsInstantCastDot(spell_id) &&
+		!IsGroupSpell(spell_id) && !spells[spell_id].is_discipline) {
+		if (IsDetrimentalSpell(spell_id) && spells[spell_id].mana >= 10 && FindBuff(NightcapSympathetic::StrikeBuff)) {
+			sympathetic.effect = Effect::Strike;
+		} else if (IsBeneficialSpell(spell_id) && spells[spell_id].mana > 0 && FindBuff(NightcapSympathetic::HealingBuff)) {
+			sympathetic.effect = Effect::Healing;
+		}
+	}
+	auto *const click = sympathetic.effect == Effect::None ? nullptr : &sympathetic;
+	if (!Cast::Deliver(click, [&] {
+		return SpellFinished(spell_id, spell_target, slot, mana_used, inventory_slot, resist_adjust, false,-1, 0xFFFFFFFF, 0, true);
+	}))
 	{
 		LogSpells("Casting of [{}] canceled: SpellFinished returned false", spell_id);
 		// most of the cases we return false have a message already or are logic errors that shouldn't happen
@@ -1850,7 +1869,11 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 
 	if (doppel_cast) CastToNPC()->CompleteNightcapDoppelgangerCast(spell_id, doppel_mana_cost);
 	if(IsOfClientBotMerc()) {
-		TrySympatheticProc(target, spell_id);
+		Cast::Deliver(click, [&] { TrySympatheticProc(target, spell_id); return true; });
+		if (click) {
+			if (click->bolt_worn_heal) { *click->bolt_worn_heal = click->worn_heal; }
+			ApplySympatheticClick(*click);
+		}
 	}
 
 	TryTwincast(this, target, spell_id);
@@ -2517,6 +2540,8 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 						uint32 inventory_slot, int16 resist_adjust, bool isproc, int level_override,
 						uint32 timer, uint32 timer_duration, bool from_casted_spell, uint32 aa_id)
 {
+	auto *const sympathetic = Cast::Take();
+	const NightcapSympathetic::WornGroup nested_group;
 	Mob *ae_center = nullptr;
 
 	if(!IsValidSpell(spell_id))
@@ -2728,11 +2753,13 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 				SpellOnTarget(spell_id, spell_target, 0, true, resist_adjust, true, level_override);
 			} else {
 				if (spells[spell_id].target_type == ST_TargetOptional){
-					if (!TrySpellProjectile(spell_target, spell_id))
+					if (!Cast::Deliver(CastAction == SingleTarget ? sympathetic : nullptr, [&] { return TrySpellProjectile(spell_target, spell_id); }))
 						return false;
 				}
 
-				else if(!SpellOnTarget(spell_id, spell_target, 0, true, resist_adjust, false, level_override)) {
+				else if (!Cast::Deliver(CastAction == SingleTarget ? sympathetic : nullptr, [&] {
+					return SpellOnTarget(spell_id, spell_target, 0, true, resist_adjust, false, level_override);
+				})) {
 					if(thj_resource || (IsBuffSpell(spell_id) && IsBeneficialSpell(spell_id))) {
 						return false;
 					}
@@ -2779,6 +2806,8 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 
 		case GroupSpell:
 		{
+			const NightcapSympathetic::WornGroup worn_targets(
+				sympathetic && sympathetic->effect == Effect::WornHeal ? sympathetic : nullptr, this, spell_id);
 			if (IsBot()) {
 				bool stop_logic = false;
 				if (!CastToBot()->DoFinishedSpellGroupTarget(spell_id, spell_target, slot, stop_logic)) {
@@ -4248,6 +4277,9 @@ bool Mob::SpellOnTarget(
 	int duration_override,
 	bool disable_buff_overwrite
 ) {
+	auto *sympathetic = Cast::Take();
+	if (!sympathetic) { sympathetic = NightcapSympathetic::WornGroup::For(this, spell_id); }
+	const NightcapSympathetic::WornGroup nested_group;
 	auto spellOwner = GetOwnerOrSelf();
 
 	// well we can't cast a spell on target without a target
@@ -4944,9 +4976,14 @@ bool Mob::SpellOnTarget(
 		return false;
 	}
 
-	// cause the effects to the target
-	if (
-		!spelltar->SpellEffect(
+	// Only this fully landed delivery can credit the actual HP effect below.
+	auto *const receipt = spell_effectiveness == 100 && !reflect_effectiveness ? sympathetic : nullptr;
+	if (receipt) {
+		receipt->recipient = spelltar;
+		receipt->recipient_id = spelltar->GetID();
+	}
+	if (!Cast::Deliver(receipt, [&] {
+		return spelltar->SpellEffect(
 			this,
 			spell_id,
 			spell_effectiveness,
@@ -4954,8 +4991,8 @@ bool Mob::SpellOnTarget(
 			reflect_effectiveness,
 			duration_override,
 			disable_buff_overwrite
-		)
-	) {
+		);
+	})) {
 		// if SpellEffect returned false there's a problem applying the
 		// spell. It's most likely a buff that can't stack.
 		LogSpells("Spell [{}] could not apply its effects [{}] -> [{}]\n", spell_id, GetName(), spelltar->GetName());

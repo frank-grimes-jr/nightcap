@@ -31,6 +31,7 @@
 #include "zone/mob_movement_manager.h"
 #include "zone/quest_parser_collection.h"
 #include "zone/string_ids.h"
+#include "nightcap_sympathetic.h"
 #include "zone/water_map.h"
 #include "zone/worldserver.h"
 
@@ -6237,13 +6238,37 @@ bool Mob::TryFadeEffect(int slot)
 	return false;
 }
 
+void Mob::ApplySympatheticClick(const NightcapSympathetic::Cast &cast)
+{
+	using namespace NightcapSympathetic;
+	if (!cast.landed || !(cast.effect == Effect::Strike || cast.effect == Effect::Healing)) { return; }
+	const int bonus = cast.Bonus();
+	if (!bonus) { return; }
+	const bool heal = cast.effect == Effect::Healing;
+	if ((heal && cast.worn_heal) || !RankEnabled(RuleI(Expansion, CurrentExpansion), heal ? Line::Healing : Line::Strike, 1)) { return; }
+	Mob *recipient = entity_list.GetMob(cast.recipient_id);
+	if (!recipient || recipient != cast.recipient || recipient->GetHP() <= 0 || recipient->IsCorpse() ||
+		(recipient->IsNPC() && recipient->CastToNPC()->GetDepop()) ||
+		(recipient->IsClient() && recipient->CastToClient()->IsDead())) { return; }
+
+	if (heal) {
+		recipient->HealDamage(bonus, this, HealingBuff);
+	} else {
+		// A distinct non-lifetap spell ID keeps this hit out of lifetap healing.
+		recipient->Damage(this, bonus, StrikeBuff, spells[StrikeBuff].skill, false);
+	}
+}
+
 void Mob::TrySympatheticProc(Mob* target, uint32 spell_id)
 {
+	using namespace NightcapSympathetic;
+	auto *const click = Cast::Take();
 	if (!target || !IsValidSpell(spell_id) || !IsOfClientBotMerc()) {
 		return;
 	}
 
-	const uint16 focus_spell = GetSympatheticFocusEffect(focusSympatheticProc, spell_id);
+	bool worn = false;
+	const uint16 focus_spell = GetSympatheticFocusEffect(focusSympatheticProc, spell_id, worn);
 
 	if (!IsValidSpell(focus_spell)) {
 		return;
@@ -6259,7 +6284,11 @@ void Mob::TrySympatheticProc(Mob* target, uint32 spell_id)
 		// For beneficial spells, if the triggered spell is also beneficial then proc it on the target
 		// if the triggered spell is detrimental, then it will trigger on the caster(ie cursed items)
 		if (IsBeneficialSpell(focus_trigger)) {
-			SpellFinished(focus_trigger, target);
+			Cast result;
+			result.effect = Effect::WornHeal;
+			const bool track = worn && click && click->effect == Effect::Healing;
+			Cast::Deliver(track ? &result : nullptr, [&] { return SpellFinished(focus_trigger, target); });
+			if (track) { click->worn_heal = result.landed; }
 		} else {
 			SpellFinished(
 				focus_trigger,

@@ -1,0 +1,13 @@
+{
+  "status": "local QA player-client files verified",
+  "spells_us.txt": {
+    "base": "fd0a88825eaacb46d438bb3739ffe4bc05607f9e3122a3a34f4520fc05551599",
+    "candidate": "fb8d4531eb431d602697bbc0d7dcd9c9c41b9e0661fe55d26069682852003205",
+    "bytes_added": 1369
+  },
+  "dbstr_us.txt": {
+    "base": "56e7747e05e3f0b5dabd47ee3c8c54a3cd4cda7eb39bb4238309b7352e84ae7d",
+    "candidate": "9e4c7b7216c0bbca8110f8a1422ff923101312bf2bb60d80d36313ac73c18b43",
+    "bytes_added": 517
+  }
+}

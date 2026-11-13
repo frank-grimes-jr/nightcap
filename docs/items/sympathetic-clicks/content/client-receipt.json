@@ -1,0 +1,19 @@
+{
+  "status": "unsigned local test overlay",
+  "launcher_release": 2026111202,
+  "source_manifest_sha256": "e01559e2d90acf38af4ef14d62985bd0ac9d31907bbecf768c72c4b391f2bb35",
+  "files": {
+    "spells_us.txt": {
+      "source_sha256": "949dba12a1cd6ce91faaaa16a47b1ae475e8608a56c9c8396b2a5f190c2e3be0",
+      "staged_sha256": "63067836b4b903dab1804d15bf1a1f73502ddc998a1a8ab9fdd5675b2780498b",
+      "bytes_added": 1369,
+      "appended_rows": 2
+    },
+    "dbstr_us.txt": {
+      "source_sha256": "bfc6713110d56efaad9dc41ee8c68872b3f2d078e3f92a71e6178cc15de08a90",
+      "staged_sha256": "c8d8cc97e88a4256090e7c41192f909f6651b79e97b4f484140f3075b426501c",
+      "bytes_added": 517,
+      "appended_rows": 2
+    }
+  }
+}

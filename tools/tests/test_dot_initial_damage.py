@@ -35,6 +35,7 @@ bool IsEffectInSpell(uint16 id, int effect) {
  for (int i = 0; i < 12; ++i) if (spells[id].effect_id[i] == effect) return true;
  return false;
 }
+NightcapSympathetic::Cast cast_receipt;
 bool thj = false;
 #define RuleB(category, rule) (thj)
 #define LogSpellsDetail(...) ((void)0)
@@ -69,6 +70,7 @@ void check(bool ok, const char* message) { if (!ok) { std::cerr << message; thro
 
 CASES = r'''
 int main() {
+ cast_receipt.effect = NightcapSympathetic::Effect::Strike;
  Mob player, npc, pet, target; npc.player = pet.player = false;
  auto& dot = spells[348]; dot.effect_id[0] = SpellEffect::CurrentHP;
  dot.base_value[0] = -10; dot.effect_id[1] = SpellEffect::CurrentHPOnce; dot.base_value[1] = -6;
@@ -76,6 +78,7 @@ int main() {
  target.Land(&player, 348, SpellEffect::CurrentHPOnce, -6);
  check(target.damage == 0 && player.dd_calculations == 0 && player.taps == 0,
        "DoT landing still deals amplified direct damage or taps resources");
+ check(!cast_receipt.landed, "DoT landing incorrectly qualified for Strike");
  // Repeated instant applications cannot farm the one-time damage.
  for (int n = 0; n < 20; ++n) target.Land(&player, 348, SpellEffect::CurrentHPOnce, -6);
  check(target.damage == 0, "recasting DoT deals direct damage");
@@ -94,6 +97,7 @@ int main() {
  spells[1].buff_duration_formula = 0;
  target.Land(&player, 1, SpellEffect::CurrentHPOnce, -50, -2);
  check(target.damage == 818, "standalone direct damage removed");
+ check(cast_receipt.landed, "eligible standalone damage did not reach the receipt");
  spells[2].effect_id[0] = 3; spells[2].base_value[0] = -20;
  target.Land(&player, 2, SpellEffect::CurrentHPOnce, -50);
  check(target.damage == 1118, "direct damage plus a non-DoT debuff removed");
@@ -156,10 +160,12 @@ class DotInitialDamage(unittest.TestCase):
             branches.append(source[start:end])
         landing = '''void Mob::Land(Mob* caster, uint16 spell_id, int effect, int effect_value,
  int buffslot, float partial, int reflect_effectiveness, int i) {
+ auto record_hp = [](NightcapSympathetic::Line line, int64 amount) { cast_receipt.Record(line, amount); };
  const auto& spell = spells[spell_id]; switch(effect) {''' + '\n'.join(branches) + '}}'
         policy = '\n'.join(function(spells, signature) for signature in (
             'int CalcBuffDuration_formula(', 'bool Mob::IsInstantCastDot('))
-        compile_run(PRELUDE + policy + landing + CASES)
+        header = (ROOT / 'server-mods/code/zone/nightcap_sympathetic.h').as_posix()
+        compile_run(f'#include "{header}"\n' + PRELUDE + policy + landing + CASES)
 
 
 if __name__ == '__main__':

@@ -42,6 +42,7 @@
 
 char* strn0cpy(char* dest, const char* source, uint32 size);
 
+namespace NightcapSympathetic { struct Cast; }
 class Client;
 class EQApplicationPacket;
 class Group;
@@ -984,6 +985,8 @@ public:
 	void TryTwincast(Mob *caster, Mob *target, uint32 spell_id);
 	void TrySympatheticProc(Mob *target, uint32 spell_id);
 	uint16 GetSympatheticFocusEffect(focusType type, uint16 spell_id);
+	uint16 GetSympatheticFocusEffect(focusType type, uint16 spell_id, bool &worn);
+	void ApplySympatheticClick(const NightcapSympathetic::Cast &cast);
 	bool TryFadeEffect(int slot);
 	void DispelMagic(Mob* casterm, uint16 spell_id, int effect_value);
 	bool TrySpellEffectResist(uint16 spell_id);
