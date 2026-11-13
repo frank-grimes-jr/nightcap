@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 13, 2026 · Classic sympathetic clicks installed on local test
+
+Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. All eight test zone workers loaded the paired zone and caches. First-minute progression healing rose 4% on both dragons; the full-fight 3–5% target and owner RoF2 QA remain open. [Item sources, era review and in-game QA](docs/items/sympathetic-clicks/README.md).
+
 ## November 13, 2026 · Stock worn ATK test candidate
 
 135 stock families receive reviewed ATK values across their three upgrades in the candidate. Six conflicting or exceptional observations retain the existing values. The 250 base cap and custom content remain in force. A 926-row isolated migration, rollback and native cap checks passed. See the [item list and in-game checks](docs/items/stock-worn-atk/README.md).
