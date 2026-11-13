@@ -1,0 +1,148 @@
+{
+  "target": "owner-local akk-stack TEST / Local Development Server / Classic",
+  "date": "2026-11-13",
+  "post_boot": {
+    "windows_loopback_udp_5998": "17-byte native session response with matching connect code",
+    "registered_world": "Local Development Server",
+    "zone_udp_listeners": 8,
+    "database_ruleset_1_expansion": 0,
+    "click_fields_checked": ["610338:44379:4:2000:-1", "610150:44380:4:2000:-1"],
+    "moonstone_focus": 2349,
+    "spell_formula": 50,
+    "description_type": 6
+  },
+  "zone_linked_baseline_sha256": "b22a5340fa2cc5647975591186b9c381ea796c5850fa9e782372dfe69125775f",
+  "baseline_objects": {
+    "spells": {
+      "built": "abdf6ae35a79049c53901aa9b3fbf2ffb8d34cca75ec67ead3928b365ca13389",
+      "installed_input": "abdf6ae35a79049c53901aa9b3fbf2ffb8d34cca75ec67ead3928b365ca13389",
+      "source": "f30c8b53ba3928d2913bc2ced07a2d6d8398124846033eb9fa6c1ce12b13ca0d"
+    },
+    "spell_effects": {
+      "built": "fbd5428754105bc668be144c9bdfcc83dca1c42e38c4b45f96344fdbd1b4d80c",
+      "installed_input": "fbd5428754105bc668be144c9bdfcc83dca1c42e38c4b45f96344fdbd1b4d80c",
+      "source": "ef7117b6b425307cc3b10dcd910e37ccfcc840d589d492041443af68cfc91fff"
+    },
+    "mob": {
+      "built": "a26dbc66c1a2f15f4b3e2d0dedec36dbf34786145e28d44bfa2ed94d91094219",
+      "installed_input": "a26dbc66c1a2f15f4b3e2d0dedec36dbf34786145e28d44bfa2ed94d91094219",
+      "source": "37a87390a20ed27ef20f0b79a8bc4285b35e533d28a26d37b855412588d9cd8f"
+    },
+    "special_attacks": {
+      "built": "f0cb734b5f2c3cc40077f248273813dbdfdb063056cfc669188c45ca5d7cf3d3",
+      "installed_input": "f0cb734b5f2c3cc40077f248273813dbdfdb063056cfc669188c45ca5d7cf3d3",
+      "source": "54cc714a0efbb8216cd2febeb325ec9d1ce48ded8ee914846142ac65c26d89a5"
+    }
+  },
+  "adapter_source_sha256": {
+    "mob.cpp": "7ac5ba0eba8e735ff0f05aded54140788f9ce5038fcdc9bda58e8921afc0063b",
+    "mob.h": "9de37734f341414a57a4e56c73ea7fe5f208e6e474a327e7565cfc6d98d7998f",
+    "nightcap_sympathetic.h": "c1b2800a64fdb2c41827e52bd8fdd3a6149f9eea992e26a8376e872ab98a9b3b",
+    "nightcap_sympathetic_eras.h": "6c34407e408e13f1a9b259bcdb03ac8e830890fe4a2730f2916ba62222bf1c99",
+    "special_attacks.cpp": "cc159816947ee46ca2978490c43b1920e98e824a264f107b95bebab3d9aa09c7",
+    "spell_effects.cpp": "fd1b99fa7ee4b380aadfb649687a8559d79bca4b672b71fb211750003f116918",
+    "spells.cpp": "3f7f4bbc4b81551912a776bf03991431489630dc8ba1c7ccf447569fae6b5b1a"
+  },
+  "candidate_objects": {
+    "spells": {
+      "built": "1aa9c9dc85f9b69c8a2dc60d1ef8bca2e13e1ffe4a245e1aba590946252b2705",
+      "installed_input": "abdf6ae35a79049c53901aa9b3fbf2ffb8d34cca75ec67ead3928b365ca13389",
+      "source": "3f7f4bbc4b81551912a776bf03991431489630dc8ba1c7ccf447569fae6b5b1a"
+    },
+    "spell_effects": {
+      "built": "0987bb4539a0501b2121447c0b182c6ded52702bc188d1a881eea42ee7312404",
+      "installed_input": "fbd5428754105bc668be144c9bdfcc83dca1c42e38c4b45f96344fdbd1b4d80c",
+      "source": "fd1b99fa7ee4b380aadfb649687a8559d79bca4b672b71fb211750003f116918"
+    },
+    "mob": {
+      "built": "984130a7f7c5999a6d852b41d59af06c3f5e0788bbd9048c555ae4be62f80217",
+      "installed_input": "a26dbc66c1a2f15f4b3e2d0dedec36dbf34786145e28d44bfa2ed94d91094219",
+      "source": "7ac5ba0eba8e735ff0f05aded54140788f9ce5038fcdc9bda58e8921afc0063b"
+    },
+    "special_attacks": {
+      "built": "16d5c529fff219c59c472e3e0942f895147233c06e32d6a90c8c73258ef64452",
+      "installed_input": "f0cb734b5f2c3cc40077f248273813dbdfdb063056cfc669188c45ca5d7cf3d3",
+      "source": "cc159816947ee46ca2978490c43b1920e98e824a264f107b95bebab3d9aa09c7"
+    }
+  },
+  "native_cast_check": {
+    "heal_off": 21,
+    "heal_on": 22,
+    "real_item_casts": 2,
+    "strike_off": 2828,
+    "strike_on": 2876
+  },
+  "client": {
+    "spells_us.txt": {
+      "base": "fd0a88825eaacb46d438bb3739ffe4bc05607f9e3122a3a34f4520fc05551599",
+      "candidate": "fb8d4531eb431d602697bbc0d7dcd9c9c41b9e0661fe55d26069682852003205",
+      "bytes_added": 1369
+    },
+    "dbstr_us.txt": {
+      "base": "56e7747e05e3f0b5dabd47ee3c8c54a3cd4cda7eb39bb4238309b7352e84ae7d",
+      "candidate": "9e4c7b7216c0bbca8110f8a1422ff923101312bf2bb60d80d36313ac73c18b43",
+      "bytes_added": 517
+    }
+  },
+  "client_entrypoint": "Play Local Sympathetic Test.cmd",
+  "client_route": "127.0.0.1:5998",
+  "preimage": {
+    "services": {
+      "world": 1,
+      "loginserver": 1,
+      "queryserv": 1,
+      "ucs": 1,
+      "zone": 8,
+      "spire-launcher": 1
+    },
+    "hashes": {
+      "zone": "b22a5340fa2cc5647975591186b9c381ea796c5850fa9e782372dfe69125775f",
+      "world": "c7a008e95615ff7f74cdca946ef889ad013052227b5593854e56e0091d8c51b3",
+      "shared_memory": "337a30c6123df49864e5aadf01c69868ffb782658f413ac27bcf27b1a86371ac",
+      "items": "646925c426c9f02f7f840ce7298435e2ee16285db1551ad246ea2d37ae563912",
+      "spells": "1ef1b05fc6aca5b69593325a51d7fe482b4dbb7a9877dde96026adab9e16c5eb"
+    },
+    "players": 0,
+    "locked": false
+  },
+  "client_gameplay": "open",
+  "activation": {
+    "services": {
+      "spire-launcher": 1,
+      "world": 1,
+      "loginserver": 1,
+      "queryserv": 1,
+      "ucs": 1,
+      "zone": 8
+    },
+    "hashes": {
+      "zone": "fa821145a3389e9f5f61d24f7699d32b7103c6a0d08f1318e5fd6c2fdfda7f33",
+      "world": "c7a008e95615ff7f74cdca946ef889ad013052227b5593854e56e0091d8c51b3",
+      "shared_memory": "337a30c6123df49864e5aadf01c69868ffb782658f413ac27bcf27b1a86371ac",
+      "items": "127de1616aace07dad2617394ccd4e9861ddfedaef11c308699932a31d7ea9bf",
+      "spells": "063a8b70cfd95d7cbb3c87a50e6c87af24c9f22b16b0b66a5610148e8963a548"
+    },
+    "players": 0,
+    "locked": false,
+    "cache_diff": {
+      "items": {
+        "records": 308928,
+        "changed": 2,
+        "before": "646925c426c9f02f7f840ce7298435e2ee16285db1551ad246ea2d37ae563912",
+        "after": "127de1616aace07dad2617394ccd4e9861ddfedaef11c308699932a31d7ea9bf"
+      },
+      "spells": {
+        "records": 99002,
+        "changed": 2,
+        "before": "1ef1b05fc6aca5b69593325a51d7fe482b4dbb7a9877dde96026adab9e16c5eb",
+        "after": "063a8b70cfd95d7cbb3c87a50e6c87af24c9f22b16b0b66a5610148e8963a548"
+      }
+    }
+  },
+  "backup_sha256": "c81e8df77e6d9460cc7445e201d23a9f5a0867bd2f90e1082b1ae98058eb2f6c",
+  "stopped": {
+    "utc": "2026-11-13T22:58:03.920798+00:00",
+    "zones_saved": 8
+  },
+  "sql_sha256": "be6b12832cf35cd93974d3a2728e33e970fd27216ab60e4645dac09b9dda454d"
+}

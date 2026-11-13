@@ -26,6 +26,11 @@ if __name__=="__main__":
     for prepared,name in ((True,"measurements.json.gz"),(False,"unprepared-pilot.json.gz")):
         cohort=[r for r in json.loads(rows) if r["prepared"]==prepared]
         (HERE/name).write_bytes(gzip.compress(json.dumps(cohort,separators=(",",":")).encode(),mtime=0))
-    for source,destination in (("measured-build.json","diagnostic-build.json"),("build.json","final-replay-build.json"),
-                               ("replay.json","final-replay.json"),("holdout.json","holdout.json")):
-        subprocess.run(["docker","cp",SERVER+":"+R+"/"+source,str(HERE/destination)],check=True)
+    def available(name):
+        return subprocess.run(["docker","exec",SERVER,"test","-f",R+"/"+name]).returncode==0
+    measured="measured-build.json" if available("measured-build.json") else "build.json"
+    subprocess.run(["docker","cp",SERVER+":"+R+"/"+measured,str(HERE/"diagnostic-build.json")],check=True)
+    for source,destination in (("build.json","final-replay-build.json"),("replay.json","final-replay.json"),
+                               ("holdout.json","holdout.json")):
+        if available(source):
+            subprocess.run(["docker","cp",SERVER+":"+R+"/"+source,str(HERE/destination)],check=True)

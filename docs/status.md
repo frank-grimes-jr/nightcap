@@ -1,8 +1,8 @@
 # Current Nightcap status
 
-## November 13, 2026 · Classic sympathetic click candidate
+## November 13, 2026 · Classic sympathetic clicks installed on local test
 
-Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. Paired spell data and native zone behavior are required. [Item sources, era review and in-game QA](items/sympathetic-clicks/README.md).
+Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. All eight test zone workers loaded the paired zone and caches. First-minute progression healing rose 4% on both dragons; the full-fight 3–5% target and owner RoF2 QA remain open. [Item sources, era review and in-game QA](items/sympathetic-clicks/README.md).
 
 ## November 13, 2026 · Stock worn ATK test candidate
 

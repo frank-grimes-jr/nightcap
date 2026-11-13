@@ -1,5 +1,7 @@
 # Classic sympathetic item clicks
 
+**Installed on the local test world for player QA.** All eight zone workers loaded the paired candidate. The cache comparison identified two item records and two spell slots. The other 308,926 items and 99,000 spell slots were byte-identical. [Verification](verification.json) · [Runtime, rollback and test client](runtime/README.md).
+
 ## Two earned Classic clicks
 
 Ascended Runed Lava Pendant (610338) grants Sympathetic Strike I. Its stock source is a lava elemental in Solusek's Eye. Ascended Moonstone Ring (610150) grants Sympathetic Healing I. Its stock source is a frenzied ghoul in Lower Guk. Both are all-class jewelry with existing quality upgrades. This puts the rewards on distinct mid- and late-Classic named camps, lets a player keep their usual weapon, and makes both buffs available to any multiclass character with a qualifying spell. On the local test world, hunt the named NPC for the ordinary Ascended drop. The test database lacks the Reforging Box state table. On worlds that already have the stock reforging system installed, normal quality-upgrade rules also apply. The Ring retains Extended Range II.
