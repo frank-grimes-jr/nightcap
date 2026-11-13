@@ -1,0 +1,468 @@
+{
+  "installed_cache_items": 308928,
+  "unchanged_records": 308557,
+  "changed_records": 371,
+  "target_items_verified": 405,
+  "cache_sha256": "646925c426c9f02f7f840ce7298435e2ee16285db1551ad246ea2d37ae563912",
+  "baseline_cache_sha256": "f6257579ad8fed6d65671696094793341ba7f29b9b9ed3d53b8827034de1504a",
+  "workers": 8,
+  "world_and_zone_maps_verified": true,
+  "binaries_sha256": {
+    "world": "c7a008e95615ff7f74cdca946ef889ad013052227b5593854e56e0091d8c51b3",
+    "zone": "b22a5340fa2cc5647975591186b9c381ea796c5850fa9e782372dfe69125775f",
+    "shared_memory": "337a30c6123df49864e5aadf01c69868ffb782658f413ac27bcf27b1a86371ac"
+  },
+  "spell_cache_sha256": "1ef1b05fc6aca5b69593325a51d7fe482b4dbb7a9877dde96026adab9e16c5eb",
+  "admissions_locked": false,
+  "wire_records": 413,
+  "wire_controls_preserved": 8,
+  "wire_armguard": [
+    {
+      "id": 26771,
+      "before": 50,
+      "after": 50
+    },
+    {
+      "id": 226771,
+      "before": 55,
+      "after": 51
+    },
+    {
+      "id": 426771,
+      "before": 60,
+      "after": 52
+    },
+    {
+      "id": 626771,
+      "before": 68,
+      "after": 53
+    }
+  ],
+  "db_item_rows_checked": 926,
+  "normal_guards": 135,
+  "definition_targets": 405,
+  "sql_writes": 371,
+  "already_at_target": 34,
+  "backup_sha256": "c67f5a60321c022b7fa3e37a652a6edbfb68517f0cbe90b7bec698e55116331d",
+  "scope": "Local persistent akk-stack / peq; production was not written",
+  "main_source_base": "c59f46de",
+  "test_source": "f1b0486c",
+  "validation": {
+    "main_domain_tests": 14,
+    "main_wiki_tests": 20,
+    "public_wiki_published": false,
+    "graphical_rof2_item_window": "not observed",
+    "visible_client": "RoF2 item-link values decoded with the local native serializer; no graphical UI session",
+    "wiki_build_pages": 624
+  },
+  "native_equipment": {
+    "scope": "Synthetic Ranger using local zone objects, isolated fixture DB and both real item caches. The 50-ATK counterfactual copies the Armguard and holds all other fields equal. Pop/re-equip verified per case.",
+    "seed": 20261113,
+    "mitigation": 300,
+    "paired_landed_rolls_per_case": 20000,
+    "local_before": [
+      {
+        "empty": {
+          "offense": 210,
+          "rating": 627,
+          "str": 180,
+          "worn": 0
+        },
+        "equipped": {
+          "offense": 281,
+          "rating": 722,
+          "str": 201,
+          "worn": 57
+        },
+        "equipped_mean_landed_multiplier": 1.006364999999989,
+        "level": 50,
+        "other": 0,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 266,
+          "rating": 702,
+          "str": 201,
+          "worn": 42
+        },
+        "reference_mean_landed_multiplier": 0.9695999999999924
+      },
+      {
+        "empty": {
+          "offense": 409,
+          "rating": 894,
+          "str": 180,
+          "worn": 199
+        },
+        "equipped": {
+          "offense": 474,
+          "rating": 981,
+          "str": 201,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3561149999999844,
+        "level": 50,
+        "other": 199,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 465,
+          "rating": 969,
+          "str": 201,
+          "worn": 241
+        },
+        "reference_mean_landed_multiplier": 1.3420799999999837
+      },
+      {
+        "empty": {
+          "offense": 410,
+          "rating": 895,
+          "str": 180,
+          "worn": 200
+        },
+        "equipped": {
+          "offense": 474,
+          "rating": 981,
+          "str": 201,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3663749999999864,
+        "level": 50,
+        "other": 200,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 466,
+          "rating": 970,
+          "str": 201,
+          "worn": 242
+        },
+        "reference_mean_landed_multiplier": 1.3560349999999772
+      },
+      {
+        "empty": {
+          "offense": 460,
+          "rating": 962,
+          "str": 180,
+          "worn": 250
+        },
+        "equipped": {
+          "offense": 474,
+          "rating": 981,
+          "str": 201,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3548249999999942,
+        "level": 50,
+        "other": 250,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 474,
+          "rating": 981,
+          "str": 201,
+          "worn": 250
+        },
+        "reference_mean_landed_multiplier": 1.3548249999999942
+      },
+      {
+        "empty": {
+          "offense": 210,
+          "rating": 627,
+          "str": 180,
+          "worn": 0
+        },
+        "equipped": {
+          "offense": 294,
+          "rating": 740,
+          "str": 205,
+          "worn": 68
+        },
+        "equipped_mean_landed_multiplier": 1.0370499999999838,
+        "level": 60,
+        "other": 0,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 276,
+          "rating": 716,
+          "str": 205,
+          "worn": 50
+        },
+        "reference_mean_landed_multiplier": 0.9893849999999944
+      },
+      {
+        "empty": {
+          "offense": 409,
+          "rating": 894,
+          "str": 180,
+          "worn": 199
+        },
+        "equipped": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3508599999999837,
+        "level": 60,
+        "other": 199,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 475,
+          "rating": 983,
+          "str": 205,
+          "worn": 249
+        },
+        "reference_mean_landed_multiplier": 1.351694999999988
+      },
+      {
+        "empty": {
+          "offense": 410,
+          "rating": 895,
+          "str": 180,
+          "worn": 200
+        },
+        "equipped": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3590149999999885,
+        "level": 60,
+        "other": 200,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "reference_mean_landed_multiplier": 1.3590149999999885
+      },
+      {
+        "empty": {
+          "offense": 460,
+          "rating": 962,
+          "str": 180,
+          "worn": 250
+        },
+        "equipped": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.360154999999983,
+        "level": 60,
+        "other": 250,
+        "raw": 68,
+        "reference_atk_50": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "reference_mean_landed_multiplier": 1.360154999999983
+      }
+    ],
+    "local_installed": [
+      {
+        "empty": {
+          "offense": 210,
+          "rating": 627,
+          "str": 180,
+          "worn": 0
+        },
+        "equipped": {
+          "offense": 268,
+          "rating": 705,
+          "str": 201,
+          "worn": 44
+        },
+        "equipped_mean_landed_multiplier": 0.9718149999999971,
+        "level": 50,
+        "other": 0,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 266,
+          "rating": 702,
+          "str": 201,
+          "worn": 42
+        },
+        "reference_mean_landed_multiplier": 0.9695999999999924
+      },
+      {
+        "empty": {
+          "offense": 409,
+          "rating": 894,
+          "str": 180,
+          "worn": 199
+        },
+        "equipped": {
+          "offense": 467,
+          "rating": 972,
+          "str": 201,
+          "worn": 243
+        },
+        "equipped_mean_landed_multiplier": 1.3469449999999763,
+        "level": 50,
+        "other": 199,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 465,
+          "rating": 969,
+          "str": 201,
+          "worn": 241
+        },
+        "reference_mean_landed_multiplier": 1.3420799999999837
+      },
+      {
+        "empty": {
+          "offense": 410,
+          "rating": 895,
+          "str": 180,
+          "worn": 200
+        },
+        "equipped": {
+          "offense": 468,
+          "rating": 973,
+          "str": 201,
+          "worn": 244
+        },
+        "equipped_mean_landed_multiplier": 1.3564299999999843,
+        "level": 50,
+        "other": 200,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 466,
+          "rating": 970,
+          "str": 201,
+          "worn": 242
+        },
+        "reference_mean_landed_multiplier": 1.3560349999999772
+      },
+      {
+        "empty": {
+          "offense": 460,
+          "rating": 962,
+          "str": 180,
+          "worn": 250
+        },
+        "equipped": {
+          "offense": 474,
+          "rating": 981,
+          "str": 201,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3548249999999942,
+        "level": 50,
+        "other": 250,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 474,
+          "rating": 981,
+          "str": 201,
+          "worn": 250
+        },
+        "reference_mean_landed_multiplier": 1.3548249999999942
+      },
+      {
+        "empty": {
+          "offense": 210,
+          "rating": 627,
+          "str": 180,
+          "worn": 0
+        },
+        "equipped": {
+          "offense": 279,
+          "rating": 720,
+          "str": 205,
+          "worn": 53
+        },
+        "equipped_mean_landed_multiplier": 0.9996899999999906,
+        "level": 60,
+        "other": 0,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 276,
+          "rating": 716,
+          "str": 205,
+          "worn": 50
+        },
+        "reference_mean_landed_multiplier": 0.9893849999999944
+      },
+      {
+        "empty": {
+          "offense": 409,
+          "rating": 894,
+          "str": 180,
+          "worn": 199
+        },
+        "equipped": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3508599999999837,
+        "level": 60,
+        "other": 199,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 475,
+          "rating": 983,
+          "str": 205,
+          "worn": 249
+        },
+        "reference_mean_landed_multiplier": 1.351694999999988
+      },
+      {
+        "empty": {
+          "offense": 410,
+          "rating": 895,
+          "str": 180,
+          "worn": 200
+        },
+        "equipped": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.3590149999999885,
+        "level": 60,
+        "other": 200,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "reference_mean_landed_multiplier": 1.3590149999999885
+      },
+      {
+        "empty": {
+          "offense": 460,
+          "rating": 962,
+          "str": 180,
+          "worn": 250
+        },
+        "equipped": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "equipped_mean_landed_multiplier": 1.360154999999983,
+        "level": 60,
+        "other": 250,
+        "raw": 53,
+        "reference_atk_50": {
+          "offense": 476,
+          "rating": 985,
+          "str": 205,
+          "worn": 250
+        },
+        "reference_mean_landed_multiplier": 1.360154999999983
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 """Pinned stock EQ equipment model, exact THJ observations, guarded offline plans."""
 from copy import deepcopy
 from functools import lru_cache
-import argparse,gzip,hashlib,json
+import argparse,csv,gzip,hashlib,json
 from pathlib import Path
 import starter_retune,thj_item_parity
 from thj_item_migration import migration
@@ -34,6 +34,37 @@ def stock():
 def observed():
     return {row['base_id']:row for row in thj_item_parity.catalog()['items'] if row['id']-row['base_id']==600000}
 
+@lru_cache(maxsize=1)
+def worksheet_atk_targets():
+    """Only accept ordinary stock families with an ID-linked, formula-confirmed Legendary observation."""
+    path = ROOT / 'docs/items/stock-worn-atk/worksheet-check.csv'
+    targets = {}
+    seen = set()
+    with path.open(encoding='utf-8-sig', newline='') as stream:
+        for row in csv.DictReader(stream):
+            ident = int(row['base_id'])
+            if ident in seen:
+                raise ValueError(f'Duplicate worksheet family {ident}')
+            seen.add(ident)
+            if ident in EPICS or ident in starter_retune.APPROVED_IDS:
+                continue
+            base = stock()[ident]
+            if int(row['nightcap_top_id']) != ident + 600000 or row['name'] != base['Name']:
+                raise ValueError(f'Worksheet item identity mismatch: {ident}')
+            attack, strength, dexterity = (int(base[k]) for k in ('attack', 'astr', 'adex'))
+            if (attack, strength, dexterity) != tuple(int(row[k]) for k in ('stock_atk','base_str','base_dex')):
+                raise ValueError(f'Worksheet stock input mismatch: {ident}')
+            if min(attack, strength, dexterity) < 0:
+                continue
+            predicted = attack + (strength + 3) // 4 if attack else (strength + dexterity + 1) // 2
+            additional = [int(v) for v in row['book2_atk'].split('|') if v]
+            if predicted != int(row['sheet_top_atk']) or any(v != predicted for v in additional):
+                continue
+            # Existing exact observations have priority, including the conflicting Bracer.
+            if 'attack' not in observed().get(ident, {}).get('fields', {}):
+                targets[ident] = predicted
+    return targets
+
 def top_target(base):
     target={f:int(base[f]) for f in FIELDS}
     for f in DOUBLE:
@@ -42,6 +73,8 @@ def top_target(base):
     if not target['spelldmg']:target['spelldmg']=max(2*max(int(base['aint']),0),max(int(base['awis']),0))
     if not target['healamt']:target['healamt']=2*max(int(base['awis']),0)
     if not target['accuracy']:target['accuracy']=(max(int(base['adex']),0)+1)//2
+    ident = int(base['id'])
+    target['attack'] = worksheet_atk_targets().get(ident, target['attack'])
     # Exact ordinary observations win; unknown fields retain the model/stock.
     exact=observed().get(int(base['id']),{}).get('fields',{})
     target.update({f:v for f,v in exact.items() if f not in HEROICS})
