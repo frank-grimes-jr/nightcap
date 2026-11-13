@@ -1,0 +1,157 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -227,5 +227,5 @@
+-## Classic raid augments — November 12 feature candidate
+-
+-Use the `classic-raid-augments` context. The sixteen single-quality LORE trophies (963200–963215) fit one chest-only type-22 socket at level 50. Their per-ID LORE projection is an exception to global suppression, including socketed custody. Independent 25/15/50% corpse rolls cover dragons, secondary bosses and planar finals. Managed drops require Raid objective credit. The three capstones share a persisted 90-second timer. Power Source, pet and displaced Hunt bonuses are excluded. Master Yael 39138 has no confirmed public spawn route; the managed Hole finale is a different NPC.
+-
+-Feature checkout E:/EQ_Local_Dev/_worktrees/classic-raid-augments. Catalog, source mapping, deterministic tests and SQL: config/classic-raid-augments.json, tools/classic_raid_augments.py, tools/tests/test_raid_augment*. The native timers store whole seconds. Use 91 stored ticks for a 90-second hard minimum across relogs. The local 1,104-fight screen used six Hunt options and an empty socket. Read docs/items/classic-raid-augments/balance/README.md for the corrected-timer cohort, healing flags, mixed outcomes and arena limitations. Native builds and the 16-item cache passed. Dev PR 431 and test PR 433 merged. Test source 9e72a3ce matched the compiled dev checkout. RoF2 acceptance and test-stack installation are open; see docs/items/classic-raid-augments/ and PR 433. Install matching world/zone/shared_memory, apply guarded content and rebuild the cache on the intended test stack. Standard RoF2 LORE and type-22 fields use the existing signed client. No production rollout, public wiki publication or owner acceptance is recorded.
++## Classic raid augments · deployed for player testing
++
++Sixteen individually LORE trophies (963200–963215) use the existing type-22 chest socket. Each eligible boss corpse has one independent roll. Dragons have a 25% chance, secondary bosses 15% and planar finals 50%. Managed drops require credited Raid objectives. Capstones share a hard 90-second minimum including across swaps, zoning and relogging. The native second-resolution timer uses 91 ticks. The ordinary stock Deepwater Pearl 33961 and Phinigel’s augment 963202 share a display name. Yael’s public spawn still needs confirmation.
++
++The classic-raid-augments context points to E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production. Main PR435/25219aac, test PR433/9e72a3ce. OVH stage classic-raid-augments-20261112-v2 uses full matched world/zone/shared_memory on the retained Inventory b737e641 source, preserving signed client 2026111202. The staged SQL passed replay and all 310,000 existing cache records were byte-identical alongside 16 new effective LORE records. See docs/releases/classic-raid-augments-20261112/deployed.json, native.json, QA.md, the wiki receipt and the 1,278-fight balance study. Separate the closed-then-reopened runtime verification from RoF2 player acceptance, still open.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -18,3 +18,3 @@
+-## Classic raid augment candidate
+-
+-The feature checkout adds wiki/articles/classic-raid-augments.json and links from Features, In development, Equipment, Zone augments and Change Log. The preview identifies Yael’s unresolved acquisition route and the shared capstone cooldown. Live catalogs and public pages continue to describe deployed content. See docs/items/classic-raid-augments/README.md and the classic-raid-augments context.
++## Classic raid augments · official wiki live testing
++
++Wiki 20261112-raid-augments-v1 preserves the Inventory predecessor and signed client 2026111202. The 631-file public package adds 16 exact item pages and the raid overview. Equipment and raid-zone pages link each boss to its level-50 trophy, and Hunt family counts remain independent. The wiki publication receipt records checks, preserved services and rollback. Use wiki/raid_augment_catalog.py, wiki/articles/classic-raid-augments.json and docs/releases/classic-raid-augments-20261112/. Yael’s public spawn, visible native item/LORE behavior and player balance remain open.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -164 +164 @@
+-    "classic_raid_augments_candidate_20261112": "c04dc313 cooldown, 8fb03987 balance evidence, dev PR431/acbbd1c8, test PR433/9e72a3ce (tree matches verified 986a1ed4); source stage only; no live rollout or owner acceptance",
++    "classic_raid_augments_candidate_20261112": "Main PR435/25219aac, matched OVH v2 deployed and verified for live QA; wiki 20261112-raid-augments-v1; player acceptance open",
+@@ -19409 +19409 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19412,4 +19412,4 @@
+-        "sha256": "cf286daf78bba0cc007ddd194b95390df3f95d1ebb26323ef06ad684e24312f9"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "3bff0fb8c3b45c2722f222165de10a24b38e631ea77c392b59047ca16a0bf4d0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19418,4 +19418,4 @@
+-        "sha256": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "67cf107f983401bb25258df8eae519629b18a4dbc4c7af52589d8f4ec23b6c51"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19424,4 +19424,4 @@
+-        "sha256": "7544d7852a7ebb7912102f263be0049691d9ebae4d4dcdad7fe2ad2dc3afa9b7"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "03ef7c0102ed2d2b8d6f50c47f01ec14a62becee65771b83e3d01a49bf1ae40f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19430,4 +19430,4 @@
+-        "sha256": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "a3d9ffcd357169f1d5410bac0afa10f4ebcc8c4fe1828b1efae54ba3b10a641d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19436,4 +19436,4 @@
+-        "sha256": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "36ba5b844462ac283cf520827ac182a62185c165f6dd625ca5a3cae55c796c69"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19442,4 +19442,4 @@
+-        "sha256": "79f82f24448167ba964baf750e28b0d9381eee099f269551d9fa21e74f7ccd3a"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "bc2ac43a06b4d966f1e561927339e4019eb54b11ec93a2a3b9a177ad4e7b58c7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19448,4 +19448,4 @@
+-        "sha256": "727a944ac437b83ac29790e0104a6bd8b0b11827cf532c853b7e3ce88a923d4b"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "ce73374b2c154493db10abf03f059e08005365b643d1431c2531698945def119"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19454,4 +19454,4 @@
+-        "sha256": "d6cf21ace5b06f13b2d06d93e0b42d1a1fa56733d68af67e513ebbd5a9bfa360"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "cef8d1c32a1b1e71f4cb4d471c7267088492854d2cb6bbcc26b7962d7624d4f5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19460,4 +19460,4 @@
+-        "sha256": "5235526cac8dd572f49d8e37ce61e97765cc6035f0835fd24458e8c9a67b6120"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "8e4bd9c329534c7b0599852d865417ab3748ec51d0719f19817ec533ad87083a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19466,4 +19466,4 @@
+-        "sha256": "a67788f1eac1786cda6a48d38941b6e98d33d9c3cfea86b20de304087d57a6fd"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "7effb920930b249406b195a8f1f4828e2016b61598ad6b6a9e5328cfd0afba67"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19472,4 +19472,4 @@
+-        "sha256": "4ab1d5667460fcff8d1665c4a56197893a7f89f574382fbf0f13c1e12cc74cb5"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "sha256": "4b3f8737503904e0bf324d3d519d5bfafc6b98ce6674e6893c95b7f194ada554"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19481 +19481 @@
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
+@@ -19484,0 +19485,24 @@
++      },
++      {
++        "path": "docs/releases/classic-raid-augments-20261112/native.json",
++        "role": "Production shipping hashes, retained source and cache layout",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
++        "sha256": "91f95a380b83ff768bd9036cb26a92b2d3c8bc561813ea6375f7865eb54ec134"
++      },
++      {
++        "path": "docs/releases/classic-raid-augments-20261112/preflight.json",
++        "role": "Unchanged full-catalog cache and rehearsal",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
++        "sha256": "6627ec46ebda5f525c4cd321a18e1da743ad5ab5d16baa71c713517e29f63545"
++      },
++      {
++        "path": "docs/releases/classic-raid-augments-20261112/deployed.json",
++        "role": "Independent live verification, backups and public access",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
++        "sha256": "25f3aac6393728cfec4a8542684d8e51c1fd65316754da0875119417ada04869"
++      },
++      {
++        "path": "docs/releases/classic-raid-augments-20261112/wiki-publication.json",
++        "role": "Official wiki publication and regression evidence",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-raid-augments-production",
++        "sha256": "cc5c2d9f87efdc9446e1fab4018651227a61bff33478ad47df529c5fa2a81e52"

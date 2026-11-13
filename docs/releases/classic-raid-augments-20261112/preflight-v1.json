@@ -1,0 +1,11 @@
+{
+  "outcome": "Stopped in isolated rehearsal before any gameplay activation",
+  "live_item": {
+    "id": 33961,
+    "name": "Deepwater Pearl",
+    "itemtype": 11,
+    "loregroup": 0
+  },
+  "change": "v2 pins the existing row by ID, type and name. The approved raid augment remains 963202. Full-cache comparison includes stock ID 33961.",
+  "production_items_inserted": 0
+}

@@ -1,6 +1,6 @@
 # Classic raid augment implementation
 
-Feature candidate for Classic level 50. The 16 single-quality definitions occupy IDs 963200–963215. Public loot uses the version-zero boss identity in its source zone, a player-entitled corpse and one roll per life. Managed loot requires Raid mode, the canonical objective spawn, and at least one eligible credited member. The existing corpse envelope retains the staged loot. Grind, unrelated instances, summoned pets and restored corpses do not roll. Hate B uses its existing managed objective routing.
+Live for Classic level-50 player testing. [Production verification and owner QA](../../releases/classic-raid-augments-20261112/QA.md). The 16 single-quality definitions occupy IDs 963200–963215. Public loot uses the version-zero boss identity in its source zone, a player-entitled corpse and one roll per life. Managed loot requires Raid mode, the canonical objective spawn, and at least one eligible credited member. The existing corpse envelope retains the staged loot. Grind, unrelated instances, summoned pets and restored corpses do not roll. Hate B uses its existing managed objective routing.
 
 ## Test installation and recovery
 
@@ -35,4 +35,4 @@ The fight timestamps exposed a capstone reuse as short as 89.10 seconds. After c
 
 ## Source and player documentation
 
-The item and source table is in `config/classic-raid-augments.json`. `tools/classic_raid_augments.py` produces the SQL and native source map. The spell/attack and inventory hooks use `common/raid_augment.h`, `zone/raid_augment.h` and `zone/raid_augment.inc`. The candidate wiki page gives each source, slot and stat. Current public catalog, rates, Build Lab and launcher release labels continue to reflect their deployed versions.
+The item and source table is in `config/classic-raid-augments.json`. `tools/classic_raid_augments.py` produces the SQL and native source map. The spell/attack and inventory hooks use `common/raid_augment.h`, `zone/raid_augment.h` and `zone/raid_augment.inc`. The player guide and generated item pages give each source, slot and benefit. The rates are independent of Hunt family rolls.

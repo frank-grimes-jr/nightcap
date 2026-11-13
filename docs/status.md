@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 12, 2026 · Classic raid augments live for player QA
+
+Test PR 433 and main PR 435 are merged. OVH admissions reopened after installing all 16 trophies. Twelve zone workers run the Inventory-compatible raid build, signed client 2026111202 remains current, and the stopped backup was independently verified. The public raid guide and all 16 item pages are published. Real chest/LORE, capstone swaps, home-zone encounters and Yael’s public acquisition remain open. [Live verification](releases/classic-raid-augments-20261112/deployed.json) · [Player QA](releases/classic-raid-augments-20261112/QA.md).
+
 ## November 12, 2026 · Classic raid augment candidate
 
 Sixteen individually LORE chest augments use independent boss rolls and a shared 90-second capstone cooldown. Source candidate for Classic raid progression. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](items/classic-raid-augments/README.md).

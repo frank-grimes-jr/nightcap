@@ -1,0 +1,53 @@
+{
+  "base_zone": "b737e641008b0816706a14478e7d2fde5b5930829f7e1bba4b6954b3c4fda598",
+  "verified_feature_sources": {
+    "common/item_instance.cpp": "aeed8b1ca09351a54ae3549c08b619ee811a4dbc85d195a55c684f28d1e3fb02",
+    "common/ptimer.h": "6245589eea0e2065ae5769d873b8c7ab8010038848319a9ad075dbef68cb5c13",
+    "common/raid_augment.h": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08",
+    "common/raid_augment_sources.h": "b10d5b44884f4bf327d474fddb11b1401ac7d991145cc23426bcc4b8eed422e6",
+    "common/shareddb.cpp": "a3f5c344efd907ae56beee517de2ccf4a3bf64ca00ad367628c187c19d460a9f",
+    "zone/attack.cpp": "3f838d174d19d92caa71458bc3f9fbf681355769cedf2a31fd64ceffb133c997",
+    "zone/beacon.cpp": "97f0cb48be9a0792be8d75ab50ad2ed1c9dc657c65de0d03942d4970b84202d7",
+    "zone/beacon.h": "6958973d12691c8d09bf3f8547eff286cbb1a26cf2abebca872163058a0ec761",
+    "zone/bonuses.cpp": "a0a25de905fcb02045517bc40c83c9416c8261c627b63d347c86dc26d50b1463",
+    "zone/client.cpp": "7cc02b51425d2e7649b66c91ed4e7052adb6a50aaf7a9c2208935a49f243b86b",
+    "zone/client.h": "2180a0ad7f0cc8080e4c006d4b7c44d02341a0787879d15b80950c46280b5b1d",
+    "zone/client_packet.cpp": "c395f0c63051e421e081b9ab9611b1663303c52d5c35982b2213123f16fe5280",
+    "zone/client_process.cpp": "69e3288f505d66d489ad69d63f9e9c362691b4c29806a15ae92421846f956211",
+    "zone/dungeon_service.cpp": "79f82f24448167ba964baf750e28b0d9381eee099f269551d9fa21e74f7ccd3a",
+    "zone/dungeon_service.h": "8081a850e986d337e4796369fdf187d5842d77aec8f5637608796e07dd961d7f",
+    "zone/inventory.cpp": "4b17f9bff36edb6394a84409805b049a3645df64c069ab13cb40b35ed3cebe30",
+    "zone/mob.h": "6991931b1d2d08fdf7727c1cf024d8dcd05dadb357b98bd07871f57e29f674a8",
+    "zone/object.cpp": "2afcecdce423b26eba7a7a62cf08326853fda174961108c034192a704a61307a",
+    "zone/parcels.cpp": "859d182ce54318992afab50841ad75bd39d26043836ddfd2a9b483c3c4a8a462",
+    "zone/pet_armor.cpp": "aa99e8219e94d70129e36626173f83459dacdea255aba576ce259d7a12e4c22c",
+    "zone/raid_augment.h": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2",
+    "zone/raid_augment.inc": "7544d7852a7ebb7912102f263be0049691d9ebae4d4dcdad7fe2ad2dc3afa9b7",
+    "zone/raid_augment_custody.h": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612",
+    "zone/raid_augment_delivery.h": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b",
+    "zone/special_attacks.cpp": "2267565d6af7ac570745e55d1117e55be5ac52c986f364c6eec538bb31b413e9",
+    "zone/spell_effects.cpp": "9fb4fe4a1b5dc3b7c0c0dd417bfed06edb4abbc2282ea970a9fdde9074be0311",
+    "zone/spells.cpp": "19eb84b55026b697eaf442e35eaf4ec00315d0878d12a7217eb61d8fadb0e19e",
+    "zone/tradeskills.cpp": "ded8644977109e648be32ca7b7a9c0ce8f48595554da12fc6f4acfff3ec81197",
+    "zone/trading.cpp": "5dc61828e957f2b5ef80a7c95a6430d3e6198a174fcc617ddfc173a8dc4750c7",
+    "zone/zone_hunt.cpp": "55f27caf8075ddabdb3a15e8b98a6a7524722a6246591ca612edc852093f7b36"
+  },
+  "source_files": 2857,
+  "isolated_base": "Inventory combat stats shipping v4",
+  "base_source_files_authenticated": 2858,
+  "shipping": {
+    "zone": "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823",
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "layout": {
+    "size": 1332,
+    "ID": 440,
+    "LoreGroup": 464,
+    "LoreFlag": 468,
+    "Slots": 452,
+    "AugType": 708,
+    "ReqLevel": 556,
+    "NoPet": 797
+  }
+}
