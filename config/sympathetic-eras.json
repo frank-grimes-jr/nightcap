@@ -1,0 +1,31 @@
+{
+  "expansions": [
+    {"id": 0, "name": "Classic", "strike": 1, "healing": 1},
+    {"id": 1, "name": "The Ruins of Kunark"},
+    {"id": 2, "name": "The Scars of Velious"},
+    {"id": 3, "name": "The Shadows of Luclin"},
+    {"id": 4, "name": "The Planes of Power"},
+    {"id": 5, "name": "The Legacy of Ykesha"},
+    {"id": 6, "name": "Lost Dungeons of Norrath"},
+    {"id": 7, "name": "Gates of Discord"},
+    {"id": 8, "name": "Omens of War"},
+    {"id": 9, "name": "Dragons of Norrath"},
+    {"id": 10, "name": "Depths of Darkhollow"},
+    {"id": 11, "name": "Prophecy of Ro"},
+    {"id": 12, "name": "The Serpent's Spine"},
+    {"id": 13, "name": "The Buried Sea"},
+    {"id": 14, "name": "Secrets of Faydwer"},
+    {"id": 15, "name": "Seeds of Destruction"},
+    {"id": 16, "name": "Underfoot"},
+    {"id": 17, "name": "House of Thule"},
+    {"id": 18, "name": "Veil of Alaris"},
+    {"id": 19, "name": "Rain of Fear"},
+    {"id": 20, "name": "Call of the Forsaken"},
+    {"id": 21, "name": "The Darkened Sea"},
+    {"id": 22, "name": "The Broken Mirror"},
+    {"id": 23, "name": "Empires of Kunark"},
+    {"id": 24, "name": "Ring of Scale"},
+    {"id": 25, "name": "The Burning Lands"},
+    {"id": 26, "name": "Torment of Velious"}
+  ]
+}

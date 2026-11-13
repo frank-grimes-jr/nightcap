@@ -20,6 +20,10 @@ $Ini     = Join-Path $Root 'Client_RoF2_Dev\everquest_rof2\eqclient.ini'
 $AAOpen  = if ($Era.aa_open) { 'false' } else { 'true' }   # rule is UseCurrentExpansionAAOnly (inverted)
 $Luclin  = if ($Era.luclin_models) { 'FALSE' } else { 'TRUE' } # ini key is AllLuclinPcModelsOff (inverted)
 
+if ($Era.sympathetic_policy -ne 'config/sympathetic-eras.json') { throw 'Missing or unknown sympathetic rank policy.' }
+python -B (Join-Path $Root 'tools/sympathetic_eras.py') --check --era $Era.expansion
+if ($LASTEXITCODE -ne 0) { throw 'Sympathetic rank policy differs from its native header. Check the staged source before applying the era.' }
+
 if ($Era.aa_policy) {
     if ($Era.aa_policy -ne 'config/aa-policy.json') { throw 'Unsupported AA policy source.' }
     python -B (Join-Path $Root 'tools/aa_tbs_policy.py') --check
