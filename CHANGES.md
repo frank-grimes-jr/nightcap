@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 13, 2026 · Stock worn ATK test candidate
+
+135 stock families receive reviewed ATK values across their three upgrades in the candidate. Six conflicting or exceptional observations retain the existing values. The 250 base cap and custom content remain in force. A 926-row isolated migration, rollback and native cap checks passed. See the [item list and in-game checks](docs/items/stock-worn-atk/README.md).
+
 ## November 12, 2026 · Classic raid boss augments deployed
 
 Main PR 435 promoted the tested level-50 chest trophies. OVH stage v2 installed 16 item definitions and the matching world, zone and cache loader on the active Inventory build. All 310,000 earlier cache records matched byte for byte. Twelve zone workers verified with zero restarts or native, quest or database errors. The existing Deepwater Pearl (33961) and the Phinigel augment (963202) share a name. RoF2 encounter acceptance and Master Yael’s public spawn remain open. [Release and player QA](docs/releases/classic-raid-augments-20261112/QA.md).

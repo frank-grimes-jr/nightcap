@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 13, 2026 · Stock worn ATK test candidate
+
+135 stock families receive reviewed ATK values across their three upgrades in the candidate. Six conflicting or exceptional observations retain the existing values. The 250 base cap and custom content remain in force. A 926-row isolated migration, rollback and native cap checks passed. See the [item list and in-game checks](items/stock-worn-atk/README.md).
+
 ## November 12, 2026 · Classic raid augments live for player QA
 
 Test PR 433 and main PR 435 are merged. OVH admissions reopened after installing all 16 trophies. Twelve zone workers run the Inventory-compatible raid build, signed client 2026111202 remains current, and the stopped backup was independently verified. The public raid guide and all 16 item pages are published. Real chest/LORE, capstone swaps, home-zone encounters and Yael’s public acquisition remain open. [Live verification](releases/classic-raid-augments-20261112/deployed.json) · [Player QA](releases/classic-raid-augments-20261112/QA.md).
