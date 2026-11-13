@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 13, 2026 · Classic sympathetic click candidate
+
+Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. Paired spell data and native zone behavior are required. [Item sources, era review and in-game QA](items/sympathetic-clicks/README.md).
+
 ## November 13, 2026 · Stock worn ATK test candidate
 
 135 stock families receive reviewed ATK values across their three upgrades in the candidate. Six conflicting or exceptional observations retain the existing values. The 250 base cap and custom content remain in force. A 926-row isolated migration, rollback and native cap checks passed. See the [item list and in-game checks](items/stock-worn-atk/README.md).
