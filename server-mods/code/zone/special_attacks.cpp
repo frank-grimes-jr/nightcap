@@ -27,6 +27,7 @@
 #include "zone/lua_parser.h"
 #include "zone/npc.h"
 #include "zone/string_ids.h"
+#include "nightcap_sympathetic.h"
 
 #include <cstring>
 
@@ -1322,7 +1323,12 @@ void Mob::ProjectileAttack()
 					const auto spell_id = ProjectileAtk[i].wpn_dmg;
 					if (IsValidSpell(spell_id)) {
 						const auto origin = NightcapRaidAug::OnDelivery(this, spell_id, ProjectileAtk[i].raid_delivery);
-						SpellOnTarget(spell_id, target, false, true, spells[spell_id].resist_difficulty, true);
+						NightcapSympathetic::Cast click;
+						click.effect = NightcapSympathetic::BoltEffect(ProjectileAtk[i], static_cast<uint32>(target->GetSpawnTimeStamp()));
+						NightcapSympathetic::Cast::Deliver(&click, [&] {
+							return SpellOnTarget(spell_id, target, false, true, spells[spell_id].resist_difficulty, true);
+						});
+						ApplySympatheticClick(click);
 					}
 				} else if (IsNPC()) {
 					CastToNPC()->DoRangedAttackDmg(

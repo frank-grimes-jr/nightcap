@@ -3,6 +3,7 @@
   "name": "Classic",
   "max_level": 50,
   "aa_open": true,
+  "sympathetic_policy": "config/sympathetic-eras.json",
   "aa_policy": "config/aa-policy.json",
   "zone_exception_policy": "config/chapterhouse-access.json",
   "luclin_models": false,
