@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "release": "20261112-inventory-combat-v1",
+  "canonical_https_hashes": 614,
+  "verified_bytes": 8774832,
+  "security_headers": true,
+  "private_denials": {
+    "README.md": 404,
+    "content-review.json": 404,
+    "articles/equipment.json": 404,
+    "catalog.json": 404,
+    ".git/config": 404
+  },
+  "native_visual_acceptance": "OPEN"
+}

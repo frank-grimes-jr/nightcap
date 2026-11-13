@@ -31,13 +31,16 @@ retained command unity units. Candidate zoneb737e641 preserves world95fc228a,
 shared_memoryb60c4dfc, Quick Buff, Imitate Death, DoT ticks and all current content.
 Signed client2026111202/proxy0.13.6 changes DLL/catalog/Inventory XML only;145other
 descriptors/URLs, Quick Buff strings, history/tombstones and config remain.
-The candidate is signed and locally verified, not yet deployed/published.
+Paired native/client release is deployed for live testing. Admissions are open;
+all12zone workers, native pair, stopped backup and preservation checks verify.
+All148canonical HTTPS client assets/signature and all614wiki hashes/headers verify.
+Owner visible acceptance remains OPEN.
 
 ## Checks and rollout
 
 16focused native/protocol/XML checks,11DLL runtime groups,120exact-client guards,
 9new rollout gates and9retained operator fault checks pass. The Windows publisher
-suite passes16with5POSIX-only skips; all21must pass in Linux before preflight.
+suite passes16with5POSIX-only skips; all21pass on Linux before preflight.
 Independent reviews resolved alignment, retained-string verification, exact hosted
 receipt binding and standalone publisher bypass. Owner declined extra cross-model.
 The public wiki's614files reproduce exactly; only four guides/history plus search
@@ -49,8 +52,16 @@ saved-state boot model, one market rotation and preservation/failure-hold gates.
 Do not kill a single production zone or replay terminal actions. Native activation
 keeps admissions closed; publish-client is the only permitted publication path.
 Verify the exact hosted signature/channel/assets before open. Private signing
-seed never leaves the local machine. Client/wiki publication receipts will be
-recorded after observing the actual outcome; planning is not deployment proof.
+seed never leaves the local machine. Observed publication receipts are native-deployment.json, client-publication.json,
+client-public-verification.json and wiki-public-{publication,verification}.json.
+Publication is not owner visual/player acceptance.
+
+The immutable native stage's `client_channel_sha256` is the prepublication
+2026111201 baseline. Its `files['client/channel.json']` and the
+`evidence/activation/paired-deployed.json` receipt own the current2026111202 hash.
+Inherited Quick Buff console labels and its intermediate `deployed.json` are not
+the Inventory pair's authority. Future wrappers must use the paired receipt and
+current source manifests rather than treating that baseline field as live state.
 
 Recovery uses current player state and a fresh guarded prior-image transition;
 never restore an old player snapshot. Client recovery needs a higher signed

@@ -1,176 +1,403 @@
---- a/SKILL.md
-+++ b/SKILL.md
-@@ -25,6 +25,7 @@
- | Journal campaign, earned outfits, private company memories | [Quests and world](references/world.md) / `adventure-journal` |
- | Player faction standings, bars and #factions | [Quests and world](references/world.md) / `factions` |
- | RoF2 UI, pets, buffs, models, signed client delivery | [Client and pets](references/client.md) / `client` |
-+| Heroic stats, yellow totals and Inventory display | [Client and pets](references/client.md) / `heroic-stats` |
- | GM, player access, launcher and hosting | [Administration](references/admin.md) / `admin` |
- | Player wiki, Features, per-change documentation and publication | [Wiki maintenance](references/wiki.md) / `wiki` |
- | Combat formulas, tuning, reproducible measurements | [Balance](references/balance.md) / `balance` |
 --- a/references/client.md
 +++ b/references/client.md
-@@ -1,4 +1,36 @@
- # RoF2 client, pets and buff effects
+@@ -30,37 +30,60 @@
+ hotkey-fix/ owns one-shot rollout, build and live preservation/backup receipts;
+ never replay v1 or v2 terminal actions. Client2026111201 remains unchanged.
+ 
+-## Heroic stats — November12 production audit; main Inventory candidate
+-
+-E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory and
+-docs/releases/heroic-stats-inventory-20261112/ own source, read-only evidence,
+-candidate hashes and exact QA. Production world/12zone hashes match retained
+-November7 release; six standard heroic multipliers are1.0 and Nightcap melee/
+-spell scaling are true. HeroicStatsUseDataBucketsToScale=false disables only
+-extra bucket scaling, not heroics. Direct heroic INT-to-Spell Damage/WIS-to-Heal
+-rules remain0 and must not be enabled to repair a display. No balance change.
+-
+-Signed2026110701 retains November6 Inventory XML cf0402a3. Stats already has
+-native gold heroic EQTypes251–257. Main Inventory lacked them. Unpublished,
+-unsigned one-XML candidate adds seven + signs/native values at x81/89 within
+-the existing120px stat column, using the existing gold214/178/40 and preserving
+-all existing controls/native normal-stat coloring. Tooltips explain heroics
+-are already included in the total. No command/poll/server/SQL/cache/ABI change.
+-tools/client_character_stats_ui.py::add_inventory_heroics is called by the
+-normal generator; inventory_heroics_xml inserts only additions into actual
+-published bytes. tools/stage_heroic_stats_client.py checks the descriptor and
+-unchanged controls; tools/probe_heroic_stats.py is production read-only.
+-Regression RED then5UI/5gameplayUI/11resource checks pass. Visible pixels,
+-equip/remove, zero/long values, zone/relog/skin reload remain owner QA.
+-
+-Candidate is not installed or published. Freshly verify/sign a higher counter
+-with only this XML; preserve147other descriptors/URLs, current DLL/catalog/
+-config, notes/tombstones and gameplay assets. No server restart/build/reload.
+-After authorized publication exit EQ/use normal launcher Play. Rollback uses a
+-higher signed counter with previous XML and current unrelated assets, never a
+-player snapshot. Wiki Equipment/Augments/Features/Change Log have explicit
+-local Not released guidance; all42articles/Home/commands/catalogs assessed.
+-Global unrelated refresh drift remains review-required; publication pending.
++## Inventory combat summary and heroics — November12 live testing
 +
-+## Heroic stats — November12 production audit; main Inventory candidate
++Owner authorized main/live publication before acceptance. PR434/ab2e8d87 and
++E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory own source and
++docs/releases/heroic-stats-inventory-20261112/ owns exact build/rollout/client/
++wiki receipts and QA. Heroic mechanics were already enabled (standard1.0,
++Nightcap melee/spell scaling true); bucket scaling=false does not disable them.
++Never enable the optional direct INT-to-Spell Damage/WIS-to-Heal rules to fix UI.
 +
-+E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory and
-+docs/releases/heroic-stats-inventory-20261112/ own source, read-only evidence,
-+candidate hashes and exact QA. Production world/12zone hashes match retained
-+November7 release; six standard heroic multipliers are1.0 and Nightcap melee/
-+spell scaling are true. HeroicStatsUseDataBucketsToScale=false disables only
-+extra bucket scaling, not heroics. Direct heroic INT-to-Spell Damage/WIS-to-Heal
-+rules remain0 and must not be enabled to repair a display. No balance change.
++Main Inventory has AC/MIT/AVD/ATK/DMG/HEAL above XP/attributes. Green current,
++white /actual cap and gold signed heroics use server getters; GetMax* includes
++heroic allowance, and heroics are already included rather than added again.
+++0 and negative heroics retain sign. MIT uses cached GetMitigationAC (not fresh
++ACSum); AVD uses GetTotalDefense (not item GetAvoidance), with -1 shown Auto.
++Ratings are not percentages; opponent penetration/PvP/sitting/other checks apply.
++AC is conventional native display; ATK GetTotalATK; DMG/HEAL capped stat bonuses.
 +
-+Signed2026110701 retains November6 Inventory XML cf0402a3. Stats already has
-+native gold heroic EQTypes251–257. Main Inventory lacked them. Unpublished,
-+unsigned one-XML candidate adds seven + signs/native values at x81/89 within
-+the existing120px stat column, using the existing gold214/178/40 and preserving
-+all existing controls/native normal-stat coloring. Tooltips explain heroics
-+are already included in the total. No command/poll/server/SQL/cache/ABI change.
-+tools/client_character_stats_ui.py::add_inventory_heroics is called by the
-+normal generator; inventory_heroics_xml inserts only additions into actual
-+published bytes. tools/stage_heroic_stats_client.py checks the descriptor and
-+unchanged controls; tools/probe_heroic_stats.py is production read-only.
-+Regression RED then5UI/5gameplayUI/11resource checks pass. Visible pixels,
-+equip/remove, zero/long values, zone/relog/skin reload remain owner QA.
++Separate negotiated NCIV1 has26int32fields plus existing identity/sequence;
++legacy NCST1/33fields remain unchanged. #nightcapui inventory alone requests
++both frames under existing3sec throttle; DLL at most1/sec while rendered,
++8sec expiry/identity/replay checks, silent chat and state reset. Missing/stale
++values are gray --; current/heroic/cap colors explicit. No Client members/vtable,
++rules/schema/ItemData/cache/quest/player or bonus-calculation change.
 +
-+Candidate is not installed or published. Freshly verify/sign a higher counter
-+with only this XML; preserve147other descriptors/URLs, current DLL/catalog/
-+config, notes/tombstones and gameplay assets. No server restart/build/reload.
-+After authorized publication exit EQ/use normal launcher Play. Rollback uses a
-+higher signed counter with previous XML and current unrelated assets, never a
-+player snapshot. Wiki Equipment/Augments/Features/Change Log have explicit
-+local Not released guidance; all42articles/Home/commands/catalogs assessed.
-+Global unrelated refresh drift remains review-required; publication pending.
++tools/client_inventory_summary_ui.py owns both normal-generator and scoped
++published-byte transform:22new labels,40px wider column/window and56px extra
++height with normal font/scroll access. Preserve equipment semantics and other
++tabs/single Shield Block total. Tests test_client_character_stats.py,
++test_inventory_stats_{capture,protocol}.py and equipped-stats-labels.cpp execute
++real collection/format/label/chat/reset paths.16focused/11runtime groups/
++120exact guards,18Linux rollout and21Linux publisher faults pass. Independent
++review findings resolved; owner declined extra cross-model. Pixels, equip/buff/
++shield refresh, large values and zone/relog/skin lifecycle remain owner QA.
++
++Current source was transplanted only onto authenticated retained DoT source;
++zone7b61b5ac reproduces before command-unity rebuild to b737e641. World95fc228a,
++shared_memoryb60c4dfc and all newer Quick Buff/Imitate Death/DoT/Hate policies
++remain. Do not replace shipping Client layout from unrelated newer Git features.
++Signed2026111202/proxy0.13.6 publishes DLL/catalog/Inventory XML only;145other
++descriptors/URLs, Quick Buff strings, config/history/tombstones stay exact.
++All148canonical HTTPS assets/signature/pair verify. Exit EQ/use launcher Play.
++Pair native zone and signed client; rule/quest reload is insufficient. Native
++rollout uses supported whole-runtime shutdown, zero players, admission drain,
++fresh stopped backup, saved-state/market/preservation/failure-hold gates. Never
++kill one OVH zone, replay a terminal action or restore old player snapshots.
++Recovery pairs retained image/current data and higher-counter client assets.
++The immutable stage's client_channel_sha256 is the prepublication1201 baseline;
++files['client/channel.json'] and paired-deployed.json own the current1202 hash.
++Inherited Quick Buff console labels/deployed.json are not this pair's authority.
++
++Wiki publishes only four owning guides/history plus search; all614hashes/headers
++and five private denials verify,609outputs retained.43authored guides/Home/
++Features/commands/generated catalogs assessed. Unrelated global refresh drift
++stays review-required; visible player/combined balance acceptance remains OPEN.
  
  ## Last Lantern — November7 paired release for live QA
  
+@@ -122,7 +145,8 @@
+ 
+ ## Character Stats — November6 single Shield Block total published
+ 
+-Current source E:/EQ_Local_Dev/_worktrees/character-stats-shield-block;
++November6 source E:/EQ_Local_Dev/_worktrees/character-stats-shield-block;
++current Inventory/native pairing is the November12 combat-summary section above;
+ docs/releases/character-stats-shield-block-20261106/ owns publication, preservation,
+ source reproduction and exact QA. Signed2026110604/proxy0.13.4 changes Inventory
+ XML only;147other asset descriptors/URLs, DLL/catalog/config, recall/cast-bar
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,6 +1,27 @@
+ # Source authority, builds and reloads
+ 
+-## Current native baseline — November 12 DoT live QA
++## Current native baseline — November12 Inventory live testing
++
++PR434/ab2e8d87, source5dabfb6d; E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory,
++docs/releases/heroic-stats-inventory-20261112/. Zoneb737e641 is deployed above the
++reproduced DoT7b61b5ac baseline. World95fc228a/shared_memoryb60c4dfc and current
++Client/ItemData/cache layouts remain. Four-source read-only UI delta compiles
++the two real retained command unity units; no unrelated title gameplay ships.
++Signed2026111202/proxy0.13.6 and614-file wiki are verified for live testing.
++
++rollout.py inherits the reviewed deploy/GM locks, zero-player125second drain,
++clean whole-runtime stop, fresh stopped backup, saved-state boot model and one
++market rotation. Server/client activate paired behind closed gateway; exact
++hosted signature/channel verification gates reopen. Standalone publisher is
++disabled.21publisher/18rollout Linux faults pass;12workers/hash/health and
++preservation checks pass. No player snapshot restore, gameplay/rule/schema/
++cache/quest writes. Never kill one production zone or replay terminal actions.
++Exit EQ/use launcher Play. Visible player acceptance remains OPEN. Use actual
++current deployment/source manifests; newer Git may contain unshipped features.
++The stage's client_channel_sha256 is the prepublication baseline. Use the
++paired-deployed receipt/files client pin for current state and future wrappers.
++
++## Retained native predecessor — November 12 DoT live QA
+ 
+ Gameplay PR426/a97c55d0, release source8a351145; checkout
+ E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage, docs/balance/dot-initial-damage-20261112/.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,18 @@
+ # Official player wiki and Features
++
++## Inventory combat summary — November12 published for live testing
++
++E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory; docs/releases/heroic-stats-inventory-20261112/.
++Wiki20261112-inventory-combat-v1 follows paired zoneb737e641/client2026111202.
++The current earned-title-preview614outputs reproduce exactly before only
++Equipment, Augment guide, Features, Change Log and search change;609outputs
++retain exact bytes. All614canonical HTTPS hashes/headers, five private denials,
++pointer rollback, all five native/service identities and channel/config inode
++preservation verify. No Nginx reload or source-ledger advance.43authored pages,
++Home/commands/acquisition/generated catalogs assessed; no item/zone/balance
++changes. Keep title gameplay Not released and other unrelated previews intact.
++Instructions distinguish actual cap/heroic component and MIT/AVD ratings; native
++visible acceptance stays OPEN. Never publish an older whole mirror.
+ 
+ ## Classic raid augment candidate
+ 
 --- a/references/sources.json
 +++ b/references/sources.json
-@@ -154,7 +154,8 @@
+@@ -154,7 +154,7 @@
      "last_lantern_live_qa_20261107": "8d75f8daf7fdd4513075430aaa5379dc0358c096",
      "augment_icons_candidate_20261112": "b7e404b2ce4b2fa821ff65e76a3ec5ce5d56771a + reviewed candidate file hashes",
-     "khaleid_fear_candidate_20261112": "b7e404b2 + reviewed task working tree; not deployed or owner accepted",
--    "quick_buff_candidate_20261112": "b7e404b2 + reviewed feature/quick-buff-hotkey working changes; not deployed"
-+    "quick_buff_candidate_20261112": "b7e404b2 + reviewed feature/quick-buff-hotkey working changes; not deployed",
-+    "heroic_stats_inventory_20261112": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate; production read-only/native hashes match November7; display unsigned/unpublished; pixels pending"
-   },
-   "topics": {
-     "operations": [
-@@ -17263,18 +17264,18 @@
-     ],
-     "character-stats-display": [
+     "khaleid_fear_candidate_20261112": "bc191346; deployed November12 18:13UTC; 37 installed-file checks/12 reload acknowledgments; owner QA pending",
+-    "heroic_stats_inventory_20261112": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate; production read-only/native hashes match November7; display unsigned/unpublished; pixels pending",
++    "heroic_stats_inventory_20261112": "PR434/ab2e8d87; source5dabfb6d; zoneb737e641/client2026111202/proxy0.13.6/wiki20261112-inventory-combat-v1 published and verified; owner visible acceptance OPEN",
+     "augment_icons_deployed_20261112": "main PR420/1568fb710b6441fe70bca5f9fc40f6dd805c20dc; source00ee567f; reviewed release hashes and verified activation/publication",
+     "hunt_augment_expansion_candidate_20261112": "212e0b650b1a96cfdd82defb2de6cbb7c88be0fc",
+     "quick_buff_deployed_20261112": "PR423/main60d51362; source6c3240a2; verified v2 metadata follow-up, owner acceptance OPEN",
+@@ -17581,16 +17581,16 @@
        {
--        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
          "path": "tools/client_character_stats_ui.py",
--        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
--        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
--        "sha256": "2aa541ba1502ee498f55bb7903dbde3851c475b9ab3ea0d653ce3595318c5ebd"
--      },
--      {
--        "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "63ba78acf94350c553b7098eedba46705421b839fc82e849656882c32940a955"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "63ba78acf94350c553b7098eedba46705421b839fc82e849656882c32940a955"
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "eb72b4cc209d7214266d7398860401825398740ef9f31e92866d096878f5cc5e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
          "path": "tools/tests/test_client_character_stats.py",
--        "role": "Reviewed single Shield Block total; owner function reported, revised display QA open",
--        "revision": "b80a6e0959f1308bcb1e1dd585dee2b90f1019ed plus verified single-total publication records",
--        "sha256": "6d9b4991959a852a19b6b3e11d74bc6981c05467a3991ae4f0d0408b697678d4"
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "d4bf465e907db679a308b05eca7248bc177bd633fbbfbd6056f26095d62748f3"
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "d4bf465e907db679a308b05eca7248bc177bd633fbbfbd6056f26095d62748f3"
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "84bd64857fbe229d89dbc904cd25a77d37dcc6ced3873b69a8b5fddaa56a0563"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/character-stats-shield-block",
-@@ -18146,6 +18147,85 @@
-         "revision": "b7e404b2 + reviewed candidate, 2026-11-12",
-         "sha256": "7900a5f20ed5afd80d73571546871d6f4776fab7c391e80ef41c060b1d02662f"
+@@ -18634,80 +18634,171 @@
+     "heroic-stats": [
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "tools/client_inventory_summary_ui.py",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "5475236539cf91368b8b1a49850fb8330c7bdf044ae8c2bf95c36948c3967623"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+         "path": "tools/client_character_stats_ui.py",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "63ba78acf94350c553b7098eedba46705421b839fc82e849656882c32940a955"
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "eb72b4cc209d7214266d7398860401825398740ef9f31e92866d096878f5cc5e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+         "path": "tools/tests/test_client_character_stats.py",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "d4bf465e907db679a308b05eca7248bc177bd633fbbfbd6056f26095d62748f3"
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "84bd64857fbe229d89dbc904cd25a77d37dcc6ced3873b69a8b5fddaa56a0563"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "tools/probe_heroic_stats.py",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "6cb08fdb4ad15821e779b079c680702ebf980ae036527873430580116e1bd7ba"
++        "path": "tools/tests/test_inventory_stats_protocol.py",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "6dbfe05e93b98f498304387170757856fcafd741a39d1ded61e5feb27b5b2c6b"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "tools/stage_heroic_stats_client.py",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "3b27514f68475cb634168d6c56adf050eee2f3312bb92384519cdc5cc71db6c3"
++        "path": "tools/tests/test_inventory_stats_capture.py",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "71c64e672035ffac15008517e730b4d48997cec097c006f99e6422a2fce7fb3f"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "server-mods/code/zone/bonuses.cpp",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "04554adfc84a0b2143b4bf922ceec67413026938c8e114c8f3193896e547630f"
++        "path": "server-mods/code/common/inventory_stats_protocol.h",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "c84467931aa0a6ccc37d5e824dc43b8852fa91f208c5219dd681028c570866a1"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "server-mods/code/zone/client_mods.cpp",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "8cf3972665ad6e3ff6dd0de20ab78909a31fb1025d03353b83bc52d2af795743"
++        "path": "server-mods/code/zone/gm_commands/nightcapui.cpp",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "da939d3f0a36b62febaee4ca0e1608fadc7c98429d0a4cf7febcbd91ab4bb85a"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "server-mods/code/common/patches/rof2.cpp",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "168f49ca150f6131ba4456f5adfb696225744cc63b455d65e8e70e1213e73001"
++        "path": "server-mods/code/zone/command.cpp",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "13354f9370fe00007e1e93a308872d0286b885955d1d56673199bbe0f7a17cae"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "server-mods/code/common/ruletypes.h",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "17dca09145970355eeb968482a4f42419cda64f509f7e711845ec84747e19a3f"
++        "path": "server-mods/code/zone/client.h",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "ad6151280b6dd3299348f40e4128e172c682bfc58fbab80c2d1f0bc0ce36e26b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "eq-client-dll/src/inventory_stats_state.h",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "90d9bd278a18d5cf65fdc2f58dd523a413e15f6eb953156c01cf88e3f8165aa6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "eq-client-dll/src/ui_hooks.h",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "07c75f8f6805c1b88a9b317864ec59e15e52fcbd5762bdead80cb2a1093abd4b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "eq-client-dll/tests/equipped-stats-labels.cpp",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "8eb4f8bebb07e9e90ee02199a7962ae6a2863f2aa522f7bf86e088a9e734782d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "eq-client-dll/config/patch-sites.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "f2a3e4c735e830dd97b261b7b8aa173d4ecaffa01b515bc89167b2c0da68a0f9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "eq-client-dll/src/runtime_contract.h",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "896ce3361908dba6f0498cb1b0e69a6ce225089a5eabee239e23e4b23330f92e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "eq-launcher/internal/preflight/catalog.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "f2a3e4c735e830dd97b261b7b8aa173d4ecaffa01b515bc89167b2c0da68a0f9"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+         "path": "docs/releases/heroic-stats-inventory-20261112/README.md",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "ac31436b204a4abf73b9cec2f94739d1d1877fa361859c841f6fc0283cac285d"
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "b55ed9449fed415b7690fd1c366888e3f779fc4eb4c2abb081507132e09aaf7d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "docs/releases/heroic-stats-inventory-20261112/verification.json",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "c8075f535e52798e4012fd4f3cd7143d763373d1076b2589639eefa34531b22f"
++        "path": "docs/releases/heroic-stats-inventory-20261112/SPEC.md",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "ba3c4992cf9fa5e37afc78a7e844ac707367036808402dfc70bceb7cfed85c4f"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
+-        "path": "docs/releases/heroic-stats-inventory-20261112/wiki-impact.json",
+-        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
+-        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
+-        "sha256": "f603ae9e0950359cedad922984645555918de65d12e3cef9eebb7ceca6cc39e3"
++        "path": "docs/releases/heroic-stats-inventory-20261112/native-build.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "0db08b9d69d69f874fb466f0c961b5c6ac20561b4766c54003280202a24dc164"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "docs/releases/heroic-stats-inventory-20261112/native-deployment.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "a420b9694093909674f782eb7519eaac8e45fb90ce026ae5835d06421b328046"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "docs/releases/heroic-stats-inventory-20261112/client-public-verification.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "1c2b32b57c9ff373c88244ede7e1a8720e3984660c9d4bb5f807902fc54998d1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "docs/releases/heroic-stats-inventory-20261112/wiki-publication.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "001b68656d83194f0a188e2c992dd79d05560271902eda06b16430b66bc79e86"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "docs/releases/heroic-stats-inventory-20261112/wiki-public-verification.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "f4a9c0a719e59921b38cfc5655b36f7d1d2de9a6d8fa5e03a4a9db36fdbafa49"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "docs/releases/heroic-stats-inventory-20261112/review.json",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "68ade306f189025201aaeae65463d4bce81672c0e4890f8d1e52c9252e8408c5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
++        "path": "docs/releases/heroic-stats-inventory-20261112/rollout.py",
++        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
++        "revision": "PR434/ab2e8d87 + observed paired publication evidence",
++        "sha256": "1e1e3c5059edfb5106001ef1013cbf7962186f1c097570427532f5c637906a4c"
        }
-+    ],
-+    "heroic-stats": [
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "tools/client_character_stats_ui.py",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "63ba78acf94350c553b7098eedba46705421b839fc82e849656882c32940a955"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "tools/tests/test_client_character_stats.py",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "d4bf465e907db679a308b05eca7248bc177bd633fbbfbd6056f26095d62748f3"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "tools/probe_heroic_stats.py",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "6cb08fdb4ad15821e779b079c680702ebf980ae036527873430580116e1bd7ba"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "tools/stage_heroic_stats_client.py",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "3b27514f68475cb634168d6c56adf050eee2f3312bb92384519cdc5cc71db6c3"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "server-mods/code/zone/bonuses.cpp",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "04554adfc84a0b2143b4bf922ceec67413026938c8e114c8f3193896e547630f"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "server-mods/code/zone/client_mods.cpp",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "8cf3972665ad6e3ff6dd0de20ab78909a31fb1025d03353b83bc52d2af795743"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "server-mods/code/common/patches/rof2.cpp",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "168f49ca150f6131ba4456f5adfb696225744cc63b455d65e8e70e1213e73001"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "server-mods/code/common/ruletypes.h",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "17dca09145970355eeb968482a4f42419cda64f509f7e711845ec84747e19a3f"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "docs/releases/heroic-stats-inventory-20261112/README.md",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "ac31436b204a4abf73b9cec2f94739d1d1877fa361859c841f6fc0283cac285d"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "docs/releases/heroic-stats-inventory-20261112/verification.json",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "c8075f535e52798e4012fd4f3cd7143d763373d1076b2589639eefa34531b22f"
-+      },
-+      {
-+        "root": "E:/EQ_Local_Dev/_worktrees/heroic-stats-inventory",
-+        "path": "docs/releases/heroic-stats-inventory-20261112/wiki-impact.json",
-+        "role": "Reviewed November12 heroic production audit and unpublished main Inventory display; native visual QA pending",
-+        "revision": "b7e404b2 + reviewed feature/heroic-stats-inventory candidate",
-+        "sha256": "f603ae9e0950359cedad922984645555918de65d12e3cef9eebb7ceca6cc39e3"
-+      }
-     ]
-   }
- }
+     ],
+     "hunt-augment-expansion": [

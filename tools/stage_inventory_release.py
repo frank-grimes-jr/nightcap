@@ -71,11 +71,11 @@ with tarfile.open(upload) as archive:
 checks={}
 for label,args in [('rollout',['-m','unittest','test_rollout','test_prior_rollout']),('client_publisher',['-m','unittest','discover','-s','client','-p','test_publish.py'])]:
  p=subprocess.run(['python3','-B',*args],cwd=stage,capture_output=True,text=True,timeout=180)
- (stage/(label+'-linux.log')).write_text(p.stdout+'\\n'+p.stderr)
+ (stage/(label+'-linux.log')).write_text(p.stdout+chr(10)+p.stderr)
  assert p.returncode==0,p.stderr[-2500:]
  checks[label]=p.stderr.strip().splitlines()[-1]
 out={'status':'STAGED_LINUX_TESTS_PASS','manifest_sha256':hashlib.sha256((stage/'manifest.json').read_bytes()).hexdigest(),'checks':checks,'runtime_changed':False}
-(stage/'linux-tests.json').write_text(json.dumps(out,indent=2)+'\\n')
+(stage/'linux-tests.json').write_text(json.dumps(out,indent=2)+chr(10))
 print(json.dumps(out))
 ''',timeout=400)
     save(HERE/'staged.json',result);print(json.dumps(result,indent=2))
