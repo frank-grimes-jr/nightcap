@@ -6,7 +6,11 @@ def row_hash(row,columns):
     parts=['NULL' if row[c] is None else str(row[c]).encode('utf-8').hex().upper() for c in columns]
     return hashlib.sha256('|'.join(parts).encode('ascii')).hexdigest()
 
-def migration(pairs,columns,alternate_before=None):
+def migration(pairs,columns,alternate_before=None,*,guard_rows=(),procedure="nightcap_thj_items_20261018"):
+    """Lock any guard-only preimages in the same transaction without updating them."""
+    if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", procedure):raise ValueError("Invalid procedure identifier")
+    guard_ids = {row["id"] for row in guard_rows}
+    pairs = [*pairs, *((row,row) for row in guard_rows)]
     if not pairs or len({old['id'] for old,new in pairs})!=len(pairs):raise ValueError('Empty/duplicate item plan')
     if any(not re.fullmatch('[A-Za-z_][A-Za-z0-9_]*',c) for c in columns):raise ValueError('Invalid schema identifier')
     from thj_item_parity import FIELDS
@@ -27,14 +31,14 @@ def migration(pairs,columns,alternate_before=None):
             batch.append(row);size+=len(row.encode('utf-8'))+1
         if batch:result.append('INSERT INTO '+table+' VALUES '+','.join(batch)+';')
         return result
-    name='nightcap_thj_items_20261018'
+    name=procedure
     lines=['SET NAMES utf8mb4;',f'DROP PROCEDURE IF EXISTS {name};',
            'DROP TEMPORARY TABLE IF EXISTS nightcap_thj_item_preimages;',
            'CREATE TEMPORARY TABLE nightcap_thj_item_preimages (id INT UNSIGNED PRIMARY KEY, before_hash CHAR(64) CHARACTER SET ascii, after_hash CHAR(64) CHARACTER SET ascii, companion_hash CHAR(64) CHARACTER SET ascii) ENGINE=InnoDB;',
            'DROP TEMPORARY TABLE IF EXISTS nightcap_thj_item_values;',
            'CREATE TEMPORARY TABLE nightcap_thj_item_values ENGINE=InnoDB AS SELECT '+projection+' FROM items WHERE 0;',
            'ALTER TABLE nightcap_thj_item_values ADD PRIMARY KEY (id);']
-    lines+=inserts('nightcap_thj_item_preimages',(f"({old['id']},'{row_hash(old,columns)}','{row_hash(new,columns)}','{row_hash(alternate_before[old['id']] if alternate_before else old,columns)}')" for old,new in pairs))
+    lines+=inserts('nightcap_thj_item_preimages',(f"({old['id']},'{row_hash(old,columns)}','{row_hash(new,columns)}','{row_hash(alternate_before[old['id']] if alternate_before and old['id'] not in guard_ids else old,columns)}')" for old,new in pairs))
     lines+=inserts('nightcap_thj_item_values',('('+','.join(sql_value(new[k]) for k in ['id']+changed_fields)+')' for old,new in pairs))
     lines+=[           'DELIMITER //',f'CREATE PROCEDURE {name}()', 'BEGIN',
            ' DECLARE finished BOOL DEFAULT FALSE; DECLARE item_id INT UNSIGNED; DECLARE expected_before CHAR(64); DECLARE expected_after CHAR(64); DECLARE expected_companion CHAR(64); DECLARE actual_hash CHAR(64); DECLARE item_count INT;',
@@ -52,7 +56,8 @@ def migration(pairs,columns,alternate_before=None):
            f' SELECT {expression} INTO actual_hash FROM items WHERE id=item_id FOR UPDATE;',
            " IF actual_hash<>expected_before AND actual_hash<>expected_after AND actual_hash<>expected_companion THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Item full preimage drift'; END IF;",
            ' END LOOP; CLOSE targets;']
-    lines.append(' UPDATE items i JOIN nightcap_thj_item_values v ON v.id=i.id SET '+','.join('i.`'+k+'`=v.`'+k+'`' for k in changed_fields)+';')
+    excluded = ' WHERE i.id NOT IN ('+','.join(str(int(i)) for i in sorted(guard_ids))+')' if guard_ids else ''
+    lines.append(' UPDATE items i JOIN nightcap_thj_item_values v ON v.id=i.id SET '+','.join('i.`'+k+'`=v.`'+k+'`' for k in changed_fields)+excluded+';')
     lines+=[' SET finished=FALSE; OPEN targets; verify_rows: LOOP',
             ' FETCH targets INTO item_id,expected_before,expected_after,expected_companion; IF finished THEN LEAVE verify_rows; END IF;',
             f' SELECT {expression} INTO actual_hash FROM items WHERE id=item_id;',
