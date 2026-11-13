@@ -1,8 +1,9 @@
 # Earned titles candidate
 
-November12,2026 — source candidate on `feature/earned-titles`, based on
-`origin/main`423f9c3b. 77 cosmetic titles and a generated wiki guide. No production
-data, native runtime, client asset, public wiki or owner acceptance changed.
+November12,2026 — main source PR428/f689f7aa contains77cosmetic titles.
+The [public Titles guide](https://wiki.nightcapgame.org/titles.html) is published
+as a Not released preview in wiki20261112-earned-titles-v1. Native activation and
+player acceptance remain OPEN. Publication/recovery: [wiki-release/README.md](wiki-release/README.md).
 
 - Contract and alternatives: [SPEC.md](SPEC.md).
 - Exact normal-player gates: [QA.md](QA.md).
@@ -33,7 +34,9 @@ unit controls, a full linked build, deployment and rendered player acceptance.
 Activation has not been executed. On November12 the owner explicitly requested
 "Push to main", authorizing this source promotion before manual acceptance.
 The normal branch policy remains for future work; all attached player QA stays
-OPEN. This instruction does not authorize server activation or public publication.
+OPEN. The later owner request "Push to wiki" authorized the separately verified preview
+publication. Neither instruction authorizes server activation or establishes
+manual gameplay acceptance.
 A later authorized release must reproduce the current shipping baseline and preserve all
 intervening fixes before building/releasing a zone binary. No Client layout,
 shared ItemData, rules catalog, item cache, quest or client change is required.
@@ -56,10 +59,10 @@ WHERE id=1 AND catalog_version=1 AND enabled=0;
 Require one affected row and read back the exact row; do not replay an ambiguous
 write. No quest/rule/cache reload can activate new native code. Counters begin at
 activation; opening the picker/#titles lazily recovers existing recorded goals.
-Keep the candidate wiki labeled Not released until actual activation evidence
-permits Live testing. Publish only from a reproduction of the then-current public
-wiki with retained manifests and exact scoped outputs; this older main checkout
-alone does not reproduce a future public source.
+The published wiki remains Not released until native activation evidence permits
+Live testing. Its current614-file source was reproduced and scoped independently;
+future publication must reproduce that authenticated source and retain manifests,
+not publish an older main mirror.
 
 Forward recovery: guard/read back `enabled=0` to suspend new counting/grants and
 selection of this catalog. Retain every counter/award and the stable IDs. A worn
@@ -73,4 +76,5 @@ any activity. Recover forward/re-enable only against reviewed exact state.
 - All four complete changed native units compile: titles.cpp, attack.cpp, client.cpp and command.cpp. This is syntax compilation, not a full linked release. Exact source hashes/commands: native-compile.json.
 - Ten real isolated MariaDB groups pass: disabled/idempotent setup, InnoDB/keys, concurrent counters/grants, saturation, per-character awards and non-destructive disable. See storage-tests.json.
 - Twenty complete-site/refresh tests and Node search/equipment/experience checks pass;607HTML pages build. Browser visual QA is unavailable because no browser is connected.
-- Global wiki refresh stays REVIEW REQUIRED for historical drift. No publication, native deployment or owner acceptance is claimed.
+- Global wiki refresh stays REVIEW REQUIRED for historical drift. Wiki preview publication is separately verified in wiki-release/. No native
+  deployment or owner gameplay acceptance is claimed.

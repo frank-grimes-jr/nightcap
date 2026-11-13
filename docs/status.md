@@ -21,7 +21,7 @@ docs/balance/dot-initial-damage-20261112/.
 
 ## Earned titles - November 12 candidate
 
-77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Owner authorized source promotion to main on November 12. Normal-player QA, deployment and publication remain pending.
+77 cosmetic titles and wiki requirements are implemented on feature/earned-titles. Storage installs disabled; no production changes or public publication. Native compilation, policy and storage results are recorded separately in docs/titles/. Main PR428 is merged. The owner-authorized Titles wiki preview is published in 20261112-earned-titles-v1: all614HTTPS hashes/headers verify, with rollback/private-download/service preservation. Source/evidence: docs/titles/wiki-release/. Native server activation and normal-player QA remain pending; titles are Not released.
 
 ## 2026-11-12 — Imitate Death zero cooldown deployed for live QA
 

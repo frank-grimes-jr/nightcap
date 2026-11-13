@@ -1,0 +1,36 @@
+{
+  "result": "PASS",
+  "release": "20261112-earned-titles-v1",
+  "previous_release": "20261112-dot-ticks-v2",
+  "files": 614,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "linux_tests": "OK",
+  "changed_existing": [
+    "adventure-journal.html",
+    "all-pages.html",
+    "combat.html",
+    "commands.html",
+    "dungeon-modes.html",
+    "features.html",
+    "index.html",
+    "multiclass.html",
+    "recent-changes.html",
+    "search-index.json",
+    "sitemap.xml",
+    "tradeskills.html",
+    "unreleased.html"
+  ],
+  "added": [
+    "titles.html"
+  ],
+  "preserved_files": 600,
+  "public_source_reproduced": true,
+  "channel_config_inode_preserved": true,
+  "title_runtime": "not activated",
+  "title_player_QA": "OPEN",
+  "availability": "Not released preview"
+}
