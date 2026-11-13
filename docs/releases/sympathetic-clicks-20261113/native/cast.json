@@ -1,0 +1,16 @@
+{
+  "cache_loader": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe",
+  "diagnostic": "1d79fa3d95c949c4460a4effdf30906489eb498cd708cecbccba09d89d9091b6",
+  "heal_off": 21,
+  "heal_on": 22,
+  "real_item_casts": 2,
+  "shipping_objects": {
+    "mob": "393c0fa12af9e8fbf7716c71beccbfc714b91c9e8d06d7eabfd91934240f381b",
+    "special_attacks": "58a3a1a45b7490eb38c87afa5861ad8f638c74049386dd503f2e64ea937de7da",
+    "spell_effects": "6015704dbbe19428721e5665db04fe15ba8ca056e1d8f0dee59936644dd46e65",
+    "spells": "49b71532022a99c3d35b60316eac94cbf496f1267decbae3c2800fe4dac85d17"
+  },
+  "strike_off": 1058,
+  "strike_on": 1106,
+  "zone": "b462f5fce2f6e2a38e25ec4d3eda81c9efac16b59f39c764fa5a4d1bdd52d7f2"
+}
