@@ -43,6 +43,8 @@ def header(caps):
         'constexpr int EraCount = sizeof(EraCaps) / sizeof(EraCaps[0]);', '',
         'constexpr bool RankEnabled(int expansion, Line line, int rank)',
         '{',
+        '\tif (expansion == -1) { // Native all-expansions mode.',
+        '\t\texpansion = EraCount - 1;', '\t}',
         '\tif (expansion < 0 || expansion >= EraCount || rank < 1) {',
         '\t\treturn false;', '\t}',
         '\treturn line == Line::Strike ? rank <= EraCaps[expansion].strike :',
@@ -64,8 +66,10 @@ def main():
     else:
         HEADER.write_text(content, encoding='utf8', newline='\n')
     if args.era is not None:
-        if 0 <= args.era < len(caps):
+        if -1 <= args.era < len(caps):
             name, strike, healing = caps[args.era]
+            if args.era == -1:
+                name = 'All supported expansions'
             print(f'{name} ({args.era}) permits Strike through {strike} and Healing through {healing}.')
         else:
             print(f'No sympathetic clicks enabled for expansion {args.era}.')

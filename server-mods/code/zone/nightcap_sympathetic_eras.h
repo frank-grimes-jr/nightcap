@@ -37,6 +37,9 @@ constexpr int EraCount = sizeof(EraCaps) / sizeof(EraCaps[0]);
 
 constexpr bool RankEnabled(int expansion, Line line, int rank)
 {
+	if (expansion == -1) { // Native all-expansions mode.
+		expansion = EraCount - 1;
+	}
 	if (expansion < 0 || expansion >= EraCount || rank < 1) {
 		return false;
 	}
