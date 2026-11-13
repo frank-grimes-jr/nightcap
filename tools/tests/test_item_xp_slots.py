@@ -11,6 +11,7 @@ class ItemXPSlotTests(unittest.TestCase):
             'bool EQ::ItemInstance::IsSlotAllowed(int16 slot_id)'))
         native.FreeTradeTests.compile_run(self, r'''
 #include "common/item_xp_eligibility.h"
+#include "common/raid_augment.h"
 #include <cstdio>
 #include <cstdlib>
 using int16=int16_t;
@@ -45,6 +46,9 @@ int main() {
  definition.Slots=NightcapItemXP::PowerSourceMask;definition.ID=900001;
  CHECK(item.IsEquipable(21));CHECK(item.IsSlotAllowed(21)); // native power source
  enabled=true;CHECK(item.IsEquipable(21));CHECK(item.IsSlotAllowed(21));
+ definition.ID=NightcapRaidAug::Heart;definition.Slots=1u<<17;
+ CHECK(!item.IsEquipable(17));CHECK(!item.IsSlotAllowed(17));CHECK(!item.IsEquipable(21));
+ CHECK(!item.IsSlotAllowed(21));CHECK(item.IsSlotAllowed(23));
  item.m_item=nullptr;CHECK(!item.IsEquipable(21));CHECK(!item.IsSlotAllowed(21));
 }
 ''')

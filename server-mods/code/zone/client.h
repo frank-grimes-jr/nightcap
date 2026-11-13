@@ -38,6 +38,7 @@ namespace EQ
 	struct ItemData;
 }
 
+#include "zone/raid_augment.h"
 #include "zone/pet_armor.h"
 #include "zone/living_economy.h"
 #include "common/bazaar_escrow.h"
@@ -1137,6 +1138,8 @@ public:
 	uint32 LookupTributeItemID(uint32 tribute_id, uint32 tier);
 	void SendPathPacket(const std::vector<FindPerson_Point> &path);
 
+	NightcapRaidAug::State raid_augment;
+	std::array<uint16, EQ::spells::TOTAL_BUFFS> raid_direct_upkeep{};
 	inline PTimerList &GetPTimers() { return(p_timers); }
 
 	//New AA Methods

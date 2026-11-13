@@ -1,3 +1,5 @@
+#include "common/raid_augment.h"
+#include "zone/raid_augment_custody.h"
 #include "zone/dungeon_service.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/item_upgrade_policy.h"
@@ -3243,6 +3245,11 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 					Message(Chat::Red, "Error: No augment found on cursor for inserting.");
 					break;
 				} else {
+					if (NightcapRaidAug::IsReward(new_aug->GetID()) &&
+						!NightcapRaidAug::CanInsert(*tobe_auged, in_augment->augment_index, in_augment->augment_action == AugmentActions::Swap)) {
+						Message(Chat::Red, "One raid augment fits a type-22 socket on chest armor.");
+						break;
+					}
 					if (!RuleB(Inventory, AllowMultipleOfSameAugment) && tobe_auged->ContainsAugmentByID(new_aug->GetID())) {
 						Message(Chat::Red, "Error: Cannot put multiple of the same augment in an item.");
 						break;
@@ -7897,7 +7904,7 @@ void Client::Handle_OP_GuildBank(const EQApplicationPacket *app)
 				break;
 			}
 
-			if (CheckLoreConflict(inst->GetItem())) {
+			if (NightcapRaidAug::IncomingTrophies{}.Conflict(*this, inst.get()) || CheckLoreConflict(inst->GetItem())) {
 				MessageString(Chat::Red, DUP_LORE);
 				GuildBankAck();
 				break;
@@ -9781,7 +9788,9 @@ void Client::Handle_OP_ItemVerifyRequest(const EQApplicationPacket *app)
 
 void Client::Handle_OP_Jump(const EQApplicationPacket *app)
 {
-	SetEndurance(GetEndurance() - (GetLevel()<20 ? (225 * GetLevel() / 100) : 50));
+	const auto before = GetEndurance();
+	SetEndurance(before - (GetLevel() < 20 ? 225 * GetLevel() / 100 : 50));
+	NightcapRaidAug::Spend(*this, before - GetEndurance(), false);
 	return;
 }
 

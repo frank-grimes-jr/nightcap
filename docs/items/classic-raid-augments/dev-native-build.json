@@ -1,0 +1,43 @@
+{
+  "sha256": {
+    "zone": "30d2661ed1f5899625ef33034868e9fbb003ec1d23b99a1643a3ccc5f5ffab82",
+    "world": "4d8f6bb9c60837249803d89eba8f0348a71e9360e3da571b8e64e68055fc4818",
+    "shared_memory": "52b4fc87cee1b631cf2d62a0e3ffc179c809f7883ead96d2b8a011f53d5b4f9b"
+  },
+  "source_inputs": {
+    "common/item_instance.cpp": "1820db70daed7a941b13d4bf42f3d1498b17802cdb8cfb8decd43465a42fb5b1",
+    "common/ptimer.h": "6245589eea0e2065ae5769d873b8c7ab8010038848319a9ad075dbef68cb5c13",
+    "common/raid_augment.h": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08",
+    "common/raid_augment_sources.h": "b10d5b44884f4bf327d474fddb11b1401ac7d991145cc23426bcc4b8eed422e6",
+    "common/shareddb.cpp": "068e2bd7926ed499a94e4a1cc51ea005af2a70cc377047084b625b8d4f6f1f0c",
+    "zone/attack.cpp": "7f27ae80e44ad95ca72be3753d379d7ad597ef6f4f85e1ec8f20ce7eb0a4b652",
+    "zone/beacon.cpp": "97f0cb48be9a0792be8d75ab50ad2ed1c9dc657c65de0d03942d4970b84202d7",
+    "zone/beacon.h": "6958973d12691c8d09bf3f8547eff286cbb1a26cf2abebca872163058a0ec761",
+    "zone/bonuses.cpp": "a0a25de905fcb02045517bc40c83c9416c8261c627b63d347c86dc26d50b1463",
+    "zone/client.cpp": "7cc02b51425d2e7649b66c91ed4e7052adb6a50aaf7a9c2208935a49f243b86b",
+    "zone/client.h": "3f4538aa984725909e30759a44dd17720ca7f85a9fa366073764733cd54cd66f",
+    "zone/client_packet.cpp": "0654da9fb0ebfde5701edd0a5d1ad186dd56f8311a7be757219ee87711905adf",
+    "zone/client_process.cpp": "69e3288f505d66d489ad69d63f9e9c362691b4c29806a15ae92421846f956211",
+    "zone/dungeon_service.cpp": "fd819eb396d23f414a1fa1fd59a0faac6bfdf45758a111dc43ea5d5603cb84d4",
+    "zone/dungeon_service.h": "27020d1ec1cd4d146f7e4fa02eeed345ce61459bb577486e0c0859135b5b69ae",
+    "zone/inventory.cpp": "4b17f9bff36edb6394a84409805b049a3645df64c069ab13cb40b35ed3cebe30",
+    "zone/mob.h": "6991931b1d2d08fdf7727c1cf024d8dcd05dadb357b98bd07871f57e29f674a8",
+    "zone/object.cpp": "2afcecdce423b26eba7a7a62cf08326853fda174961108c034192a704a61307a",
+    "zone/parcels.cpp": "859d182ce54318992afab50841ad75bd39d26043836ddfd2a9b483c3c4a8a462",
+    "zone/pet_armor.cpp": "aa99e8219e94d70129e36626173f83459dacdea255aba576ce259d7a12e4c22c",
+    "zone/raid_augment.h": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2",
+    "zone/raid_augment.inc": "7544d7852a7ebb7912102f263be0049691d9ebae4d4dcdad7fe2ad2dc3afa9b7",
+    "zone/raid_augment_custody.h": "786524bfaa7845622d0fa25ede377523ee64276d145fbb6dcdee61ebe6ee7612",
+    "zone/raid_augment_delivery.h": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b",
+    "zone/special_attacks.cpp": "2267565d6af7ac570745e55d1117e55be5ac52c986f364c6eec538bb31b413e9",
+    "zone/spell_effects.cpp": "ef80232ff02ed3b2ce1f622e3d5e0dc75abb40a0d7d3e690523a8e830cf8ca0a",
+    "zone/spells.cpp": "e72a4ef91f91f56f0bccd3cc52791209816f07f437d88a5c538503b27ff83394",
+    "zone/tradeskills.cpp": "ded8644977109e648be32ca7b7a9c0ce8f48595554da12fc6f4acfff3ec81197",
+    "zone/trading.cpp": "5dc61828e957f2b5ef80a7c95a6430d3e6198a174fcc617ddfc173a8dc4750c7",
+    "zone/zone_hunt.cpp": "55f27caf8075ddabdb3a15e8b98a6a7524722a6246591ca612edc852093f7b36"
+  },
+  "loader_dependencies": "resolved",
+  "base": "c1c5e09b",
+  "retained_source": "November 6 augment audit source",
+  "compiler": "clang++ Release -O0 -g0 -DNDEBUG"
+}

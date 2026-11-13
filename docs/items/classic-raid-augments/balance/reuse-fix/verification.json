@@ -1,0 +1,15 @@
+{
+  "executions": 150,
+  "unchanged_hunt_and_empty_controls": 105,
+  "paired_capstone_fights": 45,
+  "before_minimum_observed_activation_gap_ms": 89100,
+  "after_minimum_observed_activation_gap_ms": 90350,
+  "before_sub_90s_activation_pairs": 4,
+  "after_sub_90s_activation_pairs": 0,
+  "before_measured_activation_pairs": 45,
+  "after_measured_activation_pairs": 44,
+  "changed_capstone_outcomes": 0,
+  "changed_capstone_end_times": 1,
+  "kill_flags": 0,
+  "healing_flags": 5
+}

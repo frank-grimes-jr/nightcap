@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 12, 2026 · Classic raid augment candidate
+
+Sixteen individually LORE chest augments use independent boss rolls and a shared capstone cooldown with a guaranteed 90-second minimum. Across 1,278 local encounter runs, the 138 comparable three-kill screens in the original matrix gave no median speed improvement above 5%. Public Yael acquisition and RoF2 player acceptance remain open. [Evidence and exact QA](docs/items/classic-raid-augments/README.md).
+
 ## 2026-11-06 — Augment audit dev/test integration
 
 Replace the older static-only augment candidate with the verified broad-NPC,
