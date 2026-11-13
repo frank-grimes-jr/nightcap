@@ -1,6 +1,6 @@
 # Worn ATK on stock tiered equipment
 
-November 13 feature candidate. Existing item definitions supply the ATK sent to the RoF2 item window and consumed by the server. The candidate changes only the attack field of 405 existing definitions across 135 stock families. Production was queried read-only. The live default ruleset has a 250 worn ATK cap. The signed client, combat code, cap, acquisition and custom equipment require no changes.
+November 13 local test runtime validation. Existing item definitions supply the ATK sent to the RoF2 item window and consumed by the server. The candidate changes only the attack field of 405 existing definitions across 135 stock families. Production was queried read-only. The live default ruleset has a 250 worn ATK cap. The signed client, combat code, cap, acquisition and custom equipment require no changes.
 
 ## How families qualified
 
@@ -34,6 +34,16 @@ The compiled fixture uses the actual recommended-level function, capped ATK assi
 | Level 60, other worn ATK 199 | 249 → 250 | +1 |
 | Level 60, other worn ATK 200 | 250 → 250 | 0 |
 | Same 200 with +10 ATK cap from AA | 250 → 253 | +4 |
+
+## Local test runtime validation
+
+The persistent local akk-stack database and item cache now contain all 405 intended values. Its older setup had generated ATK at 1.10×, 1.20× and 1.35× stock. All 405 local preimages matched that generator, 34 were already at their targets, and 371 required a write. The test migration used the full local item preimages and changed ATK alone. Its original stock fields, custom sockets and effects were preserved. The forward/rollback pair pinned to the November 13 production snapshot remains the production-source candidate.
+
+The stopped, empty test world was backed up before installation. After restart, the world and all eight zone workers mapped the rebuilt item cache and admissions were open. Of 308,928 effective cached item records, 371 differed solely in the ATK field; 308,557 were byte-identical. A probe linked against the local RoF2 encoder decoded 405 actual item-link packets plus eight controls. It verified the Armguard tiers at 50, 51, 52 and 53. The spell cache and server executable hashes remained the same.
+
+A separate native zone diagnostic equipped, removed and re-equipped the cache-loaded Ascended Armguard on a synthetic Ranger at levels 50 and 60. Against a copy of the same item with ATK 50, effective worn ATK rose from 42 to 44 at level 50 and 50 to 53 at 60 before the cap. Inventory rating increased by 3 and 4 respectively. At 250 pre-existing worn ATK there was zero change to rating, melee offense and the paired native mitigation rolls. Each case used 20,000 landed-hit mitigation rolls at a fixed mitigation value of 300. Full encounter DPS remains unmeasured. The actual local predecessor Armguard had 68 ATK.
+
+[Machine-readable DB, cache, packet and equip results](test-runtime.json) · [RoF2 packet probe](rof2_atk.cpp) · [Native equipment and mitigation probe](zone_probe.cpp). Visible RoF2 window rendering and player-driven encounters have not been observed. The public wiki and OVH runtime were outside this test activation.
 
 ## Reproduction and test-stack handoff
 

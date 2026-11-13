@@ -1,8 +1,8 @@
 # CHANGES
 
-## November 13, 2026 · Stock worn ATK test candidate
+## November 13, 2026 · Stock worn ATK installed on local test
 
-135 stock families receive reviewed ATK values across their three upgrades in the candidate. Six conflicting or exceptional observations retain the existing values. The 250 base cap and custom content remain in force. A 926-row isolated migration, rollback and native cap checks passed. See the [item list and in-game checks](docs/items/stock-worn-atk/README.md).
+Local test now serves all 405 approved tier values across 135 stock families. Its legacy ATK generator left 371 rows to update and 34 already correct. All eight zones mapped the verified cache. Tests covered RoF2 item packets, native equip/remove/re-equip, recommended levels, the 250 cap and melee mitigation. Six held families keep their earlier values. Production was not updated. See the [item list and in-game checks](docs/items/stock-worn-atk/README.md).
 
 ## November 12, 2026 · Classic raid boss augments deployed
 

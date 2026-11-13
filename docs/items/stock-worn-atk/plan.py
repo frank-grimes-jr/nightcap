@@ -63,5 +63,6 @@ if __name__=='__main__':
             # Gzip headers can differ across Python/zlib platforms.
             expected=dest.read_bytes()
             if name.endswith('.gz'):expected,raw=gzip.decompress(expected),gzip.decompress(raw)
+            else:expected=expected.replace(b'\r\n',b'\n')
             if raw!=expected:raise SystemExit('Generated output differs: '+name)
         else:dest.write_bytes(raw)
