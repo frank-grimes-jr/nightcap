@@ -1,0 +1,45 @@
+{
+  "stage": "test",
+  "summary": "Classic rank I deployed to the owner-local test world, pending player QA. All eight zone workers and both caches verified. Production promotion and full-encounter balance acceptance remain open.",
+  "test_source": "feature/sympathetic-classic",
+  "active_zone": "fa821145a3389e9f5f61d24f7699d32b7103c6a0d08f1318e5fd6c2fdfda7f33",
+  "local_era": 0,
+  "eligible_items": [
+    610338,
+    610150
+  ],
+  "buff_ids": [
+    44379,
+    44380
+  ],
+  "base_formula": "min(48, floor(largest eligible resolved original HP component / 20))",
+  "supported_expansions": 27,
+  "local_admissions_open": true,
+  "workers": 8,
+  "cache": {
+    "items": {
+      "records": 308928,
+      "changed": 2,
+      "before": "646925c426c9f02f7f840ce7298435e2ee16285db1551ad246ea2d37ae563912",
+      "after": "127de1616aace07dad2617394ccd4e9861ddfedaef11c308699932a31d7ea9bf"
+    },
+    "spells": {
+      "records": 99002,
+      "changed": 2,
+      "before": "1ef1b05fc6aca5b69593325a51d7fe482b4dbb7a9877dde96026adab9e16c5eb",
+      "after": "063a8b70cfd95d7cbb3c87a50e6c87af24c9f22b16b0b66a5610148e8963a548"
+    }
+  },
+  "native_and_compatibility_tests": 19,
+  "db_rehearsal_controls": 19,
+  "wiki_tests": 20,
+  "balance": {
+    "final_fights": 410,
+    "additional_replay_cases": 16,
+    "stacked_vox_study": 80,
+    "actual_sustained_target": "unproven",
+    "first_minute_progression_healing_pct": 4
+  },
+  "wiki": "Test-only In development entry. Existing public wiki retained.",
+  "player_acceptance": "open"
+}

@@ -4322,3 +4322,6 @@ DELIMITER ;
 CALL nightcap_reviewed_item_scaling();
 DROP PROCEDURE nightcap_reviewed_item_scaling;
 -- END GENERATED REVIEWED ITEM SCALING
+
+-- Existing installations use this same guarded file by itself.
+SOURCE sympathetic-clicks.sql;

@@ -300,3 +300,8 @@ tools/client_inventory_summary_ui.py text eol=lf
 tools/tests/test_inventory_stats_*.py text eol=lf
 server-mods/code/common/inventory_stats_protocol.h text eol=lf
 eq-client-dll/src/inventory_stats_state.h text eol=lf
+
+# Preserve the exact generated SQL rehearsed for Classic sympathetic clicks.
+eq-solo-gm/scripts/sympathetic-clicks.sql text eol=lf
+docs/items/sympathetic-clicks/content/disable.sql text eol=lf
+docs/items/sympathetic-clicks/runtime/local-september.patch -text -whitespace

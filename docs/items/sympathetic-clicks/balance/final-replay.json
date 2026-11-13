@@ -1,0 +1,119 @@
+{
+  "matches": 16,
+  "cases": [
+    {
+      "cohort": "caster",
+      "tier": "progression",
+      "boss": 32040,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "progression",
+      "boss": 32040,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "progression",
+      "boss": 73057,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "progression",
+      "boss": 73057,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "stacked",
+      "boss": 32040,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "stacked",
+      "boss": 32040,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "stacked",
+      "boss": 73057,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "caster",
+      "tier": "stacked",
+      "boss": 73057,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "progression",
+      "boss": 32040,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "progression",
+      "boss": 32040,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "progression",
+      "boss": 73057,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "progression",
+      "boss": 73057,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "stacked",
+      "boss": 32040,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "stacked",
+      "boss": 32040,
+      "arm": "both",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "stacked",
+      "boss": 73057,
+      "arm": "off",
+      "seed": 1713
+    },
+    {
+      "cohort": "tap",
+      "tier": "stacked",
+      "boss": 73057,
+      "arm": "both",
+      "seed": 1713
+    }
+  ],
+  "original": "d4c1b68bfc51c84396b9260dd39e135cad697916e6db4b53ba56d5caeaf510eb",
+  "final": "be65ffdd66e6c24b11485ae55bf3eabcd524637ccd03e8f8b5a66c4b6ba7019c"
+}

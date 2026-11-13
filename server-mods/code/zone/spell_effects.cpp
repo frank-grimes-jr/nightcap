@@ -18,6 +18,7 @@
 */
 
 #include "mob.h"
+#include "nightcap_sympathetic.h"
 
 #include "common/bodytypes.h"
 #include "common/classes.h"
@@ -45,6 +46,10 @@ extern WorldServer worldserver;
 // in this case false will be returned, true otherwise
 bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_override, int reflect_effectiveness, int32 duration_override, bool disable_buff_overwrite)
 {
+	auto *const sympathetic = NightcapSympathetic::Cast::Take();
+	auto record_hp = [&](NightcapSympathetic::Line line, int64 amount) {
+		if (sympathetic) { sympathetic->Record(line, amount); }
+	};
 	int caster_level, buffslot, effect, effect_value, i;
 	EQ::ItemInstance *SummonedItem=nullptr;
 #ifdef SPELL_EFFECT_SPAM
@@ -300,6 +305,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 					if (dmg <= 0) {
 						dmg = -dmg;
+						record_hp(NightcapSympathetic::Line::Strike, dmg);
 						Damage(caster, dmg, spell_id, spell.skill, false, buffslot, false);
 					}
 					//handles custom situation where quest function mitigation put high enough to allow damage to heal.
@@ -313,6 +319,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 					if(caster)
 						dmg = caster->GetActSpellHealing(spell_id, dmg, this);
 
+					record_hp(NightcapSympathetic::Line::Healing, dmg);
 					HealDamage(dmg, caster);
 				}
 
@@ -406,6 +413,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 						if (dmg <= 0) {
 							dmg = -dmg;
+							record_hp(NightcapSympathetic::Line::Strike, dmg);
 							Damage(caster, dmg, spell_id, spell.skill, false, buffslot, false);
 						}
 						else {
@@ -417,6 +425,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 						if (caster && !IsEffectInSpell(spell_id, SpellEffect::TotalHP)) {
 							dmg = caster->GetActSpellHealing(spell_id, dmg, this);
 						}
+						record_hp(NightcapSympathetic::Line::Healing, dmg);
 						HealDamage(dmg, caster);
 					}
 				}
@@ -450,10 +459,13 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 						val = caster->GetActSpellHealing(spell_id, val, this);
 				}
 
-				if (val < 0)
+				if (val < 0) {
+					record_hp(NightcapSympathetic::Line::Strike, -val);
 					Damage(caster, -val, spell_id, spell.skill, false, buffslot, false);
-				else
+				} else {
+					record_hp(NightcapSympathetic::Line::Healing, val);
 					HealDamage(val, caster);
+				}
 
 				break;
 			}
@@ -468,6 +480,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 					val = caster->GetActSpellHealing(spell_id, val, this);
 				}
 				if (val > 0) {
+					record_hp(NightcapSympathetic::Line::Healing, val);
 					HealDamage(val, caster);
 				}
 
@@ -6456,6 +6469,12 @@ bool Mob::TryTriggerOnCastProc(uint16 focusspellid, uint16 spell_id, uint16 proc
 }
 
 uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
+	bool worn = false;
+	return GetSympatheticFocusEffect(type, spell_id, worn);
+}
+
+uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id, bool &worn) {
+	worn = false;
 
 	if (IsBardSong(spell_id))
 		return 0;
@@ -6463,7 +6482,8 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 	uint16 proc_spellid = 0;
 	float ProcChance = 0.0f;
 
-	std::vector<int> SympatheticProcList;
+	struct Candidate { uint16 focus; bool worn; };
+	std::vector<Candidate> SympatheticProcList;
 
 	//item focus
 	if (IsOfClientBot() && itembonuses.FocusEffects[type]) {
@@ -6488,7 +6508,7 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 				if (IsValidSpell(proc_spellid)){
 					ProcChance = GetSympatheticProcChances(spell_id, spells[TempItem->Focus.Effect].base_value[0], TempItem->ProcRate);
 					if(zone->random.Roll(ProcChance))
- 						SympatheticProcList.push_back(proc_spellid);
+						SympatheticProcList.push_back({proc_spellid, true});
 				}
 			}
 
@@ -6506,7 +6526,7 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 						if (IsValidSpell(proc_spellid)){
 							ProcChance = GetSympatheticProcChances(spell_id, spells[TempItemAug->Focus.Effect].base_value[0], TempItemAug->ProcRate);
 							if(zone->random.Roll(ProcChance))
-								SympatheticProcList.push_back(proc_spellid);
+								SympatheticProcList.push_back({proc_spellid, true});
 						}
 					}
 				}
@@ -6535,7 +6555,7 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 
 				ProcChance = GetSympatheticProcChances(spell_id, GetSympatheticSpellProcRate(proc_spellid));
 				if (zone->random.Roll(ProcChance)) {
-					SympatheticProcList.push_back(proc_spellid);
+					SympatheticProcList.push_back({proc_spellid, false});
 				}
 			}
 		}
@@ -6564,7 +6584,7 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 			if (IsValidSpell(proc_spellid)) {
 				ProcChance = GetSympatheticProcChances(spell_id, rank->effects[0].base_value);
 				if (zone->random.Roll(ProcChance)) {
-					SympatheticProcList.push_back(proc_spellid);
+					SympatheticProcList.push_back({proc_spellid, false});
 				}
 			}
 		}
@@ -6573,9 +6593,8 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 	if (!SympatheticProcList.empty())
 	{
 		uint8 random = zone->random.Int(0, SympatheticProcList.size()-1);
-		int FinalSympatheticProc = SympatheticProcList[random];
-		SympatheticProcList.clear();
-		return FinalSympatheticProc;
+		worn = SympatheticProcList[random].worn;
+		return SympatheticProcList[random].focus;
 	}
 	return 0;
 }
@@ -9701,6 +9720,7 @@ void Mob::SendCastRestrictionMessage(int requirement_id, bool target_requirement
 }
 
 bool Mob::TrySpellProjectile(Mob* spell_target, uint16 spell_id, float speed) {
+	auto *const click = NightcapSympathetic::Cast::Take();
 
 	/*For mage 'Bolt' line and other various spells.
 	-This is mostly accurate for how the modern clients handle this effect.
@@ -9768,6 +9788,9 @@ bool Mob::TrySpellProjectile(Mob* spell_target, uint16 spell_id, float speed) {
 		ProjectileAtk[slot].hit_increment = static_cast<uint16>(hit); //This projected hit time if target does NOT MOVE
 		ProjectileAtk[slot].target_id = spell_target->GetID();
 		ProjectileAtk[slot].wpn_dmg = spell_id; //Store spell_id in weapon damage field
+		NightcapSympathetic::StoreBolt(ProjectileAtk[slot], click ? click->effect : NightcapSympathetic::Effect::None,
+			static_cast<uint32>(spell_target->GetSpawnTimeStamp()));
+		if (click) { click->bolt_worn_heal = &ProjectileAtk[slot].disable_procs; }
 		ProjectileAtk[slot].raid_delivery = NightcapRaidAug::CaptureDelivery(this, spell_id);
 		ProjectileAtk[slot].origin_x = GetX();
 		ProjectileAtk[slot].origin_y = GetY();

@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 13, 2026 · Classic sympathetic clicks installed on local test
+
+Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. All eight test zone workers loaded the paired zone and caches. First-minute progression healing rose 4% on both dragons; the full-fight 3–5% target and owner RoF2 QA remain open. [Item sources, era review and in-game QA](items/sympathetic-clicks/README.md).
+
 ## November 13, 2026 · Stock worn ATK live on production
 
 OVH now serves the updated Polished, Exalted and Ascended tiers for 135 stock gear families. The 405 changes affected only worn ATK. The other 309,611 cached items were byte-identical. All 12 zone workers passed startup checks and admissions reopened. The 250 base worn cap and signed client 2026111202 remain current. Player item-window and encounter checks are open. [Production verification](releases/stock-worn-atk-20261113/README.md) · [Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-worn-atk).
