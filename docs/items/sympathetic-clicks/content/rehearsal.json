@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "environment": "isolated typed MariaDB clone of local PEQ",
+  "item_rows": 9,
+  "checked_columns_per_item": 285,
+  "item_changed_fields": [
+    "casttime",
+    "casttime_",
+    "clickeffect",
+    "clicklevel",
+    "clicklevel2",
+    "clickname",
+    "clicktype",
+    "maxcharges"
+  ],
+  "controls": [
+    "forward",
+    "exact replay",
+    "disable with saved spell definitions",
+    "disable replay",
+    "reenable",
+    "case-sensitive item name drift",
+    "worn focus drift",
+    "lower tier drift",
+    "occupied description",
+    "occupied spell",
+    "late conflict transaction rollback",
+    "foreign orphan item focus",
+    "foreign spell effect operand",
+    "active buff replay",
+    "scribed reference on replay",
+    "partial install with orphan saved buff",
+    "prior candidate description update",
+    "prior description without owning spell refusal",
+    "unrelated stat survives forward and disable"
+  ],
+  "sql_sha256": "be6b12832cf35cd93974d3a2728e33e970fd27216ab60e4645dac09b9dda454d"
+}
