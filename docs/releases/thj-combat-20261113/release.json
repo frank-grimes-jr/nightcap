@@ -14,8 +14,7 @@
   "gateway_open": true,
   "client": 2026111301,
   "wiki_verified_predecessor": "20261113-sympathetic-clicks-v1",
-  "wiki_staged": "20261113-archery-backstab-v2",
-  "wiki_publication": "pending explicit approval",
+  "wiki_publication": "published and verified",
   "owner_in_game_qa": "open",
   "prs": {
     "bow-dev": "https://github.com/frank-grimes-jr/nightcap/pull/446",
@@ -24,5 +23,7 @@
     "backstab-dev": "https://github.com/frank-grimes-jr/nightcap/pull/449",
     "backstab-test": "https://github.com/frank-grimes-jr/nightcap/pull/450",
     "backstab-main": "https://github.com/frank-grimes-jr/nightcap/pull/451"
-  }
+  },
+  "wiki_release": "20261113-archery-backstab-v2",
+  "wiki_verified_at": "2026-11-14T03:08:18.402212+00:00"
 }

@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "release": "20261113-archery-backstab-v2",
+  "previous_release": "20261113-sympathetic-clicks-v1",
+  "files": 631,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "source": "c151a149f399124647c7929e4b1f3cdae2686404",
+  "game_image": "sha256:80519522690181a9e296235def257bdb1202db1dabe0f37f616b1d2ce132cd5f",
+  "game_receipt_sha256": "3457bed76f3184c037425503099062c3c4b1d36f3f260e11a1003682791cb869",
+  "client_release": 2026111301,
+  "client_channel_sha256": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "config_inode_preserved": true,
+  "linux_publisher_tests": [
+    "Ran 16 tests in 0.054s",
+    "",
+    "OK"
+  ]
+}

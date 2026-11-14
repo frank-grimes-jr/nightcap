@@ -1,4 +1,9 @@
 {
+  "record_scope": "Historical first attempt before the owner explicitly approved publication.",
+  "superseded_by": [
+    "publication.json",
+    "public-verification.json"
+  ],
   "status": "BLOCKED",
   "published": false,
   "explicit_owner_publication_approval_required": true,
