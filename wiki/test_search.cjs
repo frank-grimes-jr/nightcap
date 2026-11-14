@@ -27,6 +27,10 @@ async function search(q, fail = false) {
     ['item-940024.html','item-940025.html','item-940026.html','item-940027.html']);
   result = await search('Last Lantern Woven Robe Complete');
   assert.equal(result.results[0].children[0].href, 'item-964031.html');
+  result = await search('Perfected Augmentation Distiller');
+  for (const guide of ['tunnel.html', 'equipment.html']) {
+    assert.ok(result.results.some(n => n.children[0].href === guide), guide);
+  }
   result = await search('hillside ascension');
   assert.equal(result.results[0].children[0].href, 'item-940027.html');
   for(const query of ['AA','classes']) {
