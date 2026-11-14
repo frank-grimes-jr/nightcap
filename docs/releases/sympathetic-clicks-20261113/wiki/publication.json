@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "release": "20261113-sympathetic-clicks-v1",
+  "previous_release": "20261113-wiki-simple-ste-v1",
+  "files": 631,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "source": "8f08c7a8d0a10ebd0ac8b5c4c76d4336a1d852dc",
+  "image": "sha256:097fc92d8380b473fe2a7aa18032c7536da0645579030dd3a57aac0af9d2446d",
+  "client_release": 2026111301,
+  "client_channel_sha256": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "game_deployment_receipt_sha256": "1e7e96900bc34f6c36647067df0e0f364ca6d34e0e7b9f7465f1d5a25da2c51a",
+  "configuration_inode_preserved": true,
+  "canonical_https_verification": "separate public-verification.json",
+  "linux_publisher_tests": [
+    "Ran 16 tests in 0.067s",
+    "",
+    "OK"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "release": "20261113-sympathetic-clicks-v1",
+  "files": 631,
+  "canonical_root_verified": true,
+  "hashes_and_headers": true,
+  "versioned_assets": 2,
+  "asset_version": "a783e4b52bd4",
+  "denied": {
+    ".env": 404,
+    "articles/features.json": 404,
+    "content-review.json": 404,
+    "catalog.json": 404,
+    "wiki/current/index.html": 404
+  },
+  "loot": {
+    "snapshot": "08ba371f483f0e19",
+    "captured_at": "2026-11-14T00:20:49.936948+00:00",
+    "targets": {
+      "610338": {
+        "name": "Runed Lava Pendant (Ascended)",
+        "sources": [
+          "lava elemental"
+        ],
+        "zone": "soldunga",
+        "sha256": "85a2f900588734678da9bfd90c8b5574366803b242fe1fce8b3a4c10a860a419",
+        "route": "https://wiki.nightcapgame.org/loot-data/08ba371f483f0e19/item-610338.json"
+      },
+      "610150": {
+        "name": "Moonstone Ring (Ascended)",
+        "sources": [
+          "a frenzied ghoul"
+        ],
+        "zone": "gukbottom",
+        "sha256": "858af0e656dddffd5bd6268f25d48ac643c1fc8c2eeae6fd17df4354d5dd4c1e",
+        "route": "https://wiki.nightcapgame.org/loot-data/08ba371f483f0e19/item-610150.json"
+      }
+    },
+    "effect_fields": "Omitted by the existing public loot capture and projection. The Equipment guide documents both clicks and the retained ring focus."
+  },
+  "player_qa": "open",
+  "verified_at": "2026-11-14T00:26:13.999623+00:00"
+}

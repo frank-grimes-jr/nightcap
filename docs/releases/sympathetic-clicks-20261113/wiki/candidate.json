@@ -1,0 +1,16 @@
+{
+  "release": "20261113-sympathetic-clicks-v1",
+  "predecessor": "20261113-wiki-simple-ste-v1",
+  "previous_manifest_sha256": "50ec266c57a19f21529e3098178ca22eee2c073b607cf4d29181909aa9df25ad",
+  "exact_predecessor_reproduced": true,
+  "files": 631,
+  "retained": 627,
+  "changed": [
+    "equipment.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "package_sha256": "22567e24ed142cc75a1f2ae77701885f06f20d031ce9658f59e76e46b8f72d78",
+  "manifest_sha256": "224785104ce4ec16b065158cc8238c3e08d4f29aa84023ef0ca9a11dcdd17362"
+}
