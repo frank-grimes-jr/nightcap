@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "native_policy_and_actual_adapter_groups": 4,
+  "release_boundary_tests": 12,
+  "exact_hold_continuation_tests": 7,
+  "publication_enablement_regression_tests": 1,
+  "real_isolated_mariadb_checks": 10,
+  "ordinary_kill_statements_for_1_6_72_participants": 4,
+  "shipping_predecessor_reproduced_byte_exact": true,
+  "shipping_link_inputs_preserved": 144,
+  "unchanged_command_archive_members": 11,
+  "complete_site_checks_passed": 38,
+  "platform_skipped_site_cases": 8,
+  "linux_publication_recovery_tests": 16,
+  "exact_catalog_requirements_verified": 77,
+  "node_search_equipment_loot_finder_experience": "PASS",
+  "live_zone_workers_verified": 12,
+  "current_native_quest_database_errors": 0,
+  "public_https_files_verified": 631,
+  "private_paths_denied": 5,
+  "native_player_acceptance": "OPEN",
+  "evidence": [
+    "shipping-candidate.json",
+    "storage-tests.json",
+    "review.json",
+    "activation-summary.json",
+    "production-verified.json",
+    "palwar-correction.json",
+    "wiki-content-checks.json",
+    "wiki-publication.json",
+    "wiki-public-verification.json"
+  ]
+}

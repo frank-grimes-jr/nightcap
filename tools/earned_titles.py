@@ -95,19 +95,19 @@ def outputs():
                                     json.dumps(r['description'])]) + '},\n'
     header += '};\n'
     body = (
-        '<p><strong>Not released.</strong> This is the planned earned-title catalog. '
-        'These new titles and #titles are unavailable until the server release is activated.</p>'
+        '<p><strong>Available.</strong> Earn these 77 cosmetic titles through combat, dungeon completion, '
+        'skill mastery and adventures. Tracking is active from November 14, 2026.</p>'
         '<h2 id="using-titles">Choosing your title</h2><p>Titles are cosmetic, permanent unlocks for one character. '
         'They give no stats, experience, loot or combat bonuses, and do not transfer to other characters. '
-        'Once released, open the native Titles window to choose an earned prefix or suffix; choosing a title '
+        'Open the Titles window to choose an earned prefix or suffix; choosing a title '
         'does not consume it. You may change or clear it. New awards never replace your currently selected title.</p>'
         '<p>Use <code>#titles</code> or <code>#titles 2</code> to check six requirements per page. '
         'Opening the Titles window or using #titles also checks existing dungeon, story and skill progress. '
         'Qualifying kills and a skill reaching its cap award their titles automatically. '
         'Level-50 and dungeon/story milestones are reconciled when you open the list.</p>'
-        '<h2 id="kill-credit">Combat credit</h2><p>New slayer counters start when this feature is enabled. '
+        '<h2 id="kill-credit">Combat credit</h2><p>New slayer counters count qualifying kills from activation on November 14, 2026. '
         'Defeat naturally spawned enemies that are not gray to your character. The credited killer and '
-        'their current group or raid members can each count the kill if alive, connected and within '
+        'current group or raid members can each receive credit. Each must be alive, connected and within '
         '200 game units in the same zone instance. A pet or swarm-pet victory follows native owner '
         'credit. Pets, charmed victims, merchants, chests, scripted campaign actors and GM accounts do not count. '
         'There is no requirement to land the final blow personally.</p>'
@@ -140,11 +140,11 @@ def outputs():
                 body += '<tr><td>' + html.escape(r['name']) + '</td><td>' + ('Suffix' if r['suffix'] else 'Prefix') + '</td><td>' + html.escape(r['description']) + '</td></tr>'
         body += '</tbody></table></details>'
     article = dict(slug='titles', title='Titles', summary=f'How to earn and choose {len(rows)} cosmetic titles for slaying, dragons, Classic dungeon completion, skills and adventures.',
-                   body=body, category='Character', status='Not released', updated='2026-11-12',
+                   body=body, category='Character', status='Live testing', updated='2026-11-14',
                    keywords=['slayer', 'dragonslayer', 'Nagafen', 'Vox', 'mastery', 'Classic completion', '#titles'],
                    sources=['tools/earned_titles.py', 'server-mods/code/common/earned_title_policy.h',
                             'server-mods/code/zone/earned_titles.inc', 'docs/titles/SPEC.md', 'docs/titles/QA.md'],
-                   reviewed_at='2026-11-12')
+                   reviewed_at='2026-11-14')
     return {'server-mods/code/common/earned_title_catalog.h': header,
             'wiki/articles/titles.json': json.dumps(article, ensure_ascii=False, indent=2) + '\n'}
 

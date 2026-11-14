@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [Earned titles: live activation, published guide, incident resolution and open player QA](titles/deployment-20261114/README.md)
+
 - [Single Shield Block display: publication and QA](releases/character-stats-shield-block-20261106/README.md)
 
 - [Stats font correction and Hunt augment block explanation](releases/character-stats-font-20261106/README.md)

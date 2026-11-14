@@ -96,7 +96,8 @@ def install_guards(op,schema):
         backup=backup_original()
         assert backup['gzip_integrity'] and op.sha(Path(backup['path']))==backup['sha256']
         assert not op.r.compact('game')['running'] and not op.r.compact('gateway')['running']
-        assert op.p.a.prior.players()==0
+        stopped=op.r.state('game')['State']
+        assert not stopped['Running'] and stopped['ExitCode']==0 and not stopped['OOMKilled']
         state()
         op.p.save(started,dict(backup=backup,source=op.m['source_revision']))
         schema.install(sql,(STAGE/'setup.sql').read_text(),expected,commands)
@@ -116,7 +117,16 @@ def recover_closed(op):
     assert (op.ACTIVE/'started.json').exists()
     assert not (op.ACTIVE/'opening.json').exists() and not (op.ACTIVE/'deployed.json').exists()
     assert not (op.ACTIVE/'titles-recovery-started.json').exists()
-    assert not op.r.compact('gateway')['running'] and op.p.a.prior.players()==0
+    assert not op.r.compact('gateway')['running']
+    original_players=op.p.a.prior.players
+    def recovery_players():
+        state=op.r.state('game')['State']
+        if not state['Running']:
+            assert state['ExitCode']==0 and not state['OOMKilled']
+            assert not op.r.compact('gateway')['running']
+            return 0
+        return original_players()
+    assert recovery_players()==0
     assert (op.ACTIVE/'titles-sql-installed.json').exists(),'Partial SQL needs inspection and forward completion'
     op.title_state()
     sql=op.prior.sql
@@ -128,7 +138,11 @@ def recover_closed(op):
     op.p.save(op.ACTIVE/'titles-disabled-for-recovery.json',dict(enabled=False,preserved_tables=True))
     op.title_state()
     op.r.database_backup=op.title_original_backup
-    op.recover_closed()
+    # The inherited recovery also checks occupancy. Keep real RPC for a running
+    # game, using the clean stopped process as proof only while it is stopped.
+    op.p.a.prior.players=recovery_players
+    try:op.recover_closed()
+    finally:op.p.a.prior.players=original_players
 
 
 def deploy(op):

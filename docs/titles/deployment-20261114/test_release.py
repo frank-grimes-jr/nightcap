@@ -29,7 +29,8 @@ class Controls(unittest.TestCase):
             p=NS(a=NS(content=lambda:{'command_settings/all':'new' if self.installed else 'old','other':'same'},prior=NS(players=lambda:self.players)),
                  base=NS(saved_state=lambda:{'old-player-state':'same','nightcap_title_awards':'new'}),
                  save=lambda p,v:p.write_text(json.dumps(v))),
-            r=NS(database_backup=self.backup,compact=lambda n:{'running':self.running}))
+            r=NS(database_backup=self.backup,compact=lambda n:{'running':self.running},
+                 state=lambda n:{'State':{'Running':self.running,'ExitCode':0,'OOMKilled':False}}))
         release.install_guards(self.op,self.schema)
 
     def absent(self,sql):self.assertFalse(self.installed)
@@ -57,10 +58,10 @@ class Controls(unittest.TestCase):
         self.running=True
         with self.assertRaises(AssertionError):self.op.r.database_backup()
         self.assertFalse(self.installed)
-    def test_connected_player_blocks_write(self):
-        self.players=1
-        with self.assertRaises(AssertionError):self.op.r.database_backup()
-        self.assertFalse(self.installed)
+    def test_stopped_world_needs_no_player_rpc(self):
+        def offline():raise RuntimeError('Stopped world has no RPC')
+        self.op.p.a.prior.players=offline
+        self.op.r.database_backup();self.assertTrue(self.installed)
     def test_uncertain_install_blocks_replay(self):
         self.fail=True
         with self.assertRaises(RuntimeError):self.op.r.database_backup()
@@ -87,6 +88,19 @@ class Controls(unittest.TestCase):
         self.assertEqual(self.enabled,1)
     def test_recovery_rejects_opening_boundary(self):
         self.prepare_recovery();(self.active/'opening.json').write_text('{}')
+        with self.assertRaises(AssertionError):release.recover_closed(self.op)
+        self.assertEqual(self.enabled,1)
+    def test_recovery_stopped_world_needs_no_rpc(self):
+        self.prepare_recovery()
+        def offline():raise RuntimeError('Stopped world has no RPC')
+        self.op.p.a.prior.players=offline
+        self.op.recover_closed=lambda:self.assertEqual(self.op.p.a.prior.players(),0)
+        release.recover_closed(self.op)
+        self.assertIs(self.op.p.a.prior.players,offline)
+    def test_recovery_running_world_still_checks_rpc(self):
+        self.prepare_recovery();self.running=True;self.players=1
+        # The gateway remains closed independently of the running game.
+        self.op.r.compact=lambda n:{'running':n=='game'}
         with self.assertRaises(AssertionError):release.recover_closed(self.op)
         self.assertEqual(self.enabled,1)
 

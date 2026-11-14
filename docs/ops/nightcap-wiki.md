@@ -1,10 +1,17 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated November 13, 2026.
+Updated November 14, 2026.
 
 ## Current state
 
-The official wiki serves `20261113-archery-backstab-v2` over `20261113-sympathetic-clicks-v1`. Combat, Features, Recent Changes and search include the bow and Backstab update. All 631 public files passed HTTPS hash and header checks. The five private paths returned 404. The updater rehearsed rollback and preserved service identities and start times. [Release and recovery](../releases/thj-combat-20261113/wiki/README.md) · [Public verification](../releases/thj-combat-20261113/wiki/public-verification.json).
+The official wiki serves `20261114-titles-active-v1` over `20261113-archery-backstab-v2`.
+Titles, commands, Combat, Adventure Journal, Change Log and search describe active
+earned titles. Six outputs change and625retain exact bytes after current-source
+reproduction. All631public HTTPS hashes/headers and five private denials verify.
+The publisher rechecks live title enablement under the shared deployment lock,
+rehearses rollback and preserves all services/config/client. Native player QA
+remains open. [Current source and recovery](../titles/deployment-20261114/README.md) ·
+[Public verification](../titles/deployment-20261114/wiki-public-verification.json).
 
 ## Retained hosting snapshots
 

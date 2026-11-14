@@ -2,8 +2,9 @@
 
 Accepted intent: introduce earned cosmetic titles for slaying, dragons, expansion
 completion, skill mastery and other meaningful accomplishments; publish a guide
-with exact requirements. This implementation is a disabled candidate, not a live
-release or a record of player acceptance.
+with exact requirements. This contract was implemented on November12 and activated on production on
+November14. [Current release evidence](deployment-20261114/README.md) records
+runtime/wiki verification separately from open native player acceptance.
 
 ## Contract
 

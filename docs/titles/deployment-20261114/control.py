@@ -65,5 +65,7 @@ def old_control():
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=('stage','deploy','verify','recover-closed'));p.add_argument('--revision');p.add_argument('--start',action='store_true');a=p.parse_args()
     if a.action=='stage':stage(a.revision)
-    elif a.action=='verify':old_control().verify()
+    elif a.action=='verify':
+        from verify_live import main
+        main()
     else:old_control().action(a.action,a.start)

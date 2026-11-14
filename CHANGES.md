@@ -1,8 +1,8 @@
 # CHANGES
 
-## November 14, 2026 · Titles live activation package
+## November 14, 2026 · Earned titles active
 
-Prepared the 77-title native release over the reproduced current production binary, with strict additive storage and a public `#titles` command. Batched kill credit bounds ordinary group/raid work to four SQL statements. Tested stopped-backup activation and data-preserving recovery; live activation and native player acceptance are recorded separately in [release evidence](docs/titles/deployment-20261114/README.md).
+Activated 77 permanent cosmetic titles and public `#titles` on all twelve production zone workers. Qualifying kills, skill mastery, personal dungeon clears and campaign completion earn titles; new general kill totals start at activation. Restored only Palwar’s independently logged Nagafen victory for Flamebreaker. The public wiki now documents availability and requirements. The initial pre-SQL stopped-world RPC hold was resolved with a reviewed bounded continuation and fresh backup; no player snapshot restore. [Runtime, wiki proof and open native player QA](docs/titles/deployment-20261114/README.md).
 
 ## November 14, 2026 · Tunnel augment distiller
 

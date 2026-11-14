@@ -1,20 +1,29 @@
 # Titles activation · November 14, 2026
 
-Owner explicitly requested deployment and activation. **Prepared; production
-activation pending.** The 77 permanent cosmetic titles give no combat or economy
+Owner explicitly requested deployment and activation. **Active on production; all twelve open workers verified.**
+[Runtime verification](production-verified.json) · [Activation proof](activation-summary.json) ·
+[Published guide checks](wiki-public-verification.json). Native visible player QA remains OPEN. The 77 permanent cosmetic titles give no combat or economy
 power. New kill totals start at activation; existing personal clear, skill and
 campaign goals reconcile through the title picker or `#titles`.
 
-The linked shipping candidate `f35b4e3d` reproduces the running fixed-AA `82d5e2d2`
+The linked shipping zone `f35b4e3d` reproduces the previous fixed-AA `82d5e2d2`
 predecessor exactly before changing only title hooks/helpers and one command
 archive member. All 144 retained link inputs and eleven other command archive
 members are preserved. No new client, cache, quests or world binary is required.
 The separate Classic prismatic content rollout completed first; title staging
 captures its new live state and pins its terminal receipt.
 
+The fresh current-title probe separates original activation preservation from
+later independent content maintenance. A subsequent maintenance restart retained
+the same title-capable image/binaries; the probe records its new start time and
+current cache hashes. Original stopped-state/content preservation remains dated
+in the immutable activation receipts, rather than being claimed as a fresh match
+after another authorized content release.
+
 Evidence: `shipping-{baseline,candidate}.json`, `source-delta.json`, exact
 `feature.patch`, `storage-tests.json` and `schema-expected.json`. Four compiled
-policy/adapter test groups and ten rollout boundary tests pass. Disposable real
+policy/adapter test groups, twelve rollout boundary tests, seven continuation
+checkpoint cases and the publication-control regression pass. Disposable real
 MariaDB checks cover strict schemas, command privilege drift, unique concurrent
 awards, disabling without data loss and 1/6/72-member counter bursts. Ordinary
 kills use four SQL statements independent of party size; newly earned awards add
@@ -24,7 +33,9 @@ Independent fresh review found excessive per-member kill queries; batching fixed
 it and follow-up review found no blocker. Deployment review found the inherited
 backup hook blocked predecessor recovery; explicit guarded recovery and three
 additional fault tests fixed that. Follow-up found no remaining blocker. An
-external second opinion was offered, not requested; no external CLI review ran.
+external second opinion was offered; the owner chose to continue with the completed
+review. No external CLI review ran. The stopped-world RPC incident and bounded
+continuation are documented in [INCIDENT.md](INCIDENT.md).
 
 ## Activation and recovery
 
@@ -38,13 +49,14 @@ tables are separately verified and only these are excluded from legacy player
 snapshot comparison; all unrelated state remains checked. The single new
 command row is independently checked before normalizing its legacy content hash.
 
-On a failure **before** opening and before any title counters/awards exist,
-`recover-closed --start` can disable the exact owned control row, remove its exact
-command row, retain all title tables, take a fresh backup and verify/reopen the
-incumbent. No player snapshot restore. Partial/uncertain SQL is held closed for
-explicit inspection and guarded forward completion, never a blind replay or
-table deletion. After opening or title activity, repair forward with the capable
-binary and preserve all awards/counters; predecessor recovery is refused.
+Do not replay this stage's terminal commands. Its original operator is retained
+as `release-original.py`; corrected `release.py` is reference source and differs
+from the immutable stage. See INCIDENT.md for the exact one-shot continuation.
+Partial/uncertain SQL requires explicit inspection and guarded forward completion,
+never a blind replay or table deletion. After opening or title activity, repair
+forward with the capable binary and preserve all awards/counters. No player
+snapshot restore. The corrected reference recovery preserves tables, disables
+owned additions and takes a fresh backup, with RPC only while the game is running.
 
 ## Player acceptance remains open
 

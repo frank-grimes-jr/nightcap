@@ -1,0 +1,18 @@
+{
+  "release": "20261114-titles-active-v1",
+  "predecessor": "20261113-archery-backstab-v2",
+  "exact_predecessor_reproduced": true,
+  "changed": [
+    "adventure-journal.html",
+    "combat.html",
+    "commands.html",
+    "recent-changes.html",
+    "search-index.json",
+    "titles.html"
+  ],
+  "files": 631,
+  "retained": 625,
+  "package_sha256": "7334cdedb9296455d09dbeaa57c807c3da7da62458409b151bdd56eb56b3dcb5",
+  "manifest_sha256": "626d32c85dd10173f3f062d61ba22a432da1ec1c82a6e04d7930d048fe48a168",
+  "previous_manifest_sha256": "8a6e5dc70adfc383c0f08fadb5c106116b5e7a583da080dc62693c2c4130a8b0"
+}
