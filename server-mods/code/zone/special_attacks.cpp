@@ -28,6 +28,7 @@
 #include "zone/npc.h"
 #include "zone/string_ids.h"
 #include "nightcap_sympathetic.h"
+#include "nightcap_heroic_cast.h"
 
 #include <cstring>
 
@@ -1396,7 +1397,11 @@ void Mob::ProjectileAttack()
 						NightcapSympathetic::Cast click;
 						click.effect = NightcapSympathetic::BoltEffect(ProjectileAtk[i], static_cast<uint32>(target->GetSpawnTimeStamp()));
 						NightcapSympathetic::Cast::Deliver(&click, [&] {
-							return SpellOnTarget(spell_id, target, false, true, spells[spell_id].resist_difficulty, true);
+							const bool heroic = NightcapRaidAug::HasHeroicCast(ProjectileAtk[i].raid_delivery) &&
+								ProjectileAtk[i].ranged_id == static_cast<uint32>(target->GetSpawnTimeStamp());
+							return NightcapHeroicCast::Cast::Deliver(heroic, [&] {
+								return SpellOnTarget(spell_id, target, false, true, spells[spell_id].resist_difficulty, true);
+							});
 						});
 						ApplySympatheticClick(click);
 					}

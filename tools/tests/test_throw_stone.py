@@ -12,7 +12,7 @@ from test_passive_aa import function
 
 ROOT = Path(__file__).resolve().parents[2]
 
-PRELUDE = r'''
+PRELUDE = '#include "'+(ROOT/'server-mods/code/zone/nightcap_heroic_cast.h').as_posix()+'"\n'+r'''
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
