@@ -1,0 +1,23 @@
+test_standalone_publication_is_disabled (__main__.PairedEntryPointTests.test_standalone_publication_is_disabled) ... ok
+test_candidate_and_baseline_drift_fail_before_writes (__main__.PublicationTests.test_candidate_and_baseline_drift_fail_before_writes) ... ok
+test_foreign_file_rejected (__main__.PublicationTests.test_foreign_file_rejected) ... ok
+test_immutable_drift_rejected_before_channel_write (__main__.PublicationTests.test_immutable_drift_rejected_before_channel_write) ... ok
+test_interrupted_archive_write_recovers_valid_prefix_only (__main__.PublicationTests.test_interrupted_archive_write_recovers_valid_prefix_only) ... ok
+test_interrupted_channel_write_recovers_valid_prefix_only (__main__.PublicationTests.test_interrupted_channel_write_recovers_valid_prefix_only) ... ok
+test_interrupted_writes_recover_without_partial_channel (__main__.PublicationTests.test_interrupted_writes_recover_without_partial_channel) ... ok
+test_invalid_baseline_does_not_change_existing_release_bytes_or_permissions (__main__.PublicationTests.test_invalid_baseline_does_not_change_existing_release_bytes_or_permissions) ... ok
+test_missing_new_asset_and_foreign_inventory_are_rejected (__main__.PublicationTests.test_missing_new_asset_and_foreign_inventory_are_rejected) ... ok
+test_nested_symlink_rejected_without_channel_change (__main__.PublicationTests.test_nested_symlink_rejected_without_channel_change) ... ok
+test_partial_spell_file_rejects_corruption_then_recovers (__main__.PublicationTests.test_partial_spell_file_rejects_corruption_then_recovers) ... ok
+test_private_umask_creates_publicly_traversable_release_and_readable_files (__main__.PublicationTests.test_private_umask_creates_publicly_traversable_release_and_readable_files) ... ok
+test_public_control_drift_keeps_old_channel (__main__.PublicationTests.test_public_control_drift_keeps_old_channel) ... ok
+test_publish_repeat_and_preservation (__main__.PublicationTests.test_publish_repeat_and_preservation) ... ok
+test_retained_asset_drift_keeps_old_channel (__main__.PublicationTests.test_retained_asset_drift_keeps_old_channel) ... ok
+test_service_drift_keeps_old_channel (__main__.PublicationTests.test_service_drift_keeps_old_channel) ... ok
+test_symlink_release_rejected (__main__.PublicationTests.test_symlink_release_rejected) ... ok
+test_verified_existing_release_directory_permissions_are_repaired (__main__.PublicationTests.test_verified_existing_release_directory_permissions_are_repaired) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.654s
+
+OK
