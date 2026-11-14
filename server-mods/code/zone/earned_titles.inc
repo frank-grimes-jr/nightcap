@@ -108,25 +108,35 @@ void RecordKill(NPC *npc, Client *credit, bool excluded) {
 		NightcapDungeon::HighkeepTransient(npc) || !npc->GetEntityVariable("nightcap:title-death").empty()) { return; }
 	npc->SetEntityVariable("nightcap:title-death","1");
 	try {
-		if (!Enabled()) { return; }
 		const auto keys=KillKeys(npc->GetBodyType(),zone->GetZoneID(),npc->GetNPCTypeID());
-		std::set<unsigned> seen;
+		std::map<unsigned,Client *> participants;
 		for (auto c : credit->GetPartyMembers()) {
-			if (!c || !seen.insert(c->CharacterID()).second || !CreditEligible(Player(c),c->ClientDataLoaded(),
+			if (!c || !c->CharacterID() || !CreditEligible(Player(c),c->ClientDataLoaded(),
 				!c->IsDead() && c->GetHP()>0,c->GetLevelCon(npc->GetLevel())!=ConsiderColor::Gray,true,
 				DistanceSquared(c->GetPosition(),npc->GetPosition()))) { continue; }
-			std::string values;
-			for (auto key : keys) { values+=fmt::format("{}({},{},1)",values.empty() ? "" : ",",c->CharacterID(),key); }
-			// One atomic multi-row statement per participant. Counters saturate at
-			// 10,000, the highest required total. Never replay an uncertain write.
-			Query("INSERT INTO nightcap_title_counters(character_id,counter_id,value) VALUES "+values+
-				" ON DUPLICATE KEY UPDATE value=LEAST(value+1,10000)");
-			Snapshot s;
-			for (auto row : Query(fmt::format("SELECT counter_id,value FROM nightcap_title_counters WHERE character_id={}",c->CharacterID()))) {
-				s.counters[Strings::ToUnsignedInt(row[0])]=std::stoull(row[1]);
-			}
-			auto awards=Awards(c);
-			Refresh(c,s,awards);
+			participants.emplace(c->CharacterID(),c);
+		}
+		if (participants.empty() || !Enabled()) { return; }
+		std::string ids,values;
+		for (const auto &entry : participants) {
+			ids+=fmt::format("{}{}",ids.empty() ? "" : ",",entry.first);
+			for (auto key : keys) { values+=fmt::format("{}({},{},1)",values.empty() ? "" : ",",entry.first,key); }
+		}
+		// One atomic, primary-key-ordered write for the whole party. The ordinary
+		// death path uses four statements regardless of party size. Only a newly
+		// earned award adds a unique insert, preserving exact-once notifications.
+		Query("INSERT INTO nightcap_title_counters(character_id,counter_id,value) VALUES "+values+
+			" ON DUPLICATE KEY UPDATE value=LEAST(value+1,10000)");
+		std::map<unsigned,Snapshot> snapshots;
+		std::map<unsigned,std::set<unsigned>> awards;
+		for (auto row : Query("SELECT character_id,counter_id,value FROM nightcap_title_counters WHERE character_id IN ("+ids+")")) {
+			snapshots[Strings::ToUnsignedInt(row[0])].counters[Strings::ToUnsignedInt(row[1])]=std::stoull(row[2]);
+		}
+		for (auto row : Query("SELECT character_id,title_id FROM nightcap_title_awards WHERE character_id IN ("+ids+")")) {
+			awards[Strings::ToUnsignedInt(row[0])].insert(Strings::ToUnsignedInt(row[1]));
+		}
+		for (const auto &entry : participants) {
+			Refresh(entry.second,snapshots[entry.first],awards[entry.first]);
 		}
 	} catch (const std::exception &e) { LogError("Earned title kill credit failed; no replay [{}]",e.what()); }
 }

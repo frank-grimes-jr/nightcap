@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": [
+    "strict numeric schemas, InnoDB and primary keys",
+    "full activation preserves other commands",
+    "terminal/foreign schema replay rejected",
+    "command privilege drift rejected",
+    "concurrent awards remain unique",
+    "disable retains earned awards",
+    "1-member burst preserves every personal count",
+    "6-member burst preserves every personal count",
+    "72-member burst preserves every personal count",
+    "party counter saturation"
+  ],
+  "measurements": [
+    {
+      "participants": 1,
+      "kills": 50,
+      "statements_per_kill": 4,
+      "elapsed_seconds": 0.2629144999955315,
+      "mean_seconds_per_kill": 0.00525828999991063,
+      "scope": "real SQL burst in disposable network-disabled MariaDB; includes container-client startup; not a production latency claim"
+    },
+    {
+      "participants": 6,
+      "kills": 50,
+      "statements_per_kill": 4,
+      "elapsed_seconds": 0.2465529999753926,
+      "mean_seconds_per_kill": 0.004931059999507852,
+      "scope": "real SQL burst in disposable network-disabled MariaDB; includes container-client startup; not a production latency claim"
+    },
+    {
+      "participants": 72,
+      "kills": 50,
+      "statements_per_kill": 4,
+      "elapsed_seconds": 0.3691607999789994,
+      "mean_seconds_per_kill": 0.0073832159995799885,
+      "scope": "real SQL burst in disposable network-disabled MariaDB; includes container-client startup; not a production latency claim"
+    }
+  ]
+}

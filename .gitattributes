@@ -313,3 +313,5 @@ docs/releases/heroic-cast-sources-20261114/ops/feature.patch -text -whitespace
 docs/releases/heroic-cast-sources-20261114/ops/*.json text eol=lf
 docs/releases/fixed-aa-duration-20261114/ops/feature.patch -text -whitespace
 docs/releases/fixed-aa-duration-20261114/ops/*.json text eol=lf
+# Retained executable source delta: diff context includes native tabs/blanks.
+docs/titles/deployment-20261114/feature.patch text eol=lf -whitespace

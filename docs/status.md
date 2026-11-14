@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Earned titles activation
+
+Owner-authorized live package is built and reviewed; production activation pending. It preserves the current fixed-AA native build and completed prismatic data release. [Evidence and exact in-game QA](titles/deployment-20261114/README.md). Main/wiki preview publication did not previously activate title counting.
+
 ## November 14, 2026 · Classic Prismatic augments
 
 Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](items/classic-prismatic/README.md).
