@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Classic raid worn and focus effects
+
+Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](items/classic-raid-focus/README.md).
+
 ## November 14, 2026 · Guise of the Deceiver
 
 The Lower Guk assassin quest adds a 20% bonus drop. Production activation and in-game acceptance are pending. [Local verification and player QA](items/ghoul-assassin-guise.md).
