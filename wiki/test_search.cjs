@@ -23,7 +23,12 @@ async function search(q, fail = false) {
   assert.equal(result.results[0].children[0].textContent, 'Zone hunt & forging');
   result = await search('Hillside Dewstone');
   assert.equal(result.results[0].children[0].href, 'item-940024.html');
-  assert.equal(result.results.length, 6);
+  const hillsideItems = result.results.map(n => n.children[0].href).filter(href => /^item-94002[4-7]\.html$/.test(href));
+  assert.deepEqual(hillsideItems.sort(), ['item-940024.html','item-940025.html','item-940026.html','item-940027.html']);
+  result = await search('Perfected Augmentation Distiller');
+  for (const guide of ['tunnel.html', 'equipment.html']) {
+    assert.ok(result.results.some(n => n.children[0].href === guide), guide);
+  }
   result = await search('hillside ascension');
   assert.equal(result.results[0].children[0].href, 'item-940027.html');
   for(const query of ['AA','classes']) {
