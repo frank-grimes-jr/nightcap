@@ -24,6 +24,10 @@ class Gate(unittest.TestCase):
         self.combat.EVIDENCE.mkdir()
         self.combat.ACTIVE = self.combat.EVIDENCE/"activation"
         self.combat.p.a.prior.players.return_value = 0
+        spec = importlib.util.spec_from_file_location("heroic_maintenance",here/"maintenance.py")
+        self.maintenance = importlib.util.module_from_spec(spec)
+        with patch.dict(sys.modules,{"fcntl":types.SimpleNamespace(),"release":self.op}):
+            spec.loader.exec_module(self.maintenance)
 
     def preflight(self):
         (self.combat.EVIDENCE/"preflight.json").write_text("{}")
@@ -77,6 +81,27 @@ class Gate(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self.op.deploy(self.combat)
         self.combat.p.activate.assert_not_called()
+
+    def test_drain_only_reopens_original_on_timeout(self):
+        o = self.combat
+        o.EVIDENCE = self.op.STAGE/"unused"
+        o.ACTIVE = o.EVIDENCE/"activation"
+        o.ROOT = self.op.STAGE
+        services = {n:{"running":True,"health":"healthy","oom_killed":False}
+                    for n in ("game","db","gateway","tunnel","web")}
+        o.m = dict(source_revision=self.maintenance.REVISION,baseline_services=services,
+                   client_channel_sha256="signed",base_image_id="original")
+        o.r.compact.side_effect = lambda n:dict(services[n],running=False) if n=="gateway" and getattr(o,"_closed",False) is True else services[n]
+        def compose(*args):
+            o._closed = args[0]=="stop"
+        o.r.compose.side_effect = compose
+        o.p.sha.return_value="signed"
+        o.p.a.prior.players.return_value = 1
+        with patch.object(self.maintenance.time,"sleep"),patch.object(self.maintenance.time,"monotonic",side_effect=[0,301]),patch.object(self.maintenance.shutil,"disk_usage",return_value=types.SimpleNamespace(free=10*1024**3)):
+            with self.assertRaisesRegex(AssertionError,"native disconnect/save"):
+                self.maintenance.deploy(o)
+        o.p.activate.assert_not_called()
+        o.p.save.assert_called_with(self.op.STAGE/"drain-original-reopened.json",dict(source=self.maintenance.REVISION,gateway_open=True))
 
 
 if __name__ == "__main__":
