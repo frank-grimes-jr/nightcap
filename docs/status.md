@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Guise of the Deceiver
+
+The Lower Guk assassin quest adds a 20% bonus drop. Production activation and in-game acceptance are pending. [Local verification and player QA](items/ghoul-assassin-guise.md).
+
 ## November 14, 2026 · Classic Prismatic augments
 
 Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](items/classic-prismatic/README.md). Production verified all 12 workers and the rebuilt item cache. [Release](releases/classic-prismatic-20261114/README.md).

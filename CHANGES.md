@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Lower Guk assassin loot
+
+The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
+
 ## November 14, 2026 · Classic Prismatic augments
 
 Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](docs/items/classic-prismatic/README.md). Production verified all 12 workers and the rebuilt item cache. [Release](docs/releases/classic-prismatic-20261114/README.md).
