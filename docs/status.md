@@ -1,16 +1,20 @@
 # Current Nightcap status
 
+## November 14, 2026 · Classic raid worn and focus effects
+
+Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](items/classic-raid-focus/README.md). Production verified all 24 changes and 12 workers. [Release](releases/classic-raid-focus-20261114/README.md).
+
 ## November 14, 2026 · Earned titles activation
 
 Active and verified on all twelve open production workers, main PR475/b824e0d2. Catalog1 is enabled and `#titles` is public. Signed client2026111301 and the completed prismatic baseline are preserved. Palwar’s logged Nagafen victory received named-only credit; opening Titles/#titles reconciles Flamebreaker. The current public guide is published and verified. Native visible picker/nameplate/notification acceptance remains OPEN. [Evidence, incident resolution and exact player QA](titles/deployment-20261114/README.md).
 
 ## November 14, 2026 · Tunnel augment distiller
 
-Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](items/tunnel-distiller/README.md).
+Della’s Jewelcrafting Supplies in East Commonlands stocks the Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Production slot 105 verified November 14. All 104 prior rows, 12 workers and five services were preserved. East Commonlands was unloaded and loads the new stock on entry. Native player QA remains open. [Deployment receipt](items/tunnel-distiller/production.json). [Stock migration and in-game checks](items/tunnel-distiller/README.md).
 
 ## November 14, 2026 · Guise of the Deceiver
 
-The Lower Guk assassin quest adds a 20% bonus drop. Production activation and in-game acceptance are pending. [Local verification and player QA](items/ghoul-assassin-guise.md).
+OVH installed the Lower Guk assassin’s 20% bonus drop at 3:55 p.m. Eastern. The production-container Lua checks passed and Lower Guk was unloaded. Fresh assassins roll the bonus after the next zone boot. [Deployment receipt](releases/ghoul-assassin-guise-20261114/verified.json) · [Player QA](items/ghoul-assassin-guise.md).
 
 ## November 14, 2026 · Classic Prismatic augments
 

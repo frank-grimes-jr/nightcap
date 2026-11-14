@@ -1,6 +1,6 @@
 # Tunnel augment distiller
 
-Della (Jewelcrafting Supplies) has a permanent Perfected Augmentation Distiller in the test candidate. Find her in the public East Commonlands tunnel workshop at `/loc -1718, -334, 3.75` (Y, X, Z). One distiller removes one augment that requires a reagent through the RoF2 item window. Gear stays in its original slot and the augment returns to the cursor for reuse.
+Della (Jewelcrafting Supplies) sells the Perfected Augmentation Distiller as permanent production stock. Find her in the public East Commonlands tunnel workshop at `/loc -1718, -334, 3.75` (Y, X, Z). One distiller removes one augment that requires a reagent through the RoF2 item window. Gear stays in its original slot and the augment returns to the cursor for reuse.
 
 ## Catalog and price
 
@@ -16,7 +16,9 @@ SELECT * FROM merchantlist WHERE merchantid=999609 AND (slot=105 OR item=52023);
 ```
 Expect one row with slot 105, item 52023 and probability 100. The change needs only a merchant reload. The existing item cache, client and binaries are sufficient. Apply this addition after any historical full tunnel-catalog rebuild. For withdrawal, run [rollback.sql](rollback.sql) and reload merchants. It compares the owned row before deleting it. Purchased distillers and player gear remain in player custody.
 
-## Player QA on test
+## Production and player QA
+
+[Main PR 473](https://github.com/frank-grimes-jr/nightcap/pull/473) ships the same SQL and native fixture as the test release. The November 14 production transaction added slot 105 after saving Della’s full stock preimage. The other 104 rows matched byte for byte. Twelve zone worker identities, five service identities and open admissions were verified. East Commonlands was unloaded on both sides of the transaction, so its next boot loads the catalog. Player purchase, cursor delivery and relog checks remain open. [Production receipt](production.json).
 
 1. In public East Commonlands, open Della's shop at the location above. Buy two Perfected Augmentation Distillers. Check the displayed quote, coin deduction and stack count. Close and reopen her shop and confirm she still sells them and her Jewelcrafting supplies.
 2. Socket a Singed Goblin Eye (51904, normally a Class IV distiller) into a compatible type-7 armor socket. Put the two perfected distillers in inventory and empty the cursor. Open the armor's item window, select the socket and choose **Remove**. Confirm the prompt describes removal.
@@ -31,4 +33,4 @@ Four MariaDB tests passed with the local developer container. Run `python -B doc
 
 The Tunnel, Equipment, zone augment guide and Change Log carry the player instructions and links. Home and Features already link the owning guides. Commands, generated reward and zone catalogs, augment stats, recipes and drop rates have no changes. Publish the guide text against the current public wiki once the merchant is activated.
 
-Fifteen integration wiki tests passed. The integration search test checks for both distiller guides and matches the current public test for the four Hillside Dewstone items. Applying just the four article additions to the November 14 staged public guide source passed all five public-language checks and its current Node search suite. All three distiller search records were present. The repository refresh checker reports accumulated drift since October 24; the scoped review leaves the global ledger intact. The public site has not been updated with this candidate.
+Fifteen integration wiki tests passed. The integration search test checks for both distiller guides and matches the current public test for the four Hillside Dewstone items. Applying just the four article additions to the November 14 staged public guide source passed all five public-language checks and its current Node search suite. All three distiller search records were present. The repository refresh checker reports accumulated drift since October 24; the scoped review leaves the global ledger intact. The release-specific wiki package reproduced all 631 files of the current public predecessor before the four guide additions. Exactly five outputs changed, including the search index. The package passed 19 guide and public-language tests and the Node search suite. The public wiki remains on its separately published predecessor.

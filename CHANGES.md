@@ -1,16 +1,20 @@
 # CHANGES
 
+## November 14, 2026 · Classic raid worn and focus effects
+
+Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md). Production verified all 24 changes and 12 workers. [Release](docs/releases/classic-raid-focus-20261114/README.md).
+
 ## November 14, 2026 · Earned titles active
 
 Activated 77 permanent cosmetic titles and public `#titles` on all twelve production zone workers. Qualifying kills, skill mastery, personal dungeon clears and campaign completion earn titles; new general kill totals start at activation. Restored only Palwar’s independently logged Nagafen victory for Flamebreaker. The public wiki now documents availability and requirements. The initial pre-SQL stopped-world RPC hold was resolved with a reviewed bounded continuation and fresh backup; no player snapshot restore. [Runtime, wiki proof and open native player QA](docs/titles/deployment-20261114/README.md).
 
 ## November 14, 2026 · Tunnel augment distiller
 
-Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](docs/items/tunnel-distiller/README.md).
+Della’s Jewelcrafting Supplies in East Commonlands stocks the Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Production slot 105 verified November 14. All 104 prior rows, 12 workers and five services were preserved. East Commonlands was unloaded and loads the new stock on entry. Native player QA remains open. [Deployment receipt](docs/items/tunnel-distiller/production.json). [Stock migration and in-game checks](docs/items/tunnel-distiller/README.md).
 
 ## November 14, 2026 · Lower Guk assassin loot
 
-The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
+The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. OVH installed the quest on November 14. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
 
 ## November 14, 2026 · Classic Prismatic augments
 
