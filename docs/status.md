@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 13, 2026 · Normal bow damage and heroic DEX
+
+Ordinary player bow attacks gain a heroic DEX percentage alongside the existing flat ranged bonus. The calibration follows the documented 100, 200, 250 and 300 heroic DEX examples and continues the last slope beyond 300. Paired normal-arrow tests with and without Archery Mastery and Bow Mastery found the missing multiplier. A separate level-51 check confirmed the stationary-target bonus now recognizes held Ranger. [Bow QA and expected behavior](combat/thj-bows/QA.md).
+
 ## November 13, 2026 · Classic sympathetic clicks installed on local test
 
 Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. All eight test zone workers loaded the paired zone and caches. First-minute progression healing rose 4% on both dragons; the full-fight 3–5% target and owner RoF2 QA remain open. [Item sources, era review and in-game QA](items/sympathetic-clicks/README.md).
