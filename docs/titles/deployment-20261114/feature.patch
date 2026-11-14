@@ -1,0 +1,478 @@
+--- a/server-mods/code/zone/attack.cpp
++++ b/server-mods/code/zone/attack.cpp
+@@ -1,3 +1,4 @@
++#include "zone/earned_titles.h"
+ #include "zone/dungeon_service.h"
+ #include "common/warhelm_policy.h"
+ #include "zone/zone_hunt.h"
+@@ -3100,6 +3101,7 @@
+ 	entity_list.UpdateFindableNPCState(this, true);
+ 
+ 	m_combat_record.Stop();
++	NightcapTitles::RecordKill(this, give_exp_client, hunt_owned || is_merchant || is_ldon_treasure || IsQueuedForCorpse() || NightcapAshen::Transient(GetNPCTypeID()));
+ 
+ 	if (give_exp_client && !IsCorpse()) {
+ 		const auto& v = give_exp_client->GetRaidOrGroupOrSelf(true);
+--- a/server-mods/code/zone/client.cpp
++++ b/server-mods/code/zone/client.cpp
+@@ -1,3 +1,4 @@
++#include "zone/earned_titles.h"
+ #include "zone/advanced_loot.h"
+ /*	EQEMu: Everquest Server Emulator
+ 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
+@@ -2308,13 +2309,14 @@
+ 		return;
+ 	m_pp.skills[skillid] = value; // We need to be able to #setskill 254 and 255 to reset skills
+ 
+-	database.SaveCharacterSkill(CharacterID(), skillid, value);
++	const bool skill_saved = database.SaveCharacterSkill(CharacterID(), skillid, value);
+ 	auto outapp = new EQApplicationPacket(OP_SkillUpdate, sizeof(SkillUpdate_Struct));
+ 	SkillUpdate_Struct* skill = (SkillUpdate_Struct*)outapp->pBuffer;
+ 	skill->skillId=skillid;
+ 	skill->value=value;
+ 	QueuePacket(outapp);
+ 	safe_delete(outapp);
++	if (skill_saved) { NightcapTitles::CheckSkill(this, static_cast<unsigned>(skillid)); }
+ }
+ 
+ // Commands, quests and native AA controls share eligibility and percentage
+--- a/server-mods/code/zone/command.cpp
++++ b/server-mods/code/zone/command.cpp
+@@ -1,3 +1,4 @@
++#include "zone/earned_titles.h"
+ #include "command.h"
+ 
+ #include "common/data_bucket.h"
+@@ -79,6 +80,7 @@
+ 	}
+ 
+ 	if (
++		command_add("titles", "[page] - View earned titles and their requirements.", AccountStatus::Player, command_titles) ||
+ 		command_add("itemxp", "View training progress for the item in your Power Source slot.", AccountStatus::Player, command_itemxp) ||
+ 		command_add("factions", "[page] [name] or target - View your faction standings, values and bars.", AccountStatus::Player, command_factions) ||
+ 		command_add("nightcappet", "Manage your pet armor.", AccountStatus::Player, command_nightcappet) ||
+@@ -800,3 +802,9 @@
+ 		c->Message(Chat::Red, "Bots are disabled on this server.");
+ 	}
+ }
++
++void command_titles(Client *c, const Seperator *sep)
++{
++	if (sep->argnum>1 || (sep->argnum==1 && !sep->IsNumber(1))) { c->Message(Chat::White,"Usage: #titles [page]"); return; }
++	NightcapTitles::Show(c,sep->argnum ? Strings::ToUnsignedInt(sep->arg[1]) : 1);
++}
+--- a/server-mods/code/zone/command.h
++++ b/server-mods/code/zone/command.h
+@@ -214,3 +214,5 @@
+ void command_bot(Client*c, const Seperator *sep);
+ 
+ void command_advloot(Client *c, const Seperator *sep);
++
++void command_titles(Client *c, const Seperator *sep);
+--- a/server-mods/code/zone/titles.cpp
++++ b/server-mods/code/zone/titles.cpp
+@@ -1,4 +1,5 @@
+ #include "titles.h"
++#include "zone/earned_titles.h"
+ 
+ #include "common/eq_packet_structs.h"
+ #include "common/misc_functions.h"
+@@ -10,6 +11,8 @@
+ 
+ extern WorldServer worldserver;
+ 
++#include "earned_titles.inc"
++
+ TitleManager::TitleManager() {
+ }
+ 
+@@ -70,7 +73,7 @@
+ 		}
+ 	);
+ 
+-	return e != titles.end() ? e->prefix : "";
++	return e != titles.end() ? e->prefix : NightcapTitles::Name(title_id, false);
+ }
+ 
+ std::string TitleManager::GetSuffix(int title_id)
+@@ -87,7 +90,7 @@
+ 		}
+ 	);
+ 
+-	return e != titles.end() ? e->suffix : "";
++	return e != titles.end() ? e->suffix : NightcapTitles::Name(title_id, true);
+ }
+ 
+ bool TitleManager::HasTitle(Client* c, uint32 title_id)
+@@ -184,6 +187,7 @@
+ 		eligible_titles.emplace_back(t);
+ 	}
+ 
++	NightcapTitles::AppendEligible(c, titles, eligible_titles);
+ 	return eligible_titles;
+ }
+ 
+--- a/server-mods/code/common/earned_title_policy.h
++++ b/server-mods/code/common/earned_title_policy.h
+@@ -0,0 +1,82 @@
++#pragma once
++#include <algorithm>
++#include <cstdint>
++#include <map>
++#include <set>
++#include <string>
++#include <utility>
++#include <vector>
++
++namespace NightcapTitles {
++inline constexpr unsigned TitleBegin = 1900000000, TitleEnd = 1900001000;
++enum class Kind { Counter, Skill, AllCrafts, RaidZone, RaidCount, ClearCount, Classic, Planes, Task, Level, BothDragons };
++struct Definition {
++	unsigned id;
++	const char *name;
++	bool suffix;
++	Kind kind;
++	unsigned key, required;
++	const char *description;
++};
++#include "earned_title_catalog.h"
++inline constexpr unsigned ClassicZones[] = {36,63,6,44,48,73,32,17,58,11,31,65,66,59,64,18,39,45,72,186,71};
++inline constexpr unsigned Crafts[] = {60,61,63,64,65,68,69};
++struct Snapshot {
++	unsigned level = 0;
++	std::map<unsigned, uint64_t> counters;
++	std::map<unsigned, std::pair<unsigned, unsigned>> skills; // raw, legal level-50 cap
++	std::set<unsigned> clear_zones, raid_zones, tasks;
++};
++inline unsigned NormalizeZone(unsigned zone) { return zone == 76 ? 186 : zone; }
++inline uint64_t Counter(const Snapshot &s, unsigned key) {
++	const auto it = s.counters.find(key);
++	return it == s.counters.end() ? 0 : it->second;
++}
++inline bool Mastered(const Snapshot &s, unsigned skill) {
++	const auto it = s.skills.find(skill);
++	return s.level >= 50 && it != s.skills.end() && it->second.second > 0 && it->second.first >= it->second.second;
++}
++inline std::pair<uint64_t, uint64_t> Progress(const Definition &d, const Snapshot &s) {
++	uint64_t value = 0, required = d.required;
++	switch (d.kind) {
++	case Kind::Counter: value = Counter(s,d.key); break;
++	case Kind::Skill: {
++		const auto it=s.skills.find(d.key);
++		required=it==s.skills.end() || !it->second.second ? 1 : it->second.second;
++		value=it==s.skills.end() || s.level<50 || !it->second.second ? 0 : it->second.first;
++		break;
++	}
++	case Kind::AllCrafts: required=7; for (auto skill : Crafts) { value += Mastered(s,skill); } break;
++	case Kind::RaidZone: value=s.raid_zones.count(d.key); break;
++	case Kind::RaidCount: value=s.raid_zones.size(); break;
++	case Kind::ClearCount: value=s.clear_zones.size(); break;
++	case Kind::Classic: required=21; for (auto zone : ClassicZones) { value += s.raid_zones.count(zone); } break;
++	case Kind::Planes: required=3; for (auto zone : {72u,186u,71u}) { value += s.raid_zones.count(zone); } break;
++	case Kind::Task: value=s.tasks.count(d.key); break;
++	case Kind::Level: value=s.level; break;
++	case Kind::BothDragons: required=2; value=(Counter(s,100)>0)+(Counter(s,101)>0); break;
++	}
++	return {std::min(value,required),required};
++}
++inline bool Earned(const Definition &d, const Snapshot &s) {
++	const auto p=Progress(d,s);
++	return p.second>0 && p.first>=p.second;
++}
++inline std::vector<unsigned> KillKeys(unsigned body, unsigned zone, unsigned npc) {
++	std::vector<unsigned> keys={1};
++	if (body==3 || body==8 || body==12) { keys.push_back(2); }
++	if (body==4 || body==9) { keys.push_back(3); }
++	if (body==26 || body==29 || body==30 || body==32) { keys.push_back(4); }
++	if (zone==32 && npc==32040) { keys.push_back(100); }
++	if (zone==73 && npc==73057) { keys.push_back(101); }
++	if (zone==72 && npc==72090) { keys.push_back(102); }
++	return keys;
++}
++inline bool CreditEligible(bool player, bool loaded, bool alive, bool nontrivial, bool natural, float distance_squared) {
++	return player && loaded && alive && nontrivial && natural && distance_squared<=40000.0f;
++}
++inline const Definition *Find(unsigned id) {
++	for (const auto &d : Catalog) { if (d.id==id) { return &d; } }
++	return nullptr;
++}
++}
+--- a/server-mods/code/common/earned_title_catalog.h
++++ b/server-mods/code/common/earned_title_catalog.h
+@@ -0,0 +1,80 @@
++// Generated by tools/earned_titles.py; stable IDs, never reuse.
++inline constexpr Definition Catalog[] = {
++	{1900000001,"Hunter",false,Kind::Counter,1,100,"Defeat 100 qualifying enemies."},
++	{1900000002,"Slayer",false,Kind::Counter,1,1000,"Defeat 1,000 qualifying enemies."},
++	{1900000003,"Vanquisher",false,Kind::Counter,1,10000,"Defeat 10,000 qualifying enemies."},
++	{1900000004,"Grave Warden",false,Kind::Counter,2,100,"Defeat 100 qualifying undead."},
++	{1900000005,"Undead Slayer",false,Kind::Counter,2,1000,"Defeat 1,000 qualifying undead."},
++	{1900000006,"Deathbane",false,Kind::Counter,2,5000,"Defeat 5,000 qualifying undead."},
++	{1900000007,"Giant Hunter",false,Kind::Counter,3,100,"Defeat 100 qualifying giants."},
++	{1900000008,"Giant Slayer",false,Kind::Counter,3,1000,"Defeat 1,000 qualifying giants."},
++	{1900000009,"Wyrm Hunter",false,Kind::Counter,4,1,"Defeat 1 qualifying dragons."},
++	{1900000010,"Wyrm Slayer",false,Kind::Counter,4,10,"Defeat 10 qualifying dragons."},
++	{1900000011,"Wyrmbane",false,Kind::Counter,4,100,"Defeat 100 qualifying dragons."},
++	{1900000012,"Flamebreaker",false,Kind::Counter,100,1,"Defeat Lord Nagafen in Nagafen's Lair."},
++	{1900000013,"Frostbreaker",false,Kind::Counter,101,1,"Defeat Lady Vox in Permafrost."},
++	{1900000014,"Dracoliche Bane",false,Kind::Counter,102,1,"Defeat a dracoliche in Plane of Fear."},
++	{1900000015,"Dragonslayer",false,Kind::BothDragons,0,2,"Defeat both Lord Nagafen and Lady Vox."},
++	{1900000016,"Dungeon Delver",false,Kind::ClearCount,0,1,"Earn a personal full clear in any Keeper dungeon, Grind or Raid."},
++	{1900000017,"Dungeon Conqueror",false,Kind::RaidCount,0,5,"Earn personal full Raid clears in five different Keeper dungeons."},
++	{1900000018,"Conqueror of Classic",false,Kind::Classic,0,21,"Earn personal full Raid clears in all 21 Classic Keeper dungeons."},
++	{1900000019,"Planar Conqueror",false,Kind::Planes,0,3,"Earn personal full Raid clears in Fear, Hate and Sky."},
++	{1900000030,"Bane of Befallen",false,Kind::RaidZone,36,1,"Earn a personal full Raid clear in Befallen."},
++	{1900000031,"Restbringer",false,Kind::RaidZone,63,1,"Earn a personal full Raid clear in Estate of Unrest."},
++	{1900000032,"High Keep Liberator",false,Kind::RaidZone,6,1,"Earn a personal full Raid clear in High Keep."},
++	{1900000033,"Breaker of Najena",false,Kind::RaidZone,44,1,"Earn a personal full Raid clear in Najena."},
++	{1900000034,"Temple Breaker",false,Kind::RaidZone,48,1,"Earn a personal full Raid clear in Cazic-Thule."},
++	{1900000035,"Winter Conqueror",false,Kind::RaidZone,73,1,"Earn a personal full Raid clear in Permafrost."},
++	{1900000036,"Flame Conqueror",false,Kind::RaidZone,32,1,"Earn a personal full Raid clear in Nagafen's Lair."},
++	{1900000037,"Blackburrow Bane",false,Kind::RaidZone,17,1,"Earn a personal full Raid clear in Blackburrow."},
++	{1900000038,"Orcbane",false,Kind::RaidZone,58,1,"Earn a personal full Raid clear in Crushbone."},
++	{1900000039,"Runnyeye Conqueror",false,Kind::RaidZone,11,1,"Earn a personal full Raid clear in Runnyeye."},
++	{1900000040,"Deepfire Conqueror",false,Kind::RaidZone,31,1,"Earn a personal full Raid clear in Solusek's Eye."},
++	{1900000041,"Guk Pathfinder",false,Kind::RaidZone,65,1,"Earn a personal full Raid clear in Upper Guk."},
++	{1900000042,"Ghoulbane",false,Kind::RaidZone,66,1,"Earn a personal full Raid clear in Lower Guk."},
++	{1900000043,"Mistmoore Conqueror",false,Kind::RaidZone,59,1,"Earn a personal full Raid clear in Castle Mistmoore."},
++	{1900000044,"Tidebreaker",false,Kind::RaidZone,64,1,"Earn a personal full Raid clear in Kedge Keep."},
++	{1900000045,"Splitpaw Conqueror",false,Kind::RaidZone,18,1,"Earn a personal full Raid clear in Splitpaw."},
++	{1900000046,"Deep Delver",false,Kind::RaidZone,39,1,"Earn a personal full Raid clear in The Hole."},
++	{1900000047,"Catacomb Conqueror",false,Kind::RaidZone,45,1,"Earn a personal full Raid clear in Qeynos Catacombs."},
++	{1900000048,"Fearless",false,Kind::RaidZone,72,1,"Earn a personal full Raid clear in Plane of Fear."},
++	{1900000049,"Hatebreaker",false,Kind::RaidZone,186,1,"Earn a personal full Raid clear in Plane of Hate."},
++	{1900000050,"Skybreaker",false,Kind::RaidZone,71,1,"Earn a personal full Raid clear in Plane of Sky."},
++	{1900000100,"Mace Master",false,Kind::Skill,0,1,"At level 50 or higher, raise raw 1H Blunt to the highest legal level-50 cap among your currently held classes."},
++	{1900000101,"Blademaster",false,Kind::Skill,1,1,"At level 50 or higher, raise raw 1H Slashing to the highest legal level-50 cap among your currently held classes."},
++	{1900000102,"Maul Master",false,Kind::Skill,2,1,"At level 50 or higher, raise raw 2H Blunt to the highest legal level-50 cap among your currently held classes."},
++	{1900000103,"Greatblade Master",false,Kind::Skill,3,1,"At level 50 or higher, raise raw 2H Slashing to the highest legal level-50 cap among your currently held classes."},
++	{1900000104,"Piercing Master",false,Kind::Skill,36,1,"At level 50 or higher, raise raw 1H Piercing to the highest legal level-50 cap among your currently held classes."},
++	{1900000105,"Lance Master",false,Kind::Skill,77,1,"At level 50 or higher, raise raw 2H Piercing to the highest legal level-50 cap among your currently held classes."},
++	{1900000106,"Deadeye",false,Kind::Skill,7,1,"At level 50 or higher, raise raw Archery to the highest legal level-50 cap among your currently held classes."},
++	{1900000107,"Iron Fist",false,Kind::Skill,28,1,"At level 50 or higher, raise raw Hand to Hand to the highest legal level-50 cap among your currently held classes."},
++	{1900000108,"Stalwart",false,Kind::Skill,15,1,"At level 50 or higher, raise raw Defense to the highest legal level-50 cap among your currently held classes."},
++	{1900000109,"Tranquil",false,Kind::Skill,31,1,"At level 50 or higher, raise raw Meditate to the highest legal level-50 cap among your currently held classes."},
++	{1900000110,"Master Abjurer",false,Kind::Skill,4,1,"At level 50 or higher, raise raw Abjuration to the highest legal level-50 cap among your currently held classes."},
++	{1900000111,"Master Transmuter",false,Kind::Skill,5,1,"At level 50 or higher, raise raw Alteration to the highest legal level-50 cap among your currently held classes."},
++	{1900000112,"Master Conjurer",false,Kind::Skill,14,1,"At level 50 or higher, raise raw Conjuration to the highest legal level-50 cap among your currently held classes."},
++	{1900000113,"Master Seer",false,Kind::Skill,18,1,"At level 50 or higher, raise raw Divination to the highest legal level-50 cap among your currently held classes."},
++	{1900000114,"Master Evoker",false,Kind::Skill,24,1,"At level 50 or higher, raise raw Evocation to the highest legal level-50 cap among your currently held classes."},
++	{1900000115,"Virtuoso",false,Kind::Skill,41,1,"At level 50 or higher, raise raw Singing to the highest legal level-50 cap among your currently held classes."},
++	{1900000116,"Pathfinder",false,Kind::Skill,53,1,"At level 50 or higher, raise raw Tracking to the highest legal level-50 cap among your currently held classes."},
++	{1900000117,"Unseen",false,Kind::Skill,29,1,"At level 50 or higher, raise raw Hide to the highest legal level-50 cap among your currently held classes."},
++	{1900000118,"Silent Step",false,Kind::Skill,42,1,"At level 50 or higher, raise raw Sneak to the highest legal level-50 cap among your currently held classes."},
++	{1900000119,"Surefoot",false,Kind::Skill,39,1,"At level 50 or higher, raise raw Safe Fall to the highest legal level-50 cap among your currently held classes."},
++	{1900000120,"Tidewalker",false,Kind::Skill,50,1,"At level 50 or higher, raise raw Swimming to the highest legal level-50 cap among your currently held classes."},
++	{1900000121,"Master Angler",false,Kind::Skill,55,1,"At level 50 or higher, raise raw Fishing to the highest legal level-50 cap among your currently held classes."},
++	{1900000122,"Iron Liver",false,Kind::Skill,66,1,"At level 50 or higher, raise raw Alcohol Tolerance to the highest legal level-50 cap among your currently held classes."},
++	{1900000123,"Master Baker",false,Kind::Skill,60,1,"At level 50 or higher, raise raw Baking to the highest legal level-50 cap among your currently held classes."},
++	{1900000124,"Master Tailor",false,Kind::Skill,61,1,"At level 50 or higher, raise raw Tailoring to the highest legal level-50 cap among your currently held classes."},
++	{1900000125,"Master Smith",false,Kind::Skill,63,1,"At level 50 or higher, raise raw Blacksmithing to the highest legal level-50 cap among your currently held classes."},
++	{1900000126,"Master Fletcher",false,Kind::Skill,64,1,"At level 50 or higher, raise raw Fletching to the highest legal level-50 cap among your currently held classes."},
++	{1900000127,"Master Brewer",false,Kind::Skill,65,1,"At level 50 or higher, raise raw Brewing to the highest legal level-50 cap among your currently held classes."},
++	{1900000128,"Master Jeweler",false,Kind::Skill,68,1,"At level 50 or higher, raise raw Jewelry Making to the highest legal level-50 cap among your currently held classes."},
++	{1900000129,"Master Potter",false,Kind::Skill,69,1,"At level 50 or higher, raise raw Pottery to the highest legal level-50 cap among your currently held classes."},
++	{1900000130,"Master Alchemist",false,Kind::Skill,59,1,"At level 50 or higher, raise raw Alchemy to the highest legal level-50 cap among your currently held classes."},
++	{1900000131,"Master Poisoner",false,Kind::Skill,56,1,"At level 50 or higher, raise raw Make Poison to the highest legal level-50 cap among your currently held classes."},
++	{1900000132,"Master Tinker",false,Kind::Skill,57,1,"At level 50 or higher, raise raw Tinkering to the highest legal level-50 cap among your currently held classes."},
++	{1900000133,"Master Researcher",false,Kind::Skill,58,1,"At level 50 or higher, raise raw Research to the highest legal level-50 cap among your currently held classes."},
++	{1900000140,"Master Artisan",false,Kind::AllCrafts,0,7,"At level 50 or higher, master Baking, Tailoring, Blacksmithing, Fletching, Brewing, Jewelry Making and Pottery together."},
++	{1900000150,"Seasoned Adventurer",false,Kind::Level,0,50,"Reach level 50."},
++	{1900000151,"the Last Lantern",true,Kind::Task,9515,1,"Complete the final chapter of The Last Lantern campaign."},
++};
+--- a/server-mods/code/zone/earned_titles.h
++++ b/server-mods/code/zone/earned_titles.h
+@@ -0,0 +1,13 @@
++#pragma once
++#include "common/repositories/titles_repository.h"
++#include <string>
++#include <vector>
++class Client;
++class NPC;
++namespace NightcapTitles {
++void RecordKill(NPC *npc, Client *credit, bool excluded);
++void CheckSkill(Client *client, unsigned skill);
++void AppendEligible(Client *client, const std::vector<TitlesRepository::Titles> &native, std::vector<TitlesRepository::Titles> &out);
++std::string Name(unsigned id, bool suffix);
++void Show(Client *client, unsigned page);
++}
+--- a/server-mods/code/zone/earned_titles.inc
++++ b/server-mods/code/zone/earned_titles.inc
+@@ -0,0 +1,177 @@
++// Compiled by titles.cpp: no new translation unit or Client layout change.
++#include "common/earned_title_policy.h"
++#include "common/dungeon_catalog.h"
++#include "zone/dungeon_service.h"
++#include "zone/npc.h"
++#include "zone/zone.h"
++#include <set>
++#include <stdexcept>
++
++extern Zone *zone;
++namespace NightcapTitles {
++namespace {
++auto Query(const std::string &sql) {
++	auto rows=database.QueryDatabase(sql,false);
++	if (!rows.Success()) { throw std::runtime_error("earned-title storage unavailable"); }
++	return rows;
++}
++bool Enabled() {
++	for (const auto &t : title_manager.GetTitles()) {
++		if (t.id>=TitleBegin && t.id<TitleEnd) { throw std::runtime_error("reserved earned-title ID collision"); }
++	}
++	auto rows=Query("SELECT enabled FROM nightcap_title_settings WHERE id=1 AND catalog_version=1");
++	return rows.RowCount()==1 && rows.begin()[0] && std::string(rows.begin()[0])=="1";
++}
++bool Player(Client *c) { return c && c->Admin()==0 && !c->GetGM() && c->Connected() && c->ClientDataLoaded(); }
++unsigned SkillCap(Client *c, unsigned skill) {
++	unsigned cap=0;
++	for (auto cls : c->GetMulticlassList()) {
++		cap=std::max(cap,static_cast<unsigned>(c->MaxSkill(static_cast<EQ::skills::SkillType>(skill),cls,50)));
++	}
++	return cap;
++}
++std::set<unsigned> Awards(Client *c) {
++	std::set<unsigned> awards;
++	for (auto row : Query(fmt::format("SELECT title_id FROM nightcap_title_awards WHERE character_id={}",c->CharacterID()))) {
++		awards.insert(Strings::ToUnsignedInt(row[0]));
++	}
++	return awards;
++}
++void Grant(Client *c, const Definition &d) {
++	auto rows=Query(fmt::format("INSERT IGNORE INTO nightcap_title_awards(character_id,title_id,earned_at) VALUES ({},{},UNIX_TIMESTAMP())",c->CharacterID(),d.id));
++	if (rows.RowsAffected()==1) { c->Message(Chat::Yellow,"Title earned: %s. Select it in the Titles window.",d.name); }
++}
++Snapshot Read(Client *c) {
++	Snapshot s;
++	s.level=c->GetLevel();
++	std::map<unsigned,unsigned> saved_skills;
++	for (auto row : Query(fmt::format("SELECT skill_id,value FROM character_skills WHERE id={}",c->CharacterID()))) {
++		saved_skills[Strings::ToUnsignedInt(row[0])]=Strings::ToUnsignedInt(row[1]);
++	}
++	for (auto row : Query(fmt::format("SELECT counter_id,value FROM nightcap_title_counters WHERE character_id={}",c->CharacterID()))) {
++		s.counters[Strings::ToUnsignedInt(row[0])]=std::stoull(row[1]);
++	}
++	for (const auto &d : Catalog) {
++		if (d.kind==Kind::Skill) {
++			s.skills[d.key]={std::min(saved_skills[d.key],c->GetRawSkill(static_cast<EQ::skills::SkillType>(d.key))),SkillCap(c,d.key)};
++		}
++	}
++	// Durable, per-member full completion; enrollment, global boss kills and
++	// completing a final boss alone cannot substitute for personal full credit.
++	for (auto row : Query(fmt::format("SELECT DISTINCT r.zone_id,r.mode FROM nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0",c->CharacterID()))) {
++		const auto z=NormalizeZone(Strings::ToUnsignedInt(row[0]));
++		s.clear_zones.insert(z);
++		if (std::string(row[1])=="1") { s.raid_zones.insert(z); }
++	}
++	// Historical named victories may be recovered from personal boss credit,
++	// including Grind. General slayer totals cannot be reconstructed from it.
++	for (auto row : Query(fmt::format("SELECT DISTINCT r.zone_id,k.boss_id FROM nightcap_dungeon_kills k JOIN nightcap_dungeon_runs r ON r.run_id=k.run_id WHERE k.character_id={} AND k.character_id>0 AND r.zone_id IN (32,73,72)",c->CharacterID()))) {
++		const auto z=Strings::ToUnsignedInt(row[0]), objective=Strings::ToUnsignedInt(row[1]);
++		if (z==32 && objective==13) { s.counters[100]=std::max(uint64_t(1),Counter(s,100)); }
++		if (z==73 && objective==8) { s.counters[101]=std::max(uint64_t(1),Counter(s,101)); }
++		if (z==72 && objective==4) { s.counters[102]=std::max(uint64_t(1),Counter(s,102)); }
++	}
++	for (auto row : Query(fmt::format("SELECT DISTINCT taskid FROM completed_tasks WHERE charid={} AND taskid=9515 AND activityid=-1",c->CharacterID()))) {
++		s.tasks.insert(Strings::ToUnsignedInt(row[0]));
++	}
++	return s;
++}
++void Refresh(Client *c, const Snapshot &s, std::set<unsigned> &awards) {
++	if (!Player(c)) { return; }
++	for (const auto &d : Catalog) {
++		if (!awards.count(d.id) && Earned(d,s)) { Grant(c,d); awards.insert(d.id); }
++	}
++}
++}
++std::string Name(unsigned id, bool suffix) {
++	const auto d=Find(id);
++	return d && d->suffix==suffix ? d->name : "";
++}
++void AppendEligible(Client *c, const std::vector<TitlesRepository::Titles> &, std::vector<TitlesRepository::Titles> &out) {
++	try {
++		if (!c || !Enabled()) { return; }
++		auto awards=Awards(c);
++		const auto s=Read(c);
++		Refresh(c,s,awards);
++		for (const auto &d : Catalog) {
++			if (!awards.count(d.id)) { continue; }
++			auto t=TitlesRepository::NewEntity();
++			t.id=d.id;
++			if (d.suffix) { t.suffix=d.name; } else { t.prefix=d.name; }
++			out.push_back(t);
++		}
++	} catch (const std::exception &e) { LogError("Earned title list unavailable [{}]",e.what()); }
++}
++void RecordKill(NPC *npc, Client *credit, bool excluded) {
++	// This runs after the native death/corpse commitment, never on a death veto.
++	if (!npc || !credit || excluded || !npc->GetSpawnPointID() || NightcapDungeon::Campaign() ||
++		NightcapDungeon::HighkeepTransient(npc) || !npc->GetEntityVariable("nightcap:title-death").empty()) { return; }
++	npc->SetEntityVariable("nightcap:title-death","1");
++	try {
++		const auto keys=KillKeys(npc->GetBodyType(),zone->GetZoneID(),npc->GetNPCTypeID());
++		std::map<unsigned,Client *> participants;
++		for (auto c : credit->GetPartyMembers()) {
++			if (!c || !c->CharacterID() || !CreditEligible(Player(c),c->ClientDataLoaded(),
++				!c->IsDead() && c->GetHP()>0,c->GetLevelCon(npc->GetLevel())!=ConsiderColor::Gray,true,
++				DistanceSquared(c->GetPosition(),npc->GetPosition()))) { continue; }
++			participants.emplace(c->CharacterID(),c);
++		}
++		if (participants.empty() || !Enabled()) { return; }
++		std::string ids,values;
++		for (const auto &entry : participants) {
++			ids+=fmt::format("{}{}",ids.empty() ? "" : ",",entry.first);
++			for (auto key : keys) { values+=fmt::format("{}({},{},1)",values.empty() ? "" : ",",entry.first,key); }
++		}
++		// One atomic, primary-key-ordered write for the whole party. The ordinary
++		// death path uses four statements regardless of party size. Only a newly
++		// earned award adds a unique insert, preserving exact-once notifications.
++		Query("INSERT INTO nightcap_title_counters(character_id,counter_id,value) VALUES "+values+
++			" ON DUPLICATE KEY UPDATE value=LEAST(value+1,10000)");
++		std::map<unsigned,Snapshot> snapshots;
++		std::map<unsigned,std::set<unsigned>> awards;
++		for (auto row : Query("SELECT character_id,counter_id,value FROM nightcap_title_counters WHERE character_id IN ("+ids+")")) {
++			snapshots[Strings::ToUnsignedInt(row[0])].counters[Strings::ToUnsignedInt(row[1])]=std::stoull(row[2]);
++		}
++		for (auto row : Query("SELECT character_id,title_id FROM nightcap_title_awards WHERE character_id IN ("+ids+")")) {
++			awards[Strings::ToUnsignedInt(row[0])].insert(Strings::ToUnsignedInt(row[1]));
++		}
++		for (const auto &entry : participants) {
++			Refresh(entry.second,snapshots[entry.first],awards[entry.first]);
++		}
++	} catch (const std::exception &e) { LogError("Earned title kill credit failed; no replay [{}]",e.what()); }
++}
++void CheckSkill(Client *c, unsigned skill) {
++	if (!Player(c) || c->GetLevel()<50) { return; }
++	bool tracked=false;
++	for (const auto &d : Catalog) { if (d.kind==Kind::Skill && d.key==skill) { tracked=true; break; } }
++	if (!tracked) { return; }
++	const auto cap=SkillCap(c,skill);
++	if (!cap || c->GetRawSkill(static_cast<EQ::skills::SkillType>(skill))<cap) { return; }
++	try {
++		if (!Enabled()) { return; }
++		const auto s=Read(c);
++		auto awards=Awards(c);
++		Refresh(c,s,awards);
++	} catch (const std::exception &e) { LogError("Earned skill title pending refresh [{}]",e.what()); }
++}
++void Show(Client *c, unsigned page) {
++	try {
++		if (!Enabled()) { c->Message(Chat::White,"Earned titles are not enabled."); return; }
++		const auto s=Read(c);
++		auto awards=Awards(c);
++		Refresh(c,s,awards);
++		constexpr unsigned size=6;
++		const unsigned count=static_cast<unsigned>(sizeof(Catalog)/sizeof(Catalog[0])), pages=(count+size-1)/size;
++		if (!page || page>pages) { c->Message(Chat::White,"Usage: #titles [page], 1 through %u.",pages); return; }
++		c->Message(Chat::White,"Earned titles - page %u/%u. Select unlocked titles in the Titles window.",page,pages);
++		for (unsigned i=(page-1)*size;i<std::min(page*size,count);++i) {
++			const auto &d=Catalog[i]; const auto p=Progress(d,s);
++			c->Message(Chat::White,"%s [%s; %llu/%llu] - %s",d.name,awards.count(d.id) ? "earned" : "locked",
++				static_cast<unsigned long long>(p.first),static_cast<unsigned long long>(p.second),d.description);
++		}
++	} catch (const std::exception &e) {
++		LogError("Earned title progress unavailable [{}]",e.what());
++		c->Message(Chat::White,"Title progress is temporarily unavailable. Your saved awards have not been changed.");
++	}
++}
++}

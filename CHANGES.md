@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Titles live activation package
+
+Prepared the 77-title native release over the reproduced current production binary, with strict additive storage and a public `#titles` command. Batched kill credit bounds ordinary group/raid work to four SQL statements. Tested stopped-backup activation and data-preserving recovery; live activation and native player acceptance are recorded separately in [release evidence](docs/titles/deployment-20261114/README.md).
+
 ## November 14, 2026 · Tunnel augment distiller
 
 Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](docs/items/tunnel-distiller/README.md).

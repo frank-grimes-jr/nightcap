@@ -45,14 +45,34 @@ struct Result {
 struct DB {
  bool enabled=true,fail=false,uncertain=false;
  std::map<unsigned,uint64_t> counters;
+ std::map<unsigned,std::map<unsigned,uint64_t>> other_counters;
  std::map<unsigned,unsigned> skills;
  std::set<unsigned> awards;
+ std::map<unsigned,std::set<unsigned>> other_awards;
  std::vector<std::vector<std::string>> clears,bosses,tasks;
- unsigned writes=0;
+ unsigned writes=0,queries=0;
+ auto &Counters(unsigned character) { return character==42 ? counters : other_counters[character]; }
+ auto &Awards(unsigned character) { return character==42 ? awards : other_awards[character]; }
  Result QueryDatabase(const std::string &s,bool) {
+  ++queries;
   if (fail) { Result r; r.ok=false; return r; }
   Result r;
   if (s.find("SELECT enabled")==0) { r.rows={{enabled?"1":"0"}}; }
+  else if (s.find("SELECT character_id,counter_id,value")==0) {
+   const auto begin=s.find(" IN (")+5;
+   std::stringstream input(s.substr(begin,s.size()-begin-1));std::string id;
+   while (std::getline(input,id,',')) {
+    const auto character=static_cast<unsigned>(std::stoul(id));
+    for (auto kv:Counters(character)) { r.rows.push_back({id,std::to_string(kv.first),std::to_string(kv.second)}); }
+   }
+  }
+  else if (s.find("SELECT character_id,title_id")==0) {
+   const auto begin=s.find(" IN (")+5;
+   std::stringstream input(s.substr(begin,s.size()-begin-1));std::string id;
+   while (std::getline(input,id,',')) {
+    for (auto title:Awards(static_cast<unsigned>(std::stoul(id)))) { r.rows.push_back({id,std::to_string(title)}); }
+   }
+  }
   else if (s.find("SELECT title_id")==0) { for (auto id:awards) { r.rows.push_back({std::to_string(id)}); } }
   else if (s.find("SELECT skill_id")==0) { for (auto kv:skills) { r.rows.push_back({std::to_string(kv.first),std::to_string(kv.second)}); } }
   else if (s.find("SELECT counter_id")==0) { for (auto kv:counters) { r.rows.push_back({std::to_string(kv.first),std::to_string(kv.second)}); } }
@@ -60,13 +80,13 @@ struct DB {
   else if (s.find("SELECT DISTINCT r.zone_id,k.boss_id")==0) { r.rows=bosses; }
   else if (s.find("SELECT DISTINCT taskid")==0) { r.rows=tasks; }
   else if (s.find("INSERT IGNORE INTO nightcap_title_awards")==0) {
-   std::smatch match; assert(std::regex_search(s,match,std::regex("VALUES \\([0-9]+,([0-9]+),")));
-   r.affected=awards.insert(static_cast<unsigned>(std::stoul(match[1]))).second; ++writes;
+   std::smatch match; assert(std::regex_search(s,match,std::regex("VALUES \\(([0-9]+),([0-9]+),")));
+   r.affected=Awards(static_cast<unsigned>(std::stoul(match[1]))).insert(static_cast<unsigned>(std::stoul(match[2]))).second; ++writes;
    if (uncertain) { r.ok=false; uncertain=false; }
   } else if (s.find("INSERT INTO nightcap_title_counters")==0) {
-   std::regex re("\\([0-9]+,([0-9]+),1\\)");
+   std::regex re("\\(([0-9]+),([0-9]+),1\\)");
    for (auto i=std::sregex_iterator(s.begin(),s.end(),re);i!=std::sregex_iterator();++i) {
-    auto &n=counters[static_cast<unsigned>(std::stoul((*i)[1]))]; n=std::min(uint64_t(10000),n+1);
+    auto &n=Counters(static_cast<unsigned>(std::stoul((*i)[1])))[static_cast<unsigned>(std::stoul((*i)[2]))]; n=std::min(uint64_t(10000),n+1);
    }
    ++writes;
   } else { assert(false && "unexpected SQL"); }
@@ -156,4 +176,22 @@ int main() {
  out.clear(); AppendEligible(&c,{},out);
  assert(std::any_of(out.begin(),out.end(),[d](const auto &t){return t.id==d->id;}));
  assert(errors>=2);
+ database=DB{}; Client second; second.id=43; c=Client{};
+ c.party={&c,&second}; NPC party_kill;
+ const auto query_start=database.queries;
+ RecordKill(&party_kill,&c,false);
+ assert(database.queries-query_start==4); // settings + one write + two reads, independent of party size
+ assert(database.counters[1]==1 && database.other_counters[43][1]==1);
+ database=DB{}; database.counters[1]=99;
+ NPC threshold; RecordKill(&threshold,&c,false);
+ assert(database.counters[1]==100 && database.other_counters[43][1]==1);
+ assert(database.awards.count(1900000001) && database.other_awards[43].empty());
+ database=DB{}; std::vector<Client> raid(72);
+ for (unsigned i=0;i<raid.size();++i) { raid[i].id=42+i; raid[0].party.push_back(&raid[i]); }
+ NPC raid_kill; RecordKill(&raid_kill,&raid[0],false);
+ assert(database.queries==4 && database.counters[1]==1 && database.other_counters[113][1]==1);
+ raid[0].party.push_back(&raid[0]); // duplicate member is still counted once
+ raid[1].dead=true; raid[2].pos=201; NPC mixed_kill;
+ RecordKill(&mixed_kill,&raid[0],false);
+ assert(database.counters[1]==2 && database.other_counters[43][1]==1 && database.other_counters[44][1]==1);
 }

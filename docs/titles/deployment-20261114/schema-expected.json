@@ -1,0 +1,148 @@
+{
+  "tables": [
+    {
+      "table": "nightcap_title_awards",
+      "engine": "InnoDB",
+      "type": "BASE TABLE"
+    },
+    {
+      "table": "nightcap_title_counters",
+      "engine": "InnoDB",
+      "type": "BASE TABLE"
+    },
+    {
+      "table": "nightcap_title_settings",
+      "engine": "InnoDB",
+      "type": "BASE TABLE"
+    }
+  ],
+  "columns": [
+    {
+      "table": "nightcap_title_awards",
+      "column": "character_id",
+      "type": "int",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_awards",
+      "column": "title_id",
+      "type": "int",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_awards",
+      "column": "earned_at",
+      "type": "bigint",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_counters",
+      "column": "character_id",
+      "type": "int",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_counters",
+      "column": "counter_id",
+      "type": "int",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_counters",
+      "column": "value",
+      "type": "bigint",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_settings",
+      "column": "id",
+      "type": "tinyint",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_settings",
+      "column": "catalog_version",
+      "type": "int",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    },
+    {
+      "table": "nightcap_title_settings",
+      "column": "enabled",
+      "type": "tinyint",
+      "unsigned": true,
+      "nullable": "NO",
+      "extra": ""
+    }
+  ],
+  "indexes": [
+    {
+      "table": "nightcap_title_awards",
+      "index": "PRIMARY",
+      "unique": 1,
+      "seq": 1,
+      "column": "character_id"
+    },
+    {
+      "table": "nightcap_title_awards",
+      "index": "PRIMARY",
+      "unique": 1,
+      "seq": 2,
+      "column": "title_id"
+    },
+    {
+      "table": "nightcap_title_counters",
+      "index": "PRIMARY",
+      "unique": 1,
+      "seq": 1,
+      "column": "character_id"
+    },
+    {
+      "table": "nightcap_title_counters",
+      "index": "PRIMARY",
+      "unique": 1,
+      "seq": 2,
+      "column": "counter_id"
+    },
+    {
+      "table": "nightcap_title_settings",
+      "index": "PRIMARY",
+      "unique": 1,
+      "seq": 1,
+      "column": "id"
+    }
+  ],
+  "constraints": [
+    {
+      "table": "nightcap_title_awards",
+      "name": "PRIMARY",
+      "type": "PRIMARY KEY"
+    },
+    {
+      "table": "nightcap_title_counters",
+      "name": "PRIMARY",
+      "type": "PRIMARY KEY"
+    },
+    {
+      "table": "nightcap_title_settings",
+      "name": "PRIMARY",
+      "type": "PRIMARY KEY"
+    }
+  ],
+  "triggers": []
+}
