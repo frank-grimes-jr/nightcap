@@ -1,0 +1,96 @@
+{
+  "stock": [
+    "51903\tCompressed Froglok Bile\tguktop",
+    "51904\tSinged Goblin Eye\tsoldunga",
+    "51907\tFroglok Egg Capsule\tgukbottom",
+    "51907\tFroglok Egg Capsule\tguktop",
+    "79622\tPolished Crysolite\tmistmoore",
+    "79626\tChunk of Amorphous Granite\tpermafrost",
+    "79870\tCorrupted Emerald Amulet\tsoldunga",
+    "80379\tFossilized Tae Ew Eye\tfeerrott",
+    "80382\tDecayed Froglok Eye\tgukbottom",
+    "80394\tShard of Incandescent Power\tsoldungb"
+  ],
+  "ingredients": [
+    "10032\tStar Ruby\thateplane",
+    "10032\tStar Ruby\tkedge",
+    "10032\tStar Ruby\toot",
+    "10032\tStar Ruby\thole",
+    "10032\tStar Ruby\trathemtn",
+    "10032\tStar Ruby\tunrest",
+    "10033\tFire Emerald\tfeerrott",
+    "10033\tFire Emerald\thateplane",
+    "10033\tFire Emerald\tkedge",
+    "10033\tFire Emerald\toot",
+    "10033\tFire Emerald\tblackburrow",
+    "10033\tFire Emerald\thole",
+    "10033\tFire Emerald\trathemtn",
+    "10033\tFire Emerald\tunrest",
+    "10036\tBlack Sapphire\thateplane",
+    "10036\tBlack Sapphire\thateplaneb",
+    "10036\tBlack Sapphire\toot",
+    "10036\tBlack Sapphire\tsoldungb",
+    "10036\tBlack Sapphire\tfearplane",
+    "10036\tBlack Sapphire\tkedge",
+    "10036\tBlack Sapphire\tblackburrow",
+    "10036\tBlack Sapphire\thole",
+    "10036\tBlack Sapphire\tunrest",
+    "11602\tWhite Dragon Scales\tpermafrost",
+    "11622\tRed Dragon Scales\tsoldungb"
+  ],
+  "rules": [
+    "Character:ItemHealAmtCap\t750",
+    "Character:ItemSpellDmgCap\t750",
+    "Character:PlayerTradingLoreFeedback\ttrue",
+    "Items:DisableLore\ttrue",
+    "Spells:AdditiveBonusWornType\t0"
+  ],
+  "hosts": {
+    "4": {
+      "item": 1001,
+      "name": "Cloth Cap",
+      "zone": "oasis",
+      "socket": 7
+    },
+    "128": {
+      "item": 1008,
+      "name": "Cloth Sleeves",
+      "zone": "befallen",
+      "socket": 7
+    },
+    "1536": {
+      "item": 1009,
+      "name": "Cloth Wristband",
+      "zone": "everfrost",
+      "socket": 7
+    },
+    "4096": {
+      "item": 1010,
+      "name": "Cloth Gloves",
+      "zone": "lfaydark",
+      "socket": 7
+    },
+    "131072": {
+      "item": 1004,
+      "name": "Cloth Shirt",
+      "zone": "qcat",
+      "socket": 7
+    },
+    "262144": {
+      "item": 1011,
+      "name": "Cloth Pants",
+      "zone": "gfaydark",
+      "socket": 7
+    },
+    "524288": {
+      "item": 1012,
+      "name": "Cloth Sandals",
+      "zone": "kithicor",
+      "socket": 7
+    }
+  },
+  "excluded": {
+    "42010": "spawn min expansion 6",
+    "42016": "spawn min expansion 6"
+  }
+}
