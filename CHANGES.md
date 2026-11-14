@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Classic Prismatic augments
+
+Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](docs/items/classic-prismatic/README.md).
+
 ## November 14, 2026 · Rage and Bloodlust duration
 
 Rank-one Rage of Rallos Zek and Bloodlust use 12- and 24-second timers measured from application. Check the buff at early, middle and late tick offsets, with duration focus and after zoning. [Player QA](docs/combat/thj-aa-duration/QA.md).
