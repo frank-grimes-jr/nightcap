@@ -1,0 +1,578 @@
+[
+  {
+    "id": 51903,
+    "name": "Compressed Froglok Bile",
+    "before": [
+      0,
+      0,
+      5,
+      0
+    ],
+    "after": [
+      0,
+      0,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 251903,
+    "name": "Compressed Froglok Bile (Polished)",
+    "before": [
+      5,
+      5,
+      7,
+      0
+    ],
+    "after": [
+      5,
+      5,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 451903,
+    "name": "Compressed Froglok Bile (Exalted)",
+    "before": [
+      12,
+      12,
+      10,
+      0
+    ],
+    "after": [
+      15,
+      15,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 651903,
+    "name": "Compressed Froglok Bile (Ascended)",
+    "before": [
+      20,
+      20,
+      12,
+      0
+    ],
+    "after": [
+      25,
+      25,
+      20,
+      0
+    ]
+  },
+  {
+    "id": 51904,
+    "name": "Singed Goblin Eye",
+    "before": [
+      0,
+      0,
+      5,
+      5
+    ],
+    "after": [
+      0,
+      0,
+      10,
+      10
+    ]
+  },
+  {
+    "id": 251904,
+    "name": "Singed Goblin Eye (Polished)",
+    "before": [
+      5,
+      5,
+      7,
+      7
+    ],
+    "after": [
+      5,
+      5,
+      10,
+      10
+    ]
+  },
+  {
+    "id": 451904,
+    "name": "Singed Goblin Eye (Exalted)",
+    "before": [
+      12,
+      12,
+      10,
+      10
+    ],
+    "after": [
+      15,
+      15,
+      10,
+      10
+    ]
+  },
+  {
+    "id": 651904,
+    "name": "Singed Goblin Eye (Ascended)",
+    "before": [
+      20,
+      20,
+      12,
+      12
+    ],
+    "after": [
+      25,
+      25,
+      20,
+      20
+    ]
+  },
+  {
+    "id": 51907,
+    "name": "Froglok Egg Capsule",
+    "before": [
+      0,
+      0,
+      20,
+      15
+    ],
+    "after": [
+      0,
+      0,
+      20,
+      20
+    ]
+  },
+  {
+    "id": 251907,
+    "name": "Froglok Egg Capsule (Polished)",
+    "before": [
+      5,
+      5,
+      29,
+      22
+    ],
+    "after": [
+      5,
+      5,
+      30,
+      30
+    ]
+  },
+  {
+    "id": 451907,
+    "name": "Froglok Egg Capsule (Exalted)",
+    "before": [
+      12,
+      12,
+      38,
+      29
+    ],
+    "after": [
+      15,
+      15,
+      40,
+      30
+    ]
+  },
+  {
+    "id": 651907,
+    "name": "Froglok Egg Capsule (Ascended)",
+    "before": [
+      20,
+      20,
+      48,
+      36
+    ],
+    "after": [
+      25,
+      25,
+      50,
+      40
+    ]
+  },
+  {
+    "id": 79622,
+    "name": "Polished Crysolite",
+    "before": [
+      0,
+      0,
+      10,
+      0
+    ],
+    "after": [
+      0,
+      0,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 279622,
+    "name": "Polished Crysolite (Polished)",
+    "before": [
+      5,
+      5,
+      15,
+      0
+    ],
+    "after": [
+      5,
+      5,
+      20,
+      0
+    ]
+  },
+  {
+    "id": 479622,
+    "name": "Polished Crysolite (Exalted)",
+    "before": [
+      12,
+      12,
+      19,
+      0
+    ],
+    "after": [
+      15,
+      15,
+      20,
+      0
+    ]
+  },
+  {
+    "id": 679622,
+    "name": "Polished Crysolite (Ascended)",
+    "before": [
+      20,
+      20,
+      24,
+      0
+    ],
+    "after": [
+      25,
+      25,
+      30,
+      0
+    ]
+  },
+  {
+    "id": 79626,
+    "name": "Chunk of Amorphous Granite",
+    "before": [
+      0,
+      0,
+      0,
+      10
+    ],
+    "after": [
+      0,
+      0,
+      0,
+      10
+    ]
+  },
+  {
+    "id": 279626,
+    "name": "Chunk of Amorphous Granite (Polished)",
+    "before": [
+      5,
+      5,
+      0,
+      15
+    ],
+    "after": [
+      5,
+      5,
+      0,
+      20
+    ]
+  },
+  {
+    "id": 479626,
+    "name": "Chunk of Amorphous Granite (Exalted)",
+    "before": [
+      12,
+      12,
+      0,
+      19
+    ],
+    "after": [
+      15,
+      15,
+      0,
+      20
+    ]
+  },
+  {
+    "id": 679626,
+    "name": "Chunk of Amorphous Granite (Ascended)",
+    "before": [
+      20,
+      20,
+      0,
+      24
+    ],
+    "after": [
+      25,
+      25,
+      0,
+      30
+    ]
+  },
+  {
+    "id": 79870,
+    "name": "Corrupted Emerald Amulet",
+    "before": [
+      0,
+      0,
+      5,
+      0
+    ],
+    "after": [
+      0,
+      0,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 279870,
+    "name": "Corrupted Emerald Amulet (Polished)",
+    "before": [
+      5,
+      5,
+      7,
+      0
+    ],
+    "after": [
+      5,
+      5,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 479870,
+    "name": "Corrupted Emerald Amulet (Exalted)",
+    "before": [
+      12,
+      12,
+      10,
+      0
+    ],
+    "after": [
+      15,
+      15,
+      10,
+      0
+    ]
+  },
+  {
+    "id": 679870,
+    "name": "Corrupted Emerald Amulet (Ascended)",
+    "before": [
+      20,
+      20,
+      12,
+      0
+    ],
+    "after": [
+      25,
+      25,
+      20,
+      0
+    ]
+  },
+  {
+    "id": 80379,
+    "name": "Fossilized Tae Ew Eye",
+    "before": [
+      0,
+      0,
+      10,
+      10
+    ],
+    "after": [
+      0,
+      0,
+      10,
+      10
+    ]
+  },
+  {
+    "id": 280379,
+    "name": "Fossilized Tae Ew Eye (Polished)",
+    "before": [
+      5,
+      5,
+      15,
+      15
+    ],
+    "after": [
+      5,
+      5,
+      20,
+      20
+    ]
+  },
+  {
+    "id": 480379,
+    "name": "Fossilized Tae Ew Eye (Exalted)",
+    "before": [
+      12,
+      12,
+      19,
+      19
+    ],
+    "after": [
+      15,
+      15,
+      20,
+      20
+    ]
+  },
+  {
+    "id": 680379,
+    "name": "Fossilized Tae Ew Eye (Ascended)",
+    "before": [
+      20,
+      20,
+      24,
+      24
+    ],
+    "after": [
+      25,
+      25,
+      30,
+      30
+    ]
+  },
+  {
+    "id": 80382,
+    "name": "Decayed Froglok Eye",
+    "before": [
+      0,
+      0,
+      0,
+      25
+    ],
+    "after": [
+      0,
+      0,
+      0,
+      30
+    ]
+  },
+  {
+    "id": 280382,
+    "name": "Decayed Froglok Eye (Polished)",
+    "before": [
+      5,
+      5,
+      0,
+      36
+    ],
+    "after": [
+      5,
+      5,
+      0,
+      40
+    ]
+  },
+  {
+    "id": 480382,
+    "name": "Decayed Froglok Eye (Exalted)",
+    "before": [
+      12,
+      12,
+      0,
+      48
+    ],
+    "after": [
+      15,
+      15,
+      0,
+      50
+    ]
+  },
+  {
+    "id": 680382,
+    "name": "Decayed Froglok Eye (Ascended)",
+    "before": [
+      20,
+      20,
+      0,
+      60
+    ],
+    "after": [
+      25,
+      25,
+      0,
+      60
+    ]
+  },
+  {
+    "id": 80394,
+    "name": "Shard of Incandescent Power",
+    "before": [
+      0,
+      0,
+      25,
+      0
+    ],
+    "after": [
+      0,
+      0,
+      30,
+      0
+    ]
+  },
+  {
+    "id": 280394,
+    "name": "Shard of Incandescent Power (Polished)",
+    "before": [
+      5,
+      5,
+      36,
+      0
+    ],
+    "after": [
+      5,
+      5,
+      40,
+      0
+    ]
+  },
+  {
+    "id": 480394,
+    "name": "Shard of Incandescent Power (Exalted)",
+    "before": [
+      12,
+      12,
+      48,
+      0
+    ],
+    "after": [
+      15,
+      15,
+      50,
+      0
+    ]
+  },
+  {
+    "id": 680394,
+    "name": "Shard of Incandescent Power (Ascended)",
+    "before": [
+      20,
+      20,
+      60,
+      0
+    ],
+    "after": [
+      25,
+      25,
+      60,
+      0
+    ]
+  }
+]
