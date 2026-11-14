@@ -87,10 +87,17 @@ def generate(action):
         rid=96920+i
         row=dict(id=rid,name="Prismatic Scale of "+specialty,tradeskill=68,skillneeded=0,trivial=0,nofail=1,
                  replace_container=0,must_learn=0,quest=0,enabled=1,min_expansion=0,max_expansion=-1)
-        cond=" AND ".join(f"`{k}`={value(v)}" for k,v in row.items())
-        check(f"SELECT COUNT(*)=0 FROM tradeskill_recipe WHERE (id={rid} OR BINARY name={value(row['name'])}) AND NOT ({cond}) FOR UPDATE")
+        sql.extend(["CREATE TEMPORARY TABLE recipe_expected LIKE tradeskill_recipe;",
+                    insert("recipe_expected",row),
+                    "SELECT GROUP_CONCAT(CONCAT('BINARY r.`',column_name,'` <=> BINARY x.`',column_name,'`') ORDER BY ordinal_position SEPARATOR ' AND ') INTO @cmp FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='tradeskill_recipe';",
+                    "SET @stmt=CONCAT('SELECT COUNT(*) INTO @same FROM tradeskill_recipe r JOIN recipe_expected x ON r.id=x.id WHERE ',@cmp);",
+                    "PREPARE aug_stmt FROM @stmt; EXECUTE aug_stmt; DEALLOCATE PREPARE aug_stmt;"])
+        check(f"SELECT COUNT(*)=@same FROM tradeskill_recipe WHERE id={rid} OR BINARY name={value(row['name'])} FOR UPDATE")
         if action=="forward":
-            sql.append(insert("tradeskill_recipe",row).replace(" VALUES ("," SELECT ")[:-2]+f" WHERE NOT EXISTS(SELECT 1 FROM tradeskill_recipe WHERE id={rid});")
+            sql.append(f"INSERT INTO tradeskill_recipe SELECT * FROM recipe_expected WHERE NOT EXISTS(SELECT 1 FROM tradeskill_recipe WHERE id={rid});")
+        elif action=="verify":
+            check("@same=1")
+        sql.append("DROP TEMPORARY TABLE recipe_expected;")
         entries=[(scale,1,0,0),(gem,1,0,0),(base,0,1,0),(17912,0,0,1)]
         where=" OR ".join(f"(item_id={k} AND componentcount={c} AND successcount={n} AND iscontainer={t} AND failcount=0 AND salvagecount=0)" for k,c,n,t in entries)
         check(f"SELECT COUNT(*)=0 FROM tradeskill_recipe_entries WHERE recipe_id={rid} AND NOT ({where}) FOR UPDATE")
@@ -102,7 +109,7 @@ def generate(action):
         if action=="rollback":
             sql.extend([f"DELETE FROM tradeskill_recipe_entries WHERE recipe_id={rid};",f"DELETE FROM tradeskill_recipe WHERE id={rid};"])
         else:
-            check(f"SELECT COUNT(*)=1 FROM tradeskill_recipe WHERE {cond}")
+            check(f"SELECT COUNT(*)=1 FROM tradeskill_recipe WHERE id={rid}")
             check(f"SELECT COUNT(*)=4 FROM tradeskill_recipe_entries WHERE recipe_id={rid} AND ({where})")
     sql.extend(["COMMIT;","DROP TEMPORARY TABLE aug_guard;"])
     return "\n".join(sql)
