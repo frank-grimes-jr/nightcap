@@ -2,7 +2,7 @@
 
 ## November 14, 2026 · Rage and Bloodlust duration
 
-Rank-one Rage of Rallos Zek and Bloodlust use 12- and 24-second timers measured from application. Check the buff at early, middle and late tick offsets, with duration focus and after zoning. [Player QA](combat/thj-aa-duration/QA.md).
+Rank-one Rage of Rallos Zek and Bloodlust use 12- and 24-second timers measured from application. Check the buff at early, middle and late tick offsets, with duration focus and after zoning. [Player QA](combat/thj-aa-duration/QA.md). Production verified all twelve workers after reopening. [Release evidence](releases/fixed-aa-duration-20261114/README.md).
 
 ## November 14, 2026 · Heroic INT and WIS on spell effects
 
