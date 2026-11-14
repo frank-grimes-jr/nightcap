@@ -1,0 +1,38 @@
+{
+  "source": "ddd0a56ac3a1f4c5ac96991e024752e3827c58db",
+  "files": {
+    "release.py": "16d08a1b75bbf4540788a8e76f870ab6cfe895f8913587e1ff80584a74256668",
+    "catalog.py": "9fa894e583c200e39ec07fbaffcd339364e4cf05b25c980afefe938b529b70fd",
+    "audit.json": "d473de7efcfaee3a2c813fbddfac7751e8af80a6f093ab4933eef9220349d7f9",
+    "effects.json": "8ff5e307fe520766bfc27fa1b5c378492933ced88a272e5fce9b5f49278bae88"
+  },
+  "stock_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",
+  "titles_receipt": "f617ac60e3b77b76aba8c63c329214c798ca2ed87e5127e37a7ca75e3de3b618",
+  "image": "sha256:254dd0d7023a629de4dd57ec33575fdf3e1af67289758eff0c389708193f5d0c",
+  "binaries": {
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "zone": "f35b4e3db6dd87f2eb5e62a916543508988df87c53ae9355ee2f4fae53fe2602",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "caches": {
+    "items": "cae97fd906092237e7c522cd52660c347469b09c161eb18f40ac3828ace8fa1d",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "client": 2026111301,
+  "channel": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "layout": {
+    "size": 1332,
+    "ID": 440,
+    "HP": 508,
+    "Mana": 512,
+    "HealAmt": 980,
+    "SpellDmg": 984,
+    "DamageShield": 780,
+    "Slots": 452,
+    "AugType": 708,
+    "Worn": 824,
+    "Focus": 832
+  }
+}
