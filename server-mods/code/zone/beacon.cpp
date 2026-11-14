@@ -26,6 +26,7 @@ target to center around.
 #include "zone/client.h"
 #include "zone/entity.h"
 #include "zone/mob.h"
+#include "nightcap_heroic_cast.h"
 
 extern EntityList entity_list;
 extern Zone* zone;
@@ -134,6 +135,7 @@ bool Beacon::Process()
 				spells[spell_id].target_type != ST_AECaster;
 			const bool same_caster = (caster->IsClient() ? caster->CastToClient()->CharacterID() : 0) == raid_caster_character_id;
 			const auto origin = NightcapRaidAug::OnDelivery(caster, spell_id, same_caster ? raid_delivery : NightcapRaidAug::Delivery::Triggered);
+			const NightcapHeroicCast::Targets heroic_targets(caster, spell_id, same_caster && NightcapRaidAug::HasHeroicCast(raid_delivery));
 			// Later waves are periodic damage. Only the opening wave is a direct landing.
 			raid_delivery = NightcapRaidAug::Delivery::Triggered;
 			entity_list.AESpell(caster, this, spell_id, affect_caster, resist_adjust, &max_targets);
@@ -163,6 +165,7 @@ void Beacon::AELocationSpell(Mob *caster, uint16 cast_spell_id, int16 in_resist_
 	caster_id        = caster->GetID();
 	raid_caster_character_id = caster->IsClient() ? caster->CastToClient()->CharacterID() : 0;
 	raid_delivery = NightcapRaidAug::CaptureDelivery(caster, cast_spell_id);
+	raid_delivery = NightcapRaidAug::WithHeroicCast(raid_delivery, NightcapHeroicCast::Targets::For(caster, cast_spell_id));
 	spell_id         = cast_spell_id;
 	resist_adjust    = in_resist_adjust;
 	spell_iterations = spells[spell_id].aoe_duration / 2500;

@@ -21,6 +21,7 @@ class RaidDeliveryTests(unittest.TestCase):
         native.FreeTradeTests.compile_run(self, """
 #include "zone/raid_augment_delivery.h"
 #include "zone/nightcap_sympathetic.h"
+#include "zone/nightcap_heroic_cast.h"
 #include <cassert>
 using uint32 = uint32_t;
 using namespace NightcapRaidAug;

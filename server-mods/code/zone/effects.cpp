@@ -22,6 +22,7 @@
 #include "common/eqemu_logsys.h"
 #include "common/misc_functions.h"
 #include "common/nightcap_spell_scaling.h"
+#include "nightcap_heroic_cast.h"
 #include "common/spdat.h"
 #include "zone/client.h"
 #include "zone/entity.h"
@@ -40,6 +41,7 @@ float Mob::GetActSpellRange(uint16 spell_id, float range)
 }
 
 int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
+	const bool heroic = NightcapHeroicCast::Cast::Take();
 	if (spells[spell_id].target_type == ST_Self) {
 		return value;
 	}
@@ -152,7 +154,7 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 				value -= GetNightcapSpellDamageBonus(spell_id, base_value) * ratio / 100;
 			}
 
-			value = GetNightcapHeroicSpellValue(spell_id, value, false);
+			if (heroic) { value = GetNightcapHeroicSpellValue(spell_id, value, false); }
 
 			// legacy manaburn can crit, but is still held to the same cap
 			if (RuleB(Spells, LegacyManaburn) && spell_id == SPELL_MANA_BURN) {
@@ -209,7 +211,7 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 		value -= GetNightcapSpellDamageBonus(spell_id, base_value);
 	}
 
-	value = GetNightcapHeroicSpellValue(spell_id, value, false);
+	if (heroic) { value = GetNightcapHeroicSpellValue(spell_id, value, false); }
 
 	// Apply Manaburn Damage Cap
 	if (RuleB(Spells, LegacyManaburn) && spell_id == SPELL_MANA_BURN) {
@@ -253,7 +255,7 @@ int64 Mob::GetActReflectedSpellDamage(uint16 spell_id, int64 value, int effectiv
 		value -= GetNightcapSpellDamageBonus(spell_id, base_spell_dmg);
 	}
 
-	return GetNightcapHeroicSpellValue(spell_id, value, false);
+	return value;
 }
 
 int64 Mob::GetActDoTDamage(uint16 spell_id, int64 value, Mob* target, bool from_buff_tic) {
@@ -457,6 +459,7 @@ int64 Mob::GetExtraSpellAmt(uint16 spell_id, int64 extra_spell_amt, int64 base_s
 }
 
 int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool from_buff_tic) {
+	const bool heroic = NightcapHeroicCast::Cast::Take();
 	if (target == nullptr && IsBot()) {
 		target = this;
 	}
@@ -557,7 +560,7 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
 			value += target->GetFocusEffect(focusFcHealAmtIncoming, spell_id, this); //SPA 394 Add after critical
 		}
 
-		if (!from_buff_tic) { value = GetNightcapHeroicSpellValue(spell_id, value, true); }
+		if (heroic && !from_buff_tic) { value = GetNightcapHeroicSpellValue(spell_id, value, true); }
 
 		if (critical_modifier > 1) {
 			entity_list.MessageCloseString(
@@ -614,7 +617,7 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
 
 	// A duration-bearing spell can contain an immediate CurrentHPOnce heal.
 	// Keep native coefficients intact; only actual periodic ticks exclude WIS.
-	return from_buff_tic ? value : GetNightcapHeroicSpellValue(spell_id, value, true);
+	return heroic && !from_buff_tic ? GetNightcapHeroicSpellValue(spell_id, value, true) : value;
 }
 
 

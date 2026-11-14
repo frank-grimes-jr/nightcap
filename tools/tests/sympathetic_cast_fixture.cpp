@@ -1,5 +1,6 @@
 // test_sympathetic_cast.py inserts the actual native methods and dispatch blocks.
 #include "nightcap_sympathetic.h"
+#include "nightcap_heroic_cast.h"
 #include <algorithm>
 #include <cassert>
 #include <cstdint>
@@ -85,22 +86,22 @@ public:
 		/* ORIGINAL GEM CHECK */
 		return sympathetic.effect;
 	}
-	void SpellEffect(Mob *caster, uint16 spell_id, int effect_value, int effect, int buffslot = -2) {
+	void SpellEffect(Mob *caster, uint16 spell_id, int effect_value, int effect, int buffslot = -2, int reflect_effectiveness = 0) {
 		/* RECORD HP */
 		auto &spell = spells[spell_id];
-		int partial = 100, reflect_effectiveness = 0, i = 0;
+		int partial = 100, i = 0;
 		switch (effect) {
 			/* CURRENT HP */
 			/* HEAL EFFECTS */
 		}
 	}
 	void OnTarget(Mob *spelltar, int spell_id, int value, int spell_effectiveness = 100, int reflect_effectiveness = 0,
-		int effect = SpellEffect::CurrentHP) {
+		int effect = SpellEffect::CurrentHP, bool isproc = false) {
 		/* TARGET RECEIPT */
 		if (nested_heal) { nested_heal = false; OnTarget(this, spell_id, 10); }
 		if (spelltar->block_target) { return; }
 		/* LANDING */
-		Cast::Deliver(receipt, [&] { spelltar->SpellEffect(this, spell_id, value, effect); return true; });
+		Cast::Deliver(receipt, [&] { spelltar->SpellEffect(this, spell_id, value, effect, -2, reflect_effectiveness); return true; });
 	}
 	bool SpellFinished(int spell_id, Mob *to, CastingSlot = CastingSlot::Item, int = 0, int = -1, int = 0) {
 		auto *sympathetic = Cast::Take();
