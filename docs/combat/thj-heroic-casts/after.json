@@ -1,0 +1,1727 @@
+{
+  "sha256": {
+    "zone/effects.cpp": "fe51c15959547535f8cdc7ec93bbc423d9b4eb302ee6dd0ad512b703d5e52b31",
+    "zone/spells.cpp": "1b11a54dd829db477cece3206d86ad8ccc8a4f481e069a3f9bcafda568270400",
+    "zone/spell_effects.cpp": "8766d3cff1deb480252efb78a3a808a0d37f920c5bd54bb8617e8f5bf91a2d52",
+    "zone/aa.cpp": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede",
+    "zone/special_attacks.cpp": "cfb29ac3fd76c9492c840593b22503a0b6fff0fce55cf94520cf37c5ca3b77d2",
+    "zone/raid_augment.h": "149a55f90d47170d6981abc0fa31ac53a567972f75e31891d7461a2e730ade2d",
+    "zone/raid_augment_delivery.h": "09c0570fe98d1980feecf821bebd4db6f81c761f038c606800665a2ca3431def",
+    "common/raid_augment.h": "67cf107f983401bb25258df8eae519629b18a4dbc4c7af52589d8f4ec23b6c51",
+    "common/nightcap_spell_scaling.h": "3a9e99e3e01e71acd780f568b9186695b491258869bd630725f23a83ec36a6ac",
+    "zone/nightcap_heroic_cast.h": "024a20ad92521ccd74493cb23d00f31dfb52cae0b1d5fc604b76338a9cdc2f90"
+  },
+  "fixture_sha256": "315884f44add6b5aed7b4d9ae12e8ddc8d6bd3c73af6d875a5097cd078525cd1",
+  "samples": [
+    {
+      "scenario": "gem",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "gem",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "gem",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "gem",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "gem",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "aa",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "aa",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "aa",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "aa",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "aa_timed",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_timed",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_timed",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "aa_timed",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "aa_timed",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "group_gem",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "group_gem",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "group_gem",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "group_gem",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "group_gem",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "ae_aa",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "ae_aa",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "ae_aa",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "ae_aa",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "ae_aa",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "proc_idle",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_idle",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_idle",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_idle",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_idle",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_same_id",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_same_id",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_same_id",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_same_id",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_same_id",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_different_id",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_different_id",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_different_id",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_different_id",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "proc_different_id",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "parent_after",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "parent_after",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "parent_after",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "parent_after",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "parent_after",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "item_click",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "item_click",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "item_click",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "item_click",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "item_click",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "triggered",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "triggered",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "triggered",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "triggered",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "triggered",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "discipline",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "discipline",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "discipline",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "discipline",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "discipline",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "forged_gem",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "forged_gem",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "forged_gem",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "forged_gem",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "forged_gem",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_no_rank",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_no_rank",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_no_rank",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_no_rank",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_no_rank",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_same_id",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_same_id",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_same_id",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_same_id",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_same_id",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_idle",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_idle",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_idle",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_idle",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "script_idle",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_caster",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_caster",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_caster",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_caster",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_caster",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_spell",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_spell",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_spell",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_spell",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "wrong_spell",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "reflection",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 160
+    },
+    {
+      "scenario": "reflection",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 160
+    },
+    {
+      "scenario": "reflection",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 160
+    },
+    {
+      "scenario": "reflection",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 160
+    },
+    {
+      "scenario": "reflection",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 160
+    },
+    {
+      "scenario": "pet",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "pet",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "pet",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "pet",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "pet",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "npc",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "npc",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "npc",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "npc",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "npc",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "dot_hot",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -120,
+      "healing": 107
+    },
+    {
+      "scenario": "dot_hot",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -120,
+      "healing": 107
+    },
+    {
+      "scenario": "dot_hot",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -120,
+      "healing": 107
+    },
+    {
+      "scenario": "dot_hot",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -120,
+      "healing": 107
+    },
+    {
+      "scenario": "dot_hot",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -120,
+      "healing": 107
+    },
+    {
+      "scenario": "rule_disabled",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "rule_disabled",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "rule_disabled",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "rule_disabled",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "rule_disabled",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "opt_out",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -100,
+      "healing": 100
+    },
+    {
+      "scenario": "opt_out",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -100,
+      "healing": 100
+    },
+    {
+      "scenario": "opt_out",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -100,
+      "healing": 100
+    },
+    {
+      "scenario": "opt_out",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -100,
+      "healing": 100
+    },
+    {
+      "scenario": "opt_out",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -100,
+      "healing": 100
+    },
+    {
+      "scenario": "gem_bolt",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_bolt",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_bolt",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "gem_bolt",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "gem_bolt",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "aa_bolt",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_bolt",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_bolt",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "aa_bolt",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "aa_bolt",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "gem_rain",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_rain",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_rain",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "gem_rain",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "gem_rain",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "aa_rain",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rain",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rain",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 192
+    },
+    {
+      "scenario": "aa_rain",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -154,
+      "healing": 192
+    },
+    {
+      "scenario": "aa_rain",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -175,
+      "healing": 216
+    },
+    {
+      "scenario": "mismatched_rain",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_rain",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_rain",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_rain",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_rain",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_bolt",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_bolt",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_bolt",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_bolt",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "mismatched_bolt",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "later_rain",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "later_rain",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "later_rain",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "later_rain",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "later_rain",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "target_proc_same_id",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "target_proc_same_id",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "target_proc_same_id",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "target_proc_same_id",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "target_proc_same_id",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rank_mismatch",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rank_mismatch",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rank_mismatch",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rank_mismatch",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "aa_rank_mismatch",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "skill_aa",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "skill_aa",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "skill_aa",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "skill_aa",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "skill_aa",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "combat_skill",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "combat_skill",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "combat_skill",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "combat_skill",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "combat_skill",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "unmemorized",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "unmemorized",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "unmemorized",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "unmemorized",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "unmemorized",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -140,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_critical",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -280,
+      "healing": 320
+    },
+    {
+      "scenario": "gem_critical",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -308,
+      "healing": 320
+    },
+    {
+      "scenario": "gem_critical",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -280,
+      "healing": 384
+    },
+    {
+      "scenario": "gem_critical",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -308,
+      "healing": 384
+    },
+    {
+      "scenario": "gem_critical",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -350,
+      "healing": 432
+    },
+    {
+      "scenario": "gem_partial",
+      "hint": 0,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_partial",
+      "hint": 100,
+      "hwis": 0,
+      "sd": 40,
+      "ha": 60,
+      "damage": -99,
+      "healing": 160
+    },
+    {
+      "scenario": "gem_partial",
+      "hint": 0,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -90,
+      "healing": 192
+    },
+    {
+      "scenario": "gem_partial",
+      "hint": 100,
+      "hwis": 200,
+      "sd": 40,
+      "ha": 60,
+      "damage": -99,
+      "healing": 192
+    },
+    {
+      "scenario": "gem_partial",
+      "hint": 250,
+      "hwis": 350,
+      "sd": 40,
+      "ha": 60,
+      "damage": -112,
+      "healing": 216
+    }
+  ]
+}
