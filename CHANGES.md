@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Classic raid worn and focus effects
+
+Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md).
+
 ## November 14, 2026 · Titles live activation package
 
 Prepared the 77-title native release over the reproduced current production binary, with strict additive storage and a public `#titles` command. Batched kill credit bounds ordinary group/raid work to four SQL statements. Tested stopped-backup activation and data-preserving recovery; live activation and native player acceptance are recorded separately in [release evidence](docs/titles/deployment-20261114/README.md).
