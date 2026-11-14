@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Tunnel augment distiller
+
+Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](items/tunnel-distiller/README.md).
+
 ## November 14, 2026 · Guise of the Deceiver
 
 The Lower Guk assassin quest adds a 20% bonus drop. Production activation and in-game acceptance are pending. [Local verification and player QA](items/ghoul-assassin-guise.md).
