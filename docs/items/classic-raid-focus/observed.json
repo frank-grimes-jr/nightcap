@@ -1,0 +1,72 @@
+{
+  "refs": [
+    [
+      "worn",
+      "58"
+    ],
+    [
+      "focus",
+      "0"
+    ],
+    [
+      "click",
+      "47"
+    ],
+    [
+      "proc",
+      "0"
+    ]
+  ],
+  "zones": [
+    [
+      "71",
+      "airplane",
+      "0"
+    ],
+    [
+      "72",
+      "fearplane",
+      "0"
+    ],
+    [
+      "76",
+      "hateplane",
+      "0"
+    ],
+    [
+      "186",
+      "hateplaneb",
+      "0"
+    ],
+    [
+      "39",
+      "hole",
+      "0"
+    ],
+    [
+      "64",
+      "kedge",
+      "0"
+    ]
+  ],
+  "yael": [
+    [
+      "39138",
+      "Master_Yael"
+    ],
+    [
+      "113185",
+      "Vylleam_Vyaeltor"
+    ],
+    [
+      "160311",
+      "Legionnaire_Yaelidion"
+    ],
+    [
+      "754244",
+      "Vylleam_Vyaeltor"
+    ]
+  ],
+  "units": [],
+  "game": null
+}

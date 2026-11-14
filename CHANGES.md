@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Classic raid worn and focus effects
+
+Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md).
+
 ## November 14, 2026 · Lower Guk assassin loot
 
 The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
