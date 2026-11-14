@@ -21,7 +21,7 @@ namespace EQ { namespace versions { enum class ClientVersion { UF, RoF, RoF2 }; 
 struct Buffs_Struct {
  int spellid=65535, casterlevel=0, instrument_mod=10, ticsremaining=0;
  int dot_rune=0, magic_rune=0, melee_rune=0, counters=0;
- int casterid=0, hit_number=0; float caston_y=0, caston_x=0, caston_z=0;
+ int casterid=0, hit_number=0; int32_t caston_y=0, caston_x=0, caston_z=0;
 };
 struct SpellBuff_Struct {
  int effect_type=0, level=0, bard_modifier=0, spellid=0, duration=0;
@@ -45,6 +45,7 @@ struct Client {
  int GetID() const { return 123; } int GetLevel() const { return 30; }
  static int BuffDurationForClient(int duration) { return duration==-1000 ? -1 : duration; }
  int32 BuffEffectDurationForClient(int32 duration) const;
+ void ProcessFixedAADurations() {} // Fixed timers have a separate native lifecycle fixture.
  void RestoreBuffEffects();
  void SendBuffDurationPacket(Buffs_Struct &buff, int slot, bool restore=false);
  void FastQueuePacket(EQApplicationPacket **p) {
@@ -101,16 +102,16 @@ int main() {
 
 class BuffRestore(unittest.TestCase):
     def test_actual_native_methods(self):
-        source=(ZONE/'spells.cpp').read_text()
+        source=(ZONE/'spells.cpp').read_text(encoding='utf-8')
         bodies='\n'.join(function(source,s) for s in (
             'int32 Client::BuffEffectDurationForClient(', 'void Client::RestoreBuffEffects()', 'void Client::SendBuffDurationPacket('))
         with tempfile.TemporaryDirectory(prefix='nightcap-buff-restore-') as tmp:
             out=Path(tmp)
-            (out/'test.cpp').write_text(FIXTURE+bodies+CONTROLS)
+            (out/'test.cpp').write_text(f'#include "{(ZONE / "nightcap_fixed_aa_duration.h").as_posix()}"\n'+FIXTURE+bodies+CONTROLS)
             if os.name=='nt':
                 (out/'build.cmd').write_text('@echo off\ncall "C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat" >nul || exit /b 1\ncl /nologo /EHsc /W4 /WX /std:c++17 test.cpp /Fe:test.exe >build.log 2>&1\nexit /b %errorlevel%\n')
                 result=subprocess.run(['cmd','/d','/c',str(out/'build.cmd')],cwd=out)
-                self.assertEqual(result.returncode,0,(out/'build.log').read_text())
+                self.assertEqual(result.returncode,0,(out/'build.log').read_text(encoding='utf-8'))
                 exe=out/'test.exe'
             else:
                 exe=out/'test'
@@ -130,7 +131,8 @@ class BuffRestore(unittest.TestCase):
             self.assertIn(statement,source)
 
     def test_restore_after_ready_queue_before_quest_events(self):
-        body=function((ZONE/'client_packet.cpp').read_text(),'void Client::CompleteConnect()')
+        source=(ZONE/'client_packet.cpp').read_text(encoding='utf-8')
+        body=source[source.index('void Client::CompleteConnect()'):source.index('void Client::Handle_Connect_0x3e33(')]
         self.assertEqual(body.count('RestoreBuffEffects();'),1)
         self.assertLess(body.index('client_state = CLIENT_CONNECTED'),body.index('SendAllPackets();'))
         self.assertLess(body.index('SendAllPackets();'),body.index('RestoreBuffEffects();'))
