@@ -1,0 +1,49 @@
+{
+  "result": "verified",
+  "utc": "2026-11-14T20:55:46.193800+00:00",
+  "main": "95942c8e48a9781f66d4657fcc2233c7ea59a207",
+  "target": "/srv/nightcap/quests/gukbottom/66171.lua",
+  "sha256": "3c8f580de066340eda06f44fa697dff58f20601b89bd59f7f2a9b5c1f14c5b50",
+  "matching_quest_roots": [
+    "/srv/nightcap/quests"
+  ],
+  "preimage": "absent",
+  "zone": "gukbottom",
+  "npc": 66171,
+  "base_item": 2469,
+  "chance_percent": 20,
+  "guaranteed_max_copies_from_bonus": 1,
+  "production_content": {
+    "npcs": [
+      "66019\ta_wan_ghoul_knight\t3572",
+      "66171\ta_ghoul_assassin\t14195",
+      "66176\tThe_Fabled_Ghoul_Assassin\t90343"
+    ],
+    "items": [
+      "2469\tGuise of the Deceiver\t590\t1",
+      "202469\tGuise of the Deceiver (Polished)\t590\t1",
+      "402469\tGuise of the Deceiver (Exalted)\t590\t1",
+      "602469\tGuise of the Deceiver (Ascended)\t590\t1"
+    ],
+    "camp": [
+      "57770\tgukbottom\t0\t1740\t30"
+    ],
+    "stock": [
+      "2472\t80\t22513",
+      "7502\t20\t22513",
+      "10012\t27.5\t22512",
+      "10025\t27.5\t22512"
+    ]
+  },
+  "production_lua_regression": "PASS: 20 of 100 rolls alongside each stock item; saved loot preserved",
+  "lower_guk_workers_before": 0,
+  "lower_guk_workers_after": 0,
+  "zone_activation": "next boot loads the quest before the next fresh assassin spawn",
+  "zone_workers": 12,
+  "native_processes_preserved": 15,
+  "services_preserved": 5,
+  "game_healthy": true,
+  "gateway_running": true,
+  "gameplay_qa": "pending",
+  "public_wiki": "pending"
+}
