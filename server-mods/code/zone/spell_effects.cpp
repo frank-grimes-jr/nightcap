@@ -19,6 +19,7 @@
 
 #include "mob.h"
 #include "nightcap_sympathetic.h"
+#include "nightcap_heroic_cast.h"
 
 #include "common/bodytypes.h"
 #include "common/classes.h"
@@ -47,6 +48,13 @@ extern WorldServer worldserver;
 bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_override, int reflect_effectiveness, int32 duration_override, bool disable_buff_overwrite)
 {
 	auto *const sympathetic = NightcapSympathetic::Cast::Take();
+	const bool heroic = NightcapHeroicCast::Cast::Take() && !reflect_effectiveness;
+	auto direct_damage = [&](int64 amount) {
+		return NightcapHeroicCast::Cast::Deliver(heroic, [&] { return caster->GetActSpellDamage(spell_id, amount, this); });
+	};
+	auto direct_heal = [&](int64 amount) {
+		return NightcapHeroicCast::Cast::Deliver(heroic, [&] { return caster->GetActSpellHealing(spell_id, amount, this); });
+	};
 	auto record_hp = [&](NightcapSympathetic::Line line, int64 amount) {
 		if (sympathetic) { sympathetic->Record(line, amount); }
 	};
@@ -298,7 +306,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 							dmg = caster->GetActReflectedSpellDamage(spell_id, (int64)(spells[spell_id].base_value[i] * partial / 100), reflect_effectiveness);
 						}
 						else {
-							dmg = caster->GetActSpellDamage(spell_id, dmg, this);
+							dmg = direct_damage(dmg);
 						}
 						caster->ResourceTap(-dmg, spell_id);
 					}
@@ -317,7 +325,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 					//healing spell...
 
 					if(caster)
-						dmg = caster->GetActSpellHealing(spell_id, dmg, this);
+						dmg = direct_heal(dmg);
 
 					record_hp(NightcapSympathetic::Line::Healing, dmg);
 					HealDamage(dmg, caster);
@@ -366,7 +374,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 							int manaburn_multiplier = zone->random.Int(150, 200); //Manaburn deals 150-200% of mana
 							dmg = caster->GetMana() * manaburn_multiplier / 100;
 							dmg *= -1;	//Damage should be negative
-							dmg = caster->GetActSpellDamage(spell_id, dmg, this); // Spell can crit, so need this.  Damage cap handled in this function.
+							dmg = direct_damage(dmg); // Spell can crit, so need this.  Damage cap handled in this function.
 							LogSpellsDetail("manaburn_multiplier [{}], Mana [{}], Damage [{}]", manaburn_multiplier, caster->GetMana(), dmg);
 							caster->SetMana(0);
 						} else if (spell_id == SPELL_LIFE_BURN && caster) { //Lifeburn
@@ -406,7 +414,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 								dmg = caster->GetActReflectedSpellDamage(spell_id, (int64)(spells[spell_id].base_value[i] * partial / 100), reflect_effectiveness);
 							}
 							else {
-								dmg = caster->GetActSpellDamage(spell_id, dmg, this);
+								dmg = direct_damage(dmg);
 							}
 							caster->ResourceTap(-dmg, spell_id);
 						}
@@ -423,7 +431,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 					else if (dmg > 0) {
 						//do not apply focus/critical to buff spells
 						if (caster && !IsEffectInSpell(spell_id, SpellEffect::TotalHP)) {
-							dmg = caster->GetActSpellHealing(spell_id, dmg, this);
+							dmg = direct_heal(dmg);
 						}
 						record_hp(NightcapSympathetic::Line::Healing, dmg);
 						HealDamage(dmg, caster);
@@ -446,7 +454,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 						val = -spell.max_value[i];
 
 					if (caster)
-						val = caster->GetActSpellDamage(spell_id, val, this);
+						val = direct_damage(val);
 
 				}
 
@@ -456,7 +464,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 						val = spell.max_value[i];
 
 					if(caster)
-						val = caster->GetActSpellHealing(spell_id, val, this);
+						val = direct_heal(val);
 				}
 
 				if (val < 0) {
@@ -477,7 +485,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 #endif
 				int64 val = 7500 * effect_value;
 				if (caster) {
-					val = caster->GetActSpellHealing(spell_id, val, this);
+					val = direct_heal(val);
 				}
 				if (val > 0) {
 					record_hp(NightcapSympathetic::Line::Healing, val);
@@ -2561,7 +2569,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 				} else if(dmg > 0) {
 					//healing spell...
 					if(caster)
-						dmg = caster->GetActSpellHealing(spell_id, dmg, this);
+						dmg = direct_heal(dmg);
 					HealDamage(dmg, caster);
 				}
 #ifdef SPELL_EFFECT_SPAM
@@ -9792,6 +9800,8 @@ bool Mob::TrySpellProjectile(Mob* spell_target, uint16 spell_id, float speed) {
 			static_cast<uint32>(spell_target->GetSpawnTimeStamp()));
 		if (click) { click->bolt_worn_heal = &ProjectileAtk[slot].disable_procs; }
 		ProjectileAtk[slot].raid_delivery = NightcapRaidAug::CaptureDelivery(this, spell_id);
+		ProjectileAtk[slot].raid_delivery = NightcapRaidAug::WithHeroicCast(ProjectileAtk[slot].raid_delivery,
+			NightcapHeroicCast::Targets::For(this, spell_id));
 		ProjectileAtk[slot].origin_x = GetX();
 		ProjectileAtk[slot].origin_y = GetY();
 		ProjectileAtk[slot].origin_z = GetZ();

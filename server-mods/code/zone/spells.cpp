@@ -74,6 +74,7 @@ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 #include "common/bodytypes.h"
 #include "common/content/world_content_service.h"
 #include "nightcap_sympathetic.h"
+#include "nightcap_heroic_cast.h"
 #include "common/classes.h"
 #include "common/epic05.h"
 #include "common/data_bucket.h"
@@ -1857,7 +1858,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 	}
 	auto *const click = sympathetic.effect == Effect::None ? nullptr : &sympathetic;
 	if (!Cast::Deliver(click, [&] {
-		return SpellFinished(spell_id, spell_target, slot, mana_used, inventory_slot, resist_adjust, false,-1, 0xFFFFFFFF, 0, true);
+		return SpellFinished(spell_id, spell_target, slot, mana_used, inventory_slot, resist_adjust, false,-1, 0xFFFFFFFF, 0, true, casting_spell_aa_id);
 	}))
 	{
 		LogSpells("Casting of [{}] canceled: SpellFinished returned false", spell_id);
@@ -2542,12 +2543,18 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 {
 	auto *const sympathetic = Cast::Take();
 	const NightcapSympathetic::WornGroup nested_group;
+	const NightcapHeroicCast::Targets nested_targets;
 	Mob *ae_center = nullptr;
 
 	if(!IsValidSpell(spell_id))
 		return false;
 
 	const bool raid_gem = IsClient() && from_casted_spell && slot < CastingSlot::MaxGems && !isproc && !aa_id;
+	const auto* heroic_rank = IsClient() && !isproc && aa_id && slot == CastingSlot::AltAbility ?
+		zone->GetAlternateAdvancementRank(aa_id) : nullptr;
+	const bool heroic_spell = ((raid_gem && CastToClient()->GetPP().mem_spells[static_cast<uint32>(slot)] == spell_id) ||
+		(heroic_rank && heroic_rank->spell == spell_id)) && !spells[spell_id].is_discipline &&
+		!IsCombatSkill(spell_id) && !IsEffectInSpell(spell_id, SpellEffect::SkillAttack);
 	NightcapRaidAug::CastOrigin raid_origin(this, spell_id, raid_gem, isproc || IsFromTriggeredSpell(slot, inventory_slot),
 		slot == CastingSlot::Discipline && !isproc && !aa_id);
 	const bool thj_resource = RuleB(Spells, NightcapTHJBehaviors) && IsClient() && NightcapTHJ::ResourcePercent(spell_id);
@@ -2727,6 +2734,7 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 	// Switch #2 - execute the spell
 	//
 
+	NightcapHeroicCast::Targets original_targets(this, spell_id, heroic_spell);
 	switch(CastAction)
 	{
 		default:
@@ -2910,6 +2918,8 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 			break;
 		}
 	}
+
+	original_targets.Finish();
 
 	// Set and send the nimbus effect if this spell has one
 	int NimbusEffect = GetSpellNimbusEffect(spell_id);
@@ -4278,6 +4288,11 @@ bool Mob::SpellOnTarget(
 	bool disable_buff_overwrite
 ) {
 	auto *sympathetic = Cast::Take();
+	// Native bolts set isproc for aggro even when their retained launch was a real cast.
+	const bool original_bolt = NightcapHeroicCast::Cast::Take();
+	const bool heroic = !reflect_effectiveness &&
+		(original_bolt || (!isproc && NightcapHeroicCast::Targets::For(this, spell_id)));
+	const NightcapHeroicCast::Targets nested_targets;
 	if (!sympathetic) { sympathetic = NightcapSympathetic::WornGroup::For(this, spell_id); }
 	const NightcapSympathetic::WornGroup nested_group;
 	auto spellOwner = GetOwnerOrSelf();
@@ -4983,15 +4998,10 @@ bool Mob::SpellOnTarget(
 		receipt->recipient_id = spelltar->GetID();
 	}
 	if (!Cast::Deliver(receipt, [&] {
-		return spelltar->SpellEffect(
-			this,
-			spell_id,
-			spell_effectiveness,
-			level_override,
-			reflect_effectiveness,
-			duration_override,
-			disable_buff_overwrite
-		);
+		return NightcapHeroicCast::Cast::Deliver(heroic, [&] {
+			return spelltar->SpellEffect(this, spell_id, spell_effectiveness, level_override,
+				reflect_effectiveness, duration_override, disable_buff_overwrite);
+		});
 	})) {
 		// if SpellEffect returned false there's a problem applying the
 		// spell. It's most likely a buff that can't stack.
