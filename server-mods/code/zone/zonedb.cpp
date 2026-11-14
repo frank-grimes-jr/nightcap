@@ -7,6 +7,7 @@
 #include "common/repositories/character_alt_currency_repository.h"
 #include "common/repositories/character_alternate_abilities_repository.h"
 #include "common/repositories/character_auras_repository.h"
+#include "nightcap_fixed_aa_duration.h"
 #include "common/repositories/character_bandolier_repository.h"
 #include "common/repositories/character_bind_repository.h"
 #include "common/repositories/character_buffs_repository.h"
@@ -2893,6 +2894,7 @@ void ZoneDatabase::SaveBuffs(Client *client)
 
 	auto      buffs          = client->GetBuffs();
 	const int max_buff_slots = client->GetMaxBuffSlots();
+	const auto now = NightcapFixedAA::Now();
 
 	std::vector<CharacterBuffsRepository::CharacterBuffs> v;
 
@@ -2910,8 +2912,9 @@ void ZoneDatabase::SaveBuffs(Client *client)
 
 	v.reserve(character_buff_count);
 
-	for (int slot_id = 0; slot_id < max_buff_slots; slot_id++) {
-		if (!IsValidSpell(buffs[slot_id].spellid)) {
+	for (int slot_id = 0; slot_id < client->GetMaxTotalSlots(); slot_id++) {
+		auto& buff = buffs[slot_id];
+		if (!IsValidSpell(buff.spellid) || (slot_id >= max_buff_slots && !NightcapFixedAA::Marked(buff))) {
 			continue;
 		}
 
@@ -2932,6 +2935,16 @@ void ZoneDatabase::SaveBuffs(Client *client)
 		e.caston_z       = buffs[slot_id].caston_z;
 		e.ExtraDIChance  = buffs[slot_id].ExtraDIChance;
 		e.instrument_mod = buffs[slot_id].instrument_mod;
+		if (NightcapFixedAA::Marked(buff)) {
+			auto saved = buff;
+			const int remaining = NightcapFixedAA::Remaining(saved, now,
+				zone->BuffTimersSuspended() && IsSuspendableSpell(buff.spellid));
+			if (!remaining) { continue; }
+			e.ticsremaining = NightcapFixedAA::Ticks(remaining);
+			e.caston_x = saved.caston_x;
+			e.caston_y = saved.caston_y;
+			e.caston_z = saved.caston_z;
+		}
 
 		v.emplace_back(e);
 	}
@@ -2945,9 +2958,12 @@ void ZoneDatabase::LoadBuffs(Client *client)
 {
 	auto buffs          = client->GetBuffs();
 	int  max_buff_slots = client->GetMaxBuffSlots();
+	const auto now = NightcapFixedAA::Now();
 
-	for (int slot_id = 0; slot_id < max_buff_slots; ++slot_id) {
-		buffs[slot_id].spellid = SPELL_UNKNOWN;
+	for (int slot_id = 0; slot_id < client->GetMaxTotalSlots(); ++slot_id) {
+		if (slot_id < max_buff_slots || NightcapFixedAA::Marked(buffs[slot_id])) {
+			buffs[slot_id].spellid = SPELL_UNKNOWN;
+		}
 	}
 
 	const auto& l = CharacterBuffsRepository::GetWhere(
@@ -2963,13 +2979,15 @@ void ZoneDatabase::LoadBuffs(Client *client)
 	}
 
 	for (const auto& e : l) {
-		if (e.slot_id >= max_buff_slots) {
-			continue;
-		}
-
 		if (!IsValidSpell(e.spell_id)) {
 			continue;
 		}
+		const bool fixed = NightcapFixedAA::Milliseconds(e.spell_id) != 0;
+		if (e.slot_id >= max_buff_slots &&
+			(!fixed || e.slot_id < client->GetFirstBuffSlot(false, true) || e.slot_id >= client->GetLastBuffSlot(false, true))) {
+			continue;
+		}
+		if (e.slot_id >= client->GetMaxTotalSlots()) { continue; }
 
 		Client* c = entity_list.GetClientByName(e.caster_name.c_str());
 
@@ -3003,6 +3021,16 @@ void ZoneDatabase::LoadBuffs(Client *client)
 		buffs[e.slot_id].virus_spread_time = 0;
 		buffs[e.slot_id].UpdateClient      = false;
 		buffs[e.slot_id].instrument_mod    = e.instrument_mod;
+		if (fixed && (e.slot_id >= max_buff_slots || RuleB(Spells, NightcapTHJBehaviors) || NightcapFixedAA::Marked(buffs[e.slot_id]))) {
+			auto& buff = buffs[e.slot_id];
+			const int remaining = NightcapFixedAA::Remaining(buff, now,
+				zone->BuffTimersSuspended() && IsSuspendableSpell(e.spell_id));
+			if (!remaining) {
+				buff.spellid = SPELL_UNKNOWN;
+				continue;
+			}
+			buff.ticsremaining = NightcapFixedAA::Ticks(remaining);
+		}
 	}
 
 	// We load up to the most our client supports
