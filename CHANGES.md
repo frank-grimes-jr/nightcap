@@ -2,7 +2,7 @@
 
 ## November 14, 2026 · Classic raid worn and focus effects
 
-Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md).
+Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md). Production verified all 24 changes and 12 workers. [Release](docs/releases/classic-raid-focus-20261114/README.md).
 
 ## November 14, 2026 · Titles live activation package
 

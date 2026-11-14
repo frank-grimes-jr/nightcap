@@ -1,0 +1,21 @@
+{
+  "source": "ddd0a56ac3a1f4c5ac96991e024752e3827c58db",
+  "gateway_open": true,
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "image": "sha256:254dd0d7023a629de4dd57ec33575fdf3e1af67289758eff0c389708193f5d0c",
+  "client": 2026111301,
+  "cache": {
+    "records": 310028,
+    "changed": 24,
+    "unchanged": 310004,
+    "items_sha256": "a96899270a118922340312c885bb63aab205511e3d61043b1746b05b9f184bff"
+  },
+  "backup_sha256": "845e326758be8c9ca1a5ca0127e92c7e2b3396f78a03d7cfc6e7d670efab297f",
+  "player_qa": "open"
+}
