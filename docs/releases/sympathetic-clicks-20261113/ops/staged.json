@@ -1,0 +1,117 @@
+{
+  "source": "8f08c7a8d0a10ebd0ac8b5c4c76d4336a1d852dc",
+  "authorization": "Push to main and server",
+  "files": {
+    "forward.sql": "be6b12832cf35cd93974d3a2728e33e970fd27216ab60e4645dac09b9dda454d",
+    "disable.sql": "faaee7797f15232f84476e50a10a55853c9ce6e2906de17561d5db1f2fce4ba8",
+    "remove-unused.sql": "ee947af069be204fdc7592eb6dc0b6e2f3968a70ddbfaf4553aa9d2142cd06e5",
+    "bin/zone": "b462f5fce2f6e2a38e25ec4d3eda81c9efac16b59f39c764fa5a4d1bdd52d7f2",
+    "native.json": "76b05822adf89ebb99a871df547b465fbb5f920a25b36361f7110b4be1d0fd2c",
+    "client/publish.py": "90361a515140b3cd30b1f4a8f65f6e18356422239ce04b32782fae7dc382c019",
+    "release.py": "5fe908b6bc39c3a98964cbf2ee5be4cdccf50d3d5edecaf5e789025b80ed474e",
+    "cache.py": "d5938008585fae2bf215fb65bbe5fb19c445c688dd3016523d1891560c4768f7",
+    "client/spells_us.txt": "63067836b4b903dab1804d15bf1a1f73502ddc998a1a8ab9fdd5675b2780498b",
+    "client/dbstr_us.txt": "c8d8cc97e88a4256090e7c41192f909f6651b79e97b4f484140f3075b426501c",
+    "client/channel.json": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+    "client/previous-channel.json": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+    "client/verification.json": "78952ee2c38aee378d7caae475a12e9d7bff6d97c54cb29bdb274e3777682ab6"
+  },
+  "prior_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",
+  "prior_receipt": "bfd37884749a76d8af34e5031a9a8e504095b85646818e42140ee55b5fb8a4f4",
+  "base_image_id": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+  "base_hashes": {
+    "bin/world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "bin/zone": "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "baseline_services": {
+    "game": {
+      "id": "a908431e26a58838c9de9774727330c8f0077c5b25cee9179790b82ed895e1aa",
+      "image_id": "sha256:7b5f8656339abae739fb57d30609175a23c01b9b9786f7b72762089aac9f70b1",
+      "started_at": "2026-11-13T12:52:08.354160412Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-11-13T12:55:30.469197188Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-11-12T13:58:56.290238195Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-11-12T13:58:56.291149382Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-11-12T13:58:56.289720703Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "binaries": {
+    "zone": "b462f5fce2f6e2a38e25ec4d3eda81c9efac16b59f39c764fa5a4d1bdd52d7f2"
+  },
+  "client_release": 2026111301,
+  "client_before": "f254ffea77b2c9f60506c8cd8d89099b7a334ed63fcdf4df7b12747667b67554",
+  "layout": [
+    1332,
+    440,
+    552,
+    592,
+    612,
+    808,
+    1004,
+    1088
+  ],
+  "reference_tables": [
+    "aa_rank_effects",
+    "aa_ranks",
+    "auras",
+    "blocked_spells",
+    "character_auras",
+    "character_buffs",
+    "character_memmed_spells",
+    "character_pet_buffs",
+    "character_pet_info",
+    "character_spells",
+    "damageshieldtypes",
+    "items",
+    "ldon_trap_templates",
+    "merc_buffs",
+    "npc_spells",
+    "npc_spells_effects_entries",
+    "npc_spells_entries",
+    "spell_buckets",
+    "spell_globals",
+    "spells_new",
+    "traps"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "source": "8f08c7a8d0a10ebd0ac8b5c4c76d4336a1d852dc",
+  "image": "sha256:097fc92d8380b473fe2a7aa18032c7536da0645579030dd3a57aac0af9d2446d",
+  "rehearsal": {
+    "before": {
+      "items": {
+        "rows": 2,
+        "sha256": "250f85aed98542f1ca87e43ebb8b3f85a237d9e68d0a09c1c55dd417ee6155ce"
+      },
+      "spells_new": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "db_str": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "after": {
+      "items": {
+        "rows": 2,
+        "sha256": "8e3c0ca05fc181e6078644facd9d3a03f9e948bd7711dca8cdda95f1f782d5cf"
+      },
+      "spells_new": {
+        "rows": 2,
+        "sha256": "71161a6f3cdb7941686ad1fcb740485a990c4fe5795014f74018fb2600b05e5a"
+      },
+      "db_str": {
+        "rows": 2,
+        "sha256": "e103a1a042a9419c2cda8e9b7cf77292e26cce7d08cde3c91436789092444aa9"
+      }
+    },
+    "disabled": {
+      "items": {
+        "rows": 2,
+        "sha256": "250f85aed98542f1ca87e43ebb8b3f85a237d9e68d0a09c1c55dd417ee6155ce"
+      },
+      "spells_new": {
+        "rows": 2,
+        "sha256": "71161a6f3cdb7941686ad1fcb740485a990c4fe5795014f74018fb2600b05e5a"
+      },
+      "db_str": {
+        "rows": 2,
+        "sha256": "e103a1a042a9419c2cda8e9b7cf77292e26cce7d08cde3c91436789092444aa9"
+      }
+    },
+    "cache": {
+      "items": {
+        "records": 310016,
+        "changed": 2,
+        "unchanged": 310014,
+        "before": "d76a214d6bbca2f41de7c9081b29ea94fcf8d33fa3a7dd84282271b859a35ab0",
+        "after": "b4e10ebd1dedd180e84cb60ad12d4bc058bcfbc877180c173cf92b72f64e568a"
+      },
+      "spells": {
+        "records": 99002,
+        "changed": 2,
+        "unchanged": 99000,
+        "before": "20b3cbe91e0c0481993ca2f242daedab3294761fe87f7737eaf13e659162c483",
+        "after": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+      }
+    },
+    "forward_replay_disable_inverse": true
+  },
+  "manifest": "456d656f8557c0e30f90e44b636c109f798c98f57adaac87758bcb0d2f82a5f1",
+  "original_game": true,
+  "gateway_open": true
+}

@@ -1,0 +1,72 @@
+{
+  "result": "PASS",
+  "source": "8f08c7a8d0a10ebd0ac8b5c4c76d4336a1d852dc",
+  "image": "sha256:097fc92d8380b473fe2a7aa18032c7536da0645579030dd3a57aac0af9d2446d",
+  "client_release": 2026111301,
+  "client_channel_sha256": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "gateway_open": true,
+  "started_at": "2026-11-14T00:05:20.080873971Z",
+  "workers": 12,
+  "restarts": 0,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "binaries": {
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "zone": "b462f5fce2f6e2a38e25ec4d3eda81c9efac16b59f39c764fa5a4d1bdd52d7f2",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "cache": {
+    "items": {
+      "records": 310016,
+      "changed": 2,
+      "unchanged": 310014,
+      "before": "d76a214d6bbca2f41de7c9081b29ea94fcf8d33fa3a7dd84282271b859a35ab0",
+      "after": "b4e10ebd1dedd180e84cb60ad12d4bc058bcfbc877180c173cf92b72f64e568a"
+    },
+    "spells": {
+      "records": 99002,
+      "changed": 2,
+      "unchanged": 99000,
+      "before": "20b3cbe91e0c0481993ca2f242daedab3294761fe87f7737eaf13e659162c483",
+      "after": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+    }
+  },
+  "backup_sha256": "1e0b023cd34c4d7887acb2b49258395f0eed73ba2150db4179090338b56c6ce0",
+  "backup_integrity": true,
+  "items": [
+    "610150\tMoonstone Ring (Ascended)\t44380\t4\t1\t1\t2000\t2000\t-1\t2349",
+    "610338\tRuned Lava Pendant (Ascended)\t44379\t4\t1\t1\t2000\t2000\t-1\t-1"
+  ],
+  "spells": [
+    "44379\tSympathetic Strike I\t50",
+    "44380\tSympathetic Healing I\t50"
+  ],
+  "descriptions": [
+    "44379\t6",
+    "44380\t6"
+  ],
+  "contract": {
+    "dungeon": {
+      "schema": 51,
+      "content": 671
+    },
+    "lantern": {
+      "items": 128,
+      "tasks": 16,
+      "task_activities": 64,
+      "npc_types": 19
+    }
+  },
+  "owner_gameplay_accepted": false,
+  "receipt_sha256": {
+    "deployed.json": "1e7e96900bc34f6c36647067df0e0f364ca6d34e0e7b9f7465f1d5a25da2c51a",
+    "verified-closed.json": "ee70bdcd511d47f23652a56fce71aff12f3faaf8c0e465e8f16956ba9b5ef34d",
+    "backup.json": "b8874e4ecd20c2f606e55f03c8dc75979a0daf01265fe631f76fd9a2c0293157",
+    "sql-installed.json": "d3de39e0b87c4cf01ee6f2b32c05638d766409a2100a77599c73d4408a48f836"
+  }
+}

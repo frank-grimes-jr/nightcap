@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 13, 2026 · Classic sympathetic clicks live on production
+
+Ascended Runed Lava Pendant (Solusek’s Eye) grants Strike I and Ascended Moonstone Ring (Lower Guk) grants Healing I. A fully qualifying original spell can add 5% of its largest resolved direct HP component, rounded down and capped at 48. The ring retains Extended Range II. OVH reopened with 12 verified zone workers and signed client 2026111301. Players should exit EverQuest and select Play in the Nightcap launcher. In-game acceptance and full-encounter balance remain open. [Release verification](docs/releases/sympathetic-clicks-20261113/README.md).
+
 ## November 13, 2026 · Classic sympathetic clicks installed on local test
 
 Two earned Ascended jewelry clicks grant rank I self buffs. Runed Lava Pendant supplies Strike and Moonstone Ring supplies Healing. Other stock tiers, drop tables and the Ring’s Extended Range II remain intact. The expansion catalog carries previously released ranks forward and requires an explicit entry for a higher rank. All eight test zone workers loaded the paired zone and caches. First-minute progression healing rose 4% on both dragons; the full-fight 3–5% target and owner RoF2 QA remain open. [Item sources, era review and in-game QA](docs/items/sympathetic-clicks/README.md).

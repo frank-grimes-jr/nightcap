@@ -1,0 +1,61 @@
+{
+  "baseline": "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823",
+  "bytes": 53331744,
+  "feature_predecessor": "862eb1ac",
+  "feature_tip": "dceb54bd",
+  "link_input_count": 144,
+  "link_manifest_sha256": "8f5236683d61adca015a7b4e57a9e297659f87bb4b38a066c981fabbd6e9f282",
+  "linked_libraries": [
+    "libc.so.6",
+    "libcrypt.so.1",
+    "libgcc_s.so.1",
+    "libm.so.6",
+    "libperl.so.5.36",
+    "libstdc++.so.6",
+    "libuuid.so.1"
+  ],
+  "paired_native": {
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe",
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "zone": "a0506a169cd2481350f02b24468230825c52cd003936042f15d21b8addff7823"
+  },
+  "patch": "fa927aa269ed06046dd929be1ed6ccb11f6371a3138daade372025ea7246ff14",
+  "profile": "Clang 14 RelWithDebInfo -O2 -g0 -DNDEBUG; Lua, Perl, ENABLE_SECURITY",
+  "source_postimages": {
+    "mob.cpp": "c13d1a14a6d8377ec99d1bc676ab0d411f10f56a4db8c15431f0fda0dc9f5c5d",
+    "mob.h": "d769c3545c593f2acf74919d1d46375f2d494f048cc075691ef7919f552d5c33",
+    "nightcap_sympathetic.h": "c1b2800a64fdb2c41827e52bd8fdd3a6149f9eea992e26a8376e872ab98a9b3b",
+    "nightcap_sympathetic_eras.h": "6c34407e408e13f1a9b259bcdb03ac8e830890fe4a2730f2916ba62222bf1c99",
+    "special_attacks.cpp": "a21bd6057de074b8997c990955393eb069aa7e8ea239d48d79f6f00029bf50d2",
+    "spell_effects.cpp": "dd2be8ce337797f32f2951420b7a172563c8a7d4df8031b88604fde2118d6e73",
+    "spells.cpp": "d18dfb368d64dd50f9e3548dfd12f7cb28a8ce3ce45ef2421924a7931edfd41a"
+  },
+  "source_preimages": {
+    "mob.cpp": "18b7c74e478251aba65eb7aac33b9a163535f0bc11c0cbfe445c112f1bc935e3",
+    "mob.h": "6991931b1d2d08fdf7727c1cf024d8dcd05dadb357b98bd07871f57e29f674a8",
+    "special_attacks.cpp": "2267565d6af7ac570745e55d1117e55be5ac52c986f364c6eec538bb31b413e9",
+    "spell_effects.cpp": "9fb4fe4a1b5dc3b7c0c0dd417bfed06edb4abbc2282ea970a9fdde9074be0311",
+    "spells.cpp": "19eb84b55026b697eaf442e35eaf4ec00315d0878d12a7217eb61d8fadb0e19e"
+  },
+  "units": {
+    "mob": {
+      "candidate": "393c0fa12af9e8fbf7716c71beccbfc714b91c9e8d06d7eabfd91934240f381b",
+      "predecessor_rebuild": "55f15b24a1d8a810d875aa903c94d634b6aac23694a6b330907b63ae9d2ea6ea"
+    },
+    "special_attacks": {
+      "candidate": "58a3a1a45b7490eb38c87afa5861ad8f638c74049386dd503f2e64ea937de7da",
+      "predecessor_rebuild": "08cae0070445347a47efc4b8e3a047e18fecc543ecc5697146f697103fff316c"
+    },
+    "spell_effects": {
+      "candidate": "6015704dbbe19428721e5665db04fe15ba8ca056e1d8f0dee59936644dd46e65",
+      "predecessor_rebuild": "805824b839b1ae483652986efe339e7c7e58f770567a03b565b1037ec66d5000"
+    },
+    "spells": {
+      "candidate": "49b71532022a99c3d35b60316eac94cbf496f1267decbae3c2800fe4dac85d17",
+      "predecessor_rebuild": "9eb5d9c7c12e25839db4f59cb7ef8ef9bce86711a10f3fa4dee7be87a1316e05"
+    }
+  },
+  "unstripped_candidate": "b3d126ef0ec22500c908a05d0d610e21028bb90810259b33d799694ceed41f99",
+  "unstripped_reference_relink": "9bfcf9284580cdb03fb34b2c68f6c977378fefd289eb521c6121ea4e425e32a0",
+  "zone": "b462f5fce2f6e2a38e25ec4d3eda81c9efac16b59f39c764fa5a4d1bdd52d7f2"
+}

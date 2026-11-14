@@ -1,6 +1,8 @@
 # Classic sympathetic item clicks
 
-**Installed on the local test world for player QA.** All eight zone workers loaded the paired candidate. The cache comparison identified two item records and two spell slots. The other 308,926 items and 99,000 spell slots were byte-identical. [Verification](verification.json) · [Runtime, rollback and test client](runtime/README.md).
+**Live on OVH for player QA.** Fully exit EverQuest and select Play to install signed release 2026111301. [Production verification](../../releases/sympathetic-clicks-20261113/README.md) · [Official Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-sympathetic).
+
+**Earlier local test.** All eight zone workers loaded the paired candidate. The cache comparison identified two item records and two spell slots. The other 308,926 items and 99,000 spell slots were byte-identical. [Verification](verification.json) · [Runtime, rollback and test client](runtime/README.md).
 
 ## Two earned Classic clicks
 
@@ -10,7 +12,7 @@ Ascended Runed Lava Pendant (610338) grants Sympathetic Strike I. Its stock sour
 
 The THJ item guide supplied the idea of a class-usable click on top-tier gear. Nightcap chose different sources because a starter weapon or common morning star sets a much lower acquisition bar. Nightcap's rank requirements, amounts and future releases are independent balance decisions. [THJ item guide](https://thj.gileadgames.net/equipment-guide/symp-items/).
 
-## Rules for the test candidate
+## Rules for rank I
 
 Equip and click either Ascended item to cast its self buff, then swap back to your preferred gear. Both buffs can be active. The reusable equipped click takes two seconds. Each qualifying original cast can produce one sympathetic effect on the original recipient.
 
@@ -25,7 +27,7 @@ In the flat-amount pilot, adding 48 to a 40-point Minor Healing cast increased t
 
 ## Release by expansion
 
-The source of truth is [config/sympathetic-eras.json](../../../config/sympathetic-eras.json). Each expansion has an explicit ID matching the server expansion enum, in order from Classic (0) through Torment of Velious (26). A row with no new rank carries previously approved ranks on both lines. Strike and Healing may advance in different expansions. Only rank I has content in this candidate. A copied item, retained buff or character level by itself cannot authorize an unreleased rank. The native all-expansions setting (-1) includes only catalogued, approved ranks. Unknown IDs grant no result.
+The source of truth is [config/sympathetic-eras.json](../../../config/sympathetic-eras.json). Each expansion has an explicit ID matching the server expansion enum, in order from Classic (0) through Torment of Velious (26). A row with no new rank carries previously approved ranks on both lines. Strike and Healing may advance in different expansions. Only rank I has released content. A copied item, retained buff or character level by itself cannot authorize an unreleased rank. The native all-expansions setting (-1) includes only catalogued, approved ranks. Unknown IDs grant no result.
 
 | Era review | Sources or interactions worth checking before adding any power |
 |---|---|
@@ -39,11 +41,11 @@ When preparing a new release, record its chosen item/ID, rank, acquisition route
 
 ## Wiki impact
 
-The test-branch wiki lists the candidate under **In development**. The public Equipment guide and loot finder continue to describe production. When the owner releases the feature, publish the two item sources, scope and rank values in Equipment, link the guide from Features, add one Change Log entry, and verify the current-era loot pages against the production item rows. This change adds no new commands, NPCs or zones.
+The official Equipment guide, Features page, Change Log and search now describe the two clicks. Both existing item sources were verified in the live loot finder. [Public Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-sympathetic).
 
-## Player QA on test
+## In-game QA
 
-1. Obtain or inspect the four qualities of each named item on the paired test client. Confirm the click appears on the Ascended copy and Extended Range II still appears on the Moonstone Ring. Check the natural drop route from a lava elemental in Solusek's Eye and a frenzied ghoul in Lower Guk. A single kill can legitimately drop neither item.
+1. Obtain or inspect the four qualities of each named item on the signed production client. Confirm the click appears on the Ascended copy and Extended Range II still appears on the Moonstone Ring. Check the natural drop route from a lava elemental in Solusek's Eye and a frenzied ghoul in Lower Guk. A single kill can legitimately drop neither item.
 2. Equip each Ascended item, click it, remove it and put your usual gear back on. Confirm both buff icons remain. Re-click the pendant to refresh its own buff, then zone and relog. Record the visible item, buff and target combat messages.
 3. With a living NPC target, compare the same qualifying single-target nuke before and after activating Strike. Try a sub-10-base-mana cast, a complete resist, a lifetap and a DoT. Check the recipient, number of extra hits and the lifetap return.
 4. Try an ordinary gem heal on yourself and an injured ally or owned pet. Repeat at full health, with Healing removed and with an eligible existing worn sympathetic heal. Record effective healing versus overheal and verify the worn heal retains precedence.
