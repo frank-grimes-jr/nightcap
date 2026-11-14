@@ -94,8 +94,10 @@ if start:
         '--property=StandardOutput=append:'+str(log),'--property=StandardError=append:'+str(log),
         '/usr/bin/python3','-B',str(root/'release.py'),name], check=True, stdout=subprocess.DEVNULL)
 state=subprocess.check_output(['systemctl','show',unit,'--property=LoadState,ActiveState,Result,ExecMainStatus'],text=True)
-print(json.dumps(dict(state=state.splitlines(),receipts=sorted(str(p.relative_to(root)) for p in
-    (root/'evidence').rglob('*.json')),log=log.read_text()[-1800:] if log.is_file() else '')))
+receipts=sorted(str(p.relative_to(root)) for p in (root/'evidence').rglob('*.json'))
+if name=='announced':
+    receipts.extend(p.name for p in root.glob('announced-*.json'))
+print(json.dumps(dict(state=state.splitlines(),receipts=receipts,log=log.read_text()[-1800:] if log.is_file() else '')))
 """))
     print(json.dumps(result, indent=2))
 
@@ -139,10 +141,13 @@ if __name__ == "__main__":
             proc.add_argument("--retry-idle",action="store_true")
     sub.add_parser("occupancy")
     sub.add_parser("wait-idle")
+    sub.add_parser("announced")
     sub.add_parser("verify")
     args = parser.parse_args()
     if args.op == "stage":
         stage(args.revision)
+    elif args.op == "announced":
+        action("announced", False)
     elif args.op == "wait-idle":
         monitor_idle()
     elif args.op == "occupancy":

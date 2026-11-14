@@ -1,0 +1,31 @@
+{
+  "status": "BLOCKED",
+  "published": false,
+  "explicit_owner_publication_approval_required": true,
+  "candidate": "20261113-archery-backstab-v2",
+  "destination": "https://wiki.nightcapgame.org/",
+  "public_predecessor": "20261113-sympathetic-clicks-v1",
+  "candidate_manifest_sha256": "8a6e5dc70adfc383c0f08fadb5c106116b5e7a583da080dc62693c2c4130a8b0",
+  "candidate_package_sha256": "457509332ef21e1779d87914c1f5f455d573068a0c273ea9dbfed885149b5355",
+  "candidate_files": 631,
+  "previous_files_preserved": 627,
+  "changed": [
+    "combat.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "action": "python -B -X utf8 docs/releases/thj-combat-20261113/wiki/publish.py",
+  "automatic_review_result": "Rejected before execution",
+  "automatic_review_reason": "This command uploads release artifacts and mutates the production wiki via SSH, but the user authorized server/main deployment—not publication of this specific payload to the official wiki destination.",
+  "production_game_verifier": "../ops/production-verified.json",
+  "candidate_receipt": "candidate.json",
+  "public_predecessor_verification": "predecessor-https.json",
+  "rollback": {
+    "previous_manifest": "/opt/nightcap/deploy/production/website-history/20261113-sympathetic-clicks-v1/manifest.json",
+    "previous_manifest_sha256": "224785104ce4ec16b065158cc8238c3e08d4f29aa84023ef0ca9a11dcdd17362",
+    "prior_relative_pointer": "releases/20261113-sympathetic-clicks-v1",
+    "guarded_updater": "wiki/update.py",
+    "candidate_origin_switch_executed": false
+  }
+}

@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 13, 2026 · Bow scaling and Backstab selection live on production
+
+Normal player bow hits scale with heroic DEX alongside the existing flat bonus and earned AAs. Eligible held Rangers now get the stationary-target bow benefit at the normal level threshold. Backstab chooses the stronger eligible one-hand piercer, accounts for target immunities, and honors Rogue held in any class slot. Twelve production zone workers verified, with open admissions and unchanged signed client 2026111301, item and spell caches. In-game player QA remains open. The updated official wiki pages are staged pending publication approval. [Release, validation and recovery](releases/thj-combat-20261113/README.md).
+
 ## November 13, 2026 · Backstab weapon selection
 
 Player Backstab compares eligible equipped one-hand piercers. A stronger secondary can win, including when the primary cannot backstab. Ties favor the primary. [Validation and player checks](combat/thj-backstab/QA.md).
