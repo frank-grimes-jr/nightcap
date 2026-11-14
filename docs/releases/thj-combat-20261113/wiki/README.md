@@ -1,6 +1,6 @@
 # Archery and Backstab on the official wiki
 
-**Publication pending.** The combined game release is open on OVH. Its [terminal verifier](../ops/production-verified.json) confirmed the running image and 12 zone workers. Automatic approval review rejected the separate SSH upload and official wiki pointer switch because the owner's instruction named the game server and main branch. The candidate package `20261113-archery-backstab-v2` is ready for explicit publication approval for `https://wiki.nightcapgame.org/`. The publisher never started. The last verified public wiki is `20261113-sympathetic-clicks-v1`. [Pending publication and recovery details](pending.json).
+**Published and verified.** The owner approved `20261113-archery-backstab-v2` for the official Nightcap wiki. All 631 files matched the approved manifest over public HTTPS on November 13 at 10:08 p.m. Eastern. Both versioned assets passed, and all five private paths returned 404. The publisher rehearsed rollback and preserved the running services. [Origin publication](publication.json) · [Public verification](public-verification.json).
 
 The Combat guide explains ordinary bow shots, the Heroic Dexterity curve, the two mastery AAs and the Ranger level gate. It also explains which one-handed piercing weapon Backstab selects, how dual wield affects the secondary hand, and what happens when both weapons give equal expected damage. Features and Change Log link directly to each section.
 

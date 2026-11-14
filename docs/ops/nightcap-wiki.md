@@ -1,21 +1,10 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated November 12, 2026.
+Updated November 13, 2026.
 
 ## Current state
 
-- Public wiki: https://wiki.nightcapgame.org/. Verified current release is
-  `20261112-earned-titles-v1`, over retained `20261112-dot-ticks-v2`.
-- The [Titles guide](https://wiki.nightcapgame.org/titles.html) lists all 77 planned
-  cosmetic unlocks and their requirements. It is a **Not released preview**;
-  title runtime activation and normal-player QA remain pending.
-- All 614 HTTPS file hashes/security headers and five private denials verify;
-  600 existing files are byte-identical. Pointer rollback, five service identities,
-  config/channel and private downloads are preserved, with no Nginx reload.
-- Exact authenticated source, scope, publication receipts and one-shot recovery:
-  [Titles wiki release](../titles/wiki-release/README.md). Publish from that
-  verified source, never an older main mirror. Source promotion and gameplay
-  activation remain separate.
+The official wiki serves `20261113-archery-backstab-v2` over `20261113-sympathetic-clicks-v1`. Combat, Features, Recent Changes and search include the bow and Backstab update. All 631 public files passed HTTPS hash and header checks. The five private paths returned 404. The updater rehearsed rollback and preserved service identities and start times. [Release and recovery](../releases/thj-combat-20261113/wiki/README.md) · [Public verification](../releases/thj-combat-20261113/wiki/public-verification.json).
 
 ## Retained hosting snapshots
 
