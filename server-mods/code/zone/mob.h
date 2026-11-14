@@ -238,6 +238,7 @@ public:
 	virtual bool Attack(Mob* other, int Hand = EQ::invslot::slotPrimary, bool FromRiposte = false, bool IsStrikethrough = false,
 	bool IsFromSpell = false, ExtraAttackOptions *opts = nullptr);
 	void DoAttack(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts = nullptr, bool FromRiposte = false);
+	void DoAttackWithBowOrigin(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, bool FromRiposte, bool normal_bow);
 	int MonkSpecialAttack(Mob* other, uint8 skill_used);
 	virtual void TryBackstab(Mob *other,int ReuseTime = 10);
 	bool AvoidDamage(Mob *attacker, DamageHitInfo &hit);
@@ -271,7 +272,7 @@ public:
 	bool CombatRange(Mob* other, float fixed_size_mod = 1.0, bool aeRampage = false, ExtraAttackOptions *opts = nullptr);
 	virtual inline bool IsBerserk() { return false; } // only clients
 	void RogueEvade(Mob *other);
-	void CommonOutgoingHitSuccess(Mob *defender, DamageHitInfo &hit, ExtraAttackOptions *opts = nullptr);
+	void CommonOutgoingHitSuccess(Mob *defender, DamageHitInfo &hit, ExtraAttackOptions *opts, bool normal_bow);
 	bool HasDied();
 	virtual bool CheckDualWield();
 	void DoMainHandAttackRounds(Mob *target, ExtraAttackOptions *opts = nullptr, bool rampage = false);

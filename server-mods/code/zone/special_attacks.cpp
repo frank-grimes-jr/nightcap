@@ -1142,7 +1142,10 @@ void Mob::DoArcheryAttackDmg(Mob *other, const EQ::ItemInstance *RangeWeapon, co
 		my_hit.tohit = GetTotalToHit(my_hit.skill, chance_mod);
 		my_hit.hand = EQ::invslot::slotRange;
 
-		DoAttack(other, my_hit);
+		// RangedAttack supplies the validated arrow. At impact its launch IDs survive a gear swap.
+		// SkillAttack spells and scripted damage calls supply neither source.
+		const bool normal_bow = IsClient() && (AmmoItem || (range_id && ammo_id));
+		DoAttackWithBowOrigin(other, my_hit, nullptr, false, normal_bow);
 		TotalDmg = my_hit.damage_done;
 	} else {
 		TotalDmg = DMG_INVULNERABLE;
