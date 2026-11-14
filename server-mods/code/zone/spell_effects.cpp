@@ -20,6 +20,7 @@
 #include "mob.h"
 #include "nightcap_sympathetic.h"
 #include "nightcap_heroic_cast.h"
+#include "nightcap_fixed_aa_duration.h"
 
 #include "common/bodytypes.h"
 #include "common/classes.h"
@@ -3876,6 +3877,26 @@ snare has both of them negative, yet their range should work the same:
 }
 
 
+void Client::ProcessFixedAADurations()
+{
+	for (int slot = 0; slot < GetMaxTotalSlots(); ++slot) {
+		auto& buff = buffs[slot];
+		if (!NightcapFixedAA::Marked(buff)) { continue; }
+		const int remaining = NightcapFixedAA::Remaining(buff, NightcapFixedAA::Now(),
+			zone->BuffTimersSuspended() && IsSuspendableSpell(buff.spellid));
+		if (!remaining) {
+			BuffFadeBySlot(slot);
+			continue;
+		}
+		const int ticks = NightcapFixedAA::Ticks(remaining);
+		if (ticks != buff.ticsremaining || buff.UpdateClient) {
+			buff.ticsremaining = ticks;
+			SendBuffDurationPacket(buff, slot);
+			buff.UpdateClient = false;
+		}
+	}
+}
+
 void Mob::BuffProcess()
 {
 	int buff_count = GetMaxTotalSlots();
@@ -3891,7 +3912,8 @@ void Mob::BuffProcess()
 			}
 
 			// DF_Permanent uses -1 DF_Aura uses -4 but we need to check negatives for some spells for some reason?
-			if (spells[buffs[buffs_i].spellid].buff_duration_formula != DF_Permanent &&
+			if (!NightcapFixedAA::Marked(buffs[buffs_i]) &&
+				spells[buffs[buffs_i].spellid].buff_duration_formula != DF_Permanent &&
 			    spells[buffs[buffs_i].spellid].buff_duration_formula != DF_Aura &&
 				buffs[buffs_i].ticsremaining != PERMANENT_BUFF_DURATION) {
 				if(!zone->BuffTimersSuspended() || !IsSuspendableSpell(buffs[buffs_i].spellid))
@@ -10735,6 +10757,8 @@ void Mob::SetBuffDuration(int spell_id, int duration, int level) {
 
 	int buff_count = GetMaxTotalSlots();
 	for (int slot = 0; slot < buff_count; slot++) {
+		// Generic duration edits cannot restart a rank-one AA's earned window.
+		if (NightcapFixedAA::Marked(buffs[slot])) { continue; }
 		if (!adjust_all_buffs) {
 			if (IsValidSpell(buffs[slot].spellid) && buffs[slot].spellid == spell_id) {
 				SpellOnTarget(buffs[slot].spellid, this, 0, false, 0, false, level, duration, true);
@@ -10811,9 +10835,9 @@ int Mob::GetBuffStatValueBySlot(uint8 slot, const char* stat_identifier)
 	else if (id == "melee_rune") { return  buffs[slot].melee_rune; }
 	else if (id == "magic_rune") { return  buffs[slot].magic_rune; }
 	else if (id == "dot_rune") { return  buffs[slot].dot_rune; }
-	else if (id == "caston_x") { return  buffs[slot].caston_x; }
-	else if (id == "caston_y") { return buffs[slot].caston_y; }
-	else if (id == "caston_z") { return  buffs[slot].caston_z; }
+	else if (id == "caston_x") { return NightcapFixedAA::Marked(buffs[slot]) ? 0 : buffs[slot].caston_x; }
+	else if (id == "caston_y") { return NightcapFixedAA::Marked(buffs[slot]) ? 0 : buffs[slot].caston_y; }
+	else if (id == "caston_z") { return NightcapFixedAA::Marked(buffs[slot]) ? 0 : buffs[slot].caston_z; }
 	else if (id == "instrument_mod") { return  buffs[slot].instrument_mod; }
 	else if (id == "persistant_buff") { return  buffs[slot].persistant_buff; }
 	else if (id == "client") { return  buffs[slot].client; }
