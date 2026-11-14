@@ -1,0 +1,40 @@
+{
+  "baseline": "fa821145a3389e9f5f61d24f7699d32b7103c6a0d08f1318e5fd6c2fdfda7f33",
+  "feature_patches": {
+    "backstab.patch": "f153b30a27a5b38e676964d9a614561350c803e92a0d918e89b34fd641b06ac8",
+    "bow.patch": "75f03059d9b1747bb8a04562aab4b97ec8b508b8a48d47f1cb54f04fa47c9d6f"
+  },
+  "link_input_count": 133,
+  "link_manifest_sha256": "ac85422b11f6931c4d7e95d56de670825334617d68d7a4cb9aa13fd92b7cbe6b",
+  "original_pch": "9335700966a9f73253065ea596527695828dbcb10dda9021bb6075e768990c80",
+  "profile": "local",
+  "source_postimages": {
+    "attack.cpp": "408f90671b2537059ed6c2fdbe210a3331b9614bc0a02953284669e2885091b8",
+    "mob.cpp": "00312f3ead5cf6c07ccd64195ba40ec69d85252cc256a87c67c9f48b2640cfd1",
+    "mob.h": "77c890908e98905cbacbb3812b1dc74e0b566b205e9f4c487b97f7a77e8cdf60",
+    "nightcap_melee.h": "9e94c756382ac416b0abee9d56cf0a43faccadec93fdb4d865b02c76969c1d35",
+    "special_attacks.cpp": "e42ba63077b2e1613292165f22d2c4bd81f650068cc099c81aaee7b187ac09fa"
+  },
+  "source_preimages": {
+    "attack.cpp": "b159d492282dbf90f33bd0363ed4e2dc94b4b3a6faea82e437b41d08ebf3d75d",
+    "mob.cpp": "7ac5ba0eba8e735ff0f05aded54140788f9ce5038fcdc9bda58e8921afc0063b",
+    "mob.h": "9de37734f341414a57a4e56c73ea7fe5f208e6e474a327e7565cfc6d98d7998f",
+    "nightcap_melee.h": null,
+    "special_attacks.cpp": "cc159816947ee46ca2978490c43b1920e98e824a264f107b95bebab3d9aa09c7"
+  },
+  "units": {
+    "attack": {
+      "candidate": "1f0278864eb1a8d6150e6b056619c656b796a393b2e14f8333bd0d2baf0a4a3d",
+      "predecessor": "8a3de703d032d29d6131cadea6854376f4f3cf85fbf547cd2cb1d98b61335275"
+    },
+    "mob": {
+      "candidate": "82e1c6e1baf18ed5665aebd6040943a205c35da176a0cf10539a086977f867a2",
+      "predecessor": "984130a7f7c5999a6d852b41d59af06c3f5e0788bbd9048c555ae4be62f80217"
+    },
+    "special_attacks": {
+      "candidate": "0b8151f8ae9ab9d50bfc4561c98534a8c5f88149010c1d4ecca609a1d1b9aaea",
+      "predecessor": "16d5c529fff219c59c472e3e0942f895147233c06e32d6a90c8c73258ef64452"
+    }
+  },
+  "zone": "3bdbedeb535e41c361c1a824fc8af95192046888e0f81768a668298ab20c5bd3"
+}

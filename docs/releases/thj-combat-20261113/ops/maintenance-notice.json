@@ -1,0 +1,11 @@
+{
+  "queued": true,
+  "world_dispatch_log_matches": 0,
+  "players_at_queue": 1,
+  "message": "Nightcap maintenance is ready to deploy the bow and Backstab update. Please camp when it is safe so we can restart. We will reopen after verification. Thank you.",
+  "start_game_time": "2026-11-13 20:24:00",
+  "end_game_time": "2026-11-13 20:25:00",
+  "event_id": 3,
+  "receipt_id": "93bd1ca59f6e5343f84209b994820285812e95bbb9647f54f3509b34f774c789",
+  "event_removed": true
+}

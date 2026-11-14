@@ -1,0 +1,468 @@
+diff --git a/server-mods/code/zone/mob.cpp b/server-mods/code/zone/mob.cpp
+index 05f18cad..2a2b8869 100644
+--- a/server-mods/code/zone/mob.cpp
++++ b/server-mods/code/zone/mob.cpp
+@@ -7818,153 +7818,59 @@ int32 Mob::GetMeleeMitigation() {
+ /* this is the mob being attacked.
+  * Pass in the weapon's EQ::ItemInstance
+  */
+-int Mob::ResistElementalWeaponDmg(const EQ::ItemInstance *item)
++namespace {
++// One integer roll from the client's elemental weapon mitigation distribution.
++int WeaponElementRoll(int damage, int resist, int draw)
+ {
+-	if (!item)
+-		return 0;
+-	int magic = 0, fire = 0, cold = 0, poison = 0, disease = 0, chromatic = 0, prismatic = 0, physical = 0,
+-	    corruption = 0;
+-	int resist = 0;
+-	int roll = 0;
+-	/*  this is how the client does the resist rolls for these.
+-	 *  Given the difficulty of parsing out these resists, I'll trust the client
+-	 */
+-	if (item->GetItemElementalDamage(magic, fire, cold, poison, disease, chromatic, prismatic, physical, corruption, true)) {
+-		if (magic) {
+-			resist = GetMR();
+-			if (resist >= 201) {
+-				magic = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					magic = 0;
+-				else if (roll < 100)
+-					magic = magic * roll / 100;
+-			}
+-		}
+-
+-		if (fire) {
+-			resist = GetFR();
+-			if (resist >= 201) {
+-				fire = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					fire = 0;
+-				else if (roll < 100)
+-					fire = fire * roll / 100;
+-			}
+-		}
+-
+-		if (cold) {
+-			resist = GetCR();
+-			if (resist >= 201) {
+-				cold = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					cold = 0;
+-				else if (roll < 100)
+-					cold = cold * roll / 100;
+-			}
+-		}
+-
+-		if (poison) {
+-			resist = GetPR();
+-			if (resist >= 201) {
+-				poison = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					poison = 0;
+-				else if (roll < 100)
+-					poison = poison * roll / 100;
+-			}
+-		}
+-
+-		if (disease) {
+-			resist = GetDR();
+-			if (resist >= 201) {
+-				disease = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					disease = 0;
+-				else if (roll < 100)
+-					disease = disease * roll / 100;
+-			}
+-		}
+-
+-		if (corruption) {
+-			resist = GetCorrup();
+-			if (resist >= 201) {
+-				corruption = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					corruption = 0;
+-				else if (roll < 100)
+-					corruption = corruption * roll / 100;
+-			}
+-		}
+-
+-		if (chromatic) {
+-			resist = GetFR();
+-			int temp = GetCR();
+-			if (temp < resist)
+-				resist = temp;
+-
+-			temp = GetMR();
+-			if (temp < resist)
+-				resist = temp;
+-
+-			temp = GetDR();
+-			if (temp < resist)
+-				resist = temp;
+-
+-			temp = GetPR();
+-			if (temp < resist)
+-				resist = temp;
++	const int64 percent = std::clamp<int64>(static_cast<int64>(draw) - resist, 0, 100);
++	return static_cast<int>(damage * percent / 100);
++}
+ 
+-			if (resist >= 201) {
+-				chromatic = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					chromatic = 0;
+-				else if (roll < 100)
+-					chromatic = chromatic * roll / 100;
++template <typename Resolve>
++int64 ResolveWeaponElements(Mob& target, const EQ::ItemInstance* item, Resolve resolve)
++{
++	if (!item) {
++		return 0;
++	}
++	int magic{}, fire{}, cold{}, poison{}, disease{}, chromatic{}, prismatic{}, physical{}, corruption{};
++	item->GetItemElementalDamage(magic, fire, cold, poison, disease, chromatic, prismatic, physical, corruption, true);
++	// Keep the original roll order. Physical weapon damage always uses PhR, including for PCs.
++	struct Element { int type; int damage; };
++	const Element elements[] = {
++		{RESIST_MAGIC, magic}, {RESIST_FIRE, fire}, {RESIST_COLD, cold}, {RESIST_POISON, poison},
++		{RESIST_DISEASE, disease}, {RESIST_CORRUPTION, corruption}, {RESIST_CHROMATIC, chromatic},
++		{RESIST_PRISMATIC, prismatic}, {RESIST_PHYSICAL, physical}
++	};
++	int64 total = 0;
++	for (const auto& element : elements) {
++		if (element.damage) {
++			const int resist = element.type == RESIST_PHYSICAL ? target.GetPhR() : target.GetResist(element.type);
++			if (resist < 201) {
++				total += resolve(element.damage, resist);
+ 			}
+ 		}
++	}
++	return total;
++}
++}
+ 
+-		if (prismatic) {
+-			resist = (GetFR() + GetCR() + GetMR() + GetDR() + GetPR()) / 5;
+-			if (resist >= 201) {
+-				prismatic = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					prismatic = 0;
+-				else if (roll < 100)
+-					prismatic = prismatic * roll / 100;
+-			}
+-		}
++int Mob::ResistElementalWeaponDmg(const EQ::ItemInstance *item)
++{
++	return static_cast<int>(ResolveWeaponElements(*this, item, [](int damage, int resist) {
++		return WeaponElementRoll(damage, resist, zone->random.Int(0, 200));
++	}));
++}
+ 
+-		if (physical) {
+-			resist = GetPhR();
+-			if (resist >= 201) {
+-				physical = 0;
+-			} else {
+-				roll = zone->random.Int(0, 200) - resist;
+-				if (roll < 1)
+-					physical = 0;
+-				else if (roll < 100)
+-					physical = physical * roll / 100;
+-			}
++// Exact sum across 201 equally likely draws. Comparing these sums avoids both RNG and rounding ties.
++int64 Mob::ExpectedElementalWeaponDamage(const EQ::ItemInstance *item)
++{
++	return ResolveWeaponElements(*this, item, [](int damage, int resist) {
++		int64 sum = 0;
++		for (int draw = 0; draw <= 200; ++draw) {
++			sum += WeaponElementRoll(damage, resist, draw);
+ 		}
+-	}
+-
+-	return magic + fire + cold + poison + disease + chromatic + prismatic + physical + corruption;
++		return sum;
++	});
+ }
+ 
+ /* this is the mob being attacked.
+diff --git a/server-mods/code/zone/mob.h b/server-mods/code/zone/mob.h
+index 871cd163..809a32d8 100644
+--- a/server-mods/code/zone/mob.h
++++ b/server-mods/code/zone/mob.h
+@@ -381,6 +381,7 @@ public:
+ 	int GetResist(uint8 resist_type);
+ 	int ResistPhysical(int level_diff, uint8 caster_level);
+ 	int ResistElementalWeaponDmg(const EQ::ItemInstance *item);
++	int64 ExpectedElementalWeaponDamage(const EQ::ItemInstance *item);
+ 	int CheckBaneDamage(const EQ::ItemInstance *item);
+ 	uint16 GetSpecializeSkillValue(uint16 spell_id) const;
+ 	void SendSpellBarDisable();
+@@ -1192,6 +1193,7 @@ public:
+ 	int64 ReduceAllDamage(int64 damage);
+ 
+ 	void DoSpecialAttackDamage(Mob *who, EQ::skills::SkillType skill, int base_damage, int min_damage = 0, int32 hate_override = -1, int ReuseTime = 10);
++	void DoSpecialAttackDamageWithBase(Mob *who, EQ::skills::SkillType skill, int base_damage, int min_damage, int32 hate_override, int ReuseTime, bool resolved);
+ 	void DoThrowingAttackDmg(Mob* other, const EQ::ItemInstance* RangeWeapon = nullptr, const EQ::ItemData* AmmoItem = nullptr, int32 weapon_damage = 0, int16 chance_mod = 0, int16 focus = 0, int ReuseTime = 0, uint32 range_id = 0, int AmmoSlot = 0, float speed = 4.0f, bool DisableProcs = false);
+ 	void DoMeleeSkillAttackDmg(Mob* other, int32 weapon_damage, EQ::skills::SkillType skillinuse, int16 chance_mod = 0, int16 focus = 0, bool can_riposte = false, int ReuseTime = 0);
+ 	void DoArcheryAttackDmg(Mob* other, const EQ::ItemInstance* RangeWeapon = nullptr, const EQ::ItemInstance* Ammo = nullptr, int32 weapon_damage = 0, int16 chance_mod = 0, int16 focus = 0, int ReuseTime = 0, uint32 range_id = 0, uint32 ammo_id = 0, const EQ::ItemData *AmmoItem = nullptr, int AmmoSlot = 0, float speed = 4.0f, bool DisableProcs = false);
+diff --git a/server-mods/code/zone/special_attacks.cpp b/server-mods/code/zone/special_attacks.cpp
+index f365e960..78cb6816 100644
+--- a/server-mods/code/zone/special_attacks.cpp
++++ b/server-mods/code/zone/special_attacks.cpp
+@@ -33,6 +33,96 @@
+ 
+ extern double frame_time;
+ 
++namespace {
++const EQ::ItemInstance* BackstabPiercer(Client& client, int slot)
++{
++	const auto* inst = client.GetInv().GetItem(slot);
++	if (!inst || !inst->GetItem() || inst->GetItem()->ItemType != EQ::item::ItemType1HPiercing ||
++		!inst->IsEquipable(slot) || inst->GetItemRequiredLevel(true) > client.GetLevel() ||
++		!client.CanEquipItem(inst->GetItem())) {
++		return nullptr;
++	}
++	if (slot == EQ::invslot::slotSecondary && !client.CanThisClassDualWield()) {
++		return nullptr;
++	}
++	return inst;
++}
++
++struct BackstabWeapon {
++	const EQ::ItemInstance* item = nullptr;
++	int base = 0;
++	bool elemental = false;
++};
++
++BackstabWeapon BackstabCandidate(Client& client, Mob* target, int slot)
++{
++	const auto* item = BackstabPiercer(client, slot);
++	if (!item) {
++		return {};
++	}
++	int base = item->GetItemBackstabDamage(true);
++	if (!item->GetItemBackstabDamage()) {
++		base += item->GetItemWeaponDamage(true);
++	}
++	if (!target) {
++		return {item, base, false};
++	}
++	if (target->GetSpecialAbility(SpecialAbility::MeleeImmunityExceptMagical) &&
++		!(item->GetItemMagical(true) || client.GetSpellBonusesPtr()->MagicWeapon || client.GetItemBonusesPtr()->MagicWeapon)) {
++		return {};
++	}
++	const int bane = target->CheckBaneDamage(item);
++	if (target->GetSpecialAbility(SpecialAbility::MeleeImmunityExceptBane) && !bane &&
++		!client.GetSpecialAbility(SpecialAbility::BaneAttack)) {
++		return {};
++	}
++	if (!RuleB(Combat, BackstabIgnoresBane)) {
++		base += bane;
++	}
++	return {item, base, item->GetItemElementalFlag(true) != 0 && !RuleB(Combat, BackstabIgnoresElemental) &&
++		!target->GetSpecialAbility(SpecialAbility::MagicImmunity)};
++}
++
++BackstabWeapon SelectBackstabWeapon(Client& client, Mob* target)
++{
++	if (target && (target->GetInvul() || target->GetSpecialAbility(SpecialAbility::MeleeImmunity))) {
++		return {};
++	}
++	const auto primary = BackstabCandidate(client, target, EQ::invslot::slotPrimary);
++	const auto secondary = BackstabCandidate(client, target, EQ::invslot::slotSecondary);
++	if (!primary.item) {
++		return secondary;
++	}
++	if (!secondary.item) {
++		return primary;
++	}
++	auto score = [target](const BackstabWeapon& weapon) {
++		return int64(201) * weapon.base + (weapon.elemental ? target->ExpectedElementalWeaponDamage(weapon.item) : 0);
++	};
++	return score(secondary) > score(primary) ? secondary : primary;
++}
++
++int ScaleBackstabDamage(Mob& attacker, int base, float skill_bonus)
++{
++	const int damage = static_cast<int>(static_cast<float>(base) * (skill_bonus + 2.0f));
++	const int skill_damage = attacker.GetSkillDmgAmt(EQ::skills::SkillBackstab);
++	if (RuleB(Character, ItemExtraSkillDamageCalcAsPercent) && skill_damage > 0) {
++		return damage * std::abs(skill_damage / 100);
++	}
++	return damage;
++}
++
++int PlayerBackstabDamage(Client& client, Mob* target)
++{
++	const auto weapon = SelectBackstabWeapon(client, target);
++	if (!weapon.item) {
++		return DMG_INVULNERABLE;
++	}
++	const int base = weapon.base + (weapon.elemental ? target->ResistElementalWeaponDmg(weapon.item) : 0);
++	return ScaleBackstabDamage(client, base, static_cast<float>(client.GetSkill(EQ::skills::SkillBackstab)) * 0.02f);
++}
++}
++
+ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
+ {
+ 	int base = EQ::skills::GetBaseDamage(skill);
+@@ -169,30 +259,13 @@ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
+ 			return static_cast<int>(ac_bonus + skill_bonus);
+ 		}
+ 		case EQ::skills::SkillBackstab: {
++			if (IsClient()) {
++				return PlayerBackstabDamage(*CastToClient(), target);
++			}
+ 			float skill_bonus = static_cast<float>(skill_level) * 0.02f;
+ 			base              = 3; // There seems to be a base 3 for NPCs or some how BS w/o weapon?
+ 			// until we get a better inv system for NPCs they get nerfed!
+-			if (IsClient()) {
+-				auto *inst = CastToClient()->GetInv().GetItem(EQ::invslot::slotPrimary);
+-				if (inst && inst->GetItem() && inst->GetItem()->ItemType == EQ::item::ItemType1HPiercing) {
+-					base = inst->GetItemBackstabDamage(true);
+-					if (!inst->GetItemBackstabDamage()) {
+-						base += inst->GetItemWeaponDamage(true);
+-					}
+-
+-					if (target) {
+-						if (inst->GetItemElementalFlag(true) && inst->GetItemElementalDamage(true) &&
+-							!RuleB(Combat, BackstabIgnoresElemental)) {
+-							base += target->ResistElementalWeaponDmg(inst);
+-						}
+-
+-						if ((inst->GetItemBaneDamageBody(true) || inst->GetItemBaneDamageRace(true)) &&
+-							!RuleB(Combat, BackstabIgnoresBane)) {
+-							base += target->CheckBaneDamage(inst);
+-						}
+-					}
+-				}
+-			} else if (IsNPC()) {
++			if (IsNPC()) {
+ 				auto *npc = CastToNPC();
+ 				base = round((npc->GetMaxDMG() - npc->GetMinDMG()) / RuleR(NPC, NPCBackstabMod));
+ 				// parses show relatively low BS mods from lots of NPCs, so either their BS skill is super low
+@@ -200,11 +273,7 @@ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
+ 				skill_bonus /= 3.0f;
+ 			}
+ 
+-			if (RuleB(Character, ItemExtraSkillDamageCalcAsPercent) && GetSkillDmgAmt(skill) > 0) {
+-				return static_cast<int>(static_cast<float>(base) * (skill_bonus + 2.0f)) * std::abs(GetSkillDmgAmt(skill) / 100);
+-			}
+-
+-			return static_cast<int>(static_cast<float>(base) * (skill_bonus + 2.0f));
++			return ScaleBackstabDamage(*this, base, skill_bonus);
+ 		}
+ 		default: {
+ 			return 0;
+@@ -214,6 +283,12 @@ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
+ 
+ void Mob::DoSpecialAttackDamage(Mob *who, EQ::skills::SkillType skill, int32 base_damage, int32 min_damage,
+ 				int32 hate_override, int ReuseTime)
++{
++	DoSpecialAttackDamageWithBase(who, skill, base_damage, min_damage, hate_override, ReuseTime, false);
++}
++
++void Mob::DoSpecialAttackDamageWithBase(Mob *who, EQ::skills::SkillType skill, int32 base_damage, int32 min_damage,
++				int32 hate_override, int ReuseTime, bool resolved)
+ {
+ 	// this really should go through the same code as normal melee damage to
+ 	// pick up all the special behavior there
+@@ -229,7 +304,7 @@ void Mob::DoSpecialAttackDamage(Mob *who, EQ::skills::SkillType skill, int32 bas
+ 	my_hit.min_damage = min_damage;
+ 	my_hit.skill = skill;
+ 
+-	if (my_hit.base_damage == 0)
++	if (!resolved && my_hit.base_damage == 0)
+ 		my_hit.base_damage = GetBaseSkillDamage(my_hit.skill);
+ 
+ 	if (base_damage == DMG_INVULNERABLE)
+@@ -619,7 +694,7 @@ void Client::OPCombatAbility(const CombatAbility_Struct *ca_atk)
+ 	if (
+ 		ca_atk->m_atk == 100 &&
+ 		ca_atk->m_skill == EQ::skills::SkillBackstab &&
+-		class_id == Class::Rogue
++		IsMulticlassMember(Class::Rogue)
+ 	) {
+ 		reuse_time = BackstabReuseTime - 1 - skill_reduction;
+ 		TryBackstab(GetTarget(), reuse_time);
+@@ -737,10 +812,9 @@ void Mob::TryBackstab(Mob *other, int ReuseTime) {
+ 
+ 	//make sure we have a proper weapon if we are a client.
+ 	if (IsClient()) {
+-		const EQ::ItemInstance *wpn = CastToClient()->GetInv().GetItem(EQ::invslot::slotPrimary);
+-
+-		if (!wpn || (wpn->GetItem()->ItemType != EQ::item::ItemType1HPiercing)){
+-			MessageString(Chat::Red, BACKSTAB_WEAPON);
++		auto& client = *CastToClient();
++		if (!BackstabPiercer(client, EQ::invslot::slotPrimary) && !BackstabPiercer(client, EQ::invslot::slotSecondary)) {
++			Message(Chat::Red, "You need a one-handed piercing weapon in either hand to backstab.");
+ 			return;
+ 		}
+ 	}
+@@ -834,17 +908,8 @@ void Mob::RogueBackstab(Mob* other, bool min_damage, int ReuseTime)
+ 	if (!other)
+ 		return;
+ 
+-	int64 hate = 0;
+-
+ 	// make sure we can hit (bane, magical, etc)
+-	if (IsClient()) {
+-		const EQ::ItemInstance* wpn = CastToClient()->GetInv().GetItem(EQ::invslot::slotPrimary);
+-
+-		if (!GetWeaponDamage(other, wpn)) {
+-			return;
+-		}
+-	}
+-	else if (IsBot()) {
++	if (IsBot()) {
+ 		EQ::ItemInstance* botweaponInst = CastToBot()->GetBotItem(EQ::invslot::slotPrimary);
+ 
+ 		if (botweaponInst) {
+@@ -856,14 +921,16 @@ void Mob::RogueBackstab(Mob* other, bool min_damage, int ReuseTime)
+ 			return;
+ 		}
+ 	}
+-	else if (!GetWeaponDamage(other, (const EQ::ItemData*)nullptr)) {
++	else if (!IsClient() && !GetWeaponDamage(other, (const EQ::ItemData*)nullptr)) {
+ 		return;
+ 	}
+ 
+ 	int base_damage = GetBaseSkillDamage(EQ::skills::SkillBackstab, other);
+-	hate = base_damage;
++	if (IsClient() && base_damage == DMG_INVULNERABLE) {
++		return;
++	}
+ 
+-	DoSpecialAttackDamage(other, EQ::skills::SkillBackstab, base_damage, 0, hate, ReuseTime);
++	DoSpecialAttackDamageWithBase(other, EQ::skills::SkillBackstab, base_damage, 0, base_damage, ReuseTime, IsClient());
+ 	DoAnim(anim1HPiercing, 0, false);
+ }
+ 
+@@ -2138,7 +2205,9 @@ void Client::DoClassAttacks(Mob *ca_target, uint16 skill, bool IsRiposte)
+ 		return;
+ 	}
+ 
+-	int64 dmg = GetBaseSkillDamage(static_cast<EQ::skills::SkillType>(skill_to_use), GetTarget());
++	// Backstab resolves its chosen weapon and elemental roll inside each actual strike.
++	int64 dmg = skill_to_use == EQ::skills::SkillBackstab ? 0 :
++		GetBaseSkillDamage(static_cast<EQ::skills::SkillType>(skill_to_use), GetTarget());
+ 
+ 	if (skill_to_use == EQ::skills::SkillBash) {
+ 		if (ca_target!=this) {

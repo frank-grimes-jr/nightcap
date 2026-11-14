@@ -1,0 +1,30 @@
+{
+  "baseline": "fa821145a3389e9f5f61d24f7699d32b7103c6a0d08f1318e5fd6c2fdfda7f33",
+  "link_input_count": 133,
+  "link_manifest_sha256": "d46dad633bc6e053fa36917ed08936f3d87dbab66b02c13395457417797ec9ca",
+  "original_pch": "9335700966a9f73253065ea596527695828dbcb10dda9021bb6075e768990c80",
+  "profile": "local",
+  "source_postimages": {
+    "attack.cpp": "408f90671b2537059ed6c2fdbe210a3331b9614bc0a02953284669e2885091b8",
+    "mob.h": "f93c47d40f47ed87a766abf9bbe5fa3310c9ec1507133a826f2777de6f70f127",
+    "nightcap_melee.h": "9e94c756382ac416b0abee9d56cf0a43faccadec93fdb4d865b02c76969c1d35",
+    "special_attacks.cpp": "688efeed365ede9eaf7a1d11f6644859326c42b374f472486b6ae4e59e49c012"
+  },
+  "source_preimages": {
+    "attack.cpp": "b159d492282dbf90f33bd0363ed4e2dc94b4b3a6faea82e437b41d08ebf3d75d",
+    "mob.h": "9de37734f341414a57a4e56c73ea7fe5f208e6e474a327e7565cfc6d98d7998f",
+    "nightcap_melee.h": null,
+    "special_attacks.cpp": "cc159816947ee46ca2978490c43b1920e98e824a264f107b95bebab3d9aa09c7"
+  },
+  "units": {
+    "attack": {
+      "candidate": "1f0278864eb1a8d6150e6b056619c656b796a393b2e14f8333bd0d2baf0a4a3d",
+      "predecessor": "8a3de703d032d29d6131cadea6854376f4f3cf85fbf547cd2cb1d98b61335275"
+    },
+    "special_attacks": {
+      "candidate": "ed37537792333fb107c3dde45336fc7cdbbd767816515aa33943b73751e2e453",
+      "predecessor": "16d5c529fff219c59c472e3e0942f895147233c06e32d6a90c8c73258ef64452"
+    }
+  },
+  "zone": "0aecb8e3ea5a692f66658d2aae0e37bbf5995c9e1fdf4b25043e06230fdd6650"
+}

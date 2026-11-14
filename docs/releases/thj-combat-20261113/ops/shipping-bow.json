@@ -1,0 +1,30 @@
+{
+  "baseline": "b462f5fce2f6e2a38e25ec4d3eda81c9efac16b59f39c764fa5a4d1bdd52d7f2",
+  "link_input_count": 144,
+  "link_manifest_sha256": "8ed041e760a67f9627f70a5c74f97732186cbe6a930ef9779f1ad5b2b0f62d1f",
+  "original_pch": "f31806268c2a6663c472520b1fddab4bed6ce302579de3b59e8ef04a46868933",
+  "profile": "shipping",
+  "source_postimages": {
+    "attack.cpp": "152d6c35205c9466d96c6249c16ad20c15d275c3d46250bb3c76b5374963d09a",
+    "mob.h": "26a339837d5c36751bdb85e94b326e9900f28e5a9f38d7a42f02a9b33c246fd0",
+    "nightcap_melee.h": "526d0ef9ae87306f0b6e48240a44a33999b5d2fba2869b6021117d245e519b41",
+    "special_attacks.cpp": "93961eb326d5dc6d1ca74f616ef8dcc655818dd081e2fc0bff79fb1e2fa33c20"
+  },
+  "source_preimages": {
+    "attack.cpp": "3f838d174d19d92caa71458bc3f9fbf681355769cedf2a31fd64ceffb133c997",
+    "mob.h": "d769c3545c593f2acf74919d1d46375f2d494f048cc075691ef7919f552d5c33",
+    "nightcap_melee.h": "b2a68fdaaea4e14b46231c7b16bd8c390bef5f1676d97369810ad7fd60a0837f",
+    "special_attacks.cpp": "a21bd6057de074b8997c990955393eb069aa7e8ea239d48d79f6f00029bf50d2"
+  },
+  "units": {
+    "attack": {
+      "candidate": "b98e665b20a8c3ee3cb3f0a6c112722e8b2a0c2d6e36aa2ccdcd228c42516320",
+      "predecessor": "4f51c89d765d2ca648cd6b4ecccb221f3254e7ac004496ba67bc49b79b6bea6e"
+    },
+    "special_attacks": {
+      "candidate": "d022d219643af20ce893daa067109894f62b10d49f19625f4bb798bf33dceb1a",
+      "predecessor": "58a3a1a45b7490eb38c87afa5861ad8f638c74049386dd503f2e64ea937de7da"
+    }
+  },
+  "zone": "77b0b62e4d23539471d1e28db0b79c3878bf849c6f4a951fcb911e861a199008"
+}

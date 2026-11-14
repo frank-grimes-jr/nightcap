@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "source": "c151a149f399124647c7929e4b1f3cdae2686404",
+  "image": "sha256:80519522690181a9e296235def257bdb1202db1dabe0f37f616b1d2ce132cd5f",
+  "binaries": {
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "zone": "ad119ac221bc6e46e7770827e2777d75a6f0937c9632f88512a169ce20525e00",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "started_at": "2026-11-14T02:47:45.014213936Z",
+  "gateway_open": true,
+  "backup_integrity": true,
+  "backup_sha256": "3356c421133e3a88079101a8bdbf0f74cb2588bff533d31a3f6f5cafa81c8a38",
+  "caches": {
+    "items": "b4e10ebd1dedd180e84cb60ad12d4bc058bcfbc877180c173cf92b72f64e568a",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "contract": {
+    "dungeon": {
+      "schema": 51,
+      "content": 671
+    },
+    "lantern": {
+      "items": 128,
+      "tasks": 16,
+      "task_activities": 64,
+      "npc_types": 19
+    }
+  },
+  "client_release": 2026111301,
+  "client_channel_sha256": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "deployed_receipt": "3457bed76f3184c037425503099062c3c4b1d36f3f260e11a1003682791cb869",
+  "owner_gameplay_accepted": false
+}

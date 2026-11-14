@@ -1,0 +1,25 @@
+{
+  "services": {
+    "spire-launcher": 1,
+    "world": 1,
+    "loginserver": 1,
+    "queryserv": 1,
+    "ucs": 1,
+    "zone": 8
+  },
+  "hashes": {
+    "zone": "3bdbedeb535e41c361c1a824fc8af95192046888e0f81768a668298ab20c5bd3",
+    "world": "c7a008e95615ff7f74cdca946ef889ad013052227b5593854e56e0091d8c51b3",
+    "shared_memory": "337a30c6123df49864e5aadf01c69868ffb782658f413ac27bcf27b1a86371ac",
+    "items": "127de1616aace07dad2617394ccd4e9861ddfedaef11c308699932a31d7ea9bf",
+    "spells": "063a8b70cfd95d7cbb3c87a50e6c87af24c9f22b16b0b66a5610148e8963a548"
+  },
+  "players": 0,
+  "locked": false,
+  "old_zone": "0aecb8e3ea5a692f66658d2aae0e37bbf5995c9e1fdf4b25043e06230fdd6650",
+  "backup": {
+    "sha256": "a3cd421c472170635774284686058883be2e27ac2ee78ca2f1ca4be54e15634c",
+    "gzip_integrity": true
+  },
+  "owner_gameplay_accepted": false
+}

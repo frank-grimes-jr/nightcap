@@ -1,0 +1,127 @@
+diff --git a/server-mods/code/common/nightcap_melee.h b/server-mods/code/common/nightcap_melee.h
+index 8f313d9b..855621f6 100644
+--- a/server-mods/code/common/nightcap_melee.h
++++ b/server-mods/code/common/nightcap_melee.h
+@@ -15,7 +15,7 @@ inline uint64_t MarrHealing(uint64_t amount)
+ 		std::numeric_limits<uint64_t>::max() : amount + bonus;
+ }
+ 
+-// Autoattack weapon skills only. Ranged and activated specials retain native damage.
++// Melee weapon skills eligible for the heroic STR multiplier.
+ constexpr bool IsWeaponSkill(int skill)
+ {
+ 	return skill == 0 || skill == 1 || skill == 2 || skill == 3 ||
+@@ -42,4 +42,23 @@ inline int64_t ScaleHeroicHit(int64_t damage, int heroic_strength)
+ 	return scaled >= std::numeric_limits<int64_t>::max() ? std::numeric_limits<int64_t>::max() :
+ 		static_cast<int64_t>(scaled);
+ }
++
++inline int64_t ScaleNormalBowHit(int64_t damage, int heroic_dexterity)
++{
++	if (damage <= 0 || heroic_dexterity <= 0) {
++		return damage;
++	}
++
++	// THJ guide anchors: +25% at 100, ~34% at 200, ~37% at 250, ~40% at 300.
++	// Nightcap interpolates in basis points and keeps the last slope above 300.
++	const int64_t multiplier = 10000 + 25 * std::min(heroic_dexterity, 100) +
++		9 * std::clamp(heroic_dexterity - 100, 0, 100) + 6LL * std::max(heroic_dexterity - 200, 0);
++	const int64_t whole = damage / 10000;
++	const int64_t remainder = (damage % 10000) * multiplier / 10000;
++	constexpr int64_t maximum = std::numeric_limits<int64_t>::max();
++	if (whole > (maximum - remainder) / multiplier) {
++		return maximum;
++	}
++	return whole * multiplier + remainder;
++}
+ }
+diff --git a/server-mods/code/zone/attack.cpp b/server-mods/code/zone/attack.cpp
+index b4ebcec6..95895b03 100644
+--- a/server-mods/code/zone/attack.cpp
++++ b/server-mods/code/zone/attack.cpp
+@@ -1529,6 +1529,11 @@ int64 Mob::DoDamageCaps(int64 base_damage)
+ // other is the defender, this is the attacker
+ //SYNC WITH: tune.cpp, mob.h TuneDoAttack
+ void Mob::DoAttack(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, bool FromRiposte)
++{
++	DoAttackWithBowOrigin(other, hit, opts, FromRiposte, false);
++}
++
++void Mob::DoAttackWithBowOrigin(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, bool FromRiposte, bool normal_bow)
+ {
+ 	if (!other) {
+ 		return;
+@@ -1593,7 +1598,7 @@ void Mob::DoAttack(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, boo
+ 			other->MeleeMitigation(this, hit, opts);
+ 			if (hit.damage_done > 0) {
+ 				ApplyDamageTable(hit);
+-				CommonOutgoingHitSuccess(other, hit, opts);
++				CommonOutgoingHitSuccess(other, hit, opts, normal_bow);
+ 			}
+ 			LogCombat("Final damage after all reductions: [{}]", hit.damage_done);
+ 		}
+@@ -6487,7 +6492,7 @@ int32 Mob::RuneAbsorb(int64 damage, uint16 type)
+ 	return damage;
+ }
+ //SYNC WITH: tune.cpp, mob.h TuneCommonOutgoingHitSucces
+-void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttackOptions *opts)
++void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttackOptions *opts, bool normal_bow)
+ {
+ 	if (!defender)
+ 		return;
+@@ -6510,13 +6515,17 @@ void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttac
+ 		hit.damage_done = 1;
+ 
+ 	if (hit.skill == EQ::skills::SkillArchery) {
++		if (normal_bow) {
++			hit.damage_done = NightcapMelee::ScaleNormalBowHit(hit.damage_done, GetHeroicDEX());
++		}
+ 		int bonus = aabonuses.ArcheryDamageModifier + itembonuses.ArcheryDamageModifier + spellbonuses.ArcheryDamageModifier;
+ 		hit.damage_done += hit.damage_done * bonus / 100;
+ 		int headshot = TryHeadShot(defender, hit.skill);
+ 		if (headshot > 0) {
+ 			hit.damage_done = headshot;
+ 		}
+-		else if (GetClass() == Class::Ranger && GetLevel() >= RuleI(Combat, ArcheryBonusLevelRequirement)) { // no double dmg on headshot
++		else if (GetLevel() >= RuleI(Combat, ArcheryBonusLevelRequirement) &&
++			(normal_bow ? HasCombatClass(Class::Ranger) : GetClass() == Class::Ranger)) { // no double dmg on headshot
+ 			if ((defender->IsNPC() && !defender->IsMoving() && !defender->IsRooted()) || !RuleB(Combat, ArcheryBonusRequiresStationary)) {
+ 				hit.damage_done *= 2;
+ 				MessageString(Chat::MeleeCrit, BOW_DOUBLE_DAMAGE);
+diff --git a/server-mods/code/zone/mob.h b/server-mods/code/zone/mob.h
+index c5e69173..871cd163 100644
+--- a/server-mods/code/zone/mob.h
++++ b/server-mods/code/zone/mob.h
+@@ -238,6 +238,7 @@ public:
+ 	virtual bool Attack(Mob* other, int Hand = EQ::invslot::slotPrimary, bool FromRiposte = false, bool IsStrikethrough = false,
+ 	bool IsFromSpell = false, ExtraAttackOptions *opts = nullptr);
+ 	void DoAttack(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts = nullptr, bool FromRiposte = false);
++	void DoAttackWithBowOrigin(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, bool FromRiposte, bool normal_bow);
+ 	int MonkSpecialAttack(Mob* other, uint8 skill_used);
+ 	virtual void TryBackstab(Mob *other,int ReuseTime = 10);
+ 	bool AvoidDamage(Mob *attacker, DamageHitInfo &hit);
+@@ -271,7 +272,7 @@ public:
+ 	bool CombatRange(Mob* other, float fixed_size_mod = 1.0, bool aeRampage = false, ExtraAttackOptions *opts = nullptr);
+ 	virtual inline bool IsBerserk() { return false; } // only clients
+ 	void RogueEvade(Mob *other);
+-	void CommonOutgoingHitSuccess(Mob *defender, DamageHitInfo &hit, ExtraAttackOptions *opts = nullptr);
++	void CommonOutgoingHitSuccess(Mob *defender, DamageHitInfo &hit, ExtraAttackOptions *opts, bool normal_bow);
+ 	bool HasDied();
+ 	virtual bool CheckDualWield();
+ 	void DoMainHandAttackRounds(Mob *target, ExtraAttackOptions *opts = nullptr, bool rampage = false);
+diff --git a/server-mods/code/zone/special_attacks.cpp b/server-mods/code/zone/special_attacks.cpp
+index 0d24103b..f365e960 100644
+--- a/server-mods/code/zone/special_attacks.cpp
++++ b/server-mods/code/zone/special_attacks.cpp
+@@ -1142,7 +1142,10 @@ void Mob::DoArcheryAttackDmg(Mob *other, const EQ::ItemInstance *RangeWeapon, co
+ 		my_hit.tohit = GetTotalToHit(my_hit.skill, chance_mod);
+ 		my_hit.hand = EQ::invslot::slotRange;
+ 
+-		DoAttack(other, my_hit);
++		// RangedAttack supplies the validated arrow. At impact its launch IDs survive a gear swap.
++		// SkillAttack spells and scripted damage calls supply neither source.
++		const bool normal_bow = IsClient() && (AmmoItem || (range_id && ammo_id));
++		DoAttackWithBowOrigin(other, my_hit, nullptr, false, normal_bow);
+ 		TotalDmg = my_hit.damage_done;
+ 	} else {
+ 		TotalDmg = DMG_INVULNERABLE;

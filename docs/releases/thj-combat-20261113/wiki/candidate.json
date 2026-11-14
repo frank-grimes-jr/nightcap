@@ -1,0 +1,16 @@
+{
+  "release": "20261113-archery-backstab-v2",
+  "predecessor": "20261113-sympathetic-clicks-v1",
+  "previous_manifest_sha256": "224785104ce4ec16b065158cc8238c3e08d4f29aa84023ef0ca9a11dcdd17362",
+  "exact_predecessor_reproduced": true,
+  "files": 631,
+  "retained": 627,
+  "changed": [
+    "combat.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "package_sha256": "457509332ef21e1779d87914c1f5f455d573068a0c273ea9dbfed885149b5355",
+  "manifest_sha256": "8a6e5dc70adfc383c0f08fadb5c106116b5e7a583da080dc62693c2c4130a8b0"
+}

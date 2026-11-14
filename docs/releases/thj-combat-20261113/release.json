@@ -1,0 +1,28 @@
+{
+  "production_verified": true,
+  "source": "c151a149f399124647c7929e4b1f3cdae2686404",
+  "zone": "ad119ac221bc6e46e7770827e2777d75a6f0937c9632f88512a169ce20525e00",
+  "image": "sha256:80519522690181a9e296235def257bdb1202db1dabe0f37f616b1d2ce132cd5f",
+  "workers": 12,
+  "production_started_at": "2026-11-14T02:47:45.014213936Z",
+  "restart_count": 0,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "gateway_open": true,
+  "client": 2026111301,
+  "wiki_verified_predecessor": "20261113-sympathetic-clicks-v1",
+  "wiki_staged": "20261113-archery-backstab-v2",
+  "wiki_publication": "pending explicit approval",
+  "owner_in_game_qa": "open",
+  "prs": {
+    "bow-dev": "https://github.com/frank-grimes-jr/nightcap/pull/446",
+    "bow-test": "https://github.com/frank-grimes-jr/nightcap/pull/447",
+    "bow-main": "https://github.com/frank-grimes-jr/nightcap/pull/448",
+    "backstab-dev": "https://github.com/frank-grimes-jr/nightcap/pull/449",
+    "backstab-test": "https://github.com/frank-grimes-jr/nightcap/pull/450",
+    "backstab-main": "https://github.com/frank-grimes-jr/nightcap/pull/451"
+  }
+}

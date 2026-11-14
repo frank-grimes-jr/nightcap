@@ -1,0 +1,73 @@
+{
+  "source_refresh": {
+    "gameplay": {
+      "ref": "4b02a8f8f62f6dda03c3b8e1067483c246eb0b5f",
+      "scope": "HEAD with staged, unstaged and untracked sources",
+      "result": "REVIEW REQUIRED",
+      "tracked_drift_paths": 916,
+      "affected_sources": [
+        "docs/combat/thj-backstab/MEASUREMENTS.md",
+        "docs/combat/thj-backstab/QA.md",
+        "docs/combat/thj-backstab/after.json",
+        "docs/combat/thj-backstab/backstab_boundary.cpp",
+        "docs/combat/thj-backstab/before.json",
+        "docs/combat/thj-backstab/measure.py",
+        "docs/combat/thj-bows/MEASUREMENTS.md",
+        "docs/combat/thj-bows/QA.md",
+        "docs/combat/thj-bows/after.json",
+        "docs/combat/thj-bows/before.json",
+        "docs/combat/thj-bows/bow_boundary.cpp",
+        "docs/combat/thj-bows/measure.py",
+        "server-mods/code/common/nightcap_melee.h",
+        "server-mods/code/zone/attack.cpp",
+        "server-mods/code/zone/mob.h",
+        "server-mods/code/zone/special_attacks.cpp"
+      ]
+    },
+    "main": {
+      "ref": "66b18d0bb3f5f5a41b687c6e2c18440fb0278217",
+      "scope": "HEAD with staged, unstaged and untracked sources",
+      "result": "REVIEW REQUIRED",
+      "tracked_drift_paths": 1697,
+      "affected_sources": [
+        "docs/combat/thj-backstab/MEASUREMENTS.md",
+        "docs/combat/thj-backstab/QA.md",
+        "docs/combat/thj-backstab/after.json",
+        "docs/combat/thj-backstab/backstab_boundary.cpp",
+        "docs/combat/thj-backstab/before.json",
+        "docs/combat/thj-backstab/measure.py",
+        "docs/combat/thj-bows/MEASUREMENTS.md",
+        "docs/combat/thj-bows/QA.md",
+        "docs/combat/thj-bows/after.json",
+        "docs/combat/thj-bows/before.json",
+        "docs/combat/thj-bows/bow_boundary.cpp",
+        "docs/combat/thj-bows/measure.py",
+        "server-mods/code/common/nightcap_melee.h",
+        "server-mods/code/zone/attack.cpp",
+        "server-mods/code/zone/mob.h",
+        "server-mods/code/zone/special_attacks.cpp"
+      ]
+    }
+  },
+  "official_predecessor": "20261113-sympathetic-clicks-v1",
+  "official_authored_articles": 44,
+  "guides_changed": [
+    "Combat",
+    "Features",
+    "Change Log",
+    "search index"
+  ],
+  "reviewed": {
+    "Home": "Existing Combat and Features links provide access.",
+    "Equipment, items, zones, commands, rewards and Loot finder": "Weapon eligibility and hit calculation change in the zone binary. No item records, acquisition paths, loot rates, zone data or commands change.",
+    "Build Lab": "Actions accept resolved attack damage. Its model has no ordinary arrow or Backstab hand selector. The combat-mechanic change therefore changes no input file or calculation in the existing model.",
+    "Prior public style": "Use exact public simplified source, preserve reader-focused text and keep evidence private."
+  },
+  "ledger_advanced": false,
+  "production_rules": {
+    "ruleset": 1,
+    "Combat:BackstabIgnoresBane": false,
+    "Combat:BackstabIgnoresElemental": false,
+    "capture": "Read-only query of rule_values on OVH, November 13, 2026. No other ruleset rows returned."
+  }
+}
