@@ -74,6 +74,7 @@ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 #include "common/content/world_content_service.h"
 #include "nightcap_sympathetic.h"
 #include "nightcap_heroic_cast.h"
+#include "nightcap_fixed_aa_duration.h"
 #include "common/classes.h"
 #include "common/epic05.h"
 #include "common/data_bucket.h"
@@ -3922,10 +3923,11 @@ int Mob::AddBuff(Mob *caster, uint16 spell_id, int duration, int32 level_overrid
 	else
 		caster_level = caster ? caster->GetCasterLevel(spell_id) : GetCasterLevel(spell_id);
 
+	const int fixed_ms = IsClient() && RuleB(Spells, NightcapTHJBehaviors) ? NightcapFixedAA::Milliseconds(spell_id) : 0;
 	if (duration == 0) {
 		duration = CalcBuffDuration(caster, this, spell_id);
 
-		if (caster && duration > 0) // negatives are perma buffs
+		if (!fixed_ms && caster && duration > 0) // negatives are perma buffs
 			duration = caster->GetActSpellDuration(spell_id, duration);
 	}
 
@@ -3934,7 +3936,7 @@ int Mob::AddBuff(Mob *caster, uint16 spell_id, int duration, int32 level_overrid
 		return -2;	// no duration? this isn't a buff
 	}
 
-	duration = GetBuffDurationForTarget(spell_id, duration);
+	duration = fixed_ms ? NightcapFixedAA::Ticks(fixed_ms) : GetBuffDurationForTarget(spell_id, duration);
 
 	LogSpells("Trying to add buff [{}] cast by [{}] (cast level [{}]) with duration [{}]",
 		spell_id, caster?caster->GetName():"UNKNOWN", caster_level, duration);
@@ -4123,6 +4125,10 @@ int Mob::AddBuff(Mob *caster, uint16 spell_id, int duration, int32 level_overrid
 	buffs[emptyslot].caston_x = 0;
 	buffs[emptyslot].caston_y = 0;
 	buffs[emptyslot].caston_z = 0;
+	if (fixed_ms) {
+		NightcapFixedAA::Start(buffs[emptyslot], NightcapFixedAA::Now(), zone->BuffTimersSuspended() && IsSuspendableSpell(spell_id));
+		buffs[emptyslot].UpdateClient = true;
+	}
 	buffs[emptyslot].dot_rune = 0;
 	buffs[emptyslot].ExtraDIChance = 0;
 	buffs[emptyslot].RootBreakChance = 0;
@@ -6934,6 +6940,7 @@ void Client::RestoreBuffEffects()
 
 	// The profile/icons alone can leave RoF2 without active native effects.
 	// Restore the saved state by slot, without casting or refreshing durations.
+	ProcessFixedAADurations();
 	for (int slot = 0; slot < GetMaxTotalSlots(); ++slot) {
 		if (IsValidSpell(buffs[slot].spellid)) {
 			SendBuffDurationPacket(buffs[slot], slot, true);
@@ -6970,9 +6977,10 @@ void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot, bool restore)
 		sbf->buff.counters = buff.counters;
 	sbf->buff.player_id = buff.casterid;
 	sbf->buff.num_hits = buff.hit_number;
-	sbf->buff.y = buff.caston_y;
-	sbf->buff.x = buff.caston_x;
-	sbf->buff.z = buff.caston_z;
+	const bool fixed = NightcapFixedAA::Marked(buff);
+	sbf->buff.y = fixed ? 0.0f : static_cast<float>(buff.caston_y);
+	sbf->buff.x = fixed ? 0.0f : static_cast<float>(buff.caston_x);
+	sbf->buff.z = fixed ? 0.0f : static_cast<float>(buff.caston_z);
 
 	sbf->slotid = slot;
 	// RoF2 mode 2 only updates an existing effect; mode 3 installs this slot.
@@ -7110,7 +7118,7 @@ void Mob::BuffModifyDurationBySpellID(uint16 spell_id, int32 newDuration)
 	int buff_count = GetMaxTotalSlots();
 	for(int i = 0; i < buff_count; ++i)
 	{
-		if (buffs[i].spellid == spell_id)
+		if (buffs[i].spellid == spell_id && !NightcapFixedAA::Marked(buffs[i]))
 		{
 			buffs[i].ticsremaining = GetBuffDurationForTarget(spell_id, newDuration);
 			if(IsClient())

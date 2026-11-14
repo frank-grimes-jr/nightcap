@@ -105,7 +105,9 @@ class GameplayPolicies(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="nightcap-policy-") as tmp:
             out = Path(tmp)
             header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
-            (out / "test.cpp").write_text('#include "' + header + '"\n#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' + FIXTURE + policy_helpers(source) + "\n".join(bodies) + CONTROLS)
+            thj_header = (ROOT / 'server-mods/code/common/nightcap_thj_behaviors.h').as_posix()
+            rules = '#include "' + thj_header + '"\n#define RuleB(category, rule) true\n'
+            (out / "test.cpp").write_text(rules + '#include "' + header + '"\n#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' + FIXTURE + policy_helpers(source) + "\n".join(bodies) + CONTROLS)
             if os.name == "nt":
                 compiler_env = Path("C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat")
                 self.assertTrue(compiler_env.is_file(), "MSVC x86 build tools missing")
@@ -125,7 +127,7 @@ class GameplayPolicies(unittest.TestCase):
     def test_integration_points(self):
         spells = (ZONE / "spells.cpp").read_text(encoding="utf-8")
         add = function(spells, "int Mob::AddBuff(")
-        self.assertIn("duration = GetBuffDurationForTarget(spell_id, duration);", add)
+        self.assertIn("duration = fixed_ms ? NightcapFixedAA::Ticks(fixed_ms) : GetBuffDurationForTarget(spell_id, duration);", add)
         cast = function(spells, "bool Mob::DoCastSpell(")
         self.assertIn("if (IsInstantCastDot(spell_id))", cast)
         self.assertIn("cast_time = orgcasttime = 0;", cast)
