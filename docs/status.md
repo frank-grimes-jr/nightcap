@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Rage and Bloodlust duration
+
+Rank-one Rage of Rallos Zek and Bloodlust use 12- and 24-second timers measured from application. Check the buff at early, middle and late tick offsets, with duration focus and after zoning. [Player QA](combat/thj-aa-duration/QA.md).
+
 ## November 14, 2026 · Heroic INT and WIS on spell effects
 
 Spell gem casts and activated AA spells retain the heroic multiplier on eligible direct damage and healing. A proc or combat skill previously received that multiplier independently, even when the same spell was already being cast. The correction keeps the separate item bonuses. All twelve OVH zone workers passed after deployment. [Production verification](releases/heroic-cast-sources-20261114/ops/production-verified.json). [Measurements and player checks](combat/thj-heroic-casts/QA.md).

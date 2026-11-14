@@ -123,6 +123,7 @@ struct Buff {
  uint16 spellid = SPELL_UNKNOWN;
  int ticsremaining = 0, casterid = 0, hit_number = 0;
  bool UpdateClient = false;
+ int caston_x = 0, caston_y = 0, caston_z = 0;
 };
 struct Mob;
 struct EntityList { Mob *GetMob(int) { return nullptr; } } entity_list;
@@ -460,7 +461,9 @@ class AATemporaryBuffs(unittest.TestCase):
         source = (ZONE / "spells.cpp").read_text(encoding="utf-8")
         effects_source = (ZONE / "spell_effects.cpp").read_text(encoding="utf-8")
         header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
-        cls.exe = compile_native(Path(cls.tmp.name), '#include "' + header + '"\n' +
+        fixed_aa = ZONE / "nightcap_fixed_aa_duration.h"
+        fixed_include = f'#include "{fixed_aa.as_posix()}"\n' if fixed_aa.exists() else ""
+        cls.exe = compile_native(Path(cls.tmp.name), fixed_include + '#include "' + header + '"\n' +
             '#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' +
             '#include "' + (ROOT / 'server-mods/code/common/nightcap_thj_behaviors.h').as_posix() + '"\n' + AA_FIXTURE + MOB_FIXTURE + policy_helpers(source) +
             function(source, "int CalcBuffDuration_formula(") +

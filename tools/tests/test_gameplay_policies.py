@@ -127,7 +127,7 @@ class GameplayPolicies(unittest.TestCase):
     def test_integration_points(self):
         spells = (ZONE / "spells.cpp").read_text(encoding="utf-8")
         add = function(spells, "int Mob::AddBuff(")
-        self.assertIn("duration = GetBuffDurationForTarget(spell_id, duration);", add)
+        self.assertIn("duration = fixed_ms ? NightcapFixedAA::Ticks(fixed_ms) : GetBuffDurationForTarget(spell_id, duration);", add)
         cast = function(spells, "bool Mob::DoCastSpell(")
         self.assertIn("if (IsInstantCastDot(spell_id))", cast)
         self.assertIn("cast_time = orgcasttime = 0;", cast)
