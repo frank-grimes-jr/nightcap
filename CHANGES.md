@@ -6,7 +6,7 @@ The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on ea
 
 ## November 14, 2026 · Classic Prismatic augments
 
-Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](docs/items/classic-prismatic/README.md).
+Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](docs/items/classic-prismatic/README.md). Production verified all 12 workers and the rebuilt item cache. [Release](docs/releases/classic-prismatic-20261114/README.md).
 
 ## November 14, 2026 · Rage and Bloodlust duration
 
