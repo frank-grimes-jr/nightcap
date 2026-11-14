@@ -96,7 +96,7 @@
     "docs/items/sympathetic-clicks/README.md",
     "docs/combat/thj-bows/QA.md",
     "docs/combat/thj-backstab/QA.md",
-    "docs/items/tunnel-distiller/README.md; merchant stock candidate for player QA"
+    "docs/items/tunnel-distiller/production.json; production stock verified, RoF2 player QA open"
   ],
   "keywords": [
     "fixes",

@@ -6,7 +6,7 @@ Prepared the 77-title native release over the reproduced current production bina
 
 ## November 14, 2026 · Tunnel augment distiller
 
-Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](docs/items/tunnel-distiller/README.md).
+Della’s Jewelcrafting Supplies in East Commonlands stocks the Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Production slot 105 verified November 14. All 104 prior rows, 12 workers and five services were preserved. East Commonlands was unloaded and loads the new stock on entry. Native player QA remains open. [Deployment receipt](docs/items/tunnel-distiller/production.json). [Stock migration and in-game checks](docs/items/tunnel-distiller/README.md).
 
 ## November 14, 2026 · Lower Guk assassin loot
 

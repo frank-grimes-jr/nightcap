@@ -14,7 +14,7 @@
     "docs/items/augment-icons-20261112/README.md; authorized native deployment; player visual QA open",
     "docs/releases/heroic-stats-inventory-20261112/: owner-authorized paired release; native visual/player acceptance open",
     "docs/items/classic-raid-augments/README.md",
-    "docs/items/tunnel-distiller/README.md; merchant stock candidate for player QA"
+    "docs/items/tunnel-distiller/production.json; production stock verified, RoF2 player QA open"
   ],
   "reviewed_at": "2026-11-12"
 }
