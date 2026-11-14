@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 13, 2026 · Normal bow damage and heroic DEX
+
+Ordinary player bow attacks gain a heroic DEX percentage alongside the existing flat ranged bonus. The calibration follows the documented 100, 200, 250 and 300 heroic DEX examples and continues the last slope beyond 300. Paired normal-arrow tests with and without Archery Mastery and Bow Mastery found the missing multiplier. A separate level-51 check confirmed the stationary-target bonus now recognizes held Ranger. [Bow QA and expected behavior](docs/combat/thj-bows/QA.md).
+
 ## November 13, 2026 · Classic sympathetic clicks live on production
 
 Ascended Runed Lava Pendant (Solusek’s Eye) grants Strike I and Ascended Moonstone Ring (Lower Guk) grants Healing I. A fully qualifying original spell can add 5% of its largest resolved direct HP component, rounded down and capped at 48. The ring retains Extended Range II. OVH reopened with 12 verified zone workers and signed client 2026111301. Players should exit EverQuest and select Play in the Nightcap launcher. In-game acceptance and full-encounter balance remain open. [Release verification](docs/releases/sympathetic-clicks-20261113/README.md).

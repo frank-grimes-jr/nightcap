@@ -1531,6 +1531,11 @@ int64 Mob::DoDamageCaps(int64 base_damage)
 //SYNC WITH: tune.cpp, mob.h TuneDoAttack
 void Mob::DoAttack(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, bool FromRiposte)
 {
+	DoAttackWithBowOrigin(other, hit, opts, FromRiposte, false);
+}
+
+void Mob::DoAttackWithBowOrigin(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, bool FromRiposte, bool normal_bow)
+{
 	if (!other) {
 		return;
 	}
@@ -1594,7 +1599,7 @@ void Mob::DoAttack(Mob *other, DamageHitInfo &hit, ExtraAttackOptions *opts, boo
 			other->MeleeMitigation(this, hit, opts);
 			if (hit.damage_done > 0) {
 				ApplyDamageTable(hit);
-				CommonOutgoingHitSuccess(other, hit, opts);
+				CommonOutgoingHitSuccess(other, hit, opts, normal_bow);
 			}
 			LogCombat("Final damage after all reductions: [{}]", hit.damage_done);
 		}
@@ -6489,7 +6494,7 @@ int32 Mob::RuneAbsorb(int64 damage, uint16 type)
 	return damage;
 }
 //SYNC WITH: tune.cpp, mob.h TuneCommonOutgoingHitSucces
-void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttackOptions *opts)
+void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttackOptions *opts, bool normal_bow)
 {
 	if (!defender)
 		return;
@@ -6512,13 +6517,17 @@ void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttac
 		hit.damage_done = 1;
 
 	if (hit.skill == EQ::skills::SkillArchery) {
+		if (normal_bow) {
+			hit.damage_done = NightcapMelee::ScaleNormalBowHit(hit.damage_done, GetHeroicDEX());
+		}
 		int bonus = aabonuses.ArcheryDamageModifier + itembonuses.ArcheryDamageModifier + spellbonuses.ArcheryDamageModifier;
 		hit.damage_done += hit.damage_done * bonus / 100;
 		int headshot = TryHeadShot(defender, hit.skill);
 		if (headshot > 0) {
 			hit.damage_done = headshot;
 		}
-		else if (GetClass() == Class::Ranger && GetLevel() >= RuleI(Combat, ArcheryBonusLevelRequirement)) { // no double dmg on headshot
+		else if (GetLevel() >= RuleI(Combat, ArcheryBonusLevelRequirement) &&
+			(normal_bow ? HasCombatClass(Class::Ranger) : GetClass() == Class::Ranger)) { // no double dmg on headshot
 			if ((defender->IsNPC() && !defender->IsMoving() && !defender->IsRooted()) || !RuleB(Combat, ArcheryBonusRequiresStationary)) {
 				hit.damage_done *= 2;
 				MessageString(Chat::MeleeCrit, BOW_DOUBLE_DAMAGE);
