@@ -1,0 +1,18 @@
+{
+  "release": "20261114-heroic-cast-sources-v1",
+  "status": "staged",
+  "published": false,
+  "predecessor": "20261113-archery-backstab-v2",
+  "predecessor_manifest_sha256": "8a6e5dc70adfc383c0f08fadb5c106116b5e7a583da080dc62693c2c4130a8b0",
+  "predecessor_reproduced": true,
+  "files": 631,
+  "preserved_files": 627,
+  "changed": [
+    "combat.html",
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "package_sha256": "af60f09b0a0ac0bd71910e23afb8b16f63c55b13bed84101d23e004a90ec0aae",
+  "manifest_sha256": "6ee19950b487d9759bc9e0ed8a1f024642719ace5ae3633306d28c0698cd5707"
+}

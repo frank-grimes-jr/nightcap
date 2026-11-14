@@ -1,0 +1,7 @@
+# Heroic INT and WIS by spell source
+
+The production zone now applies the direct heroic bonus to eligible spell gem casts and activated AA spells. The previous server gave the same bonus to procs and combat skills. The new zone also follows the original cast across group targets and delayed bolts. The signed client remains 2026111301. All twelve zone workers passed after reopening. [Production verification](ops/production-verified.json).
+
+The Linux build used the exact shipping baseline. At base 100, 40 Spell Damage, 60 Healing Amount, 100 heroic INT and 200 heroic WIS, direct gem and activated AA spell effects kept 154 damage and 192 healing. Procs and combat skills went from 154 and 192 to 140 and 160. All 190 measurements per build passed. The September local test runtime predates the heroic spell rule, so it served only as a baseline check. Player combat logs and encounter acceptance remain open. [Measurements](../../combat/thj-heroic-casts/MEASUREMENTS.md) · [Player checks](../../combat/thj-heroic-casts/QA.md) · [Shipping validation](ops/shipping-measurement.json).
+
+The code was promoted through [dev](https://github.com/frank-grimes-jr/nightcap/pull/454), [test](https://github.com/frank-grimes-jr/nightcap/pull/455) and [main](https://github.com/frank-grimes-jr/nightcap/pull/456). The release contains only the zone executable. The updated Combat, Equipment, Recent Changes and search pages are staged for the official wiki. [Wiki package](wiki/README.md).

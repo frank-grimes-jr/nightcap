@@ -1,0 +1,58 @@
+{
+  "official_source": "20261113-archery-backstab-v2",
+  "source_refresh": {
+    "development": {
+      "revision": "7e40a79c162439bfc6a262d2363f17c66f93cad5",
+      "with_worktree": true,
+      "result": "REVIEW REQUIRED",
+      "paths_changed": 922,
+      "relevant_paths": [
+        "docs/combat/thj-heroic-casts/QA.md",
+        "docs/combat/thj-heroic-casts/before.json",
+        "server-mods/code/zone/bonuses.cpp",
+        "server-mods/code/zone/mob.cpp",
+        "server-mods/code/zone/mob.h",
+        "server-mods/code/zone/spell_effects.cpp",
+        "server-mods/code/zone/spells.cpp",
+        "tools/tests/heroic_cast_origin_fixture.cpp",
+        "tools/tests/test_heroic_cast_origin.py"
+      ]
+    },
+    "integration": {
+      "revision": "3bfca8f8daf90648bcd71a0d1d59dda9314d2652",
+      "with_worktree": true,
+      "result": "REVIEW REQUIRED",
+      "paths_changed": 1717,
+      "relevant_paths": [
+        "docs/releases/heroic-cast-sources-20261114/ops/control.py",
+        "docs/releases/heroic-cast-sources-20261114/ops/local-before.json",
+        "docs/releases/heroic-cast-sources-20261114/ops/native.py",
+        "docs/releases/heroic-cast-sources-20261114/ops/probe.py",
+        "docs/releases/heroic-cast-sources-20261114/ops/production-before.json",
+        "docs/releases/heroic-cast-sources-20261114/wiki/prepare.py",
+        "server-mods/code/zone/bonuses.cpp",
+        "server-mods/code/zone/mob.cpp",
+        "server-mods/code/zone/mob.h",
+        "server-mods/code/zone/spell_effects.cpp",
+        "server-mods/code/zone/spells.cpp"
+      ]
+    }
+  },
+  "global_ledger_advanced": false,
+  "authored_pages": 44,
+  "guides_changed": [
+    "Combat",
+    "Equipment",
+    "Change Log"
+  ],
+  "generated_changes": [
+    "search-index.json"
+  ],
+  "impact": {
+    "features_home": "Existing Combat and Equipment links provide access to this correction to the existing formula.",
+    "commands_items_zones": "No command, item statistic, acquisition source, zone or reward probability changes. Generated catalogs keep their fingerprints.",
+    "build_lab": "Predefined cast actions use spellValue and fromSpell. Resolved AA, skill and proc user inputs return their supplied damage or heal before scaling. DoT handling precedes heroic multipliers. No numerical-model or frozen-source update.",
+    "pet_guide": "Owner heroic INT and WIS are already excluded from inheritance; the guide already describes this separately from flat item Spell Damage and Healing Amount.",
+    "historic_entries": "Older dated wording is retained. The new Change Log entry describes the source-specific rule."
+  }
+}

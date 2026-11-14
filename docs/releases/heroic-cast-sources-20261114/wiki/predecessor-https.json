@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "release": "20261113-archery-backstab-v2",
+  "files": 631,
+  "canonical_root": true,
+  "hashes_and_headers": true,
+  "asset_version": "a783e4b52bd4",
+  "versioned_assets": 2,
+  "private_status": {
+    ".env": 404,
+    "articles/features.json": 404,
+    "content-review.json": 404,
+    "catalog.json": 404,
+    "wiki/current/index.html": 404
+  },
+  "verified_at": "2026-11-14T15:30:30.945832+00:00"
+}

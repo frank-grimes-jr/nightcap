@@ -1,0 +1,8 @@
+{
+  "baseline": "ad119ac221bc6e46e7770827e2777d75a6f0937c9632f88512a169ce20525e00",
+  "link_input_count": 144,
+  "link_manifest_sha256": "d751cb495ee00946414c8ff3d2437b38111cf949e113f2f0a412eb84f213c887",
+  "original_pch": "a81aaeae61a7a08f6474357fd8f65542887eb746b2724eac0ac9ba12c30ee575",
+  "profile": "shipping",
+  "zone": "ad119ac221bc6e46e7770827e2777d75a6f0937c9632f88512a169ce20525e00"
+}

@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "samples": {
+    "baseline": {
+      "source_sha256": {
+        "zone/effects.cpp": "8d4eeb1d0dadf0ab614381c4da22a23e3d67f8ad3c9946865d11ca5fd01f4c47",
+        "zone/spells.cpp": "d18dfb368d64dd50f9e3548dfd12f7cb28a8ce3ce45ef2421924a7931edfd41a",
+        "zone/spell_effects.cpp": "dd2be8ce337797f32f2951420b7a172563c8a7d4df8031b88604fde2118d6e73",
+        "zone/aa.cpp": "4b411cc28164148ff4cb054fb167436a578e781480bb46ba87fc58b6a7caca46",
+        "zone/special_attacks.cpp": "95b10884559420773c174e07557d987ea1091f0bfa2febdd4944d8491e2ab75c",
+        "zone/raid_augment.h": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2",
+        "zone/raid_augment_delivery.h": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b",
+        "common/raid_augment.h": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08",
+        "common/nightcap_spell_scaling.h": "3a9e99e3e01e71acd780f568b9186695b491258869bd630725f23a83ec36a6ac"
+      },
+      "scenarios": 38,
+      "rows": 190,
+      "output_sha256": "e90160a015682780464ae7b353f26a65be60f3a82df753e64cf7ccd7dc1a25ae"
+    },
+    "candidate": {
+      "source_sha256": {
+        "zone/effects.cpp": "6d1b0d8a757c5d971f7836bc0767b83c9871c91b9ce617230ada330fc31ed35f",
+        "zone/spells.cpp": "fec63dcbcd705c6fd54d5035646a1cd765d363b6bc88228ba17c38b367d6606e",
+        "zone/spell_effects.cpp": "21f5d4735cbd6f8e1c3d338846a57a700f8c3c539a41d07f1b0ea41c2f5ab915",
+        "zone/aa.cpp": "4b411cc28164148ff4cb054fb167436a578e781480bb46ba87fc58b6a7caca46",
+        "zone/special_attacks.cpp": "bcef7989671776eb2ee6180970361a4403a9056759c2e64bd73d6428596b2fa6",
+        "zone/raid_augment.h": "d1c509f0fa14a01a9416a2bd8be7cfa3809a4acd4d82d365a0dfff9f46a966e2",
+        "zone/raid_augment_delivery.h": "25a626f684a73c0f3754a64a40e0643a3547476c70140f99eb4ac801841d0b06",
+        "common/raid_augment.h": "04cac81c4e87755b9b83c480a18eaa156135333f6861318d89f6bde2920deb08",
+        "common/nightcap_spell_scaling.h": "3a9e99e3e01e71acd780f568b9186695b491258869bd630725f23a83ec36a6ac",
+        "zone/nightcap_heroic_cast.h": "024a20ad92521ccd74493cb23d00f31dfb52cae0b1d5fc604b76338a9cdc2f90"
+      },
+      "scenarios": 38,
+      "rows": 190,
+      "output_sha256": "4ff4a4817af1530b732d579854598e2846f730b82aad61ae71d5a7bcd17e2037"
+    }
+  },
+  "fixtures": {
+    "thj_spell_fixture.h": "685d20777d2cce2939afa0b350eaddec6da590da278c5d791540fe39ed8036e9",
+    "test_heroic_cast_origin.py": "3bec219e7d2882615bbdd66d2273b57f11f380090d82ed525866f175dbea5d55",
+    "heroic_cast_origin_fixture.cpp": "1f95828ebc72ca00df69b97b022f344bd381a5bb1c9a8d39d5a797012385a219"
+  }
+}
