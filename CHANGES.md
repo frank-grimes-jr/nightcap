@@ -1,5 +1,9 @@
 # CHANGES
 
+## Post-combat recovery · test candidate
+
+Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. [Installation and QA](docs/combat/post-combat-regen/README.md).
+
 ## November 14, 2026 · Classic raid worn and focus effects
 
 Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md).

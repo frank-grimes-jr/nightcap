@@ -16,6 +16,7 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "nightcap_rest.h"
 #include "client.h"
 
 #include "common/eqemu_logsys.h"
@@ -287,7 +288,7 @@ int64 Client::CalcHPRegen(bool bCombat)
 
 	if (!bCombat && CanFastRegen() && (IsSitting() || CanMedOnHorse())) {
 		auto max_hp = GetMaxHP();
-		int64 fast_regen = 6 * (max_hp / (zone && zone->newzone_data.fast_regen_hp > 0 ? zone->newzone_data.fast_regen_hp : 180));
+		int64 fast_regen = NightcapRest::RecoveryFloor(max_hp, zone ? zone->newzone_data.fast_regen_hp : 0);
 		if (base < fast_regen) // weird, but what the client is doing
 			base = fast_regen;
 	}
@@ -843,7 +844,7 @@ int64 Client::CalcManaRegen(bool bCombat)
 
 	if (!bCombat && CanFastRegen() && (IsSitting() || CanMedOnHorse())) {
 		auto max_mana = GetMaxMana();
-		int fast_regen = 6 * (max_mana / zone->newzone_data.fast_regen_mana);
+		int64 fast_regen = NightcapRest::RecoveryFloor(max_mana, zone ? zone->newzone_data.fast_regen_mana : 0);
 		if (regen < fast_regen) // weird, but what the client is doing
 			regen = fast_regen;
 	}
