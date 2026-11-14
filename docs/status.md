@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Tunnel augment distiller
+
+Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](items/tunnel-distiller/README.md).
+
 ## November 14, 2026 · Classic Prismatic augments
 
 Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](items/classic-prismatic/README.md).
