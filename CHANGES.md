@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 13, 2026 · Backstab weapon selection
+
+Player Backstab compares eligible equipped one-hand piercers. A stronger secondary can win, including when the primary cannot backstab. Ties favor the primary. [Validation and player checks](docs/combat/thj-backstab/QA.md).
+
 ## November 13, 2026 · Normal bow damage and heroic DEX
 
 Ordinary player bow attacks gain a heroic DEX percentage alongside the existing flat ranged bonus. The calibration follows the documented 100, 200, 250 and 300 heroic DEX examples and continues the last slope beyond 300. Paired normal-arrow tests with and without Archery Mastery and Bow Mastery found the missing multiplier. A separate level-51 check confirmed the stationary-target bonus now recognizes held Ranger. [Bow QA and expected behavior](docs/combat/thj-bows/QA.md).

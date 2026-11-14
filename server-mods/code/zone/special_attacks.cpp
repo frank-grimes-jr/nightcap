@@ -33,6 +33,96 @@
 
 extern double frame_time;
 
+namespace {
+const EQ::ItemInstance* BackstabPiercer(Client& client, int slot)
+{
+	const auto* inst = client.GetInv().GetItem(slot);
+	if (!inst || !inst->GetItem() || inst->GetItem()->ItemType != EQ::item::ItemType1HPiercing ||
+		!inst->IsEquipable(slot) || inst->GetItemRequiredLevel(true) > client.GetLevel() ||
+		!client.CanEquipItem(inst->GetItem())) {
+		return nullptr;
+	}
+	if (slot == EQ::invslot::slotSecondary && !client.CanThisClassDualWield()) {
+		return nullptr;
+	}
+	return inst;
+}
+
+struct BackstabWeapon {
+	const EQ::ItemInstance* item = nullptr;
+	int base = 0;
+	bool elemental = false;
+};
+
+BackstabWeapon BackstabCandidate(Client& client, Mob* target, int slot)
+{
+	const auto* item = BackstabPiercer(client, slot);
+	if (!item) {
+		return {};
+	}
+	int base = item->GetItemBackstabDamage(true);
+	if (!item->GetItemBackstabDamage()) {
+		base += item->GetItemWeaponDamage(true);
+	}
+	if (!target) {
+		return {item, base, false};
+	}
+	if (target->GetSpecialAbility(SpecialAbility::MeleeImmunityExceptMagical) &&
+		!(item->GetItemMagical(true) || client.GetSpellBonusesPtr()->MagicWeapon || client.GetItemBonusesPtr()->MagicWeapon)) {
+		return {};
+	}
+	const int bane = target->CheckBaneDamage(item);
+	if (target->GetSpecialAbility(SpecialAbility::MeleeImmunityExceptBane) && !bane &&
+		!client.GetSpecialAbility(SpecialAbility::BaneAttack)) {
+		return {};
+	}
+	if (!RuleB(Combat, BackstabIgnoresBane)) {
+		base += bane;
+	}
+	return {item, base, item->GetItemElementalFlag(true) != 0 && !RuleB(Combat, BackstabIgnoresElemental) &&
+		!target->GetSpecialAbility(SpecialAbility::MagicImmunity)};
+}
+
+BackstabWeapon SelectBackstabWeapon(Client& client, Mob* target)
+{
+	if (target && (target->GetInvul() || target->GetSpecialAbility(SpecialAbility::MeleeImmunity))) {
+		return {};
+	}
+	const auto primary = BackstabCandidate(client, target, EQ::invslot::slotPrimary);
+	const auto secondary = BackstabCandidate(client, target, EQ::invslot::slotSecondary);
+	if (!primary.item) {
+		return secondary;
+	}
+	if (!secondary.item) {
+		return primary;
+	}
+	auto score = [target](const BackstabWeapon& weapon) {
+		return int64(201) * weapon.base + (weapon.elemental ? target->ExpectedElementalWeaponDamage(weapon.item) : 0);
+	};
+	return score(secondary) > score(primary) ? secondary : primary;
+}
+
+int ScaleBackstabDamage(Mob& attacker, int base, float skill_bonus)
+{
+	const int damage = static_cast<int>(static_cast<float>(base) * (skill_bonus + 2.0f));
+	const int skill_damage = attacker.GetSkillDmgAmt(EQ::skills::SkillBackstab);
+	if (RuleB(Character, ItemExtraSkillDamageCalcAsPercent) && skill_damage > 0) {
+		return damage * std::abs(skill_damage / 100);
+	}
+	return damage;
+}
+
+int PlayerBackstabDamage(Client& client, Mob* target)
+{
+	const auto weapon = SelectBackstabWeapon(client, target);
+	if (!weapon.item) {
+		return DMG_INVULNERABLE;
+	}
+	const int base = weapon.base + (weapon.elemental ? target->ResistElementalWeaponDmg(weapon.item) : 0);
+	return ScaleBackstabDamage(client, base, static_cast<float>(client.GetSkill(EQ::skills::SkillBackstab)) * 0.02f);
+}
+}
+
 int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
 {
 	int base = EQ::skills::GetBaseDamage(skill);
@@ -169,30 +259,13 @@ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
 			return static_cast<int>(ac_bonus + skill_bonus);
 		}
 		case EQ::skills::SkillBackstab: {
+			if (IsClient()) {
+				return PlayerBackstabDamage(*CastToClient(), target);
+			}
 			float skill_bonus = static_cast<float>(skill_level) * 0.02f;
 			base              = 3; // There seems to be a base 3 for NPCs or some how BS w/o weapon?
 			// until we get a better inv system for NPCs they get nerfed!
-			if (IsClient()) {
-				auto *inst = CastToClient()->GetInv().GetItem(EQ::invslot::slotPrimary);
-				if (inst && inst->GetItem() && inst->GetItem()->ItemType == EQ::item::ItemType1HPiercing) {
-					base = inst->GetItemBackstabDamage(true);
-					if (!inst->GetItemBackstabDamage()) {
-						base += inst->GetItemWeaponDamage(true);
-					}
-
-					if (target) {
-						if (inst->GetItemElementalFlag(true) && inst->GetItemElementalDamage(true) &&
-							!RuleB(Combat, BackstabIgnoresElemental)) {
-							base += target->ResistElementalWeaponDmg(inst);
-						}
-
-						if ((inst->GetItemBaneDamageBody(true) || inst->GetItemBaneDamageRace(true)) &&
-							!RuleB(Combat, BackstabIgnoresBane)) {
-							base += target->CheckBaneDamage(inst);
-						}
-					}
-				}
-			} else if (IsNPC()) {
+			if (IsNPC()) {
 				auto *npc = CastToNPC();
 				base = round((npc->GetMaxDMG() - npc->GetMinDMG()) / RuleR(NPC, NPCBackstabMod));
 				// parses show relatively low BS mods from lots of NPCs, so either their BS skill is super low
@@ -200,11 +273,7 @@ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
 				skill_bonus /= 3.0f;
 			}
 
-			if (RuleB(Character, ItemExtraSkillDamageCalcAsPercent) && GetSkillDmgAmt(skill) > 0) {
-				return static_cast<int>(static_cast<float>(base) * (skill_bonus + 2.0f)) * std::abs(GetSkillDmgAmt(skill) / 100);
-			}
-
-			return static_cast<int>(static_cast<float>(base) * (skill_bonus + 2.0f));
+			return ScaleBackstabDamage(*this, base, skill_bonus);
 		}
 		default: {
 			return 0;
@@ -214,6 +283,12 @@ int Mob::GetBaseSkillDamage(EQ::skills::SkillType skill, Mob *target)
 
 void Mob::DoSpecialAttackDamage(Mob *who, EQ::skills::SkillType skill, int32 base_damage, int32 min_damage,
 				int32 hate_override, int ReuseTime)
+{
+	DoSpecialAttackDamageWithBase(who, skill, base_damage, min_damage, hate_override, ReuseTime, false);
+}
+
+void Mob::DoSpecialAttackDamageWithBase(Mob *who, EQ::skills::SkillType skill, int32 base_damage, int32 min_damage,
+				int32 hate_override, int ReuseTime, bool resolved)
 {
 	// this really should go through the same code as normal melee damage to
 	// pick up all the special behavior there
@@ -229,7 +304,7 @@ void Mob::DoSpecialAttackDamage(Mob *who, EQ::skills::SkillType skill, int32 bas
 	my_hit.min_damage = min_damage;
 	my_hit.skill = skill;
 
-	if (my_hit.base_damage == 0)
+	if (!resolved && my_hit.base_damage == 0)
 		my_hit.base_damage = GetBaseSkillDamage(my_hit.skill);
 
 	if (base_damage == DMG_INVULNERABLE)
@@ -619,7 +694,7 @@ void Client::OPCombatAbility(const CombatAbility_Struct *ca_atk)
 	if (
 		ca_atk->m_atk == 100 &&
 		ca_atk->m_skill == EQ::skills::SkillBackstab &&
-		class_id == Class::Rogue
+		IsMulticlassMember(Class::Rogue)
 	) {
 		reuse_time = BackstabReuseTime - 1 - skill_reduction;
 		TryBackstab(GetTarget(), reuse_time);
@@ -737,10 +812,9 @@ void Mob::TryBackstab(Mob *other, int ReuseTime) {
 
 	//make sure we have a proper weapon if we are a client.
 	if (IsClient()) {
-		const EQ::ItemInstance *wpn = CastToClient()->GetInv().GetItem(EQ::invslot::slotPrimary);
-
-		if (!wpn || (wpn->GetItem()->ItemType != EQ::item::ItemType1HPiercing)){
-			MessageString(Chat::Red, BACKSTAB_WEAPON);
+		auto& client = *CastToClient();
+		if (!BackstabPiercer(client, EQ::invslot::slotPrimary) && !BackstabPiercer(client, EQ::invslot::slotSecondary)) {
+			Message(Chat::Red, "You need a one-handed piercing weapon in either hand to backstab.");
 			return;
 		}
 	}
@@ -834,17 +908,8 @@ void Mob::RogueBackstab(Mob* other, bool min_damage, int ReuseTime)
 	if (!other)
 		return;
 
-	int64 hate = 0;
-
 	// make sure we can hit (bane, magical, etc)
-	if (IsClient()) {
-		const EQ::ItemInstance* wpn = CastToClient()->GetInv().GetItem(EQ::invslot::slotPrimary);
-
-		if (!GetWeaponDamage(other, wpn)) {
-			return;
-		}
-	}
-	else if (IsBot()) {
+	if (IsBot()) {
 		EQ::ItemInstance* botweaponInst = CastToBot()->GetBotItem(EQ::invslot::slotPrimary);
 
 		if (botweaponInst) {
@@ -856,14 +921,16 @@ void Mob::RogueBackstab(Mob* other, bool min_damage, int ReuseTime)
 			return;
 		}
 	}
-	else if (!GetWeaponDamage(other, (const EQ::ItemData*)nullptr)) {
+	else if (!IsClient() && !GetWeaponDamage(other, (const EQ::ItemData*)nullptr)) {
 		return;
 	}
 
 	int base_damage = GetBaseSkillDamage(EQ::skills::SkillBackstab, other);
-	hate = base_damage;
+	if (IsClient() && base_damage == DMG_INVULNERABLE) {
+		return;
+	}
 
-	DoSpecialAttackDamage(other, EQ::skills::SkillBackstab, base_damage, 0, hate, ReuseTime);
+	DoSpecialAttackDamageWithBase(other, EQ::skills::SkillBackstab, base_damage, 0, base_damage, ReuseTime, IsClient());
 	DoAnim(anim1HPiercing, 0, false);
 }
 
@@ -2138,7 +2205,9 @@ void Client::DoClassAttacks(Mob *ca_target, uint16 skill, bool IsRiposte)
 		return;
 	}
 
-	int64 dmg = GetBaseSkillDamage(static_cast<EQ::skills::SkillType>(skill_to_use), GetTarget());
+	// Backstab resolves its chosen weapon and elemental roll inside each actual strike.
+	int64 dmg = skill_to_use == EQ::skills::SkillBackstab ? 0 :
+		GetBaseSkillDamage(static_cast<EQ::skills::SkillType>(skill_to_use), GetTarget());
 
 	if (skill_to_use == EQ::skills::SkillBash) {
 		if (ca_target!=this) {
