@@ -5810,7 +5810,7 @@ void Client::IncrementAggroCount(bool raid_target)
 	// When our aggro count is 1 here, we are exiting rest state. We need to pause our current timer, if we have time remaining
 	// We should not actually have to do anything to the Timer object since the AggroCount counter blocks it from being checked
 	// and will have it's timer changed when we exit combat so let's not do any extra work
-	if (AggroCount == 1 && rest_timer.GetRemainingTime()) // the Client::rest_timer is never disabled, so don't need to check
+	if (newtimer && AggroCount == 1 && rest_timer.GetRemainingTime()) // the Client::rest_timer is never disabled, so don't need to check
 		m_pp.RestTimer = std::max(1u, rest_timer.GetRemainingTime() / 1000); // I guess round up?
 
 	// save the new timer if it's higher
@@ -5852,7 +5852,11 @@ void Client::DecrementAggroCount()
 	if (AggroCount)
 		return;
 
-	rest_timer.Start(m_pp.RestTimer * 1000);
+	if (m_pp.RestTimer) {
+		rest_timer.Start(m_pp.RestTimer * 1000);
+	} else {
+		rest_timer.Trigger();
+	}
 
 	if (ClientVersion() >= EQ::versions::ClientVersion::SoF) {
 		auto outapp = new EQApplicationPacket(OP_RestState, 5);
