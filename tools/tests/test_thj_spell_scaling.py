@@ -22,7 +22,8 @@ class SpellParity(unittest.TestCase):
         prelude=(Path(__file__).with_name('thj_spell_fixture.h')).read_text()
         header=ROOT/'server-mods/code/common/nightcap_spell_scaling.h'
         if header.exists():prelude='#include "'+header.as_posix()+'"\n'+prelude
-        compile_run(prelude+'\n'.join(function(source,s) for s in signatures)+CASES)
+        heroic=ROOT/'server-mods/code/zone/nightcap_heroic_cast.h'
+        compile_run('#include "'+heroic.as_posix()+'"\n'+prelude+'\n'.join(function(source,s) for s in signatures)+CASES)
 
 CASES=r'''
 int main(){try{
@@ -47,12 +48,14 @@ int main(){try{
  c.aabonuses.CriticalDoTChance=0;c.focuses[focusFcDamageAmt]=80;
  expect("focus remains duration split",c.GetActDoTDamage(1,-8,&t,true),-113);
  c.focuses.clear();c.hint=100;c.hwis=100;
- expect("INT after item",c.GetActSpellDamage(1,-20,&t),-232);
+ auto direct_damage=[&](int base){return NightcapHeroicCast::Cast::Deliver(true,[&]{return c.GetActSpellDamage(1,base,&t);});};
+ auto direct_heal=[&](int base){return NightcapHeroicCast::Cast::Deliver(true,[&]{return c.GetActSpellHealing(1,base,&t,false);});};
+ expect("INT after item",direct_damage(-20),-232);
  expect("no INT on DoT",c.GetActDoTDamage(1,-8,&t,true),-103);
- expect("healing percentage and WIS",c.GetActSpellHealing(1,100,&t,false),320);
+ expect("healing percentage and WIS",direct_heal(100),320);
  spells[1].buff_duration=8;
  expect("HoT unchanged no WIS",c.GetActSpellHealing(1,100,&t,true),123);
- expect("duration-bearing immediate heal gets WIS once",c.GetActSpellHealing(1,100,&t,false),135);
+ expect("duration-bearing immediate heal gets WIS once",direct_heal(100),135);
  spells[1].buff_duration=0;c.hint=0;c.hwis=0;
  expect("healing unchanged",c.GetActSpellHealing(1,100,&t,false),291);
  c.ha=750;expect("rune calibration unchanged",c.GetNightcapRuneAmount(1,230),1955);
@@ -61,13 +64,13 @@ int main(){try{
  expect("Throw Stone once",c.GetActSpellDamage(5225,-1,&t),-192);
  spells[1].no_heal_damage_item_mod=true;
  c.hint=100;c.hwis=100;
- expect("item opt out direct",c.GetActSpellDamage(1,-20,&t),-20);
+ expect("item opt out direct",direct_damage(-20),-20);
  expect("item opt out DoT",c.GetActDoTDamage(1,-8,&t,true),-8);
- expect("heroic healing opt out",c.GetActSpellHealing(1,100,&t,false),100);
+ expect("heroic healing opt out",direct_heal(100),100);
  spells[1].no_heal_damage_item_mod=false;
- expect("reflection additive and heroic",c.GetActReflectedSpellDamage(1,-20,50),-221);
+ expect("reflection keeps additive SD",c.GetActReflectedSpellDamage(1,-20,50),-201);
  rules["Spells:IgnoreSpellDmgLvlRestriction"]=0;
- expect("SD level gate retained; heroics independent",c.GetActSpellDamage(1,-20,&t),-22);
+ expect("SD level gate retained; heroics independent",direct_damage(-20),-22);
  c.hint=0;c.hwis=0;
  expect("stone exemption retained",c.GetActSpellDamage(5225,-1,&t),-192);
  rules["Spells:IgnoreSpellDmgLvlRestriction"]=1;
@@ -78,7 +81,7 @@ int main(){try{
  expect("disabled legacy direct",c.GetActSpellDamage(1,-20,&t),-58);
  expect("disabled legacy DoT",c.GetActDoTDamage(1,-8,&t,true),-9);
  c.hint=100;rules["Spells:NightcapHeroicSpellScaling"]=0;
- expect("heroics independently disabled",c.GetActSpellDamage(1,-20,&t),-58);
+ expect("heroics independently disabled",direct_damage(-20),-58);
  expect("heroic truncation",NightcapSpellScaling::HeroicValue(-999,1),-999);
  expect("heroic negative clamp",NightcapSpellScaling::HeroicValue(-1000,-5),-1000);
  expect("heroic upper saturation",NightcapSpellScaling::HeroicValue(INT64_MAX,INT32_MAX),INT64_MAX);

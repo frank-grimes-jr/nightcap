@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Heroic INT and WIS on spell effects
+
+Spell gem casts and activated AA spells retain the heroic multiplier on eligible direct damage and healing. A proc or combat skill previously received that multiplier independently, even when the same spell was already being cast. The correction keeps the separate item bonuses. [Measurements and player checks](combat/thj-heroic-casts/QA.md).
+
 ## November 13, 2026 · Backstab weapon selection
 
 Player Backstab compares eligible equipped one-hand piercers. A stronger secondary can win, including when the primary cannot backstab. Ties favor the primary. [Validation and player checks](combat/thj-backstab/QA.md).
