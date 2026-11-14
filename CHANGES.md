@@ -1,12 +1,22 @@
 # CHANGES
 
+<<<<<<< HEAD
 ## November 14, 2026 · Titles live activation package
 
 Prepared the 77-title native release over the reproduced current production binary, with strict additive storage and a public `#titles` command. Batched kill credit bounds ordinary group/raid work to four SQL statements. Tested stopped-backup activation and data-preserving recovery; live activation and native player acceptance are recorded separately in [release evidence](docs/titles/deployment-20261114/README.md).
+=======
+## November 14, 2026 · Tunnel augment distiller
+
+Della’s Jewelcrafting Supplies in East Commonlands gains a permanent Perfected Augmentation Distiller in slot 105. The RoF2 Remove action returns the augment to the cursor and keeps the equipment. Merchant reload only. Production activation and player QA are pending. [Stock migration and in-game checks](docs/items/tunnel-distiller/README.md).
+
+## November 14, 2026 · Lower Guk assassin loot
+
+The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
+>>>>>>> origin/main
 
 ## November 14, 2026 · Classic Prismatic augments
 
-Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](docs/items/classic-prismatic/README.md).
+Three craftable Prismatic scales and rounded stats on nine Classic stock augment families. [Recipes, stats and player QA](docs/items/classic-prismatic/README.md). Production verified all 12 workers and the rebuilt item cache. [Release](docs/releases/classic-prismatic-20261114/README.md).
 
 ## November 14, 2026 · Rage and Bloodlust duration
 

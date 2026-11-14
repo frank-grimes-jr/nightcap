@@ -7,3 +7,9 @@ Before activation, the operator clones current production content, applies the e
 For recovery during a closed activation, check the release receipts, running services and player admission first. Once safely stopped, run the catalog rollback only while the guarded afterimages still match. Rebuild or verify the matching original item cache and confirm the original rows, world health and saved state before reopening. After exposure, use a forward correction that preserves owned item IDs.
 
 The Equipment guide and Recent Changes describe recipes, level, compatible slots, and the Ascended effects. These source changes await public wiki publication. Wiki refresh also reports older source drift. The deployed signed client obtains item definitions through the server.
+
+## Verified November 14
+
+Gameplay main `0e7795eef08d83e5c8042522e109ad7460d5f2ab` deployed after the [test promotion](https://github.com/frank-grimes-jr/nightcap/pull/465) and [main merge](https://github.com/frank-grimes-jr/nightcap/pull/466). Eight local test workers returned after the test migration. OVH reopened with twelve healthy workers, zero restarts and zero native, quest or database errors. The full item cache grew from 310,016 to 310,028 definitions. All twelve new scales matched the reviewed cache fields and each existing stock item was checked against its permitted four-field delta. The signed client remains 2026111301. [Production receipt](production-verified.json) · [Test receipt](test-verified.json).
+
+Owner observations of tradeskill combines, item windows and combat outcomes remain open. The published wiki has not been refreshed for this release.

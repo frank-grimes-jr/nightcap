@@ -1,0 +1,22 @@
+{
+  "source": "0e7795eef08d83e5c8042522e109ad7460d5f2ab",
+  "gateway_open": true,
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "image": "sha256:bb0520aeb6f66e4b8b8035aed7c6023d3de4c238d4b1830d15f84cb484bd0504",
+  "client": 2026111301,
+  "cache": {
+    "before": 310016,
+    "after": 310028,
+    "stock_families": 9,
+    "scale_definitions": 12,
+    "items_sha256": "cae97fd906092237e7c522cd52660c347469b09c161eb18f40ac3828ace8fa1d"
+  },
+  "backup_sha256": "992472f9876fb7a6cb8e4172f0e6d849f70b67501055dc64d7bb468a84aa02d8",
+  "player_qa": "open"
+}
