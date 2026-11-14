@@ -218,6 +218,12 @@ All commands run from `akk-stack/`:
   absent from its compiled catalog during boot. The old world removed
   `Character:AAExpMinLevel` despite the newer zone supporting it. Build/deploy
   both when `common/ruletypes.h` changes, and verify required values after boot.
+- **World RPC requires a running game.** After a clean whole-game stop, use the
+  authenticated stopped process state and closed gateway to prove no players;
+  never call native player-count RPC from a stopped-backup or recovery hook.
+  While the game runs, retain real occupancy checks. The titles activation's
+  bounded pre-SQL hold/continuation and regression cases are recorded in
+  `docs/titles/deployment-20261114/INCIDENT.md`.
 - **PoK relocation also needs saved-state handling.** With
   `Zone:StateSavingOnShutdown=true`, `zone_state_spawns` can restore old positions
   and deleted NPC spawns. Back up and invalidate only the affected non-corpse,

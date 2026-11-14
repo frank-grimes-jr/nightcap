@@ -1,10 +1,13 @@
 # Normal-player title QA
 
-Status: OPEN. Use an ordinary account with status0/GM off in the test environment.
+Status: OPEN. Live checks use an ordinary account with status0/GM off on the
+[verified November14 release](deployment-20261114/README.md). Control-row toggles,
+synthetic data and failure simulations belong only in an isolated test environment.
 Synthetic counter/skill rows belong only in isolated QA data, never a live player
 database. Record character, zone, build/hash, exact before/after and client result.
 
-1. Enable the reviewed candidate in the isolated environment. Open the native
+1. Use the already enabled live catalog for normal-player checks; isolate
+   enable/disable and failure controls. Open the native
    Titles picker and run `#titles`, then `#titles 2`. Six goals per command page;
    invalid, zero, negative and excessive page values must fail safely. Existing
    AA/database titles and an already selected prefix/suffix remain unchanged.
@@ -39,7 +42,7 @@ database. Record character, zone, build/hash, exact before/after and client resu
    task9515 and refresh to unlock suffix “the Last Lantern”. An active/partial
    task or individual activity completion is insufficient. Test prefix and suffix
    together, change one without clearing the other, and inspect another client.
-9. Disable the control row: no new counting/grants or earned-title selection.
+9. In isolated QA only, disable the control row: no new counting/grants or earned-title selection.
    Existing database titles remain available and saved counters/awards remain.
    Re-enable and relog: awards return without a duplicate announcement. Exercise
    storage failure and a reserved-ID collision in isolation; title calls fail

@@ -1,3 +1,21 @@
+# Current title wiki impact · November14
+
+The631-file public archery/Backstab source reproduced exactly. Title availability,
+command use, combat counting date, campaign reconciliation and Change Log/search
+were updated in six outputs;625files retain exact bytes. All631HTTPS hashes and
+headers and five private denials verify. Current source, publication, rollback
+and service/config/client guards: [deployment evidence](deployment-20261114/README.md).
+
+Whole-wiki review: Titles owns77exact requirements; existing Features and owning
+dungeon/skill/craft links already describe the same catalog. Home's published
+goal paths need no release notice. In development preserves its old anchor.
+No item/zone/catalog/acquisition values, generated reward pages, Build Lab or
+Loot Finder behavior change. Current-main authored context is aligned without
+republishing that stale mirror. Global historical source drift remains REVIEW
+REQUIRED; no ledger advance. Native picker/nameplate/notification QA stays OPEN.
+
+## Historical November12 source/publication review
+
 # Whole-wiki review — earned titles candidate
 
 November12,2026. Reviewed task source at origin/main423f9c3b plus working changes,

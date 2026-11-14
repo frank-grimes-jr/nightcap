@@ -6,7 +6,7 @@ Six stock reward families gain class-appropriate focus or worn effects across fo
 
 ## November 14, 2026 · Earned titles activation
 
-Owner-authorized live package is built and reviewed; production activation pending. It preserves the current fixed-AA native build and completed prismatic data release. [Evidence and exact in-game QA](titles/deployment-20261114/README.md). Main/wiki preview publication did not previously activate title counting.
+Active and verified on all twelve open production workers, main PR475/b824e0d2. Catalog1 is enabled and `#titles` is public. Signed client2026111301 and the completed prismatic baseline are preserved. Palwar’s logged Nagafen victory received named-only credit; opening Titles/#titles reconciles Flamebreaker. The current public guide is published and verified. Native visible picker/nameplate/notification acceptance remains OPEN. [Evidence, incident resolution and exact player QA](titles/deployment-20261114/README.md).
 
 ## November 14, 2026 · Tunnel augment distiller
 

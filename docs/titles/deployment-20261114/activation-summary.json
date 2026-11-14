@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "source": "b824e0d229c56737753321bcded38879bbf41102",
+  "image": "sha256:254dd0d7023a629de4dd57ec33575fdf3e1af67289758eff0c389708193f5d0c",
+  "deployed_receipt_sha256": "f617ac60e3b77b76aba8c63c329214c798ca2ed87e5127e37a7ca75e3de3b618",
+  "runtime_started_at": "2026-11-14T21:29:05.535764982Z",
+  "title_sql": {
+    "enabled": true,
+    "catalog_version": 1,
+    "backup_sha256": "8ca67a6b8bcab6281073da5fd19c0f537ea93bd79c4e0b6e27484a3effb0e5d1",
+    "restored_player_snapshot": false
+  },
+  "backup": {
+    "sha256": "8ca67a6b8bcab6281073da5fd19c0f537ea93bd79c4e0b6e27484a3effb0e5d1",
+    "compressed_bytes": 66932696,
+    "uncompressed_bytes": 483965014,
+    "gzip_integrity": "passed"
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "132",
+      "0",
+      "4",
+      "2.500000",
+      "2026-11-14 20:52:27"
+    ],
+    "after": [
+      "1",
+      "1",
+      "133",
+      "0",
+      "4",
+      "2.500000",
+      "2026-11-14 21:29:20"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "old_player_state_checks": "exact stopped snapshot and native expected boot state passed",
+  "resolved_hold_sha256": "5a9fb9bf2460d2fe2a4aad86d2435194de987f165250a1a61e782bb32d727cdc",
+  "first_backup": {
+    "sha256": "5f8f75c8506d5d1d58a54546fda5ab236313ca30b7747963a76cd55bda697aad",
+    "uncompressed_bytes": 483965014
+  },
+  "restored_player_snapshot": false,
+  "owner_gameplay_accepted": false
+}
