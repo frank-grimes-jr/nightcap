@@ -2,7 +2,7 @@
 
 ## November 14, 2026 · Lower Guk assassin loot
 
-The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
+The ghoul assassin gets one independent 20% roll for Guise of the Deceiver on each fresh spawn. OVH installed the quest on November 14. Its existing equipment and gem rolls keep their usual odds. [Implementation and in-game checks](docs/items/ghoul-assassin-guise.md).
 
 ## November 14, 2026 · Classic Prismatic augments
 

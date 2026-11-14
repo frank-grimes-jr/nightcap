@@ -2,7 +2,7 @@
 
 ## November 14, 2026 · Guise of the Deceiver
 
-The Lower Guk assassin quest adds a 20% bonus drop. Production activation and in-game acceptance are pending. [Local verification and player QA](items/ghoul-assassin-guise.md).
+OVH installed the Lower Guk assassin’s 20% bonus drop at 3:55 p.m. Eastern. The production-container Lua checks passed and Lower Guk was unloaded. Fresh assassins roll the bonus after the next zone boot. [Deployment receipt](releases/ghoul-assassin-guise-20261114/verified.json) · [Player QA](items/ghoul-assassin-guise.md).
 
 ## November 14, 2026 · Classic Prismatic augments
 
