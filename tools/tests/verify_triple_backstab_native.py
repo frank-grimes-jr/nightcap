@@ -16,11 +16,16 @@ STUBS = r'''
 #include <iostream>
 #include <vector>
 namespace EQ {
-namespace invslot { constexpr int slotPrimary=0; }
+namespace invslot { constexpr int slotPrimary=0, slotSecondary=1; }
 namespace item { constexpr int ItemType1HPiercing=2; }
 namespace skills { constexpr int SkillBackstab=8; }
 struct ItemData { int ItemType=2; };
-struct ItemInstance { ItemData item; const ItemData* GetItem() const { return &item; } };
+struct ItemInstance {
+ ItemData item;
+ const ItemData* GetItem() const { return &item; }
+ bool IsEquipable(int) const { return true; }
+ int GetItemRequiredLevel(bool) const { return 0; }
+};
 }
 namespace Chat { constexpr int Red=1, White=2; }
 constexpr int BACKSTAB_WEAPON=1;
@@ -38,9 +43,11 @@ struct Bonuses {
  bool FrontalBackstabMinDmg=false;
 };
 struct Inventory {
- EQ::ItemInstance weapon;
- bool present=true;
- const EQ::ItemInstance* GetItem(int) { return present ? &weapon : nullptr; }
+ EQ::ItemInstance weapon, offhand;
+ bool present=true, secondary=false;
+ const EQ::ItemInstance* GetItem(int slot) {
+  return slot == EQ::invslot::slotPrimary ? (present ? &weapon : nullptr) : (secondary ? &offhand : nullptr);
+ }
 };
 class Mob {
 public:
@@ -55,6 +62,9 @@ public:
  bool IsNPC() { return kind==2; }
  bool IsOfClientBot() { return kind!=2; }
  Mob* CastToClient() { return this; }
+ bool CanEquipItem(const EQ::ItemData*) { return true; }
+ bool CanThisClassDualWield() { return true; }
+ int GetLevel() const { return level; }
  Mob* CastToBot() { return this; }
  Inventory& GetInv() { return inventory; }
  const EQ::ItemInstance* GetBotItem(int i) { return inventory.GetItem(i); }
@@ -76,6 +86,7 @@ public:
  }
  void TryBackstab(Mob*,int);
 };
+using Client=Mob;
 '''
 
 TESTS = r'''
@@ -120,7 +131,10 @@ def main():
     root, output = map(Path, sys.argv[1:3])
     output.mkdir(parents=True, exist_ok=True)
     source = root / 'zone/special_attacks.cpp'
-    body = method(source.read_text(), 'void Mob::TryBackstab(')
+    text = source.read_text()
+    body = method(text, 'void Mob::TryBackstab(')
+    if 'BackstabPiercer(' in body:
+        body = method(text, 'const EQ::ItemInstance* BackstabPiercer(') + '\n' + body
     harness = output / 'native.cpp'
     harness.write_text(STUBS + body + TESTS)
     executable = output / 'native-test'

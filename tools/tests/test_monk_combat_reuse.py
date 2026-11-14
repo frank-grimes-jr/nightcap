@@ -79,6 +79,7 @@ struct Client:Mob {
  EQ::versions::ClientVersion version=EQ::versions::ClientVersion::RoF2;
  int haste=0,reduction=0,rejections=0;
  std::vector<int> attacks;
+ int base_skill_calculations=0;
  Mob* GetTarget() const {return target;}
  uint8 GetClass() const {return class_id;} uint8 GetLevel() const {return level;}
  auto ClientVersion() const {return version;} auto GetMulticlassList() const {return held;}
@@ -94,13 +95,14 @@ struct Client:Mob {
   if(cls==Class::Warrior && skill==SkillKick)return 200;
   if(cls==Class::Paladin && skill==SkillBash)return 200;
   if(cls==Class::Berserker && skill==SkillFrenzy)return 200;
+  if(cls==Class::Rogue && skill==SkillBackstab && at_level>=10)return 200;
   return 0;
  }
  bool IsAttackAllowed(Mob*) const {return allowed;} bool CombatRange(Mob*) const {return in_range;}
  int GetHaste() const {return haste;} int16 GetSkillReuseTime(int) const {return reduction;}
  const Inventory& GetInv() const {return inventory;}
  int GetWeaponDamage(Mob*,const EQ::ItemInstance*) const {return 1;}
- int GetBaseSkillDamage(EQ::skills::SkillType,Mob*) const {return 10;}
+ int GetBaseSkillDamage(EQ::skills::SkillType,Mob*) {++base_skill_calculations;return 10;}
  int GetSkill(EQ::skills::SkillType) const {return 100;}
  void SetAttackTimer() {} void ThrowingAttack(Mob*,bool=false) {}
  bool RangedAttack(Mob*,bool=false) {return true;} bool CheckDoubleRangedAttack() const {return false;}
@@ -330,6 +332,21 @@ int main(int argc,char** argv) {
   else if(scenario=="riposte")riposte();
   else if(scenario=="legacy")legacy_monk();
   else if(scenario=="non-monk")non_monk();
+  else if(scenario=="held-rogue") {
+   using namespace EQ::skills;
+   for (auto held : {std::vector<uint8>{Class::Rogue}, std::vector<uint8>{Class::Wizard, Class::Rogue},
+                     std::vector<uint8>{Class::Wizard, Class::Monk, Class::Rogue}}) {
+    Client c;c.held=held;c.class_id=held.front();c.Packet(SkillBackstab);
+    check(c.attacks==std::vector<int>{SkillBackstab},"legal held Rogue packet rejected");
+    c.Packet(SkillBackstab);check(c.attacks.size()==1,"reused Backstab during cooldown");
+    c.DoClassAttacks(c.GetTarget(),SkillBackstab,true);
+    check(c.attacks.size()==2 && c.base_skill_calculations==0,"riposte pre-rolled unused weapon damage");
+   }
+   Client nonrogue;nonrogue.Packet(SkillBackstab);
+   check(nonrogue.attacks.empty(),"packet authorized without Rogue");
+   Client untrained;untrained.class_id=Class::Rogue;untrained.held={Class::Rogue};untrained.level=1;
+   untrained.Packet(SkillBackstab);check(untrained.attacks.empty(),"missing skill cap authorized");
+  }
   else throw std::runtime_error("unknown scenario");
   std::cout<<"PASS: "<<scenario<<'\n';
  } catch(const std::exception& e) {std::cerr<<e.what()<<'\n';return 1;}
@@ -377,6 +394,9 @@ class MonkCombatReuseTests(unittest.TestCase):
 
     def test_dragon_punch_does_not_block_round_kick(self):
         self.run_scenario("dragon-round")
+
+    def test_backstab_packet_uses_held_rogue_and_native_cooldown(self):
+        self.run_scenario("held-rogue")
 
     def test_all_six_packet_attacks_have_independent_cooldowns(self):
         self.run_scenario("packet-pairs")
