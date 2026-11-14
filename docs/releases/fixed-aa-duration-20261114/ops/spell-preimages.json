@@ -1,0 +1,227 @@
+{
+  "spells": [
+    {
+      "id": 21773,
+      "name": "Rage of Rallos Zek",
+      "cast_on_you": "Your blood burns hot with the Rage of Rallos Zek.",
+      "cast_on_other": " is fueled by the Rage of Rallos Zek.",
+      "range": 100,
+      "aoerange": 0,
+      "buffdurationformula": 3,
+      "buffduration": 2,
+      "effect_base_value1": 10000,
+      "effect_base_value2": 0,
+      "effect_base_value3": 0,
+      "effect_base_value4": 0,
+      "effect_base_value5": 0,
+      "effect_base_value6": 0,
+      "effect_base_value7": 0,
+      "effect_base_value8": 0,
+      "effect_base_value9": 0,
+      "effect_base_value10": 0,
+      "effect_base_value11": 0,
+      "effect_base_value12": 0,
+      "effect_limit_value1": 0,
+      "effect_limit_value2": 0,
+      "effect_limit_value3": 0,
+      "effect_limit_value4": 0,
+      "effect_limit_value5": 0,
+      "effect_limit_value6": 0,
+      "effect_limit_value7": 0,
+      "effect_limit_value8": 0,
+      "effect_limit_value9": 0,
+      "effect_limit_value10": 0,
+      "effect_limit_value11": 0,
+      "effect_limit_value12": 0,
+      "max1": 0,
+      "max2": 0,
+      "max3": 0,
+      "max4": 0,
+      "max5": 0,
+      "max6": 0,
+      "max7": 0,
+      "max8": 0,
+      "max9": 0,
+      "max10": 0,
+      "max11": 0,
+      "max12": 0,
+      "effectid1": 200,
+      "effectid2": 254,
+      "effectid3": 254,
+      "effectid4": 254,
+      "effectid5": 254,
+      "effectid6": 254,
+      "effectid7": 254,
+      "effectid8": 254,
+      "effectid9": 254,
+      "effectid10": 254,
+      "effectid11": 254,
+      "effectid12": 254,
+      "targettype": 6,
+      "short_buff_box": -1,
+      "MaxResist": 0,
+      "not_extendable": 0,
+      "suspendable": 0,
+      "songcap": 0,
+      "maxtargets": 0,
+      "persistdeath": 0,
+      "min_dist": 0,
+      "min_dist_mod": 1,
+      "max_dist": 0,
+      "max_dist_mod": 1
+    },
+    {
+      "id": 30736,
+      "name": "Bloodlust",
+      "cast_on_you": "Your blood burns with rage!",
+      "cast_on_other": " looks enraged.",
+      "range": 200,
+      "aoerange": 0,
+      "buffdurationformula": 8,
+      "buffduration": 3,
+      "effect_base_value1": 10000,
+      "effect_base_value2": 0,
+      "effect_base_value3": 0,
+      "effect_base_value4": 0,
+      "effect_base_value5": 0,
+      "effect_base_value6": 0,
+      "effect_base_value7": 0,
+      "effect_base_value8": 0,
+      "effect_base_value9": 0,
+      "effect_base_value10": 0,
+      "effect_base_value11": 0,
+      "effect_base_value12": 0,
+      "effect_limit_value1": 0,
+      "effect_limit_value2": 0,
+      "effect_limit_value3": 0,
+      "effect_limit_value4": 0,
+      "effect_limit_value5": 0,
+      "effect_limit_value6": 0,
+      "effect_limit_value7": 0,
+      "effect_limit_value8": 0,
+      "effect_limit_value9": 0,
+      "effect_limit_value10": 0,
+      "effect_limit_value11": 0,
+      "effect_limit_value12": 0,
+      "max1": 10000,
+      "max2": 0,
+      "max3": 0,
+      "max4": 0,
+      "max5": 0,
+      "max6": 0,
+      "max7": 0,
+      "max8": 0,
+      "max9": 0,
+      "max10": 0,
+      "max11": 0,
+      "max12": 0,
+      "effectid1": 200,
+      "effectid2": 254,
+      "effectid3": 254,
+      "effectid4": 254,
+      "effectid5": 254,
+      "effectid6": 254,
+      "effectid7": 254,
+      "effectid8": 254,
+      "effectid9": 254,
+      "effectid10": 254,
+      "effectid11": 254,
+      "effectid12": 254,
+      "targettype": 6,
+      "short_buff_box": -1,
+      "MaxResist": 0,
+      "not_extendable": 0,
+      "suspendable": 1,
+      "songcap": 0,
+      "maxtargets": 0,
+      "persistdeath": 0,
+      "min_dist": 0,
+      "min_dist_mod": 1,
+      "max_dist": 0,
+      "max_dist_mod": 1
+    }
+  ],
+  "buff_storage": [
+    [
+      "character_id",
+      "int(10) unsigned"
+    ],
+    [
+      "slot_id",
+      "tinyint(3) unsigned"
+    ],
+    [
+      "spell_id",
+      "smallint(10) unsigned"
+    ],
+    [
+      "caster_level",
+      "tinyint(3) unsigned"
+    ],
+    [
+      "caster_name",
+      "varchar(64)"
+    ],
+    [
+      "ticsremaining",
+      "int(11)"
+    ],
+    [
+      "counters",
+      "int(10) unsigned"
+    ],
+    [
+      "numhits",
+      "int(10) unsigned"
+    ],
+    [
+      "melee_rune",
+      "int(10) unsigned"
+    ],
+    [
+      "magic_rune",
+      "int(10) unsigned"
+    ],
+    [
+      "persistent",
+      "tinyint(3) unsigned"
+    ],
+    [
+      "dot_rune",
+      "int(10)"
+    ],
+    [
+      "caston_x",
+      "int(10)"
+    ],
+    [
+      "caston_y",
+      "int(10)"
+    ],
+    [
+      "caston_z",
+      "int(10)"
+    ],
+    [
+      "ExtraDIChance",
+      "int(10)"
+    ],
+    [
+      "instrument_mod",
+      "int(10)"
+    ]
+  ],
+  "save_rules": [
+    "1\tZone:StateSaveBuffs\ttrue"
+  ],
+  "aa_ranks": [
+    "8303\t21773\t60",
+    "13484\t30736\t720",
+    "15414\t-1\t0"
+  ],
+  "legacy_saved_counts": [],
+  "extended_bloodlust": [
+    "15414\t1\t287\t1\t0",
+    "15414\t2\t139\t30736\t0"
+  ]
+}

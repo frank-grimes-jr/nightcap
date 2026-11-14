@@ -311,3 +311,5 @@ docs/releases/thj-combat-20261113/ops/*.patch -text -whitespace
 docs/releases/thj-combat-20261113/ops/*.json text eol=lf
 docs/releases/heroic-cast-sources-20261114/ops/feature.patch -text -whitespace
 docs/releases/heroic-cast-sources-20261114/ops/*.json text eol=lf
+docs/releases/fixed-aa-duration-20261114/ops/feature.patch -text -whitespace
+docs/releases/fixed-aa-duration-20261114/ops/*.json text eol=lf

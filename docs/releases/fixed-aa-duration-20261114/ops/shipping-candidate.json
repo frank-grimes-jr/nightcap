@@ -1,0 +1,43 @@
+{
+  "baseline": "67874c589830a5bb07f8a2b84566b39cf20e1dd3583fa54bbf29599ccb5ada8b",
+  "link_input_count": 144,
+  "link_manifest_sha256": "17b41cf14d020ad33a4007bfe4c5b4656124abfb790186c3576dc2785a7ede91",
+  "original_pch": "5d4be80ca3a764bfb2a598cb7326657d792813efc3aa6c284d78f6646a72fe09",
+  "profile": "shipping",
+  "source_postimages": {
+    "client.h": "c1f30999690f3544e435604e78631dc54a99eb245635d1921f3c26d0448ed274",
+    "client_process.cpp": "a557c53f507dcac6e48f883f23acb501842a896c78d8f7d977118ec38a565baa",
+    "nightcap_fixed_aa_duration.h": "8ad16c47389a7c8fd17ec35b056d58fa288cc958010ef45c4be0cc7e0c646e98",
+    "spell_effects.cpp": "9098c76237ac745e0dcb3436d86ccfbb89ba8812408e6bfbfc21c47762804961",
+    "spells.cpp": "f20516d4af0d3867902ee7c7f1c83105ac6bc44dca4f54b788e54fa3f268d0c4",
+    "zonedb.cpp": "95661959fb0e2c6e4a42aa939300f44d23a8b7edbc3b6ba59db91fe87072e2eb"
+  },
+  "source_preimages": {
+    "client.h": "2180a0ad7f0cc8080e4c006d4b7c44d02341a0787879d15b80950c46280b5b1d",
+    "client_process.cpp": "69e3288f505d66d489ad69d63f9e9c362691b4c29806a15ae92421846f956211",
+    "nightcap_fixed_aa_duration.h": null,
+    "spell_effects.cpp": "21f5d4735cbd6f8e1c3d338846a57a700f8c3c539a41d07f1b0ea41c2f5ab915",
+    "spells.cpp": "fec63dcbcd705c6fd54d5035646a1cd765d363b6bc88228ba17c38b367d6606e",
+    "zonedb.cpp": "c19ef48dc6a2297458405ca747981a35b0fa6ade8bd77d2e25a4be007e73dd64"
+  },
+  "units": {
+    "client_process": {
+      "candidate": "0317eea68dec9f8a71428254b55349afc785569e2996cf42b4f480ee2f08263a",
+      "predecessor": "80fa3179a077837d7b0c581ed2d00aa0bf47fe74fa19f3f229f0e4e5373dac9d"
+    },
+    "spell_effects": {
+      "candidate": "7c0e48460222603edd9993cf8127b1d52ead0ed75cb83c1e3694fa3bdbac1794",
+      "predecessor": "159976e9f2f62dbefcddc05d1b7e4c18f092fa11c5a6b1e1d5f776a9047b28f0"
+    },
+    "spells": {
+      "candidate": "d319343b96a71abfe4b118e8d60c8c2f06db3b685ec5a6bd978a97bd58d09c4f",
+      "predecessor": "d15df9f2ddb2701fbb5f75883e5134dada2d35eabeb9429eb12b5383efa2129f"
+    },
+    "zonedb": {
+      "candidate": "6b082628d36db45f3e091fd5762fffc134ebbdc8a9955a5e682c8542048e302f",
+      "predecessor": "51f45326d7c2e546edf112e4cdc87e2db55c46c0c23873bef87094f00f6a16a9"
+    }
+  },
+  "zone": "82d5e2d2573a440beac75dabce41f9271a20d579ebc9d6bf38a32a6ad0c1c314",
+  "feature_patch_sha256": "0ac9dced18ce67345a37815e1abd778de93cf411bb8aea1e9b6c1140df4ee737"
+}
