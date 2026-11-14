@@ -309,3 +309,5 @@ docs/items/sympathetic-clicks/runtime/local-september.patch -text -whitespace
 # Retain the tested native hunks and production build inputs across checkouts.
 docs/releases/thj-combat-20261113/ops/*.patch -text -whitespace
 docs/releases/thj-combat-20261113/ops/*.json text eol=lf
+docs/releases/heroic-cast-sources-20261114/ops/feature.patch -text -whitespace
+docs/releases/heroic-cast-sources-20261114/ops/*.json text eol=lf

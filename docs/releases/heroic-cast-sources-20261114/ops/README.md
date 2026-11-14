@@ -1,0 +1,21 @@
+# Heroic cast source release
+
+The locally built shipping candidate is `67874c58`. Its five affected translation units are beacon, effects, special_attacks, spell_effects and spells. Each unmodified translation unit rebuilt to the retained object hash before the feature patch was applied. The resulting zone linked against the original 144 native inputs and had the same dynamic library dependencies. Both the shipping predecessor and the eight-worker local TEST predecessor reproduced byte for byte. [Shipping build](shipping-candidate.json) · [Shipping predecessor](shipping-baseline.json) · [Local predecessor](local-baseline.json).
+
+The persistent September TEST world has no compiled heroic direct-spell percentage or active rule row. It continues to serve its existing bow/Backstab zone. The local Linux test used the shipping source overlay with the actual predecessor and candidate native spell methods. All 38 scenarios and five stat profiles passed for both versions, 190 rows each. The fixture records direct damage and healing with controlled caster, target, spell and cast source. In-game player acceptance is open. [Local service probe](local-before.json) · [Linux shipping measurement](shipping-measurement.json).
+
+## Reproducing the build
+
+The retained local Docker build root is `/tmp/nightcap-heroic-cast-sources-20261114`. Place `native.py` and the byte-preserving `feature.patch` there. Run `python3 native.py shipping baseline`, then `python3 native.py shipping candidate`. The builder checks the entire bow/Backstab link manifest, verifies all five original compilation results, applies the patch at zero fuzz using the original compiler paths, rebuilds the PCH, and compiles and relinks the zone. The new direct-cast state reuses the existing one-byte delayed delivery flag and scoped thread-local variables. All object and source hashes are in the build receipt. [Native builder](native.py) · [Patch](feature.patch).
+
+To repeat the fixture, place `measure.py` in the build root and copy `tools/tests/test_heroic_cast_origin.py`, `tools/tests/heroic_cast_origin_fixture.cpp` and `tools/tests/thj_spell_fixture.h` into its `tests/` subdirectory. Run `python3 -B measure.py`. The fixture uses both effective source overlays and the retained shipping spell/AA dependencies. [Fixture driver](measure.py).
+
+## Production operations
+
+The pre-maintenance probe authenticated the bow/Backstab receipt, image, five executable hashes, both shared caches and the signed client. It found 12 workers and zero native, quest or database errors. Active ruleset 1 enabled the heroic direct percentage and THJ damage behavior, with zero heroic-to-flat SD/HA multipliers. [Initial probe](production-before.json).
+
+After the merged main revision and binary have been authenticated, `control.py stage MAIN_REVISION` uploads the immutable manifest and zone. `control.py deploy --start` supports the vacant world. For this release, `drain.py --start` launched the guarded maintenance path from main `8079c551` with one active player. It builds and validates the image while admissions are open. It then closes the relay, waits for the world’s authenticated player count to reach zero, checks the incumbent services, and takes fresh state for the normal operator. A failed drain with the incumbent game intact reopens its gateway. [Maintenance driver](maintenance.py) · [Immutable start receipt](maintenance-start.json).
+
+The operator runs under deployment and GM locks. It saves current state, stops the whole game, and verifies a fresh stopped backup. Its closed checks cover the normal boot state, single market rotation, production content contracts, signed channel, shared caches and surrounding services. `drain.py` reads the running maintenance state and private evidence names. `control.py verify` records the independent post-open result.
+
+After an interrupted activation with the gateway still closed and no opening receipt, `control.py recover-closed --start` uses the retained binary and the current saved state. Once access has opened, recovery requires a fresh guarded operation against that state. Six release-specific gate tests and seven inherited admission/recovery tests passed. [Control](control.py) · [Operator](release.py) · [Release gates](test_release.py).

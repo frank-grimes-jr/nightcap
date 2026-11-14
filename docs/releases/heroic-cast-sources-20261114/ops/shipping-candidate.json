@@ -1,0 +1,49 @@
+{
+  "baseline": "ad119ac221bc6e46e7770827e2777d75a6f0937c9632f88512a169ce20525e00",
+  "link_input_count": 144,
+  "link_manifest_sha256": "7f7b43895976b0931b1d9f9a3c212dbfbcb0bf89bb5ccd96f689ea56ba1511e9",
+  "original_pch": "a81aaeae61a7a08f6474357fd8f65542887eb746b2724eac0ac9ba12c30ee575",
+  "profile": "shipping",
+  "source_postimages": {
+    "beacon.cpp": "3b408cfb578837e4765b606d02d317b1fc6c35961a142190cc9c69d2d08b1031",
+    "effects.cpp": "6d1b0d8a757c5d971f7836bc0767b83c9871c91b9ce617230ada330fc31ed35f",
+    "nightcap_heroic_cast.h": "024a20ad92521ccd74493cb23d00f31dfb52cae0b1d5fc604b76338a9cdc2f90",
+    "raid_augment_delivery.h": "25a626f684a73c0f3754a64a40e0643a3547476c70140f99eb4ac801841d0b06",
+    "special_attacks.cpp": "bcef7989671776eb2ee6180970361a4403a9056759c2e64bd73d6428596b2fa6",
+    "spell_effects.cpp": "21f5d4735cbd6f8e1c3d338846a57a700f8c3c539a41d07f1b0ea41c2f5ab915",
+    "spells.cpp": "fec63dcbcd705c6fd54d5035646a1cd765d363b6bc88228ba17c38b367d6606e"
+  },
+  "source_preimages": {
+    "beacon.cpp": "97f0cb48be9a0792be8d75ab50ad2ed1c9dc657c65de0d03942d4970b84202d7",
+    "effects.cpp": "8d4eeb1d0dadf0ab614381c4da22a23e3d67f8ad3c9946865d11ca5fd01f4c47",
+    "nightcap_heroic_cast.h": null,
+    "raid_augment_delivery.h": "1296691495b0125a6a8a091f074d3589cf37e0a4acde6e5d6d99bbbd35802f8b",
+    "special_attacks.cpp": "95b10884559420773c174e07557d987ea1091f0bfa2febdd4944d8491e2ab75c",
+    "spell_effects.cpp": "dd2be8ce337797f32f2951420b7a172563c8a7d4df8031b88604fde2118d6e73",
+    "spells.cpp": "d18dfb368d64dd50f9e3548dfd12f7cb28a8ce3ce45ef2421924a7931edfd41a"
+  },
+  "units": {
+    "beacon": {
+      "candidate": "6042eb5aab84dc86202da98d4ae230d4f7f158a2aa5b3a6336ce5be3b7075ba3",
+      "predecessor": "53d58063aef3b675d08c8b127d9c4cd9ec85cd030f051be69f4d574c79521294"
+    },
+    "effects": {
+      "candidate": "95c9120fee55b1c9a542cc9a444a162f1a972270465826f1384fe3de9685d98a",
+      "predecessor": "05825f1c764119a2b436d3c05148e49504af73fdaca8566ffb5903fdee9652cf"
+    },
+    "special_attacks": {
+      "candidate": "115a149dcee789d3def220c1598de973b56b2a94308cdbab2e893b28466a8c40",
+      "predecessor": "8e05cc781c4d9eafccd9f5dd1d4cf16bbd1aed7f305d514318d823d43dde5e05"
+    },
+    "spell_effects": {
+      "candidate": "159976e9f2f62dbefcddc05d1b7e4c18f092fa11c5a6b1e1d5f776a9047b28f0",
+      "predecessor": "6015704dbbe19428721e5665db04fe15ba8ca056e1d8f0dee59936644dd46e65"
+    },
+    "spells": {
+      "candidate": "d15df9f2ddb2701fbb5f75883e5134dada2d35eabeb9429eb12b5383efa2129f",
+      "predecessor": "49b71532022a99c3d35b60316eac94cbf496f1267decbae3c2800fe4dac85d17"
+    }
+  },
+  "zone": "67874c589830a5bb07f8a2b84566b39cf20e1dd3583fa54bbf29599ccb5ada8b",
+  "feature_patch_sha256": "8714bc54c62c7e41f93dda7631b968340ed17f99791a66a1de47bbe207730e0a"
+}
