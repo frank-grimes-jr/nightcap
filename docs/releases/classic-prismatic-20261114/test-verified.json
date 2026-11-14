@@ -1,0 +1,7 @@
+{
+  "workers": 8,
+  "backup_sha256": "d56f1ce1b90364047d1b69853f58c8d7a293c1fac7b52dcf0744244f37fed1e0",
+  "cache_sha256": "867bfc0348a7c5cb7cac254ef7e093f1a667a6199ae8788911c640c01cdbc32f",
+  "admissions_locked": false,
+  "sql_replay_rollback": "isolated clone passed"
+}
