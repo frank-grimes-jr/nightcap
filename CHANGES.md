@@ -4,6 +4,10 @@
 
 Added automatic login and committed milestone checks, native new-title alerts plus chat, and a matching suffix for every earned prefix using the same permanent award. Durable level checks and bounded retries avoid premature awards and kill-counter replay. Built/tested; live activation and native player acceptance are separate. [Evidence and exact player QA](docs/titles/automatic-suffix-20261114/README.md).
 
+## November 14, 2026 · Post-combat recovery live
+
+Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. Both test encounters passed and all 12 production workers verified the matching release. [Deployment receipt](docs/combat/post-combat-regen/production-verified.json). [Installation and QA](docs/combat/post-combat-regen/README.md).
+
 ## November 14, 2026 · Classic raid worn and focus effects
 
 Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](docs/items/classic-raid-focus/README.md). Production verified all 24 changes and 12 workers. [Release](docs/releases/classic-raid-focus-20261114/README.md).
