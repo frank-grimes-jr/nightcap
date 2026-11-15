@@ -1,7 +1,9 @@
 # Normal-player title QA
 
 Status: OPEN. Live checks use an ordinary account with status0/GM off on the
-[verified November14 release](deployment-20261114/README.md). Control-row toggles,
+[verified automatic-title release](automatic-suffix-20261114/README.md).
+Before opening Titles or running any command, verify the automatic login, level,
+completion and native notification cases in that release’s exact QA checklist. Control-row toggles,
 synthetic data and failure simulations belong only in an isolated test environment.
 Synthetic counter/skill rows belong only in isolated QA data, never a live player
 database. Record character, zone, build/hash, exact before/after and client result.

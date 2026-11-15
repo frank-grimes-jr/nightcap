@@ -1,37 +1,29 @@
 # Earned titles
 
-The 77 cosmetic titles are active on production as of November 14, 2026. Main
-PR475/b824e0d2 deploys zone f35b4e3d with catalog 1 enabled and public `#titles`.
-All twelve workers, backup/native saved-state preservation, existing content,
-caches and signed client 2026111301 pairing verify with open access. Native
-RoF2 picker/nameplate/notification acceptance remains OPEN.
+All77 achievements unlock automatically, with the native new-title alert and a
+chat message. Login/zoning checks recorded goals. Level, persisted skill, qualifying
+kill, committed personal dungeon clear and final campaign milestones trigger
+checks without opening a window or running a command. `#titles` is an optional
+progress browser.
 
-[Release, verification and incident resolution](deployment-20261114/README.md) ·
-[Player guide](https://wiki.nightcapgame.org/titles.html) · [Exact player QA](QA.md) ·
-[Contract](SPEC.md). The current wiki release is 20261114-titles-active-v1,
-verified across all 631 HTTPS files. The November 12 main/wiki preview did not
-activate titles; its historical evidence remains in wiki-release/.
+The76 prefixes also unlock matching “the …” suffixes through the same stable
+award. For example, Flamebreaker and the Flamebreaker share one achievement.
+Existing owners gain the suffix without another grind; the Last Lantern keeps
+its existing suffix. Choose a prefix or suffix in Titles when desired. Earning
+never changes a worn title or grants stats, XP, items or other power.
 
-New general slayer totals start at activation. Existing personal clear, story,
-level and skill goals reconcile when opening Titles or using `#titles`. Nagafen
-earns Flamebreaker; Nagafen and Vox together earn Dragonslayer. Palwar's earlier
-kill is independently logged; the scoped repair restores only named counter100.
-He should open Titles/#titles for native award reconciliation. No direct award,
-generic kill totals or worn-title profile was changed by that repair.
+Main PR486/33a7f38a and all twelve production workers are verified with matching
+rest world, unchanged caches and signed client2026111301. The public
+[Titles guide](https://wiki.nightcapgame.org/titles.html) is verified across all
+631HTTPS files. Native picker/nameplate/notification acceptance remains OPEN.
 
-Reproduce local checks from this checkout:
+[Current release, source and player QA](automatic-suffix-20261114/README.md) ·
+[Contract](SPEC.md) · [Full QA matrix](QA.md). The original activation and scoped
+Palwar Nagafen-credit repair remain dated evidence in deployment-20261114/.
+That recorded Nagafen goal is now checked automatically on login; no #titles
+claim is needed. General totals still begin at activation and are never invented.
 
-```powershell
-python -B tools/earned_titles.py --check
-python -B -m unittest discover -s tools/tests -p test_earned_titles.py -v
-python -B docs/titles/deployment-20261114/test_release.py -v
-python -B docs/titles/deployment-20261114/test_resume.py -v
-python -B docs/titles/deployment-20261114/test_wiki_publication.py -v
-```
-
-Use the title-only shipping delta/build proof over the authenticated current
-binary; newest main's full native files can contain unshipped work. No quest,
-rule, cache, Client layout or client update is required for titles. Never kill
-one production zone worker. Preserve every award/counter and stable ID during
-forward recovery. Never replay terminal rollout/publication actions or restore
-an old player snapshot. See the current release README before any operation.
+Use the reproduced current shipping inputs and the current release's exact
+title-only delta. Never deploy an older whole main mirror, replay terminal
+operators, kill one production worker or restore a player snapshot. Preserve
+all permanent awards/counters and stable IDs during forward recovery.

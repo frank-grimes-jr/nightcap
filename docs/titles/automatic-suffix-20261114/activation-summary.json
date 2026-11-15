@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "source": "33a7f38a6ee8adacd283f1a30838040ec78eba6d",
+  "image": "sha256:baaaa36b8041d62f6e67f6466206fa668c7db5b30a7f202c84b190345641d8a3",
+  "deployed_receipt": "128590bbea8af23ea23ee135d48e8f64fbfe3b0c7554bdd6064c4fb53bee9796",
+  "runtime_started_at": "2026-11-15T01:28:55.803288746Z",
+  "title_state_before": {
+    "nightcap_title_counters": {
+      "sha256": "744e078da19821ed2b11e8140b8c39680d20b24f71332154ae29a755c5add0fa",
+      "rows": 4
+    },
+    "nightcap_title_awards": {
+      "sha256": "5a873f0165a424caea3af1906598d1b2c5189252b912024db88e4ed6e09f8940",
+      "rows": 15
+    }
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "135",
+      "0",
+      "4",
+      "2.500000",
+      "2026-11-15 00:19:44"
+    ],
+    "after": [
+      "1",
+      "1",
+      "136",
+      "0",
+      "4",
+      "2.500000",
+      "2026-11-15 01:29:09"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "backup": {
+    "sha256": "f4a5b1b6410a64030d4081e83d823085cbfaab58407bba3c1aaae7599dea3dcb",
+    "compressed_bytes": 66921241,
+    "uncompressed_bytes": 483946905,
+    "gzip_integrity": "passed"
+  },
+  "stopped_player_state_and_native_boot_state": "PASS",
+  "closed_title_counter_award_preservation": "PASS",
+  "restored_player_snapshot": false,
+  "owner_gameplay_accepted": false
+}
