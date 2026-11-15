@@ -12,7 +12,7 @@ A level-50 human paladin wore 20 Classic equipment pieces and an arrow, with no 
 
 Each fully scaled set gained 960 HP and mana over stock augments. An Ascended scale and a type-22 Pearl worked together on the Golden Efreeti Chestplate. Healing and damage totals remained below the respective 750 caps. In 256 direct calculations with the mixed set, Greater Healing produced 2063 before overheal and Dismiss Undead produced 1100 before resists. The corresponding empty-socket results were 809 and 348. These are spell-effect measurements, independent of encounter criticals or resists.
 
-One Dodging scale supplied the same +10 worn dodge as the Gauntlets of Fiery Might or Efreeti War Shield. Equipping all three, or eight scales, kept the modifier at +10. The control dodged 1113 of 20,000 frontal melee checks. Every +10 configuration dodged 1279 in the paired sequence. Eight scales supplied 40 raw damage shield, capped to 30 on this character.
+One Dodging scale supplied the same +10 worn dodge as the Gauntlets of Fiery Might or Efreeti War Shield. Equipping all three, or eight scales, kept the modifier at +10. The control dodged 1079 of 20,000 frontal melee checks. Every +10 configuration dodged 1251 in the paired sequence. Eight scales supplied 40 raw damage shield, capped to 30 on this character.
 
 The RoF2 direct augment handler had ignored the socket-compatibility boolean. The correction checks the socket type, visibility, augment restriction and whether insertion or replacement is appropriate before changing inventory. A matching occupied socket supports swapping. Item and spell cache values, effects and caps require no migration. Both shipping builds produced identical measured stats and direct spell values for all legal loadouts.
 

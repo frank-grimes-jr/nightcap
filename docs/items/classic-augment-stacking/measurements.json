@@ -195,7 +195,7 @@
         887
       ],
       "heal_sum": 227072,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     },
     "dodge_control_0": {
       "damage": 142,
@@ -218,7 +218,7 @@
         887
       ],
       "heal_sum": 227072,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     },
     "dodge_control_1": {
       "damage": 142,
@@ -241,7 +241,7 @@
         887
       ],
       "heal_sum": 227072,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_control_8": {
       "damage": 142,
@@ -264,7 +264,7 @@
         887
       ],
       "heal_sum": 227072,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_gloves_0": {
       "damage": 132,
@@ -287,7 +287,7 @@
         848
       ],
       "heal_sum": 217088,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_gloves_1": {
       "damage": 132,
@@ -310,7 +310,7 @@
         848
       ],
       "heal_sum": 217088,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_gloves_8": {
       "damage": 132,
@@ -333,7 +333,7 @@
         848
       ],
       "heal_sum": 217088,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_gloves_shield_0": {
       "damage": 127,
@@ -356,7 +356,7 @@
         809
       ],
       "heal_sum": 207104,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_gloves_shield_1": {
       "damage": 127,
@@ -379,7 +379,7 @@
         809
       ],
       "heal_sum": 207104,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_gloves_shield_8": {
       "damage": 127,
@@ -402,7 +402,7 @@
         809
       ],
       "heal_sum": 207104,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_shield_0": {
       "damage": 137,
@@ -425,7 +425,7 @@
         848
       ],
       "heal_sum": 217088,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_shield_1": {
       "damage": 137,
@@ -448,7 +448,7 @@
         848
       ],
       "heal_sum": 217088,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "dodge_shield_8": {
       "damage": 137,
@@ -471,7 +471,7 @@
         848
       ],
       "heal_sum": 217088,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "eight_heal": {
       "damage": 142,
@@ -494,7 +494,7 @@
         1250
       ],
       "heal_sum": 320000,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     },
     "eight_magic": {
       "damage": 222,
@@ -517,7 +517,7 @@
         887
       ],
       "heal_sum": 227072,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     },
     "four_each": {
       "damage": 182,
@@ -540,7 +540,7 @@
         1105
       ],
       "heal_sum": 282880,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     },
     "full_damage": {
       "damage": 482,
@@ -563,7 +563,7 @@
         1844
       ],
       "heal_sum": 472064,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "full_healer": {
       "damage": 402,
@@ -586,7 +586,7 @@
         2208
       ],
       "heal_sum": 565248,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "full_hybrid": {
       "damage": 432,
@@ -609,7 +609,7 @@
         2063
       ],
       "heal_sum": 528128,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "full_no_aug": {
       "damage": 127,
@@ -632,7 +632,7 @@
         809
       ],
       "heal_sum": 207104,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "full_stock": {
       "damage": 402,
@@ -655,7 +655,7 @@
         1844
       ],
       "heal_sum": 472064,
-      "dodges_per_20000": 1279
+      "dodges_per_20000": 1251
     },
     "one_heal": {
       "damage": 142,
@@ -678,7 +678,7 @@
         996
       ],
       "heal_sum": 254976,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     },
     "one_magic": {
       "damage": 152,
@@ -701,7 +701,7 @@
         887
       ],
       "heal_sum": 227072,
-      "dodges_per_20000": 1113
+      "dodges_per_20000": 1079
     }
   },
   "rules": {
