@@ -3203,6 +3203,11 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 		tobe_auged = user_inv.GetItem(item_slot);
 		solvent = user_inv.GetItem(solvent_slot);
 
+		if (in_augment->augment_index < EQ::invaug::SOCKET_BEGIN || in_augment->augment_index > EQ::invaug::SOCKET_END) {
+			Message(Chat::Red, "Invalid augment socket.");
+			return;
+		}
+
 		if (!tobe_auged) {
 			Message(Chat::Red, "Error: Invalid item passed for augmenting.");
 			return;
@@ -3256,8 +3261,10 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 					}
 
 					if (
-						((tobe_auged->IsAugmentSlotAvailable(new_aug->GetAugmentType(), in_augment->augment_index)) != -1) &&
-						tobe_auged->AvailableWearSlot(new_aug->GetItem()->Slots)
+						tobe_auged->IsAugmentSlotCompatible(new_aug->GetAugmentType(), in_augment->augment_index) &&
+						(tobe_auged->GetAugment(in_augment->augment_index) != nullptr) == (in_augment->augment_action == AugmentActions::Swap) &&
+						tobe_auged->AvailableWearSlot(new_aug->GetItem()->Slots) &&
+						(!RuleB(Inventory, EnforceAugmentRestriction) || !IsAugmentRestricted(tobe_auged->GetItem()->ItemType, new_aug->GetAugmentRestriction()))
 					) {
 						old_aug = tobe_auged->RemoveAugment(in_augment->augment_index);
 						if (old_aug) { // An old augment was removed in order to be replaced with the new one (augment_action 2)
