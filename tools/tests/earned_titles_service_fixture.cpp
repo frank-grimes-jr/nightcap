@@ -1,6 +1,7 @@
 #include "common/earned_title_policy.h"
 #include <cassert>
 #include <cmath>
+#include <chrono>
 #include <cstdarg>
 #include <cstdio>
 #include <regex>
@@ -43,7 +44,8 @@ struct Result {
  It begin() const { return {&rows,0}; } It end() const { return {&rows,rows.size()}; }
 };
 struct DB {
- bool enabled=true,fail=false,uncertain=false;
+ bool enabled=true,fail=false,uncertain=false,in_transaction=false;
+ unsigned saved_level=50;
  std::map<unsigned,uint64_t> counters;
  std::map<unsigned,std::map<unsigned,uint64_t>> other_counters;
  std::map<unsigned,unsigned> skills;
@@ -57,7 +59,8 @@ struct DB {
   ++queries;
   if (fail) { Result r; r.ok=false; return r; }
   Result r;
-  if (s.find("SELECT enabled")==0) { r.rows={{enabled?"1":"0"}}; }
+  if (s.find("SELECT enabled")==0) { r.rows={{enabled?"1":"0",in_transaction?"1":"0"}}; }
+  else if (s.find("SELECT level FROM character_data")==0) { r.rows={{std::to_string(saved_level)}}; }
   else if (s.find("SELECT character_id,counter_id,value")==0) {
    const auto begin=s.find(" IN (")+5;
    std::stringstream input(s.substr(begin,s.size()-begin-1));std::string id;
@@ -102,6 +105,11 @@ struct Client {
  std::map<unsigned,unsigned> raw,caps;
  std::vector<Client*> party;
  std::vector<std::string> messages;
+ std::map<std::string,std::string> vars;
+ unsigned title_notifications=0;
+ std::string GetEntityVariable(const std::string &key) const { auto i=vars.find(key);return i==vars.end()?"":i->second; }
+ void SetEntityVariable(const std::string &key,const std::string &value) { vars[key]=value; }
+ void NotifyNewTitlesAvailable() { ++title_notifications; }
  unsigned CharacterID() const { return id; } unsigned GetLevel() const { return level; }
  unsigned Admin() const { return admin; } bool GetGM() const { return gm; }
  bool Connected() const { return connected; } bool ClientDataLoaded() const { return loaded; }
@@ -152,7 +160,9 @@ int main() {
  NPC far; c.pos=201; RecordKill(&far,&c,false); assert(database.counters[1]==100); c.pos=0;
  c.admin=50; NPC gm; RecordKill(&gm,&c,false); assert(database.counters[1]==100); c.admin=0;
  NPC story; NightcapDungeon::campaign=true; RecordKill(&story,&c,false); assert(database.counters[1]==100); NightcapDungeon::campaign=false;
- AppendEligible(&c,{},out); assert(out.size()==1 && out[0].prefix=="Hunter");
+ AppendEligible(&c,{},out); assert(out.size()==1 && out[0].prefix=="Hunter" && out[0].suffix=="the Hunter");
+ assert(Name(1900000012,false)=="Flamebreaker" && Name(1900000012,true)=="the Flamebreaker");
+ for (const auto &d:Catalog) { assert(Name(d.id,true).size()<32 && (d.suffix || !Name(d.id,false).empty())); }
  out.clear(); c.raw[1]=200; c.caps[1]=200; database.skills[1]=199; c.level=50;
  AppendEligible(&c,{},out); assert(!database.awards.count(1900000101)); // persisted skill still short
  database.skills[1]=200; CheckSkill(&c,1); assert(database.awards.count(1900000101));
@@ -194,4 +204,41 @@ int main() {
  raid[1].dead=true; raid[2].pos=201; NPC mixed_kill;
  RecordKill(&mixed_kill,&raid[0],false);
  assert(database.counters[1]==2 && database.other_counters[43][1]==1 && database.other_counters[44][1]==1);
+ database=DB{}; c=Client{}; c.level=50;
+ database.counters[100]=1; database.clears={{"36","1"}}; database.tasks={{"9515"}};
+ RequestCheck(&c); assert(database.awards.empty());
+ Pulse(&c); // login/committed completion requests work without title picker or #titles
+ assert(database.awards.count(1900000012) && database.awards.count(1900000016));
+ assert(database.awards.count(1900000150) && database.awards.count(1900000151));
+ assert(c.title_notifications==database.awards.size());
+ const auto announced=c.title_notifications, quiet_queries=database.queries;
+ Pulse(&c); assert(database.queries==quiet_queries); // clean client: no SQL per frame
+ RequestCheck(&c); Pulse(&c); assert(c.title_notifications==announced); // no repeat notices
+ database=DB{}; c=Client{}; c.level=50; database.saved_level=49;
+ c.raw[1]=200;c.caps[1]=200;database.skills[1]=200;
+ RequestCheck(&c);Pulse(&c);
+ assert(!database.awards.count(1900000150) && !database.awards.count(1900000101));
+ database.saved_level=50;c.SetEntityVariable("nightcap:title-check-at","0");Pulse(&c);
+ assert(database.awards.count(1900000150) && database.awards.count(1900000101));
+ database=DB{};c=Client{};database.counters[100]=1;database.in_transaction=true;
+ RequestCheck(&c);Pulse(&c);assert(database.awards.empty() && c.title_notifications==0);
+ database.in_transaction=false;c.SetEntityVariable("nightcap:title-check-at","0");Pulse(&c);
+ assert(database.awards.count(1900000012) && c.title_notifications==1);
+ database=DB{};c=Client{};database.counters[100]=1;database.fail=true;
+ RequestCheck(&c);Pulse(&c);const auto failed_queries=database.queries;
+ Pulse(&c);assert(database.queries==failed_queries && c.title_notifications==0);
+ database.fail=false;c.SetEntityVariable("nightcap:title-check-at","0");Pulse(&c);
+ assert(database.awards.count(1900000012) && c.title_notifications==1);
+ database=DB{};c=Client{};database.counters[100]=1;c.loaded=false;
+ RequestCheck(&c);Pulse(&c);assert(database.queries==0);
+ c.loaded=true;Pulse(&c);assert(database.awards.count(1900000012));
+ database=DB{};c=Client{};database.counters[1]=99;database.in_transaction=true;
+ NPC committed;RecordKill(&committed,&c,false);
+ assert(database.counters[1]==100 && database.awards.empty());
+ database.in_transaction=false;Pulse(&c);
+ assert(database.counters[1]==100 && database.awards.count(1900000001) && c.title_notifications==1);
+ database=DB{};c=Client{};database.counters[1]=99;database.in_transaction=true;
+ NPC rolled_back;RecordKill(&rolled_back,&c,false);
+ database.counters[1]=99;database.in_transaction=false;Pulse(&c);
+ assert(database.counters[1]==99 && database.awards.empty() && c.title_notifications==0);
 }

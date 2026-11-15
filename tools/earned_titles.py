@@ -1,8 +1,8 @@
 """Reviewed title catalog; generate native definitions and the wiki together.
 
 python -B tools/earned_titles.py [--check]
-Never renumber or reuse an issued title ID. Availability stays Not released until
-the separate native/storage activation and player QA have evidence.
+Never renumber or reuse an issued title ID. Record native activation separately
+from player acceptance. Matching placements share the existing award and ID.
 """
 import argparse
 import html
@@ -82,8 +82,12 @@ def catalog():
     add(150, 'Seasoned Adventurer', 'Level', 0, 50, 'Reach level 50.', 'Adventure milestones')
     add(151, 'the Last Lantern', 'Task', 9515, 1, 'Complete the final chapter of The Last Lantern campaign.', 'Adventure milestones', suffix=True)
     assert len({r['id'] for r in rows}) == len(rows)
-    assert all(len(r['name'].encode()) < 32 and len(r['description']) < 240 for r in rows)
+    assert all(len(r['name'].encode()) < 32 and len(suffix_name(r).encode()) < 32 and len(r['description']) < 240 for r in rows)
     return rows, zones
+
+
+def suffix_name(row):
+    return row['name'] if row['suffix'] else 'the ' + row['name']
 
 
 def outputs():
@@ -99,12 +103,15 @@ def outputs():
         'skill mastery and adventures. Tracking is active from November 14, 2026.</p>'
         '<h2 id="using-titles">Choosing your title</h2><p>Titles are cosmetic, permanent unlocks for one character. '
         'They give no stats, experience, loot or combat bonuses, and do not transfer to other characters. '
-        'Open the Titles window to choose an earned prefix or suffix; choosing a title '
+        'Every prefix also unlocks a matching suffix, such as Flamebreaker and the Flamebreaker. '
+        'Both choices share one permanent achievement. Open the Titles window to choose a prefix or suffix; choosing a title '
         'does not consume it. You may change or clear it. New awards never replace your currently selected title.</p>'
-        '<p>Use <code>#titles</code> or <code>#titles 2</code> to check six requirements per page. '
-        'Opening the Titles window or using #titles also checks existing dungeon, story and skill progress. '
-        'Qualifying kills and a skill reaching its cap award their titles automatically. '
-        'Level-50 and dungeon/story milestones are reconciled when you open the list.</p>'
+        '<p>Titles unlock automatically when you earn them, with a chat message and the game’s new-title notification. '
+        'This includes qualifying kills, skill mastery, level 50, personal dungeon clears and campaign completion. '
+        'Recorded goals are also checked automatically after login or zoning. '
+        'You never need to run a command or open a window to earn a title. '
+        'Use <code>#titles</code> or <code>#titles 2</code> only when you want to browse six requirements per page. '
+        'The existing suffix <strong>the Last Lantern</strong> keeps its name.</p>'
         '<h2 id="kill-credit">Combat credit</h2><p>New slayer counters count qualifying kills from activation on November 14, 2026. '
         'Defeat naturally spawned enemies that are not gray to your character. The credited killer and '
         'current group or raid members can each receive credit. Each must be alive, connected and within '
@@ -134,10 +141,10 @@ def outputs():
     )
     for group in dict.fromkeys(r['group'] for r in rows):
         anchor = 'title-group-' + group.lower().replace(' ', '-')
-        body += '<details class="guide-topic" id="' + anchor + '"><summary>' + html.escape(group) + '</summary><table><thead><tr><th>Title</th><th>Placement</th><th>Requirement</th></tr></thead><tbody>'
+        body += '<details class="guide-topic" id="' + anchor + '"><summary>' + html.escape(group) + '</summary><table><thead><tr><th>Title</th><th>Placement</th><th>Suffix</th><th>Requirement</th></tr></thead><tbody>'
         for r in rows:
             if r['group'] == group:
-                body += '<tr><td>' + html.escape(r['name']) + '</td><td>' + ('Suffix' if r['suffix'] else 'Prefix') + '</td><td>' + html.escape(r['description']) + '</td></tr>'
+                body += '<tr><td>' + html.escape(r['name']) + '</td><td>' + ('Suffix' if r['suffix'] else 'Prefix or suffix') + '</td><td>' + html.escape(suffix_name(r)) + '</td><td>' + html.escape(r['description']) + '</td></tr>'
         body += '</tbody></table></details>'
     article = dict(slug='titles', title='Titles', summary=f'How to earn and choose {len(rows)} cosmetic titles for slaying, dragons, Classic dungeon completion, skills and adventures.',
                    body=body, category='Character', status='Live testing', updated='2026-11-14',

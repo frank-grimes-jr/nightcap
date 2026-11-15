@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "release": "20261114-titles-automatic-suffix-v1",
+  "predecessor": "20261114-titles-active-v1",
+  "exact_predecessor_reproduced": true,
+  "files": 631,
+  "changed": [
+    "adventure-journal.html",
+    "combat.html",
+    "commands.html",
+    "dungeon-modes.html",
+    "features.html",
+    "multiclass.html",
+    "recent-changes.html",
+    "search-index.json",
+    "titles.html",
+    "tradeskills.html"
+  ],
+  "retained": 621,
+  "package_sha256": "615bdda7b1a00193f9cfb75c9d371ba5bbc24e02b083cac5f9690881cacaa838",
+  "manifest_sha256": "b7a539c1663f01e8db60ebf1b042e65e0f27cb50679582ec8e19aeb5d061485a",
+  "previous_manifest_sha256": "626d32c85dd10173f3f062d61ba22a432da1ec1c82a6e04d7930d048fe48a168",
+  "achievements": 77,
+  "prefixes": 76,
+  "suffixes": 77
+}
