@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Classic augment stacking validation
+
+Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. [Measurements and client QA](items/classic-augment-stacking/README.md).
+
 ## November 14, 2026 · Automatic title follow-up
 
 Built and tested automatic milestone/login awards, native title notifications, and equivalent suffix choices. The package rebases over the newer rest world/zone pair and awaits live activation. [Release and exact native QA](titles/automatic-suffix-20261114/README.md).

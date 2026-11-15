@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Classic augment stacking validation
+
+Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. [Measurements and client QA](docs/items/classic-augment-stacking/README.md).
+
 ## November 14, 2026 · Automatic title unlocks and matching suffixes
 
 Added automatic login and committed milestone checks, native new-title alerts plus chat, and a matching suffix for every earned prefix using the same permanent award. Durable level checks and bounded retries avoid premature awards and kill-counter replay. Built/tested; live activation and native player acceptance are separate. [Evidence and exact player QA](docs/titles/automatic-suffix-20261114/README.md).

@@ -1,0 +1,716 @@
+{
+  "controls": {
+    "5401": false,
+    "604342": true,
+    "606500": false,
+    "620705": false,
+    "8401": false
+  },
+  "full_hybrid_slots": [
+    [
+      1,
+      662283,
+      "Shiny Gold Earring (Ascended)",
+      [
+        651907
+      ]
+    ],
+    [
+      2,
+      602191,
+      "Crown of Hatred (Ascended)",
+      [
+        609607
+      ]
+    ],
+    [
+      3,
+      611052,
+      "Tobrin's Mystical Eyepatch (Ascended)",
+      [
+        679626
+      ]
+    ],
+    [
+      4,
+      602187,
+      "Abjurer's Earring (Ascended)",
+      [
+        679870
+      ]
+    ],
+    [
+      5,
+      601536,
+      "Bloodstar Pendant (Ascended)",
+      [
+        680379
+      ]
+    ],
+    [
+      6,
+      601531,
+      "Pauldrons of Ferocity (Ascended)",
+      [
+        680382
+      ]
+    ],
+    [
+      7,
+      604343,
+      "Golden Efreeti Vambraces (Ascended)",
+      [
+        609603
+      ]
+    ],
+    [
+      8,
+      601551,
+      "Cloak of the Fearsome (Ascended)",
+      [
+        651903
+      ]
+    ],
+    [
+      9,
+      604344,
+      "Golden Efreeti Bracers (Ascended)",
+      [
+        609607
+      ]
+    ],
+    [
+      10,
+      611606,
+      "Dragon Bone Bracelet (Ascended)",
+      [
+        609603
+      ]
+    ],
+    [
+      11,
+      601554,
+      "Brain of Cazic-Thule (Ascended)",
+      [
+        651904
+      ]
+    ],
+    [
+      12,
+      611624,
+      "Gauntlets of Fiery Might (Ascended)",
+      [
+        609602
+      ]
+    ],
+    [
+      13,
+      606500,
+      "Darkmetal Holy Water Sprinkler (Ascended)",
+      []
+    ],
+    [
+      14,
+      620705,
+      "Efreeti War Shield (Ascended)",
+      [
+        651903
+      ]
+    ],
+    [
+      15,
+      620751,
+      "Copper Air Band (Ascended)",
+      [
+        680394
+      ]
+    ],
+    [
+      16,
+      620747,
+      "Mithril Air Ring (Ascended)",
+      [
+        651903
+      ]
+    ],
+    [
+      17,
+      604342,
+      "Golden Efreeti Chestplate (Ascended)",
+      [
+        609607,
+        963200
+      ]
+    ],
+    [
+      18,
+      604856,
+      "Valorium Greaves (Ascended)",
+      [
+        609603
+      ]
+    ],
+    [
+      19,
+      604857,
+      "Valorium Boots (Ascended)",
+      [
+        609607
+      ]
+    ],
+    [
+      20,
+      602919,
+      "Belt of Virtue (Ascended)",
+      [
+        679870
+      ]
+    ],
+    [
+      22,
+      8500,
+      "CLASS 1 Wood Point Arrow",
+      []
+    ]
+  ],
+  "trials": {
+    "bare_hosts": {
+      "damage": 142,
+      "dodge": 0,
+      "heal": 144,
+      "hp": 3307,
+      "mana": 3685,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        364,
+        364
+      ],
+      "damage_sum": 93184,
+      "heal_range": [
+        887,
+        887
+      ],
+      "heal_sum": 227072,
+      "dodges_per_20000": 1079
+    },
+    "dodge_control_0": {
+      "damage": 142,
+      "dodge": 0,
+      "heal": 144,
+      "hp": 3307,
+      "mana": 3685,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        364,
+        364
+      ],
+      "damage_sum": 93184,
+      "heal_range": [
+        887,
+        887
+      ],
+      "heal_sum": 227072,
+      "dodges_per_20000": 1079
+    },
+    "dodge_control_1": {
+      "damage": 142,
+      "dodge": 10,
+      "heal": 144,
+      "hp": 3427,
+      "mana": 3805,
+      "shield": 5,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        364,
+        364
+      ],
+      "damage_sum": 93184,
+      "heal_range": [
+        887,
+        887
+      ],
+      "heal_sum": 227072,
+      "dodges_per_20000": 1251
+    },
+    "dodge_control_8": {
+      "damage": 142,
+      "dodge": 10,
+      "heal": 144,
+      "hp": 4267,
+      "mana": 4645,
+      "shield": 30,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        364,
+        364
+      ],
+      "damage_sum": 93184,
+      "heal_range": [
+        887,
+        887
+      ],
+      "heal_sum": 227072,
+      "dodges_per_20000": 1251
+    },
+    "dodge_gloves_0": {
+      "damage": 132,
+      "dodge": 10,
+      "heal": 134,
+      "hp": 3434,
+      "mana": 3574,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        353,
+        353
+      ],
+      "damage_sum": 90368,
+      "heal_range": [
+        848,
+        848
+      ],
+      "heal_sum": 217088,
+      "dodges_per_20000": 1251
+    },
+    "dodge_gloves_1": {
+      "damage": 132,
+      "dodge": 10,
+      "heal": 134,
+      "hp": 3554,
+      "mana": 3694,
+      "shield": 5,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        353,
+        353
+      ],
+      "damage_sum": 90368,
+      "heal_range": [
+        848,
+        848
+      ],
+      "heal_sum": 217088,
+      "dodges_per_20000": 1251
+    },
+    "dodge_gloves_8": {
+      "damage": 132,
+      "dodge": 10,
+      "heal": 134,
+      "hp": 4394,
+      "mana": 4534,
+      "shield": 30,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        353,
+        353
+      ],
+      "damage_sum": 90368,
+      "heal_range": [
+        848,
+        848
+      ],
+      "heal_sum": 217088,
+      "dodges_per_20000": 1251
+    },
+    "dodge_gloves_shield_0": {
+      "damage": 127,
+      "dodge": 10,
+      "heal": 124,
+      "hp": 3434,
+      "mana": 3477,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        348,
+        348
+      ],
+      "damage_sum": 89088,
+      "heal_range": [
+        809,
+        809
+      ],
+      "heal_sum": 207104,
+      "dodges_per_20000": 1251
+    },
+    "dodge_gloves_shield_1": {
+      "damage": 127,
+      "dodge": 10,
+      "heal": 124,
+      "hp": 3554,
+      "mana": 3597,
+      "shield": 5,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        348,
+        348
+      ],
+      "damage_sum": 89088,
+      "heal_range": [
+        809,
+        809
+      ],
+      "heal_sum": 207104,
+      "dodges_per_20000": 1251
+    },
+    "dodge_gloves_shield_8": {
+      "damage": 127,
+      "dodge": 10,
+      "heal": 124,
+      "hp": 4394,
+      "mana": 4437,
+      "shield": 30,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        348,
+        348
+      ],
+      "damage_sum": 89088,
+      "heal_range": [
+        809,
+        809
+      ],
+      "heal_sum": 207104,
+      "dodges_per_20000": 1251
+    },
+    "dodge_shield_0": {
+      "damage": 137,
+      "dodge": 10,
+      "heal": 134,
+      "hp": 3307,
+      "mana": 3574,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        359,
+        359
+      ],
+      "damage_sum": 91904,
+      "heal_range": [
+        848,
+        848
+      ],
+      "heal_sum": 217088,
+      "dodges_per_20000": 1251
+    },
+    "dodge_shield_1": {
+      "damage": 137,
+      "dodge": 10,
+      "heal": 134,
+      "hp": 3427,
+      "mana": 3694,
+      "shield": 5,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        359,
+        359
+      ],
+      "damage_sum": 91904,
+      "heal_range": [
+        848,
+        848
+      ],
+      "heal_sum": 217088,
+      "dodges_per_20000": 1251
+    },
+    "dodge_shield_8": {
+      "damage": 137,
+      "dodge": 10,
+      "heal": 134,
+      "hp": 4267,
+      "mana": 4534,
+      "shield": 30,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        359,
+        359
+      ],
+      "damage_sum": 91904,
+      "heal_range": [
+        848,
+        848
+      ],
+      "heal_sum": 217088,
+      "dodges_per_20000": 1251
+    },
+    "eight_heal": {
+      "damage": 142,
+      "dodge": 0,
+      "heal": 224,
+      "hp": 4267,
+      "mana": 4645,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        364,
+        364
+      ],
+      "damage_sum": 93184,
+      "heal_range": [
+        1250,
+        1250
+      ],
+      "heal_sum": 320000,
+      "dodges_per_20000": 1079
+    },
+    "eight_magic": {
+      "damage": 222,
+      "dodge": 0,
+      "heal": 144,
+      "hp": 4267,
+      "mana": 4645,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        883,
+        883
+      ],
+      "damage_sum": 226048,
+      "heal_range": [
+        887,
+        887
+      ],
+      "heal_sum": 227072,
+      "dodges_per_20000": 1079
+    },
+    "four_each": {
+      "damage": 182,
+      "dodge": 0,
+      "heal": 184,
+      "hp": 4267,
+      "mana": 4645,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        841,
+        841
+      ],
+      "damage_sum": 215296,
+      "heal_range": [
+        1105,
+        1105
+      ],
+      "heal_sum": 282880,
+      "dodges_per_20000": 1079
+    },
+    "full_damage": {
+      "damage": 482,
+      "dodge": 10,
+      "heal": 407,
+      "hp": 4747,
+      "mana": 4754,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        1151,
+        1151
+      ],
+      "damage_sum": 294656,
+      "heal_range": [
+        1844,
+        1844
+      ],
+      "heal_sum": 472064,
+      "dodges_per_20000": 1251
+    },
+    "full_healer": {
+      "damage": 402,
+      "dodge": 10,
+      "heal": 487,
+      "hp": 4747,
+      "mana": 4754,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        633,
+        633
+      ],
+      "damage_sum": 162048,
+      "heal_range": [
+        2208,
+        2208
+      ],
+      "heal_sum": 565248,
+      "dodges_per_20000": 1251
+    },
+    "full_hybrid": {
+      "damage": 432,
+      "dodge": 10,
+      "heal": 447,
+      "hp": 4747,
+      "mana": 4754,
+      "shield": 5,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        1100,
+        1100
+      ],
+      "damage_sum": 281600,
+      "heal_range": [
+        2063,
+        2063
+      ],
+      "heal_sum": 528128,
+      "dodges_per_20000": 1251
+    },
+    "full_no_aug": {
+      "damage": 127,
+      "dodge": 10,
+      "heal": 124,
+      "hp": 3434,
+      "mana": 3477,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        348,
+        348
+      ],
+      "damage_sum": 89088,
+      "heal_range": [
+        809,
+        809
+      ],
+      "heal_sum": 207104,
+      "dodges_per_20000": 1251
+    },
+    "full_stock": {
+      "damage": 402,
+      "dodge": 10,
+      "heal": 407,
+      "hp": 3787,
+      "mana": 3794,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        633,
+        633
+      ],
+      "damage_sum": 162048,
+      "heal_range": [
+        1844,
+        1844
+      ],
+      "heal_sum": 472064,
+      "dodges_per_20000": 1251
+    },
+    "one_heal": {
+      "damage": 142,
+      "dodge": 0,
+      "heal": 154,
+      "hp": 3427,
+      "mana": 3805,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        364,
+        364
+      ],
+      "damage_sum": 93184,
+      "heal_range": [
+        996,
+        996
+      ],
+      "heal_sum": 254976,
+      "dodges_per_20000": 1079
+    },
+    "one_magic": {
+      "damage": 152,
+      "dodge": 0,
+      "heal": 144,
+      "hp": 3427,
+      "mana": 3805,
+      "shield": 0,
+      "base": [
+        350,
+        211
+      ],
+      "damage_range": [
+        810,
+        810
+      ],
+      "damage_sum": 207360,
+      "heal_range": [
+        887,
+        887
+      ],
+      "heal_sum": 227072,
+      "dodges_per_20000": 1079
+    }
+  },
+  "rules": {
+    "HA/SD cap": 750,
+    "additive worn type": 0,
+    "damage shield cap observed": 30
+  },
+  "production_caches": {
+    "items": "a96899270a118922340312c885bb63aab205511e3d61043b1746b05b9f184bff",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  }
+}

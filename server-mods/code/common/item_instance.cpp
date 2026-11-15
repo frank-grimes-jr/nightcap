@@ -325,7 +325,12 @@ int8 EQ::ItemInstance::AvailableAugmentSlot(int32 augment_type) const
 
 bool EQ::ItemInstance::IsAugmentSlotAvailable(int32 augment_type, uint8 slot) const
 {
-	if (!m_item || !m_item->IsClassCommon() || GetItem(slot)) {
+	return IsAugmentSlotCompatible(augment_type, slot) && !GetItem(slot);
+}
+
+bool EQ::ItemInstance::IsAugmentSlotCompatible(int32 augment_type, int32 slot) const
+{
+	if (!m_item || !m_item->IsClassCommon() || slot < invaug::SOCKET_BEGIN || slot > invaug::SOCKET_END) {
 		return false;
 	}
 
