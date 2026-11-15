@@ -315,3 +315,6 @@ docs/releases/fixed-aa-duration-20261114/ops/feature.patch -text -whitespace
 docs/releases/fixed-aa-duration-20261114/ops/*.json text eol=lf
 # Retained source/knowledge patches include exact diff context tabs and blanks.
 docs/titles/deployment-20261114/*.patch text eol=lf -whitespace
+docs/titles/automatic-suffix-20261114/*.patch text eol=lf -whitespace
+docs/titles/automatic-suffix-20261114/*.json text eol=lf
+docs/titles/automatic-suffix-20261114/*.py text eol=lf

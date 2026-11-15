@@ -88,6 +88,27 @@ int main() {
         self.assertGreater(hook, attack.index('m_combat_record.Stop();', attack.index('bool NPC::Death(')))
         self.assertIn('AccountStatus::Player, command_titles)', (zone / 'command.cpp').read_text())
 
+    def test_automatic_completion_hooks(self):
+        zone = ROOT / 'server-mods/code/zone'
+        for name in ['client_packet.cpp','client_process.cpp','exp.cpp','dungeon_service.cpp','task_manager.cpp','task_client_state.cpp']:
+            text=(zone/name).read_text(encoding='utf-8')
+            self.assertLess(text.index('#include "zone/earned_titles.h"'),text.index('NightcapTitles::'),name)
+        self.assertTrue('NightcapTitles::Pulse(this);' in (zone/'client_process.cpp').read_text(encoding='utf-8'))
+        login=(zone/'client_packet.cpp').read_text(encoding='utf-8')
+        connect=login[login.index('void Client::CompleteConnect()'):login.index('// connecting opcode handlers')]
+        self.assertGreater(connect.index('NightcapTitles::RequestCheck(this);'),connect.index('client_data_loaded = true;'))
+        level=(zone/'exp.cpp').read_text(encoding='utf-8').split('void Client::SetLevel(',1)[1].split('uint32 Client::GetEXPForLevel',1)[0]
+        self.assertGreater(level.index('NightcapTitles::RequestCheck(this);'),level.rindex('Save();'))
+        dungeon=(zone/'dungeon_service.cpp').read_text(encoding='utf-8').split('bool BeforeDeath(',1)[1].split('void JournalForRun(',1)[0]
+        self.assertLess(dungeon.index('NightcapTitles::RequestCheck(c);'),dungeon.index('Journal(c);'))
+        self.assertGreater(dungeon.index('NightcapTitles::RequestCheck(c);'),dungeon.index('tx.Commit();'))
+        self.assertLess(dungeon.index('NightcapTitles::RequestCheck(c);'),dungeon.index('npc->SetEntityVariable("nightcap:dungeon-death-committed"'))
+        rescue=(zone/'highkeep_rescue.inc').read_text(encoding='utf-8').split('void Complete(',1)[1].split('bool Action(',1)[0]
+        self.assertGreater(rescue.index('NightcapTitles::RequestCheck(c);'),rescue.index('tx.Commit();'))
+        self.assertLess(rescue.index('NightcapTitles::RequestCheck(c);'),rescue.index('Journal(c);'))
+        task=(zone/'task_manager.cpp').read_text(encoding='utf-8').split('bool TaskManager::SaveClientState(',1)[1].split('int TaskManager::FirstTaskInSet',1)[0]
+        self.assertIn('if (task_id==9515) { NightcapTitles::RequestCheck(client); }',task)
+
     def test_catalog_and_wiki_are_generated_together(self):
         import importlib.util
         spec = importlib.util.spec_from_file_location('earned_titles_catalog', ROOT/'tools/earned_titles.py')

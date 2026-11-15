@@ -1,3 +1,4 @@
+#include "zone/earned_titles.h"
 #include "task_client_state.h"
 
 #include "common/events/player_event_logs.h"
@@ -1409,6 +1410,7 @@ bool ClientTaskState::RecordCompletedTaskFromLedger(Client *client, int task_id,
 		"REPLACE INTO completed_tasks (charid,completedtime,taskid,activityid) VALUES ({},{},{},-1)",
 		client->CharacterID(), newest, task_id));
 	if (!saved.Success()) { return false; }
+	if (task_id==9515) { NightcapTitles::RequestCheck(client); }
 	if (RuleB(TaskSystem, KeepOneRecordPerCompletedTask)) {
 		auto trimmed = database.QueryDatabase(fmt::format(
 			"DELETE FROM completed_tasks WHERE charid={} AND taskid={} AND completedtime<{}",

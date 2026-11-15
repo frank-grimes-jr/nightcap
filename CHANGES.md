@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 14, 2026 · Automatic title unlocks and matching suffixes
+
+Added automatic login and committed milestone checks, native new-title alerts plus chat, and a matching suffix for every earned prefix using the same permanent award. Durable level checks and bounded retries avoid premature awards and kill-counter replay. Built/tested; live activation and native player acceptance are separate. [Evidence and exact player QA](docs/titles/automatic-suffix-20261114/README.md).
+
 ## November 14, 2026 · Post-combat recovery live
 
 Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. Both test encounters passed and all 12 production workers verified the matching release. [Deployment receipt](docs/combat/post-combat-regen/production-verified.json). [Installation and QA](docs/combat/post-combat-regen/README.md).

@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Automatic title follow-up
+
+Built and tested automatic milestone/login awards, native title notifications, and equivalent suffix choices. The package rebases over the newer rest world/zone pair and awaits live activation. [Release and exact native QA](titles/automatic-suffix-20261114/README.md).
+
 ## November 14, 2026 · Post-combat recovery live
 
 Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. Both test encounters passed and all 12 production workers verified the matching release. [Deployment receipt](combat/post-combat-regen/production-verified.json). [Installation and QA](combat/post-combat-regen/README.md).

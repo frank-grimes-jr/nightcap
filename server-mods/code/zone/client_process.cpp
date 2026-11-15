@@ -1,5 +1,6 @@
 #include "../common/item_trade_policy.h"
 #include "zone/advanced_loot.h"
+#include "zone/earned_titles.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2003 EQEMu Development Team (http://eqemulator.net)
 
@@ -57,6 +58,7 @@ bool Client::Process() {
 	if (client_data_loaded) { ProcessFixedAADurations(); }
 	NightcapLoot::Pulse(this);
 	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid || !m_pet_state_valid) { OnDisconnect(true); return false; }
+	NightcapTitles::Pulse(this);
 	bool ret = true;
 
 	if (Connected() || IsLD()) {

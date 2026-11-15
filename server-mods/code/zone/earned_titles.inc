@@ -6,23 +6,32 @@
 #include "zone/zone.h"
 #include <set>
 #include <stdexcept>
+#include <chrono>
 
 extern Zone *zone;
 namespace NightcapTitles {
 namespace {
+constexpr const char *CheckAt = "nightcap:title-check-at";
+uint64_t CheckTime() {
+	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+void Schedule(Client *c, unsigned delay) {
+	if (c && c->CharacterID()) { c->SetEntityVariable(CheckAt,std::to_string(CheckTime()+delay)); }
+}
 auto Query(const std::string &sql) {
 	auto rows=database.QueryDatabase(sql,false);
 	if (!rows.Success()) { throw std::runtime_error("earned-title storage unavailable"); }
 	return rows;
 }
-bool Enabled() {
+bool Enabled(bool *in_transaction=nullptr) {
 	for (const auto &t : title_manager.GetTitles()) {
 		if (t.id>=TitleBegin && t.id<TitleEnd) { throw std::runtime_error("reserved earned-title ID collision"); }
 	}
-	auto rows=Query("SELECT enabled FROM nightcap_title_settings WHERE id=1 AND catalog_version=1");
+	auto rows=Query("SELECT enabled,@@in_transaction FROM nightcap_title_settings WHERE id=1 AND catalog_version=1");
+	if (in_transaction) { *in_transaction=rows.RowCount()==1 && rows.begin()[1] && std::string(rows.begin()[1])=="1"; }
 	return rows.RowCount()==1 && rows.begin()[0] && std::string(rows.begin()[0])=="1";
 }
-bool Player(Client *c) { return c && c->Admin()==0 && !c->GetGM() && c->Connected() && c->ClientDataLoaded(); }
+bool Player(Client *c) { return c && c->CharacterID() && c->Admin()==0 && !c->GetGM() && c->Connected() && c->ClientDataLoaded(); }
 unsigned SkillCap(Client *c, unsigned skill) {
 	unsigned cap=0;
 	for (auto cls : c->GetMulticlassList()) {
@@ -39,11 +48,16 @@ std::set<unsigned> Awards(Client *c) {
 }
 void Grant(Client *c, const Definition &d) {
 	auto rows=Query(fmt::format("INSERT IGNORE INTO nightcap_title_awards(character_id,title_id,earned_at) VALUES ({},{},UNIX_TIMESTAMP())",c->CharacterID(),d.id));
-	if (rows.RowsAffected()==1) { c->Message(Chat::Yellow,"Title earned: %s. Select it in the Titles window.",d.name); }
+	if (rows.RowsAffected()==1) {
+		c->NotifyNewTitlesAvailable();
+		c->Message(Chat::Yellow,"Title earned: %s. Select it in the Titles window.",d.name);
+	}
 }
 Snapshot Read(Client *c) {
 	Snapshot s;
-	s.level=c->GetLevel();
+	auto profile=Query(fmt::format("SELECT level FROM character_data WHERE id={}",c->CharacterID()));
+	if (profile.RowCount()!=1 || !profile.begin()[0]) { throw std::runtime_error("earned-title saved profile unavailable"); }
+	s.level=std::min(static_cast<unsigned>(c->GetLevel()),Strings::ToUnsignedInt(profile.begin()[0]));
 	std::map<unsigned,unsigned> saved_skills;
 	for (auto row : Query(fmt::format("SELECT skill_id,value FROM character_skills WHERE id={}",c->CharacterID()))) {
 		saved_skills[Strings::ToUnsignedInt(row[0])]=Strings::ToUnsignedInt(row[1]);
@@ -82,25 +96,60 @@ void Refresh(Client *c, const Snapshot &s, std::set<unsigned> &awards) {
 		if (!awards.count(d.id) && Earned(d,s)) { Grant(c,d); awards.insert(d.id); }
 	}
 }
+bool LoadProgress(Client *c, Snapshot &s, std::set<unsigned> &awards) {
+	bool transaction=false;
+	if (!Enabled(&transaction)) { c->SetEntityVariable(CheckAt,""); return false; }
+	// Completion callbacks may be inside a larger gameplay transaction. Read and
+	// announce only after that transaction has committed, from a process boundary.
+	if (transaction) { Schedule(c,1000); return false; }
+	s=Read(c); awards=Awards(c); Refresh(c,s,awards);
+	if (c->GetLevel()>=50 && s.level<50) { Schedule(c,30000); }
+	else { c->SetEntityVariable(CheckAt,""); }
+	return true;
+}
 }
 std::string Name(unsigned id, bool suffix) {
 	const auto d=Find(id);
-	return d && d->suffix==suffix ? d->name : "";
+	if (!d || (d->suffix && !suffix)) { return ""; }
+	return suffix && !d->suffix ? std::string("the ")+d->name : d->name;
+}
+void RequestCheck(Client *c) { Schedule(c,0); }
+void CheckProgress(Client *c) {
+	if (!Player(c)) { return; }
+	try {
+		Snapshot s; std::set<unsigned> awards;
+		LoadProgress(c,s,awards);
+	} catch (const std::exception &e) {
+		Schedule(c,30000);
+		LogError("Earned title automatic check pending [{}]",e.what());
+	}
+}
+void Pulse(Client *c) {
+	if (!Player(c)) { return; }
+	const auto due=c->GetEntityVariable(CheckAt);
+	if (due.empty()) { return; }
+	try {
+		if (std::stoull(due)>CheckTime()) { return; }
+		c->SetEntityVariable(CheckAt,"");
+		CheckProgress(c);
+	} catch (const std::exception &e) {
+		Schedule(c,30000);
+		LogError("Earned title automatic schedule pending [{}]",e.what());
+	}
 }
 void AppendEligible(Client *c, const std::vector<TitlesRepository::Titles> &, std::vector<TitlesRepository::Titles> &out) {
 	try {
-		if (!c || !Enabled()) { return; }
-		auto awards=Awards(c);
-		const auto s=Read(c);
-		Refresh(c,s,awards);
+		if (!c) { return; }
+		Snapshot s; std::set<unsigned> awards;
+		if (!LoadProgress(c,s,awards)) { return; }
 		for (const auto &d : Catalog) {
 			if (!awards.count(d.id)) { continue; }
 			auto t=TitlesRepository::NewEntity();
 			t.id=d.id;
-			if (d.suffix) { t.suffix=d.name; } else { t.prefix=d.name; }
+			t.prefix=Name(d.id,false); t.suffix=Name(d.id,true);
 			out.push_back(t);
 		}
-	} catch (const std::exception &e) { LogError("Earned title list unavailable [{}]",e.what()); }
+	} catch (const std::exception &e) { Schedule(c,30000); LogError("Earned title list unavailable [{}]",e.what()); }
 }
 void RecordKill(NPC *npc, Client *credit, bool excluded) {
 	// This runs after the native death/corpse commitment, never on a death veto.
@@ -116,7 +165,8 @@ void RecordKill(NPC *npc, Client *credit, bool excluded) {
 				DistanceSquared(c->GetPosition(),npc->GetPosition()))) { continue; }
 			participants.emplace(c->CharacterID(),c);
 		}
-		if (participants.empty() || !Enabled()) { return; }
+		bool transaction=false;
+		if (participants.empty() || !Enabled(&transaction)) { return; }
 		std::string ids,values;
 		for (const auto &entry : participants) {
 			ids+=fmt::format("{}{}",ids.empty() ? "" : ",",entry.first);
@@ -127,6 +177,10 @@ void RecordKill(NPC *npc, Client *credit, bool excluded) {
 		// earned award adds a unique insert, preserving exact-once notifications.
 		Query("INSERT INTO nightcap_title_counters(character_id,counter_id,value) VALUES "+values+
 			" ON DUPLICATE KEY UPDATE value=LEAST(value+1,10000)");
+		if (transaction) {
+			for (const auto &entry : participants) { RequestCheck(entry.second); }
+			return;
+		}
 		std::map<unsigned,Snapshot> snapshots;
 		std::map<unsigned,std::set<unsigned>> awards;
 		for (auto row : Query("SELECT character_id,counter_id,value FROM nightcap_title_counters WHERE character_id IN ("+ids+")")) {
@@ -138,7 +192,10 @@ void RecordKill(NPC *npc, Client *credit, bool excluded) {
 		for (const auto &entry : participants) {
 			Refresh(entry.second,snapshots[entry.first],awards[entry.first]);
 		}
-	} catch (const std::exception &e) { LogError("Earned title kill credit failed; no replay [{}]",e.what()); }
+	} catch (const std::exception &e) {
+		for (auto c : credit->GetPartyMembers()) { if (Player(c)) { Schedule(c,30000); } }
+		LogError("Earned title kill credit failed; no replay [{}]",e.what());
+	}
 }
 void CheckSkill(Client *c, unsigned skill) {
 	if (!Player(c) || c->GetLevel()<50) { return; }
@@ -147,19 +204,12 @@ void CheckSkill(Client *c, unsigned skill) {
 	if (!tracked) { return; }
 	const auto cap=SkillCap(c,skill);
 	if (!cap || c->GetRawSkill(static_cast<EQ::skills::SkillType>(skill))<cap) { return; }
-	try {
-		if (!Enabled()) { return; }
-		const auto s=Read(c);
-		auto awards=Awards(c);
-		Refresh(c,s,awards);
-	} catch (const std::exception &e) { LogError("Earned skill title pending refresh [{}]",e.what()); }
+	CheckProgress(c);
 }
 void Show(Client *c, unsigned page) {
 	try {
-		if (!Enabled()) { c->Message(Chat::White,"Earned titles are not enabled."); return; }
-		const auto s=Read(c);
-		auto awards=Awards(c);
-		Refresh(c,s,awards);
+		Snapshot s; std::set<unsigned> awards;
+		if (!LoadProgress(c,s,awards)) { c->Message(Chat::White,"Title progress is not available yet; it is checked automatically."); return; }
 		constexpr unsigned size=6;
 		const unsigned count=static_cast<unsigned>(sizeof(Catalog)/sizeof(Catalog[0])), pages=(count+size-1)/size;
 		if (!page || page>pages) { c->Message(Chat::White,"Usage: #titles [page], 1 through %u.",pages); return; }
@@ -170,6 +220,7 @@ void Show(Client *c, unsigned page) {
 				static_cast<unsigned long long>(p.first),static_cast<unsigned long long>(p.second),d.description);
 		}
 	} catch (const std::exception &e) {
+		Schedule(c,30000);
 		LogError("Earned title progress unavailable [{}]",e.what());
 		c->Message(Chat::White,"Title progress is temporarily unavailable. Your saved awards have not been changed.");
 	}
