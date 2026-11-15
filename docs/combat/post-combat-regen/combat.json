@@ -1,0 +1,82 @@
+{
+  "gukbottom": {
+    "detrimental": {
+      "aggro": 0,
+      "fast": false,
+      "hp_gain": 8,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    },
+    "engaged": {
+      "aggro": 1,
+      "fast": false,
+      "hp_gain": 8,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    },
+    "first_eligible_tick": {
+      "aggro": 0,
+      "fast": true,
+      "hp_gain": 218,
+      "mana_gain": 106,
+      "timer_seconds": 0
+    },
+    "id": 66100,
+    "npc": "a_ghoul_savant000",
+    "raid": false,
+    "remaining_enemy": {
+      "aggro": 1,
+      "fast": false,
+      "hp_gain": 8,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    },
+    "standing": {
+      "aggro": 0,
+      "fast": false,
+      "hp_gain": 7,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    }
+  },
+  "permafrost": {
+    "detrimental": {
+      "aggro": 0,
+      "fast": false,
+      "hp_gain": 8,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    },
+    "engaged": {
+      "aggro": 1,
+      "fast": false,
+      "hp_gain": 8,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    },
+    "first_eligible_tick": {
+      "aggro": 0,
+      "fast": true,
+      "hp_gain": 218,
+      "mana_gain": 106,
+      "timer_seconds": 0
+    },
+    "id": 73057,
+    "npc": "Lady_Vox000",
+    "raid": true,
+    "remaining_enemy": {
+      "aggro": 1,
+      "fast": false,
+      "hp_gain": 8,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    },
+    "standing": {
+      "aggro": 0,
+      "fast": false,
+      "hp_gain": 7,
+      "mana_gain": 0,
+      "timer_seconds": 0
+    }
+  }
+}
