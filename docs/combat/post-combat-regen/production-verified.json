@@ -1,0 +1,22 @@
+{
+  "source": "dc9c5bb9221c9b96eefb4cac2f1e09b8a5de0993",
+  "image": "sha256:d51901424222b83242debbfe984c09946aaed19bc2475c92e34712fb1cd5b851",
+  "workers": 12,
+  "rules": [
+    "1\tCharacter:RestRegenRaidTimeToActivate\t0",
+    "1\tCharacter:RestRegenTimeToActivate\t0",
+    "5\tCharacter:RestRegenTimeToActivate\t0",
+    "6\tCharacter:RestRegenTimeToActivate\t0"
+  ],
+  "backup": "89ba55c6cf8eefb24eba7a3a296ed0718200cf58190e221e1c98e18cc7cf798f",
+  "gateway_open": true,
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "d9ab889ad7f9c40a7e3066810b201f802f211c2c2d870637d4d775e6f691ca0b"
+  },
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  }
+}
