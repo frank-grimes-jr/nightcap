@@ -1,0 +1,16 @@
+{
+  "source": "acb232e10453f683ba099d82ba794467381108ab",
+  "image": "sha256:fe585e2d841f7f3fcebc4d257f66e8b5931d13c60c57300ca7731aa6e3802ad7",
+  "workers": 12,
+  "rules_digest": "3aebe9d8b22d13bc04f539397175d4a3d015cebccce2b3268b78a8c77c811f99",
+  "backup": "92366d77c331dd0700a7df9a4d5a85a61e8f937b838ccfa5f9d5552a556f1379",
+  "gateway_open": true,
+  "binaries": {
+    "zone": "289df4f2037bf4e7348278442ce43db0bba498a35680adc6d1fbe06e5b0869b8"
+  },
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  }
+}
