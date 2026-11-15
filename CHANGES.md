@@ -6,7 +6,7 @@ Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert an
 
 ## November 14, 2026 · Automatic title unlocks and matching suffixes
 
-Added automatic login and committed milestone checks, native new-title alerts plus chat, and a matching suffix for every earned prefix using the same permanent award. Durable level checks and bounded retries avoid premature awards and kill-counter replay. Built/tested; live activation and native player acceptance are separate. [Evidence and exact player QA](docs/titles/automatic-suffix-20261114/README.md).
+Added automatic login and committed milestone checks, native new-title alerts plus chat, and a matching suffix for every earned prefix using the same permanent award. Durable level checks and bounded retries avoid premature awards and kill-counter replay. Active on all twelve production workers with the current rest world/rules and client preserved. Public wiki publication is verified; native player UI acceptance remains open. [Evidence and exact player QA](docs/titles/automatic-suffix-20261114/README.md).
 
 ## November 14, 2026 · Post-combat recovery live
 

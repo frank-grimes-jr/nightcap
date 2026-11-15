@@ -1,6 +1,8 @@
 # Automatic title unlocks and matching suffixes
 
-**Built and tested; live activation pending.** This follow-up removes the need
+**Active on production; all twelve open workers verified.**
+[Runtime verification](production-verified.json) · [Preservation proof](activation-summary.json) ·
+[Public wiki checks](wiki-public-verification.json). Native player UI acceptance remains OPEN. This follow-up removes the need
 to open Titles or run `#titles` to finish earning any of the 77 achievements.
 
 Login/zoning, a level change, committed personal Keeper clears (including High
@@ -52,6 +54,18 @@ predecessor. It uses real occupancy RPC only while running and clean stopped
 state otherwise. After opening, preserve all profile/award/counter state and
 repair forward. The current schema and stable IDs are compatible with both builds.
 
+## Current compatible successor
+
+The title release deployed and reopened successfully. The separately authorized
+Classic augment release then reproduced its exact04cd4b50 baseline and changed
+only augment socket/swap handling. Current zone289df4f2 retains automatic titles,
+the current rest world/rules, client and caches. `verify_successor.py` authenticates
+the exact successor manifest/operator/binaries and both stopped backups, checks
+all12open workers and reruns title schema, content, quest and rule preservation.
+`successor.json` records the reviewed scope. The original `control.py verify`
+expects the title image and must not be used against a later release. No operator
+was replayed. Use the current compatible verification and preserve later work.
+
 ## Exact native player QA — OPEN
 
 1. Use an ordinary account, GM off. Log in with an existing recorded eligible
@@ -83,6 +97,5 @@ The current 631-file public title source reproduces exactly before ten scoped
 outputs change; 621 retain their bytes. Titles, Commands, Features and owning
 combat/dungeon/skill/craft/story guides explain automatic awards and paired
 placements. Home needs no release announcement; generated item/zone/catalog
-values, acquisitions, loot finder and Build Lab remain unchanged. Publication
-waits for actual live activation; the global historical review ledger is not
-advanced. `wiki-candidate.json` records exact content/package checks.
+values, acquisitions, loot finder and Build Lab remain unchanged. Publication and all631public HTTPS hashes/headers verify after live activation.
+The global historical review ledger is not advanced. `wiki-candidate.json` records exact content/package checks.

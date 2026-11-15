@@ -4,14 +4,15 @@ Updated November 14, 2026.
 
 ## Current state
 
-The official wiki serves `20261114-titles-active-v1` over `20261113-archery-backstab-v2`.
-Titles, commands, Combat, Adventure Journal, Change Log and search describe active
-earned titles. Six outputs change and625retain exact bytes after current-source
-reproduction. All631public HTTPS hashes/headers and five private denials verify.
-The publisher rechecks live title enablement under the shared deployment lock,
-rehearses rollback and preserves all services/config/client. Native player QA
-remains open. [Current source and recovery](../titles/deployment-20261114/README.md) ·
-[Public verification](../titles/deployment-20261114/wiki-public-verification.json).
+The official wiki serves `20261114-titles-automatic-suffix-v1` over
+`20261114-titles-active-v1`. Ten title/owning-guide outputs change and621 retain
+exact bytes after source reproduction. All631public HTTPS hashes/headers and five
+private denials verify. The guide describes automatic awards, native notifications
+and equivalent suffixes; #titles is optional. The content-only publisher checks
+the active title catalog under the deployment lock and preserves services,
+config and client. Native player UI acceptance stays open.
+[Source and recovery](../titles/automatic-suffix-20261114/README.md) ·
+[Public verification](../titles/automatic-suffix-20261114/wiki-public-verification.json).
 
 ## Retained hosting snapshots
 

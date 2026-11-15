@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "source": "33a7f38a6ee8adacd283f1a30838040ec78eba6d",
+  "runtime_source": "acb232e10453f683ba099d82ba794467381108ab",
+  "image": "sha256:fe585e2d841f7f3fcebc4d257f66e8b5931d13c60c57300ca7731aa6e3802ad7",
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "289df4f2037bf4e7348278442ce43db0bba498a35680adc6d1fbe06e5b0869b8",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "started_at": "2026-11-15T01:42:03.942709605Z",
+  "gateway_open": true,
+  "backup_integrity": true,
+  "backup_sha256": "92366d77c331dd0700a7df9a4d5a85a61e8f937b838ccfa5f9d5552a556f1379",
+  "caches": {
+    "items": "a96899270a118922340312c885bb63aab205511e3d61043b1746b05b9f184bff",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "client_release": 2026111301,
+  "client_channel_sha256": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "deployed_receipt": "5a5bc911c71580f8957600f6ceb8bbea00832b15abc7c8b69ce598e77c829e59",
+  "title_deployed_receipt": "128590bbea8af23ea23ee135d48e8f64fbfe3b0c7554bdd6064c4fb53bee9796",
+  "runtime_stage": "classic-augment-stacking-20261114-v1",
+  "title_catalog_enabled": true,
+  "owner_gameplay_accepted": false
+}

@@ -6,7 +6,7 @@ Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert an
 
 ## November 14, 2026 · Automatic title follow-up
 
-Built and tested automatic milestone/login awards, native title notifications, and equivalent suffix choices. The package rebases over the newer rest world/zone pair and awaits live activation. [Release and exact native QA](titles/automatic-suffix-20261114/README.md).
+Automatic milestone/login awards, native title alerts plus chat, and equivalent suffix choices are active on all twelve open production workers, main PR486/33a7f38a. The current rest world/rules, caches, client and stable awards are preserved. The public Titles guide is published and verified; native player UI acceptance remains open. [Release and exact native QA](titles/automatic-suffix-20261114/README.md).
 
 ## November 14, 2026 · Post-combat recovery live
 
@@ -18,7 +18,7 @@ Six stock reward families gain class-appropriate focus or worn effects across fo
 
 ## November 14, 2026 · Earned titles activation
 
-Active and verified on all twelve open production workers, main PR475/b824e0d2. Catalog1 is enabled and `#titles` is public. Signed client2026111301 and the completed prismatic baseline are preserved. Palwar’s logged Nagafen victory received named-only credit; opening Titles/#titles reconciles Flamebreaker. The current public guide is published and verified. Native visible picker/nameplate/notification acceptance remains OPEN. [Evidence, incident resolution and exact player QA](titles/deployment-20261114/README.md).
+Active and verified on all twelve open production workers, main PR475/b824e0d2. Catalog1 is enabled and `#titles` is public. Signed client2026111301 and the completed prismatic baseline are preserved. Palwar’s logged Nagafen victory received named-only credit. The later automatic follow-up above checks this credit on login without #titles. The current public guide is published and verified. Native visible picker/nameplate/notification acceptance remains OPEN. [Evidence, incident resolution and exact player QA](titles/deployment-20261114/README.md).
 
 ## November 14, 2026 · Tunnel augment distiller
 

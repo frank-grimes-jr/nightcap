@@ -17,7 +17,9 @@ titles, title sets, AA titles and player choices are preserved.
 Unlocks are per character and permanent. No stats, items, currency, faction,
 experience or abilities are granted. Native Titles selection remains authorized
 through `TitleManager::HasTitle`; knowing an ID is not sufficient. Titles support
-prefix/suffix placement and can be changed or cleared. Awarding does not equip.
+prefix/suffix placement and can be changed or cleared. Each of the76 catalog
+prefixes also unlocks its matching “the …” suffix through the same permanent
+award and ID. The existing “the Last Lantern” suffix remains. Awarding does not equip.
 
 General kills: Hunter 100, Slayer 1,000, Vanquisher 10,000. Undead: 100/1,000/5,000;
 giants: 100/1,000; dragons: 1/10/100. Native body types, not model/name guesses,
@@ -33,8 +35,9 @@ must be an ordinary account (status 0, GM off), connected, loaded, alive, within
 Pet/swarm kills follow existing native credit; final-blow ownership alone is not
 required. An entity guard prevents repeated callbacks on the same NPC object.
 Counters start on activation and saturate at 10,000. No historical totals are
-invented. A failed/uncertain cosmetic write is logged and never replayed; it
-cannot cancel an already committed death or alter loot/XP/respawn state.
+invented. Failed/uncertain kill-counter writes are logged and never replayed. Durable
+snapshot checks and idempotent award insertion retry after storage recovers. No
+cosmetic failure cancels an already committed death or alters loot/XP/respawn state.
 
 Dungeon Delver requires one personal full Keeper clear in either mode. Dungeon
 Conqueror requires full Raid clears in five distinct Keeper dungeons. Each of
@@ -57,11 +60,18 @@ No specialization-school titles are issued. Saved awards survive class release.
 Level50 earns Seasoned Adventurer; durable whole-task completion9515 earns suffix
 “the Last Lantern”. Native task history remains the story authority.
 
-Kills and successfully saved skill updates reconcile immediately. Opening the
-native Titles list or `#titles [page]` reconciles other/current/historical goals
-and displays six progress entries per page. Reconciliation is idempotent through
-the `(character_id,title_id)` primary key. Counters use one atomic multi-row
-upsert per participant. No destructive player/schema migration is included.
+Kills and successfully saved skill updates reconcile immediately. Login/zoning,
+level saves, committed personal Keeper/High Keep completion and successful final
+task9515 persistence schedule automatic checks at the next valid client frame.
+Persisted and loaded level must both qualify; skills also use persisted/loaded
+raw values. Enclosing transactions defer awards until they end. Transient check
+failures retry after30seconds, without replaying kill counters or querying SQL on
+idle frames. Unique new awards send the native new-title alert plus chat; an
+uncertain committed INSERT acknowledgment may miss its notice. `#titles [page]`
+is optional and displays six progress entries. One award/ID unlocks both matching
+placements. Counter writes batch the whole credited party in one atomic upsert;
+the ordinary kill path remains four SQL statements. No schema migration is needed.
+Current source, native build and live proof: automatic-suffix-20261114/README.md.
 
 ## Implementation plan and proof
 

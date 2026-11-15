@@ -1,0 +1,11 @@
+{
+  "stage": "classic-augment-stacking-20261114-v1",
+  "manifest_sha256": "88fbb76b484a03f6f0105383f6624d0a1bfa567df4d1d0e3ed9f867e64a66bd6",
+  "operator": "d1a3336da750fdd2da75dd42dd2d143e62deeeec84cd9a9390c128e760faceb1",
+  "zone": "289df4f2037bf4e7348278442ce43db0bba498a35680adc6d1fbe06e5b0869b8",
+  "title_baseline": "04cd4b50d891d72f71eda40a45c76160fb3e21608bebe89cb687e318f2d7797e",
+  "source": "acb232e10453f683ba099d82ba794467381108ab",
+  "reviewed_delta": "Only augment socket compatibility and swap validation; title policy, queue hooks and notifications retained",
+  "rebuild_script_sha256": "67db8361de46f2161ecf1260072efc2264e36b3b2ef827894bb40135dafaf9f3",
+  "feature_patch_sha256": "e346897b26103a5146f33d667a8fa25089ad23b18c9942cf971cd7daa7d6dd6f"
+}
