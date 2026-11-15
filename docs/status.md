@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Automatic title follow-up
+
+Built and tested automatic milestone/login awards, native title notifications, and equivalent suffix choices. The package rebases over the newer rest world/zone pair and awaits live activation. [Release and exact native QA](titles/automatic-suffix-20261114/README.md).
+
 ## November 14, 2026 · Classic raid worn and focus effects
 
 Six stock reward families gain class-appropriate focus or worn effects across four qualities. [Effects, audit and player QA](items/classic-raid-focus/README.md). Production verified all 24 changes and 12 workers. [Release](releases/classic-raid-focus-20261114/README.md).

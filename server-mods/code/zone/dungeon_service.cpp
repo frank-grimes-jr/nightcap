@@ -1,5 +1,6 @@
 #include "common/raid_augment_sources.h"
 #include "zone/dungeon_service.h"
+#include "zone/earned_titles.h"
 #include "common/dungeon_catalog.h"
 #include "common/chapterhouse_policy.h"
 #include "common/warhelm_policy.h"
@@ -575,6 +576,7 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 				Query(fmt::format("INSERT INTO nightcap_dungeon_corpses VALUES ({},{},{},{},{})",Q(run.id),spawn,Q(corpse_id),Q(envelope.dump()),decay));
 		}
 		tx.Commit();
+		for (auto c : completed) { NightcapTitles::RequestCheck(c); }
 		npc->SetEntityVariable("nightcap:dungeon-death-committed",run.id);
 		if (run.mode==Mode::Raid) { deaths.insert(spawn); }
 		else { respawns[spawn]=respawn_at; death_times[spawn]=died_at; }

@@ -164,6 +164,7 @@ void Complete(NPC *prisoner) {
 	}
 	Query("UPDATE nightcap_highkeep_runs SET rescued_at="+std::to_string(Now())+" WHERE run_id="+Q(run.id));
 	tx.Commit(); state.rescued=true;
+	for (auto c : completed) { NightcapTitles::RequestCheck(c); }
 	Shout("Osargen","Fresh air! You came for a prisoner and stood with me all the way. I won't forget this. We made it!");
 	for (auto c:completed) {
 		Journal(c); c->Message(Chat::Yellow,"Prison Break complete: Osargen is safe. Your personal dungeon reward is earned.");

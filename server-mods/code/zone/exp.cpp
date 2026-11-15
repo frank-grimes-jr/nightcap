@@ -1,3 +1,4 @@
+#include "zone/earned_titles.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2003 EQEMu Development Team (http://eqemulator.net)
 
@@ -1040,6 +1041,7 @@ void Client::SetLevel(uint8 set_level, bool command)
 	UpdateMercLevel();
 
 	Save();
+	NightcapTitles::RequestCheck(this);
 }
 
 // Note: The client calculates exp separately, we cant change this function

@@ -1,3 +1,4 @@
+#include "zone/earned_titles.h"
 #include "common/raid_augment.h"
 #include "zone/raid_augment_custody.h"
 #include "zone/dungeon_service.h"
@@ -1021,6 +1022,7 @@ void Client::CompleteConnect()
 		GoToBind();
 		return;
 	}
+	NightcapTitles::RequestCheck(this);
 }
 
 // connecting opcode handlers

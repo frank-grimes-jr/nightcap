@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+  "network": "none",
+  "checks": [
+    "combined enablement and actual connection transaction state",
+    "rolled-back counters do not become eligible",
+    "committed counters are read without replay",
+    "one stable award remains unique for both title placements"
+  ]
+}

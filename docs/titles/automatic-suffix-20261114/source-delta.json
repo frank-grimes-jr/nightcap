@@ -1,0 +1,11 @@
+{
+  "zone/client_packet.cpp": "a24ca21bdd00c78da5e83c15d00d231573eb489f11b5ae4fa7b865e4a18cf599",
+  "zone/client_process.cpp": "975831e5d89594eac618ccf2ae3a2362b5358ef7b454c5dfab17947fd3fbcf9c",
+  "zone/exp.cpp": "3478912b1858bb6875da4f754a82c1c8e0f05aefafe769a68654dfc818b0ffa5",
+  "zone/dungeon_service.cpp": "7f2db24a0a048bb8ce6be65b7b92252550ce0438f9b8d6046540519fc10e5f0d",
+  "zone/task_manager.cpp": "25aa74938ae119ed900debfcd54c5a939761fd685fd02b52e7003cad9bf70b3d",
+  "zone/task_client_state.cpp": "917a64ff7ac0bd5f45d79932f033c66b3506a3fcd4171f712b38f8858174965a",
+  "zone/highkeep_rescue.inc": "eca5bf5a76850b003068fa29d4801e03e4145ce5e971dbd2072978df7ce33a09",
+  "zone/earned_titles.h": "59ea7ae936868e365a48015237bcb721b326ff1c2de047f0a32649eca510ce71",
+  "zone/earned_titles.inc": "d86302854cb0bc20209ba517abcdee1945f410f0416f8fdf80730f11986a30dc"
+}

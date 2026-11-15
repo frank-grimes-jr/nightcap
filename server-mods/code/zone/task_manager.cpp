@@ -13,6 +13,7 @@
 #include "zone/client.h"
 #include "zone/dynamic_zone.h"
 #include "zone/dungeon_service.h"
+#include "zone/earned_titles.h"
 #include "zone/string_ids.h"
 #include "zone/worldserver.h"
 
@@ -449,6 +450,7 @@ bool TaskManager::SaveClientState(Client *client, ClientTaskState *cts)
 		}
 
 		// If the Rule to record non-optional task completion is not enabled, don't save it
+		if (task_id==9515) { NightcapTitles::RequestCheck(client); }
 		if (!RuleB(TaskSystem, RecordCompletedOptionalActivities)) {
 			continue;
 		}
