@@ -1,0 +1,11 @@
+{
+  "baseline": {
+    "world": "56a61f206bc51fa3e0a8c5290e32e0eb9ccfc741ef1a7245362d00e4de0cc21a",
+    "zone": "f35b4e3db6dd87f2eb5e62a916543508988df87c53ae9355ee2f4fae53fe2602"
+  },
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "d9ab889ad7f9c40a7e3066810b201f802f211c2c2d870637d4d775e6f691ca0b"
+  },
+  "patch": "22e272180ee584e06dbe0f212bc30e7b09e62abdd00efb8f4d190e65330fff4f"
+}

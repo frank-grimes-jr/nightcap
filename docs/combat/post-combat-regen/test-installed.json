@@ -1,0 +1,27 @@
+{
+  "workers": 8,
+  "zone": "b9256b94a3b54447e5c47f6f2bf349b140ca434c3dbef24b1ade774e6a9ee0df",
+  "world": "4985c51d19612dbda860b90678369b825cc359e5f435bba390a47b781a2b00cf",
+  "rules": [
+    [
+      "1",
+      "Character:RestRegenRaidTimeToActivate",
+      "0"
+    ],
+    [
+      "1",
+      "Character:RestRegenTimeToActivate",
+      "0"
+    ],
+    [
+      "5",
+      "Character:RestRegenTimeToActivate",
+      "0"
+    ],
+    [
+      "6",
+      "Character:RestRegenTimeToActivate",
+      "0"
+    ]
+  ]
+}
