@@ -1,8 +1,8 @@
 # Current Nightcap status
 
-## Post-combat recovery · test candidate
+## November 14, 2026 · Post-combat recovery live
 
-Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. [Installation and QA](combat/post-combat-regen/README.md).
+Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. Both test encounters passed and all 12 production workers verified the matching release. [Deployment receipt](combat/post-combat-regen/production-verified.json). [Installation and QA](combat/post-combat-regen/README.md).
 
 ## November 14, 2026 · Classic raid worn and focus effects
 
