@@ -2,7 +2,7 @@
 
 ## November 14, 2026 · Classic augment stacking validation
 
-Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. [Measurements and client QA](items/classic-augment-stacking/README.md).
+Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. The gameplay release is live on all 12 production workers. [Measurements and client QA](items/classic-augment-stacking/README.md).
 
 ## November 14, 2026 · Automatic title follow-up
 

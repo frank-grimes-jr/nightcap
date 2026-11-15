@@ -41,7 +41,7 @@ struct ItemInstance {
 }
 enum class AugmentActions {Insert,Swap};
 struct Request{int augment_index;AugmentActions augment_action;};
-bool IsAugmentRestricted(int,int){return false;}
+bool IsAugmentRestricted(int host_type,int restriction){return restriction==1 && host_type!=10;}
 """
 body = '\n'.join(function(common, key) for key in (
     'bool EQ::ItemInstance::IsAugmentSlotAvailable(', 'bool EQ::ItemInstance::IsAugmentSlotCompatible('))
@@ -61,6 +61,9 @@ int main(){
  assert(!host.IsAugmentSlotCompatible(64,6));
  host.data.AugSlotVisible[0]=false; assert(!allowed(&host,&scale,&in));
  allow_hidden=true;assert(allowed(&host,&scale,&in));
+ host.data.ItemType=8;assert(!allowed(&host,&scale,&in));
+ enforce=false;assert(allowed(&host,&scale,&in));
+ host.data.Slots=2;assert(!allowed(&host,&scale,&in));
 }
 """
 if __name__=='__main__':
