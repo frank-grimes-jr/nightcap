@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 14, 2026 · Classic augment stacking validation
+
+Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. [Measurements and client QA](items/classic-augment-stacking/README.md).
+
 ## November 14, 2026 · Post-combat recovery live
 
 Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. Both test encounters passed and all 12 production workers verified the matching release. [Deployment receipt](combat/post-combat-regen/production-verified.json). [Installation and QA](combat/post-combat-regen/README.md).
