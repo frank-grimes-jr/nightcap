@@ -1,5 +1,25 @@
 # Current Nightcap status
 
+## 2026-10-24 — Custom Features directory
+
+Published `20261024-wiki-custom-features-v1` over clarity-v2. Features explicitly
+groups14 custom systems/adventures, including Raid/Grind and helmet quests, with
+guide links and separate unavailable previews. Paladin Vigil remains live testing;
+Ashen Compact remains not released. No gameplay, item values or reader changes.
+Guarded publication/recovery and HTTPS evidence:
+[release](releases/wiki-custom-features-20261024/README.md).
+
+## 2026-10-24 — Wiki clarity
+
+Features, Guides and Change Log now have distinct purposes: major differences,
+current instructions, and dated releases/fixes. All24maintained guides and447
+generated reward routes reviewed; no gameplay/catalog changes. Responsive and
+deep-link verification and separate publication state:
+[wiki clarity release](releases/wiki-clarity-20261024/README.md).
+Published as `20261024-wiki-clarity-v2`, preserving the live Hole, Chapterhouse,
+AA and tool guidance.483public files verify; rollback and private-service
+preservation pass. Source merging and gameplay acceptance remain separate.
+
 ## 2026-10-23 — Two-AA progression and level-1 controls deployed
 
 Main PR305/00f90e9 and production image5e501da8 are verified. At0% AA,

@@ -1,13 +1,14 @@
 {
   "title": "The Vigil of the Dawn",
-  "summary": "Camil’s level-50 Paladin helmet story in Chapterhouse. Live testing, demanding at maximum legal power.",
+  "summary": "A level-50 Paladin story, personal chapters and Chapterhouse rewards.",
   "category": "World",
   "status": "Live testing",
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "sources": [
     "docs/quests/camil-chapterhouse/SPEC.md",
     "docs/quests/camil-chapterhouse/QA.md",
-    "docs/quests/camil-chapterhouse/deployment/README.md"
+    "docs/quests/camil-chapterhouse/deployment/README.md",
+    "docs/releases/wiki-clarity-20261024/README.md"
   ],
   "keywords": [
     "Camil Silvermist",

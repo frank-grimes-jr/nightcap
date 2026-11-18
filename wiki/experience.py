@@ -15,8 +15,8 @@ PATHS = [
 
 
 def home(body, articles):
-    """Move existing release notices below the discovery tools without losing text."""
-    notices, original = body.split('<div class="welcome">', 1)
+    """Keep home focused on orientation; dated updates belong in Change Log."""
+    _, original = body.split('<div class="welcome">', 1)
     welcome, handbook = ('<div class="welcome">' + original).split('<p class="feature-entry">', 1)
     buttons, panels = [], []
     for key, label, title, description, slugs in PATHS:
@@ -24,18 +24,17 @@ def home(body, articles):
         entries = []
         for number, slug in enumerate(slugs, 1):
             article = articles[slug]
-            entries.append(f'<a class="journey-link" href="{slug}.html"><span class="step-number">0{number}</span>'
+            entries.append(f'<a class="journey-link" href="{slug}.html">'
                            f'<span><strong>{html.escape(article["title"])}</strong><small>{html.escape(article["summary"])}</small></span>'
                            '<span class="arrow" aria-hidden="true">↗</span></a>')
         panels.append(f'<section class="journey-panel" id="path-{key}" aria-labelledby="heading-{key}">'
                       f'<div class="journey-intro"><p class="eyebrow">YOUR NEXT CHAPTER</p><h3 id="heading-{key}">{title}</h3><p>{description}</p>'
-                      '<span class="compass" aria-hidden="true">✧</span></div><div class="journey-links">' + ''.join(entries) + '</div></section>')
+                      '</div><div class="journey-links">' + ''.join(entries) + '</div></section>')
     return welcome + '''<section class="explorer" aria-labelledby="explore-title">
-<div class="section-heading"><div><p class="eyebrow">THE WORLD IS OPEN</p><h2 id="explore-title">Where will tonight take you?</h2></div><a href="all-pages.html">All articles ↗</a></div>
+<div class="section-heading"><div><h2 id="explore-title">Find a guide</h2></div><a href="all-pages.html">All guides →</a></div><span id="handbook"></span>
 <div class="path-picker" role="group" aria-label="Choose your adventure" hidden>''' + ''.join(buttons) + '</div>' + ''.join(panels) + '''</section>
 <section class="saved-home" data-saved-home hidden aria-labelledby="saved-heading"><div class="section-heading"><div><p class="eyebrow">YOUR FIELD NOTES</p><h2 id="saved-heading">Saved for your next adventure</h2></div><button type="button" data-open-saved>Manage saved guides</button></div><div data-saved-links></div></section>
-<details class="release-digest"><summary><span><span class="eyebrow">FROM THE CAMPFIRE</span><strong>Release notes &amp; live testing</strong></span><span class="digest-hint">Read the latest updates +</span></summary><div class="release-body">''' + notices + '''<p><a href="recent-changes.html">Browse all recent changes →</a></p></div></details>
-<h2 id="handbook">Explore the handbook</h2><p class="feature-entry">''' + handbook
+<p class="feature-entry">''' + handbook
 
 
 def dialogs():

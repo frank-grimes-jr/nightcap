@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "release": "20261024-wiki-clarity-v2",
+  "files": 483,
+  "sha256_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/features.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html"
+  ],
+  "verified_at": "2026-10-24T14:29:37.540950+00:00"
+}
