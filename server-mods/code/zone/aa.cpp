@@ -24,6 +24,7 @@ Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
 #include "common/classes.h"
 #include "common/nightcap_aa_policy.h"
+#include "common/aa_availability.h"
 #include "common/eq_packet_structs.h"
 #include "common/eqemu_logsys.h"
 #include "common/events/player_event_logs.h"
@@ -1155,7 +1156,16 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 		return;
 	}
 
-	int size = sizeof(AARankInfo_Struct) + (sizeof(AARankEffect_Struct) * rank->effects.size()) + (sizeof(AARankPrereq_Struct) * rank->prereqs.size());
+	// Keep the shared rank catalog intact; prerequisites depend on held classes.
+	auto prerequisites = rank->prereqs;
+	for (auto it = prerequisites.begin(); it != prerequisites.end();) {
+		if (NightcapAAAvailability::WaivesPrerequisite(ability->id, it->first, GetClassMask())) {
+			it = prerequisites.erase(it);
+		} else {
+			++it;
+		}
+	}
+	int size = sizeof(AARankInfo_Struct) + (sizeof(AARankEffect_Struct) * rank->effects.size()) + (sizeof(AARankPrereq_Struct) * prerequisites.size());
 	auto outapp = new EQApplicationPacket(OP_SendAATable, size);
 	AARankInfo_Struct *aai = (AARankInfo_Struct*)outapp->pBuffer;
 
@@ -1211,7 +1221,7 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	aai->charges = ability->charges;
 	aai->grant_only = ability->grant_only;
 	aai->total_effects = rank->effects.size();
-	aai->total_prereqs = rank->prereqs.size();
+	aai->total_prereqs = prerequisites.size();
 
 	outapp->SetWritePosition(sizeof(AARankInfo_Struct));
 	for(auto &effect : rank->effects) {
@@ -1221,7 +1231,7 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 		outapp->WriteSInt32(effect.slot);
 	}
 
-	for(auto &prereq : rank->prereqs) {
+	for(auto &prereq : prerequisites) {
 		outapp->WriteSInt32(prereq.first);
 		outapp->WriteSInt32(prereq.second);
 	}
@@ -2005,6 +2015,9 @@ bool Mob::CanPurchaseAlternateAdvancementRank(AA::Rank *rank, bool check_price, 
 
 	//check prereqs
 	for (auto &prereq: rank->prereqs) {
+		if (IsClient() && NightcapAAAvailability::WaivesPrerequisite(a->id, prereq.first, CastToClient()->GetClassMask())) {
+			continue;
+		}
 		AA::Ability *prereq_ability = zone->GetAlternateAdvancementAbility(prereq.first);
 
 		if (!prereq_ability || GetAA(prereq_ability->first_rank_id) < prereq.second) {

@@ -1,0 +1,16 @@
+{
+  "reviewer": "independent aa_access_review agent",
+  "verdict": "no blocker",
+  "red": [
+    "native purchase prerequisite",
+    "native packet prerequisite"
+  ],
+  "green": {
+    "tests": 3,
+    "purchase_cases": 5808,
+    "packet_cases": 5724,
+    "class_sets": 696,
+    "helper_masks": 65536
+  },
+  "scope": "No ranks, prices, effects, masks or global prerequisite modifications. Native-method fixtures; player acceptance open."
+}
