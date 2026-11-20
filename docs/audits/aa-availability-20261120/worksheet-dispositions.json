@@ -1,0 +1,24 @@
+{
+  "scope": "16 previously unresolved/excluded spreadsheet rows; no rank/cost changes",
+  "aliases": {
+    "Blacksmith Mastery": 324,
+    "Heightened Endurange": 234,
+    "Radiant Cure (Paladin)": 285,
+    "Adv Trap Negotiation (two rows)": 121,
+    "Asassin's Wrath": 1272,
+    "Arcane Destructive Fury": 397
+  },
+  "unimplemented_external_design": {
+    "Situational Awareness": 17786
+  },
+  "preserved_exclusions": {
+    "Tinkering Mastery575": "grant only",
+    "Abundant Healing516": "explicit zero cap; effect reconciliation deferred",
+    "Finishing Blow32": "explicit deferral",
+    "Anatomy555": "explicit deferral",
+    "Cannibalization47": "explicit deferral",
+    "Spell Casting Subtlety25/252/8300": "retired/refunded",
+    "Burst of Power3708/3837": "disabled duplicate; enabled3833/3834 outside generic expansion ceiling",
+    "Blade Guardian967": "explicit zero cap after prerequisite closure; no automatic unlock"
+  }
+}

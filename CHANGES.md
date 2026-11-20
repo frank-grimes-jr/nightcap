@@ -1,3 +1,7 @@
+## 2026-11-20 · AA availability
+
+- Correct the impossible Spell Casting Expertise prerequisite on existing Mastery of the Past ranks for CLR/PAL/RNG/DRU/SHM/BST. Purchase checks and per-client AA packets agree; all ranks, costs, effects, class masks and custom content remain unchanged. Rebuild zone and relog; no client/cache/SQL update. Audit, tests, release status and exact QA: docs/audits/aa-availability-20261120/.
+
 ## 2026-11-20
 
 - Healing candidate: stock Minor Healing and Light Healing gain a flat Heal Amount floor on original player casts. Existing larger bonuses, Greater Healing, custom content and sympathetic caps remain unchanged. Native validation and deployment evidence: docs/combat/fast-healing/.

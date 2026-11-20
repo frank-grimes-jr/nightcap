@@ -32,6 +32,7 @@ STUBS = r'''
 #include <vector>
 #include <string>
 #include "common/nightcap_aa_policy.h"
+#include "common/aa_availability.h"
 using uint32 = uint32_t;
 using uint64 = uint64_t;
 #define LogError(...) ((void)0)

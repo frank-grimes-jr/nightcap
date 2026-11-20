@@ -1,0 +1,17 @@
+{
+  "review": "All authored guides and generated route/catalog impact reviewed; current source drift check retained without blindly advancing global ledger.",
+  "changed": [
+    "Multiclass",
+    "Recent changes",
+    "search"
+  ],
+  "unchanged": [
+    "Home",
+    "Features",
+    "commands",
+    "item/zone catalogs",
+    "ranks/costs/effects"
+  ],
+  "publication": "candidate until recorded live verification",
+  "predecessor": "20261120-fast-healing-v1"
+}
