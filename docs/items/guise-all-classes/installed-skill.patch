@@ -1,0 +1,141 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\items.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\items.md
+@@ -12,9 +12,11 @@
+ 
+ Production gameplay 0e7795eef08d83e5c8042522e109ad7460d5f2ab adds three level-50 type-7 scales in four Reforging Box tiers at IDs 9602/9603/9607 plus 200000 per quality. Three standard Jeweler’s Kit recipes use existing white or red dragon scales and gems. Eight eligible visible armor positions include both wrists. Matching Healing/Damage IV focuses use the strongest applicable worn focus. Dodge I is a worn effect. All scales have 60/90/120/120 HP and mana. Nine stock Classic drop families have 5-point HA/SD and 10-point resource increments. See E:/EQ_Local_Dev/_worktrees/classic-prismatic-live/docs/items/classic-prismatic/README.md and docs/releases/classic-prismatic-20261114/production-verified.json. Existing native image and signed client pair with the rebuilt item cache. Owner graphical and encounter checks remain open.
+ 
+-## Lower Guk ghoul assassin · November 14 deployed
+-
+-Fresh a_ghoul_assassin (66171) in Lower Guk rolls once at 20% for Guise of the Deceiver (2469) in addition to stock loot. The zone-by-ID spawn quest skips restored NPCs. NPC:AddItem applies the normal quality roll. Main PR 471 (95942c8e) and release record PR 474 (c49fc4a8) cover the November 14 OVH install. Production Lua 5.1 passed the 100-outcome test for each stock item. The active quest tree matched main. Lower Guk was unloaded before and after installation, so its next boot loads the quest. All twelve zones and five services kept their identities. No SQL, binary, item cache or client update. Use the ghoul-assassin-guise topic for source, test, verified.json and gameplay QA. Owner in-game acceptance and wiki publication remain open.
++## Lower Guk ghoul assassin · November 20 ALL/ALL correction deployed
++
++Fresh a_ghoul_assassin (66171) in Lower Guk rolls once at 20% for Guise of the Deceiver (2469) in addition to stock loot. The zone-by-ID spawn quest skips restored NPCs. NPC:AddItem applies the normal quality roll. Main PR471 and the November14 OVH receipt cover the quest installation.
++
++All four Guise qualities (2469, 202469, 402469, 602469) now use Classes65535 and Races65535: ALL/ALL. The November20 correction changes only the class field; Dark Elf click590/type1 and all other item fields are preserved. Source is E:/EQ_Local_Dev/_worktrees/guise-all-classes/docs/items/guise-all-classes/. Main PR493 covers the behavior. Full-row guards, forward/replay/rollback rehearsal and native cache comparison verify exactly4 changed records and310024 identical records. The inherited maintenance workflow drained admissions, backed up the database and restarted the paired runtime. Twelve workers, open gateway and zero errors were verified. Existing copies refresh on reconnect. No new native binary or client package is required. The concurrent Inventory publication is retained; first attempt stopped before maintenance/SQL on publication drift. Use the ghoul-assassin-guise topic for reviewed source, tests and production receipt. Native item inspection, non-Bard/Rogue equip/click acceptance and public Guise wiki publication remain open.
+ 
+ ## Tunnel augment distiller · deployed November 14
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
+@@ -12,9 +12,9 @@
+ 
+ The Equipment and Recent changes source articles include the recipes and tier path. Source is staged pending public publication. See E:/EQ_Local_Dev/_worktrees/classic-prismatic-live/docs/releases/classic-prismatic-20261114/README.md.
+ 
+-## Lower Guk ghoul assassin · November 14 deployed
+-
+-Lower Guk’s generated zone page owns the 20% any-quality Guise drop. Loot finder and Change Log link to it because the dynamic finder indexes database loot and the Guise uses a spawn quest. The gameplay source is deployed on OVH and the guide changes are on main. Public guide publication is pending. Use the ghoul-assassin-guise topic for the November 14 production receipt and the scoped wiki sources.
++## Lower Guk ghoul assassin · November 20 guide source
++
++Lower Guk's generated zone page owns the independent20% any-quality Guise drop and the ALL/ALL eligibility of all four qualities. Loot finder and Change Log link to it because the dynamic finder indexes database loot and the Guise uses a spawn quest. The source guides describe face-slot equipment and the retained Dark Elf click. Gameplay is deployed; Guise guide publication remains pending. The release preserves the concurrent public20261120-inventory-no-scrollbars-v1 publication. Current-source review retains historical REVIEW REQUIRED drift without advancing the ledger. Home, Features, commands, Hunt catalogs and other acquisition guides need no additional edits. Use the ghoul-assassin-guise topic for source, November14 quest receipt and November20 cache/runtime verification.
+ 
+ ## Tunnel jeweler distiller · production stock, wiki staged November 14
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -175,51 +175,88 @@
+     "titles_wiki_active_20261114": "20261114-titles-active-v1; 631 HTTPS hashes/headers and 625 retained files; no global ledger advance",
+     "titles_automatic_suffix_20261114": "main PR486/33a7f38a6ee8adacd283f1a30838040ec78eba6d; title-zone04cd4b50 retained in augment successor PR489/acb232e1 zone289df4f2/rest worldeafe4507;12open workers; native player QA OPEN",
+     "titles_wiki_automatic_suffix_20261114": "20261114-titles-automatic-suffix-v1;631HTTPS hashes/headers,621retained files; no global ledger advance",
+-    "inventory_scrollbars_published_20261120": "main PR492/f8faa1ba + reviewed publication receipts; signed client2026112001/wiki20261120-inventory-no-scrollbars-v1; native QA OPEN"
++    "inventory_scrollbars_published_20261120": "main PR492/f8faa1ba + reviewed publication receipts; signed client2026112001/wiki20261120-inventory-no-scrollbars-v1; native QA OPEN",
++    "guise_all_classes_20261120": "Main PR493; source 48af6ce5e820c7d91e028483366c11b66edf498c; reviewed df5bcf5404e50a8aa169f4492a92ce1dd1f54bc7; OVH v2 verified with four class-only cache changes and12 open workers; native player QA and Guise public wiki pending"
+   },
+   "topics": {
+     "ghoul-assassin-guise": [
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "server-mods/quests/gukbottom/66171.lua",
+         "role": "NPC-specific spawn bonus",
+         "sha256": "edb1a7825aa7bab51aa3743fde2098eed67083c46cb06b0d6b976ec01ed8fba5"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "tools/tests/ghoul_assassin_guise.lua",
+         "role": "Exhaustive Lua 5.1 roll and saved-loot regression",
+         "sha256": "d567f2d732a553058c9881ccb9ef3b39472e4b3e25233094b6fd37aff8438055"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "docs/items/ghoul-assassin-guise.md",
+         "role": "Source, local install, QA and wiki review",
+-        "sha256": "6b310e125db381fdf217852c7c0b602d6da69fc3e9b9ad6ab1364a003f946629"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "sha256": "03d7e56ab463ca18e7b4d19a36c551fc52802675fbf2ea4851de3f356129c8d9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "wiki/catalog.py",
+         "role": "Generated Lower Guk zone article",
+-        "sha256": "ed4877c658bdc2e5f0c6a964fe4f640c28ad0386c67f53cda0aaa2b8ac683a93"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "sha256": "2304f053f170467fc86db0feb2177decd39be4bac8a09259fe77f856260bb249"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "wiki/articles/loot-finder.json",
+         "role": "Scripted acquisition guide link",
+         "sha256": "0248ec75f3e2b0c532fdff25f2ee249fb1e10284c0671d9acf2d6c247e2a9967"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "wiki/articles/recent-changes.json",
+         "role": "Guise change entry",
+-        "sha256": "6196c12a52f297b5415782993bd8ff4b498c7698508798ad685b37de5e9f463a"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/ghoul-assassin-guise-main",
++        "sha256": "a9ac7c0d6b1187c2fa52a8efd9498b02e15c6cd4401d07eab055483d44f4ba13"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
+         "path": "docs/releases/ghoul-assassin-guise-20261114/verified.json",
+         "role": "Verified OVH quest installation and Lua test",
+-        "sha256": "87c41b51bf6344723b219ba6d231732274eaa22c72f3a3b24aa754e921dbd4aa"
++        "sha256": "831901792b459b29e4c416cda4d99761ff69f8ff573cabd28f38dcd84a9b3f4d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
++        "path": "docs/items/guise-all-classes/catalog.py",
++        "role": "Full-row transactional ALL/ALL correction and rollback",
++        "sha256": "c0fa9214f70877c485f3aeb7ade550b4bac3c8e25fa1402fec24b2458861e2f7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
++        "path": "docs/items/guise-all-classes/release.py",
++        "role": "Pinned maintenance operator and class-only cache verifier",
++        "sha256": "ce0f5124e927cc60624ab82bbf22cacb9a5381daceb2b6895b194af5e63d00bb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
++        "path": "docs/items/guise-all-classes/ops.py",
++        "role": "Immutable v2 staging and activation controller",
++        "sha256": "1d084b227818dff7d4f8cbac9aa2d63e7c427b41ac6705af1847ac9660b936c4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
++        "path": "docs/items/guise-all-classes/test_cache.py",
++        "role": "Regression rejects click and unrelated cache changes",
++        "sha256": "172d548259940b54f50f307fd7d2e2f45bf29705a9fbf1fbbe39ecdbf13a150a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
++        "path": "docs/items/guise-all-classes/README.md",
++        "role": "Deployment, publication drift recovery and native player QA",
++        "sha256": "bf22cea60fe5e29192fc63acb65dc4b86f1a584aece9e688043de46c38c36f97"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/guise-all-classes",
++        "path": "docs/items/guise-all-classes/production-verified.json",
++        "role": "Fresh open-runtime and ALL/ALL verification",
++        "sha256": "744aa72de777c51fc647bedb507f4ddbb62bc140eeae798b2a76387c29bc65b8"
+       }
+     ],
+     "tunnel-distiller": [

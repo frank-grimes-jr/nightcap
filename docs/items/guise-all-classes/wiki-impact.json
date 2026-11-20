@@ -1,0 +1,10 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-24",
+  "source_ref": "HEAD",
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "source_revision": "48af6ce5e820c7d91e028483366c11b66edf498c",
+  "changed_source_count": 1941,
+  "assessment": "Lower Guk zone and Change Log updated; loot finder already links the scripted source. Home, Features, commands, Hunt catalogs and other item acquisition guides have no additional impact. Historical source drift remains open; no ledger advance or public wiki publication.",
+  "tests": "27 wiki and loot-model tests passed before and after the concurrent documentation merge."
+}

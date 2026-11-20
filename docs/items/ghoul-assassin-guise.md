@@ -8,7 +8,7 @@ Local PEQ on November 14, 2026 showed that table 14195 awards Mask of Deception 
 
 ## Installation and recovery
 
-The source is [the Lower Guk quest for NPC 66171](../../server-mods/quests/gukbottom/66171.lua). Install it as `quests/gukbottom/66171.lua` in the active quest tree. Check for an existing ID, name, version-specific or default NPC quest before installing into another environment. Merge handlers if necessary. For an active Lower Guk worker use `#reload quest` in that zone, or let a fresh zone load it. No SQL, server build, item-cache regeneration or client download is required. An already spawned assassin keeps its loot.
+The spawn-bonus source is [the Lower Guk quest for NPC 66171](../../server-mods/quests/gukbottom/66171.lua). Install it as `quests/gukbottom/66171.lua` in the active quest tree. Check for an existing ID, name, version-specific or default NPC quest before installing into another environment. Merge handlers if necessary. For an active Lower Guk worker use `#reload quest` in that zone, or let a fresh zone load it. This quest installation needs no SQL, server build, item-cache regeneration or client download. The separate [ALL/ALL item correction](guise-all-classes/README.md) uses guarded SQL and an item-cache rebuild. An already spawned assassin keeps its loot.
 
 To withdraw the bonus, remove this spawn handler and reload quests. Existing corpses, saved NPCs and player-held items retain their loot. The Fabled assassin (66176) and the camp placeholder (66019) have separate NPC IDs.
 
