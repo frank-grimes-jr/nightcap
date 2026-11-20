@@ -1,3 +1,7 @@
+## November20,2026 · Classic stock focus coverage candidate
+
+19stock families/76definitions fill dungeon/raid focus gaps. Validation and deployment pending; player QA OPEN. [Audit and QA](items/classic-focus-coverage/README.md).
+
 # Current Nightcap status
 
 ## November 20, 2026 · AA availability deployed
