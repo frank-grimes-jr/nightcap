@@ -1,6 +1,6 @@
 # AA availability audit — November 20, 2026
 
-Candidate audit and fix. Not yet deployed or player accepted.
+Deployed through dev/test/main on November 20. Production and wiki verified; player acceptance remains OPEN.
 
 Owner scope: audit availability, fix confirmed issues, validate on test, then
 merge to main and deploy. Existing ranks, prices, effects, custom content and
@@ -58,3 +58,11 @@ class and verify the standard exact refund and removal. Fury of Magic and
 Mystical Attuning must retain their existing masks, costs and rank totals.
 
 Native checks do not replace visible-client, persistence, or player acceptance.
+
+## Verified release
+
+Main 6da8492de16092d167b05467f9b3f9e6542b72e0 (PR502), following dev PR500 and test PR501. Zone 98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b is active on all12workers. Stage aa-availability-20261120-v1 uses zero-player activation,125second admission drain, clean whole-runtime stop, fresh stopped backup and saved-state/market preservation. Gateway reopened; native/quest/database error checks pass. World, rules, content, caches and signed client2026112001 remain unchanged. No player snapshots restored.
+
+Wiki20261120-aa-availability-v1 is published:631canonical files and private denials verified,628outputs preserved and rollback rehearsed. Twenty wiki tests and search pass.30focused/adjacent checks and11dev checks pass. Native fixtures are not real-player SQL purchase/release or UI acceptance. Current policy generator passes; historical all-class generation assertion is stale on unchanged main and is recorded separately.
+
+Rollback selects the prior immutable fast-healing image through supported maintenance. Purchases remain earned; never restore an older player database. The old binary restores the old prerequisite behavior; existing ownership is retained. Relog refreshes the AA table. Retained operators and publisher scripts are one-shot evidence, not commands to replay.

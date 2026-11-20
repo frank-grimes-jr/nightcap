@@ -1,6 +1,6 @@
 ## 2026-11-20 · AA availability
 
-- Correct the impossible Spell Casting Expertise prerequisite on existing Mastery of the Past ranks for CLR/PAL/RNG/DRU/SHM/BST. Purchase checks and per-client AA packets agree; all ranks, costs, effects, class masks and custom content remain unchanged. Rebuild zone and relog; no client/cache/SQL update. Audit, tests, release status and exact QA: docs/audits/aa-availability-20261120/.
+- Deployed through dev/test/main and verified on all12production workers; wiki published. Correct the impossible Spell Casting Expertise prerequisite on existing Mastery of the Past ranks for CLR/PAL/RNG/DRU/SHM/BST. Purchase checks and per-client AA packets agree; all ranks, costs, effects, class masks and custom content remain unchanged. Rebuild zone and relog; no client/cache/SQL update. Audit, tests, release status and exact QA: docs/audits/aa-availability-20261120/.
 
 ## 2026-11-20
 

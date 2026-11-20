@@ -1,0 +1,8 @@
+{
+  "main_source": "6da8492de16092d167b05467f9b3f9e6542b72e0",
+  "aa_translation_unit_matches_shipped_source": true,
+  "availability_header_matches_shipped_source": true,
+  "patch_git_normalization": "CRLF to LF only; original exact build input retained as shipping-patch-original.gz",
+  "canonical_patch_sha256": "909c13e7cd5c171cfe5aec9dc8abae10e149e91a96c2b4fe8c6693917f0d6820",
+  "shipping_patch_sha256": "5518fc60a87bb62ffea179c8b57315fe399f0bb42aa959897a5962779055cb26"
+}

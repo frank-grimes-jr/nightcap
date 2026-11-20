@@ -1,8 +1,8 @@
 # Current Nightcap status
 
-## November 20, 2026 · AA availability candidate
+## November 20, 2026 · AA availability deployed
 
-Mastery of the Past access fix passes native purchase/packet tests and a full shipping build. Existing 489 families / 1,845 ranks remain unchanged. Candidate pending promotion/deployment; visible player acceptance is open. [Audit and QA](audits/aa-availability-20261120/README.md).
+Mastery of the Past access fix passes native purchase/packet tests and a full shipping build. Existing 489 families / 1,845 ranks remain unchanged. Dev/test/main promotion and zero-player production deployment passed; all12workers and the public wiki verified. Visible player acceptance is open. [Audit and QA](audits/aa-availability-20261120/README.md).
 
 ## November 20, 2026 · Fast direct healing
 
