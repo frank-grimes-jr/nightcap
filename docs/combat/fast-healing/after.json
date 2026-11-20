@@ -1,0 +1,1555 @@
+{
+ "cohorts": {
+  "full_healer": {
+   "paladin_procs": {
+    "13502": {
+     "landed": 704,
+     "resolved": 704
+    },
+    "13503": {
+     "landed": 1056,
+     "resolved": 1056
+    },
+    "13504": {
+     "landed": 1408,
+     "resolved": 1408
+    },
+    "16139": {
+     "landed": 1761,
+     "resolved": 1761
+    },
+    "16140": {
+     "landed": 2348,
+     "resolved": 2348
+    },
+    "16141": {
+     "landed": 2935,
+     "resolved": 2935
+    }
+   },
+   "spells": {
+    "12": {
+     "base": 175,
+     "cast_ms": 2500,
+     "direct": 1104,
+     "mana": 65,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 220800,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 163392,
+       "hits": 4,
+       "landed": 148,
+       "mana": 9620,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 146832,
+       "hits": 8,
+       "landed": 133,
+       "mana": 8645,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 220800,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 173328,
+       "hits": 4,
+       "landed": 157,
+       "mana": 10205,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 161184,
+       "hits": 8,
+       "landed": 146,
+       "mana": 9490,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 230400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 170496,
+       "hits": 4,
+       "landed": 148,
+       "mana": 9620,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 153216,
+       "hits": 8,
+       "landed": 133,
+       "mana": 8645,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 230400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 180864,
+       "hits": 4,
+       "landed": 157,
+       "mana": 10205,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 168192,
+       "hits": 8,
+       "landed": 146,
+       "mana": 9490,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 1152,
+     "sympathetic_full": 48,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "15": {
+     "base": 350,
+     "cast_ms": 3000,
+     "direct": 2208,
+     "mana": 115,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 441600,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 326784,
+       "hits": 4,
+       "landed": 148,
+       "mana": 16872,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 293664,
+       "hits": 8,
+       "landed": 133,
+       "mana": 15162,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 441600,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 346656,
+       "hits": 4,
+       "landed": 157,
+       "mana": 17898,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 322368,
+       "hits": 8,
+       "landed": 146,
+       "mana": 16644,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 451200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 333888,
+       "hits": 4,
+       "landed": 148,
+       "mana": 16872,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 300048,
+       "hits": 8,
+       "landed": 133,
+       "mana": 15162,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 451200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 354192,
+       "hits": 4,
+       "landed": 157,
+       "mana": 17898,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 329376,
+       "hits": 8,
+       "landed": 146,
+       "mana": 16644,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 2256,
+     "sympathetic_full": 48,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "17": {
+     "base": 65,
+     "cast_ms": 2000,
+     "direct": 587,
+     "mana": 28,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 117400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 86876,
+       "hits": 4,
+       "landed": 148,
+       "mana": 4144,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 78071,
+       "hits": 8,
+       "landed": 133,
+       "mana": 3724,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 117400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 92159,
+       "hits": 4,
+       "landed": 157,
+       "mana": 4396,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 85702,
+       "hits": 8,
+       "landed": 146,
+       "mana": 4088,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 123200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 91168,
+       "hits": 4,
+       "landed": 148,
+       "mana": 4144,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 81928,
+       "hits": 8,
+       "landed": 133,
+       "mana": 3724,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 123200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 96712,
+       "hits": 4,
+       "landed": 157,
+       "mana": 4396,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 89936,
+       "hits": 8,
+       "landed": 146,
+       "mana": 4088,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 616,
+     "sympathetic_full": 29,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "200": {
+     "base": 20,
+     "cast_ms": 1500,
+     "direct": 531,
+     "mana": 10,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 106200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 78588,
+       "hits": 4,
+       "landed": 148,
+       "mana": 1332,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 70623,
+       "hits": 8,
+       "landed": 133,
+       "mana": 1197,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 106200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 83367,
+       "hits": 4,
+       "landed": 157,
+       "mana": 1413,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 77526,
+       "hits": 8,
+       "landed": 146,
+       "mana": 1314,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 111400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 82436,
+       "hits": 4,
+       "landed": 148,
+       "mana": 1332,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 74081,
+       "hits": 8,
+       "landed": 133,
+       "mana": 1197,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 111400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 87449,
+       "hits": 4,
+       "landed": 157,
+       "mana": 1413,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 81322,
+       "hits": 8,
+       "landed": 146,
+       "mana": 1314,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 557,
+     "sympathetic_full": 26,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    }
+   },
+   "stats": {
+    "damage": 402,
+    "heal": 487,
+    "hp": 4747,
+    "hwis": 40,
+    "mana": 4754
+   }
+  },
+  "palwar_gear": {
+   "paladin_procs": {
+    "13502": {
+     "landed": 228,
+     "resolved": 228
+    },
+    "13503": {
+     "landed": 342,
+     "resolved": 342
+    },
+    "13504": {
+     "landed": 456,
+     "resolved": 456
+    },
+    "16139": {
+     "landed": 570,
+     "resolved": 570
+    },
+    "16140": {
+     "landed": 760,
+     "resolved": 760
+    },
+    "16141": {
+     "landed": 950,
+     "resolved": 950
+    }
+   },
+   "spells": {
+    "12": {
+     "base": 175,
+     "cast_ms": 2500,
+     "direct": 370,
+     "mana": 65,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 74000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 54760,
+       "hits": 4,
+       "landed": 148,
+       "mana": 9620,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 49210,
+       "hits": 8,
+       "landed": 133,
+       "mana": 8645,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 74000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 58090,
+       "hits": 4,
+       "landed": 157,
+       "mana": 10205,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 54020,
+       "hits": 8,
+       "landed": 146,
+       "mana": 9490,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 77600,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 57424,
+       "hits": 4,
+       "landed": 148,
+       "mana": 9620,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 51604,
+       "hits": 8,
+       "landed": 133,
+       "mana": 8645,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 77600,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 60916,
+       "hits": 4,
+       "landed": 157,
+       "mana": 10205,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 56648,
+       "hits": 8,
+       "landed": 146,
+       "mana": 9490,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 388,
+     "sympathetic_full": 18,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "15": {
+     "base": 350,
+     "cast_ms": 3000,
+     "direct": 742,
+     "mana": 115,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 148400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 109816,
+       "hits": 4,
+       "landed": 148,
+       "mana": 16872,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 98686,
+       "hits": 8,
+       "landed": 133,
+       "mana": 15162,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 148400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 116494,
+       "hits": 4,
+       "landed": 157,
+       "mana": 17898,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 108332,
+       "hits": 8,
+       "landed": 146,
+       "mana": 16644,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 155800,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 115292,
+       "hits": 4,
+       "landed": 148,
+       "mana": 16872,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 103607,
+       "hits": 8,
+       "landed": 133,
+       "mana": 15162,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 155800,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 122303,
+       "hits": 4,
+       "landed": 157,
+       "mana": 17898,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 113734,
+       "hits": 8,
+       "landed": 146,
+       "mana": 16644,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 779,
+     "sympathetic_full": 37,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "17": {
+     "base": 65,
+     "cast_ms": 2000,
+     "direct": 169,
+     "mana": 28,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 33800,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 25012,
+       "hits": 4,
+       "landed": 148,
+       "mana": 4144,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 22477,
+       "hits": 8,
+       "landed": 133,
+       "mana": 3724,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 33800,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 26533,
+       "hits": 4,
+       "landed": 157,
+       "mana": 4396,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 24674,
+       "hits": 8,
+       "landed": 146,
+       "mana": 4088,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 35400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 26196,
+       "hits": 4,
+       "landed": 148,
+       "mana": 4144,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 23541,
+       "hits": 8,
+       "landed": 133,
+       "mana": 3724,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 35400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 27789,
+       "hits": 4,
+       "landed": 157,
+       "mana": 4396,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 25842,
+       "hits": 8,
+       "landed": 146,
+       "mana": 4088,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 177,
+     "sympathetic_full": 8,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "200": {
+     "base": 20,
+     "cast_ms": 1500,
+     "direct": 115,
+     "mana": 10,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 23000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 17020,
+       "hits": 4,
+       "landed": 148,
+       "mana": 1332,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 15295,
+       "hits": 8,
+       "landed": 133,
+       "mana": 1197,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 23000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 18055,
+       "hits": 4,
+       "landed": 157,
+       "mana": 1413,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 16790,
+       "hits": 8,
+       "landed": 146,
+       "mana": 1314,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 24000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 17760,
+       "hits": 4,
+       "landed": 148,
+       "mana": 1332,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 15960,
+       "hits": 8,
+       "landed": 133,
+       "mana": 1197,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 24000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 18840,
+       "hits": 4,
+       "landed": 157,
+       "mana": 1413,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 17520,
+       "hits": 8,
+       "landed": 146,
+       "mana": 1314,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 120,
+     "sympathetic_full": 5,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    }
+   },
+   "stats": {
+    "damage": 72,
+    "heal": 90,
+    "hp": 3522,
+    "hwis": 10,
+    "mana": 3110
+   }
+  },
+  "stress_750": {
+   "paladin_procs": {
+    "13502": {
+     "landed": 1020,
+     "resolved": 1020
+    },
+    "13503": {
+     "landed": 1530,
+     "resolved": 1530
+    },
+    "13504": {
+     "landed": 2040,
+     "resolved": 2040
+    },
+    "16139": {
+     "landed": 2522,
+     "resolved": 2550
+    },
+    "16140": {
+     "landed": 2522,
+     "resolved": 3400
+    },
+    "16141": {
+     "landed": 2522,
+     "resolved": 4250
+    }
+   },
+   "spells": {
+    "12": {
+     "base": 175,
+     "cast_ms": 2500,
+     "direct": 1537,
+     "mana": 65,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 307400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 227476,
+       "hits": 4,
+       "landed": 148,
+       "mana": 9620,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 204421,
+       "hits": 8,
+       "landed": 133,
+       "mana": 8645,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 307400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 241309,
+       "hits": 4,
+       "landed": 157,
+       "mana": 10205,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 224402,
+       "hits": 8,
+       "landed": 146,
+       "mana": 9490,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 317000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 234580,
+       "hits": 4,
+       "landed": 148,
+       "mana": 9620,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 210805,
+       "hits": 8,
+       "landed": 133,
+       "mana": 8645,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 317000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 13000,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 248845,
+       "hits": 4,
+       "landed": 157,
+       "mana": 10205,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 231410,
+       "hits": 8,
+       "landed": 146,
+       "mana": 9490,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 1585,
+     "sympathetic_full": 48,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "15": {
+     "base": 350,
+     "cast_ms": 3000,
+     "direct": 3075,
+     "mana": 115,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 615000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 455100,
+       "hits": 4,
+       "landed": 148,
+       "mana": 16872,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 408975,
+       "hits": 8,
+       "landed": 133,
+       "mana": 15162,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 615000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 482775,
+       "hits": 4,
+       "landed": 157,
+       "mana": 17898,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 448950,
+       "hits": 8,
+       "landed": 146,
+       "mana": 16644,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 624600,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 462204,
+       "hits": 4,
+       "landed": 148,
+       "mana": 16872,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 415359,
+       "hits": 8,
+       "landed": 133,
+       "mana": 15162,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 624600,
+       "hits": 0,
+       "landed": 200,
+       "mana": 22800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 490311,
+       "hits": 4,
+       "landed": 157,
+       "mana": 17898,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 455958,
+       "hits": 8,
+       "landed": 146,
+       "mana": 16644,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 2522,
+     "sympathetic_full": 48,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "17": {
+     "base": 65,
+     "cast_ms": 2000,
+     "direct": 836,
+     "mana": 28,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 167200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 123728,
+       "hits": 4,
+       "landed": 148,
+       "mana": 4144,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 111188,
+       "hits": 8,
+       "landed": 133,
+       "mana": 3724,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 167200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 131252,
+       "hits": 4,
+       "landed": 157,
+       "mana": 4396,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 122056,
+       "hits": 8,
+       "landed": 146,
+       "mana": 4088,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 175400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 129796,
+       "hits": 4,
+       "landed": 148,
+       "mana": 4144,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 116641,
+       "hits": 8,
+       "landed": 133,
+       "mana": 3724,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 175400,
+       "hits": 0,
+       "landed": 200,
+       "mana": 5600,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 137689,
+       "hits": 4,
+       "landed": 157,
+       "mana": 4396,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 128042,
+       "hits": 8,
+       "landed": 146,
+       "mana": 4088,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 877,
+     "sympathetic_full": 41,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    },
+    "200": {
+     "base": 20,
+     "cast_ms": 1500,
+     "direct": 781,
+     "mana": 10,
+     "pressure": [
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 156200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 115588,
+       "hits": 4,
+       "landed": 148,
+       "mana": 1332,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 103873,
+       "hits": 8,
+       "landed": 133,
+       "mana": 1197,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 156200,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 122617,
+       "hits": 4,
+       "landed": 157,
+       "mana": 1413,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 114026,
+       "hits": 8,
+       "landed": 146,
+       "mana": 1314,
+       "sympathetic": false
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 164000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 121360,
+       "hits": 4,
+       "landed": 148,
+       "mana": 1332,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 175,
+       "healing": 109060,
+       "hits": 8,
+       "landed": 133,
+       "mana": 1197,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 164000,
+       "hits": 0,
+       "landed": 200,
+       "mana": 1800,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 128740,
+       "hits": 4,
+       "landed": 157,
+       "mana": 1413,
+       "sympathetic": true
+      },
+      {
+       "attempts": 200,
+       "channeling": 200,
+       "healing": 119720,
+       "hits": 8,
+       "landed": 146,
+       "mana": 1314,
+       "sympathetic": true
+      }
+     ],
+     "self_with_sympathetic": 820,
+     "sympathetic_full": 39,
+     "sympathetic_overheal": 2,
+     "worn_precedence": 0
+    }
+   },
+   "stats": {
+    "damage": 72,
+    "heal": 750,
+    "hp": 3522,
+    "hwis": 10,
+    "mana": 3110
+   }
+  }
+ }
+}

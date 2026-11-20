@@ -1,0 +1,18 @@
+{
+  "image": "sha256:fe585e2d841f7f3fcebc4d257f66e8b5931d13c60c57300ca7731aa6e3802ad7",
+  "binaries": {
+    "bin/world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "bin/zone": "289df4f2037bf4e7348278442ce43db0bba498a35680adc6d1fbe06e5b0869b8",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "caches": {
+    "items": "4c5a40e58677c14834e219f094fa4cebda7c56aa453a7faf797d0480220d1986",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "client_channel": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c"
+}

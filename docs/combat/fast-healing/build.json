@@ -1,0 +1,11 @@
+{
+  "after_source": "504dde3fac6c63768aad4b39e22f8d29ec8b2602ad24747431b2407d9afeaac5",
+  "baseline": {
+    "zone": "289df4f2037bf4e7348278442ce43db0bba498a35680adc6d1fbe06e5b0869b8"
+  },
+  "before_source": "6d1b0d8a757c5d971f7836bc0767b83c9871c91b9ce617230ada330fc31ed35f",
+  "binaries": {
+    "zone": "35330918b99b33b6a0d02fe3da6d3950ab4d97b6a9438c15e64bf2fa65db70d9"
+  },
+  "patch": "baa1aa10156ce99d9598521c806761057d8a689eeab01db8d304df0908a3ed2b"
+}

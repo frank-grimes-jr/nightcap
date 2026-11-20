@@ -1,3 +1,7 @@
+## 2026-11-20
+
+- Healing candidate: stock Minor Healing and Light Healing gain a flat Heal Amount floor on original player casts. Existing larger bonuses, Greater Healing, custom content and sympathetic caps remain unchanged. Native validation and deployment evidence: docs/combat/fast-healing/.
+
 # CHANGES
 
 ## Post-combat recovery · test candidate
