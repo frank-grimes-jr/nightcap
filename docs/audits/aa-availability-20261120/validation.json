@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "focused_and_adjacent_tests": 30,
+  "rank_identity_changes": 0,
+  "policy_changes": 0,
+  "catalog_changes": 0,
+  "exact_shipping_reproduction": true,
+  "full_translation_unit": "zone/aa.cpp",
+  "player_acceptance": "OPEN",
+  "known_baseline_failure": "test_all_class_aa generated artifacts asserts superseded October19 all-class policy; reproduced on unchanged main. Current aa_tbs_policy --check passes.",
+  "not_run": "SQL migration test: no migration or persistence changes"
+}
