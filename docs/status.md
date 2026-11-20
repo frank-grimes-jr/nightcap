@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 20, 2026 · AA availability candidate
+
+Mastery of the Past access fix passes native purchase/packet tests and a full shipping build. Existing 489 families / 1,845 ranks remain unchanged. Candidate pending promotion/deployment; visible player acceptance is open. [Audit and QA](audits/aa-availability-20261120/README.md).
+
 ## November 20, 2026 · Fast direct healing
 
 Minor Healing and Light Healing now receive a flat Heal Amount floor on original casts. Greater Healing, Healing, custom spells and Paladin healing procs are unchanged. Sympathetic caps and worn-heal precedence are preserved. Test/main promotion and production deployment passed; all12workers and the public wiki verified. Controlled native pressure/proc tests pass; real-player encounter acceptance remains open. [Evidence and player QA](combat/fast-healing/README.md).
