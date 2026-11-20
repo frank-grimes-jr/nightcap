@@ -41,7 +41,9 @@ def add_inventory_summary(root):
             size=node.find('Size/'+axis)
             if size is None:raise ValueError('Missing Inventory bounds')
             size.text=str(int(size.text)+delta)
-    put(page,'Style_VScroll','true');put(page,'Style_HScroll','true')
+    # The fixed-size Inventory already fits its controls. Scrollbars reserve
+    # client area and obscure the bottom buttons; the separate Stats tab scrolls.
+    put(page,'Style_VScroll','false');put(page,'Style_HScroll','false')
     template=originals['IW_ACNumber']
     def label(name,text,x,y,width,eqtype,color,tip):
         node=deepcopy(template);node.set('item',name);node.tail=None
@@ -100,5 +102,35 @@ def inventory_summary_xml(raw):
             if count!=1:raise ValueError('Ambiguous Inventory control: '+name)
     if result.count(b'</XML>')!=1:raise ValueError('Unsupported XML root')
     result=result.replace(b'</XML>',b'\n'+b'\n'.join(added)+b'\n</XML>')
+    ET.fromstring(result)
+    return result
+
+
+def remove_inventory_scrollbars_xml(raw):
+    """Disable only the main Inventory scrollbars in existing managed XML.
+
+    Preserve all other bytes, including the Stats page, geometry and bindings.
+    Reapplication is harmless; missing or duplicate controls fail closed.
+    """
+    root=ET.fromstring(raw)
+    pages=root.findall("Page[@item='IW_InvPage']")
+    if len(pages)!=1:
+        raise ValueError('Missing or duplicate main Inventory page')
+    for axis in ('V','H'):
+        flags=pages[0].findall('Style_'+axis+'Scroll')
+        if len(flags)!=1 or flags[0].text not in ('true','false'):
+            raise ValueError('Unsupported Inventory scrollbar flag: '+axis)
+    pattern=rb'<Page\s+item="IW_InvPage">.*?</Page>'
+    matches=list(re.finditer(pattern,raw,re.DOTALL))
+    if len(matches)!=1:
+        raise ValueError('Ambiguous main Inventory page bytes')
+    match=matches[0]
+    page=match[0]
+    for axis in (b'V',b'H'):
+        flag=rb'(<Style_'+axis+rb'Scroll>)(?:true|false)(</Style_'+axis+rb'Scroll>)'
+        page,count=re.subn(flag,lambda m:m[1]+b'false'+m[2],page)
+        if count!=1:
+            raise ValueError('Ambiguous Inventory scrollbar bytes')
+    result=raw[:match.start()]+page+raw[match.end():]
     ET.fromstring(result)
     return result

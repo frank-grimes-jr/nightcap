@@ -1,0 +1,118 @@
+--- a/references/client.md
++++ b/references/client.md
+@@ -58,8 +58,20 @@
+ 
+ tools/client_inventory_summary_ui.py owns both normal-generator and scoped
+ published-byte transform:22new labels,40px wider column/window and56px extra
+-height with normal font/scroll access. Preserve equipment semantics and other
+-tabs/single Shield Block total. Tests test_client_character_stats.py,
++height with the normal font. The November 12 release enabled main-page scrolling;
++owner rejected both scrollbars November 20. The prepared correction disables only
++IW_InvPage Style_VScroll/Style_HScroll, preserving 468x556 geometry and every other
++published XML byte. IW_Subwindows already auto-stretches; do not resize it to fix
++this report. The separate Stats page still scrolls. Current origin client2026111301
++retains Inventory545e9692; candidatea026e8ad is not signed/published or visually
++accepted. Source/test: E:/EQ_Local_Dev/_worktrees/inventory-no-scrollbars,
++tools/client_inventory_summary_ui.py::remove_inventory_scrollbars_xml and
++tools/tests/test_client_character_stats.py. 18UI/asset tests pass; evidence and
++exact native button/bag/skin/relog QA: docs/releases/inventory-no-scrollbars-20261120/.
++Publish only scoped XML and additive notes with a fresh higher counter over the
++current signed channel; retain DLL/catalog/config/other assets. No native build,
++server/cache restart or protected-client write. Exit EQ/use launcher Play only
++after publication. Preserve equipment semantics and other tabs/single Shield Block total. Tests test_client_character_stats.py,
+ test_inventory_stats_{capture,protocol}.py and equipped-stats-labels.cpp execute
+ real collection/format/label/chat/reset paths.16focused/11runtime groups/
+ 120exact guards,18Linux rollout and21Linux publisher faults pass. Independent
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -39,6 +39,18 @@
+ ## Stock worn ATK · official wiki live testing November 13
+ 
+ The Equipment guide lists the correct Normal, Polished, Exalted and Ascended ATK for all 135 stock families, including distinct base IDs for the four same-name figurines. The publication 20261113-stock-worn-atk-v1 preserved 628 of the 631 predecessor files and updated Equipment, Change Log and search. The separate current-era loot-finder snapshot is verified against the new ATK values where targets are present. See the stock-worn-atk topic, docs/releases/stock-worn-atk-20261113/wiki-publication.json and loot-data.json. No client update and no graphical player sign-off.
++
++## Inventory layout correction — November 20 prepared
++
++Owner rejected the main Inventory scrollbars. Candidate Equipment/Recent changes
++and search are prepared atop the current 20261114-titles-automatic-suffix-v1 source,
++which reproduces all631outputs; only3outputs change. The main-page no-scroll layout
++and separate Stats scrolling are described together. Whole-wiki review covers44
++authored articles plus Home/Features/commands and generated items/zones/catalogs;
++no values, mechanics or other guides need edits. Current-source refresh retains
++unrelated REVIEW REQUIRED drift. Client/wiki publication and native visual acceptance
++remain pending. Source/evidence: inventory-no-scrollbars worktree,
++docs/releases/inventory-no-scrollbars-20261120/. Do not publish the older main mirror.
+ 
+ ## Inventory combat summary — November12 published for live testing
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -174,7 +174,8 @@
+     "titles_active_20261114": "main PR475/b824e0d229c56737753321bcded38879bbf41102; native f35b4e3d; 12 open workers; named-only Palwar repair; native player QA OPEN",
+     "titles_wiki_active_20261114": "20261114-titles-active-v1; 631 HTTPS hashes/headers and 625 retained files; no global ledger advance",
+     "titles_automatic_suffix_20261114": "main PR486/33a7f38a6ee8adacd283f1a30838040ec78eba6d; title-zone04cd4b50 retained in augment successor PR489/acb232e1 zone289df4f2/rest worldeafe4507;12open workers; native player QA OPEN",
+-    "titles_wiki_automatic_suffix_20261114": "20261114-titles-automatic-suffix-v1;631HTTPS hashes/headers,621retained files; no global ledger advance"
++    "titles_wiki_automatic_suffix_20261114": "20261114-titles-automatic-suffix-v1;631HTTPS hashes/headers,621retained files; no global ledger advance",
++    "inventory_scrollbars_candidate_20261120": "99331464 + reviewed feature/inventory-no-scrollbars working tree; 2026-11-20 candidate, unpublished"
+   },
+   "topics": {
+     "ghoul-assassin-guise": [
+@@ -18906,11 +18907,11 @@
+     ],
+     "heroic-stats": [
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/inventory-published-20261112",
++        "root": "E:/EQ_Local_Dev/_worktrees/inventory-no-scrollbars",
+         "path": "tools/client_inventory_summary_ui.py",
+-        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
+-        "revision": "b70292be frozen published snapshot; PR434/ab2e8d87 and observed pairing",
+-        "sha256": "5475236539cf91368b8b1a49850fb8330c7bdf044ae8c2bf95c36948c3967623"
++        "role": "Inventory no-scroll candidate; exact-byte repair and layout regression tests; native QA pending",
++        "revision": "99331464 + reviewed feature/inventory-no-scrollbars working tree; 2026-11-20 candidate, unpublished",
++        "sha256": "b1d8bfc864484c07cedd73c4dd461abd290ab0c1ef6367cff7e385b569ed2353"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/inventory-published-20261112",
+@@ -18920,11 +18921,11 @@
+         "sha256": "eb72b4cc209d7214266d7398860401825398740ef9f31e92866d096878f5cc5e"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/inventory-published-20261112",
++        "root": "E:/EQ_Local_Dev/_worktrees/inventory-no-scrollbars",
+         "path": "tools/tests/test_client_character_stats.py",
+-        "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
+-        "revision": "b70292be frozen published snapshot; PR434/ab2e8d87 and observed pairing",
+-        "sha256": "84bd64857fbe229d89dbc904cd25a77d37dcc6ced3873b69a8b5fddaa56a0563"
++        "role": "Inventory no-scroll candidate; exact-byte repair and layout regression tests; native QA pending",
++        "revision": "99331464 + reviewed feature/inventory-no-scrollbars working tree; 2026-11-20 candidate, unpublished",
++        "sha256": "2d382978a66c3e07183dd9e70b6cd20c0cba1a7deb9daad77f7df87eff9ed340"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/inventory-published-20261112",
+@@ -19072,6 +19073,27 @@
+         "role": "Reviewed published Inventory combat/caps/heroics; native visual acceptance OPEN",
+         "revision": "b70292be frozen published snapshot; PR434/ab2e8d87 and observed pairing",
+         "sha256": "1e1e3c5059edfb5106001ef1013cbf7962186f1c097570427532f5c637906a4c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/inventory-no-scrollbars",
++        "path": "docs/releases/inventory-no-scrollbars-20261120/README.md",
++        "role": "November 20 Inventory no-scroll candidate evidence; publication and native QA pending",
++        "revision": "99331464 + reviewed feature/inventory-no-scrollbars working tree; 2026-11-20 candidate, unpublished",
++        "sha256": "12ed6cb8e878fc9e5a229c464ae773af4e0b99523e712d2dfee51ea7e0f8ad51"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/inventory-no-scrollbars",
++        "path": "docs/releases/inventory-no-scrollbars-20261120/verification.json",
++        "role": "November 20 Inventory no-scroll candidate evidence; publication and native QA pending",
++        "revision": "99331464 + reviewed feature/inventory-no-scrollbars working tree; 2026-11-20 candidate, unpublished",
++        "sha256": "3c4b2a4e2cf009314f8686f78e663b88b46ceec5abd7ab7a744330007e23d35f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/inventory-no-scrollbars",
++        "path": "docs/releases/inventory-no-scrollbars-20261120/wiki-impact.json",
++        "role": "November 20 Inventory no-scroll candidate evidence; publication and native QA pending",
++        "revision": "99331464 + reviewed feature/inventory-no-scrollbars working tree; 2026-11-20 candidate, unpublished",
++        "sha256": "23b00448e2d5373c03e5c49474d783f444e183dc2ad5c796177265fc848c24b5"
+       }
+     ],
+     "hunt-augment-expansion": [

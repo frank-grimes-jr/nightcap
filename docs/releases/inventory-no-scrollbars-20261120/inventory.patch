@@ -1,0 +1,13 @@
+--- published/equi_inventory.xml
++++ candidate/equi_inventory.xml
+@@ -2384,8 +2384,8 @@
+ 	<Page item="IW_InvPage">
+ 	<ScreenID>InvPage</ScreenID>
+ 	<RelativePosition>true</RelativePosition>
+-	<Style_VScroll>true</Style_VScroll>
+-	<Style_HScroll>true</Style_HScroll>
++	<Style_VScroll>false</Style_VScroll>
++	<Style_HScroll>false</Style_HScroll>
+ 	<Style_Transparent>false</Style_Transparent>
+ 	<DrawTemplate>WDT_Def</DrawTemplate>
+ 	<TabText>Inventory</TabText>
