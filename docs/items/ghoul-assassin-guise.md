@@ -2,6 +2,8 @@
 
 Each fresh `a_ghoul_assassin` (NPC 66171) in Lower Guk gets one independent 20% chance for Guise of the Deceiver (2469). A success adds one copy through the ordinary item-quality roll. The 20% covers all qualities combined.
 
+All four Guise qualities use Class ALL and Race ALL following the [November 20 item correction](guise-all-classes/README.md). Equip the item in the face slot and right-click for its Dark Elf illusion.
+
 Local PEQ on November 14, 2026 showed that table 14195 awards Mask of Deception (2472) or Serrated Bone Dirk (7502) at 80/20 per equipment roll. It also has a separate Black Pearl/Topaz pool. The default global loot multiplier of four repeats those table rolls. The bonus uses one spawn event so the multiplier cannot repeat it. The existing four Guise definitions supply the item and its Dark Elf illusion.
 
 ## Installation and recovery

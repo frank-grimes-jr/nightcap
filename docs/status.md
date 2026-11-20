@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 20, 2026 · Guise ALL/ALL correction
+
+The four Guise qualities have a scoped class-mask correction prepared for production. [Migration and player checks](items/guise-all-classes/README.md).
+
 ## November 20, 2026 · Inventory scrollbar correction prepared
 
 Removed horizontal and vertical scrolling from the main Inventory in the source generator and a scoped client XML candidate. Existing geometry, buttons, equipment and the longer Stats page remain. Nineteen UI/asset checks pass. Owner authorized main and server publication; the signed update is staged and native visual QA is pending. [Evidence and exact QA](releases/inventory-no-scrollbars-20261120/README.md).
