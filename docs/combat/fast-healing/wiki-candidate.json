@@ -1,0 +1,12 @@
+{
+  "release": "20261120-fast-healing-v1",
+  "previous": "20261120-inventory-no-scrollbars-v1",
+  "changed": [
+    "combat.html",
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved": 627,
+  "files": 631
+}

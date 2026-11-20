@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "reviewer": "independent healing_review agent",
+  "checks": [
+    "144 matched native pressure cells",
+    "Complete Healing and Greater Healing parity",
+    "18 Paladin proc cases unchanged",
+    "Sympathetic cap/overheal/worn precedence",
+    "Guarded binary-only release operator"
+  ],
+  "boundary": "Controlled native cast-completion fixtures; no full encounter/player acceptance"
+}

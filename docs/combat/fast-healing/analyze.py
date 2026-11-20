@@ -23,5 +23,5 @@ for name,c in a['cohorts'].items():
 report={'result':'PASS','matched_pressure_cells':checks,'cast_attempts_per_binary':checks*200,'proc_cases':18,'rows':rows,'limitations':['No earned AA allocation in gear fixtures','Controlled native cast-completion hit counts, not full NPC encounter/pathing/fizzle simulation','750HA is a synthetic cap stress','Player in-game acceptance remains open']}
 (A/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
 for n in ['before.json','after.json','build.json','input.json','probe.cpp','native.py','validation.json','analyze.py']:
- shutil.copyfile(A/n,D/n)
+ if (A/n).resolve() != (D/n).resolve():shutil.copyfile(A/n,D/n)
 print(json.dumps(report,indent=2))
