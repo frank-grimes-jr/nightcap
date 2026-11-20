@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
 from client_gameplay_assets import ui_xml
-from client_inventory_summary_ui import add_inventory_summary,inventory_summary_xml,STATS
+from client_inventory_summary_ui import add_inventory_summary,inventory_summary_xml,remove_inventory_scrollbars_xml,STATS
 
 SOURCE=Path('E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/uifiles/default/EQUI_Inventory.xml')
 
@@ -42,7 +42,8 @@ class CharacterStatsUI(unittest.TestCase):
                 self.assertIn(node.get('item'),pieces)
             self.assertEqual([heroic.findtext('TextColor/'+c) for c in ('R','G','B')],['214','178','40'])
             self.assertIn('already included',heroic.findtext('TooltipReference'))
-        self.assertEqual(page.findtext('Style_VScroll'),'true')
+        self.assertEqual(page.findtext('Style_VScroll'),'false')
+        self.assertEqual(page.findtext('Style_HScroll'),'false')
         self.assertEqual(result.findtext("Screen[@item='InventoryWindow']/Size/CX"),'468')
         self.assertEqual(result.findtext("Screen[@item='InventoryWindow']/Size/CY"),'556')
 
@@ -56,6 +57,45 @@ class CharacterStatsUI(unittest.TestCase):
             name=node.get('item')
             if not name or name in refs or name in ('IW_InvPage','InventoryWindow'):continue
             self.assertEqual(canonical(node),canonical(actual.find(node.tag+"[@item='"+name+"']")),name)
+
+    def test_scrollbar_repair_preserves_every_other_byte(self):
+        current=ui_xml(SOURCE.read_bytes(),'inventory')
+        # Recreate the shipped defect independently of the generator's policy.
+        import re
+        page=re.search(rb'<Page item="IW_InvPage">.*?</Page>',current,re.DOTALL)
+        self.assertIsNotNone(page)
+        legacy_page=page[0]
+        for axis in ('V','H'):
+            legacy_page=re.sub(rb'(<Style_'+axis.encode()+rb'Scroll>)(true|false)(</Style_'+axis.encode()+rb'Scroll>)',rb'\g<1>true\g<3>',legacy_page)
+        legacy=current[:page.start()]+legacy_page+current[page.end():]
+        expected_page=legacy_page.replace(b'<Style_VScroll>true</Style_VScroll>',b'<Style_VScroll>false</Style_VScroll>').replace(b'<Style_HScroll>true</Style_HScroll>',b'<Style_HScroll>false</Style_HScroll>')
+        expected=current[:page.start()]+expected_page+current[page.end():]
+        actual=remove_inventory_scrollbars_xml(legacy)
+        self.assertEqual(actual,expected)
+        self.assertEqual(remove_inventory_scrollbars_xml(actual),actual)
+        result=ET.fromstring(actual)
+        self.assertEqual(result.findtext("Page[@item='IW_StatPage']/Style_VScroll"),'true')
+        for axis,size in [('CX','468'),('CY','556')]:
+            self.assertEqual(result.findtext("Screen[@item='InventoryWindow']/Size/"+axis),size)
+        for name in ('IW_Skills','IW_AltAdvBtn','IW_Destroy','IW_DoneButton','IW_FacePick','IW_Tinting'):
+            self.assertEqual(result.findtext("Button[@item='"+name+"']/Location/Y"),'478')
+
+    def test_scrollbar_repair_rejects_ambiguous_or_missing_controls(self):
+        raw=ui_xml(SOURCE.read_bytes(),'inventory')
+        root=ET.fromstring(raw)
+        page=root.find("Page[@item='IW_InvPage']")
+        root.append(ET.fromstring(ET.tostring(page)))
+        with self.assertRaises(ValueError):remove_inventory_scrollbars_xml(ET.tostring(root))
+        root.remove(page)
+        page=root.find("Page[@item='IW_InvPage']")
+        page.remove(page.find('Style_HScroll'))
+        with self.assertRaises(ValueError):remove_inventory_scrollbars_xml(ET.tostring(root))
+
+    def test_scrollbar_repair_rejects_comment_only_match(self):
+        flags=b'<Style_VScroll>true</Style_VScroll><Style_HScroll>true</Style_HScroll>'
+        raw=(b'<XML><!-- <Page item="IW_InvPage">'+flags+b'</Page> -->'
+             b"<Page item='IW_InvPage'>"+flags+b'</Page></XML>')
+        with self.assertRaises(ValueError):remove_inventory_scrollbars_xml(raw)
 
     def test_delta_rejects_reapplication_and_missing_stat(self):
         raw=SOURCE.read_bytes()
