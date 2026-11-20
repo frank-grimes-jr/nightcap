@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 20, 2026 · Guise ALL/ALL correction
+
+The four Guise qualities have a scoped class-mask correction prepared for production. [Migration and player checks](items/guise-all-classes/README.md).
+
 ## November 14, 2026 · Classic augment stacking validation
 
 Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. The gameplay release is live on all 12 production workers. [Measurements and client QA](items/classic-augment-stacking/README.md).

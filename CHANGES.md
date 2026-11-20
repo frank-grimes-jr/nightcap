@@ -1,5 +1,9 @@
 # CHANGES
 
+## November 20, 2026 · Guise item eligibility
+
+All four Guise of the Deceiver qualities use Class ALL and Race ALL. Existing copies refresh with the corrected item cache on reconnect. [Migration, activation and player checks](docs/items/guise-all-classes/README.md).
+
 ## November 14, 2026 · Classic augment stacking validation
 
 Measured full Classic loadouts on the shipping runtime. Corrected RoF2 insert and swap socket validation. The gameplay release is live on all 12 production workers. [Measurements and client QA](docs/items/classic-augment-stacking/README.md).
