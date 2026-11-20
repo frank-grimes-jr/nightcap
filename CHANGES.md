@@ -2,7 +2,7 @@
 
 ## November 20, 2026 · Guise item eligibility
 
-All four Guise of the Deceiver qualities use Class ALL and Race ALL. Existing copies refresh with the corrected item cache on reconnect. [Migration, activation and player checks](docs/items/guise-all-classes/README.md).
+All four Guise of the Deceiver qualities use Class ALL and Race ALL on production, with the Dark Elf right-click retained. Existing copies refresh with the corrected item cache on reconnect. Four class-only cache changes and all twelve zone workers verified. [Deployment receipt](docs/items/guise-all-classes/production-verified.json). [Migration, activation and player checks](docs/items/guise-all-classes/README.md).
 
 ## November 20, 2026 · Inventory scrollbars removed
 

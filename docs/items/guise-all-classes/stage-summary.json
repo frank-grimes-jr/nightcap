@@ -1,0 +1,32 @@
+{
+  "image": "sha256:fe585e2d841f7f3fcebc4d257f66e8b5931d13c60c57300ca7731aa6e3802ad7",
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "289df4f2037bf4e7348278442ce43db0bba498a35680adc6d1fbe06e5b0869b8",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "caches": {
+    "items": "a96899270a118922340312c885bb63aab205511e3d61043b1746b05b9f184bff",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "channel": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c",
+  "stock_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",
+  "focus_operator": "16d08a1b75bbf4540788a8e76f870ab6cfe895f8913587e1ff80584a74256668",
+  "source": "48af6ce5e820c7d91e028483366c11b66edf498c",
+  "layout": {
+    "size": 1332,
+    "ID": 440,
+    "Classes": 584,
+    "Races": 588
+  },
+  "files": {
+    "release.py": "ce0f5124e927cc60624ab82bbf22cacb9a5381daceb2b6895b194af5e63d00bb",
+    "catalog.py": "c0fa9214f70877c485f3aeb7ade550b4bac3c8e25fa1402fec24b2458861e2f7",
+    "before.json": "ab679b3115b540d069447147c15a5518026e395063a5b04982bc789f03dea204"
+  },
+  "stage": "guise-all-classes-20261120-v2",
+  "client_release": 2026112001,
+  "note": "Compact local record; immutable full manifest is retained in the named OVH stage. Public signed client payload omitted here."
+}

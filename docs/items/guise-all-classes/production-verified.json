@@ -1,0 +1,32 @@
+{
+  "source": "48af6ce5e820c7d91e028483366c11b66edf498c",
+  "gateway_open": true,
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "image": "sha256:fe585e2d841f7f3fcebc4d257f66e8b5931d13c60c57300ca7731aa6e3802ad7",
+  "cache": {
+    "records": 310028,
+    "changed": 4,
+    "unchanged": 310024,
+    "items_sha256": "4c5a40e58677c14834e219f094fa4cebda7c56aa453a7faf797d0480220d1986"
+  },
+  "backup_sha256": "2b541bdc3cd01f49e956a12eb85367ce907b0fb44209d5b9044d3aab64a9c339",
+  "player_qa": "open",
+  "item_ids": [
+    2469,
+    202469,
+    402469,
+    602469
+  ],
+  "classes": 65535,
+  "races": 65535,
+  "client_release": 2026112001,
+  "stage": "guise-all-classes-20261120-v2",
+  "verified_at_utc": "2026-11-20T17:25:57.966751+00:00",
+  "wiki_publication": "Guise guide pending; Inventory wiki 20261120-inventory-no-scrollbars-v1 preserved"
+}

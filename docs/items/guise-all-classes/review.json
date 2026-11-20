@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-20",
+  "behavior_main_pr": 493,
+  "behavior_main_commit": "4505d65904fe24be6c85af93eb4c567e9f2dbcfd",
+  "review": "Independent correctness/security review approved. Only the four complete Guise preimages may receive Classes 65535. The inherited operator dependencies, locks, drain, backup, SQL and cache guards were inspected. Native click semantics retain Dark Elf spell 590 and click type 1.",
+  "local_validation": [
+    "Cache regression passes for the intended class-only edit and rejects altered click bytes and an unrelated item record.",
+    "27 wiki and loot-model tests passed before and after the concurrent documentation merge."
+  ],
+  "production_rehearsal": "Temporary production copy passed before/forward/verify/replay/rollback/before/forward/verify. Shipping shared_memory rebuilt 310028 item records with exactly four class-only changes and 310024 byte-identical records.",
+  "first_attempt": "v1 stopped before gateway maintenance or SQL on the publication guard. A concurrent Inventory client/wiki release had changed only those publication baselines. Fresh reads verified identical item preimages, native image, binaries and both caches before v2 was staged and fully rehearsed.",
+  "player_qa": "Open: reconnect, inspect all four qualities as ALL/ALL, equip on a character without Bard/Rogue and use the Dark Elf right-click.",
+  "wiki_publication": "Guise guide source updated; public publication pending. Preserve the separately published Inventory release."
+}

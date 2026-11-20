@@ -2,7 +2,7 @@
 
 ## November 20, 2026 · Guise ALL/ALL correction
 
-The four Guise qualities have a scoped class-mask correction prepared for production. [Migration and player checks](items/guise-all-classes/README.md).
+All four Guise qualities are ALL/ALL on production. The rebuilt cache verified four class-only changes and 310024 identical records; all twelve zone workers and the open gateway passed verification. Dark Elf right-click settings are retained. Native player acceptance and Guise guide publication remain open. [Receipt](items/guise-all-classes/production-verified.json). [Migration and player checks](items/guise-all-classes/README.md).
 
 ## November 20, 2026 · Inventory scrollbars removed
 
