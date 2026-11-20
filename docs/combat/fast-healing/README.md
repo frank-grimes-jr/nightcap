@@ -1,6 +1,6 @@
 # Fast direct healing — November 20, 2026
 
-Candidate, not yet deployed. Owner authorized test promotion, main merge and production deployment after validation in the current chat. Visible player acceptance is separate.
+Native validation passed; production deployment pending. Owner authorized test promotion, main merge and production deployment after validation in the current chat. Visible player acceptance is separate.
 
 ## Behavior and scope
 
@@ -21,6 +21,10 @@ Sympathetic Healing remains one twentieth of the largest resolved direct heal, r
 5. Promote feature→dev→test; preserve concrete player QA below. Main/deploy only after release validation. Verify immutable zone identity, unchanged world/client/caches/rules, all12workers and runtime health. Rollback selects prior image; never restore a player snapshot.
 
 ## In-game QA on test/live
+
+Validation evidence: `validation.json` records144 matched pressure cells and28,800 attempted casts per binary. Complete Healing/Greater Healing rows and all18Paladin proc cases match. Native results with saved Palwar gear (no earned AAs) are Minor42→115, Light137→169, Greater742 unchanged. Full legal healer gear is Minor125→531, Light409→587, Greater2208 unchanged. At487HA, Minor's calculated uninterrupted healing including sympathetic/recovery is185.67HP/s versus Light176.0; Greater remains501.33. Spell Haste II benefits Light but not Minor. Cheap-heal mana efficiency rises intentionally; full encounter and owned-AA acceptance remain open.
+
+Baseline zone289df4f2 reproduces exactly; only effects.cpp changes in the shipped native binary. All6focused regression tests and independent review passed. The19wiki tests and search tests pass; the public Inventory predecessor reproduces and only Combat, Equipment, Change Log and search change.
 
 Use level50 Palwar in the Arena for controlled casting, then a single ordinary Lower Guk ghoul and a separate Lady Vox attempt in Permafrost. Record exact gear/HA/heroic WIS, Channeling, buffs and AAs. Compare the same target's missing HP; distinguish crits and overheal.
 
