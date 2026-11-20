@@ -1,0 +1,39 @@
+diff --git a/server-mods/code/zone/effects.cpp b/server-mods/code/zone/effects.cpp
+index b7547b67..2fef1f7d 100644
+--- a/server-mods/code/zone/effects.cpp
++++ b/server-mods/code/zone/effects.cpp
+@@ -516,6 +516,17 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
+ 
+ 	// Instant Heals
+ 	if (spells[spell_id].buff_duration < 1) {
++		const auto item_healing = [&]() -> int64 {
++			const int64 existing = GetExtraSpellAmt(spell_id, GetHealAmt(), base_value);
++			// Reviewed stock quick heals only. Preserve larger percentage bonuses,
++			// custom spells and child/proc healing; retain the item eligibility below.
++			if (RuleB(Spells, NightcapTHJBehaviors) && IsClient() && heroic && !from_buff_tic &&
++				(spell_id == 200 || spell_id == 17) && base_value > 0 &&
++				spells[spell_id].cast_time > 0 && !IsBardSong(spell_id)) {
++				return std::max<int64>(existing, std::max(0, GetHealAmt()));
++			}
++			return existing;
++		};
+ 
+ 		if (RuleB(Spells, AllowExtraDmgSkill) && !RuleB(Character, ItemExtraSkillDamageCalcAsPercent)) {
+ 			value += GetSkillDmgAmt(spells[spell_id].skill);
+@@ -534,14 +545,14 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
+ 			!spells[spell_id].no_heal_damage_item_mod &&
+ 			GetHealAmt()
+ 		) {
+-			value += GetExtraSpellAmt(spell_id, GetHealAmt(), base_value); //Item Heal Amt Add before critical
++			value += item_healing(); // Item Heal Amount before critical
+ 		}
+ 		else if (
+ 			!spells[spell_id].no_heal_damage_item_mod &&
+ 			GetHealAmt() &&
+ 			spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5
+ 		) {
+-			value += GetExtraSpellAmt(spell_id, GetHealAmt(), base_value); //Item Heal Amt Add before critical
++			value += item_healing(); // Item Heal Amount before critical
+ 		}
+ 
+ 		if (target) {
