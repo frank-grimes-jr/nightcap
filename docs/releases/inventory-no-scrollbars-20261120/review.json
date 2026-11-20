@@ -1,0 +1,19 @@
+{
+  "result": "approved_for_exact_signed_candidate",
+  "reviewer": "independent gpt-6.2-sol review",
+  "source_fix": "2b88683e plus parsed postcondition regression",
+  "candidate_sha256": "a026e8ad38023a356ec933f7fcac7a107646b0798c182a9c61082f90072c112d",
+  "checks": [
+    "Exact baseline-to-candidate byte comparison; only main page scroll flags change",
+    "Window geometry and Stats scrolling retained",
+    "Comment-only regex edge case repaired and covered by regression",
+    "Signed production key and executable/DLL/catalog preflight pass",
+    "Publication pins all descriptors and retains 147 origin assets and services",
+    "20 publisher cases pass on Linux; local platform skips do not substitute for Linux"
+  ],
+  "limitations": [
+    "Native visual/button/bag/skin/relog QA remains pending",
+    "Public verifier covers channel and three served assets; other147 origin assets are hashed before publication",
+    "Temporary Go entrypoints remain local and are excluded from commits"
+  ]
+}

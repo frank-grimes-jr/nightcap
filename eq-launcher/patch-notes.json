@@ -1,5 +1,53 @@
 [
   {
+    "release": 2026112001,
+    "date": "2026-11-20",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Removes the horizontal and vertical scrollbars from the main Inventory tab. Fully exit EverQuest and press Play to update."
+      }
+    ]
+  },
+  {
+    "release": 2026111301,
+    "date": "2026-11-13",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Adds Sympathetic Strike I and Sympathetic Healing I to the Ascended Runed Lava Pendant and Ascended Moonstone Ring. Eligible casts add 5% of the largest direct hit or heal, up to 48. Fully exit EverQuest and press Play."
+      }
+    ]
+  },
+  {
+    "release": 2026111202,
+    "date": "2026-11-12",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Adds Inventory combat ratings, stat caps and yellow heroic totals. MIT/AVD use server combat values. Fully exit EverQuest and press Play. Live testing; visual QA remains open."
+      }
+    ]
+  },
+  {
+    "release": 2026111201,
+    "date": "2026-11-12",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Quick Buff is now an activated AA hotkey. It instantly casts eligible memorized buffs on yourself, with normal group and pet delivery."
+      },
+      {
+        "kind": "feature",
+        "text": "Costs 50% of maximum mana once per use and has no reuse delay. Normal spell eligibility, reagents and stacking apply. Fully exit EverQuest and press Play before making the hotkey."
+      },
+      {
+        "kind": "fix",
+        "text": "All existing earned Quick Buff ranks use the new hotkey; the former passive buff casting-time reduction is replaced. Released for live testing; gameplay and balance acceptance remain open."
+      }
+    ]
+  },
+  {
     "release": 2026110701,
     "date": "2026-11-07",
     "changes": [
@@ -165,7 +213,7 @@
     "changes": [
       {
         "kind": "fix",
-        "text": "Live testing: Earn two AA per level. AA +/− controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."
+        "text": "Live testing: Earn two AA per level. AA +/\u2212 controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."
       }
     ]
   },
@@ -175,7 +223,7 @@
     "changes": [
       {
         "kind": "fix",
-        "text": "Live testing: Earn two AA per level. AA +/− controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."
+        "text": "Live testing: Earn two AA per level. AA +/\u2212 controls work from level 1; choose 100% to pause leveling and grind AA. Close EQ and use Play to update. Existing points and purchases remain."
       }
     ]
   },
@@ -319,7 +367,7 @@
     "changes": [
       {
         "kind": "feature",
-        "text": "Raid \u0026 Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
+        "text": "Raid & Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
       },
       {
         "kind": "feature",
@@ -359,7 +407,7 @@
       },
       {
         "kind": "feature",
-        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid \u0026 Grind guide on wiki.nightcapgame.org lists every required boss."
+        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid & Grind guide on wiki.nightcapgame.org lists every required boss."
       }
     ]
   },

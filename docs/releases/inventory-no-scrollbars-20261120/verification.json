@@ -1,0 +1,16 @@
+{
+  "client_release": 2026111301,
+  "inventory_sha256": "545e9692f01bde1071bab4c927a66b13a6a9b2c07b638ad48e2c2cbd8bff5ab2",
+  "channel_sha256": "1740eedf5ed7153fb5e2f262a147d0ffd8fb8574476963ac617912490def05ae",
+  "wiki": "releases/20261114-titles-automatic-suffix-v1",
+  "status": "candidate_not_published",
+  "candidate_sha256": "a026e8ad38023a356ec933f7fcac7a107646b0798c182a9c61082f90072c112d",
+  "candidate_size": 209298,
+  "changed_fields": [
+    "IW_InvPage.Style_VScroll",
+    "IW_InvPage.Style_HScroll"
+  ],
+  "all_other_bytes_preserved": true,
+  "tests": "18 Python UI/asset tests pass; native visual QA pending",
+  "source_base": "99331464a013f979867d8c468829ad215eeaa2df"
+}
