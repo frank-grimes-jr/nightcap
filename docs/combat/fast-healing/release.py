@@ -52,7 +52,7 @@ def verify(candidate,pre):
     r.closed_ports()
     return runtime
 
-def deploy():
+def deploy(allow_admission_drain=False):
     assert not ACTIVE.exists() and r.image_hashes(m['image'])==m['base_hashes']
     assert all(r.compact(k)==v for k,v in m['services'].items())
     assert sha(ROOT/'data/public/channel.json')==m['channel']
@@ -60,7 +60,7 @@ def deploy():
     pre=dict(caches=op.h.caches(),publication=op.h.publication(),rules_digest=rules_digest())
     assert pre['caches']==m['caches']
     verify(m['image'],pre)
-    assert op.a.prior.players()==0, 'Wait for players to log out before maintenance'
+    assert allow_admission_drain or op.a.prior.players()==0, 'Wait for players to log out before maintenance'
     target=image()
     ACTIVE.mkdir(parents=True,mode=0o700)
     save(ACTIVE/'started.json',dict(source=m['source'],image=target,players=op.a.prior.players(),**pre))
@@ -121,7 +121,8 @@ if __name__=='__main__':
             target=image()
             result=dict(result='PASS',candidate=target,players=op.a.prior.players(),baseline=m['image'],binaries=m['binaries'])
             save(STAGE/'preflight.json',result);print(json.dumps(result))
-        elif sys.argv[1]=='activate':deploy()
+        elif sys.argv[1] in ('activate','activate-authorized-drain'):
+            deploy(allow_admission_drain=sys.argv[1]=='activate-authorized-drain')
         elif sys.argv[1]=='verify':
             dep=read(ACTIVE/'deployed.json');pre=read(ACTIVE/'started.json');assert r.compact('gateway')['running']
             assert verify(dep['image'],pre)['started_at']==read(ACTIVE/'verified-closed.json')['started_at']
