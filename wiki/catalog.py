@@ -35,7 +35,7 @@ def catalog_articles():
             body = re.sub(r'(<h2 id="finding-rewards">Finding these rewards</h2>)<p>.*?</p>', lambda m: m[1] + '<p>Any unowned killable enemy has a 1.5% augment roll, followed by Base60%, Polished30%, Exalted8% or Ascension2%. Ordinary loot remains; this pool has no public wearable drops.</p>', body, count=1)
             body += '<p><strong>Augment-only pool:</strong> only the augment family listed here drops. There are no approved public wearable sources in this pool. Managed newer Hate runs retain the original Hate equipment family and its source rules.</p>'
         if z['slug'] == 'gukbottom':
-            body += '<h2 id="ghoul-assassin">Ghoul assassin</h2><p>A ghoul assassin has a separate 20% chance to drop one Guise of the Deceiver. You can find it alongside Mask of Deception or Serrated Bone Dirk.</p>'
+            body += '<h2 id="ghoul-assassin">Ghoul assassin</h2><p>A ghoul assassin has a separate 20% chance to drop one Guise of the Deceiver. You can find it alongside Mask of Deception or Serrated Bone Dirk.</p><p>All four Guise qualities are ALL/ALL. Equip the Guise in your face slot or right-click it for the Dark Elf illusion.</p>'
         if z['slug'] == 'highkeep':
             body += '<h2 id="prison-break">High Keep prison break</h2><p>New managed Raid runs use the <a href="dungeon-modes.html#highkeep-rescue">Osargen rescue route</a>. Hunt item values and ordinary acquisition remain unchanged. Live testing; native escort acceptance remains open.</p>'
         if z['slug'] == 'hole':

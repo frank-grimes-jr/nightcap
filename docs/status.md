@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 20, 2026 · Guise ALL/ALL correction
+
+The four Guise qualities have a scoped class-mask correction prepared for production. [Migration and player checks](items/guise-all-classes/README.md).
+
 ## November 20, 2026 · Inventory scrollbars removed
 
 Main PR492 and signed client2026112001 remove both main Inventory scrollbars. The existing layout, equipment and separate Stats scrolling remain. Signature and served XML/DLL/catalog verify; all 147 other assets and five running services are preserved. The matching wiki is published with rollback rehearsed. Fully exit EQ and use launcher Play. Native visual QA remains pending. [Evidence and exact QA](releases/inventory-no-scrollbars-20261120/README.md).
