@@ -7,6 +7,7 @@
 #include "zone/nightcap_heroic_cast.h"
 #include "common/json/json.hpp"
 #include "common/item_instance.h"
+#include "common/raid_augment.h"
 #include "common/ptimer.h"
 #include <filesystem>
 #include <fstream>
@@ -40,26 +41,31 @@ class Subject:public Client{
 	std::vector<std::unique_ptr<EQ::ItemData>> owned;
 	std::set<int> lore;
 public:
+	using Mob::GetFocusEffect;
 	bool dead=false;
 	uint16 measured_heal_spell=0;
+	bool completing_measured_cast=false;
 	uint64 healed=0,overheal=0,damage=0,heal_events=0,main_heal_events=0,damaging_hits=0;
 	bool Death(Mob*,int64,uint16,EQ::skills::SkillType,KilledByTypes,bool)override{dead=true;return true;}
 	void HealDamage(uint64 amount,Mob *caster=nullptr,uint16 spell=SPELL_UNKNOWN)override{
 		auto before=GetHP();Client::HealDamage(amount,caster,spell);auto gain=std::max<int64>(0,GetHP()-before);
-		healed+=gain;overheal+=amount-gain;++heal_events;if(spell==measured_heal_spell)++main_heal_events;
+		healed+=gain;overheal+=amount-gain;++heal_events;if(completing_measured_cast&&caster==this)++main_heal_events;
 	}
 	void Damage(Mob *from,int64 amount,uint16 spell,EQ::skills::SkillType skill,bool avoidable=true,int8 slot=-1,bool tick=false,eSpecialAttacks special=eSpecialAttacks::None)override{
 		if(dead)return;auto before=GetHP();Client::Damage(from,amount,spell,skill,avoidable,slot,tick,special);
 		auto loss=std::max<int64>(0,before-GetHP());damage+=loss;damaging_hits+=loss>0;
 	}
-	void pulse(){if(IsStunned()&&stunned_timer.Check())Mob::UnStun();Mob::SpellProcess();}
+	void pulse(){if(IsStunned()&&stunned_timer.Check())Mob::UnStun();completing_measured_cast=casting_spell_id==measured_heal_spell;Mob::SpellProcess();completing_measured_cast=false;}
 	bool ready(){return !casting_spell_id&&!delaytimer&&!spellend_timer.Enabled()&&!IsStunned();}
 	void init(const json &c){
-		class_=c["classes"][0];level=c["level"];race=base_race=c.value("race",1);auto&p=GetPP();p.class_=class_;p.level=level;p.race=race;
+		check(ClientFinishedLoading(),"diagnostic login completion adapter absent");
+		class_=c["classes"][0];level=c["level"];race=base_race=c.value("race",1);deity=396;auto&p=GetPP();p.class_=class_;p.level=level;p.race=race;p.deity=deity;
 		p.STR=p.STA=p.AGI=p.DEX=p.INT=p.WIS=p.CHA=c.value("base_stat",100);p.hunger_level=p.thirst_level=6000;
 		SetCharacterId(c.value("character_id",0));GetPTimers().SetCharID(CharacterID());LoadMulticlassMask();
 		check(json(GetMulticlassList())==c["classes"],"synthetic multiclass row mismatch");
 		SetClientVersion(EQ::versions::ClientVersion::RoF2);GetInv().SetInventoryVersion(EQ::versions::ClientVersion::RoF2);
+		p.expansions=RuleB(World,UseClientBasedExpansionSettings)?EQ::expansions::ConvertClientVersionToExpansionsMask(ClientVersion()):RuleI(World,ExpansionSettings);
+		std::fill(std::begin(p.InnateSkills),std::end(p.InnateSkills),InnateDisabled);
 		for(int k=0;k<=EQ::skills::HIGHEST_SKILL;k++){
 			uint16 cap=0;for(auto cl:GetMulticlassList())cap=std::max(cap,MaxSkill(static_cast<EQ::skills::SkillType>(k),cl,level));
 			if(k>=EQ::skills::SkillSpecializeAbjure&&k<=EQ::skills::SkillSpecializeEvocation&&k!=EQ::skills::SkillSpecializeAlteration)cap=std::min<uint16>(cap,50);
@@ -69,23 +75,23 @@ public:
 		SetName("FocusProbe");SetPosition(0,0,0);SetHeading(0);SaveSpellLoc();
 	}
 	void legal(const EQ::ItemData *i,int slot){
-		check(i&&CanEquipItem(i)&&i->ReqLevel<=GetLevel(),"illegal item class/race/level");
+		check(i&&CanEquipItem(i)&&i->ReqLevel<=GetLevel()&&!i->Deity,"illegal item class/race/level/deity");
 		check((i->Slots&(1u<<slot))!=0,"illegal equipment slot");
 		int key=i->LoreGroup==-1?-int(i->ID):i->LoreGroup;if(key)check(lore.insert(key).second,"duplicate lore");
 	}
-	void equip(const json &r,const json &policy,bool after){
+	void equip(const json &r,const json &policy,bool after,bool exact){
 		int slot=r[0];check(slot>=0&&slot<=21&&!GetInv().GetItem(slot),"duplicate/invalid slot");
 		auto *i=database.GetItem(r[1]);legal(i,slot);auto copy=std::make_unique<EQ::ItemData>(*i);
 		std::string key=std::to_string(i->ID);if(after&&policy.contains(key)){check(i->Focus.Effect<=0,"policy would replace existing focus");copy->Focus.Effect=policy[key];copy->Focus.Type=6;}
 		EQ::ItemInstance instance(copy.get(),1);owned.push_back(std::move(copy));
-		int socket=0;for(int id:r[2]){if(id){auto*a=database.GetItem(id);legal(a,slot);check(instance.IsAugmentSlotAvailable(a->AugType,socket)&&!IsAugmentRestricted(i->ItemType,a->AugRestrict),"illegal augment socket/restriction");instance.PutAugment(socket,EQ::ItemInstance(a,1));}++socket;}
+		int socket=0;for(int id:r[2]){if(id){auto*a=database.GetItem(id);legal(a,slot);int selected=exact?socket:instance.AvailableAugmentSlot(a->AugType);check(selected>=0&&instance.IsAugmentSlotAvailable(a->AugType,selected)&&!IsAugmentRestricted(i->ItemType,a->AugRestrict)&&!instance.ContainsAugmentByID(id),"illegal augment socket/restriction/duplicate");if(NightcapRaidAug::IsReward(id))check(NightcapRaidAug::CanInsert(instance,selected,false),"raid augment socket");instance.PutAugment(selected,EQ::ItemInstance(a,1));}++socket;}
 		check(GetInv().PutItem(slot,instance)==slot,"inventory insert");
 	}
 	json purchase(const json &c){
 		GetPP().aapoints=c.value("aa_budget",0);json rows=json::array();
 		for(auto &id:c.value("aa_rank_ids",json::array())){
 			auto*r=zone->GetAlternateAdvancementRank(id.get<uint32>());
-			check(r&&r->cost>=0&&CanPurchaseAlternateAdvancementRank(r,true,true),"AA purchase gate rejected "+id.dump());
+			check(r&&r->cost>=0&&CanPurchaseAlternateAdvancementRank(r,true,true),"AA purchase gate rejected "+id.dump()+" case "+c["id"].get<std::string>());
 			check(SetAA(r->id,r->current_value,r->base_ability->charges),"SetAA rejected");
 			GetPP().aapoints-=r->cost;GetPP().aapoints_spent+=r->cost;
 			rows.push_back({{"rank",r->id},{"cost",r->cost},{"name",r->base_ability->name}});
@@ -102,14 +108,27 @@ int NightcapBalanceMain(int argc,char **argv){
 	EQEmuLogSys::Instance()->SilenceConsoleLogging();std::ifstream f(argv[2]);json input;f>>input;
 	for(auto&r:input["rules"])check(RuleManager::Instance()->SetRule(r[0],r[1]),"rule");
 	virtual_clock=true;current_time=last_time=0;Timer::SetCurrentTime();
-	zone=new Zone(32,0,"soldungb");zone->LoadBaseData();zone->LoadAlternateAdvancement();is_zone_loaded=true;
+	zone=new Zone(32,0,"soldungb");check(zone->LoadZoneCFG("soldungb",0)&&zone->CanDoCombat(),"native arena config missing/combat disabled");zone->LoadBaseData();zone->LoadAlternateAdvancement();is_zone_loaded=true;
+	if(!input["cases"].empty()){zone->ReloadMaps();check(zone->zonemap&&zone->pathing&&zone->watermap,"native arena maps missing");}
 	json out={{"scope","Controlled timed native primary-hand attacks and native self-heal casting. No NPC AI, outgoing attack policy, regen, buffs ticking, pathing, or player acceptance. AA gate plus in-memory usable ranks, not persisted earned ownership."},{"cases",json::array()}};
+	for(auto &c:input.value("focus_controls",json::array())){
+		auto*p=new Subject();p->init(c);for(auto&r:c["slots"])p->equip(r,c["policy"],true,true);p->CalcBonuses();
+		int spell=c["heal_spell"],heal=c["heal_focus"],mana=c["mana_focus"];
+		out["focus_controls"].push_back({{"id",c["id"]},{"base_mana",spells[spell].mana},
+			{"direct_heal_as_heal",p->CalcFocusEffect(focusImprovedHeal,heal,spell)},
+			{"direct_heal_as_mana",p->CalcFocusEffect(focusManaCost,heal,spell)},
+			{"direct_mana_as_mana",p->CalcFocusEffect(focusManaCost,mana,spell)},
+			{"direct_mana_as_heal",p->CalcFocusEffect(focusImprovedHeal,mana,spell)},
+			{"selected_heal",p->GetFocusEffect(focusImprovedHeal,spell)},
+			{"selected_mana",p->GetFocusEffect(focusManaCost,spell)},
+			{"mana_cost",p->GetActSpellCost(spell,spells[spell].mana)}});
+	}
 	for(auto &c:input["cases"])for(bool after:{false,true}){
 		seed=c.value("seed",20261120);zone->random.Reseed();EQ::Random::Instance()->Reseed();
-		auto *player=new Subject();player->init(c);for(auto&r:c["slots"])player->equip(r,input["policy"],after);
+		auto *player=new Subject();player->init(c);for(auto&r:c["slots"])player->equip(r,input["policy"],after,c.value("exact_sockets",true));
 		auto aa=player->purchase(c);player->CalcBonuses();entity_list.AddClient(player);
 		player->SetTarget(player);player->SetHP(player->GetMaxHP());player->SetMana(player->GetMaxMana());
-		int spell=c["heal_spell"];check(IsValidSpell(spell)&&player->GetSpellMinLevel(spell)<=player->GetLevel(),"illegal healing spell");player->GetPP().mem_spells[0]=spell;player->measured_heal_spell=spell;
+		int spell=c["heal_spell"];check(IsValidSpell(spell)&&player->GetSpellMinLevel(spell)<=player->GetLevel(),"illegal healing spell "+std::to_string(spell)+" minlevel "+std::to_string(player->GetSpellMinLevel(spell))+" case "+c["id"].get<std::string>());player->GetPP().mem_spells[0]=spell;player->measured_heal_spell=spell;
 		int base=player->CalcSpellEffectValue(spell,0,player->GetLevel(),10,player);
 		json metrics={{"cast_ms",player->GetActSpellCasttime(spell,spells[spell].cast_time)},{"mana_cost_sample",player->GetActSpellCost(spell,spells[spell].mana)},{"healing_sample",NightcapHeroicCast::Cast::Deliver(true,[&]{return player->GetActSpellHealing(spell,base,player);})},
 			{"hp",player->GetMaxHP()},{"mana",player->GetMaxMana()},{"heal_amount",player->GetHealAmt()},{"spell_damage",player->GetSpellDmg()},{"channeling",player->GetPP().skills[EQ::skills::SkillChanneling]}};
@@ -117,6 +136,7 @@ int NightcapBalanceMain(int argc,char **argv){
 		std::vector<Threat*> threats;std::vector<uint32> next,interval;
 		for(int n=0;n<c.value("attackers",1);n++){
 			auto*t=new Threat(type,nullptr,glm::vec4(0,5,0,256),GravityBehavior::Water);entity_list.AddNPC(t,false);t->SetTarget(player);t->SetAttackTimer();
+			check(t->IsAttackAllowed(player),"native NPC attack not allowed");
 			check(player->CombatRange(t),"outside melee range");auto timer=t->GetAttackTimer();auto delay=timer.GetDuration();check(delay>0,"NPC delay zero");threats.push_back(t);interval.push_back(delay);next.push_back(delay);
 		}
 		zone->random.Reseed();EQ::Random::Instance()->Reseed();
@@ -138,7 +158,11 @@ int NightcapBalanceMain(int argc,char **argv){
 			if(ms<duration)advance(10);
 		}
 		json row={{"id",c["id"]},{"stage",after?"after":"before"},{"seed",seed},{"metrics",metrics},{"aa",aa},{"spent_points",player->GetPP().aapoints_spent},{"result",result},{"elapsed_ms",std::min(ms,duration)},{"hp_end",player->GetHP()},{"mana_end",player->GetMana()},{"attempts",attempts},{"starts",starts},{"landed_casts",landed_casts},{"failed_started_casts",failed_casts},{"pending_cast",pending},{"swings",swings},{"damaging_hits",player->damaging_hits},{"damage",player->damage},{"healing",player->healed},{"overheal",player->overheal},{"stunned_ms",stunned_ms},{"npc_interval_ms",interval},{"trace",trace}};
+		for(auto*t:threats)row["attackers"].push_back({{"hp_end",t->GetHP()},{"max_hp",t->GetMaxHP()},{"terminal",t->dead}});
+		check(player->damage>0&&swings>0,"no actual NPC damage: "+c["id"].get<std::string>());
+		check(attempts>0,"no healing attempts: "+c["id"].get<std::string>());
 		out["cases"].push_back(row);
+		{std::ofstream partial(std::string(argv[3])+".partial");partial<<out.dump(1);}
 		// Objects deliberately retained until process exit: no logout, corpse, save, or cleanup callbacks.
 		for(auto*t:threats){t->SetTarget(nullptr);t->WipeHateList();t->SetPosition(100000+out["cases"].size()*1000,100000,0);}player->SetTarget(nullptr);
 		player->SetPosition(100000+out["cases"].size()*1000,100000,0);

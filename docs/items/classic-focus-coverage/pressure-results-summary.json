@@ -1,0 +1,813 @@
+{
+  "pairs": 80,
+  "scope": "Controlled timed native primary-hand attacks and native self-heal casting. No NPC AI, outgoing attack policy, regen, buffs ticking, pathing, or player acceptance. AA gate plus in-memory usable ranks, not persisted earned ownership.",
+  "groups": {
+    "three-early-aa0-spell200": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 3,
+          "duration": 2
+        },
+        "mean_survival_ms": 177600,
+        "mean_healing": 980,
+        "mean_mana_end": 2.4,
+        "cast_starts": 296,
+        "landed_casts": 245,
+        "failed_started_casts": 51,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1500,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 20,
+          "hp": 740,
+          "mana": 497,
+          "mana_cost_sample": 10,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 1363.2,
+        "mean_mana_end": 39.8,
+        "cast_starts": 313,
+        "landed_casts": 284,
+        "failed_started_casts": 28,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1275,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 24,
+          "hp": 740,
+          "mana": 497,
+          "mana_cost_sample": 8,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      }
+    },
+    "three-early-aa0-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 2,
+          "duration": 3
+        },
+        "mean_survival_ms": 177600,
+        "mean_healing": 1105,
+        "mean_mana_end": 0,
+        "cast_starts": 89,
+        "landed_casts": 85,
+        "failed_started_casts": 4,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 65,
+          "hp": 740,
+          "mana": 497,
+          "mana_cost_sample": 28,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 1513.2,
+        "mean_mana_end": 45.2,
+        "cast_starts": 99,
+        "landed_casts": 97,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 78,
+          "hp": 740,
+          "mana": 497,
+          "mana_cost_sample": 23,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      }
+    },
+    "three-early-aa1-spell200": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 980,
+        "mean_mana_end": 7,
+        "cast_starts": 308,
+        "landed_casts": 245,
+        "failed_started_casts": 63,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1500,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 20,
+          "hp": 814,
+          "mana": 497,
+          "mana_cost_sample": 10,
+          "spell_damage": 0
+        },
+        "spent_points": 39
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 1372.8,
+        "mean_mana_end": 39.4,
+        "cast_starts": 297,
+        "landed_casts": 286,
+        "failed_started_casts": 9,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1275,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 24,
+          "hp": 814,
+          "mana": 497,
+          "mana_cost_sample": 8,
+          "spell_damage": 0
+        },
+        "spent_points": 39
+      }
+    },
+    "three-early-aa1-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 1105,
+        "mean_mana_end": 21,
+        "cast_starts": 87,
+        "landed_casts": 85,
+        "failed_started_casts": 2,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 65,
+          "hp": 814,
+          "mana": 497,
+          "mana_cost_sample": 28,
+          "spell_damage": 0
+        },
+        "spent_points": 39
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 1513.2,
+        "mean_mana_end": 50.8,
+        "cast_starts": 98,
+        "landed_casts": 97,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 100,
+          "heal_amount": 0,
+          "healing_sample": 78,
+          "hp": 814,
+          "mana": 497,
+          "mana_cost_sample": 23,
+          "spell_damage": 0
+        },
+        "spent_points": 39
+      }
+    },
+    "three-mid_pal-aa0-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 5
+        },
+        "mean_survival_ms": 164400,
+        "mean_healing": 2132,
+        "mean_mana_end": 2,
+        "cast_starts": 182,
+        "landed_casts": 164,
+        "failed_started_casts": 18,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 65,
+          "hp": 1320,
+          "mana": 927,
+          "mana_cost_sample": 28,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 3088.8,
+        "mean_mana_end": 12,
+        "cast_starts": 208,
+        "landed_casts": 198,
+        "failed_started_casts": 9,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 78,
+          "hp": 1320,
+          "mana": 927,
+          "mana_cost_sample": 23,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      }
+    },
+    "three-mid_pal-aa0-spell12": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 1,
+          "duration": 4
+        },
+        "mean_survival_ms": 174600,
+        "mean_healing": 2450,
+        "mean_mana_end": 0,
+        "cast_starts": 70,
+        "landed_casts": 70,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2500,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 175,
+          "hp": 1320,
+          "mana": 927,
+          "mana_cost_sample": 65,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 3402,
+        "mean_mana_end": 69.6,
+        "cast_starts": 82,
+        "landed_casts": 81,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2125,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 210,
+          "hp": 1320,
+          "mana": 927,
+          "mana_cost_sample": 52,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      }
+    },
+    "three-mid_pal-aa1-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 2905,
+        "mean_mana_end": 36.6,
+        "cast_starts": 172,
+        "landed_casts": 159,
+        "failed_started_casts": 12,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 83,
+          "hp": 1452,
+          "mana": 927,
+          "mana_cost_sample": 28,
+          "spell_damage": 0
+        },
+        "spent_points": 99
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 3110.4,
+        "mean_mana_end": 273.8,
+        "cast_starts": 147,
+        "landed_casts": 142,
+        "failed_started_casts": 2,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 96,
+          "hp": 1452,
+          "mana": 927,
+          "mana_cost_sample": 23,
+          "spell_damage": 0
+        },
+        "spent_points": 99
+      }
+    },
+    "three-mid_pal-aa1-spell12": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 3238.4,
+        "mean_mana_end": 43,
+        "cast_starts": 68,
+        "landed_casts": 68,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2500,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 224,
+          "hp": 1452,
+          "mana": 927,
+          "mana_cost_sample": 65,
+          "spell_damage": 0
+        },
+        "spent_points": 99
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 3285.8,
+        "mean_mana_end": 313.4,
+        "cast_starts": 60,
+        "landed_casts": 59,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2125,
+          "channeling": 175,
+          "heal_amount": 0,
+          "healing_sample": 259,
+          "hp": 1452,
+          "mana": 927,
+          "mana_cost_sample": 52,
+          "spell_damage": 0
+        },
+        "spent_points": 99
+      }
+    },
+    "three-pre_raid-aa0-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 5
+        },
+        "mean_survival_ms": 99000,
+        "mean_healing": 2288,
+        "mean_mana_end": 785,
+        "cast_starts": 210,
+        "landed_casts": 176,
+        "failed_started_casts": 29,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 65,
+          "hp": 2395,
+          "mana": 1772,
+          "mana_cost_sample": 28,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "player_death": 2,
+          "duration": 3
+        },
+        "mean_survival_ms": 171000,
+        "mean_healing": 5709.6,
+        "mean_mana_end": 80.8,
+        "cast_starts": 416,
+        "landed_casts": 366,
+        "failed_started_casts": 49,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 78,
+          "hp": 2395,
+          "mana": 1772,
+          "mana_cost_sample": 23,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      }
+    },
+    "three-pre_raid-aa0-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 4,
+          "duration": 1
+        },
+        "mean_survival_ms": 165000,
+        "mean_healing": 5250,
+        "mean_mana_end": 17,
+        "cast_starts": 101,
+        "landed_casts": 75,
+        "failed_started_casts": 26,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 350,
+          "hp": 2395,
+          "mana": 1772,
+          "mana_cost_sample": 115,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 7476,
+        "mean_mana_end": 124.8,
+        "cast_starts": 89,
+        "landed_casts": 89,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 420,
+          "hp": 2395,
+          "mana": 1772,
+          "mana_cost_sample": 92,
+          "spell_damage": 0
+        },
+        "spent_points": 0
+      }
+    },
+    "three-pre_raid-aa1-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5843.2,
+        "mean_mana_end": 86.4,
+        "cast_starts": 347,
+        "landed_casts": 301,
+        "failed_started_casts": 44,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 83,
+          "hp": 2634,
+          "mana": 1772,
+          "mana_cost_sample": 28,
+          "spell_damage": 0
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6892.8,
+        "mean_mana_end": 350.6,
+        "cast_starts": 344,
+        "landed_casts": 309,
+        "failed_started_casts": 30,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 96,
+          "hp": 2634,
+          "mana": 1772,
+          "mana_cost_sample": 23,
+          "spell_damage": 0
+        },
+        "spent_points": 108
+      }
+    },
+    "three-pre_raid-aa1-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6887.8,
+        "mean_mana_end": 231,
+        "cast_starts": 85,
+        "landed_casts": 67,
+        "failed_started_casts": 15,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 448,
+          "hp": 2634,
+          "mana": 1772,
+          "mana_cost_sample": 115,
+          "spell_damage": 0
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 7341,
+        "mean_mana_end": 576,
+        "cast_starts": 67,
+        "landed_casts": 65,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 0,
+          "healing_sample": 518,
+          "hp": 2634,
+          "mana": 1772,
+          "mana_cost_sample": 92,
+          "spell_damage": 0
+        },
+        "spent_points": 108
+      }
+    },
+    "three-raid-aa0-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "player_death": 5
+        },
+        "mean_survival_ms": 98640,
+        "mean_healing": 6226.6,
+        "mean_mana_end": 2879.8,
+        "cast_starts": 215,
+        "landed_casts": 163,
+        "failed_started_casts": 47,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 191,
+          "hp": 4673,
+          "mana": 3794,
+          "mana_cost_sample": 28,
+          "spell_damage": 104
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "player_death": 5
+        },
+        "mean_survival_ms": 117720,
+        "mean_healing": 8037.6,
+        "mean_mana_end": 2883.6,
+        "cast_starts": 263,
+        "landed_casts": 197,
+        "failed_started_casts": 61,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 204,
+          "hp": 4673,
+          "mana": 3794,
+          "mana_cost_sample": 23,
+          "spell_damage": 104
+        },
+        "spent_points": 0
+      }
+    },
+    "three-raid-aa0-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 17989.6,
+        "mean_mana_end": 1195,
+        "cast_starts": 162,
+        "landed_casts": 113,
+        "failed_started_casts": 44,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 796,
+          "hp": 4673,
+          "mana": 3794,
+          "mana_cost_sample": 115,
+          "spell_damage": 104
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 18575.2,
+        "mean_mana_end": 1825.2,
+        "cast_starts": 131,
+        "landed_casts": 107,
+        "failed_started_casts": 23,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 868,
+          "hp": 4673,
+          "mana": 3794,
+          "mana_cost_sample": 92,
+          "spell_damage": 104
+        },
+        "spent_points": 0
+      }
+    },
+    "three-raid-aa1-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 4,
+          "player_death": 1
+        },
+        "mean_survival_ms": 173520,
+        "mean_healing": 13634.8,
+        "mean_mana_end": 2192.4,
+        "cast_starts": 366,
+        "landed_casts": 286,
+        "failed_started_casts": 75,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 209,
+          "hp": 5140,
+          "mana": 3794,
+          "mana_cost_sample": 28,
+          "spell_damage": 104
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 4,
+          "player_death": 1
+        },
+        "mean_survival_ms": 177120,
+        "mean_healing": 14049,
+        "mean_mana_end": 2519.8,
+        "cast_starts": 372,
+        "landed_casts": 277,
+        "failed_started_casts": 90,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 223,
+          "hp": 5140,
+          "mana": 3794,
+          "mana_cost_sample": 23,
+          "spell_damage": 104
+        },
+        "spent_points": 108
+      }
+    },
+    "three-raid-aa1-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 16742.6,
+        "mean_mana_end": 1793,
+        "cast_starts": 117,
+        "landed_casts": 87,
+        "failed_started_casts": 29,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 897,
+          "hp": 5140,
+          "mana": 3794,
+          "mana_cost_sample": 115,
+          "spell_damage": 104
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 16545.8,
+        "mean_mana_end": 2340.4,
+        "cast_starts": 107,
+        "landed_casts": 79,
+        "failed_started_casts": 26,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 120,
+          "healing_sample": 969,
+          "hp": 5140,
+          "mana": 3794,
+          "mana_cost_sample": 92,
+          "spell_damage": 104
+        },
+        "spent_points": 108
+      }
+    }
+  }
+}

@@ -1,4 +1,6 @@
 import json,mmap,sys,struct,tempfile,unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(HERE.parents[2]/'docs/items/classic-focus-coverage'))
@@ -6,6 +8,14 @@ import release
 from catalog import changes
 
 class CacheValidation(unittest.TestCase):
+    def test_online_player_blocks_before_maintenance(self):
+        before={'manifest':'pin','caches':{},'outside':'outside','publication':'pub','rules':'rules'}
+        runtime=SimpleNamespace(compact=lambda service: {'image_id':'image','running':True},compose=lambda *args:self.fail('maintenance started'))
+        prior=SimpleNamespace(players=lambda:1,p=SimpleNamespace(rules=lambda:'rules'))
+        with patch.multiple(release,read=lambda path:before,sha=lambda path:'pin',outside=lambda:'outside',before_rows=lambda db:None,check_spells=lambda:None),patch.multiple(release,create=True,m={'image':'image'},h=SimpleNamespace(caches=lambda:{},publication=lambda:'pub'),r=runtime,a=SimpleNamespace(prior=prior)):
+            with self.assertRaisesRegex(AssertionError,'Players online'):
+                release.activate()
+
     def test_layout_and_unrelated_field_guard(self):
         release.m={'layout':{'size':24,'ID':0,'Worn':4,'Focus':12}}
         old_values=(-1,0,0,0,-1,0,0,0)

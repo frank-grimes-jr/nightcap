@@ -1,0 +1,13 @@
+--- a/server-mods/code/zone/spell_effects.cpp
++++ b/server-mods/code/zone/spell_effects.cpp
+@@ -6053,6 +6053,10 @@
+ 
+ 			case SpellEffect::ImprovedHeal:
+ 			case SpellEffect::ReduceManaCost:
++				if ((focus_spell.effect_id[i] == SpellEffect::ImprovedHeal && type != focusImprovedHeal) ||
++					(focus_spell.effect_id[i] == SpellEffect::ReduceManaCost && type != focusManaCost)) {
++					break;
++				}
+ 				if (!RuleB(Spells, UseClassicSpellFocus)) {
+ 					if (type == focusImprovedHeal || type == focusManaCost) {
+ 						value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
