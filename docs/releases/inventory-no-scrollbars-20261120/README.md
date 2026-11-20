@@ -1,7 +1,8 @@
 # Main Inventory without scrollbars
 
-November 20, 2026: source and XML candidate prepared; not published or accepted in game.
-Branch `feature/inventory-no-scrollbars`, based on freshly fetched main `99331464`.
+November 20, 2026: merged to main in PR492 (`f8faa1ba`) and published as signed
+client `2026112001`. The matching wiki is published. Native visible acceptance
+remains pending. Source started from freshly fetched main `99331464`.
 
 ## Problem and correction
 
@@ -24,8 +25,10 @@ Read-only OVH capture found client release `2026111301`, still carrying Inventor
 SHA256 `545e9692f01bde1071bab4c927a66b13a6a9b2c07b638ad48e2c2cbd8bff5ab2`.
 The candidate is `artifacts/inventory-no-scrollbars/candidate/uifiles/nightcap/equi_inventory.xml`.
 `verification.json` pins its hash and current channel; `inventory.patch` shows the
-complete two-setting change. Public HTTPS reads returned 403; this is an origin
-capture, not a fresh public-download/signature validation or publication claim.
+complete two-setting change. The initial generic HTTP probe returned 403. The
+launcher User-Agent verified the published signed channel and served XML/DLL/catalog
+over HTTPS. The publisher hashed all 147 retained origin assets. Exact scope is in
+`client-public-verification.json`; publication is not native visual acceptance.
 
 The new scrollbar expectation failed against the original generator. All 19 tests
 pass after repair:
@@ -36,15 +39,17 @@ python -B -m unittest tools.tests.test_client_character_stats tools.tests.test_c
 
 Tests cover generated flags, stat/cap/heroic layout, equipment semantics, exact-byte
 repair scope, idempotence, malformed inputs and retained Stats scrolling.
-The existing window geometry is preserved; static checks do not prove native pixels.
+Independent source and publication reviews passed, including the comment-only
+XML match regression. All 20 publisher fault/recovery checks passed on Linux.
+The wiki passed 19 tests and six search cases; its 16 Linux publication/recovery
+checks also passed. The existing geometry is preserved; static checks do not prove pixels.
 
 ## Client delivery and recovery
 
-Prepared launcher notes use candidate counter `2026112001` and retain the actual
-current signed manifest's full note history. Recheck the channel and choose a higher
-counter if another release lands first. Publish only Inventory XML plus the additive
-note, retaining all other asset descriptors/URLs, DLL/catalog/config, tombstones and
-launcher requirements. No server, DLL, database, cache or protected-client write is
+Published client `2026112001` retains all 42 prior signed note entries and all
+147 unrelated asset descriptors/URLs, DLL/catalog/config, tombstones and launcher
+requirements. Only Inventory XML and its additive release note change. Future
+corrections must recheck the actual channel and use a higher signed counter. No server, DLL, database, cache or protected-client write is
 needed. The player must fully exit EQ and use normal launcher Play after publication.
 An old running client cannot receive this correction through server rule reloads.
 Recovery after publication requires a higher signed counter over the then-current
@@ -69,11 +74,15 @@ Native visual acceptance remains pending; the screenshot is a bug report, not ac
 ## Wiki impact
 
 The current public pointer was `20261114-titles-automatic-suffix-v1`. Its retained
-source reproduces all 631 files before editing. Candidate source is under
+source reproduces all 631 files before editing. Published source is under
 `artifacts/inventory-no-scrollbars/wiki-source/wiki`; only Equipment, Recent changes
 and the generated search index change. Main source receives the same scoped edits.
 `published-wiki.patch` applies to the current publication's source with `--unidiff-zero`.
 `wiki-impact.json` records whole-wiki scope; unrelated guides, Features/Home/commands,
 item/zone catalogs and numeric/balance data need no edits. Refresh-ledger drift stays
 review-required; do not publish the older main wiki mirror or blindly advance it.
-Wiki edits remain unpublished alongside the client candidate.
+Wiki `20261120-inventory-no-scrollbars-v1` is published. The updater verified all
+631 origin files and rehearsed rollback; all five services and the Nginx configuration
+bytes/inode stayed unchanged. The matching client channel was preserved. See
+`wiki-publication.json` and `wiki-public-verification.json`: all 631 public hashes
+and security headers pass; five private source paths return 404.

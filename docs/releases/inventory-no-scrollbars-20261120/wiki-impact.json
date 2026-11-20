@@ -1,5 +1,5 @@
 {
-  "status": "candidate_not_published",
+  "status": "published_native_visual_QA_pending",
   "public_predecessor": "20261114-titles-automatic-suffix-v1",
   "source": "E:\\EQ_Local_Dev\\_worktrees\\inventory-no-scrollbars\\artifacts\\inventory-no-scrollbars\\wiki-source\\wiki",
   "predecessor_reproduced": true,
@@ -56,5 +56,6 @@
     "Zone hunt & forging",
     "Kael Drakkel \u2014 The Ashen Compact"
   ],
-  "impact": "Equipment explains the main Inventory layout; Recent changes records the fix. Existing Features and Augment links still reach that guide. Home, commands, other guides, generated items/zones, catalogs, numeric values, release mechanics and balance need no change. Stats scrolling is retained. Publication and native visual QA are pending."
+  "impact": "Equipment explains the main Inventory layout; Recent changes records the fix. Existing Features and Augment links still reach that guide. Home, commands, other guides, generated items/zones, catalogs, numeric values, release mechanics and balance need no change. Stats scrolling is retained. Publication is verified at origin and over all 631 public HTTPS files; native visual QA remains pending.",
+  "release": "20261120-inventory-no-scrollbars-v1"
 }

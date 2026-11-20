@@ -4,9 +4,9 @@
 
 All four Guise of the Deceiver qualities use Class ALL and Race ALL. Existing copies refresh with the corrected item cache on reconnect. [Migration, activation and player checks](docs/items/guise-all-classes/README.md).
 
-## November 20, 2026 · Inventory scrollbar correction prepared
+## November 20, 2026 · Inventory scrollbars removed
 
-Removed horizontal and vertical scrolling from the main Inventory in the source generator and a scoped client XML candidate. Existing geometry, buttons, equipment and the longer Stats page remain. Nineteen UI/asset checks pass. Owner authorized main and server publication; the signed update is staged and native visual QA is pending. [Evidence and exact QA](docs/releases/inventory-no-scrollbars-20261120/README.md).
+Main PR492 and signed client2026112001 remove both main Inventory scrollbars. The existing layout, equipment and separate Stats scrolling remain. Signature and served XML/DLL/catalog verify; all 147 other assets and five running services are preserved. The matching wiki is published with rollback rehearsed. Fully exit EQ and use launcher Play. Native visual QA remains pending. [Evidence and exact QA](docs/releases/inventory-no-scrollbars-20261120/README.md).
 
 ## November 14, 2026 · Classic augment stacking validation
 

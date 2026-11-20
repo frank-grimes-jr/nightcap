@@ -1,13 +1,16 @@
 {
-  "exit_code": 0,
-  "reviewed_files": 27,
-  "issues": [],
+  "result": "PASS",
   "installed_skill_updated": true,
+  "reviewed_files": 36,
+  "source_fingerprint_issues": [],
   "ui_asset_tests": 19,
   "wiki_tests": 19,
   "search_cases": 6,
-  "publication": "authorized_and_staged",
-  "native_visual_QA": "pending",
-  "linux_publisher_tests": 20,
-  "independent_review": "approved; see review.json"
+  "linux_client_publisher_tests": 20,
+  "linux_wiki_publisher_tests": 16,
+  "independent_review": "approved; see review.json",
+  "publication": "client2026112001 and wiki20261120-inventory-no-scrollbars-v1 verified",
+  "public_wiki_files": 631,
+  "private_denials": 5,
+  "native_visual_QA": "pending"
 }

@@ -1,0 +1,8 @@
+{
+  "pull_request": 492,
+  "url": "https://github.com/frank-grimes-jr/nightcap/pull/492",
+  "merge_commit": "f8faa1ba504c9e4272c5b5c04964b905562adfd9",
+  "tested_head": "0cf851c97d5dd12aee927127ab7ff319be3117bb",
+  "owner_authorization": "Push to main and server",
+  "native_visual_acceptance": "pending"
+}

@@ -9,7 +9,8 @@
     "Comment-only regex edge case repaired and covered by regression",
     "Signed production key and executable/DLL/catalog preflight pass",
     "Publication pins all descriptors and retains 147 origin assets and services",
-    "20 publisher cases pass on Linux; local platform skips do not substitute for Linux"
+    "20 publisher cases pass on Linux; local platform skips do not substitute for Linux",
+    "Independent wiki wrapper review approved: exact three outputs, locks, baseline/service/channel/config guards and existing rollback updater"
   ],
   "limitations": [
     "Native visual/button/bag/skin/relog QA remains pending",
