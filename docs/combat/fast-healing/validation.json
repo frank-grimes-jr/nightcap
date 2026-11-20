@@ -1,0 +1,110 @@
+{
+  "result": "PASS",
+  "matched_pressure_cells": 144,
+  "cast_attempts_per_binary": 28800,
+  "proc_cases": 18,
+  "rows": [
+    {
+      "gear": "full_healer",
+      "spell": "12",
+      "before": 1104,
+      "after": 1104,
+      "sympathetic": 48,
+      "uninterrupted_hps_including_recovery": 288.0
+    },
+    {
+      "gear": "full_healer",
+      "spell": "15",
+      "before": 2208,
+      "after": 2208,
+      "sympathetic": 48,
+      "uninterrupted_hps_including_recovery": 501.33
+    },
+    {
+      "gear": "full_healer",
+      "spell": "17",
+      "before": 409,
+      "after": 587,
+      "sympathetic": 29,
+      "uninterrupted_hps_including_recovery": 176.0
+    },
+    {
+      "gear": "full_healer",
+      "spell": "200",
+      "before": 125,
+      "after": 531,
+      "sympathetic": 26,
+      "uninterrupted_hps_including_recovery": 185.67
+    },
+    {
+      "gear": "palwar_gear",
+      "spell": "12",
+      "before": 370,
+      "after": 370,
+      "sympathetic": 18,
+      "uninterrupted_hps_including_recovery": 97.0
+    },
+    {
+      "gear": "palwar_gear",
+      "spell": "15",
+      "before": 742,
+      "after": 742,
+      "sympathetic": 37,
+      "uninterrupted_hps_including_recovery": 173.11
+    },
+    {
+      "gear": "palwar_gear",
+      "spell": "17",
+      "before": 137,
+      "after": 169,
+      "sympathetic": 8,
+      "uninterrupted_hps_including_recovery": 50.57
+    },
+    {
+      "gear": "palwar_gear",
+      "spell": "200",
+      "before": 42,
+      "after": 115,
+      "sympathetic": 5,
+      "uninterrupted_hps_including_recovery": 40.0
+    },
+    {
+      "gear": "stress_750",
+      "spell": "12",
+      "before": 1537,
+      "after": 1537,
+      "sympathetic": 48,
+      "uninterrupted_hps_including_recovery": 396.25
+    },
+    {
+      "gear": "stress_750",
+      "spell": "15",
+      "before": 3075,
+      "after": 3075,
+      "sympathetic": 48,
+      "uninterrupted_hps_including_recovery": 694.0
+    },
+    {
+      "gear": "stress_750",
+      "spell": "17",
+      "before": 570,
+      "after": 836,
+      "sympathetic": 41,
+      "uninterrupted_hps_including_recovery": 250.57
+    },
+    {
+      "gear": "stress_750",
+      "spell": "200",
+      "before": 175,
+      "after": 781,
+      "sympathetic": 39,
+      "uninterrupted_hps_including_recovery": 273.33
+    }
+  ],
+  "limitations": [
+    "No earned AA allocation in gear fixtures",
+    "Controlled native cast-completion hit counts, not full NPC encounter/pathing/fizzle simulation",
+    "750HA is a synthetic cap stress",
+    "Player in-game acceptance remains open"
+  ]
+}
