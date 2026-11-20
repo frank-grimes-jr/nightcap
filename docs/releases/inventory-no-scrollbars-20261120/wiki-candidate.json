@@ -1,0 +1,13 @@
+{
+  "release": "20261120-inventory-no-scrollbars-v1",
+  "previous": "20261114-titles-automatic-suffix-v1",
+  "files": 631,
+  "changed": [
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved": 628,
+  "package_sha256": "77e9302cd5952b73ca02fd7bc2e2c7951f92cdc24d797b3cdf39b40567b03c15",
+  "manifest_sha256": "5a76c2beb7e264e93647e6707e95296a596d5a1ce77386d959c003805428e1c9"
+}

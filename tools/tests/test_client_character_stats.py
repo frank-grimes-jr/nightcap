@@ -91,6 +91,12 @@ class CharacterStatsUI(unittest.TestCase):
         page.remove(page.find('Style_HScroll'))
         with self.assertRaises(ValueError):remove_inventory_scrollbars_xml(ET.tostring(root))
 
+    def test_scrollbar_repair_rejects_comment_only_match(self):
+        flags=b'<Style_VScroll>true</Style_VScroll><Style_HScroll>true</Style_HScroll>'
+        raw=(b'<XML><!-- <Page item="IW_InvPage">'+flags+b'</Page> -->'
+             b"<Page item='IW_InvPage'>"+flags+b'</Page></XML>')
+        with self.assertRaises(ValueError):remove_inventory_scrollbars_xml(raw)
+
     def test_delta_rejects_reapplication_and_missing_stat(self):
         raw=SOURCE.read_bytes()
         with self.assertRaises(ValueError):inventory_summary_xml(inventory_summary_xml(raw))

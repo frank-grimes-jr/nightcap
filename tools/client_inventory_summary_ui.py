@@ -132,5 +132,7 @@ def remove_inventory_scrollbars_xml(raw):
         if count!=1:
             raise ValueError('Ambiguous Inventory scrollbar bytes')
     result=raw[:match.start()]+page+raw[match.end():]
-    ET.fromstring(result)
+    repaired=ET.fromstring(result).find("Page[@item='IW_InvPage']")
+    if any(repaired.findtext('Style_'+axis+'Scroll')!='false' for axis in ('V','H')):
+        raise ValueError('Main Inventory scrollbar repair did not reach the live page')
     return result

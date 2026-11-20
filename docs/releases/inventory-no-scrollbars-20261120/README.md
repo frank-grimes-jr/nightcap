@@ -27,7 +27,7 @@ The candidate is `artifacts/inventory-no-scrollbars/candidate/uifiles/nightcap/e
 complete two-setting change. Public HTTPS reads returned 403; this is an origin
 capture, not a fresh public-download/signature validation or publication claim.
 
-The new scrollbar expectation failed against the original generator. All 18 tests
+The new scrollbar expectation failed against the original generator. All 19 tests
 pass after repair:
 
 ```powershell
@@ -50,8 +50,8 @@ An old running client cannot receive this correction through server rule reloads
 Recovery after publication requires a higher signed counter over the then-current
 channel; never rewind a public channel or discard unrelated newer assets.
 
-Main promotion and publication await owner sign-off under AGENTS.md branch policy.
-The historical November 12 permission does not authorize this release.
+The owner authorized main promotion and publication on November 20: "Push to main and server".
+See AUTHORIZATION.md. Native visual acceptance remains separate from publication.
 
 ## Exact native QA after publication
 

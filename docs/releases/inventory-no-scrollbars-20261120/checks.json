@@ -3,9 +3,11 @@
   "reviewed_files": 27,
   "issues": [],
   "installed_skill_updated": true,
-  "ui_asset_tests": 18,
+  "ui_asset_tests": 19,
   "wiki_tests": 19,
   "search_cases": 6,
-  "publication": "pending",
-  "native_visual_QA": "pending"
+  "publication": "authorized_and_staged",
+  "native_visual_QA": "pending",
+  "linux_publisher_tests": 20,
+  "independent_review": "approved; see review.json"
 }

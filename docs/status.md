@@ -2,7 +2,7 @@
 
 ## November 20, 2026 · Inventory scrollbar correction prepared
 
-Removed horizontal and vertical scrolling from the main Inventory in the source generator and a scoped client XML candidate. Existing geometry, buttons, equipment and the longer Stats page remain. Eighteen UI/asset checks pass; signed launcher/wiki publication and native visual QA are pending. [Evidence and exact QA](releases/inventory-no-scrollbars-20261120/README.md).
+Removed horizontal and vertical scrolling from the main Inventory in the source generator and a scoped client XML candidate. Existing geometry, buttons, equipment and the longer Stats page remain. Nineteen UI/asset checks pass. Owner authorized main and server publication; the signed update is staged and native visual QA is pending. [Evidence and exact QA](releases/inventory-no-scrollbars-20261120/README.md).
 
 ## November 14, 2026 · Classic augment stacking validation
 
