@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 20, 2026 · Fast direct healing
+
+Minor Healing and Light Healing now receive a flat Heal Amount floor on original casts. Greater Healing, Healing, custom spells and Paladin healing procs are unchanged. Sympathetic caps and worn-heal precedence are preserved. Test/main promotion and production deployment passed; all12workers and the public wiki verified. Controlled native pressure/proc tests pass; real-player encounter acceptance remains open. [Evidence and player QA](combat/fast-healing/README.md).
+
 ## November 20, 2026 · Guise ALL/ALL correction
 
 All four Guise qualities are ALL/ALL on production. The rebuilt cache verified four class-only changes and 310024 identical records; all twelve zone workers and the open gateway passed verification. Dark Elf right-click settings are retained. Native player acceptance and Guise guide publication remain open. [Receipt](items/guise-all-classes/production-verified.json). [Migration and player checks](items/guise-all-classes/README.md).
