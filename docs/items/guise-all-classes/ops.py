@@ -11,7 +11,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 sys.path.insert(0, str(ROOT / "docs/releases/classic-raid-augments-20261112"))
 from probe import remote
-STAGE = "guise-all-classes-20261120-v1"
+STAGE = "guise-all-classes-20261120-v2"
 
 def stage():
     source = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()

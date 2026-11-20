@@ -9,3 +9,5 @@ The release reuses the verified stock-item maintenance workflow and shipping loa
 After activation, reconnect to refresh existing item definitions. Inspect each Guise quality and confirm Class ALL and Race ALL. Use a character without Bard or Rogue to equip it in the face slot and right-click its Dark Elf illusion. The automated checks verify data and cache behavior. Native item-window and click acceptance requires in-game observation.
 
 The Lower Guk guide and Change Log describe the eligibility correction. Loot finder links the scripted source. Home, Features, commands, Hunt catalogs and other item acquisition guides have no additional impact. Public wiki publication is tracked separately.
+
+The first activation stopped at the publication guard before maintenance or SQL because the concurrent Inventory release changed the client/wiki publication. The second immutable stage captures that published baseline; the item preimages, native image, binaries and both cache hashes are identical to the first rehearsal. The original stage remains an unsuccessful, pre-mutation attempt.
