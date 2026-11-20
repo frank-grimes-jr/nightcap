@@ -1,6 +1,6 @@
 # Fast direct healing — November 20, 2026
 
-Native validation passed; production deployment pending. Owner authorized test promotion, main merge and production deployment after validation in the current chat. Visible player acceptance is separate.
+Deployed to production and verified on all12zone workers. Public wiki publication also verified. Owner authorized test promotion, main merge and production deployment after validation in the current chat. Visible player acceptance is separate.
 
 ## Behavior and scope
 
@@ -36,3 +36,11 @@ Use level50 Palwar in the Arena for controlled casting, then a single ordinary L
 ## Wiki impact
 
 Combat and Change Log require updated guidance. Equipment requires a short link explaining the distinction between healing focus and spell haste. No item catalog values, NPC/zone definitions, custom rewards or commands change. Preserve current published Inventory documentation and all unrelated pending guide changes. Historical review-ledger drift is not approval to advance unrelated fingerprints.
+
+## Deployment record
+
+Gameplay passed dev PR495, test PR496 and main PR497. Main PR498 records the explicit owner-approved admission-drain action. Stage `fast-healing-20261120-v2` deployed zone `35330918b99b33b6a0d02fe3da6d3950ab4d97b6a9438c15e64bf2fa65db70d9`. The fresh stopped backup, saved-state/market checks, all12workers, unchanged rules/current Guise cache/signed client and reopened access verified. No player snapshot was restored. V1 was preflight-only and never activated. See `production-verified.json`.
+
+Wiki20261120-fast-healing-v1 verified631canonical files and private exclusions;627outputs preserve the public Inventory predecessor exactly. Linux publisher tests and pointer rollback rehearsal passed. The gameplay runtime and client channel stayed unchanged during publication. See `wiki-public-verification.json`. Historical unrelated wiki source drift remains flagged; the global ledger was not advanced.
+
+For recovery, hold admissions and use a fresh guarded binary-only release based on current service/DB state, selecting the retained predecessor image from `cache-pins.json`. Recompute the native saved-state/market boot expectations and take a new stopped backup before a restart. Never replay a terminal activation or restore the old player snapshot. The retained predecessor executable reproduced exactly before candidate compilation; operator behavior follows the tested backup/drain/recovery guards in `docs/releases/thj-combat-20261113/ops/`.
