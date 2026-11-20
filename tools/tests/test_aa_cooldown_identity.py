@@ -34,6 +34,7 @@ FIXTURE = r'''
 #include <string>
 #include <vector>
 #include "common/nightcap_aa_policy.h"
+#include "common/aa_availability.h"
 using uint8=uint8_t;using uint16=uint16_t;using uint32=uint32_t;using int64=int64_t;
 /* TIMER_DECLARATIONS */
 uint32 clock_now=100000;

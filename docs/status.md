@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## November 20, 2026 · AA availability candidate
+
+Mastery of the Past access fix passes native purchase/packet tests and a full shipping build. Existing 489 families / 1,845 ranks remain unchanged. Candidate pending promotion/deployment; visible player acceptance is open. [Audit and QA](audits/aa-availability-20261120/README.md).
+
 ## Post-combat recovery · test candidate
 
 Remove normal and raid recovery delays and raise the eligible HP and mana fast-regen floors by 10%, rounded to whole points. [Installation and QA](combat/post-combat-regen/README.md).
