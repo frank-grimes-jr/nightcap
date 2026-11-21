@@ -1,0 +1,14 @@
+{
+  "stage": "20261121-visible-ornaments-v1",
+  "previous": "20261121-item-name-colors-v1",
+  "files": 631,
+  "preserved": 627,
+  "changed": [
+    "equipment.html",
+    "features.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "scope": "Equipment guide, Features, Change Log and search. Global cosmetics have no fixed zone or boss. Existing generated zone and reward catalogs retain their original acquisition data.",
+  "refresh": "Historical source drift reviewed for this feature; unrelated ledger entries remain open."
+}

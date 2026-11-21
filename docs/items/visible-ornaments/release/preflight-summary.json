@@ -1,0 +1,10 @@
+{
+  "image": "sha256:50bcce347049a928a923e9e7598434c19b671699346e9546eba2e080d4e13238",
+  "cache": {
+    "records": 324796,
+    "original_records": 310028,
+    "designs": 14768,
+    "items_sha256": "9accb63c085c17c5d95fa5331d1bf035185a26acdd3e8218b586c81edabc38d9"
+  },
+  "manifest": "0d841660c5463ca1c40601c61106732fb9a2f29441fddeed47d00990cfcb4419"
+}
