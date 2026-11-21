@@ -1,4 +1,4 @@
-"""Content-only promotion. Reuse the audited stock-item release controls."""
+"""Paired focus-category binary and stock-item promotion with retained release controls."""
 import argparse
 import hashlib
 import importlib.util
@@ -34,8 +34,9 @@ def initialize():
     global op,p,r,a,h,base,m,stock,ids
     m = read(STAGE/'manifest.json')
     assert re.fullmatch('[0-9a-f]{40}',m['source'])
+    assert set(m['files'])=={'release.py','catalog.py','production.json.gz','policy.json','effects.json','build.json','bin/zone'}
     for name, pin in m['files'].items():
-        assert Path(name).name==name and sha(STAGE/name)==pin
+        assert (Path(name).name==name or name=='bin/zone') and sha(STAGE/name)==pin
     path=STAGE.parent/'stock-worn-atk-20261113-v1/release.py'
     assert sha(path)==m['stock_operator']
     spec=importlib.util.spec_from_file_location('stock_release',path)
@@ -43,11 +44,35 @@ def initialize():
     spec.loader.exec_module(op)
     op.initialize()
     p,r,a,h,base=op.p,op.r,op.a,op.h,op.base
-    assert r.compact('game')['image_id']==m['image']
+    allowed={m['image']}
+    if (EVIDENCE/'preflight.json').exists():allowed.add(read(EVIDENCE/'preflight.json')['candidate_image'])
+    assert r.compact('game')['image_id'] in allowed
     receipt=STAGE.parent/'titles-live-20261114-v1/evidence/activation/deployed.json'
     assert sha(receipt)==m['titles_receipt']
     stock=changes()
     ids=','.join(map(str,sorted(stock)))
+
+
+def candidate_image():
+    build=read(STAGE/'build.json')
+    assert build['baseline']['zone']==m['binaries']['zone']
+    assert build['binaries']==m['target_binaries']
+    assert sha(STAGE/'bin/zone')==m['target_binaries']['zone']
+    tag='nightcap-game:'+STAGE.name
+    r.call('docker','tag',m['image'],tag+'-base')
+    (STAGE/'Dockerfile').write_text('FROM '+tag+'-base\nCOPY --chmod=0755 bin/zone /opt/nightcap/bin/zone\n')
+    (STAGE/'.dockerignore').write_text('*\n!Dockerfile\n!bin\n!bin/zone\n')
+    r.call('docker','build','--network','none','--pull=false','-t',tag,str(STAGE))
+    target=r.out('docker','image','inspect','--format','{{.Id}}',tag).strip()
+    expected={**m['base_hashes'],'bin/zone':m['target_binaries']['zone']}
+    assert r.image_hashes(target)==expected
+    assert 'not found' not in r.out('docker','run','--rm','--network','none','--entrypoint','ldd',target,'/opt/nightcap/bin/zone')
+    r.call('docker','run','--rm','--network','none','--entrypoint','python3',target,'-c','import sys;sys.path.insert(0,"/opt/nightcap");import start;start.validate_native()')
+    return target
+
+
+def candidate_runtime(before):
+    return r.running(before['candidate_image'],{**m['binaries'],**m['target_binaries']})
 
 
 def sql(statement, db='peq'):
@@ -142,6 +167,7 @@ def verify_content(before):
     expected=dict(before['caches'],items=before['rehearsal']['items_sha256'])
     assert h.caches()==expected and h.publication()==before['publication']
     assert a.prior.p.rules()==before['rules']
+    assert all(r.compact(k)==m['services'][k] for k in ('db','web','tunnel'))
 
 
 def check_spells():
@@ -166,6 +192,7 @@ def preflight():
     p.contract()
     base.health()
     state['rehearsal']=rehearsal()
+    state['candidate_image']=candidate_image()
     before_rows('peq')
     p.save(EVIDENCE/'preflight.json',state)
 
@@ -209,8 +236,9 @@ def activate():
         sql(generate('forward'))
         sql(generate('verify'))
         assert saved==a.prior.saved()
+        r.select(before['candidate_image'])
         r.compose('up','-d','--no-deps','--wait','--wait-timeout','240','game')
-        runtime=r.running(m['image'],m['binaries'])
+        runtime=candidate_runtime(before)
         assert not any(runtime['errors'].values()) and runtime['restart_count']==0
         assert sum(row[0]=='zone' for row in runtime['processes'])==12
         assert a.prior.saved()==expected
@@ -235,7 +263,7 @@ def activate():
 
 def verify_open(before):
     folder=EVIDENCE/'activation'
-    runtime=r.running(m['image'],m['binaries'])
+    runtime=candidate_runtime(before)
     assert runtime['started_at']==read(folder/'verified-closed.json')['started_at']
     assert r.compact('gateway')['running'] and not any(runtime['errors'].values())
     workers=sum(row[0]=='zone' for row in runtime['processes'])
@@ -243,7 +271,7 @@ def verify_open(before):
     assert sha(ROOT/'data/public/channel.json')==m['channel']
     verify_content(before)
     base.health()
-    return dict(source=m['source'],gateway_open=True,workers=workers,errors=runtime['errors'],restarts=runtime['restart_count'],image=m['image'],client=m['client'],cache=before['rehearsal'],backup_sha256=read(folder/'backup.json')['sha256'],player_qa='open')
+    return dict(source=m['source'],gateway_open=True,workers=workers,errors=runtime['errors'],restarts=runtime['restart_count'],image=before['candidate_image'],binaries={**m['binaries'],**m['target_binaries']},client=m['client'],cache=before['rehearsal'],backup_sha256=read(folder/'backup.json')['sha256'],player_qa='open')
 
 
 if __name__=='__main__':

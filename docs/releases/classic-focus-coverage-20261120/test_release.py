@@ -8,6 +8,13 @@ import release
 from catalog import changes
 
 class CacheValidation(unittest.TestCase):
+    def test_candidate_runtime_keeps_other_binaries(self):
+        calls=[]
+        runtime=SimpleNamespace(running=lambda image,bins:calls.append((image,bins)))
+        with patch.multiple(release,create=True,m={'binaries':{'world':'old-world','zone':'old-zone','shared_memory':'loader'},'target_binaries':{'zone':'new-zone'}},r=runtime):
+            release.candidate_runtime({'candidate_image':'new-image'})
+        self.assertEqual(calls,[('new-image',{'world':'old-world','zone':'new-zone','shared_memory':'loader'})])
+
     def test_online_player_blocks_before_maintenance(self):
         before={'manifest':'pin','caches':{},'outside':'outside','publication':'pub','rules':'rules'}
         runtime=SimpleNamespace(compact=lambda service: {'image_id':'image','running':True},compose=lambda *args:self.fail('maintenance started'))

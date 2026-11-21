@@ -33,10 +33,8 @@ comparisons. Then stage the corrected binary together with the item migration.
 
 This is a global engine correction. It would preserve healing strength and Greater
 Healing but remove unintended mana savings from existing combinations, including
-items outside the proposed 19 stock families. The owner scope decision is pending.
-Do not describe the 10% stock spell definition as independently enforced by the
-current engine, and do not publish the prepared guide or deploy the gear candidate
-as though this gate were resolved.
+items outside the proposed 19 stock families. The owner approved correction without reducing healing strength. The implementation therefore rejects healing slots only for mana-cost requests; existing healing evaluation remains unchanged. The symmetric proposal is superseded.
+Until the paired release is verified, the live engine still has the defect. Corrected validation and deployment evidence must establish the new behavior.
 
 Evidence: `focus-controls-input.json`, `focus-controls-results.json`, the isolated
 diagnostic source and build pins in this directory. These are native method tests,

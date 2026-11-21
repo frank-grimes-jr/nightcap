@@ -1,0 +1,25 @@
+{
+  "after_source": "7c2acb91d9ee2e331a5aea53198381243c1474e6f5cde511afeb1a9bdff2d93c",
+  "baseline": {
+    "zone": "98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b"
+  },
+  "baseline_zone": "98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b",
+  "before_source": "9098c76237ac745e0dcb3436d86ccfbb89ba8812408e6bfbfc21c47762804961",
+  "binaries": {
+    "zone": "13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9"
+  },
+  "patch": "79a3cd521b9a47497ab09be50e7442afb0fdb3e25e17e77382485aea7a37aba2",
+  "scope": "Shipping objects plus corrected spell_effects only; no diagnostic main, clock, or Client adapter in candidate zone",
+  "units": {
+    "candidate": {
+      "object": "e0bb5453e50c7e8c9119da14deb3a611088f55ea7f265111ce0ed28379eded81",
+      "source": "7c2acb91d9ee2e331a5aea53198381243c1474e6f5cde511afeb1a9bdff2d93c",
+      "zone": "13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9"
+    },
+    "reproduced": {
+      "object": "7c0e48460222603edd9993cf8127b1d52ead0ed75cb83c1e3694fa3bdbac1794",
+      "source": "9098c76237ac745e0dcb3436d86ccfbb89ba8812408e6bfbfc21c47762804961",
+      "zone": "98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b"
+    }
+  }
+}

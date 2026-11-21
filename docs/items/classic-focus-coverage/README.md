@@ -1,6 +1,6 @@
 # Classic dropped-gear focus coverage
 
-Candidate; controlled measurement and SQL/cache rehearsal are complete, but test/main/production promotion is held for the confirmed category issue. Visible player acceptance is pending. User authorized test, main and deployment after validation. No custom content changes.
+Candidate; controlled measurement and SQL/cache rehearsal are complete, but the authorized mana-only correction is undergoing validation before test/main/production promotion. Visible player acceptance is pending. User authorized test, main and deployment after validation. No custom content changes.
 
 ## Audit boundary
 
@@ -46,7 +46,7 @@ Native isolation on the unchanged shipping engine found a category leak in Clien
 
 Level20 PAL/WAR, Light Healing17, identical stock equipment, no AAs or specialization: no focus costs28mana; healing-only selects20% healing/0% mana and costs28; mana-only selects0%/10% and costs26; both select20%/20% and cost23. Direct category calls confirm the wrong matches. Evidence: focus-controls-input.json and focus-controls-results.json. This changes the actual combined HPM ceiling from the nominal33% to50% before other mechanics; the earlier nominal percentages are spell definitions, not proof of runtime isolation.
 
-The owner has been asked whether to include the broader runtime correction or keep scope to stock additions. No production engine code has been changed. Main and deployment remain held pending this decision and valid survivability results. A correction would preserve healing amount but remove unintended mana savings from existing combinations, including gear outside these19families.
+The owner approved correction without reducing healing strength. The candidate rejects ImprovedHeal slots only during mana-cost lookup, preserving all existing healing evaluation. Validation must prove unchanged healing across Classic/later-effect magnitudes and mixed-source/order cases. The paired release includes the new zone binary and stock item changes; existing combinations lose unintended mana savings. See AUTHORIZATION.md.
 
 ## Validation and limitations
 
@@ -72,7 +72,7 @@ Under three attackers, no-AA pre-raid PAL/WAR with Light Healing increases mean 
 
 Full-healer gear retains4643HP,4714mana,487HA and402SD without AAs (5107HP with the selected sustain AAs). Existing Prismatic healing focus already wins: added healing focus does not further increase its heal sample. Light Healing gains the eligible HasteII lane,2000→1700ms; Greater3000→2550ms. The Dodging variant retains4643HP/4714mana/407HA/402SD. Its existing worn effects and sockets are preserved by full-row/cache comparison. These are test loadouts, not a claim of universal BiS or the same stats as older differently-equipped fixtures.
 
-**All results include the existing healing-to-mana category leak.** Do not use them to certify the proposed correction. If the owner includes that correction, rerun the matrix against the corrected full native translation unit before promotion.
+**All results include the existing healing-to-mana category leak.** Do not use them to certify the proposed correction. The owner authorized the correction; the corrected matrix and no-healing-reduction comparisons are separate evidence required before promotion.
 
 ## Exact in-game QA (OPEN)
 
@@ -85,4 +85,4 @@ Full-healer gear retains4643HP,4714mana,487HA and402SD without AAs (5107HP with 
 
 ## Release contract
 
-Content-only SQL plus matching item-cache rebuild through supported whole-runtime restart. Preserve current AA-fixed zone/world, signed client2026112001, spells, rules, custom/player tables and ongoing progression. No new client download. Guarded deployment requires a fresh stopped backup, zero-player maintenance window and healthy12workers; post-SQL failures hold access closed for review, never restore an old player snapshot. Wiki impact: equipment/focus guide, Features, home and release summary; generated custom item catalog values remain unchanged.
+Paired zone binary, guarded SQL and matching item-cache rebuild through supported whole-runtime restart. Preserve current AA-fixed zone/world, signed client2026112001, spells, rules, custom/player tables and ongoing progression. No new client download. Guarded deployment requires a fresh stopped backup, zero-player maintenance window and healthy12workers; post-SQL failures hold access closed for review, never restore an old player snapshot. Wiki impact: equipment/focus guide, Features, home and release summary; generated custom item catalog values remain unchanged.

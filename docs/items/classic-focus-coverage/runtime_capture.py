@@ -8,6 +8,7 @@ game=o.r.compact('game')
 channel=json.loads(base64.b64decode(json.loads((o.ROOT/'data/public/channel.json').read_bytes())['manifest']))
 receipt=Path('/opt/nightcap/releases/titles-live-20261114-v1/evidence/activation/deployed.json')
 out=dict(npcs=table('npc_types','id IN (63009,66011,32002,73057)'),rules=rows(RULES),
+ services={k:o.r.compact(k) for k in ('game','gateway','db','web','tunnel')},base_hashes=o.r.image_hashes(game['image_id']),
  image=game['image_id'],game=game,binaries={k[4:]:v for k,v in o.r.image_hashes(game['image_id']).items() if k.startswith('bin/')},
  caches=o.h.caches(),channel=o.sha(o.ROOT/'data/public/channel.json'),client=channel['release'],stock_operator=o.sha(p),
  titles_receipt=o.sha(receipt),players=o.a.prior.players(),wiki=str((o.ROOT/'data/public/wiki/current').readlink()))
