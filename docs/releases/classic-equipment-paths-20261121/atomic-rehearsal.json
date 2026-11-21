@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "late_zone_failure_rolls_back_all_items": true,
+  "item_drift_rejected": true,
+  "production_mutated": false
+}
