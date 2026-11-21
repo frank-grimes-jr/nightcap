@@ -2,15 +2,15 @@
 from pathlib import Path
 import hashlib,html,json,shutil,subprocess,sys
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
-BEFORE=Path('E:/EQ_Local_Dev/artifacts/aa-purchase-latency-20261121');ART=Path('E:/EQ_Local_Dev/artifacts/classic-equipment-paths-20261121');SITE=ART/'wiki'
-RELEASE='20261121-classic-equipment-paths-v2'
+BEFORE=Path('E:/EQ_Local_Dev/_worktrees/item-name-colors/artifacts/item-name-colors/wiki-release');ART=Path('E:/EQ_Local_Dev/artifacts/classic-equipment-paths-20261121');SITE=ART/'wiki-current'
+RELEASE='20261121-classic-equipment-paths-v3'
 def main():
  ART.mkdir(exist_ok=True)
  if not SITE.exists():shutil.copytree(BEFORE/'wiki',SITE,ignore=shutil.ignore_patterns('dist','__pycache__','*.tar.gz','*.tar.json'))
  for name in ('config','docs'):
   if not (ART/name).exists():shutil.copytree(BEFORE/name,ART/name)
  subprocess.run([sys.executable,'-B',str(SITE/'build.py')],check=True)
- previous=json.loads((BEFORE/'20261121-aa-purchase-latency-v1.tar.json').read_bytes())
+ previous=json.loads((BEFORE.parent/'20261121-item-name-colors-v1.tar.json').read_bytes())
  assert all(hashlib.sha256((SITE/'dist'/n).read_bytes()).hexdigest()==pin for n,pin in previous.items())
  policy=json.loads((ROOT/'docs/items/classic-equipment-paths/policy.json').read_bytes())['families'];effects={s['id']:s['name'] for s in json.loads((ROOT/'docs/items/classic-equipment-paths/effects.json').read_bytes())['spells']}
  table='<table><thead><tr><th>Item</th><th>Source</th><th>Added focus</th><th>Added worn effect</th></tr></thead><tbody>'
@@ -29,6 +29,6 @@ def main():
  package=ART/(RELEASE+'.tar.gz');subprocess.run([sys.executable,'-B',str(SITE/'build.py'),'--package',str(package)],check=True)
  manifest=json.loads(package.with_suffix('.json').read_bytes());changed=sorted(n for n,pin in manifest.items() if previous.get(n)!=pin)
  assert set(manifest)==set(previous)
- out=dict(release=RELEASE,previous='20261121-aa-purchase-latency-v1',published=False,files=len(manifest),changed=changed,preserved=len(manifest)-len(changed),review='All authored guides reviewed for effect, acquisition, commands, home and generated catalog impact. Existing custom item/zone numeric catalogs contain no changed stock definitions and remain unchanged. Home already links the updated guides. Historical source drift remains review-required.',source=str(SITE))
+ out=dict(release=RELEASE,previous='20261121-item-name-colors-v1',published=False,files=len(manifest),changed=changed,preserved=len(manifest)-len(changed),review='All authored guides reviewed for effect, acquisition, commands, home and generated catalog impact. Existing custom item/zone numeric catalogs contain no changed stock definitions and remain unchanged. Home already links the updated guides. Historical source drift remains review-required.',source=str(SITE))
  (HERE/'wiki-candidate.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf8');print(json.dumps(out))
 if __name__=='__main__':main()

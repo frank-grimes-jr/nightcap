@@ -7,7 +7,7 @@ from probe import remote
 CODE=r"""
 import importlib.util,json,sys,uuid
 from pathlib import Path
-folder=Path('/opt/nightcap/releases/classic-equipment-paths-20261121-candidate-v3');sys.path.insert(0,str(folder))
+folder=Path('/opt/nightcap/releases/classic-equipment-paths-20261121-candidate-v4');sys.path.insert(0,str(folder))
 s=importlib.util.spec_from_file_location('equipment_release',folder/'release.py');r=importlib.util.module_from_spec(s);s.loader.exec_module(r);r.initialize()
 from zone_catalog import row
 from catalog import literal,generate as item_sql
