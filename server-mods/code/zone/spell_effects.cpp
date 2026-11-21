@@ -6053,6 +6053,10 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 
 			case SpellEffect::ImprovedHeal:
 			case SpellEffect::ReduceManaCost:
+				// Keep existing healing strength; only reject healing slots during mana lookup.
+				if (type == focusManaCost && focus_spell.effect_id[i] != SpellEffect::ReduceManaCost) {
+					break;
+				}
 				if (!RuleB(Spells, UseClassicSpellFocus)) {
 					if (type == focusImprovedHeal || type == focusManaCost) {
 						value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);

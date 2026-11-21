@@ -1,3 +1,7 @@
+## November20,2026 · Classic stock focus coverage candidate
+
+19stock families/76definitions fill focus gaps. The authorized mana-only correction preserves healing strength. Native comparison and paired SQL/cache/image rehearsal precede test/main promotion and production. Player acceptance remains OPEN. [Audit and QA](items/classic-focus-coverage/README.md).
+
 # Current Nightcap status
 
 ## November 20, 2026 · AA availability deployed

@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "build": {
+    "zone": "13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9"
+  },
+  "category_pairs": 144,
+  "combat_pairs": 260,
+  "healing_strength": "exactly preserved at identical inputs",
+  "catalog_tests": 3,
+  "release_tests": 3,
+  "rehearsal": {
+    "records": 310028,
+    "changed": 76,
+    "unchanged": 309952,
+    "items_sha256": "2ecee16892c0c0eec4f1b18a27e3e47f13f96cf222a9dfde047a5781fa5d4159"
+  },
+  "candidate_image": "sha256:48dd9c1ce9528e2697aaa78e8a8a5378f74842e545d7cbb5158d3d18dd21313f",
+  "player_acceptance": "OPEN",
+  "authorization": "AUTHORIZATION.md",
+  "deployment": "pending promotion"
+}

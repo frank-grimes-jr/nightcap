@@ -1,0 +1,50 @@
+{
+ "cases": [],
+ "focus_controls": [
+  {
+   "base_mana": 28,
+   "direct_heal_as_heal": 20,
+   "direct_heal_as_mana": 20,
+   "direct_mana_as_heal": 10,
+   "direct_mana_as_mana": 10,
+   "id": "none",
+   "mana_cost": 28,
+   "selected_heal": 0,
+   "selected_mana": 0
+  },
+  {
+   "base_mana": 28,
+   "direct_heal_as_heal": 20,
+   "direct_heal_as_mana": 20,
+   "direct_mana_as_heal": 10,
+   "direct_mana_as_mana": 10,
+   "id": "healing_only",
+   "mana_cost": 28,
+   "selected_heal": 20,
+   "selected_mana": 0
+  },
+  {
+   "base_mana": 28,
+   "direct_heal_as_heal": 20,
+   "direct_heal_as_mana": 20,
+   "direct_mana_as_heal": 10,
+   "direct_mana_as_mana": 10,
+   "id": "mana_only",
+   "mana_cost": 26,
+   "selected_heal": 0,
+   "selected_mana": 10
+  },
+  {
+   "base_mana": 28,
+   "direct_heal_as_heal": 20,
+   "direct_heal_as_mana": 20,
+   "direct_mana_as_heal": 10,
+   "direct_mana_as_mana": 10,
+   "id": "both",
+   "mana_cost": 23,
+   "selected_heal": 20,
+   "selected_mana": 20
+  }
+ ],
+ "scope": "Controlled timed native primary-hand attacks and native self-heal casting. No NPC AI, outgoing attack policy, regen, buffs ticking, pathing, or player acceptance. AA gate plus in-memory usable ranks, not persisted earned ownership."
+}

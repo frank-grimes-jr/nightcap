@@ -1,3 +1,7 @@
+## 2026-11-20 · Classic stock focus coverage and mana correction
+
+- Add existing spell haste, healing and mana-preservation focuses to19stock families/76definitions. Reject healing slots only during mana-cost focus lookup; preserve all existing healing evaluation, Greater Healing, ranks and custom content. Full native build and paired category/pressure validation plus guarded SQL/cache rehearsal precede test/main and production. Evidence and exact in-game QA: docs/items/classic-focus-coverage/. Requires paired zone binary and item-cache rebuild; no new client download. Deployment status remains in docs/status.md.
+
 ## 2026-11-20 · AA availability
 
 - Deployed through dev/test/main and verified on all12production workers; wiki published. Correct the impossible Spell Casting Expertise prerequisite on existing Mastery of the Past ranks for CLR/PAL/RNG/DRU/SHM/BST. Purchase checks and per-client AA packets agree; all ranks, costs, effects, class masks and custom content remain unchanged. Rebuild zone and relog; no client/cache/SQL update. Audit, tests, release status and exact QA: docs/audits/aa-availability-20261120/.
