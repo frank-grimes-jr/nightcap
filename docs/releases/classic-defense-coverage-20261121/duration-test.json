@@ -1,0 +1,10 @@
+{
+  "tested": "7b29c224bdee4a9c1cc58b4329121a5b390435d0",
+  "prior": "5650738c23e02db88845e8c64a9f686b1e2d055e",
+  "baseRefName": "test",
+  "mergeCommit": {
+    "oid": "7afbf4360d69293333be7b63e96d7b2cae09917a"
+  },
+  "state": "MERGED",
+  "url": "https://github.com/frank-grimes-jr/nightcap/pull/510"
+}

@@ -1,0 +1,7 @@
+{
+  "path": "/opt/nightcap/releases/classic-defense-coverage-20261121-v1/evidence/activation/private-backup/peq-before.sql.gz",
+  "sha256": "0453148c8466250f047fe905f618b3e5b2922973c524bf2903e412d62901441e",
+  "compressed_bytes": 66989965,
+  "uncompressed_bytes": 485438651,
+  "gzip_integrity": "passed"
+}

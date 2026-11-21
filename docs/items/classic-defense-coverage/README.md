@@ -1,5 +1,7 @@
 # Broad Classic focus and defensive coverage
 
+Deployed through dev/test/main and verified on all twelve production workers. The wiki package is validated but unpublished; explicit publication approval is pending after automatic review rejection. Player encounter acceptance remains OPEN. Reconnect to refresh existing gear; no client download.
+
 ## Intent and implementation plan
 
 The owner requests useful coverage across Classic stock dropped gear, including defensive abilities, without reducing healing strength or changing custom content. The previous nineteen-family release is the baseline, not the scope ceiling.
@@ -14,9 +16,9 @@ The riskiest step is defensive stacking: strongest-only dodge/parry effects diff
 
 ## Baseline
 
-Read-only production capture 2026-11-21T02:56Z: 87,268 routes, 1,569 usable stock base families including enabled conditional spawns; 1,458 have no focus. Production zone13ad2534 and item cache2ecee168 retain the approved mana-only correction and unchanged healing. Runtime pins are in runtime.json. No candidate has been installed or deployed.
+Read-only production capture 2026-11-21T02:56Z: 87,268 routes, 1,569 usable stock base families including enabled conditional spawns; 1,458 have no focus. Production zone13ad2534 and item cache2ecee168 retain the approved mana-only correction and unchanged healing. Runtime pins are in runtime.json. This capture preceded activation; the current deployment is recorded above.
 
-## Candidate and evidence
+## Policy and evidence
 
 119 families / 476 definitions: 84 casting focuses and40 defensive worn additions, with five overlaps. Only empty effect fields change. Normal/Polished/Exalted/Ascended use identical effect strength. `policy.json` owns exact IDs; `coverage-after.json` contains the full source/class/slot matrix. Existing healing calculation, custom content, loot, stats, ranks and signed client remain unchanged.
 
@@ -27,3 +29,9 @@ Validation passes188 paired pressure comparisons and259 paired defensive checks 
 Per-cast healing never decreases, haste never slows, mana cost never increases, and HP/mana/HA/SD are identical before/after for matched equipment. Existing Dodging scale stays10. New regeneration is at most3HP/tick from a head item and3mana/tick from boots, before existing caps. Dodge/parry/block are skill-chance modifiers, not flat percentage-point protection. Integer rounding means some low-skill/priest cases show no extra dodge rolls. Monk block and pureINT caster dodge increase; behind/ranged restrictions retain native behavior.
 
 These are primary-hand pressure and conditional skill tests with six-second native combat regeneration. They do not simulate full NPC AI, bash/stuns, special attack rounds, spell AEs, movement or player latency. Full encounter acceptance remains OPEN. Exact in-game steps are in the release QA document. No engine/client/spell changes are required; rebuild the paired item cache and use a supported whole-runtime restart. Reconnect to refresh existing item copies.
+
+## Verified activation
+
+Gameplay main 50626fbe79b97f512f147fd9c9de83eae7b8d2d8 (PR511), test PR510 and dev PR508/509. Stage classic-defense-coverage-20261121-v1 retained native image/binaries and installed item cache 92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f. Zero-player maintenance, fresh stopped backup, saved-state/market preservation, twelve workers, zero detected errors/restarts and open gateway verified. Rules, spell cache and signed client2026112001 remain unchanged.
+
+Wiki20261121-classic-defense-v1 is packaged and validated, changing five outputs and preserving626. The public predecessor20261120-classic-focus-v3 verified all631files/private404s. Automatic approval review rejected publication because explicit permission for this public release was absent. No publication was attempted through another route. Full AI, bash/stun, AE and visible player QA remain open.
