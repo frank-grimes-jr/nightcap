@@ -1,0 +1,90 @@
+{
+  "donor_mapping_fields": [
+    "id",
+    "name",
+    "ornament",
+    "ornament_name",
+    "augtype",
+    "restriction",
+    "idfile",
+    "material"
+  ],
+  "mappings": [
+    [
+      "1001",
+      "Cloth Cap",
+      "1011815",
+      "Cloth Cap Ornament",
+      "1048576",
+      "0",
+      "",
+      "0"
+    ],
+    [
+      "1009",
+      "Cloth Wristband",
+      "1007975",
+      "Cloth Wristband Ornament",
+      "1048576",
+      "0",
+      "",
+      "23"
+    ],
+    [
+      "1163",
+      "Raw Silk Robe",
+      "1006039",
+      "Raw Silk Robe Ornament",
+      "1048576",
+      "0",
+      "",
+      "16"
+    ],
+    [
+      "5350",
+      "Fine Steel Long Sword",
+      "1001211",
+      "Ruined Heretic Longsword Ornament",
+      "524288",
+      "5",
+      "IT10649",
+      "0"
+    ],
+    [
+      "8009",
+      "Short Bow",
+      "1000613",
+      "Validus Custodus Longbow Ornamentation",
+      "524288",
+      "12",
+      "IT10614",
+      "0"
+    ],
+    [
+      "9021",
+      "Large Wooden Shield",
+      "1000400",
+      "Wooden Shield Ornament",
+      "524288",
+      "13",
+      "IT201",
+      "0"
+    ]
+  ],
+  "artisan_fields": [
+    "id",
+    "name",
+    "zone",
+    "x",
+    "y",
+    "z"
+  ],
+  "artisan": [
+    "998946",
+    "Ornament_Artisan",
+    "ecommons",
+    "-361.000000",
+    "-1801.000000",
+    "3.750000"
+  ]
+}

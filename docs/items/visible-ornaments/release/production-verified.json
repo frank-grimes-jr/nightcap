@@ -1,0 +1,30 @@
+{
+  "source": "5e5ec4e10c8017da48c1b12e1a85c17bd17303ab",
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "gateway_open": true,
+  "image": "sha256:50bcce347049a928a923e9e7598434c19b671699346e9546eba2e080d4e13238",
+  "binaries": {
+    "world": "9726ce1cca92ffb29b198f15428688b44f243e9513623d8e4b02a700e7dfb32d",
+    "zone": "bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40"
+  },
+  "cache": {
+    "records": 324796,
+    "original_records": 310028,
+    "designs": 14768,
+    "items_sha256": "9accb63c085c17c5d95fa5331d1bf035185a26acdd3e8218b586c81edabc38d9"
+  },
+  "content": [
+    14768,
+    137799,
+    14768,
+    1
+  ],
+  "preserved_original_tables": 107,
+  "backup_sha256": "a655341318ece8182eb400f66f81b8409bb0f82c525dc2d29ca9355cae317e58",
+  "manual_qa": "open"
+}

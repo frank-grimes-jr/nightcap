@@ -1,6 +1,6 @@
 ## 2026-11-21 · Visible equipment ornaments
 
-Main PR526 adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The production rehearsal added 14,768 statless designs and preserved all 310,028 previous cache records. Public activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](docs/items/visible-ornaments/README.md).
+Main PR526 adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The production rehearsal added 14,768 statless designs and preserved all 310,028 previous cache records. The server and public wiki are live. All twelve zone workers passed runtime checks. Owner RoF2 visual QA remains open. [Catalog, pairing and in-game QA](docs/items/visible-ornaments/README.md).
 
 ## 2026-11-21 · Item name quality colors (published)
 
