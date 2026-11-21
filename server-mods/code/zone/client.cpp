@@ -1,4 +1,5 @@
 #include "zone/earned_titles.h"
+#include "common/cairnwright.h"
 #include "zone/advanced_loot.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
@@ -3493,11 +3494,34 @@ bool Client::HasSkill(EQ::skills::SkillType skill_id) const
 	return GetSkill(skill_id) > 0 && CanHaveSkill(skill_id);
 }
 
+void Client::ScribeCairnwrightSpells()
+{
+	if (!m_multiclass_state_valid || !IsMulticlassMember(Cairnwright::ClassId)) {
+		return;
+	}
+	for (auto spell_id : {Cairnwright::StrikeCairn, Cairnwright::SoundTheSeam}) {
+		if (!IsValidSpell(spell_id) || HasSpellScribed(spell_id)) {
+			continue;
+		}
+		// Preserve every occupied slot, including a spell missing from this cache.
+		int slot = 0;
+		while (slot < EQ::spells::SPELLBOOK_SIZE && m_pp.spell_book[slot] != UINT32_MAX) {
+			++slot;
+		}
+		if (slot == EQ::spells::SPELLBOOK_SIZE) {
+			Message(Chat::Yellow, "Your spellbook is full. Free a slot and re-enter the zone to learn your Cairnwright spells.");
+			return;
+		}
+		ScribeSpell(spell_id, slot);
+	}
+}
+
 uint32 Client::ReconcileMulticlassSkills()
 {
 	const auto previous_class2 = GetClass2();
 	const auto previous_class3 = GetClass3();
 	LoadMulticlassMask();
+	ScribeCairnwrightSpells();
 
 	const auto held_classes = GetMulticlassList();
 	std::vector<EQ::skills::NativeSkillSeedCandidate> candidates;

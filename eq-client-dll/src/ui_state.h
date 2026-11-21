@@ -5,6 +5,7 @@
 #include <string_view>
 #include <unordered_map>
 #include "../../server-mods/code/common/aa_recommendations.h"
+#include "../../server-mods/code/common/cairnwright.h"
 
 namespace nightcap {
 // Presentation metadata only. Never use this cache to authorize purchases,
@@ -22,9 +23,9 @@ class UIState {
         recommended_.clear(); pending_recommended_.clear();
         recommendations_ready_ = recommendations_pending_ = false;
     }
-    static constexpr const char* names_[17] = {
+    static constexpr const char* names_[Cairnwright::ClassId + 1] = {
         "---","WAR","CLR","PAL","RNG","SHD","DRU","MNK","BRD",
-        "ROG","SHM","NEC","WIZ","MAG","ENC","BST","BER"
+        "ROG","SHM","NEC","WIZ","MAG","ENC","BST","BER","CRW"
     };
     static bool Number(std::string_view text, uint32_t& result) {
         if (text.empty() || text.size() > 10) return false;
@@ -53,7 +54,7 @@ public:
     uint32_t PrimaryClass() const { return classes_[0]; }
     uint32_t ClassMask() const {
         uint32_t mask = 0;
-        for (auto id : classes_) if (id >= 1 && id <= 16) mask |= uint32_t(1) << (id - 1);
+        for (auto id : classes_) if (id >= 1 && id <= Cairnwright::ClassId) mask |= uint32_t(1) << (id - 1);
         return mask;
     }
     bool Matches(uint32_t spawn, const char* name) const {
@@ -127,7 +128,7 @@ public:
             aa_classes_[values[5]] = values[6];
             return true;
         }
-        if (!values[5] || values[5] > 16 || values[6] > 16 || values[7] > 16 ||
+        if (!values[5] || values[5] > Cairnwright::ClassId || values[6] > Cairnwright::ClassId || values[7] > Cairnwright::ClassId ||
             values[5] == values[6] || values[5] == values[7] || (values[6] && values[6] == values[7])) return false;
         const auto name = fields[8];
         if (name.empty() || name.size() > 63) return false;

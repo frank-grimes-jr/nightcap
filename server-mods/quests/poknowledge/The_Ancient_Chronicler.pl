@@ -19,7 +19,7 @@ my %ARCHETYPES = (
     'Tanks' => [1, 3, 5],        # War Pal SK
     'Healers'   => [2, 6, 10],       # Clr Dru Shm
     'Melee and songs'      => [4, 7, 8, 9, 16], # Rng Mnk Brd Rog Ber
-    'Casters and pets' => [11, 12, 13, 14, 15], # Nec Wiz Mag Enc Bst
+    'Casters and pets' => [11, 12, 13, 14, 15, 17], # Nec Wiz Mag Enc Bst Crw
 );
 my @ARCHETYPE_ORDER = ('Tanks', 'Healers',
                        'Melee and songs', 'Casters and pets');
@@ -65,6 +65,11 @@ sub _show_preview {
     my ($base, $class_id) = @_;
     my $cname = plugin::mc_class_name($class_id);
     quest::say($cname . ': ' . plugin::mc_flavor($class_id) . '.');
+    if ($class_id == 17) {
+        $client->Message(15, 'Strike Cairn places a stone at your feet. Move to the other side of an engaged foe, then cast Sound the Seam. Keep two spellbook slots free to learn both spells.');
+        quest::say('Ready to add Cairnwright? [' . quest::saylink('embrace Cairnwright', 0, 'Choose this class') . ']');
+        return;
+    }
     $client->Message(15,
         'Choosing this class opens its eligible spells, skills, and alternate abilities. ' .
         'Level and expansion requirements still apply. Purchase spells from the spell merchants; ' .
@@ -139,7 +144,7 @@ sub EVENT_POPUPRESPONSE {
         return;
     }
 
-    if ($popupid > 300 && $popupid <= 316) {
+    if ($popupid > 300 && $popupid <= 317) {
         my ($ok, $msg) = plugin::mc_apply_class($client, $popupid - 300);
         $client->Message($ok ? 15 : 13, $msg);
         my ($c2, $c3) = plugin::mc_get_classes($char_id);

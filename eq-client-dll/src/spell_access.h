@@ -4,7 +4,7 @@
 namespace nightcap {
 inline uint8_t HeldSpellLevel(uint32_t spell, uint32_t classes) {
     uint8_t best = 255;
-    for (unsigned id = 1; id <= 16; ++id) {
+    for (unsigned id = 1; id <= Cairnwright::ClassId; ++id) {
         if (!(classes & (uint32_t(1) << (id - 1)))) continue;
         const auto level = NightcapSpellClasses::Level(spell, id);
         if (level < best) best = level;

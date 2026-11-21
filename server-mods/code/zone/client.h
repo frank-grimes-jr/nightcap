@@ -514,6 +514,7 @@ public:
 	inline ExtendedProfile_Struct& GetEPP() { return m_epp; }
 	void LoadMulticlassMask();
 	uint32 ReconcileMulticlassSkills();
+	void ScribeCairnwrightSpells();
 	void PurgeAfterClassRelease(uint8 released_class); // retired: refuses the old non-atomic quest sequence
 	bool ReleaseMulticlassSlot(int slot);
 	void SetMulticlassSlot(int slot, int class_id);

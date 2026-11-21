@@ -1,4 +1,5 @@
 #include "zone/dungeon_service.h"
+#include "common/cairnwright.h"
 #include "common/features.h"
 #include "common/epic05.h"
 #include "common/rulesys.h"
@@ -78,6 +79,20 @@ void Perl_Client_Kick(Client* self) // @categories Script Utility
 void Perl_Client_Disconnect(Client* self) // @categories Script Utility
 {
 	self->Disconnect();
+}
+
+bool Perl_Client_IsMulticlassMember(Client* self, uint8 class_id)
+{
+	return self->IsMulticlassMember(class_id);
+}
+
+bool Perl_Client_AdoptCairnwright(Client* self)
+{
+	if (self->IsMulticlassMember(Cairnwright::ClassId) || (self->GetClass2() && self->GetClass3())) {
+		return false;
+	}
+	self->SetMulticlassSlot(self->GetClass2() ? 3 : 2, Cairnwright::ClassId);
+	return self->IsMulticlassMember(Cairnwright::ClassId);
 }
 
 bool Perl_Client_ReleaseMulticlassSlot(Client* self, int slot) // @categories Script Utility
@@ -3536,6 +3551,8 @@ void perl_register_client()
 	package.add("DiaWind", &Perl_Client_DiaWind);
 	package.add("DialogueWindow", &Perl_Client_DialogueWindow);
 	package.add("Disconnect", &Perl_Client_Disconnect);
+	package.add("IsMulticlassMember", &Perl_Client_IsMulticlassMember);
+	package.add("AdoptCairnwright", &Perl_Client_AdoptCairnwright);
 	package.add("ReleaseMulticlassSlot", &Perl_Client_ReleaseMulticlassSlot);
 	package.add("PurgeAfterClassRelease", &Perl_Client_PurgeAfterClassRelease);
 	package.add("ReconcileMulticlassSkills", &Perl_Client_ReconcileMulticlassSkills);
