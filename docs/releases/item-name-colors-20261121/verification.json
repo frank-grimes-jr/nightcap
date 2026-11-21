@@ -2,7 +2,7 @@
   "date": "2026-11-21",
   "base_revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62",
   "branch": "feature/item-name-colors",
-  "status": "local candidate; not published or player accepted",
+  "status": "main merged; signed client and wiki published/verified; player acceptance open",
   "proxy_version": "0.13.7-dev",
   "checks": {
     "native_red": "35 checks; six expected color failures before implementation",
@@ -14,13 +14,14 @@
     "full_proxy_build": "passed x86 MSVC /W4; expected proxy exports present",
     "catalog": "120 sites; generator --check and exact-client verifier pass",
     "diff": "git diff --check passed",
-    "wiki": "24 tests passed plus six search cases against current-public-source candidate"
+    "wiki": "24 tests passed plus six search cases against current-public-source candidate",
+    "launcher": "Go manifest and preflight packages passed",
+    "linux_publishers": "20 client and16 wiki tests passed; wiki rollback rehearsed"
   },
   "limits": [
     "font/GPU rendering is a fixture boundary",
     "no visible in-game QA",
-    "native chat/merchant/buyer list/tooltips are not changed",
-    "wiki publication pending"
+    "native chat/merchant/buyer list/tooltips are not changed"
   ],
   "sha256": {
     "eq-client-dll/build/dinput8.dll": "665eddb9cb11cef77fc15e9c10f42277fa65219e055d13cc4b6e55b0d78fe086",
@@ -35,5 +36,14 @@
     "eq-client-dll/tests/augment-item-window.cpp": "bfb7de7023715a269cdf515b6d895962028af439502babafeb9119d9b6b4ae9d",
     "eq-client-dll/tests/advanced-loot-controller.cpp": "3b81fb05c54909c9be2c217241637924bd9fdae135b65b5528c601e435969a80",
     "eq-client-dll/tests/bazaar-panel-native.cpp": "42574f5e0b4448f0723c6d49f15539b7cd6b56ac813881e3f05979fcf3b4478f"
+  },
+  "publication": {
+    "main": "c65d6adc194f946d32d67d1c6be6af8551bd6556",
+    "client": 2026112101,
+    "wiki": "20261121-item-name-colors-v1",
+    "preserved_client_assets": 146,
+    "verified_wiki_files": 631,
+    "preserved_wiki_outputs": 627,
+    "five_services_unchanged": true
   }
 }

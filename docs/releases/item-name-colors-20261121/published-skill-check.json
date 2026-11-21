@@ -1,0 +1,98 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "item-name-colors": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\src\\item_name_color.h",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\src\\ui_hooks.h",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\src\\advanced_loot_ui.h",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\src\\advanced_loot_screen.h",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\src\\bazaar_panel_hooks.h",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\config\\patch-sites.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\tests\\item-name-color.cpp",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\tests\\augment-item-window.cpp",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\tests\\advanced-loot-controller.cpp",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\eq-client-dll\\tests\\bazaar-panel-native.cpp",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\README.md",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\verification.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\wiki-review.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\source-merge.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\client-published.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\client-public-verification.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\wiki-publication.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\docs\\releases\\item-name-colors-20261121\\wiki-public-verification.json",
+        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

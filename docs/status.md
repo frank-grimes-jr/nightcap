@@ -2,9 +2,9 @@
 
 The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
 
-## November 21, 2026 · Item-name colors candidate
+## November 21, 2026 · Item-name colors published
 
-Source candidate only: usable inspection names, Advanced loot and Bazaar seller text use Regular green, Polished blue, Exalted purple and Ascended orange. Native equipment warnings remain. Proxy `0.13.7-dev` and matching catalogs build locally; signed publication and in-game QA remain open. No server/cache update. Generic native chat, merchant/buyer lists and tooltips are outside this candidate. Wiki source and a scoped current-public-source candidate are prepared but unpublished. [Evidence and QA](releases/item-name-colors-20261121/README.md).
+Main PR 517 (`c65d6adc`), signed client `2026112101` / proxy `0.13.7-dev` and wiki `20261121-item-name-colors-v1` are published and verified. Usable inspection names, Advanced loot and Bazaar seller text use Regular green, Polished blue, Exalted purple and Ascended orange. Equipment warnings remain. All 148 signed descriptors/history verify; 146 unrelated assets and five service identities stay unchanged. All 631 wiki files and private 404s verify; 627 outputs preserved. Fully exit EQ and use launcher Play. Native chat/merchant/buyer lists and tooltips remain outside this release; in-game visual acceptance is OPEN. [Evidence and QA](releases/item-name-colors-20261121/README.md).
 
 ## November 21, 2026 · AA purchase responsiveness deployed
 

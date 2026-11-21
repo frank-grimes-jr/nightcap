@@ -1,0 +1,301 @@
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,12 +1,14 @@
+ # RoF2 client, pets and buff effects
+ 
+-## Item name colors — November 21 source candidate
+-
+-Source E:/EQ_Local_Dev/_worktrees/item-name-colors, feature/item-name-colors,
+-based on main0b7ca302. Proxy0.13.7-dev is built/tested, not signed/published or
+-owner-accepted. Usable inspection headings, Advanced loot rows/details and Bazaar
+-seller rows/quotes use Regular green#00FF00, Polished blue#0070DD, Exalted
+-purple#A335EE and Ascended orange#FF8000; Hunt Ascension is also orange.
++## Item name colors — November 21 published client
++
++Owner-authorized main PR 517 merged at c65d6adc194f946d32d67d1c6be6af8551bd6556.
++Signed client 2026112101 / proxy 0.13.7-dev and matching catalog were published and
++verified through canonical HTTPS on November 21. Source and release evidence:
++E:/EQ_Local_Dev/_worktrees/item-name-colors. Player visual acceptance remains OPEN.
++Usable inspection headings, Advanced loot rows/details and Bazaar
++seller rows/quotes use Regular green #00FF00, Polished blue #0070DD, Exalted
++purple #A335EE and Ascended orange #FF8000; Hunt Ascension is also orange.
+ Exact suffixes and catalog-bounded dungeon prefixes avoid coloring natural stock
+ names such as Polished Granite Tomahawk. Native red/unmet-requirement purple and
+ disabled gray remain. Buttons retain tier colors on hover/press. Ordinary native
+@@ -16,12 +18,16 @@
+ only the item heading at window+0x314 / label+0x12c changes. Known button hover/
+ pressed fields are+0x210/+0x214; disabled+0x218 stays native. The protected client
+ is read-only. Native fixture executes UpdateStrings and CButtonWnd text selection;
+-font/GPU boundaries are mocked. 51 native color/description and78 equipment checks,
+-policy/controller suites, full x86 build and120-site catalog verification pass.
+-Pair DLL and generated catalog in a higher signed release, then fully exit EQ and
+-launcher Play. No server/cache/SQL/reload requirement. Main/publication and visible
+-QA remain pending. Evidence, exact steps and recovery:
+-docs/releases/item-name-colors-20261121/{README.md,verification.json}.
++font/GPU boundaries are mocked. 51 native color/description and 78 equipment checks,
++policy/controller suites, full x86 build and 120-site catalog verification pass.
++The published DLL/catalog pair preserves 146 unrelated asset descriptors; the
++signed channel verifies against the shipped production key. Fully exit EQ and
++launcher Play to install. No server/cache/SQL/reload requirement or runtime restart;
++all five services and the newer AA purchase runtime remained unchanged. 20 Linux
++client publisher/recovery tests pass. Native fixtures do not establish visible QA.
++Evidence, exact player steps, source merge, public receipts and recovery:
++docs/releases/item-name-colors-20261121/{README.md,verification.json,
++source-merge.json,client-published.json,client-public-verification.json}.
+ 
+ ## Quick Buff — November12 signed text published
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,14 +1,21 @@
+ # Official player wiki and Features
+ 
+-## Item name colors — November 21 unpublished source
+-
+-The item-name-colors worktree owns a three-article candidate over the exact retained
+-20261121-classic-defense-v1 source: Equipment, Advanced loot and Change Log, plus
+-rebuilt search. All44authored pages, Home/Features/commands and generated item/zone
+-catalog impacts were reviewed; no numeric/catalog changes.24wiki tests and search
+-checks pass. Public publication is pending; no client/server activation is implied.
++## Item name colors — November 21 published wiki
++
++Owner-authorized wiki 20261121-item-name-colors-v1 was published over the exact
++retained 20261121-aa-purchase-latency-v1 source, preserving 627 of 631 files. Equipment,
++Advanced loot and Change Log plus rebuilt search changed. All 631 canonical HTTPS
++hashes/security headers and five private-path 404 checks passed at
++2026-11-21T14:11:34.806663+00:00. The staged public source is retained under
++E:/EQ_Local_Dev/_worktrees/item-name-colors/artifacts/item-name-colors/wiki-release/wiki.
++All 44 authored pages, Home/Features/commands and generated item/zone catalog impacts
++were reviewed; no numeric/catalog changes. 24 wiki tests, six search cases and 16
++Linux publisher tests pass. Rollback rehearsal preserved five services, config
++bytes/inode, private downloads and the signed client. Client 2026112101 is published;
++player visual acceptance remains OPEN.
+ Historical source drift stays REVIEW REQUIRED with no unrelated ledger advance.
+-See docs/releases/item-name-colors-20261121/wiki-review.json and prepare_wiki.py.
++See docs/releases/item-name-colors-20261121/{wiki-review.json,wiki-publication.json,
++wiki-public-verification.json,prepare_wiki.py}.
+ 
+ ## AA purchase responsiveness · November21 published
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -177,7 +177,7 @@
+     "titles_wiki_automatic_suffix_20261114": "20261114-titles-automatic-suffix-v1;631HTTPS hashes/headers,621retained files; no global ledger advance",
+     "inventory_scrollbars_published_20261120": "main PR492/f8faa1ba + reviewed publication receipts; signed client2026112001/wiki20261120-inventory-no-scrollbars-v1; native QA OPEN",
+     "guise_all_classes_20261120": "Main PR493; source 48af6ce5e820c7d91e028483366c11b66edf498c; reviewed df5bcf5404e50a8aa169f4492a92ce1dd1f54bc7; OVH v2 verified with four class-only cache changes and12 open workers; native player QA and Guise public wiki pending",
+-    "item_name_colors_20261121": "source candidate over0b7ca302; native/controller tests and x86 build pass; unpublished; visible QA open",
++    "item_name_colors_20261121": "main PR 517 c65d6adc; client 2026112101/proxy 0.13.7-dev and wiki 20261121-item-name-colors-v1 published and HTTPS verified; five services unchanged; visible QA OPEN",
+     "aa_purchase_latency_deployed_20261121": "faaae0f9368a5e64085e4fd314724b977647a9d6"
+   },
+   "topics": {
+@@ -11092,15 +11092,15 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/bazaar_panel_hooks.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "fa448365bd08a5ad5518605f3ee99ff884a8a9094ea418c8e26fa324b2f6dbe4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/ui_hooks.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "6c5e7481122d0b315664f37c845a5302347de75e8d66080b0a6dfb807eabdb38"
+       },
+       {
+@@ -11113,8 +11113,8 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/tests/bazaar-panel-native.cpp",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "42574f5e0b4448f0723c6d49f15539b7cd6b56ac813881e3f05979fcf3b4478f"
+       },
+       {
+@@ -11197,8 +11197,8 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/config/patch-sites.json",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "8f653cd770f21f97a39a621cfffb3ce20209be72c029532217fb0d125d734585"
+       },
+       {
+@@ -11512,8 +11512,8 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/config/patch-sites.json",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
+         "sha256": "8f653cd770f21f97a39a621cfffb3ce20209be72c029532217fb0d125d734585"
+       },
+       {
+@@ -21087,93 +21087,128 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/item_name_color.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "a5f54cf34f8d4a53f5bbf73afd786d5f5312c7016f4e9ebc0c876f5b7c92481e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/ui_hooks.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "6c5e7481122d0b315664f37c845a5302347de75e8d66080b0a6dfb807eabdb38"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/advanced_loot_ui.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "610007813f1165e8a645cc8b8fc94565d90a4adef9b1054c262d44f9759edc9b"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/advanced_loot_screen.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "89efcfba524dd1bcce88f41fb3e146bbcc527618178d5572cb3e90159fc76117"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/src/bazaar_panel_hooks.h",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "fa448365bd08a5ad5518605f3ee99ff884a8a9094ea418c8e26fa324b2f6dbe4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/config/patch-sites.json",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "8f653cd770f21f97a39a621cfffb3ce20209be72c029532217fb0d125d734585"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/tests/item-name-color.cpp",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "493bdd1107a9dae0747df7f610f224a4fd11756cc8665d518cc8ec08090b2559"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/tests/augment-item-window.cpp",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "bfb7de7023715a269cdf515b6d895962028af439502babafeb9119d9b6b4ae9d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/tests/advanced-loot-controller.cpp",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "3b81fb05c54909c9be2c217241637924bd9fdae135b65b5528c601e435969a80"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "eq-client-dll/tests/bazaar-panel-native.cpp",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
+         "sha256": "42574f5e0b4448f0723c6d49f15539b7cd6b56ac813881e3f05979fcf3b4478f"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "docs/releases/item-name-colors-20261121/README.md",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
+-        "sha256": "8e75c3f007ffa129d0222f30149b81cb2dad36109b398dd658133f59b5a10b7e"
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "2ec547c80da9c65b304a2b87f454026bc0325d00ea9371a4194dfd1e1493ea7c"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "docs/releases/item-name-colors-20261121/verification.json",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
+-        "sha256": "4d0edd11094e0c71ad6bc4c56c0cd07662eb623899edb18cefae5ef53cfb777f"
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "d2e574f99b46cfc8b0dc92527a2f1634e9187cb89ebbe9c7f82b2fbe636d8e5f"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
+         "path": "docs/releases/item-name-colors-20261121/wiki-review.json",
+-        "role": "Reviewed item-name color candidate implementation/test/evidence; no publication or player acceptance",
+-        "revision": "feature/item-name-colors over main0b7ca302; 2026-11-21 reviewed working tree",
+-        "sha256": "edea829c2a93b0264ab41d73403868ccca4b977dc2c95ec92e381d5cb9214316"
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "cf376343931b57fbbf0999c0d66148bc6c0ad8a1fd33bba117e2f453ca511278"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
++        "path": "docs/releases/item-name-colors-20261121/source-merge.json",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "030ba6d12a9dc7139f0b334d556648efdcb96ce0a0d9a2eb872a3fd627416923"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
++        "path": "docs/releases/item-name-colors-20261121/client-published.json",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "d51fc8126ca8484291db75850a10fa891a96066cd6d170cfb7ea07f0ea9e2b53"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
++        "path": "docs/releases/item-name-colors-20261121/client-public-verification.json",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "c700a5ea487c8e658ed9a438683b1ef36a50cc9fe7a1b618ed16a25ca7145317"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
++        "path": "docs/releases/item-name-colors-20261121/wiki-publication.json",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "c2c05ae587a57c90f860c76078accb679d7d43b7bc82205253f7ae5a1dabee42"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-name-colors",
++        "path": "docs/releases/item-name-colors-20261121/wiki-public-verification.json",
++        "role": "Reviewed item-name color implementation/test/publication evidence; player visual acceptance OPEN",
++        "revision": "main PR 517 c65d6adc; signed client 2026112101 and wiki 20261121-item-name-colors-v1 verified; 2026-11-21 release records",
++        "sha256": "b29731f7bb4aaa1b65ea1d60cffa5ce7a42c38ac72845d366dc1b3cddeb61682"
+       }
+     ]
+   }
