@@ -45,4 +45,4 @@ To suspend acquisition, clear the active flag on the design registry, disable th
 5. Hand in two items, an augmented item, coin, a stack or a donor with no pack space. Verify the originals, attached augments and money come back. Check an ordinary quest NPC still takes its own hand-ins.
 6. In East Commonlands and a private dungeon, inspect the server-authorized QA corpse rolls and take a world ornament through Advanced Loot. Each qualified death gets at most one roll against the same pool. Confirm ordinary loot is still present when its own roll succeeds. A short dry streak is expected at 1%.
 
-Owner visual QA, linked release binaries and activation remain open.
+The shipping build reproduced the running world and zone byte for byte before linking the ornament changes. The production export resolves 14,768 designs from 137,799 donors and 139,165 hosts. See [shipping hashes](release/build.json). Activation and owner visual QA remain open.
