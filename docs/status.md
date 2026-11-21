@@ -1,6 +1,6 @@
 ## Classic equipment paths — test branch (2026-11-21)
 
-PR519/520 promoted the exact validated content package to dev/test (test73b82cb9). It contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
+PR519/520 promoted the validated content package; PR521/522 refreshed its current-client release evidence on dev/test (test82ae0d9f). It contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
 
 ## November 21, 2026 · Item-name colors published
 
