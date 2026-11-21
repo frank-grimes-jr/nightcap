@@ -1,0 +1,13 @@
+{
+  "wiki": "20261121-cairnwright-v1",
+  "files": 631,
+  "private_routes": {
+    ".env": 404,
+    "content-review.json": 404,
+    "catalog.json": 404,
+    "articles/features.json": 404,
+    "wiki/current/index.html": 404
+  },
+  "private_guide_external_status": 403,
+  "private_guide_origin_files_checked": 5
+}

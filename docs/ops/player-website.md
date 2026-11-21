@@ -10,11 +10,15 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261107-last-lantern-guide-v1`, selected by
+- Active release: `20261121-cairnwright-v1`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - The website operation preserves all five container identities/start times,
   both patch channels, the existing setup guide and friend ZIP. It does not
   restart the game or mutate the database; gameplay deployment is recorded separately.
+
+## November 21 Cairnwright update
+
+The private guide gained one entry under Classes, skills &amp; progression. The four site assets retain their previous bytes. The guide describes the Chronicler discipline and the pending launcher update. [Publication and verification](../releases/cairnwright-20261121/README.md)
 
 ## November7 journal correction
 

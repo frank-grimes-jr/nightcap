@@ -4,7 +4,11 @@ Updated November 14, 2026.
 
 ## Current state
 
-The official wiki serves `20261114-titles-automatic-suffix-v1` over
+The official wiki serves `20261121-cairnwright-v1` over `20261121-visible-ornaments-v1`. The Multiclass guide, Features, Change Log and search index cover the two spells and their client requirement. All 631 HTTPS files and five private exclusions were checked. [Release record](../releases/cairnwright-20261121/README.md)
+
+## November 14 title guide snapshot
+
+The official wiki served `20261114-titles-automatic-suffix-v1` over
 `20261114-titles-active-v1`. Ten title/owning-guide outputs change and621 retain
 exact bytes after source reproduction. All631public HTTPS hashes/headers and five
 private denials verify. The guide describes automatic awards, native notifications

@@ -1,6 +1,6 @@
-## Cairnwright — local prototype (2026-11-21)
+## Cairnwright server and guides deployed (2026-11-21)
 
-Draft PR533 verifies world creation and character-list persistence for class 17, both spells in a fresh zone process, and Chronicler adoption and release in slots two and three. RoF2 selection, character-select display and live deployment remain open. [Cairnwright candidate evidence](qa/cairnwright-creation-20261121.md)
+Main includes PR533. The production world and 12 zone workers run the Cairnwright candidate. The Ancient Chronicler can grant and release the discipline in slots two and three. The official wiki and private player guide describe the level-one spells. Launcher release 2026112101 lacks the paired client update. The native starting-class button and player acceptance remain open. [Deployment and testing](releases/cairnwright-20261121/README.md)
 
 ## Classic equipment paths — deployed (2026-11-21)
 

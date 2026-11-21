@@ -2,6 +2,10 @@
 
 Feature worktree based on main `cca7e6dfcb312dd30528609c1483d2382de35226`. Local QA only.
 
+## Subsequent deployment
+
+The world, zone, quest scripts and content described here are now on OVH. The signed client pair and creation button remain pending. The sections below record the earlier local experiments. [Live server and player guides](../releases/cairnwright-20261121/README.md)
+
 ## Observed
 
 - The QA and protected reference copies of `EQUI_CharacterCreate.xml` have SHA-256 `2da0ea6ecf7eb04a1ca4bd2ec3ba15c8062160df86540ab3ce9809c11398249a`. Their class screen defines 16 radio buttons and 16 overlays.
