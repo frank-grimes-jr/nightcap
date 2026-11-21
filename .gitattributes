@@ -318,3 +318,6 @@ docs/titles/deployment-20261114/*.patch text eol=lf -whitespace
 docs/titles/automatic-suffix-20261114/*.patch text eol=lf -whitespace
 docs/titles/automatic-suffix-20261114/*.json text eol=lf
 docs/titles/automatic-suffix-20261114/*.py text eol=lf
+# Preserve the exact installed-knowledge patch and its diff context whitespace.
+docs/releases/item-name-colors-20261121/installed-skill.patch text eol=lf -whitespace
+docs/releases/item-name-colors-20261121/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

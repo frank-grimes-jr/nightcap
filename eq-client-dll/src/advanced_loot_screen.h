@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <cstring>
 #include <string>
+#include "item_name_color.h"
 
 namespace nightcap {
 // Native CSidlScreenWnd ABI for the pinned 2013-05-10 x86 client. These are
@@ -140,6 +141,9 @@ public:
 	static void Enable(void *control, bool enabled) {
 		// CXWnd::Enabled, pinned by the exact May 2013 class layout.
 		if (window_ && control) { *reinterpret_cast<bool *>(static_cast<unsigned char *>(control) + 0x1a) = enabled; }
+	}
+	static void Color(void *control, uint32_t color, bool button = false) {
+		if (window_) { SetItemNameTextColor(control,color,button); }
 	}
 	static bool Icon(void *control, uint32_t icon) {
 		return window_ && control && api_.icon && api_.icon(control, icon);

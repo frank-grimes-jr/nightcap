@@ -1,0 +1,9 @@
+{
+  "result": "REVIEW REQUIRED",
+  "source_ref": "HEAD",
+  "include_worktree": true,
+  "changed_source_count": 2154,
+  "complete_report": "artifacts\\item-name-colors\\wiki-refresh-full.json",
+  "complete_report_sha256": "58b16eb2a1be6dd12c426b3fc75f4f0ece57c6e7b8635460e770aa81efdb87c4",
+  "note": "Whole-wiki impact reviewed separately; unrelated historical drift not approved or advanced."
+}

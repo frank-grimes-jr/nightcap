@@ -1,3 +1,7 @@
+## 2026-11-21 · Item name quality colors (client candidate)
+
+- Add one quality palette for usable inspection names, Advanced loot and Bazaar seller text: Regular green, Polished blue, Exalted purple, Ascended orange. Hunt Ascension is orange; natural stock names such as Polished Granite Tomahawk remain green. Preserve native equipment warnings and disabled button colors; hover/pressed rows keep their quality color. Native regression and controller tests cover repeated window/row use. Requires a matching signed DLL/catalog publication and client restart, with no server/cache change. Not published or player-accepted. Evidence and exact QA: `docs/releases/item-name-colors-20261121/`. Wiki source and current-public-source publication candidate updated; publication pending.
+
 ## 2026-11-21 · AA purchase responsiveness deployed
 
 - Main PR515/faaae0f9 is deployed on all12zone workers with access open. Each purchase avoids the100-slot reset sweep; active deadlines, ownership and costs remain unchanged. Exact shipping reproduction/full native build,21cooldown tests,49native-client checks,5adjacent tests and10Windows/Linux rollout fault tests pass. Fresh stopped backup, saved-state/market, runtime-file, cache/client/service checks pass. Official wiki20261121-aa-purchase-latency-v1 verifies all631files. Owner visible-freeze acceptance remains OPEN. No client download; reconnect after maintenance. Evidence and QA: docs/releases/aa-purchase-latency-20261121/.

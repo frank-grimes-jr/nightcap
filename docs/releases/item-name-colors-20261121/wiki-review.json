@@ -1,0 +1,188 @@
+{
+  "status": "candidate only; not published",
+  "baseline": "20261121-aa-purchase-latency-v1",
+  "baseline_source": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\wiki",
+  "candidate_source": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\artifacts\\item-name-colors\\wiki-release\\wiki",
+  "articles": [
+    {
+      "article": "about.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "advanced-loot.json",
+      "decision": "color guidance updated"
+    },
+    {
+      "article": "adventure-journal.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "ascension.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "ashen-compact.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "augment-audit.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "build-lab.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "camil-vigil.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "classic-raid-augments.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "combat.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "commands.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "equipment.json",
+      "decision": "color guidance updated"
+    },
+    {
+      "article": "features.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "getting-started.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "index.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-960420.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-960421.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-960422.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-960423.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-960424.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-960425.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961020.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961021.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961022.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961023.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961030.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961031.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-961032.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-990510.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "item-upgrades.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "launcher.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "loot-finder.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "multiclass.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "pets.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "recent-changes.json",
+      "decision": "color guidance updated"
+    },
+    {
+      "article": "titles.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "tradeskills.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "travel.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "tunnel.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "unreleased.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "waypoints.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "zone-hunt.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    },
+    {
+      "article": "zone-kael.json",
+      "decision": "no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change"
+    }
+  ],
+  "generated_catalogs": "unchanged: item and zone values, rewards, drop rates and names unchanged",
+  "home_features_commands": "existing owning-guide links retained; this is a display correction",
+  "ledger": "historical source drift requires review; no unrelated fingerprint advance",
+  "publication": "recheck then-current public source and release authorization before publishing"
+}
