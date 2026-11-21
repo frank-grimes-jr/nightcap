@@ -1,0 +1,226 @@
+{
+  "articles": [
+    {
+      "article": "about.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "advanced-loot.json",
+      "relevant_claims": 1,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "adventure-journal.json",
+      "relevant_claims": 2,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "ascension.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "ashen-compact.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "augment-audit.json",
+      "relevant_claims": 7,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "build-lab.json",
+      "relevant_claims": 2,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "camil-vigil.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "classic-raid-augments.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "combat.json",
+      "relevant_claims": 12,
+      "decision": "updated owning guide"
+    },
+    {
+      "article": "commands.json",
+      "relevant_claims": 1,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "relevant_claims": 1,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "equipment.json",
+      "relevant_claims": 21,
+      "decision": "updated owning guide"
+    },
+    {
+      "article": "features.json",
+      "relevant_claims": 3,
+      "decision": "updated owning guide"
+    },
+    {
+      "article": "getting-started.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "index.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-960420.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-960421.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-960422.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-960423.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-960424.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-960425.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961020.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961021.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961022.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961023.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961030.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961031.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-961032.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-990510.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "item-upgrades.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "launcher.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "loot-finder.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "multiclass.json",
+      "relevant_claims": 2,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "pets.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "recent-changes.json",
+      "relevant_claims": 26,
+      "decision": "updated owning guide"
+    },
+    {
+      "article": "titles.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "tradeskills.json",
+      "relevant_claims": 4,
+      "decision": "updated owning guide"
+    },
+    {
+      "article": "travel.json",
+      "relevant_claims": 1,
+      "decision": "updated owning guide"
+    },
+    {
+      "article": "tunnel.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "unreleased.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "waypoints.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "zone-hunt.json",
+      "relevant_claims": 1,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    },
+    {
+      "article": "zone-kael.json",
+      "relevant_claims": 0,
+      "decision": "preserved; no changed mechanics or catalog fields owned here"
+    }
+  ],
+  "generated_catalogs": "No changed stock IDs are introduced to the custom numeric catalog; existing generated pages retain their hashes.",
+  "publication": "pending"
+}

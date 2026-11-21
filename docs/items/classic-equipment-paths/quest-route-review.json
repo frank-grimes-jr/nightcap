@@ -1,0 +1,155 @@
+{
+  "reviewed_utc": "2026-11-21T13:49:38.014645+00:00",
+  "zoning_source": {
+    "path": "/tmp/nightcap-raid-augments-shipping-20261112-v3/source/zone/zoning.cpp",
+    "sha256": "1c6f6876d27f3ea2c219cf1139b5a3a28ab18704aa131e4125fd586bdc94e94f",
+    "finding": "Non-GM gate compares zone expansion to current expansion unless bypass; no Temple exception."
+  },
+  "ronium_recipe": {
+    "id": 9679,
+    "name": "Bar Of Ronium",
+    "tradeskill": 75,
+    "skillneeded": 0,
+    "trivial": 0,
+    "nofail": 1,
+    "replace_container": 1,
+    "notes": null,
+    "must_learn": 0,
+    "learned_by_item_id": 0,
+    "quest": 0,
+    "enabled": 1,
+    "min_expansion": -1,
+    "max_expansion": -1,
+    "content_flags": null,
+    "content_flags_disabled": null
+  },
+  "ronium_entries": [
+    {
+      "id": 85001,
+      "recipe_id": 9679,
+      "item_id": 16507,
+      "successcount": 0,
+      "failcount": 0,
+      "componentcount": 2,
+      "salvagecount": 2,
+      "iscontainer": 0
+    },
+    {
+      "id": 85002,
+      "recipe_id": 9679,
+      "item_id": 12282,
+      "successcount": 0,
+      "failcount": 0,
+      "componentcount": 1,
+      "salvagecount": 1,
+      "iscontainer": 0
+    },
+    {
+      "id": 85003,
+      "recipe_id": 9679,
+      "item_id": 12297,
+      "successcount": 0,
+      "failcount": 0,
+      "componentcount": 1,
+      "salvagecount": 1,
+      "iscontainer": 0
+    },
+    {
+      "id": 85004,
+      "recipe_id": 9679,
+      "item_id": 12306,
+      "successcount": 0,
+      "failcount": 0,
+      "componentcount": 1,
+      "salvagecount": 1,
+      "iscontainer": 0
+    },
+    {
+      "id": 85005,
+      "recipe_id": 9679,
+      "item_id": 16904,
+      "successcount": 0,
+      "failcount": 0,
+      "componentcount": 1,
+      "salvagecount": 1,
+      "iscontainer": 0
+    },
+    {
+      "id": 85006,
+      "recipe_id": 9679,
+      "item_id": 12305,
+      "successcount": 1,
+      "failcount": 0,
+      "componentcount": 0,
+      "salvagecount": 0,
+      "iscontainer": 0
+    },
+    {
+      "id": 85007,
+      "recipe_id": 9679,
+      "item_id": 17977,
+      "successcount": 0,
+      "failcount": 0,
+      "componentcount": 0,
+      "salvagecount": 0,
+      "iscontainer": 1
+    }
+  ],
+  "ingredient_paths": {
+    "16507": {
+      "kind": "spell",
+      "spell": 670,
+      "name": "Enchant Platinum",
+      "scroll": 15670,
+      "components": [
+        16503
+      ],
+      "classes": {
+        "1": 32,
+        "2": 32,
+        "3": 32,
+        "9": 32,
+        "11": 32,
+        "12": 32,
+        "14": 32
+      }
+    },
+    "12297": {
+      "kind": "drop",
+      "zone": "soldunga",
+      "npc": 31118,
+      "npc_name": "CWG_Model_EXG"
+    },
+    "12306": {
+      "kind": "drop",
+      "zone": "mistmoore",
+      "npc": 59063,
+      "npc_name": "a_jeering_gargoyle"
+    },
+    "16904": {
+      "kind": "drop",
+      "zone": "sro",
+      "npc": 35162,
+      "npc_name": "a_sand_giant"
+    },
+    "12106": {
+      "kind": "drop",
+      "zone": "gfaydark",
+      "npc": 54041,
+      "npc_name": "a_faerie_guard"
+    }
+  },
+  "quest_sources": [
+    {
+      "path": "soltemple/Lord_Searfire.pl",
+      "sha256": "b22f4a9d5c1f6c6ab22a2cd1fb8e09f045f1b1b579f3835241e528d5d72ea316",
+      "text": "##################################################################\n#  NPC:  Lord Searfire\n#  Quest:  Paladin Ro Armor\n#  Zone:  Temple of Sol Ro\n#  Author:  Unknown\n#  Updated:  Andrew80k\n##################################################################\n# items: 17977\nsub EVENT_SAY { \n   if($text=~/hail/i){\n      quest::say(\"Greetings!  May the glory of Solusek Ro burn in your veins.  I am the forge master of this temple.  Called to service by the Burning Prince.  Should you ever need my service and find me gone. have no fear. I shall return.  I must occasionally venture to other realms in service of the temple.  I shall always return. this is my eternal home.\"); \n   }\n   if($text=~/ronium/i) {\n      quest::say(\"You seek ronium.  It is a fine blend of metals.  I alone hold the secret of its formula.  I, and I alone, can offer it to those who serve this temple.  Do you wish a [bar of the alloy]?\");\n   }\n   if($text=~/bar of the alloy/i) {\n      if($faction < 5) {   # must be amiable or better\n         quest::say(\"Take this Sol Cauldron.  Within it shall be combined elements of this world.  You will add to it, melatite, two bars of enchanted platinum, Mistmoore granite, the sands of Ro and soil of Underfoot.  If you be a master blacksmith, the elements shall combine to make the enchanted metal I have named 'ronium.'\");\n         quest::summonitem(17977); # Sol Cauldron -- 6-slot container\n      } else {\n         quest::say(\"There is much service to Ro which you must perform.  I cannot trust you until you have proven your worth to us.  Seek service within this temple or join the crusade within the desert of Ro.\");\n      }\n   }\n}\n#END of FILE Zone:soltemple  ID:3316 -- Lord_Searfire"
+    },
+    {
+      "path": "kaladimb/Priestess_Ghalea.pl",
+      "sha256": "a206533b674c5043e5b3074f5c381b2ec18a987b3fa3846ebff1e648e6b902af",
+      "text": "#####################################################################\n#  NPC:  Priestess Ghalea\n#  Zone: North Kaladim\n#  Quests: Multiple --> Soil of Underfoot\n#####################################################################\n# items: 51121, 51122, 18765, 13514, 12106, 12282\nsub EVENT_SPAWN {\n  $x = $npc->GetX();\n  $y = $npc->GetY();\n  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);\n}\n\nsub EVENT_ENTER {\n  if(plugin::check_hasitem($client, 18765)) { \n\t\t$client->Message(15,\"High Priestess Ghalea greets you with genuine enthusiasm. 'Hello there! Welcome to the Underfoot Cathedral! Read the note in your inventory and when you are ready to begin your training, hand me your note! May Brell bless us all!'\");\n  }\n}\n\nsub EVENT_SAY { \n   if ($text=~/hail/i) {\n      quest::say(\"Welcome to the Church of Underfoot. Please open your soul to the greatness of Brell Serilis. May he guide you in all your future endeavors. And may your soles long for the [Soil of Underfoot].\");\n   } elsif ($text=~/soil of underfoot/i) {\n      if ($faction >=5 ) { # amiable or better to get quest.\n         quest::say(\"The Clerics of Underfoot have yet to see your faith directed towards our wills. Perhaps you should assist Master Gunlok Jure in the crusade against the undead.\");\n      } else {\n         quest::say(\"I can trust you with the soil of Underfoot, but first you must obtain four portions of fairy dust. Return them to me and I shall mix it and pray over it. Then I shall give you a pouch of soil of Underfoot.\");\n      }\n   } elsif ($text=~/candle of bravery/i) {\n      quest::say(\"The Candle of Bravery is used for temple ceremonies here in Kaladim. When the candle burns out, I must venture to the frigid village of Halas far to the north of the continent of Antonica. There I will take the candlestick and the [soil of Underfoot] to Dok. He must create the candle in the very ornate candlestick.\");\n   }\n    elsif($text=~/trades/i) {\n      quest::say(\"I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!\");\n      quest::summonitem(51121); # Item: Tradeskill Basics : Volume I\n    }\n    elsif($text=~/second book/i)\t{\n      quest::say(\"Here is the second volume of the book you requested, may it serve you well!\");\n      quest::summonitem(51122); # Item: Tradeskill Basics : Volume II\n    }   \n}\n\nsub EVENT_ITEM { \n   if (plugin::check_handin(\\%itemcount,18765=> 1)) {\n      quest::say(\"Welcome to the Underfoot Cathedral. I am High Priestess Ghalea. Here is your guild tunic. Now. let's get you started helping us spread the will of Brell. Once you are ready to begin your training plese make sure that you see Haldorak, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.\");\n      quest::summonitem(13514); # Item: Dusty Tunic*\n      quest::faction(227,100); # Clerics of Underfoot\n      quest::faction(274,100); # Kazon Stormhammer\n      quest::faction(293,75); # Miners Guild 249\n\t  quest::exp(100);\n   } elsif (plugin::check_handin(\\%itemcount,12106=>4) && ($faction < 5)) {  # Fairy Dust -- NOT Fairy Princess Dust\n      quest::say(\"May the mighty power of Brell saturate this soil with his divinity.  Here you are, my noble friend.  You may have a pouch of the soil of Underfoot.\");\n      quest::summonitem(12282);  # Soil of Underfoot\n      quest::faction(227,2); # Clerics of Underfoot\n      quest::faction(274,2); #Kazon Stormhammer\n      quest::faction(293,2); #Miner's guild 249\n   }\n   plugin::return_items(\\%itemcount);\n}\n\n#END of FILE Zone:kaladimb  ID:67024 -- Priestess_Ghalea\n"
+    }
+  ],
+  "acceptance": "Requires ordinary non-GM travel, faction and combine QA; installed data/source review is not player acceptance."
+}

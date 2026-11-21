@@ -1,0 +1,20 @@
+{
+  "predecessor_main": "5e5ec4e1",
+  "predecessor_pr": 526,
+  "shipping_zone": "bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40",
+  "diagnostic": {
+    "adapter": "Retained diagnostic login-completion constructor, clock, RNG and test entry point only. Two regen declarations exposed only to probe compilation; no layout or combat formula modifications.",
+    "diagnostic_zone": "14f9833256b324bb702b54042b3db5e182ac915e2594121e45bb73d6d5303a1b",
+    "probe": "a943204f6a9041a9ce733a3e3cf5c21e1736af7fa08ceb8e0e4c6731d33ebf8a",
+    "shipping_zone": "bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40"
+  },
+  "paired_cases": 636,
+  "results_identical": true,
+  "input_sha256": "15a069f65716ccad095fbc57db284ebb67ff9a01b62e3e16e95a1bd5727694b9",
+  "results_sha256": "fc82cc19a9c9744a526d4e528f4968013d58a1e4eddcbaa9230848e502ab2abc",
+  "cache_basis": "Existing 310028-record cache; predecessor rehearsal proves every old record byte-identical. All equipped fixture IDs belong to that existing set. Full successor cache preservation is checked separately during production rehearsal.",
+  "content_checks": 7,
+  "repository_wiki_checks": 15,
+  "production_activation": "waiting for preceding ornament rollout",
+  "player_qa": "open"
+}

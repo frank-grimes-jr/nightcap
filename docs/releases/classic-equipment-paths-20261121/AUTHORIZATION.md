@@ -1,0 +1,5 @@
+# Classic equipment production authorization
+
+On November 21, 2026 the owner instructed: “Push to main and server after the current push to main finishes”. This authorizes this package’s main promotion and production activation after the concurrent visible-ornaments release. It supersedes the default manual-QA promotion gate for this package; it does not establish completed player acceptance or standing permission for future releases. Public wiki publication is not included in this instruction.
+
+Before promotion/activation, reconcile the completed predecessor’s source, item definitions, native image/cache, client channel and release evidence. Preserve its ornament sockets, designs, quests and native behavior. Refresh full-row migration preimages only after accounting for exact differences. Rehearse forward/replay/rollback and compare every cache record against the new predecessor. Use the existing zero-player drain, fresh stopped backup, atomic content transaction and whole-runtime verification procedure. Keep ordinary-player QA open.

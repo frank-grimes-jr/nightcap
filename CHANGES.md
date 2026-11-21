@@ -1,3 +1,7 @@
+## 2026-11-21 — Classic equipment acquisition/effects test candidate
+
+Adds guarded empty-field effects to149stock families/596quality definitions across crafted/racial armor, enchanted jewelry, substantial class quests and named drops. Offense (10/20% item haste, shoulder ATK and damage/affliction focuses), healing/haste/mana and defense/sustain share existing capped or strongest-effect pools. Custom content, occupied effects, stats, recipes, quest reward qualities and AA ranks are preserved. Corrects only the Temple of Solusek Ro zone expansion1→0 under the unchanged Classic era lock. Its prior value blocked ordinary-player access to Classic armor quests. Items and the zone correction use one full-row-guarded transaction; whole-runtime refresh is required for zone-store caches. Candidate evidence and exact non-GM/crafting/combat QA: docs/releases/classic-equipment-paths-20261121/. Validation/deployment and player acceptance are tracked separately; not a live claim.
+
 ## 2026-11-21 · Visible equipment ornaments
 
 Main PR526 adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The production rehearsal added 14,768 statless designs and preserved all 310,028 previous cache records. The server and public wiki are live. All twelve zone workers passed runtime checks. Owner RoF2 visual QA remains open. [Catalog, pairing and in-game QA](docs/items/visible-ornaments/README.md).
