@@ -1,0 +1,66 @@
+{
+  "verified_at": "2026-11-21",
+  "source_commit": "aa98224b",
+  "dev_integration": "45e151cc",
+  "dev_pr": 524,
+  "scope": "Local isolated QA build, database rehearsal and native regression fixtures",
+  "catalog": {
+    "source": "local PEQ and protected RoF2 reference",
+    "source_items": 308940,
+    "visible_hosts": 138647,
+    "convertible_donors": 137281,
+    "host_only_missing_visual": 1366,
+    "stock_ornament_or_mold_rows": 3092,
+    "directly_supported_stock_rows": 1221,
+    "unresolved_stock_rows": 1871,
+    "designs": 14691,
+    "client_actor_models": 14758,
+    "armor_attachment_tags_with_mesh": 556,
+    "tags_without_verified_mesh": 147,
+    "export_sha256": "b4f72bcd2b970e2dc313a57735f7dea9f94a5a6814a3b556bf9d4f28b5905d4b",
+    "plan_sha256": "1a42e31aee6c04de870ec713c51baf70cf4a254e46c4d2f31ab348e229023606"
+  },
+  "disposable_database": {
+    "applies": 2,
+    "active_design_count": 14691,
+    "sum_of_stable_design_ids": 14798905395,
+    "donor_mappings": 137281,
+    "counted_stat_or_effect_violations": 0,
+    "artisans_in_ecommons": 1,
+    "deliberate_stat_drift_rejected": true
+  },
+  "qa_build": {
+    "type": "Local Clang 14 CMake/Ninja build with release configuration and -O0",
+    "native_integration": "Selective overlay based on c65d6adc and the retained shipping common/dungeon_catalog.h for the Hate spawn mapping",
+    "retained_dungeon_catalog_sha256": "1047e8bbd1435b89937a2b01117b177687287cc524eee31293b84608d40bb042",
+    "binaries": {
+      "world": "b8b628a648e80c8108b2870c1c5abddbf2fc3b03b4da26c9b77e5850da4bff58",
+      "zone": "d879ae423b334ebcb092e7a78fddfabf0af1f53603ac75df21ca8d1876680fec",
+      "shared_memory": "a77d6655d74eacf53a652ef1135d5c1c5c770d215c31e922bb927fb295c65c75"
+    },
+    "ninja_up_to_date": true,
+    "unresolved_dynamic_dependencies": 0
+  },
+  "passed": [
+    "Native socket compatibility, occupied-socket replacement and visibility",
+    "Stat augment and ornament classification",
+    "Armor, shield and bow fit; uniform corpse pool endpoints and exactly one roll",
+    "Trade row replacement, attunement, invalid hand-in, database failure injection and uncertain-commit quarantine",
+    "Adjacent loot, forge and zone-hunt regressions",
+    "20 wiki and refresh tests",
+    "Server Perl syntax check"
+  ],
+  "wiki_review": {
+    "affected": [
+      "Equipment and trading",
+      "Features",
+      "Change Log"
+    ],
+    "commands": "No new command",
+    "generated_catalog": "Global cosmetics have no fixed zone or boss. Released run, raid and ordinary-equipment catalog ownership stays with those sources until activation.",
+    "refresh": "Historical global source drift still requires review; ledger not advanced",
+    "published": false
+  },
+  "manual_acceptance": "Open. See the six-step checklist in README.md.",
+  "production": "No deployment or player inventory changes."
+}
