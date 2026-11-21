@@ -1,5 +1,5 @@
 {
-  "source": "4eed48123cd4a4d78597fb2b5bb05509563fc6c9",
+  "source": "467441f6b1209803e404c35c7cdee25559ab73ef",
   "base_hashes": {
     "bin/world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
     "bin/zone": "04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43",
@@ -80,8 +80,8 @@
     "items": "92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f",
     "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
   },
-  "client": 2026112001,
-  "channel": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c",
+  "client": 2026112101,
+  "channel": "06204d6b88079c5a386c1e19eab750bdcdfdbdd6b8f2230374b10452811e2b4f",
   "layout": {
     "size": 1332,
     "ID": 440,

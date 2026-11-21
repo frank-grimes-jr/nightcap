@@ -1,0 +1,7 @@
+{
+  "source_branch": "feature/classic-equipment-paths",
+  "test": "73b82cb9982258c163afe340590eb41ea31137c1",
+  "dev": "fd7ec1ee7e42a4e7f8ce1dcb2f82b4643f047d01",
+  "scope": "Exact content/release package copied to dev and verified identical; unrelated older dev/test native sources preserved. Native tests use retained shipping04fcbf33. No production activation or public publication. Manual QA remains open.",
+  "candidate_item_cache": "a751b964d8b2e46122781c743dca54d5302326d85abf540c9e48e51659eade3f"
+}
