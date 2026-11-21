@@ -1,6 +1,6 @@
 # Visible equipment ornaments
 
-November 21, 2026 feature candidate. The East Commonlands Ornament Artisan takes one unequipped donor and returns a statless appearance augment to inventory. Players can also loot a design from any eligible NPC corpse. The independent roll is 1% with equal weight per active catalog definition across all zones, levels and expansions. Pets, restored corpses, noncombat bodies and the artisan do not roll. Existing ordinary loot, raid rewards and zone hunt rolls retain their own probabilities.
+Deployed November 21, 2026. The East Commonlands Ornament Artisan takes one unequipped donor and returns a statless appearance augment to inventory. Players can also loot a design from any eligible NPC corpse. The independent roll is 1% with equal weight per active catalog definition across all zones, levels and expansions. Pets, restored corpses, noncombat bodies and the artisan do not roll. Existing ordinary loot, raid rewards and zone hunt rolls retain their own probabilities.
 
 ## Equipment and custody
 
@@ -45,4 +45,6 @@ To suspend acquisition, clear the active flag on the design registry, disable th
 5. Hand in two items, an augmented item, coin, a stack or a donor with no pack space. Verify the originals, attached augments and money come back. Check an ordinary quest NPC still takes its own hand-ins.
 6. In East Commonlands and a private dungeon, inspect the server-authorized QA corpse rolls and take a world ornament through Advanced Loot. Each qualified death gets at most one roll against the same pool. Confirm ordinary loot is still present when its own roll succeeds. A short dry streak is expected at 1%.
 
-The shipping build reproduced the running world and zone byte for byte before linking the ornament changes. The production export resolves 14,768 designs from 137,799 donors and 139,165 hosts. See [shipping hashes](release/build.json). Activation and owner visual QA remain open.
+The shipping build reproduced the running world and zone byte for byte before linking the ornament changes. The production export resolves 14,768 designs from 137,799 donors and 139,165 hosts. See [shipping hashes](release/build.json). Production activation and the public wiki are verified. All twelve zone workers loaded the paired build. Owner visual QA remains open. [Production receipt](release/production-verified.json) · [Public wiki verification](release/wiki-public-verification.json).
+
+The first activation stopped after installing content because its preservation check included the two newly created ornament tables. The [guarded resume](release/resume.py) verified all 107 pre-existing saved tables against the stopped state and checked the two new catalogs separately. It reopened admissions after the paired boot with no SQL replay or player-data restore. [Live donor and spawn checks](release/live-content-check.json).

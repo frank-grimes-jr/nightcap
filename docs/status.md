@@ -2,9 +2,9 @@
 
 Main PR523 / 688932e2 is deployed as classic-equipment-paths-20261121-v1 after the ornament rollout. All 636 native pairs pass on reproduced shipping bceda35d. Production rehearsal and activation changed 596 item definitions, preserved 324200 other cache records including all ornaments, and corrected Temple of Solusek Ro access. Fresh stopped backup, saved-state/market preservation, 12 healthy workers, zero errors/restarts and reopened access verified. Existing healing strength, custom augments, ornament runtime and client2026112101 remain unchanged; reconnect. Wiki v4 is prepared over the published ornament wiki but is not published. Manual player QA remains open. [Release evidence](releases/classic-equipment-paths-20261121/README.md) · [QA](releases/classic-equipment-paths-20261121/QA.md).
 
-## November 21, 2026 · Equipment ornaments staged
+## November 21, 2026 · Equipment ornaments live
 
-Main PR526 adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The production rehearsal added 14,768 statless designs and preserved all 310,028 previous cache records. Public activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
+Main PR526 adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The production rehearsal added 14,768 statless designs and preserved all 310,028 previous cache records. The server and public wiki are live. All twelve zone workers passed runtime checks. Owner RoF2 visual QA remains open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
 
 ## November 21, 2026 · Item-name colors published
 

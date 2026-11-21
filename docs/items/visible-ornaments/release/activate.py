@@ -184,7 +184,11 @@ def activate(allow_drain=False):
         with quest.open('xb') as f:
             f.write((stage/'998946.pl').read_bytes());f.flush();os.fsync(f.fileno())
         quest.chmod(0o644)
-        assert a.prior.saved()==saved
+        updated=a.prior.saved()
+        new_tables={'nightcap_ornament_design','nightcap_ornament_source'}
+        assert set(updated)==set(saved)|new_tables and not new_tables.intersection(saved)
+        assert all(updated[k]==v for k,v in saved.items())
+        expected.update({k:updated[k] for k in new_tables})
         r.select(pre['image'])
         r.compose('up','-d','--no-deps','--wait','--wait-timeout','240','game')
         run=check_running(pre)
