@@ -1,4 +1,5 @@
 #include "../common/nightcap_thj_behaviors.h"
+#include "common/cairnwright.h"
 #include "../common/quick_buff.h"
 #include "../common/imitate_death.h"
 /*	EQEMu: Everquest Server Emulator
@@ -80,7 +81,7 @@ void Client::LoadMulticlassMask() {
 }
 
 void Client::SetMulticlassSlot(int slot, int class_id) {
-	if (!m_multiclass_state_valid || slot < 2 || slot > 3 || class_id < 0 || class_id > 16) { return; }
+	if (!m_multiclass_state_valid || slot < 2 || slot > 3 || class_id < 0 || class_id > Cairnwright::ClassId) { return; }
 	if (!class_id) { ReleaseMulticlassSlot(slot); return; }
 	const auto selected = slot == 2 ? m_class2 : m_class3;
 	if (selected == class_id) { return; }
@@ -955,7 +956,7 @@ bool Client::ReleaseMulticlassSlot(int slot)
 {
 	if (!m_multiclass_state_valid || !HasValidEarnedAAState() || (slot != 2 && slot != 3)) { return false; }
 	const auto primary = GetClass();
-	if (primary < 1 || primary > 16 || m_class2 > 16 || m_class3 > 16 ||
+	if (primary < 1 || primary > Cairnwright::ClassId || m_class2 > Cairnwright::ClassId || m_class3 > Cairnwright::ClassId ||
 		(m_class2 && m_class2 == primary) || (m_class3 && m_class3 == primary) ||
 		(m_class2 && m_class2 == m_class3)) { return false; }
 	if (!(slot == 2 ? m_class2 : m_class3)) { return false; }
@@ -1001,6 +1002,9 @@ bool Client::ReleaseMulticlassSlot(int slot)
 		return false;
 	}
 	// Persistence published slots, raw skills, ownership and profile together.
+	if ((slot == 2 ? release.old_class2 : release.old_class3) == Cairnwright::ClassId) {
+		DeleteEntityVariable("cairnwright.stone");
+	}
 	// No SetSkill/Save calls or second DB class read may follow the commit.
 	RefreshClassPets();
 	CalcBonuses();

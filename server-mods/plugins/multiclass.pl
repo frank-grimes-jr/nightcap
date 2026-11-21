@@ -17,6 +17,7 @@ my %MC_CLASS_NAMES = (
     5  => 'Shadow Knight', 6 => 'Druid',  7  => 'Monk',         8  => 'Bard',
     9  => 'Rogue',     10 => 'Shaman',    11 => 'Necromancer',  12 => 'Wizard',
     13 => 'Magician',  14 => 'Enchanter', 15 => 'Beastlord',    16 => 'Berserker',
+    17 => 'Cairnwright',
 );
 
 my %MC_FLAVOR = (
@@ -36,6 +37,7 @@ my %MC_FLAVOR = (
     14 => 'the mind that unmakes yours',
     15 => 'the beast and its master, one will',
     16 => 'the fury that cannot be caged',
+    17 => 'the hammer that sounds the hidden seam',
 );
 
 sub mc_class_name { my ($id) = @_; return $MC_CLASS_NAMES{$id} // 'Unknown'; }
@@ -66,8 +68,10 @@ sub mc_get_classes {
 sub mc_preview {
     my ($base_class, $class_id, $level) = @_;
     my $db  = Database->new();
-    my $col = "classes$class_id";
-    my $col_base = "classes$base_class";
+    return unless exists $MC_CLASS_NAMES{$class_id} && exists $MC_CLASS_NAMES{$base_class};
+    my $cairn_level = 'CASE WHEN id IN (44381,44382) THEN 1 ELSE 255 END';
+    my $col = $class_id == 17 ? $cairn_level : "classes$class_id";
+    my $col_base = $base_class == 17 ? $cairn_level : "classes$base_class";
     my %out = (spells_total => 0, spells_now => 0, skills_new => 0, aa_lines => 0);
 
     my $sth = $db->prepare(
@@ -114,6 +118,10 @@ sub mc_apply_class {
     return (0, 'You already carry two additional disciplines. Release one first.') if $c2 && $c3;
     return (0, 'You already carry that discipline.') if $class_id == $c2 || $class_id == $c3;
     return (0, 'No such discipline exists.') unless $MC_CLASS_NAMES{$class_id};
+    if ($class_id == 17) {
+        return (0, 'Cairnwright training is unavailable.') unless $client->can('AdoptCairnwright') && $client->AdoptCairnwright();
+        return (1, 'You have learned the Cairnwright discipline. Strike Cairn and Sound the Seam each need one free slot in your spellbook.');
+    }
 
     my $db = Database->new();
     if (!$c2) {

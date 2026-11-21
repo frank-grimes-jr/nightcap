@@ -574,7 +574,7 @@ bool Client::IsMulticlassMember(uint8 class_id) const
 bool Client::HasAnyCasterClass() const
 {
 	for (uint8 c : GetMulticlassList()) {
-		if (IsINTCasterClassID(c) || IsWISCasterClassID(c)) {
+		if (c == Cairnwright::ClassId || IsINTCasterClassID(c) || IsWISCasterClassID(c)) {
 			return true;
 		}
 	}
@@ -589,9 +589,6 @@ uint8 Client::GetSpellMinLevel(uint16 spell_id) const
 		return best;
 	}
 	for (uint8 c : GetMulticlassList()) {
-		if (c < 1 || c > Class::PLAYER_CLASS_COUNT) {
-			continue;
-		}
 		const auto level = NightcapSpellClasses::Level(spell_id, c);
 		if (level < best) {
 			best = level;
@@ -609,9 +606,6 @@ uint8 Client::BestCasterClassFor(uint16 spell_id) const
 		return 0;
 	}
 	for (uint8 c : GetMulticlassList()) {
-		if (c < 1 || c > Class::PLAYER_CLASS_COUNT) {
-			continue;
-		}
 		const auto level = NightcapSpellClasses::Level(spell_id, c);
 		if (level < best_level) {
 			best_level = level;
@@ -735,7 +729,7 @@ int64 Client::CalcBaseManaForClass(uint8 for_class)
 				max_m = (((5 * (MindFactor + 200)) / 2) * 3 * GetLevel() / 100);
 			}
 		}
-	} else if (IsWISCasterClassID(for_class)) {
+	} else if (for_class == Cairnwright::ClassId || IsWISCasterClassID(for_class)) {
 		WisInt = GetWIS();
 
 		if (ClientVersion() >= EQ::versions::ClientVersion::SoF && RuleB(Character, SoDClientUseSoDHPManaEnd)) {

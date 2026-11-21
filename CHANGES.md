@@ -1,3 +1,7 @@
+## 2026-11-21 — Cairnwright starter spells and Chronicler candidate
+
+Adds the first two spell effects, per-class spellbook access, class 17 presentation in the Nightcap client extension, and Chronicler adoption and release on the prototype branch. The prepared spell data and level-1–50 stat rows were rehearsed in temporary local tables. Native character creation and end-to-end play remain open. See the [candidate QA record](docs/qa/cairnwright-creation-20261121.md).
+
 ## 2026-11-21 — Cairnwright character creation experiment
 
 Generated and checked a seventeenth radio control in an isolated RoF2 creation-screen layout. Local PEQ and the current client/world sources identify the remaining selection, persistence, spell access and Chronicler work. Playable verification is open. See [local QA evidence](docs/qa/cairnwright-creation-20261121.md).

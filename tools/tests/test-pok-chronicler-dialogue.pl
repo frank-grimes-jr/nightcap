@@ -8,13 +8,14 @@ my @popups;
 my ($second, $third) = (0, 0);
 my $mutations = 0;
 my $reject = 0;
-my %classes = (1 => 'Warrior', 2 => 'Cleric', 12 => 'Wizard');
+my %classes = (1 => 'Warrior', 2 => 'Cleric', 12 => 'Wizard', 17 => 'Cairnwright');
 {
     package MockClient;
     sub new { bless {}, shift }
     sub GetName { 'Tester' }
     sub GetClass { 1 }
     sub GetLevel { 50 }
+    sub IsSSF { 0 }
     sub CharacterID { 100 }
     sub Message { push @messages, $_[2] }
 }
@@ -75,4 +76,18 @@ $text = 'release second'; EVENT_SAY();
 unlike($popups[-1][1], qr/dormant|skills already trained remain/, 'release no longer promises the obsolete retention behavior');
 @messages = (); $popupid = 402; EVENT_POPUPRESPONSE();
 ok(grep(/Wizard \(Second\).*Not selected \(Third\)/, @messages), 'release immediately shows promoted slot state');
+for my $slot (2, 3) {
+    ($second, $third) = ($slot == 2 ? 0 : 2, 0);
+    @messages = ();
+    $text = 'Cairnwright'; EVENT_SAY();
+    ok(grep(/Sound the Seam/, @messages), "Cairnwright preview for slot $slot");
+    $text = 'embrace Cairnwright'; EVENT_SAY();
+    is($popups[-1][2], 317, 'opens class 17 confirmation');
+    $popupid = 317; EVENT_POPUPRESPONSE();
+    is($slot == 2 ? $second : $third, 17, "confirmed into slot $slot");
+    $text = $slot == 2 ? 'release second' : 'release third'; EVENT_SAY();
+    is($popups[-1][2], 400 + $slot, 'opens matching release confirmation');
+    $popupid = 400 + $slot; EVENT_POPUPRESPONSE();
+    is_deeply([$second, $third], [$slot == 2 ? 0 : 2, 0], 'other discipline survives release');
+}
 done_testing();

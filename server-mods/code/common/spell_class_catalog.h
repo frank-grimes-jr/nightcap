@@ -3,6 +3,7 @@
 #pragma once
 #include <cstdint>
 #include <cstddef>
+#include "cairnwright.h"
 namespace NightcapSpellClasses {
 struct Spell { uint32_t id; uint8_t levels[16]; };
 inline constexpr Spell Catalog[] = {
@@ -15690,11 +15691,17 @@ inline const Spell* Find(uint32_t id)
 }
 inline uint8_t Level(uint32_t spell_id, uint32_t class_id)
 {
+	if (class_id == Cairnwright::ClassId) {
+		return Cairnwright::IsLearnedSpell(spell_id) ? 1 : 255;
+	}
 	const auto spell = Find(spell_id);
 	return spell && class_id >= 1 && class_id <= 16 ? spell->levels[class_id - 1] : 255;
 }
 inline uint32_t Mask(uint32_t spell_id)
 {
+	if (Cairnwright::IsLearnedSpell(spell_id)) {
+		return uint32_t{1} << (Cairnwright::ClassId - 1);
+	}
 	const auto spell = Find(spell_id);
 	uint32_t mask = 0;
 	if (spell) {

@@ -1,4 +1,5 @@
 #include "../common/nightcap_thj_behaviors.h"
+#include "common/cairnwright.h"
 #include "../common/quick_buff.h"
 #include "zone/dungeon_service.h"
 /*	EQEMu: Everquest Server Emulator
@@ -1160,7 +1161,7 @@ bool Client::CheckFizzle(uint16 spell_id)
 		// CALCULATE SPELL DIFFICULTY - THIS IS CAPPED AT 255
 		// calculates minimum level this spell is available - ensures similar casting difficulty for all classes
 
-		int minimum_level = UINT8_MAX;
+		int minimum_level = Cairnwright::IsLearnedSpell(spell_id) ? 1 : UINT8_MAX;
 		for (int a = 0; a < Class::PLAYER_CLASS_COUNT; a++) {
 			int this_lvl = spells[spell_id].classes[a];
 			if (this_lvl < minimum_level) {
@@ -1198,7 +1199,7 @@ bool Client::CheckFizzle(uint16 spell_id)
 
 		if (IsINTCasterClassID(casting_class)) {
 			prime_stat_reduction = (GetINT() - 75) / 10.0;
-		} else if (IsWISCasterClassID(casting_class)) {
+		} else if (casting_class == Cairnwright::ClassId || IsWISCasterClassID(casting_class)) {
 			prime_stat_reduction = (GetWIS() - 75) / 10.0;
 		}
 
@@ -1272,7 +1273,9 @@ bool Client::CheckFizzle(uint16 spell_id)
 	float diff = par_skill + static_cast<float>(spells[spell_id].base_difficulty) - act_skill;
 
 	// if you have high int/wis you fizzle less, you fizzle more if you are stupid
-	if (GetClass() == Class::Bard) {
+	if (casting_class == Cairnwright::ClassId) {
+		diff -= (GetWIS() - 125) / 20.0;
+	} else if (GetClass() == Class::Bard) {
 		diff -= (GetCHA() - 110) / 20.0;
 	} else if (IsIntelligenceCasterClass()) {
 		diff -= (GetINT() - 125) / 20.0;
