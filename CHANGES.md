@@ -1,6 +1,6 @@
 ## 2026-11-21 · Broad Classic focus and defensive coverage
 
-- Deployed: 119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions (five overlap). Existing stats/effects/custom content preserved. Strongest Dodge I / Parry Block I and head/feet regeneration bounded to +3 HP / +3 mana per tick. Native 188 pressure / 259 defense pairs pass; no healing reduction. Content-only cache refresh; no native/client/spell changes. Evidence and exact QA: docs/items/classic-defense-coverage/ and docs/releases/classic-defense-coverage-20261121/. Merged through dev/test/main; production twelve-worker health verified; wiki publication pending explicit approval. Player acceptance OPEN.
+- Deployed: 119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions (five overlap). Existing stats/effects/custom content preserved. Strongest Dodge I / Parry Block I and head/feet regeneration bounded to +3 HP / +3 mana per tick. Native 188 pressure / 259 defense pairs pass; no healing reduction. Content-only cache refresh; no native/client/spell changes. Evidence and exact QA: docs/items/classic-defense-coverage/ and docs/releases/classic-defense-coverage-20261121/. Merged through dev/test/main; production twelve-worker health verified; official wiki release 20261121-classic-defense-v1 published and verified after explicit owner approval. Player acceptance OPEN.
 
 ## 2026-11-20 · Classic stock focus coverage and mana correction
 

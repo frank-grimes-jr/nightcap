@@ -1,6 +1,6 @@
 # Broad Classic focus and defensive coverage
 
-Deployed through dev/test/main and verified on all twelve production workers. The wiki package is validated but unpublished; explicit publication approval is pending after automatic review rejection. Player encounter acceptance remains OPEN. Reconnect to refresh existing gear; no client download.
+Deployed through dev/test/main and verified on all twelve production workers. Official wiki release 20261121-classic-defense-v1 is published and verified after explicit owner approval. Player encounter acceptance remains OPEN. Reconnect to refresh existing gear; no client download.
 
 ## Intent and implementation plan
 
@@ -34,4 +34,4 @@ These are primary-hand pressure and conditional skill tests with six-second nati
 
 Gameplay main 50626fbe79b97f512f147fd9c9de83eae7b8d2d8 (PR511), test PR510 and dev PR508/509. Stage classic-defense-coverage-20261121-v1 retained native image/binaries and installed item cache 92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f. Zero-player maintenance, fresh stopped backup, saved-state/market preservation, twelve workers, zero detected errors/restarts and open gateway verified. Rules, spell cache and signed client2026112001 remain unchanged.
 
-Wiki20261121-classic-defense-v1 is packaged and validated, changing five outputs and preserving626. The public predecessor20261120-classic-focus-v3 verified all631files/private404s. Automatic approval review rejected publication because explicit permission for this public release was absent. No publication was attempted through another route. Full AI, bash/stun, AE and visible player QA remain open.
+Wiki 20261121-classic-defense-v1 is published and verified after the owner explicitly approved publication. All 631 canonical files, hashes, headers and private-path denials passed; five outputs changed and 626 remained identical. Sixteen Linux publisher tests and rollback rehearsal passed. Game/client services and configuration were preserved. Full AI, bash/stun, AE and visible player QA remain open.
