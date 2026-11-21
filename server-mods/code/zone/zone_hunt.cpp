@@ -1,4 +1,5 @@
 #include "zone/zone_hunt.h"
+#include "common/visible_ornaments.h"
 #include "zone/client.h"
 #include "zone/npc.h"
 #include "zone/zone.h"
@@ -21,6 +22,38 @@ struct Hunt {
 	bool enabled = false, night_only = false;
 	std::set<std::pair<uint32, uint32>> sources;
 } hunt;
+}
+
+namespace {
+std::vector<uint32> ornament_pool;
+}
+
+void AwardOrnament(NPC &npc, bool owned, bool &rolled)
+{
+	if (rolled || ornament_pool.empty() || owned || npc.HasOwner() || npc.IsMerc() ||
+		npc.GetSwarmInfo() || npc.GetSwarmOwner() || npc.IsQueuedForCorpse() || npc.GetInvul() ||
+		npc.GetNPCTypeID() == NightcapOrnaments::Artisan) { return; }
+	const auto body = npc.GetBodyType();
+	if (body == 11 || body == 60 || body == 66 || body == 67) { return; }
+	rolled = true;
+	if (zone->random.Int(1, 100) != 1) { return; }
+	const auto item = database.GetItem(ornament_pool[zone->random.Int(0, ornament_pool.size() - 1)]);
+	auto entry = LootdropEntriesRepository::NewNpcEntity();
+	entry.item_charges = 1;
+	entry.equip_item = 0;
+	npc.AddLootDrop(item, entry, false);
+}
+
+void LoadOrnaments()
+{
+	ornament_pool.clear();
+	auto designs = database.QueryDatabase(std::string("SELECT id FROM nightcap_ornament_design WHERE active=1 ORDER BY id"), false);
+	if (designs.Success()) {
+		for (auto row : designs) {
+			const auto item = database.GetItem(Strings::ToUnsignedInt(row[0]));
+			if (item && NightcapOrnaments::Design(*item)) { ornament_pool.push_back(item->ID); }
+		}
+	}
 }
 
 void Load(Zone &z)

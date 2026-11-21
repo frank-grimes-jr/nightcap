@@ -1,3 +1,4 @@
+#include "common/visible_ornaments.h"
 /*	EQEMu: Everquest Server Emulator
 
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
@@ -6542,10 +6543,16 @@ namespace RoF2
 		 * Ornamentation
 		 */
 		uint32 ornamentation_icon         = (inst->GetOrnamentationIcon() ? inst->GetOrnamentationIcon() : 0);
-		uint32 hero_model                 = 0;
+		const auto ornament = inst->GetOrnamentationAugment();
+		const auto visual = ornament && NightcapOrnaments::Design(*ornament->GetItem()) ? ornament->GetItem() : item;
+		const auto material_slot = EQ::InventoryProfile::CalcMaterialFromSlot(slot_id_in);
+		uint32 hero_model = visual != item ? visual->HerosForgeModel : 0;
+		if (hero_model && hero_model < 1000 && material_slot < EQ::textures::materialCount) {
+			hero_model = hero_model * 100 + material_slot;
+		}
 
 		if (inst->GetOrnamentationIDFile()) {
-			hero_model = inst->GetOrnamentHeroModel(EQ::InventoryProfile::CalcMaterialFromSlot(slot_id_in));
+			if (visual == item) { hero_model = inst->GetOrnamentHeroModel(material_slot); }
 
 			char tmp[30];
 			memset(tmp, 0x0, 30);
@@ -6593,8 +6600,8 @@ namespace RoF2
 			ob.write(item->Lore, strlen(item->Lore));
 		ob.write("\0", 1);
 
-		if (strlen(item->IDFile) > 0)
-			ob.write(item->IDFile, strlen(item->IDFile));
+		const char *id_file = (visual != item && visual->AugType == (1u << 19)) ? visual->IDFile : item->IDFile;
+		if (*id_file) { ob.write(id_file, strlen(id_file)); }
 		ob.write("\0", 1);
 
 		ob.write("\0", 1);
@@ -6663,13 +6670,13 @@ namespace RoF2
 		ibs.ElemDmgAmt = item->ElemDmgAmt;
 		ibs.Range = item->Range;
 		ibs.Damage = item->Damage;
-		ibs.Color = item->Color;
+		ibs.Color = visual->Color;
 		ibs.Prestige = 0;
 		ibs.ItemType = item->ItemType;
-		ibs.Material = item->Material;
+		ibs.Material = visual->Material;
 		ibs.MaterialUnknown1 = 0;
-		ibs.EliteMaterial = item->EliteMaterial;
-		ibs.HerosForgeModel = item->HerosForgeModel;
+		ibs.EliteMaterial = visual->EliteMaterial;
+		ibs.HerosForgeModel = visual->HerosForgeModel;
 		ibs.MaterialUnknown2 = 0;
 		ibs.SellRate = item->SellRate;
 		ibs.CombatEffects = item->CombatEffects;
@@ -6719,6 +6726,12 @@ namespace RoF2
 			isbs.augslots[index].type = item->AugSlotType[index];
 			isbs.augslots[index].visible = item->AugSlotVisible[index];
 			isbs.augslots[index].unknown = item->AugSlotUnk2[index];
+		}
+
+		const auto ornament_socket = NightcapOrnaments::Socket(*item);
+		if (ornament_socket >= 0) {
+			isbs.augslots[ornament_socket].type = NightcapOrnaments::SocketType(*item);
+			isbs.augslots[ornament_socket].visible = 1;
 		}
 
 		isbs.ldonpoint_type = item->PointType;

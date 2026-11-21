@@ -1,3 +1,4 @@
+#include "common/visible_ornaments.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -283,7 +284,7 @@ bool EQ::ItemInstance::IsAugmentable() const
 	}
 
 	for (int index = invaug::SOCKET_BEGIN; index <= invaug::SOCKET_END; ++index) {
-		if (m_item->AugSlotType[index] != 0) {
+		if (m_item->AugSlotType[index] != 0 || NightcapOrnaments::Socket(*m_item) == index) {
 			return true;
 		}
 	}
@@ -332,6 +333,10 @@ bool EQ::ItemInstance::IsAugmentSlotCompatible(int32 augment_type, int32 slot) c
 {
 	if (!m_item || !m_item->IsClassCommon() || slot < invaug::SOCKET_BEGIN || slot > invaug::SOCKET_END) {
 		return false;
+	}
+
+	if (NightcapOrnaments::Socket(*m_item) == slot) {
+		return augment_type == -1 || (augment_type & (1u << (NightcapOrnaments::SocketType(*m_item) - 1)));
 	}
 
 	return (
@@ -542,24 +547,12 @@ bool EQ::ItemInstance::IsOrnamentationAugment(EQ::ItemInstance* augment) const
 		return false;
 	}
 
-	const std::string& idfile = augment_item->IDFile;
-
-	if (
-		EQ::ValueWithin(
-			augment->GetAugmentType(),
-			OrnamentationAugmentTypes::StandardOrnamentation,
-			OrnamentationAugmentTypes::SpecialOrnamentation
-		) ||
-		(
-			idfile != "IT63" &&
-			idfile != "IT64"
-		) ||
-		augment_item->HerosForgeModel
-	) {
-		return true;
-	}
-
-	return false;
+	// AugType is a bitmask, not a socket number. Ordinary stat augments can
+	// have an empty or non-placeholder IDFile; neither makes them cosmetic.
+	constexpr uint32 ornament_types =
+		(1u << (OrnamentationAugmentTypes::StandardOrnamentation - 1)) |
+		(1u << (OrnamentationAugmentTypes::SpecialOrnamentation - 1));
+	return (augment_item->AugType & ornament_types) != 0 || augment_item->HerosForgeModel != 0;
 }
 
 EQ::ItemInstance* EQ::ItemInstance::GetOrnamentationAugment() const

@@ -1173,6 +1173,7 @@ bool Zone::Init(bool is_static) {
 	// keeps its native rules. The ordinary spawn/checkpoint Boot remains in place.
 	if (zoneid==186 && !NightcapDungeon::Boot()) { return false; }
 	content_db.LoadGlobalLoot();
+	NightcapHunt::LoadOrnaments();
 	NightcapHunt::Load(*this);
 
 	npc_scale_manager->LoadScaleData();

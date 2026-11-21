@@ -1,3 +1,4 @@
+#include "common/visible_ornaments.h"
 #include "common/raid_augment.h"
 #include "zone/raid_augment_custody.h"
 #include "zone/dungeon_service.h"
@@ -3240,6 +3241,13 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 			}
 		}
 
+		// Stat-only changes must retain explicit mold/quest cosmetic overrides.
+		// Inspect the target before removal; the cursor matters only on insertion.
+		const bool update_ornamentation =
+			tobe_auged->IsOrnamentationAugment(tobe_auged->GetAugment(in_augment->augment_index)) ||
+			((in_augment->augment_action == AugmentActions::Insert || in_augment->augment_action == AugmentActions::Swap) &&
+			 tobe_auged->IsOrnamentationAugment(user_inv.GetItem(EQ::invslot::slotCursor)));
+
 		switch (in_augment->augment_action) {
 			case AugmentActions::Insert:
 			case AugmentActions::Swap:
@@ -3250,6 +3258,12 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 					Message(Chat::Red, "Error: No augment found on cursor for inserting.");
 					break;
 				} else {
+					if (NightcapOrnaments::Design(*new_aug->GetItem()) &&
+						(IsAugmentRestricted(tobe_auged->GetItem()->ItemType, new_aug->GetAugmentRestriction()) ||
+						 !NightcapOrnaments::Fits(*tobe_auged->GetItem(), *new_aug->GetItem()))) {
+						Message(Chat::Red, "That ornament does not fit this kind of equipment.");
+						break;
+					}
 					if (NightcapRaidAug::IsReward(new_aug->GetID()) &&
 						!NightcapRaidAug::CanInsert(*tobe_auged, in_augment->augment_index, in_augment->augment_action == AugmentActions::Swap)) {
 						Message(Chat::Red, "One raid augment fits a type-22 socket on chest armor.");
@@ -3305,7 +3319,9 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 						}
 
 						tobe_auged->PutAugment(in_augment->augment_index, *new_aug);
-						tobe_auged->UpdateOrnamentationInfo();
+						if (update_ornamentation) {
+							tobe_auged->UpdateOrnamentationInfo();
+						}
 
 						aug = tobe_auged->GetAugment(in_augment->augment_index);
 						if (aug) {
@@ -3419,7 +3435,9 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 				}
 
 				old_aug = tobe_auged->RemoveAugment(in_augment->augment_index);
-				tobe_auged->UpdateOrnamentationInfo();
+				if (update_ornamentation) {
+					tobe_auged->UpdateOrnamentationInfo();
+				}
 
 				item_one_to_push = tobe_auged->Clone();
 				if (old_aug) {
@@ -3497,7 +3515,9 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 				}
 
 				tobe_auged->DeleteAugment(in_augment->augment_index);
-				tobe_auged->UpdateOrnamentationInfo();
+				if (update_ornamentation) {
+					tobe_auged->UpdateOrnamentationInfo();
+				}
 
 				item_one_to_push = tobe_auged->Clone();
 				if (item_one_to_push) {

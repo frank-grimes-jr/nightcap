@@ -2665,6 +2665,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		if (!NightcapDungeon::PrepareRaidAugment(this, killer, hunt_owned)) { return false; }
 		// Scripted encounter loot cleanup must finish before the zone augment
 		// roll, including High Keep's unowned prison-break guards.
+		NightcapHunt::AwardOrnament(*this, hunt_owned, m_ornament_rolled);
 		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
 		corpse = new Corpse(
 			this,
