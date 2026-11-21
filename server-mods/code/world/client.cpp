@@ -19,6 +19,8 @@
 #include "client.h"
 
 #include "common/classes.h"
+#include "common/cairnwright.h"
+#include <algorithm>
 #include "common/content/world_content_service.h"
 #include "common/data_bucket.h"
 #include "common/data_verification.h"
@@ -585,7 +587,13 @@ bool Client::HandleNameApprovalPacket(const EQApplicationPacket *app)
 		return false;
 	}
 
-	if (!EQ::ValueWithin(class_id, Class::Warrior, Class::Berserker)) {
+	const bool cairnwright = class_id == Cairnwright::ClassId &&
+		race_id == Race::Dwarf && m_ClientVersionBit == EQ::versions::bitRoF2 &&
+		std::any_of(character_create_race_class_combos.begin(), character_create_race_class_combos.end(),
+			[race_id, class_id](const RaceClassCombos &combo) {
+				return combo.Race == race_id && combo.Class == class_id;
+			});
+	if (!cairnwright && !EQ::ValueWithin(class_id, Class::Warrior, Class::Berserker)) {
 		LogInfo("Invalid Class ID.");
 		return false;
 	}
@@ -594,7 +602,7 @@ bool Client::HandleNameApprovalPacket(const EQApplicationPacket *app)
 		"char_name [{}] race_id [{}] class_id [{}]",
 		char_name,
 		GetRaceIDName(race_id),
-		GetClassIDName(class_id)
+		cairnwright ? "Cairnwright" : GetClassIDName(class_id)
 	);
 
 	bool is_valid = true;
@@ -700,7 +708,14 @@ bool Client::HandleGenerateRandomNamePacket(const EQApplicationPacket *app) {
 bool Client::HandleCharacterCreateRequestPacket(const EQApplicationPacket *app) {
 	// New OpCode in SoF
 	uint32 allocs = character_create_allocations.size();
-	uint32 combos = character_create_race_class_combos.size();
+	// This stock packet is read by native clients with 16 class slots.
+	// World retains the extension-only class and its actual
+	// combination for validation even though this packet omits it.
+	const auto stock_combo = [](const RaceClassCombos &combo) {
+		return combo.Class >= Class::Warrior && combo.Class <= Class::Berserker;
+	};
+	const uint32 combos = std::count_if(character_create_race_class_combos.begin(),
+		character_create_race_class_combos.end(), stock_combo);
 	uint32 len = sizeof(RaceClassAllocation) * allocs;
 	len += sizeof(RaceClassCombos) * combos;
 	len += sizeof(uint8);
@@ -728,15 +743,11 @@ bool Client::HandleCharacterCreateRequestPacket(const EQApplicationPacket *app) 
 
 	*((uint32*)ptr) = combos;
 	ptr += sizeof(uint32);
-	for(int i = 0; i < combos; ++i) {
-		RaceClassCombos *cmb = (RaceClassCombos*)ptr;
-		cmb->ExpansionRequired = character_create_race_class_combos[i].ExpansionRequired;
-		cmb->Race = character_create_race_class_combos[i].Race;
-		cmb->Class = character_create_race_class_combos[i].Class;
-		cmb->Deity = character_create_race_class_combos[i].Deity;
-		cmb->AllocationIndex = character_create_race_class_combos[i].AllocationIndex;
-		cmb->Zone = character_create_race_class_combos[i].Zone;
-		ptr += sizeof(RaceClassCombos);
+	for (const auto &combo : character_create_race_class_combos) {
+		if (stock_combo(combo)) {
+			memcpy(ptr, &combo, sizeof(combo));
+			ptr += sizeof(combo);
+		}
 	}
 
 	QueuePacket(outapp);
@@ -1745,6 +1756,10 @@ bool Client::OPCharCreate(char *name, CharCreate_Struct *cc)
 	LogInfo("Beard [{}] Beard Color [{}]", cc->beard, cc->beardcolor);
 
 	/* Validate the char creation struct */
+	if (cc->class_ == Cairnwright::ClassId &&
+		(cc->race != Race::Dwarf || m_ClientVersionBit != EQ::versions::bitRoF2)) {
+		return false;
+	}
 	if (m_ClientVersionBit & EQ::versions::maskSoFAndLater) {
 		if (!CheckCharCreateInfoSoF(cc)) {
 			LogInfo("CheckCharCreateInfo did not validate the request (bad race/class/stats)");

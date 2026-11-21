@@ -4,6 +4,17 @@
 
 int main()
 {
+	constexpr uint8_t stock_levels[16] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,255};
+	for (int id = 0; id <= 255; ++id) {
+		const auto level = Cairnwright::EffectLevel(200, static_cast<uint8_t>(id), stock_levels);
+		if (id % 17) { assert(level == stock_levels[(id % 17) - 1]); }
+		else { assert(!level && !(level >= -4)); }
+	}
+	for (auto id : {Cairnwright::StrikeCairn, Cairnwright::SoundTheSeam, Cairnwright::SeamFracture}) {
+		const auto level = Cairnwright::EffectLevel(id, 17, stock_levels);
+		assert(Cairnwright::EffectLevel(id, 16, stock_levels) == level);
+		assert(level == 1 && level >= 6 - 5 && !(level >= 7 - 5));
+	}
 	nightcap::UIState ui;
 	assert(ui.Consume("[NCUI1]S|1|42|11|0|12|17|0|0|Mason"));
 	assert(ui.Classes() == "CRW/---/---");

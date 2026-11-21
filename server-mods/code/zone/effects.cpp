@@ -18,6 +18,7 @@
 */
 
 #include "mob.h"
+#include "common/cairnwright.h"
 
 #include "common/eqemu_logsys.h"
 #include "common/misc_functions.h"
@@ -150,7 +151,7 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 			} else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && GetSpellDmg()) {
 				value -= GetNightcapSpellDamageBonus(spell_id, base_value) * ratio / 100;
 
-			} else if (!spells[spell_id].no_heal_damage_item_mod && GetSpellDmg() && spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5) {
+			} else if (!spells[spell_id].no_heal_damage_item_mod && GetSpellDmg() && Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5) {
 				value -= GetNightcapSpellDamageBonus(spell_id, base_value) * ratio / 100;
 			}
 
@@ -206,7 +207,7 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 	else if (
 		!spells[spell_id].no_heal_damage_item_mod &&
 		GetSpellDmg() &&
-		spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5
+		Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5
 	) {
 		value -= GetNightcapSpellDamageBonus(spell_id, base_value);
 	}
@@ -316,7 +317,7 @@ int64 Mob::GetActDoTDamage(uint16 spell_id, int64 value, Mob* target, bool from_
 			else if (
 				!spells[spell_id].no_heal_damage_item_mod &&
 				GetSpellDmg() &&
-				spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5
+				Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5
 			) {
 				if (thj_damage) { value -= GetNightcapSpellDamageBonus(spell_id, base_value, true)*ratio/100; }
 				else { extra_dmg += GetExtraSpellAmt(spell_id, GetSpellDmg(), base_value)*ratio/100; }
@@ -364,7 +365,7 @@ int64 Mob::GetActDoTDamage(uint16 spell_id, int64 value, Mob* target, bool from_
 			else if (
 				!spells[spell_id].no_heal_damage_item_mod &&
 				GetSpellDmg() &&
-				spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5
+				Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5
 			) {
 				if (thj_damage) { value -= GetNightcapSpellDamageBonus(spell_id, base_value, true); }
 				else { extra_dmg += GetExtraSpellAmt(spell_id, GetSpellDmg(), base_value); }
@@ -550,7 +551,7 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
 		else if (
 			!spells[spell_id].no_heal_damage_item_mod &&
 			GetHealAmt() &&
-			spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5
+			Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5
 		) {
 			value += item_healing(); // Item Heal Amount before critical
 		}
@@ -606,7 +607,7 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
 			else if (
 				!spells[spell_id].no_heal_damage_item_mod &&
 				GetHealAmt() &&
-				spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5
+				Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5
 			) {
 				extra_heal += GetExtraSpellAmt(spell_id, GetHealAmt(), base_value);
 			}
@@ -641,7 +642,7 @@ int32 Mob::GetActSpellCost(uint16 spell_id, int32 cost)
 		cost *= 2;
 
 	// Formula = Unknown exact, based off a random percent chance up to mana cost(after focuses) of the cast spell
-	if(itembonuses.Clairvoyance && spells[spell_id].classes[(GetClass()%17) - 1] >= GetLevel() - 5)
+	if(itembonuses.Clairvoyance && Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes) >= GetLevel() - 5)
 	{
 		int mana_back = itembonuses.Clairvoyance * zone->random.Int(1, 100) / 100;
 		// Doesnt generate mana, so best case is a free spell

@@ -18,6 +18,7 @@
 */
 
 #include "mob.h"
+#include "common/cairnwright.h"
 
 #include "common/data_bucket.h"
 #include "common/data_verification.h"
@@ -7311,7 +7312,8 @@ int8 Mob::GetDecayEffectValue(uint16 spell_id, uint16 spelleffect) {
 	if (!IsValidSpell(spell_id))
 		return false;
 
-	int spell_level = spells[spell_id].classes[(GetClass()%17) - 1];
+	const auto spell_level = Cairnwright::EffectLevel(spell_id, GetClass(), spells[spell_id].classes);
+	if (!spell_level) { return 0; }
 	int effect_value = 0;
 	int lvlModifier = 100;
 
@@ -7323,7 +7325,7 @@ int8 Mob::GetDecayEffectValue(uint16 spell_id, uint16 spelleffect) {
 
 					int critchance = spells[buffs[slot].spellid].base_value[i];
 					int decay = spells[buffs[slot].spellid].limit_value[i];
-					int lvldiff = spell_level - spells[buffs[slot].spellid].max_value[i];
+					int lvldiff = *spell_level - spells[buffs[slot].spellid].max_value[i];
 
 					if(lvldiff > 0 && decay > 0)
 					{

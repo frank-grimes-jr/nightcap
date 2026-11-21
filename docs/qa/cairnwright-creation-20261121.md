@@ -10,7 +10,7 @@ Feature worktree based on main `cca7e6dfcb312dd30528609c1483d2382de35226`. Local
 - Read-only local PEQ queries returned 16 distinct classes in `char_create_combinations`, zero class-17 combinations, zero `classes17` columns in `spells_new`, and zero spells named Strike Cairn or Sound the Seam. No character or multiclass row in this local database held class 17.
 - Wiki impact review found no public gameplay change. The current wiki refresh check reports historical drift from its October 24 reviewed revision. Leave the review ledger and publication alone for this isolated experiment.
 
-## Integration gaps
+## Initial integration gaps (layout experiment)
 
 The XML describes a radio button. There is no Cairnwright selection handler in the reviewed Nightcap client source. A visible or depressed button alone cannot establish which class the client submits or renders upon return. Pre-world creation and post-login spell access require separate client integration.
 
@@ -34,7 +34,7 @@ python tools/tests/check_cairnwright_creation_ui.py $stockXml $qaXml
 3. At level one, memorize Strike Cairn and Sound the Seam. Place a stone, move, pulse an engaged target on the line, and check a target off the line. Record spell IDs, mana, recast and combat results. Repeat after relog.
 4. On a separate eligible stock-primary character, hail the Ancient Chronicler in East Commonlands. Preview and confirm Cairnwright, check the persisted secondary slot, reconnect and cast both spells. Release via the NPC, reconnect and confirm both spells are unusable, existing class capabilities survive and a planted stone is gone. Repeat in slot three with slot two already occupied. Verify repeated release and an attempt to adopt one's birth discipline leave the original build intact.
 
-No paired client, world, zone or spell catalog implementing class 17 has been deployed. This experiment does not establish any of the four playable acceptance steps.
+The layout experiment established the asset shape. The native world evidence below covers the server portion of character creation and character select.
 
 ## Level-one candidate
 
@@ -55,3 +55,20 @@ The Perl spell hooks run after a self-target cast and check the caster and held 
 The tested x86 extension SHA-256 is `a528d84fcdc90717609aa1630f3f2762053e430581dd42f855677707529b6aff`. The Linux zone candidate SHA-256 is `9d75a2c106ff30b94e5e068f45e22ab861058f8e1b69f696823d25fd058bb0ab`. The candidate spell file SHA-256 is `d67df84974b4bad55f0f4e18f37c12abcc61f1cf14e23f1725cb5a8f8f83feeb`. The retained local build helper is `docs/qa/cairnwright-level-one/compile_candidate.py`; supply the server source diff against base main as `zone.patch` and the new `cairnwright.h` beside it in a dedicated local Docker build directory. It builds a test artifact without installing it.
 
 The owner requires selection inside RoF2 and the existing workspace as the source boundary. The retained RoF2 interface header in `artifacts/advloot-20260930/reference/UI.h` declares `CCharacterCreation::SelectedClassButton`, `GetClassButtonIndex` and `FinalizeNewPCAndSendToWorld`. The checked client source provides no implementation of the stock selector or registration interface for adding a logical choice. This is the outstanding creation integration. A statically valid radio button, a server row alone, or an in-zone class snapshot does not test it. The current world advertises its creation combinations to connected clients; public activation requires testing compatibility for players on older clients as well.
+
+## Native world creation and fresh-process character select
+
+A synthetic account supplied application messages to the candidate world's ordinary `Client::Process` entry point. The in-process RoF2 stream delivered name approval followed by character creation. World validated the Dwarf/Brell/Kaladim combination using allocation 14, resolved the Nightcap East Commonlands bind, loaded its starter item cache and granted its normal 100-platinum wallet. The scratch database began with empty character, inventory, and wallet tables. A second invocation started a fresh process, opened a new database connection and used `SendCharInfo` to read the saved character. Both invocations checked the entry sent to the character list and independently queried the stored class and equipped slots.
+
+```text
+CREATED id=21 class=17 level=1 zone=22 kit=998616,998636
+RELOADED id=21 class=17 level=1 zone=22 kit=998616,998636
+```
+
+The name was Cairnproof. The two creation-only items are a 10 AC, 5 WIS robe and a 6 damage, 30 delay one-handed hammer. The ordinary stock creation-combination packet was byte-for-byte identical with and without the class 17 server row. The world validator rejected unrelated race, deity, city and overspent stats. The two content migrations passed exact replay against local PEQ structures and the location migration rejected a changed bind. The world starter-grant test passed for all 17 classes. The spell effect-level test exercised all 256 class byte values and the level boundary for learned spells and the unlearnable child hit.
+
+World SHA-256 `a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521` follows a reproduction of retained shipping world `9726ce1cca92ffb29b198f15428688b44f243e9513623d8e4b02a700e7dfb32d`. Zone SHA-256 `771122fc9f8b208eb9338f82df3c614288582a8ae9f5bd19ed7ed4c1b5665989` includes the bounded spell level lookups. The x86 extension build was `ba6f5a24eb93e81c449a131656387f4bd8dae94e6f943cb8919d46f2b998613c`.
+
+The headless driver and build helpers are in `docs/qa/cairnwright-level-one/`. Run `compile_world.py`, then `build_world_probe.py` with `world_creation_probe.cpp` beside it. Use `run_world_probe.py <temporary Docker build directory> seed`, then `create` and `list`, against an empty disposable MariaDB container as described in the runner. For a component test, run `test_world_creation.py <EQEmu source> --cxx cl` inside a Visual Studio developer shell. The database in these tests was separate from local PEQ and production.
+
+RoF2 has yet to submit the Cairnwright button choice or render this character on relog. The QA copy's `testeqgame.exe` hashes identically to `eqgame.exe`. The stock SIDL Button schema exposes a screen identifier and radio group. The separate HTML window has an embedded web component, but its start URI provides no authenticated world-creation callback. Actual spell casts and both Chronicler slot lifecycles still require zone integration evidence. The broad armor eligibility change follows gameplay validation. This prototype has no public gameplay or wiki release.

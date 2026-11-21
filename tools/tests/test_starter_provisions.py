@@ -177,7 +177,7 @@ struct Client {
 
 int main() {
  SharedDatabase content;
- for (uint32 klass=1;klass<=16;++klass) {
+ for (uint32 klass=1;klass<=17;++klass) {
   auto robe_id=998599u+klass, weapon_id=998619u+klass;
   content.cache[robe_id]={robe_id,1u<<(klass-1),10,0};
   content.cache[weapon_id]={weapon_id,1u<<(klass-1),0,5};
@@ -233,7 +233,7 @@ int main() {
   assert(inv.slots.at(EQ::invslot::slotPrimary).GetItem()->ID==9997);
  }
  profile.class_=0; assert(!NightcapStartingItems(content,profile,inv));
- profile.class_=17; assert(!NightcapStartingItems(content,profile,inv));
+ profile.class_=18; assert(!NightcapStartingItems(content,profile,inv));
 
  Client client;
  profile.class_=1;
@@ -308,7 +308,7 @@ int main() {
 
 class StarterProvisions(unittest.TestCase):
     def test_native_creation_grant(self):
-        header = (WORLD / 'starter_provisions.h').read_text()
+        header = (WORLD.parent / 'common/cairnwright.h').read_text() + (WORLD / 'starter_provisions.h').read_text()
         client = (WORLD / 'client.cpp').read_text()
         store = function(client, 'bool Client::StoreCharacter(')
         handler = function(client, 'bool Client::HandleCharacterCreatePacket(')

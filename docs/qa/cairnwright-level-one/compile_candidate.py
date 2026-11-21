@@ -39,7 +39,7 @@ rep["aa"] = Path("/tmp/nightcap-aa-purchase-latency-20261121/candidate/aa.o")
 for name in json.loads((equipment.ORNAMENT/"build.json").read_bytes())["objects"]:
     if name.startswith("zone/"):
         rep[Path(name).stem] = equipment.ORNAMENT/"candidate"/(Path(name).stem+".o")
-for unit in ("aa", "client", "client_mods", "spells"):
+for unit in ("aa", "client", "client_mods", "effects", "mob", "spells"):
     output = folder / (unit + ".o")
     b.compile_unit("shipping", unit, build, src, objs, pch, vfs, output)
     rep[unit] = output

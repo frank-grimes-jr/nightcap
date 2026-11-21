@@ -11062,6 +11062,8 @@ void Client::Fling(float value, float target_x, float target_y, float target_z, 
 
 std::vector<int> Client::GetLearnableDisciplines(uint8 min_level, uint8 max_level) {
 	std::vector<int> learnable_disciplines;
+	// Only stock primary disciplines have entries in the RoF2 spell table.
+	if (!m_pp.class_ || m_pp.class_ > 16) { return learnable_disciplines; }
 	for (uint16 spell_id = 0; spell_id < SPDAT_RECORDS; ++spell_id) {
 		bool learnable = true;
 		if (!IsValidSpell(spell_id)) {
@@ -11131,6 +11133,20 @@ std::vector<int> Client::GetMemmedSpells() {
 
 std::vector<int> Client::GetScribeableSpells(uint8 min_level, uint8 max_level) {
 	std::vector<int> scribeable_spells;
+	if (m_pp.class_ == Cairnwright::ClassId) {
+		// Both starting spells are unranked, level one and granted on entry.
+		// Use the same quest restrictions when a caller enumerates the book.
+		if (min_level > 1) { return scribeable_spells; }
+		for (auto id : {Cairnwright::StrikeCairn, Cairnwright::SoundTheSeam}) {
+			if (IsValidSpell(id) && !HasSpellScribed(id) &&
+				(!RuleB(Spells, EnableSpellGlobals) || SpellGlobalCheck(id, CharacterID())) &&
+				(!RuleB(Spells, EnableSpellBuckets) || SpellBucketCheck(id, CharacterID()))) {
+				scribeable_spells.push_back(id);
+			}
+		}
+		return scribeable_spells;
+	}
+	if (!m_pp.class_ || m_pp.class_ > 16) { return scribeable_spells; }
 	std::unordered_map<uint32, std::vector<uint16>> spell_group_cache = LoadSpellGroupCache(min_level, max_level);
 
 	for (uint16 spell_id = 0; spell_id < SPDAT_RECORDS; ++spell_id) {

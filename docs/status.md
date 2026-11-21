@@ -1,5 +1,7 @@
 ## Classic equipment paths — deployed (2026-11-21)
 
+Draft PR533 has a headless class 17 world creation and fresh-process character-list check. The RoF2 selector, client relog and end-to-end zone tests remain open. [Cairnwright candidate evidence](qa/cairnwright-creation-20261121.md)
+
 Main PR523 / 688932e2 is deployed as classic-equipment-paths-20261121-v1 after the ornament rollout. All 636 native pairs pass on reproduced shipping bceda35d. Production rehearsal and activation changed 596 item definitions, preserved 324200 other cache records including all ornaments, and corrected Temple of Solusek Ro access. Fresh stopped backup, saved-state/market preservation, 12 healthy workers, zero errors/restarts and reopened access verified. Existing healing strength, custom augments, ornament runtime and client2026112101 remain unchanged; reconnect. Wiki v4 is prepared over the published ornament wiki but is not published. Manual player QA remains open. [Release evidence](releases/classic-equipment-paths-20261121/README.md) · [QA](releases/classic-equipment-paths-20261121/QA.md).
 
 ## November 21, 2026 · Equipment ornaments live

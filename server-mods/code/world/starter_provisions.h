@@ -4,7 +4,7 @@
 // Fail closed if item caches were not regenerated with the matching content.
 inline bool NightcapStartingItems(SharedDatabase &content, PlayerProfile_Struct &profile, EQ::InventoryProfile &inventory)
 {
-	if (profile.class_ < 1 || profile.class_ > 16) { return false; }
+	if (profile.class_ < 1 || profile.class_ > Cairnwright::ClassId) { return false; }
 	// Preserve future race/deity-specific equipped rewards: only the audited
 	// default weapons may be replaced, and the baseline chest slot is empty.
 	if (inventory.GetItem(EQ::invslot::slotChest)) { return false; }
