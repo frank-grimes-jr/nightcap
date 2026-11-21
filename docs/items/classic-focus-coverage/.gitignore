@@ -1,0 +1,8 @@
+# Native raw runs are archived losslessly as gzip; discarded dry runs are not evidence.
+/results.json
+/pressure-results.json
+/stress-results.json
+/discarded-no-pressure.json
+/correction-results.json
+/correction-pressure-results.json
+/correction-stress-results.json

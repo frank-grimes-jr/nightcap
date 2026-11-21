@@ -1,0 +1,34 @@
+{
+  "candidate": {
+    "release": "20261120-classic-focus-v3",
+    "previous": "20261120-aa-availability-v1",
+    "files": 631,
+    "changed": [
+      "combat.html",
+      "equipment.html",
+      "features.html",
+      "multiclass.html",
+      "recent-changes.html",
+      "search-index.json"
+    ],
+    "preserved": 625,
+    "public_tests": 19,
+    "equipment_tests": 7,
+    "search": "PASS",
+    "catalogs": "unchanged",
+    "publication": "pending gameplay verification"
+  },
+  "global_refresh": "Historical source ledger remains REVIEW REQUIRED; no blanket advancement",
+  "reviewed": [
+    "Home goal paths",
+    "Features",
+    "Combat",
+    "Equipment",
+    "Multiclass editorial sentence only",
+    "Recent changes",
+    "Commands",
+    "Generated item/zone catalogs",
+    "Client downloads"
+  ],
+  "scope": "Guide changes plus two existing public-language corrections; all numeric catalogs unchanged"
+}

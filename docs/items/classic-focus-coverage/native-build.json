@@ -1,0 +1,8 @@
+{
+  "adapter_scope": "Default Client constructor conn_state only; all combat/cast methods unchanged",
+  "client_before": "b51b5d8056dd61161110f60da7a243ffc15af7c94c2bd33d2d2c5e01f70ef86e",
+  "client_diagnostic": "9ec24eb9c7830e4e402570d418f5dd1f445dd6e999bbb62025ae63c4e92f0e9a",
+  "diagnostic_zone": "3d17c8c0c0153560677cd2da68ab141f50a583b9e7ec09bb71bdfb734847470e",
+  "probe": "21ec00adc17ac00381c8faad6f3be823bd629bec1f8d712588afdd34344df049",
+  "shipping_zone": "98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b"
+}

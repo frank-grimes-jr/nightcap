@@ -1,0 +1,23 @@
+{
+  "review": "Independent diagnostic/content review complete",
+  "content": "76 existing stock definitions, focus-only guarded migration; custom content unchanged",
+  "native": {
+    "pairs": 260,
+    "runs": 520,
+    "hp_conservation": true,
+    "positive_damage_and_attempts": true,
+    "raw_stats_preserved": true,
+    "stuns_observed": 0
+  },
+  "scope": "Controlled primary-hand pressure; no full NPC AI, special rounds, pathing, regeneration, or player acceptance",
+  "blocker": "Current shipping healing/mana focus category leak; global correction proposal is sound but unapplied pending owner scope decision",
+  "proposal_checks": [
+    "Neither/heal-only/mana-only/both",
+    "Mixed item, augment and worn focus sources",
+    "Single focus spell containing both effects",
+    "Modern and Classic focus modes",
+    "Reproduce incumbent and compile full changed translation unit",
+    "Repeat native pressure matrix after correction"
+  ],
+  "deployment": "None; test/main/production held"
+}

@@ -1,0 +1,39 @@
+{
+  "source": "b18018fd2f31d5ac95d4f02f9b7b09c98a87c4f2",
+  "files": {
+    "release.py": "fd7c79615d8ae6bb97479b3e68373283269f85798a9fd4e64681d62b7cdb2b21",
+    "catalog.py": "53558df72f7a28eadbc72c1c1d0746d6c7f3a04b8aa15728118245467557dc06",
+    "production.json.gz": "ce751ca3953f6113569d553c0085f3b74215c197199f84a3365c80230a48402d",
+    "policy.json": "2eb63d671a6096e87af2877970d70ddbd6c5962af844a25ad42781fa9f68576e",
+    "effects.json": "c01edf4b335110c0268b05e933048ba488fb7bf28ac8ce21afe9c778aba0b535"
+  },
+  "stock_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",
+  "titles_receipt": "f617ac60e3b77b76aba8c63c329214c798ca2ed87e5127e37a7ca75e3de3b618",
+  "image": "sha256:8c2c2297ca182a61ed5032f4c7e03cdaae9e3cd04bf954758ef9d9931952004b",
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "caches": {
+    "items": "4c5a40e58677c14834e219f094fa4cebda7c56aa453a7faf797d0480220d1986",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "client": 2026112001,
+  "channel": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c",
+  "layout": {
+    "size": 1332,
+    "ID": 440,
+    "HP": 508,
+    "Mana": 512,
+    "HealAmt": 980,
+    "SpellDmg": 984,
+    "DamageShield": 780,
+    "Slots": 452,
+    "AugType": 708,
+    "Worn": 824,
+    "Focus": 832
+  }
+}
