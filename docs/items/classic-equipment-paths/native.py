@@ -5,9 +5,9 @@ R=Path('/tmp/nightcap-classic-equipment-paths-20261121')
 OLD=Path('/tmp/nightcap-classic-focus-coverage-20261120')
 s=importlib.util.spec_from_file_location('prior_focus',OLD/'native.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 b,src,build,objs=m.b,m.src,m.build,m.objs
-EXPECTED='13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9'
+EXPECTED='04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43'
 def main():
-    rep=dict(m.rep);rep['spell_effects']=OLD/'correction/candidate/spell_effects.o'
+    rep=dict(m.rep);rep['spell_effects']=OLD/'correction/candidate/spell_effects.o';rep['aa']=Path('/tmp/nightcap-aa-purchase-latency-20261121/candidate/aa.o')
     reproduced=R/'reproduced';reproduced.mkdir(exist_ok=True)
     b.linker('shipping',reproduced,build,objs,m.args,rep)
     assert b.sha(reproduced/'zone')==EXPECTED,'current shipping reproduction mismatch'

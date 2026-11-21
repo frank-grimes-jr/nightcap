@@ -77,7 +77,7 @@ if __name__=='__main__':
     args=cli.parse_args()
     if args.candidate:
         assert args.action in ('stage','preflight','status')
-        STAGE='classic-equipment-paths-20261121-candidate'
+        STAGE='classic-equipment-paths-20261121-candidate-v2'
     if args.action=='stage':stage(args.source,args.candidate)
     elif args.action=='status':
         code="""from pathlib import Path
