@@ -1,0 +1,22 @@
+...................fatal: Needed a single revision
+.....
+----------------------------------------------------------------------
+Ran 24 tests in 61.769s
+
+OK
+✔ every exact published variant name finds its single family (89.0077ms)
+✔ catalog pages contain families once, covering all 98 across nine pages (81.356ms)
+✔ gear slot and level filters combine, without including augments (4.8979ms)
+✔ augments match every compatible socket slot, but not jewelry (1.6222ms)
+✔ zone filter selects its two families; query narrows by words (1.1336ms)
+✔ required-level sorting is numerical and paging resets safely on narrow results (1.3081ms)
+✔ unsafe-looking or unmatched search text returns empty results without markup (0.8876ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 207.8654
+PASS: command ranking, exact items, multiword queries, unsafe text, empty query, load failure
