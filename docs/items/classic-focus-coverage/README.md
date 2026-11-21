@@ -1,6 +1,6 @@
 # Classic dropped-gear focus coverage
 
-Candidate validation PASSED for the authorized mana-only correction and stock focus additions; test/main/production promotion follows. Visible player acceptance is pending. User authorized test, main and deployment after validation. No custom content changes.
+Deployed through dev/test/main and verified on all 12 production workers. The mana-only correction preserves healing strength; 19 stock families / 76 definitions gain existing focuses. Official wiki publication is verified. Visible player encounter acceptance remains OPEN. No custom definitions were changed.
 
 ## Audit boundary
 
@@ -93,4 +93,10 @@ Full-healer gear retains4643 HP,4714 mana,487 HA and402 SD without AAs (5107 HP 
 
 ## Release contract
 
-Paired zone binary, guarded SQL and matching item-cache rebuild through supported whole-runtime restart. Preserve current AA-fixed zone/world, signed client2026112001, spells, rules, custom/player tables and ongoing progression. No new client download. Guarded deployment requires a fresh stopped backup, zero-player maintenance window and healthy12workers; post-SQL failures hold access closed for review, never restore an old player snapshot. Wiki impact: equipment/focus guide, Features, home and release summary; generated custom item catalog values remain unchanged.
+Paired zone binary, guarded SQL and matching item-cache rebuild through supported whole-runtime restart. Retain AA availability and all other native behavior, unchanged world and signed client2026112001, spells, rules, custom/player tables and ongoing progression. No new client download. Guarded deployment requires a fresh stopped backup, zero-player maintenance window and healthy12workers; post-SQL failures hold access closed for review, never restore an old player snapshot. Wiki impact: equipment/focus guide, Features, home and release summary; generated custom item catalog values remain unchanged.
+
+## Verified deployment
+
+Gameplay main 88476c93ea13b8afbb554802cc5b957ac451a93f (PR506), following dev PR504 and test PR505. Stage classic-focus-coverage-20261120-v2 installed zone 13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9 with item cache 2ecee16892c0c0eec4f1b18a27e3e47f13f96cf222a9dfde047a5781fa5d4159. Zero-player maintenance, fresh stopped backup, saved-state/market preservation, all twelve workers, zero restarts/detected errors and reopened access were verified. World, other binaries, spell cache, rules and signed client2026112001 are unchanged. Reconnect to refresh items; no client download.
+
+Official wiki20261120-classic-focus-v3 verified all631canonical outputs and private denials. Six outputs changed,625preserved; publisher rollback rehearsal and service/client preservation passed. Full raid AI, stun/bash behavior and visible player acceptance remain outside the controlled native evidence.

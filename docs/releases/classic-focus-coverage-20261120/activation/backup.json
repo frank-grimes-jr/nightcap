@@ -1,0 +1,7 @@
+{
+  "path": "/opt/nightcap/releases/classic-focus-coverage-20261120-v2/evidence/activation/private-backup/peq-before.sql.gz",
+  "sha256": "12daf0f8a127e7e96015b373faade61af495e68b61c068a01494d60524508bfb",
+  "compressed_bytes": 66995940,
+  "uncompressed_bytes": 485474849,
+  "gzip_integrity": "passed"
+}

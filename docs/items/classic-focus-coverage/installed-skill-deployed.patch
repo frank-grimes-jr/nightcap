@@ -1,0 +1,350 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\items.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\items.md
+@@ -2,13 +2,14 @@
+ 
+ ## Classic stock focus coverage · November 20
+ 
+-Fresh production audit captures87,268 stock Classic drop routes and all existing qualities. Unconditional usable pool1470families; including enabled conditional spawns1569, of which1477have no focus. Global Defiant remains expansion15;36rawhide routes add no missing definitions. The proposed19stock families/76definitions add only existing haste/healing/mana focus ID/type fields. Preserve custom content, stats, other effects, sockets, loot and all existing focuses. Policy, full-row captures and guarded replay/inverse SQL: E:/EQ_Local_Dev/_worktrees/classic-focus-coverage/docs/items/classic-focus-coverage/.
+-
+-Stock ranks extend spell coverage20/44/60, not magnitude. Haste15% retains minimum base casts1/2/3seconds; HasteII covers2sLightHealing, III does not. Healing20% and mana10% are stock definitions, but a confirmed current-engine cross-category defect causes both equipped categories to select20% mana preservation. Native no-AA LightHealing controls cost28none,28heal-only,26mana-only,23both. CalcFocusEffect's grouped ImprovedHeal/ReduceManaCost switch accepts either requested category; category-presence flags hide it when only one is worn. Do not claim independent10%mana behavior until correction is deployed. Any correction affects existing combinations beyond the new items and preserves healing magnitude while removing unintended mana savings.
+-
+-Disposable production DB forward/replay/inverse and exact310028-record native cache rehearsal passed:76focus-only changes,309952identical. Shipping zone98d62146 is reproduced; diagnostic-only default Client connection-complete adapter, actual zone config/maps and positive damage/casting checks are required. Earlier zero-pressure attempts are discarded, not validation. Final260paired comparisons/520runs pass HP conservation and real-damage/cast checks. Three-attacker deaths26/80→8/80; full-healer focus did not stack. No stuns occurred. Read the measurement report before citing survivability. Full native primary-hand pressure is not NPC AI/AEs, regen, pathing or player encounter acceptance.
+-
+-Candidate only. No main promotion, production change or public wiki publication is established. The owner decision on the confirmed focus-category issue gates release; 260 paired native pressure comparisons passed on current shipping behavior.
++Deployed through dev/test/main and the paired classic-focus-coverage-20261120-v2 release. The audit covers 87,268 stock Classic drop routes: 1,569 usable base families including enabled conditional spawns, 1,477 without a focus. Global Defiant remains expansion-15 gated. Nineteen stock families / 76 definitions gain existing haste, healing and mana focuses; only focus ID/type change. Custom definitions, stats, worn/click/proc effects, sockets, loot and ranks are preserved.
++
++Mana-cost lookup now rejects ImprovedHeal slots. Existing healing evaluation is deliberately unchanged, including reverse cross-category behavior, later-era strengths and multi-effect ordering; do not replace this with a symmetric guard without a separate healing balance decision. Stock controls select 20% healing and 10% mana preservation together; Light Healing costs 26 instead of the erroneous 23 while healing strength remains identical. Rank I/II/III extends spell coverage through 20/44/60. Haste stays 15% with minimum base cast times of 1/2/3 seconds: II covers Light Healing, III does not. Strongest eligible item/augment focus behavior remains.
++
++Full spell_effects translation-unit reproduction matched predecessor zone98d62146; shipping corrected zone13ad2534 contains no diagnostic adapter. All 144 paired category scenarios and 260 paired pressure comparisons preserve same-gear healing strength exactly. Corrected three-attacker deaths improve 26/80 to 13/80; ordinary and combined augment cases survive both. HP/mana/HA/SD and cast-time samples are unchanged by the engine correction. No stuns occurred; the fixture covers primary-hand pressure, not full raid AI or player acceptance. Keep the older 26-to-8 result labeled pre-correction: it relied on unintended mana preservation.
++
++Paired SQL forward/replay/inverse and cache rehearsal preserve 309,952 records with only 76 focus-field changes among 310,028. Zone binary and rebuilt items cache2ecee168 ship together; world, loader, spell cache5039b3ab and signed client2026112001 remain paired. Supported whole-runtime restart and reconnect; no new client download. Zero-player activation, fresh stopped backup, saved-state/market preservation, twelve workers and open gateway verified. Never restore an earlier player inventory/database snapshot. Evidence, exact QA and controls: E:/EQ_Local_Dev/_worktrees/classic-focus-coverage/docs/items/classic-focus-coverage/ and docs/releases/classic-focus-coverage-20261120/. Player acceptance remains OPEN.
++
+ 
+ ## Classic augment stacking and socket validation · November 14
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
+@@ -2,7 +2,8 @@
+ 
+ ## Classic stock focus category validation · November 20
+ 
+-See the current Classic stock focus coverage section in items.md and topic classic-focus. Do not treat stock healing and mana focus as independent: native isolation on the November20 shipping engine confirms category leakage when both are equipped. Evidence and final correction/deployment status belong to docs/items/classic-focus-coverage/. Candidate only. No main promotion, production change or public wiki publication is established. The owner decision on the confirmed focus-category issue gates release; 260 paired native pressure comparisons passed on current shipping behavior.
++The deployed mana-only guard fixes healing-to-mana leakage without changing any healing evaluation. All144paired category scenarios and260paired pressure comparisons preserve same-gear healing output exactly. See items.md / classic-focus and correction-validation.json in the current Classic focus worktree. Corrected three-attacker deaths26→13; older26→8 evidence included the defect. Reverse mana-to-healing behavior is intentionally preserved. Native primary-hand pressure does not establish full raid or player acceptance.
++
+ 
+ ## Fast direct heals · November 20 production
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\operations.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\operations.md
+@@ -1,6 +1,10 @@
+ # Source authority, builds and reloads
+ 
+-## Current native production baseline · AA availability November20
++## Current native production baseline · Classic focus November20
++
++Stage classic-focus-coverage-20261120-v2; gameplay source 88476c93ea13b8afbb554802cc5b957ac451a93f; image sha256:aa94e274128c30cf683924eff6ba990f315e57a4575276f35a09a51a6b0f4a86; zone 13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9. Item cache 2ecee16892c0c0eec4f1b18a27e3e47f13f96cf222a9dfde047a5781fa5d4159. Matching full native build and76focus-only item changes deployed with zero players, fresh stopped backup, saved-state/market preservation and12healthyworkers. Other binaries, spells, rules, signed client2026112001 and custom content preserved. Current evidence: E:/EQ_Local_Dev/_worktrees/classic-focus-coverage/docs/releases/classic-focus-coverage-20261120/. Player acceptance OPEN; use documented fresh-state inverse/image rollback, never stale player snapshots.
++
++## Previous native production baseline · AA availability November20
+ 
+ Stage aa-availability-20261120-v1, source6da8492de16092d167b05467f9b3f9e6542b72e0, zone98d6214630ef36fbd34a54185630543b1fd5266d41f9191078d6ab7e2d44872b. The exact fast-healing predecessor35330918 was reproduced before compiling aa.cpp. Existing world, rules, Guise item cache4c5a40e5, spell cache5039b3ab and signed client2026112001 remain paired. Zero-player activation, fresh stopped backup, saved-state/market preservation, twelve workers and reopened access verified. Use E:/EQ_Local_Dev/_worktrees/aa-availability/docs/audits/aa-availability-20261120/; never replay terminal activation or restore player snapshots. Player acceptance remains OPEN.
+ 
+@@ -16,7 +20,7 @@
+ 
+ Verified cache a96899270a118922340312c885bb63aab205511e3d61043b1746b05b9f184bff on image sha256:254dd0d7023a629de4dd57ec33575fdf3e1af67289758eff0c389708193f5d0c, 12 workers, signed client 2026111301. See E:/EQ_Local_Dev/_worktrees/classic-raid-focus/docs/releases/classic-raid-focus-20261114/production-verified.json. The content patch changes only Worn or Focus spell ID and type bytes for the 24 enumerated items.
+ 
+-## Current item cache · Classic Prismatic scales
++## Historical item cache · Classic Prismatic scales
+ 
+ Current item cache cae97fd906092237e7c522cd52660c347469b09c161eb18f40ac3828ace8fa1d on the existing fixed-AA native runtime and client 2026111301. Use the guarded item-and-recipe operator and the staged manifest at E:/EQ_Local_Dev/_worktrees/classic-prismatic-live/docs/releases/classic-prismatic-20261114/. After exposure preserve new IDs and player-held augments.
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
+@@ -1,4 +1,8 @@
+ # Official player wiki and Features
++
++## Classic focus coverage · November20 published
++
++Release20261120-classic-focus-v3 starts from exactly reproduced public20261120-aa-availability-v1. All631canonical outputs and private denials verified,625unchanged. Equipment lists19families and focus limits; Combat/Features/Change Log explain availability and preserved healing with corrected mana savings. Multiclass has a sentence split only. Numeric catalogs, Home goal paths and commands reviewed and preserved. Publisher rollback rehearsed; game/client/services unchanged. Current public source: E:/EQ_Local_Dev/artifacts/classic-focus-coverage-20261120/wiki. Evidence: current Classic focus worktree docs/items/classic-focus-coverage/. Historical global ledger drift remains REVIEW REQUIRED; do not advance unrelated sources blindly.
+ 
+ ## AA availability · November20 published
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -3395,11 +3395,11 @@
+         "sha256": "f8999e0832b9eca9d8aa2774c3ba9c0506e4704e64e6bc313a2e368c6d27ca2c"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "88c9b9c55a0ea72c29e3804cedaf0d7f21c9292d228ac74a865e8c99e763fa30"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -4043,11 +4043,11 @@
+         "sha256": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/ascended-summoned-weapons/EQ_Local_Dev",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "existing Ascended SummonItem and SummonItemIntoBag selection",
+-        "revision": "7d212b9f495137cae97d4be08342bc624ef38393",
+-        "sha256": "43c46bd8d14f8b8732b8e7db707ea3de24ed730750b91d9239b02d1bff4cfd30"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/ascended-summoned-weapons/EQ_Local_Dev",
+@@ -12891,11 +12891,11 @@
+         "sha256": "39134dc567f3805723921ca3b8a2c157206b19224725660b749165738c46b6da"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "df4300a4873fb1bb7f9244b0715deb4f0dc239ee7b270e702cb5f39412947183"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -16833,11 +16833,11 @@
+         "sha256": "1e5a95c74eb20de10cda0595011686b517c83c192ae79b2848007877a95184f3"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
+-        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
+-        "sha256": "2b64ca4c79f767bf30b2853e042d33dfaaf9048982e0f8f5e550c5d0ef464d60"
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
+@@ -19417,11 +19417,11 @@
+     ],
+     "dot-initial-damage": [
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Reviewed DoT landing-hit deployment and preserved Imitate Death; source/native/publication verified November12, owner gameplay/balance acceptance OPEN",
+-        "revision": "8a351145 + reviewed deployed native/wiki receipts 2026-11-12",
+-        "sha256": "df4300a4873fb1bb7f9244b0715deb4f0dc239ee7b270e702cb5f39412947183"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/dot-no-initial-damage",
+@@ -20307,10 +20307,11 @@
+         "sha256": "11449b8fb6c0cbce5440ec4e2381512be5e3fc31dc82f573e5b9e4a64eb5c66c"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/thj-heroic-casts-live",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Direct spell effect dispatch",
+-        "sha256": "620baa926de1058fbd6b3e8dce7145f1fd347f0ae7eebc8b902eb303a131168b"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/thj-heroic-casts-live",
+@@ -20375,10 +20376,11 @@
+         "sha256": "a557c53f507dcac6e48f883f23acb501842a896c78d8f7d977118ec38a565baa"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/thj-fixed-aa-duration-live",
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Tick and suspension policy",
+-        "sha256": "154bdf2e2361cd58d115d17303c6109b2d9597891f5458bc546992da62e2287d"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/thj-fixed-aa-duration-live",
+@@ -20693,108 +20695,101 @@
+     "classic-focus": [
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
++        "path": "server-mods/code/zone/spell_effects.cpp",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "04a358b6244f7f4cb823d2e7b5069f939b72bb449e9ffa611e6acc02861382f3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "docs/items/classic-focus-coverage/README.md",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "e167c440e061ca470d2620f6385b92c33ee26b72ba688da18cd9324d77c7d2f5"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "245037ec769ee635861a4e6aec4e6419309d2d28b2bf6d8c1734e6a00ce1a937"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "docs/items/classic-focus-coverage/policy.json",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
+         "sha256": "1a88a0753a8172928da3c54d941e81413485d5237717e190d420de79ed324a7a"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "docs/items/classic-focus-coverage/catalog.py",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
+         "sha256": "53558df72f7a28eadbc72c1c1d0746d6c7f3a04b8aa15728118245467557dc06"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "docs/items/classic-focus-coverage/test_catalog.py",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
+         "sha256": "c415f10f287c096bd895b6901e7649dd2a4adb5499af2fe4aad715536559e188"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/focus-controls-results.json",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "24bc4440ca33c03e9526d6cb1aaf44110298e9d6f7f2a4811778e1de7119e9fa"
++        "path": "docs/items/classic-focus-coverage/correction-build.json",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "7b7505e2357008bcc84c49474f4eda08c53c863523e070ee82407dd99cd77571"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "docs/items/classic-focus-coverage/probe.cpp",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "21ec00adc17ac00381c8faad6f3be823bd629bec1f8d712588afdd34344df049"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "75df37c3553e8efe42b32cf1caadb4d52ee18b5a7c72c7fc7b3393f8dc1c2998"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/native.py",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "f6b4147e254bfe3b05061698a90bd2d11b43450dee16a7cdd80f74b91400505d"
++        "path": "docs/items/classic-focus-coverage/correction_native.py",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "3739422c280e67c6f43cb23e702e6b26e0286db3535eca84129bfe36e8d4c754"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
++        "path": "docs/items/classic-focus-coverage/validate_correction.py",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "6ec6f51a9c5ec65a0885f56650260d393337664f6f4ba68d41c185a4955cdfb0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
++        "path": "docs/items/classic-focus-coverage/correction-validation.json",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "f55253071090658308a16e00d344cf19ca734904e873ca46089c385efa22b58a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
++        "path": "docs/items/classic-focus-coverage/correction-review.json",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "6baca18f1386b48d1b91ff7c752b4f9c8f46abc6791df5589fdb2286d7dd7650"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+         "path": "docs/releases/classic-focus-coverage-20261120/release.py",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "6a4b7e40e3dd41b369ab1d139f9ed5307e1b1da1d961e3d042579f799044c6ab"
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "2ea41e71efd3ec163893674e9b66cdd0a9bbc2af799f58975c63ea68dfaff47d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/releases/classic-focus-coverage-20261120/candidate-preflight.json",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "6af7e28485a76b9f9fac1ecd102c5232f46617ba20534aa56169a549414659c6"
++        "path": "docs/releases/classic-focus-coverage-20261120/production-verified.json",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "555762c01d93878e8bd42e742382071d34db67fb464db17d42b331bd57297072"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "154bdf2e2361cd58d115d17303c6109b2d9597891f5458bc546992da62e2287d"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/FOCUS-CATEGORY-ISSUE.md",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "414dc0369cff05ff39890ad0c1eda3b328a6cd5d6d416fc6ecc0ff3cda88445f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/native-build.json",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "d84d973150490a86e1e940185751bafc4aa20927516f43170dfd6052e3501e5f"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/summarize_native.py",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "ceb4a331a090a9c93bedd4cfb840adc45cce99f1f7e85266b571525480b22bce"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/review.json",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "75dbd890cd2de25f0257d81f3a3616c2665d922eb0b59f5bca3d84f69be3aa48"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-focus-coverage",
+-        "path": "docs/items/classic-focus-coverage/measurement-summary.json",
+-        "role": "Reviewed Classic focus audit, native controls and release evidence; inspect current status",
+-        "revision": "a233a7c63bc74b69c39b121634bccb462825febb",
+-        "sha256": "363fb51b3657db059ad95915a8b0eb114ca58a0cebc810962d1b0aa0d6cea03c"
++        "path": "docs/items/classic-focus-coverage/wiki-public-verification.json",
++        "role": "Reviewed deployed Classic focus source, validation and release; player acceptance OPEN",
++        "revision": "b716e776e74b8bbff1d673f505167ff8113d9854",
++        "sha256": "8297a5416d2ed6c207da0efd47b3a64e4f1782f42a2899320a9a0be6b67543c6"
+       }
+     ]
+   }
