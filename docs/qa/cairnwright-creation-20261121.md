@@ -71,4 +71,22 @@ World SHA-256 `a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521`
 
 The headless driver and build helpers are in `docs/qa/cairnwright-level-one/`. Run `compile_world.py`, then `build_world_probe.py` with `world_creation_probe.cpp` beside it. Use `run_world_probe.py <temporary Docker build directory> seed`, then `create` and `list`, against an empty disposable MariaDB container as described in the runner. For a component test, run `test_world_creation.py <EQEmu source> --cxx cl` inside a Visual Studio developer shell. The database in these tests was separate from local PEQ and production.
 
-RoF2 has yet to submit the Cairnwright button choice or render this character on relog. The QA copy's `testeqgame.exe` hashes identically to `eqgame.exe`. The stock SIDL Button schema exposes a screen identifier and radio group. The separate HTML window has an embedded web component, but its start URI provides no authenticated world-creation callback. Actual spell casts and both Chronicler slot lifecycles still require zone integration evidence. The broad armor eligibility change follows gameplay validation. This prototype has no public gameplay or wiki release.
+RoF2 has yet to submit the Cairnwright button choice or render this character on relog. The QA copy's `testeqgame.exe` hashes identically to `eqgame.exe`. The stock SIDL Button schema exposes a screen identifier and radio group. The separate HTML window has an embedded web component, but its start URI provides no authenticated world-creation callback. The broad armor eligibility change follows gameplay validation. This prototype has no public gameplay or wiki release.
+
+## Native zone casts and Chronicler persistence
+
+The isolated zone linked the candidate zone objects and Perl archive. It loaded East Commonlands geometry, the candidate spell cache, both spell hooks and the Ancient Chronicler quest. Character 21 entered with 21 mana. Strike Cairn planted the stone and spent four mana. With the caster moved eight units from the stone, Sound the Seam spent five mana. Both skeletons had the caster on their native hate lists. The skeleton halfway along the seam lost five HP. The skeleton twelve units to its side lost zero. A fresh process loaded the same character and both saved spell gems and repeated those results.
+
+The stock-primary controls were Warriors. Character 22 adopted Cairnwright in slot two. Character 23 already held Cleric in slot two and adopted Cairnwright in slot three. The test dispatched the NPC's ordinary say and confirmation events, started a fresh zone for each release, cast both spells while the discipline was held, and checked that the release cleared the planted stone. A third process confirmed class 17 membership was gone and both spells had lost cast eligibility. Character 23 retained Cleric.
+
+The driver supplies a local client object and already-engaged NPCs. Spell timing, mana, target selection, native child spell damage, database writes and quest dispatch run in the zone. Player-visible character selection, camp and reconnect still require the RoF2 client. The workspace MQ distribution contains binaries and macros. Its archive and unpacked copy contain no C++ SDK or class registration implementation.
+
+For reproduction, build `build_zone_probe.py` with `zone_spell_probe.cpp` beside it after the candidate zone build. Run the world probe's `seed`, `create` and `list` actions in a fresh scratch database before using the zone runner. Use the same temporary Docker build path for all calls.
+
+```powershell
+$actions = 'seed', 'first', 'relog', 'adopt2', 'release2', 'released2', 'adopt3', 'release3', 'released3'
+foreach ($action in $actions) {
+    python docs/qa/cairnwright-level-one/run_zone_probe.py $buildDirectory $action
+    if ($LASTEXITCODE -ne 0) { throw "Zone test failed at $action" }
+}
+```

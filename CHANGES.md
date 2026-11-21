@@ -1,6 +1,6 @@
 ## 2026-11-21 — Cairnwright world creation and persistence candidate
 
-World accepts the Classic Dwarf Cairnwright combination from RoF2 and equips its creation-only robe and hammer. The stock creation list stays within the native 16 class slots. Zone handles Cairnwright spell levels during damage, healing, mana and decay calculations, and avoids querying a seventeenth stock spell column. A native world test created a level-one class 17 character and reloaded the same ID from a fresh process. RoF2 selection, player relog and zone gameplay remain open. [Candidate evidence](docs/qa/cairnwright-creation-20261121.md)
+World accepts the Classic Dwarf Cairnwright combination from RoF2 and equips its creation-only robe and hammer. The stock creation list stays within the native 16 class slots. Zone handles Cairnwright spell levels during damage, healing, mana and decay calculations, and avoids querying a seventeenth stock spell column. A native world test created a level-one class 17 character and reloaded the same ID from a fresh process. A fresh zone loaded the same spell gems, resolved damage against the engaged on-line target, and exercised the Ancient Chronicler in slots two and three. The RoF2 creation button and character-select display remain open. [Candidate evidence](docs/qa/cairnwright-creation-20261121.md)
 
 ## 2026-11-21 — Cairnwright starter spells and Chronicler candidate
 

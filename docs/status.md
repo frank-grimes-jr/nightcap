@@ -1,6 +1,8 @@
-## Classic equipment paths — deployed (2026-11-21)
+## Cairnwright — local prototype (2026-11-21)
 
-Draft PR533 has a headless class 17 world creation and fresh-process character-list check. The RoF2 selector, client relog and end-to-end zone tests remain open. [Cairnwright candidate evidence](qa/cairnwright-creation-20261121.md)
+Draft PR533 verifies world creation and character-list persistence for class 17, both spells in a fresh zone process, and Chronicler adoption and release in slots two and three. RoF2 selection, character-select display and live deployment remain open. [Cairnwright candidate evidence](qa/cairnwright-creation-20261121.md)
+
+## Classic equipment paths — deployed (2026-11-21)
 
 Main PR523 / 688932e2 is deployed as classic-equipment-paths-20261121-v1 after the ornament rollout. All 636 native pairs pass on reproduced shipping bceda35d. Production rehearsal and activation changed 596 item definitions, preserved 324200 other cache records including all ornaments, and corrected Temple of Solusek Ro access. Fresh stopped backup, saved-state/market preservation, 12 healthy workers, zero errors/restarts and reopened access verified. Existing healing strength, custom augments, ornament runtime and client2026112101 remain unchanged; reconnect. Wiki v4 is prepared over the published ornament wiki but is not published. Manual player QA remains open. [Release evidence](releases/classic-equipment-paths-20261121/README.md) · [QA](releases/classic-equipment-paths-20261121/QA.md).
 

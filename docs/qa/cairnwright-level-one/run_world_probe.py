@@ -23,10 +23,7 @@ def target(sql):
     return docker("exec","-i", DB, "sh", "-c",
                   'MYSQL_PWD="$MYSQL_PASSWORD" exec mysql -u cairnwright_qa -NB cairnwright_qa',data=sql)
 
-def seed():
-    assert target(b"SELECT DATABASE(); SHOW TABLES;").strip()==b"cairnwright_qa", "fixture must start empty"
-    # Schema only for the account and player tables. Local dev public content is
-    # copied with explicit predicates. The unique test name is reserved by world.
+def local_content_dump():
     local_dump = """import json, os, sys
 with open('/home/eqemu/server/eqemu_config.json') as file:
     db = json.load(file)['server']['database']
@@ -34,8 +31,14 @@ assert (db['host'],db['db']) == ('mariadb','peq')
 os.environ['MYSQL_PWD'] = db['password']
 os.execvp('mysqldump',['mysqldump','-h','mariadb','-u',db['username'],*sys.argv[1:]])
 """
-    dump=["exec",SERVER,"python3","-c",local_dump,
+    return ["exec",SERVER,"python3","-c",local_dump,
           "--skip-triggers","--skip-comments","--skip-add-drop-table","--skip-lock-tables"]
+
+def seed():
+    assert target(b"SELECT DATABASE(); SHOW TABLES;").strip()==b"cairnwright_qa", "fixture must start empty"
+    # Schema only for the account and player tables. Local dev public content is
+    # copied with explicit predicates. The unique test name is reserved by world.
+    dump = local_content_dump()
     target(docker(*dump,"--no-data","peq",*TABLES))
     for table, predicate in {
         "zone":"zoneidnumber IN (22,67)",
