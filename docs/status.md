@@ -1,6 +1,6 @@
 ## November 21, 2026 · Broad Classic focus and defense deployed
 
-119 stock families / 476 definitions now provide 84 casting-focus and 40 defensive worn additions, with five overlaps. Dev/test/main, zero-player production activation, all twelve workers verified. Wiki publication awaits explicit owner approval after automatic review rejection. Native 188 pressure pairs / 259 defensive pairs and full SQL/cache rehearsal pass. Healing strength and custom content are preserved; player encounter acceptance remains OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
+119 stock families / 476 definitions now provide 84 casting-focus and 40 defensive worn additions, with five overlaps. Dev/test/main, zero-player production activation, all twelve workers verified. Official wiki release 20261121-classic-defense-v1 is published and all 631 public files are verified. Native 188 pressure pairs / 259 defensive pairs and full SQL/cache rehearsal pass. Healing strength and custom content are preserved; player encounter acceptance remains OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
 
 ## November 20, 2026 · Classic stock focus coverage deployed
 
