@@ -1,3 +1,8 @@
+## 2026-11-21 — Classic equipment acquisition/effects candidate
+
+Adds guarded empty-field effects to149stock families/596quality definitions across crafted/racial armor, enchanted jewelry, substantial class quests and named drops. Offense (10/20% item haste, shoulder ATK and damage/affliction focuses), healing/haste/mana and defense/sustain share existing capped or strongest-effect pools. Custom content, occupied effects, stats, recipes, quest reward qualities and AA ranks are preserved. Corrects only the Temple of Solusek Ro zone expansion1→0 under the unchanged Classic era lock. Its prior value blocked ordinary-player access to Classic armor quests. Items and the zone correction use one full-row-guarded transaction; whole-runtime refresh is required for zone-store caches. Candidate evidence and exact non-GM/crafting/combat QA: docs/releases/classic-equipment-paths-20261121/. Validation/deployment and player acceptance are tracked separately; not a live claim.
+
+
 ## November 21, 2026 · Broad Classic focus and defense
 
 119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions, with five overlaps. Empty fields only; existing stats/effects/custom content and healing strength preserved. Native 188 pressure / 259 defense pairs and guarded SQL/cache rehearsal pass. Content-only release retains current production binaries, spell cache and signed client; older unrelated dev source is preserved. Exact in-game QA: docs/releases/classic-defense-coverage-20261121/QA.md. Player acceptance OPEN; deployment requires a recorded activation receipt.

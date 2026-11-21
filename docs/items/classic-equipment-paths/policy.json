@@ -1,0 +1,1013 @@
+{
+  "scope": "Candidate pending native validation, full-quality row guards and acquisition review. Empty fields only. Same effects across qualities. Custom augments, spells, AA ranks and existing strength unchanged.",
+  "families": {
+    "2319": {
+      "name": "Black Silk Gloves",
+      "category": "stock_drop",
+      "worn": 4348
+    },
+    "2465": {
+      "name": "Elf-hide Gloves",
+      "category": "stock_drop",
+      "worn": 4348
+    },
+    "3140": {
+      "name": "Darkforge Helm",
+      "category": "class_quest",
+      "worn": 2687
+    },
+    "3141": {
+      "name": "Darkforge Breastplate",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "3142": {
+      "name": "Darkforge Vambraces",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "3143": {
+      "name": "Darkforge Bracer",
+      "category": "class_quest",
+      "focus": 2343
+    },
+    "3144": {
+      "name": "Darkforge Gauntlets",
+      "category": "class_quest",
+      "worn": 1925
+    },
+    "3145": {
+      "name": "Darkforge Greaves",
+      "category": "class_quest",
+      "worn": 3892
+    },
+    "3146": {
+      "name": "Darkforge Boots",
+      "category": "class_quest",
+      "worn": 1299
+    },
+    "3150": {
+      "name": "Helm of Ro",
+      "category": "ro_quest",
+      "worn": 2687
+    },
+    "3151": {
+      "name": "Breastplate of Ro",
+      "category": "ro_quest",
+      "focus": 2346
+    },
+    "3152": {
+      "name": "Vambraces of Ro",
+      "category": "ro_quest",
+      "worn": 3889
+    },
+    "3153": {
+      "name": "Bracer of Ro",
+      "category": "ro_quest",
+      "focus": 2343
+    },
+    "3154": {
+      "name": "Gauntlets of Ro",
+      "category": "ro_quest",
+      "focus": 2340,
+      "worn": 1925
+    },
+    "3155": {
+      "name": "Greaves of Ro",
+      "category": "ro_quest",
+      "worn": 3892
+    },
+    "3156": {
+      "name": "Boots of Ro",
+      "category": "ro_quest",
+      "worn": 1299
+    },
+    "3170": {
+      "name": "Ravenscale Gloves",
+      "category": "stock_drop",
+      "worn": 4348
+    },
+    "3181": {
+      "name": "Ivy Etched Helm",
+      "category": "class_quest",
+      "worn": 2687
+    },
+    "3184": {
+      "name": "Ivy Etched Tunic",
+      "category": "class_quest",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "3188": {
+      "name": "Ivy Etched Sleeves",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "3189": {
+      "name": "Ivy Etched Bracer",
+      "category": "class_quest",
+      "focus": 2343
+    },
+    "3190": {
+      "name": "Ivy Etched Gauntlets",
+      "category": "class_quest",
+      "worn": 1925
+    },
+    "3191": {
+      "name": "Ivy Etched Leggings",
+      "category": "class_quest",
+      "worn": 3892
+    },
+    "3192": {
+      "name": "Ivy Etched Boots",
+      "category": "class_quest",
+      "worn": 1299
+    },
+    "3808": {
+      "name": "Kedgemail Gauntlets",
+      "category": "stock_drop",
+      "worn": 1925
+    },
+    "4153": {
+      "name": "Lambent Helm",
+      "category": "class_quest",
+      "worn": 2687
+    },
+    "4154": {
+      "name": "Lambent Breastplate",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "4155": {
+      "name": "Lambent Vambraces",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "4157": {
+      "name": "Lambent Gauntlets",
+      "category": "class_quest",
+      "worn": 1925
+    },
+    "4158": {
+      "name": "Lambent Greaves",
+      "category": "class_quest",
+      "worn": 3892
+    },
+    "4173": {
+      "name": "Crafted Helm",
+      "category": "class_quest",
+      "worn": 2687
+    },
+    "4174": {
+      "name": "Crafted Breastplate",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "4175": {
+      "name": "Crafted Pauldron",
+      "category": "class_quest",
+      "worn": 2594
+    },
+    "4176": {
+      "name": "Crafted Vambraces",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "4178": {
+      "name": "Crafted Gauntlets",
+      "category": "class_quest",
+      "worn": 1925
+    },
+    "4179": {
+      "name": "Crafted Greaves",
+      "category": "class_quest",
+      "worn": 3892
+    },
+    "4385": {
+      "name": "Paineel Steel Pauldron",
+      "category": "stock_drop",
+      "worn": 2594
+    },
+    "4405": {
+      "name": "Carnal Pauldrons",
+      "category": "stock_drop",
+      "worn": 2594
+    },
+    "4416": {
+      "name": "Dwarven Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "4418": {
+      "name": "Dwarven Plate Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "4419": {
+      "name": "Dwarven Plate Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "4420": {
+      "name": "Dwarven Plate Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "4427": {
+      "name": "Dwarven Plate Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "4428": {
+      "name": "Ogre War Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "4431": {
+      "name": "Ogre War Plate Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889
+    },
+    "4437": {
+      "name": "Ogre War Plate Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "4865": {
+      "name": "Imbrued Platemail Gauntlets",
+      "category": "stock_drop",
+      "worn": 1925
+    },
+    "4905": {
+      "name": "Woven Shadow Gauntlets",
+      "category": "stock_drop",
+      "worn": 1925
+    },
+    "4915": {
+      "name": "Indicolite Gauntlets",
+      "category": "stock_drop",
+      "worn": 1925
+    },
+    "4941": {
+      "name": "Totemic Boots",
+      "category": "class_quest",
+      "worn": 1299
+    },
+    "4942": {
+      "name": "Totemic Gauntlets",
+      "category": "class_quest",
+      "worn": 1925
+    },
+    "4943": {
+      "name": "Totemic Vambraces",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "4944": {
+      "name": "Totemic Greaves",
+      "category": "class_quest",
+      "worn": 3892
+    },
+    "4945": {
+      "name": "Totemic Bracers",
+      "category": "class_quest",
+      "focus": 2343
+    },
+    "4946": {
+      "name": "Totemic Breastplate",
+      "category": "class_quest",
+      "worn": 3889
+    },
+    "4947": {
+      "name": "Totemic Helm",
+      "category": "class_quest",
+      "worn": 2687
+    },
+    "5176": {
+      "name": "Legionnaire Scale Pauldron",
+      "category": "stock_drop",
+      "worn": 2594
+    },
+    "5179": {
+      "name": "Legionnaire Scale Gauntlets",
+      "category": "stock_drop",
+      "worn": 1925
+    },
+    "14640": {
+      "name": "Silver Amber Ring",
+      "category": "crafted_jewelry",
+      "focus": 2339
+    },
+    "14641": {
+      "name": "Electrum Amber Earring",
+      "category": "crafted_jewelry",
+      "focus": 2339
+    },
+    "14642": {
+      "name": "Golden Amber Earring",
+      "category": "crafted_jewelry",
+      "focus": 2340
+    },
+    "14643": {
+      "name": "Platinum Amber Ring",
+      "category": "crafted_jewelry",
+      "focus": 2340
+    },
+    "14660": {
+      "name": "Silvered Peridot Ring",
+      "category": "crafted_jewelry",
+      "focus": 2342
+    },
+    "14661": {
+      "name": "Electrum Peridot Bracelet",
+      "category": "crafted_jewelry",
+      "focus": 2342
+    },
+    "14662": {
+      "name": "Golden Peridot Bracelet",
+      "category": "crafted_jewelry",
+      "focus": 2343
+    },
+    "14663": {
+      "name": "Platinum Peridot Ring",
+      "category": "crafted_jewelry",
+      "focus": 2344
+    },
+    "14664": {
+      "name": "Silver Emerald Ring",
+      "category": "crafted_jewelry",
+      "focus": 2345
+    },
+    "14665": {
+      "name": "Emerald Electrum Bracelet",
+      "category": "crafted_jewelry",
+      "focus": 2345
+    },
+    "14666": {
+      "name": "Golden Emerald Bracelet",
+      "category": "crafted_jewelry",
+      "focus": 2346
+    },
+    "14667": {
+      "name": "Platinum Emerald Ring",
+      "category": "crafted_jewelry",
+      "focus": 2347
+    },
+    "14672": {
+      "name": "Blackened Pearl Silver Ring",
+      "category": "crafted_jewelry",
+      "focus": 2366
+    },
+    "14673": {
+      "name": "Black Pearl Electrum Choker",
+      "category": "crafted_jewelry",
+      "focus": 2366
+    },
+    "14674": {
+      "name": "Golden Black Pearl Choker",
+      "category": "crafted_jewelry",
+      "focus": 2367
+    },
+    "14675": {
+      "name": "Black Pearl Platinum Ring",
+      "category": "crafted_jewelry",
+      "focus": 2368
+    },
+    "14676": {
+      "name": "Silver Fire Wedding Ring",
+      "category": "crafted_jewelry",
+      "worn": 3889
+    },
+    "14677": {
+      "name": "Electrum Fire Wedding Ring",
+      "category": "crafted_jewelry",
+      "worn": 3889
+    },
+    "14678": {
+      "name": "Golden Fire Wedding Ring",
+      "category": "crafted_jewelry",
+      "worn": 3889
+    },
+    "14679": {
+      "name": "Platinum Fire Wedding Ring",
+      "category": "crafted_jewelry",
+      "worn": 3889
+    },
+    "14681": {
+      "name": "Electrum Star Ruby Ring",
+      "category": "crafted_jewelry",
+      "focus": 2336
+    },
+    "14682": {
+      "name": "Golden Star Ruby Ring",
+      "category": "crafted_jewelry",
+      "focus": 2337
+    },
+    "14683": {
+      "name": "Platinum Star Ruby Veil",
+      "category": "crafted_jewelry",
+      "focus": 2338
+    },
+    "21001": {
+      "name": "Fine Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21003": {
+      "name": "Fine Plate Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21004": {
+      "name": "Fine Plate Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21005": {
+      "name": "Fine Plate Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21009": {
+      "name": "Fine Plate Bracer",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21010": {
+      "name": "Fine Plate Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21012": {
+      "name": "Fine Plate Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21013": {
+      "name": "Small Fine Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21015": {
+      "name": "Small Fine Plate Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21017": {
+      "name": "Small Fine Plate Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21021": {
+      "name": "Small Fine Plate Bracer",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21022": {
+      "name": "Small Fine Plate Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21024": {
+      "name": "Small Fine Plate Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21025": {
+      "name": "Large Fine Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21027": {
+      "name": "Large Fine Plate Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21029": {
+      "name": "Large Fine Plate Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21033": {
+      "name": "Large Fine Plate Bracer",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21034": {
+      "name": "Large Fine Plate Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21060": {
+      "name": "Enchanted Teir`Dal Chain Coif",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21062": {
+      "name": "Enchanted Teir`Dal Chain Neckguard",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21063": {
+      "name": "Enchanted Teir`Dal Chain Tunic",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21064": {
+      "name": "Enchanted Teir`Dal Chain Mantle",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21068": {
+      "name": "Enchanted Teir`Dal Chain Bracelet",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21069": {
+      "name": "Enchanted Teir`Dal Chain Gloves",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21155": {
+      "name": "Koada`Dal Mithril Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21157": {
+      "name": "Koada`Dal Mithril Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21158": {
+      "name": "Koada`Dal Mithril Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21159": {
+      "name": "Koada`Dal Mithril Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21163": {
+      "name": "Koada`Dal Mithril Bracers",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21164": {
+      "name": "Koada`Dal Mithril Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21166": {
+      "name": "Koada`Dal Mithril Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21240": {
+      "name": "Imbued Koada`Dal Mithril Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21242": {
+      "name": "Imbued Koada`Dal Mithril Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21243": {
+      "name": "Imbued Koada`Dal Mithril Cuirass",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21244": {
+      "name": "Imbued Koada`Dal Mithril Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21248": {
+      "name": "Imbued Koada`Dal Mithril Bracers",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21249": {
+      "name": "Imbued Koada`Dal Mithril Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21251": {
+      "name": "Imbued Koada`Dal Mithril Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21264": {
+      "name": "Imbued Ogre War Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21267": {
+      "name": "Imbued Ogre War Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889
+    },
+    "21268": {
+      "name": "Imbued Ogre War Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21273": {
+      "name": "Imbued Ogre War Gauntlets",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21290": {
+      "name": "Enchanted Dwarven Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21292": {
+      "name": "Enchanted Dwarven Plate Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21293": {
+      "name": "Enchanted Dwarven Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21294": {
+      "name": "Enchanted Dwarven Plate Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21298": {
+      "name": "Enchanted Dwarven Plate Bracers",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21301": {
+      "name": "Enchanted Dwarven Plate Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21362": {
+      "name": "Dwarven Chain Coif",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21364": {
+      "name": "Dwarven Chain Gorget",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21365": {
+      "name": "Dwarven Chain Mail",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21366": {
+      "name": "Dwarven Chain Mantle",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21370": {
+      "name": "Dwarven Chain Bracelet",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21371": {
+      "name": "Dwarven Chain Gloves",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21373": {
+      "name": "Dwarven Chain Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21434": {
+      "name": "Imbued Dwarven Chain Coif",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "21436": {
+      "name": "Imbued Dwarven Chain Gorget",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "21437": {
+      "name": "Imbued Dwarven Chain Mail",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "21438": {
+      "name": "Imbued Dwarven Chain Mantle",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "21442": {
+      "name": "Imbued Dwarven Chain Bracelet",
+      "category": "crafted_armor",
+      "focus": 2343
+    },
+    "21443": {
+      "name": "Imbued Dwarven Chain Gloves",
+      "category": "crafted_armor",
+      "worn": 4348
+    },
+    "21445": {
+      "name": "Imbued Dwarven Chain Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "21485": {
+      "name": "Enchanted Teir`Dal Chain Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    },
+    "23468": {
+      "name": "Imbued Dwarven Plate Helm",
+      "category": "crafted_armor",
+      "worn": 2686
+    },
+    "23470": {
+      "name": "Imbued Dwarven Plate Collar",
+      "category": "crafted_armor",
+      "focus": 2340
+    },
+    "23471": {
+      "name": "Imbued Dwarven Breastplate",
+      "category": "crafted_armor",
+      "worn": 3889,
+      "focus": 2346
+    },
+    "23472": {
+      "name": "Imbued Dwarven Plate Pauldron",
+      "category": "crafted_armor",
+      "worn": 2201
+    },
+    "23479": {
+      "name": "Imbued Dwarven Plate Boots",
+      "category": "crafted_armor",
+      "worn": 1298
+    }
+  },
+  "held": [
+    {
+      "id": 4424,
+      "name": "Dwarven Plate Bracers",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4425,
+      "name": "Dwarven Plate Gauntlets",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4432,
+      "name": "Ogre War Plate Pauldron",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4433,
+      "name": "Ogre War Splinted Cloak",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4434,
+      "name": "Ogre War Plate Girdle",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4448,
+      "name": "Dwarven Plate Helm",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4449,
+      "name": "Dwarven Plate Visor",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4450,
+      "name": "Dwarven Plate Collar",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4451,
+      "name": "Dwarven Plate Breastplate",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4452,
+      "name": "Dwarven Plate Pauldron",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4454,
+      "name": "Dwarven Plate Girdle",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4455,
+      "name": "Dwarven Plate Vambraces",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4456,
+      "name": "Dwarven Plate Bracers",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4457,
+      "name": "Dwarven Plate Gauntlets",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4458,
+      "name": "Dwarven Plate Greaves",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 4459,
+      "name": "Dwarven Plate Boots",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21065,
+      "name": "Enchanted Teir`Dal Chain Cape",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21266,
+      "name": "Imbued Ogre War Collar",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21277,
+      "name": "Imbued Ogre War Helm",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21278,
+      "name": "Imbued Ogre War Visor",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21279,
+      "name": "Imbued Ogre War Collar",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21280,
+      "name": "Imbued Ogre War Breastplate",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21281,
+      "name": "Imbued Ogre War Pauldron",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21282,
+      "name": "Imbued Ogre War Cloak",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21283,
+      "name": "Imbued Ogre War Girdle",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21284,
+      "name": "Imbued Ogre War Vambraces",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21285,
+      "name": "Imbued Ogre War Bracer",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21286,
+      "name": "Imbued Ogre War Gauntlets",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21287,
+      "name": "Imbued Ogre War Greaves",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21288,
+      "name": "Imbued Ogre War Boots",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21299,
+      "name": "Enchanted Dwarven Plate Gauntlets",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21367,
+      "name": "Dwarven Chain Cloak",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21368,
+      "name": "Dwarven Chain Skirt",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21446,
+      "name": "Imbued Dwarven Chain Coif",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21447,
+      "name": "Imbued Dwarven Chain Veil",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21448,
+      "name": "Imbued Dwarven Chain Gorget",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21449,
+      "name": "Imbued Dwarven Chain Mail",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21450,
+      "name": "Imbued Dwarven Chain Mantle",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21451,
+      "name": "Imbued Dwarven Chain Cloak",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21452,
+      "name": "Imbued Dwarven Chain Skirt",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21453,
+      "name": "Imbued Dwarven Chain Sleeves",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21454,
+      "name": "Imbued Dwarven Chain Bracelet",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21455,
+      "name": "Imbued Dwarven Chain Gloves",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21456,
+      "name": "Imbued Dwarven Chain Leggings",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21457,
+      "name": "Imbued Dwarven Chain Boots",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21529,
+      "name": "Imbued Ogre War Mace",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21530,
+      "name": "Imbued Ogre War Mace",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 21533,
+      "name": "Imbued Ogre War Hammer",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 23476,
+      "name": "Imbued Dwarven Plate Bracers",
+      "reason": "ingredient/container chain not verified"
+    },
+    {
+      "id": 23477,
+      "name": "Imbued Dwarven Plate Gauntlets",
+      "reason": "ingredient/container chain not verified"
+    }
+  ]
+}

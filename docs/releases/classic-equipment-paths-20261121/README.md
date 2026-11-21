@@ -1,0 +1,5 @@
+# Classic equipment acquisition and effect release
+
+Candidate only. Content-only149families/596definitions plus one guarded zone expansion-field correction. Exact native image, spell cache, era rules and signed client retained. Items and zone SQL share one atomic transaction; full rows and all other zones/items are guarded. Rebuild item cache and restart the complete runtime to refresh process-level zone stores. Rehearsal/activation/publication and owner acceptance are separate gates. See QA.md and the item report.
+
+Validation passed against shipping04fcbf33:212pressure+312defense+112offensepairs,7content tests, independent review, forward/replay/rollback/reapply and negative drift atomicity controls. Rebuilt item cachea751b964d8b2e46122781c743dca54d5302326d85abf540c9e48e51659eade3f changes596records and preserves309432. The exact current image, spell cache, client and era rules remain paired. Public guide package20261121-classic-equipment-paths-v2 is prepared over the verified AA-latency wiki:7outputs change and624are preserved. Publication and ordinary-player acceptance remain pending.

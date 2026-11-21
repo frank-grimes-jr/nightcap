@@ -1,0 +1,2430 @@
+{
+  "npcs": [
+    {
+      "id": 32002,
+      "name": "fire_giant_warrior",
+      "lastname": "",
+      "level": 47,
+      "race": 18,
+      "class": 1,
+      "bodytype": 4,
+      "hp": 9000,
+      "mana": 0,
+      "gender": 2,
+      "texture": 1,
+      "helmtexture": 1,
+      "herosforgemodel": 0,
+      "size": 18,
+      "hp_regen_rate": 6,
+      "hp_regen_per_second": 0,
+      "mana_regen_rate": 0,
+      "loottable_id": 1099,
+      "merchant_id": 0,
+      "greed": 0,
+      "alt_currency_id": 0,
+      "npc_spells_id": 0,
+      "npc_spells_effects_id": 0,
+      "npc_faction_id": 243,
+      "adventure_template_id": 0,
+      "trap_template": 0,
+      "mindmg": 28,
+      "maxdmg": 161,
+      "attack_count": -1,
+      "npcspecialattks": "N",
+      "special_abilities": "10,1^13,1^15,1^26,1^42,1",
+      "aggroradius": 125,
+      "assistradius": 0,
+      "face": 0,
+      "luclin_hairstyle": 0,
+      "luclin_haircolor": 0,
+      "luclin_eyecolor": 0,
+      "luclin_eyecolor2": 1,
+      "luclin_beardcolor": 0,
+      "luclin_beard": 0,
+      "drakkin_heritage": 0,
+      "drakkin_tattoo": 0,
+      "drakkin_details": 0,
+      "armortint_id": 0,
+      "armortint_red": 0,
+      "armortint_green": 0,
+      "armortint_blue": 0,
+      "d_melee_texture1": 0,
+      "d_melee_texture2": 0,
+      "ammo_idfile": "IT10",
+      "prim_melee_type": 28,
+      "sec_melee_type": 28,
+      "ranged_type": 7,
+      "runspeed": 1.5,
+      "MR": 40,
+      "CR": 25,
+      "DR": 40,
+      "FR": 450,
+      "PR": 40,
+      "Corrup": 29,
+      "PhR": 10,
+      "see_invis": 1,
+      "see_invis_undead": 1,
+      "qglobal": 0,
+      "AC": 197,
+      "npc_aggro": 0,
+      "spawn_limit": 0,
+      "attack_speed": -10,
+      "attack_delay": 30,
+      "findable": 0,
+      "STR": 149,
+      "STA": 149,
+      "DEX": 149,
+      "AGI": 149,
+      "_INT": 149,
+      "WIS": 149,
+      "CHA": 149,
+      "see_hide": 1,
+      "see_improved_hide": 0,
+      "trackable": 1,
+      "isbot": 0,
+      "exclude": 1,
+      "ATK": 50,
+      "Accuracy": 0,
+      "Avoidance": 0,
+      "slow_mitigation": 0,
+      "version": 0,
+      "maxlevel": 0,
+      "scalerate": 100,
+      "private_corpse": 0,
+      "unique_spawn_by_name": 0,
+      "underwater": 0,
+      "isquest": 0,
+      "emoteid": 0,
+      "spellscale": 100,
+      "healscale": 100,
+      "no_target_hotkey": 0,
+      "raid_target": 0,
+      "armtexture": 0,
+      "bracertexture": 0,
+      "handtexture": 0,
+      "legtexture": 0,
+      "feettexture": 0,
+      "light": 0,
+      "walkspeed": 0,
+      "peqid": 0,
+      "unique_": 0,
+      "fixed": 0,
+      "ignore_despawn": 0,
+      "show_name": 1,
+      "untargetable": 0,
+      "charm_ac": 0,
+      "charm_min_dmg": 0,
+      "charm_max_dmg": 0,
+      "charm_attack_delay": 0,
+      "charm_accuracy_rating": 0,
+      "charm_avoidance_rating": 0,
+      "charm_atk": 0,
+      "skip_global_loot": 0,
+      "rare_spawn": 0,
+      "stuck_behavior": 0,
+      "model": 0,
+      "flymode": -1,
+      "always_aggro": 0,
+      "exp_mod": 100,
+      "heroic_strikethrough": 0,
+      "faction_amount": 0,
+      "keeps_sold_items": 1,
+      "is_parcel_merchant": 0,
+      "multiquest_enabled": 0,
+      "npc_tint_id": 0
+    },
+    {
+      "id": 63009,
+      "name": "a_dry_bone_skeleton",
+      "lastname": "",
+      "level": 20,
+      "race": 367,
+      "class": 1,
+      "bodytype": 3,
+      "hp": 600,
+      "mana": 0,
+      "gender": 2,
+      "texture": 1,
+      "helmtexture": 0,
+      "herosforgemodel": 0,
+      "size": 6,
+      "hp_regen_rate": 0,
+      "hp_regen_per_second": 0,
+      "mana_regen_rate": 0,
+      "loottable_id": 1053,
+      "merchant_id": 0,
+      "greed": 0,
+      "alt_currency_id": 0,
+      "npc_spells_id": 45,
+      "npc_spells_effects_id": 0,
+      "npc_faction_id": 79,
+      "adventure_template_id": 0,
+      "trap_template": 0,
+      "mindmg": 1,
+      "maxdmg": 44,
+      "attack_count": -1,
+      "npcspecialattks": "f",
+      "special_abilities": "10,1^21,1^45,1",
+      "aggroradius": 45,
+      "assistradius": 0,
+      "face": 0,
+      "luclin_hairstyle": 0,
+      "luclin_haircolor": 0,
+      "luclin_eyecolor": 0,
+      "luclin_eyecolor2": 1,
+      "luclin_beardcolor": 0,
+      "luclin_beard": 0,
+      "drakkin_heritage": 0,
+      "drakkin_tattoo": 0,
+      "drakkin_details": 0,
+      "armortint_id": 0,
+      "armortint_red": 0,
+      "armortint_green": 0,
+      "armortint_blue": 0,
+      "d_melee_texture1": 0,
+      "d_melee_texture2": 0,
+      "ammo_idfile": "IT10",
+      "prim_melee_type": 28,
+      "sec_melee_type": 28,
+      "ranged_type": 7,
+      "runspeed": 1.25,
+      "MR": 8,
+      "CR": 8,
+      "DR": 8,
+      "FR": 8,
+      "PR": 8,
+      "Corrup": 12,
+      "PhR": 10,
+      "see_invis": 1,
+      "see_invis_undead": 0,
+      "qglobal": 0,
+      "AC": 86,
+      "npc_aggro": 0,
+      "spawn_limit": 0,
+      "attack_speed": 0,
+      "attack_delay": 30,
+      "findable": 0,
+      "STR": 66,
+      "STA": 66,
+      "DEX": 66,
+      "AGI": 66,
+      "_INT": 66,
+      "WIS": 66,
+      "CHA": 66,
+      "see_hide": 0,
+      "see_improved_hide": 0,
+      "trackable": 1,
+      "isbot": 0,
+      "exclude": 1,
+      "ATK": 0,
+      "Accuracy": 0,
+      "Avoidance": 0,
+      "slow_mitigation": 0,
+      "version": 0,
+      "maxlevel": 22,
+      "scalerate": 0,
+      "private_corpse": 0,
+      "unique_spawn_by_name": 0,
+      "underwater": 0,
+      "isquest": 0,
+      "emoteid": 0,
+      "spellscale": 100,
+      "healscale": 100,
+      "no_target_hotkey": 0,
+      "raid_target": 0,
+      "armtexture": 0,
+      "bracertexture": 0,
+      "handtexture": 0,
+      "legtexture": 0,
+      "feettexture": 0,
+      "light": 0,
+      "walkspeed": 0,
+      "peqid": 0,
+      "unique_": 0,
+      "fixed": 0,
+      "ignore_despawn": 0,
+      "show_name": 1,
+      "untargetable": 0,
+      "charm_ac": 0,
+      "charm_min_dmg": 0,
+      "charm_max_dmg": 0,
+      "charm_attack_delay": 0,
+      "charm_accuracy_rating": 0,
+      "charm_avoidance_rating": 0,
+      "charm_atk": 0,
+      "skip_global_loot": 0,
+      "rare_spawn": 0,
+      "stuck_behavior": 0,
+      "model": 0,
+      "flymode": -1,
+      "always_aggro": 0,
+      "exp_mod": 100,
+      "heroic_strikethrough": 0,
+      "faction_amount": 0,
+      "keeps_sold_items": 1,
+      "is_parcel_merchant": 0,
+      "multiquest_enabled": 0,
+      "npc_tint_id": 0
+    },
+    {
+      "id": 66011,
+      "name": "a_wan_ghoul_knight",
+      "lastname": "",
+      "level": 35,
+      "race": 27,
+      "class": 1,
+      "bodytype": 3,
+      "hp": 1575,
+      "mana": 0,
+      "gender": 2,
+      "texture": 1,
+      "helmtexture": 1,
+      "herosforgemodel": 0,
+      "size": 6,
+      "hp_regen_rate": 1,
+      "hp_regen_per_second": 0,
+      "mana_regen_rate": 0,
+      "loottable_id": 3572,
+      "merchant_id": 0,
+      "greed": 0,
+      "alt_currency_id": 0,
+      "npc_spells_id": 3125,
+      "npc_spells_effects_id": 0,
+      "npc_faction_id": 48,
+      "adventure_template_id": 0,
+      "trap_template": 0,
+      "mindmg": 14,
+      "maxdmg": 74,
+      "attack_count": -1,
+      "npcspecialattks": "f",
+      "special_abilities": "10,1^21,1^23,1^45,1",
+      "aggroradius": 55,
+      "assistradius": 0,
+      "face": 0,
+      "luclin_hairstyle": 0,
+      "luclin_haircolor": 0,
+      "luclin_eyecolor": 0,
+      "luclin_eyecolor2": 1,
+      "luclin_beardcolor": 0,
+      "luclin_beard": 0,
+      "drakkin_heritage": 0,
+      "drakkin_tattoo": 0,
+      "drakkin_details": 0,
+      "armortint_id": 0,
+      "armortint_red": 0,
+      "armortint_green": 0,
+      "armortint_blue": 0,
+      "d_melee_texture1": 0,
+      "d_melee_texture2": 0,
+      "ammo_idfile": "IT10",
+      "prim_melee_type": 28,
+      "sec_melee_type": 28,
+      "ranged_type": 7,
+      "runspeed": 1.25,
+      "MR": 14,
+      "CR": 14,
+      "DR": 14,
+      "FR": 14,
+      "PR": 14,
+      "Corrup": 22,
+      "PhR": 10,
+      "see_invis": 1,
+      "see_invis_undead": 0,
+      "qglobal": 0,
+      "AC": 148,
+      "npc_aggro": 0,
+      "spawn_limit": 0,
+      "attack_speed": -8,
+      "attack_delay": 30,
+      "findable": 0,
+      "STR": 112,
+      "STA": 112,
+      "DEX": 112,
+      "AGI": 112,
+      "_INT": 112,
+      "WIS": 112,
+      "CHA": 112,
+      "see_hide": 0,
+      "see_improved_hide": 0,
+      "trackable": 1,
+      "isbot": 0,
+      "exclude": 1,
+      "ATK": 0,
+      "Accuracy": 0,
+      "Avoidance": 0,
+      "slow_mitigation": 0,
+      "version": 0,
+      "maxlevel": 0,
+      "scalerate": 100,
+      "private_corpse": 0,
+      "unique_spawn_by_name": 0,
+      "underwater": 0,
+      "isquest": 0,
+      "emoteid": 0,
+      "spellscale": 100,
+      "healscale": 100,
+      "no_target_hotkey": 0,
+      "raid_target": 0,
+      "armtexture": 0,
+      "bracertexture": 0,
+      "handtexture": 0,
+      "legtexture": 0,
+      "feettexture": 0,
+      "light": 0,
+      "walkspeed": 0,
+      "peqid": 0,
+      "unique_": 0,
+      "fixed": 0,
+      "ignore_despawn": 0,
+      "show_name": 1,
+      "untargetable": 0,
+      "charm_ac": 0,
+      "charm_min_dmg": 0,
+      "charm_max_dmg": 0,
+      "charm_attack_delay": 0,
+      "charm_accuracy_rating": 0,
+      "charm_avoidance_rating": 0,
+      "charm_atk": 0,
+      "skip_global_loot": 0,
+      "rare_spawn": 0,
+      "stuck_behavior": 0,
+      "model": 0,
+      "flymode": -1,
+      "always_aggro": 0,
+      "exp_mod": 100,
+      "heroic_strikethrough": 0,
+      "faction_amount": 0,
+      "keeps_sold_items": 1,
+      "is_parcel_merchant": 0,
+      "multiquest_enabled": 0,
+      "npc_tint_id": 0
+    },
+    {
+      "id": 73057,
+      "name": "Lady_Vox",
+      "lastname": "",
+      "level": 55,
+      "race": 49,
+      "class": 2,
+      "bodytype": 29,
+      "hp": 32000,
+      "mana": 5000,
+      "gender": 2,
+      "texture": 1,
+      "helmtexture": 1,
+      "herosforgemodel": 0,
+      "size": 1,
+      "hp_regen_rate": 17,
+      "hp_regen_per_second": 0,
+      "mana_regen_rate": 17,
+      "loottable_id": 3139,
+      "merchant_id": 0,
+      "greed": 0,
+      "alt_currency_id": 0,
+      "npc_spells_id": 141,
+      "npc_spells_effects_id": 0,
+      "npc_faction_id": 1316,
+      "adventure_template_id": 0,
+      "trap_template": 0,
+      "mindmg": 85,
+      "maxdmg": 218,
+      "attack_count": -1,
+      "npcspecialattks": "SEQMCND",
+      "special_abilities": "1,1^10,1^13,1^14,1^15,1^17,1^23,1^26,1^37,10",
+      "aggroradius": 225,
+      "assistradius": 0,
+      "face": 0,
+      "luclin_hairstyle": 0,
+      "luclin_haircolor": 0,
+      "luclin_eyecolor": 0,
+      "luclin_eyecolor2": 1,
+      "luclin_beardcolor": 0,
+      "luclin_beard": 0,
+      "drakkin_heritage": 0,
+      "drakkin_tattoo": 0,
+      "drakkin_details": 0,
+      "armortint_id": 0,
+      "armortint_red": 0,
+      "armortint_green": 0,
+      "armortint_blue": 0,
+      "d_melee_texture1": 0,
+      "d_melee_texture2": 0,
+      "ammo_idfile": "IT10",
+      "prim_melee_type": 28,
+      "sec_melee_type": 28,
+      "ranged_type": 7,
+      "runspeed": 1.5,
+      "MR": 340,
+      "CR": 1000,
+      "DR": 340,
+      "FR": 70,
+      "PR": 340,
+      "Corrup": 34,
+      "PhR": 15,
+      "see_invis": 1,
+      "see_invis_undead": 1,
+      "qglobal": 0,
+      "AC": 230,
+      "npc_aggro": 0,
+      "spawn_limit": 0,
+      "attack_speed": -17,
+      "attack_delay": 18,
+      "findable": 0,
+      "STR": 174,
+      "STA": 174,
+      "DEX": 174,
+      "AGI": 174,
+      "_INT": 174,
+      "WIS": 174,
+      "CHA": 174,
+      "see_hide": 0,
+      "see_improved_hide": 0,
+      "trackable": 1,
+      "isbot": 0,
+      "exclude": 1,
+      "ATK": 100,
+      "Accuracy": 100,
+      "Avoidance": 0,
+      "slow_mitigation": 0,
+      "version": 0,
+      "maxlevel": 0,
+      "scalerate": 100,
+      "private_corpse": 0,
+      "unique_spawn_by_name": 0,
+      "underwater": 0,
+      "isquest": 1,
+      "emoteid": 0,
+      "spellscale": 100,
+      "healscale": 100,
+      "no_target_hotkey": 0,
+      "raid_target": 1,
+      "armtexture": 0,
+      "bracertexture": 0,
+      "handtexture": 0,
+      "legtexture": 0,
+      "feettexture": 0,
+      "light": 0,
+      "walkspeed": 0,
+      "peqid": 0,
+      "unique_": 0,
+      "fixed": 0,
+      "ignore_despawn": 0,
+      "show_name": 1,
+      "untargetable": 0,
+      "charm_ac": 0,
+      "charm_min_dmg": 0,
+      "charm_max_dmg": 0,
+      "charm_attack_delay": 0,
+      "charm_accuracy_rating": 0,
+      "charm_avoidance_rating": 0,
+      "charm_atk": 0,
+      "skip_global_loot": 0,
+      "rare_spawn": 0,
+      "stuck_behavior": 0,
+      "model": 0,
+      "flymode": -1,
+      "always_aggro": 0,
+      "exp_mod": 100,
+      "heroic_strikethrough": 0,
+      "faction_amount": 0,
+      "keeps_sold_items": 1,
+      "is_parcel_merchant": 0,
+      "multiquest_enabled": 0,
+      "npc_tint_id": 0
+    }
+  ],
+  "rules": [
+    [
+      "Character:AAExpMinLevel",
+      "1"
+    ],
+    [
+      "Character:AAExpMultiplier",
+      "0.6499999761581"
+    ],
+    [
+      "Character:ActiveInvSnapshots",
+      "false"
+    ],
+    [
+      "Character:AllowCrossClassTrainers",
+      "false"
+    ],
+    [
+      "Character:AllowMQTarget",
+      "false"
+    ],
+    [
+      "Character:AlwaysAllowNameChange",
+      "false"
+    ],
+    [
+      "Character:AutoIdleFilterPackets",
+      "true"
+    ],
+    [
+      "Character:AutosaveIntervalS",
+      "300"
+    ],
+    [
+      "Character:BandolierSwapDelay",
+      "0"
+    ],
+    [
+      "Character:BardTrackingDistanceMultiplier",
+      "7"
+    ],
+    [
+      "Character:BaseHPRegenBonusRaces",
+      "4352"
+    ],
+    [
+      "Character:BaseInstrumentSoftCap",
+      "36"
+    ],
+    [
+      "Character:BaseRunSpeedCap",
+      "158"
+    ],
+    [
+      "Character:BeastlordTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:BerserkerTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:BindAnywhere",
+      "false"
+    ],
+    [
+      "Character:BlueModifier",
+      "100"
+    ],
+    [
+      "Character:CheckCursorEmptyWhenLooting",
+      "true"
+    ],
+    [
+      "Character:ClearXTargetDelay",
+      "10"
+    ],
+    [
+      "Character:ClericTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:CorpseDecayTime",
+      "604800000"
+    ],
+    [
+      "Character:CorpseOwnerOnlineCheckTime",
+      "300"
+    ],
+    [
+      "Character:CorpseResTime",
+      "10800000"
+    ],
+    [
+      "Character:DeathExpLossLevel",
+      "256"
+    ],
+    [
+      "Character:DeathExpLossMaxLevel",
+      "255"
+    ],
+    [
+      "Character:DeathExpLossMultiplier",
+      "3"
+    ],
+    [
+      "Character:DeathItemLossLevel",
+      "999"
+    ],
+    [
+      "Character:DeathKeepLevel",
+      "false"
+    ],
+    [
+      "Character:DefaultGuild",
+      "0"
+    ],
+    [
+      "Character:DefaultGuildRank",
+      "8"
+    ],
+    [
+      "Character:DismountWater",
+      "true"
+    ],
+    [
+      "Character:DragCorpseDistance",
+      "400.0000000000000"
+    ],
+    [
+      "Character:DruidTrackingDistanceMultiplier",
+      "10"
+    ],
+    [
+      "Character:DuelCorpseResTime",
+      "600000"
+    ],
+    [
+      "Character:EmptyCorpseDecayTime",
+      "10800000"
+    ],
+    [
+      "Character:EnableAggroMeter",
+      "true"
+    ],
+    [
+      "Character:EnableAutoAFK",
+      "false"
+    ],
+    [
+      "Character:EnableBardMelody",
+      "true"
+    ],
+    [
+      "Character:EnableCharacterEXPMods",
+      "false"
+    ],
+    [
+      "Character:EnableDiscoveredItems",
+      "false"
+    ],
+    [
+      "Character:EnableFoodRequirement",
+      "true"
+    ],
+    [
+      "Character:EnableGroupEXPModifier",
+      "true"
+    ],
+    [
+      "Character:EnableGroupMemberEXPModifier",
+      "true"
+    ],
+    [
+      "Character:EnableHackedFastCampForGM",
+      "false"
+    ],
+    [
+      "Character:EnableHungerPenalties",
+      "false"
+    ],
+    [
+      "Character:EnableRaidEXPModifier",
+      "true"
+    ],
+    [
+      "Character:EnableRaidMemberEXPModifier",
+      "true"
+    ],
+    [
+      "Character:EnableRangerAutoFire",
+      "true"
+    ],
+    [
+      "Character:EnableTestBuff",
+      "false"
+    ],
+    [
+      "Character:EnableTGB",
+      "true"
+    ],
+    [
+      "Character:EnableXTargetting",
+      "true"
+    ],
+    [
+      "Character:EnchanterTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:EnduranceRegenMultiplier",
+      "100"
+    ],
+    [
+      "Character:EnvironmentDamageMulipliter",
+      "1.0000000000000"
+    ],
+    [
+      "Character:ExperiencePercentCapPerKill",
+      "-1"
+    ],
+    [
+      "Character:ExpMultiplier",
+      "0.65"
+    ],
+    [
+      "Character:FeignKillsPet",
+      "false"
+    ],
+    [
+      "Character:FinalExpMultiplier",
+      "1"
+    ],
+    [
+      "Character:FinalRaidExpMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:FoodLossPerUpdate",
+      "32"
+    ],
+    [
+      "Character:FullEndurOnDeath",
+      "true"
+    ],
+    [
+      "Character:FullGroupEXPModifier",
+      "2.1600000858307"
+    ],
+    [
+      "Character:FullManaOnDeath",
+      "true"
+    ],
+    [
+      "Character:GrantHoTTOnCreate",
+      "false"
+    ],
+    [
+      "Character:GreenModifier",
+      "40"
+    ],
+    [
+      "Character:GroupExpMultiplier",
+      "0.6499999761581"
+    ],
+    [
+      "Character:GroupInvitesRequireTarget",
+      "false"
+    ],
+    [
+      "Character:GroupMemberEXPModifier",
+      "0.2000000029802"
+    ],
+    [
+      "Character:HasteCap",
+      "100"
+    ],
+    [
+      "Character:Hastev3Cap",
+      "25"
+    ],
+    [
+      "Character:HealOnLevel",
+      "false"
+    ],
+    [
+      "Character:HeroicAgilityMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:HeroicDexterityMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:HeroicIntelligenceIncreaseSpellDmgMultiplier",
+      "0.0000000000000"
+    ],
+    [
+      "Character:HeroicIntelligenceMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:HeroicStaminaMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:HeroicStatsUseDataBucketsToScale",
+      "false"
+    ],
+    [
+      "Character:HeroicStrengthMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:HeroicWisdomIncreaseHealAmtMultiplier",
+      "0.0000000000000"
+    ],
+    [
+      "Character:HeroicWisdomMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Character:HPRegenMultiplier",
+      "100"
+    ],
+    [
+      "Character:IgnoreLevelBasedHasteCaps",
+      "false"
+    ],
+    [
+      "Character:IksarCommonTongue",
+      "95"
+    ],
+    [
+      "Character:InvSnapshotHistoryD",
+      "30"
+    ],
+    [
+      "Character:InvSnapshotMinIntervalM",
+      "180"
+    ],
+    [
+      "Character:InvSnapshotMinRetryM",
+      "30"
+    ],
+    [
+      "Character:ItemAccuracyCap",
+      "150"
+    ],
+    [
+      "Character:ItemATKCap",
+      "250"
+    ],
+    [
+      "Character:ItemAvoidanceCap",
+      "100"
+    ],
+    [
+      "Character:ItemCastsUseFocus",
+      "false"
+    ],
+    [
+      "Character:ItemClairvoyanceCap",
+      "250"
+    ],
+    [
+      "Character:ItemCombatEffectsCap",
+      "100"
+    ],
+    [
+      "Character:ItemDamageShieldCap",
+      "30"
+    ],
+    [
+      "Character:ItemDoTShieldingCap",
+      "35"
+    ],
+    [
+      "Character:ItemDSMitigationCap",
+      "50"
+    ],
+    [
+      "Character:ItemEnduranceRegenCap",
+      "15"
+    ],
+    [
+      "Character:ItemExtraDmgCap",
+      "150"
+    ],
+    [
+      "Character:ItemExtraSkillDamageCalcAsPercent",
+      "false"
+    ],
+    [
+      "Character:ItemHealAmtCap",
+      "750"
+    ],
+    [
+      "Character:ItemHealthRegenCap",
+      "30"
+    ],
+    [
+      "Character:ItemManaRegenCap",
+      "15"
+    ],
+    [
+      "Character:ItemShieldingCap",
+      "35"
+    ],
+    [
+      "Character:ItemSpellDmgCap",
+      "750"
+    ],
+    [
+      "Character:ItemSpellShieldingCap",
+      "35"
+    ],
+    [
+      "Character:ItemStrikethroughCap",
+      "35"
+    ],
+    [
+      "Character:ItemStunResistCap",
+      "35"
+    ],
+    [
+      "Character:KeepLevelOverMax",
+      "false"
+    ],
+    [
+      "Character:KillsPerGroupLeadershipAA",
+      "250"
+    ],
+    [
+      "Character:KillsPerRaidLeadershipAA",
+      "250"
+    ],
+    [
+      "Character:LeaveCorpses",
+      "false"
+    ],
+    [
+      "Character:LeaveCursorMoneyOnCorpse",
+      "false"
+    ],
+    [
+      "Character:LeaveNakedCorpses",
+      "false"
+    ],
+    [
+      "Character:LightBlueModifier",
+      "85"
+    ],
+    [
+      "Character:MagicianTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:MaintainIntoxicationAcrossZones",
+      "true"
+    ],
+    [
+      "Character:ManaRegenMultiplier",
+      "100"
+    ],
+    [
+      "Character:MarqueeHPUpdates",
+      "false"
+    ],
+    [
+      "Character:MaxCharmDurationForPlayerCharacter",
+      "15"
+    ],
+    [
+      "Character:MaxDraggedCorpses",
+      "2"
+    ],
+    [
+      "Character:MaxExpLevel",
+      "50"
+    ],
+    [
+      "Character:MaxFearDurationForPlayerCharacter",
+      "4"
+    ],
+    [
+      "Character:MaxLevel",
+      "50"
+    ],
+    [
+      "Character:MendAlwaysSucceedValue",
+      "199"
+    ],
+    [
+      "Character:MinStatusForNoDropExemptions",
+      "80"
+    ],
+    [
+      "Character:MonkTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:NecromancerTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:NoSkillsOnHorse",
+      "false"
+    ],
+    [
+      "Character:OgreCommonTongue",
+      "95"
+    ],
+    [
+      "Character:OldMinMana",
+      "false"
+    ],
+    [
+      "Character:OldResurrectionSicknessSpellID",
+      "757"
+    ],
+    [
+      "Character:OnInviteReceiveAlreadyinGroupMessage",
+      "true"
+    ],
+    [
+      "Character:OPClientUpdateVisualDebug",
+      "false"
+    ],
+    [
+      "Character:PaladinTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:PerCharacterBucketMaxLevel",
+      "false"
+    ],
+    [
+      "Character:PerCharacterQglobalMaxLevel",
+      "false"
+    ],
+    [
+      "Character:PetsUseReagents",
+      "true"
+    ],
+    [
+      "Character:PetZoneWithOwner",
+      "true"
+    ],
+    [
+      "Character:PlayerTradingLoreFeedback",
+      "true"
+    ],
+    [
+      "Character:PreventMountsFromZoning",
+      "false"
+    ],
+    [
+      "Character:ProcessFearedProximity",
+      "false"
+    ],
+    [
+      "Character:PVPEnableGuardFactionAssist",
+      "true"
+    ],
+    [
+      "Character:RaidExpMultiplier",
+      "0.2000000029802"
+    ],
+    [
+      "Character:RangerTrackingDistanceMultiplier",
+      "12"
+    ],
+    [
+      "Character:RedModifier",
+      "120"
+    ],
+    [
+      "Character:RespawnAtZoneLine",
+      "false"
+    ],
+    [
+      "Character:RespawnFromHover",
+      "false"
+    ],
+    [
+      "Character:RespawnFromHoverTimer",
+      "300"
+    ],
+    [
+      "Character:RestRegenEnabled",
+      "true"
+    ],
+    [
+      "Character:RestRegenRaidTimeToActivate",
+      "0"
+    ],
+    [
+      "Character:RestRegenTimeToActivate",
+      "0"
+    ],
+    [
+      "Character:RestrictSpellScribing",
+      "false"
+    ],
+    [
+      "Character:ResurrectionSicknessSpellID",
+      "756"
+    ],
+    [
+      "Character:RogueTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:SecondsBeforeAFKCombatZone",
+      "1800"
+    ],
+    [
+      "Character:SecondsBeforeAFKNonCombatZone",
+      "600"
+    ],
+    [
+      "Character:SecondsBeforeIdleCombatZone",
+      "600"
+    ],
+    [
+      "Character:SecondsBeforeIdleNonCombatZone",
+      "60"
+    ],
+    [
+      "Character:ShadowKnightTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:ShamanTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:SharedBankPlat",
+      "true"
+    ],
+    [
+      "Character:ShowExpValues",
+      "0"
+    ],
+    [
+      "Character:SkillCapMaxLevel",
+      "-1"
+    ],
+    [
+      "Character:SkillUpFromItems",
+      "true"
+    ],
+    [
+      "Character:SkillUpMaximumChancePercentage",
+      "25"
+    ],
+    [
+      "Character:SkillUpMinimumChancePercentage",
+      "2"
+    ],
+    [
+      "Character:SkillUpModifier",
+      "100"
+    ],
+    [
+      "Character:SneakAlwaysSucceedOver100",
+      "false"
+    ],
+    [
+      "Character:SoDClientUseSoDHPManaEnd",
+      "true"
+    ],
+    [
+      "Character:SoftDeletes",
+      "true"
+    ],
+    [
+      "Character:StatCap",
+      "425"
+    ],
+    [
+      "Character:TradeskillUpAlchemy",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpBaking",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpBlacksmithing",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpBrewing",
+      "3"
+    ],
+    [
+      "Character:TradeskillUpFletching",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpJewelcrafting",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpMakePoison",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpMinChance",
+      "2.5000000000000"
+    ],
+    [
+      "Character:TradeskillUpPottery",
+      "4"
+    ],
+    [
+      "Character:TradeskillUpResearch",
+      "1"
+    ],
+    [
+      "Character:TradeskillUpTailoring",
+      "2"
+    ],
+    [
+      "Character:TradeskillUpTinkering",
+      "2"
+    ],
+    [
+      "Character:TrollCommonTongue",
+      "95"
+    ],
+    [
+      "Character:UnmemSpellsOnDeath",
+      "false"
+    ],
+    [
+      "Character:UseDeathExpLossMult",
+      "false"
+    ],
+    [
+      "Character:UseForageCommonFood",
+      "true"
+    ],
+    [
+      "Character:UseNewStatsWindow",
+      "true"
+    ],
+    [
+      "Character:UseNoJunkFishing",
+      "false"
+    ],
+    [
+      "Character:UseOldBindWound",
+      "false"
+    ],
+    [
+      "Character:UseOldClassExpPenalties",
+      "false"
+    ],
+    [
+      "Character:UseOldConSystem",
+      "false"
+    ],
+    [
+      "Character:UseOldRaceExpPenalties",
+      "false"
+    ],
+    [
+      "Character:UseOldRaceRezEffects",
+      "false"
+    ],
+    [
+      "Character:UseRaceClassExpBonuses",
+      "true"
+    ],
+    [
+      "Character:UseResurrectionSickness",
+      "true"
+    ],
+    [
+      "Character:UseSpellFileSongCap",
+      "true"
+    ],
+    [
+      "Character:UseStackablePickPocketing",
+      "true"
+    ],
+    [
+      "Character:UseXPConScaling",
+      "true"
+    ],
+    [
+      "Character:WarriorTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:WhiteModifier",
+      "105"
+    ],
+    [
+      "Character:WizardTrackingDistanceMultiplier",
+      "0"
+    ],
+    [
+      "Character:YellowModifier",
+      "110"
+    ],
+    [
+      "Combat:AdjustProcPerMinute",
+      "true"
+    ],
+    [
+      "Combat:AERampageMaxDistance",
+      "70"
+    ],
+    [
+      "Combat:AllowRaidTargetBlind",
+      "false"
+    ],
+    [
+      "Combat:ArcheryBaseDamage",
+      "0"
+    ],
+    [
+      "Combat:ArcheryBaseDamageBonus",
+      "1.0000000000000"
+    ],
+    [
+      "Combat:ArcheryBonusLevelRequirement",
+      "51"
+    ],
+    [
+      "Combat:ArcheryBonusRequiresStationary",
+      "true"
+    ],
+    [
+      "Combat:ArcheryConsumesAmmo",
+      "true"
+    ],
+    [
+      "Combat:ArcheryCritDifficulty",
+      "3400"
+    ],
+    [
+      "Combat:ArcheryHitPenalty",
+      "0.0000000000000"
+    ],
+    [
+      "Combat:ArcheryNPCMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Combat:AssassinateLevelRequirement",
+      "60"
+    ],
+    [
+      "Combat:AssassinateOnlyHumanoids",
+      "true"
+    ],
+    [
+      "Combat:AssistNoTargetSelf",
+      "false"
+    ],
+    [
+      "Combat:AvgDefProcsPerMinute",
+      "2.0000000000000"
+    ],
+    [
+      "Combat:AvgProcsPerMinute",
+      "2.0000000000000"
+    ],
+    [
+      "Combat:BackstabBaseDamage",
+      "0"
+    ],
+    [
+      "Combat:BackstabIgnoresBane",
+      "false"
+    ],
+    [
+      "Combat:BackstabIgnoresElemental",
+      "false"
+    ],
+    [
+      "Combat:BaseProcChance",
+      "0.0350000001490"
+    ],
+    [
+      "Combat:BashACBonusDivisor",
+      "25.0000000000000"
+    ],
+    [
+      "Combat:BashBaseDamage",
+      "2"
+    ],
+    [
+      "Combat:BashTwoHanderUseShoulderAC",
+      "false"
+    ],
+    [
+      "Combat:BerserkerFrenzyEnd",
+      "45"
+    ],
+    [
+      "Combat:BerserkerFrenzyStart",
+      "35"
+    ],
+    [
+      "Combat:Classic2HBAnimation",
+      "false"
+    ],
+    [
+      "Combat:ClassicMasterWu",
+      "false"
+    ],
+    [
+      "Combat:ClassicNPCBackstab",
+      "false"
+    ],
+    [
+      "Combat:ClassicTauntSystem",
+      "false"
+    ],
+    [
+      "Combat:ClassicTripleAttack",
+      "false"
+    ],
+    [
+      "Combat:ClassicTripleAttackChanceBerserker",
+      "100"
+    ],
+    [
+      "Combat:ClassicTripleAttackChanceMonk",
+      "100"
+    ],
+    [
+      "Combat:ClassicTripleAttackChanceRanger",
+      "100"
+    ],
+    [
+      "Combat:ClassicTripleAttackChanceWarrior",
+      "100"
+    ],
+    [
+      "Combat:ClientStunMessage",
+      "false"
+    ],
+    [
+      "Combat:DefaultRampageTargets",
+      "1"
+    ],
+    [
+      "Combat:DefProcPerMinAgiContrib",
+      "0.0750000029802"
+    ],
+    [
+      "Combat:DoubleBackstabLevelRequirement",
+      "55"
+    ],
+    [
+      "Combat:DragonPunchBaseDamage",
+      "12"
+    ],
+    [
+      "Combat:EagleStrikeBaseDamage",
+      "7"
+    ],
+    [
+      "Combat:EnableFearPathing",
+      "true"
+    ],
+    [
+      "Combat:EnableSneakPull",
+      "false"
+    ],
+    [
+      "Combat:EnableWarriorShielding",
+      "true"
+    ],
+    [
+      "Combat:EXPFromDmgShield",
+      "false"
+    ],
+    [
+      "Combat:ExtraAllowedKickClassesBitmask",
+      "0"
+    ],
+    [
+      "Combat:FinishingBlowOnlyWhenFleeing",
+      "false"
+    ],
+    [
+      "Combat:FleeGray",
+      "true"
+    ],
+    [
+      "Combat:FleeGrayHPRatio",
+      "50"
+    ],
+    [
+      "Combat:FleeGrayMaxLevel",
+      "18"
+    ],
+    [
+      "Combat:FleeHPRatio",
+      "21"
+    ],
+    [
+      "Combat:FleeIfNotAlone",
+      "false"
+    ],
+    [
+      "Combat:FlyingKickBaseDamage",
+      "25"
+    ],
+    [
+      "Combat:FrenzyBaseDamage",
+      "10"
+    ],
+    [
+      "Combat:FrontalStunImmunityClasses",
+      "0"
+    ],
+    [
+      "Combat:FrontalStunImmunityRaces",
+      "512"
+    ],
+    [
+      "Combat:HeadshotOnlyHumanoids",
+      "true"
+    ],
+    [
+      "Combat:HitBoxMod",
+      "1.0000000000000"
+    ],
+    [
+      "Combat:KickBaseDamage",
+      "3"
+    ],
+    [
+      "Combat:LegacyComputeDefense",
+      "false"
+    ],
+    [
+      "Combat:LevelDifferenceRollBonus",
+      "0.5000000000000"
+    ],
+    [
+      "Combat:LevelDifferenceRollCheck",
+      "-1"
+    ],
+    [
+      "Combat:LevelToStopACTwinkControl",
+      "50"
+    ],
+    [
+      "Combat:LevelToStopDamageCaps",
+      "0"
+    ],
+    [
+      "Combat:MaxFlurryHits",
+      "2"
+    ],
+    [
+      "Combat:MaximumLevelStunsCripplingBlow",
+      "55"
+    ],
+    [
+      "Combat:MaxProcs",
+      "4"
+    ],
+    [
+      "Combat:MaxRampageTargets",
+      "3"
+    ],
+    [
+      "Combat:MeleeCritDifficulty",
+      "8900"
+    ],
+    [
+      "Combat:MeleePush",
+      "true"
+    ],
+    [
+      "Combat:MeleePushChance",
+      "50"
+    ],
+    [
+      "Combat:MeleePushForceClientPercent",
+      "0.0000000000000"
+    ],
+    [
+      "Combat:MeleePushForcePetPercent",
+      "0.0000000000000"
+    ],
+    [
+      "Combat:MinHastedDelay",
+      "400"
+    ],
+    [
+      "Combat:MinRangedAttackDist",
+      "25"
+    ],
+    [
+      "Combat:NightcapHeroicMeleeScaling",
+      "true"
+    ],
+    [
+      "Combat:NPCAssistCap",
+      "15"
+    ],
+    [
+      "Combat:NPCAssistCapTimer",
+      "6000"
+    ],
+    [
+      "Combat:NPCAttackMagicLevel",
+      "10"
+    ],
+    [
+      "Combat:NPCBashKickLevel",
+      "6"
+    ],
+    [
+      "Combat:NPCCanCrit",
+      "false"
+    ],
+    [
+      "Combat:NPCFlurryChance",
+      "20"
+    ],
+    [
+      "Combat:NPCKickStunLevel",
+      "1"
+    ],
+    [
+      "Combat:NPCsUseFrontalStunImmunityClasses",
+      "false"
+    ],
+    [
+      "Combat:NPCsUseFrontalStunImmunityRaces",
+      "true"
+    ],
+    [
+      "Combat:NPCtoNPCPush",
+      "false"
+    ],
+    [
+      "Combat:OneProcPerWeapon",
+      "true"
+    ],
+    [
+      "Combat:PCAccuracyAvoidanceMod2Scale",
+      "100"
+    ],
+    [
+      "Combat:PCAttackPowerScaling",
+      "100"
+    ],
+    [
+      "Combat:PCKickStunLevel",
+      "56"
+    ],
+    [
+      "Combat:PetAttackMagicLevel",
+      "30"
+    ],
+    [
+      "Combat:PetBaseCritChance",
+      "0"
+    ],
+    [
+      "Combat:ProcDexDivideBy",
+      "11000.0000000000000"
+    ],
+    [
+      "Combat:ProcPerMinDexContrib",
+      "0.0750000029802"
+    ],
+    [
+      "Combat:ProjectileDmgOnImpact",
+      "true"
+    ],
+    [
+      "Combat:QuiverHasteCap",
+      "1000"
+    ],
+    [
+      "Combat:RampageHitsTarget",
+      "false"
+    ],
+    [
+      "Combat:RogueBackstabHasteCorrection",
+      "false"
+    ],
+    [
+      "Combat:RoundKickBaseDamage",
+      "5"
+    ],
+    [
+      "Combat:SlayDamageMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Combat:SlayRateMultiplier",
+      "1.0000000000000"
+    ],
+    [
+      "Combat:SneakPullAssistRange",
+      "400"
+    ],
+    [
+      "Combat:StunChance",
+      "12"
+    ],
+    [
+      "Combat:StunDuration",
+      "2000"
+    ],
+    [
+      "Combat:SummonMeleeRange",
+      "true"
+    ],
+    [
+      "Combat:TauntChanceBonus",
+      "0"
+    ],
+    [
+      "Combat:TauntOverAggro",
+      "0"
+    ],
+    [
+      "Combat:TauntOverLevel",
+      "true"
+    ],
+    [
+      "Combat:TauntSkillFalloff",
+      "0.3300000131130"
+    ],
+    [
+      "Combat:ThrowingBaseDamage",
+      "0"
+    ],
+    [
+      "Combat:ThrowingConsumesAmmo",
+      "true"
+    ],
+    [
+      "Combat:ThrowingCritDifficulty",
+      "1100"
+    ],
+    [
+      "Combat:TigerClawBaseDamage",
+      "4"
+    ],
+    [
+      "Combat:UseEnhancedMobStaticWeaponSkill",
+      "false"
+    ],
+    [
+      "Combat:UseExtendedPoisonProcs",
+      "false"
+    ],
+    [
+      "Combat:UseIntervalAC",
+      "true"
+    ],
+    [
+      "Combat:UseLiveCombatRounds",
+      "true"
+    ],
+    [
+      "Combat:UseLiveRiposteMechanics",
+      "false"
+    ],
+    [
+      "Combat:UseMobStaticOffenseSkill",
+      "false"
+    ],
+    [
+      "Combat:UseNPCDamageClassLevelMods",
+      "true"
+    ],
+    [
+      "Combat:UseRevampHandToHand",
+      "false"
+    ],
+    [
+      "Combat:WaterMatchRequiredForAutoFireLoS",
+      "true"
+    ],
+    [
+      "Inventory:AllowMultipleOfSameAugment",
+      "false"
+    ],
+    [
+      "Inventory:EnforceAugmentRestriction",
+      "false"
+    ],
+    [
+      "Items:AugmentItemAllowInvisibleAugments",
+      "false"
+    ],
+    [
+      "Items:DisableLore",
+      "true"
+    ],
+    [
+      "Spells:AdditiveBonusWornType",
+      "0"
+    ],
+    [
+      "Spells:AI_EngagedBeneficialOtherChance",
+      "25"
+    ],
+    [
+      "Spells:AI_EngagedBeneficialSelfChance",
+      "100"
+    ],
+    [
+      "Spells:AI_EngagedDetrimentalChance",
+      "20"
+    ],
+    [
+      "Spells:AI_EngagedNoSpellMaxRecast",
+      "1000"
+    ],
+    [
+      "Spells:AI_EngagedNoSpellMinRecast",
+      "500"
+    ],
+    [
+      "Spells:AI_HealHPPct",
+      "50"
+    ],
+    [
+      "Spells:AI_IdleBeneficialChance",
+      "100"
+    ],
+    [
+      "Spells:AI_IdleNoSpellMaxRecast",
+      "60000"
+    ],
+    [
+      "Spells:AI_IdleNoSpellMinRecast",
+      "6000"
+    ],
+    [
+      "Spells:AI_PursueDetrimentalChance",
+      "90"
+    ],
+    [
+      "Spells:AI_PursueNoSpellMaxRecast",
+      "2000"
+    ],
+    [
+      "Spells:AI_PursueNoSpellMinRecast",
+      "500"
+    ],
+    [
+      "Spells:AI_SpellCastFinishedFailRecast",
+      "800"
+    ],
+    [
+      "Spells:AllowDoubleInvis",
+      "true"
+    ],
+    [
+      "Spells:AllowExtraDmgSkill",
+      "false"
+    ],
+    [
+      "Spells:AllowFocusOnSkillDamageSpells",
+      "false"
+    ],
+    [
+      "Spells:AllowItemTGB",
+      "false"
+    ],
+    [
+      "Spells:AllowSpellMemorizeFromItem",
+      "true"
+    ],
+    [
+      "Spells:AlwaysSendTargetsBuffs",
+      "true"
+    ],
+    [
+      "Spells:AvgSpellProcsPerMinute",
+      "6.0000000000000"
+    ],
+    [
+      "Spells:BaseCritChance",
+      "0"
+    ],
+    [
+      "Spells:BaseCritRatio",
+      "100"
+    ],
+    [
+      "Spells:BaseImmunityLevel",
+      "55"
+    ],
+    [
+      "Spells:BreakFeignDeathWhenCastOn",
+      "2.0000000000000"
+    ],
+    [
+      "Spells:BreakSneakWhenCastOn",
+      "2.0000000000000"
+    ],
+    [
+      "Spells:BuffLevelRestrictions",
+      "true"
+    ],
+    [
+      "Spells:BuffsFadeOnDeath",
+      "true"
+    ],
+    [
+      "Spells:CallOfTheHeroAggroClearDist",
+      "250.0000000000000"
+    ],
+    [
+      "Spells:CazicTouchTargetsPetOwner",
+      "true"
+    ],
+    [
+      "Spells:CharismaCharmDuration",
+      "false"
+    ],
+    [
+      "Spells:CharismaEffectiveness",
+      "10"
+    ],
+    [
+      "Spells:CharismaEffectivenessCap",
+      "255"
+    ],
+    [
+      "Spells:CharmAggroOverLevel",
+      "false"
+    ],
+    [
+      "Spells:CharmBreakCheckChance",
+      "25"
+    ],
+    [
+      "Spells:CharmDisablesSpecialAbilities",
+      "false"
+    ],
+    [
+      "Spells:ClericInnateHealFocus",
+      "5"
+    ],
+    [
+      "Spells:CompoundLifetapHeals",
+      "true"
+    ],
+    [
+      "Spells:DeathSaveCharismaMod",
+      "3"
+    ],
+    [
+      "Spells:DefaultAOEMaxTargets",
+      "0"
+    ],
+    [
+      "Spells:DefensiveProcPenaltyLevelGap",
+      "6"
+    ],
+    [
+      "Spells:DefensiveProcPenaltyLevelGapModifier",
+      "10.0000000000000"
+    ],
+    [
+      "Spells:DivineInterventionHeal",
+      "8000"
+    ],
+    [
+      "Spells:DOTBonusDamageSplitOverDuration",
+      "true"
+    ],
+    [
+      "Spells:DOTsScaleWithSpellDmg",
+      "true"
+    ],
+    [
+      "Spells:EnableBlockedBuffs",
+      "true"
+    ],
+    [
+      "Spells:EnableResistSoftCap",
+      "false"
+    ],
+    [
+      "Spells:EnableSpellBuckets",
+      "false"
+    ],
+    [
+      "Spells:EnableSpellGlobals",
+      "false"
+    ],
+    [
+      "Spells:EvacClearAggroInSameZone",
+      "false"
+    ],
+    [
+      "Spells:EvacClearCharmPet",
+      "false"
+    ],
+    [
+      "Spells:FearBreakCheckChance",
+      "70"
+    ],
+    [
+      "Spells:FixBeaconHeading",
+      "false"
+    ],
+    [
+      "Spells:FlatItemExtraSpellAmt",
+      "true"
+    ],
+    [
+      "Spells:FocusCombatProcs",
+      "false"
+    ],
+    [
+      "Spells:FRProjectileItem_NPC",
+      "80684"
+    ],
+    [
+      "Spells:FRProjectileItem_SOF",
+      "80684"
+    ],
+    [
+      "Spells:FRProjectileItem_Titanium",
+      "1113"
+    ],
+    [
+      "Spells:HarmTouchCritRatio",
+      "200"
+    ],
+    [
+      "Spells:HealAmountMessageFilterThreshold",
+      "100"
+    ],
+    [
+      "Spells:HOTBonusHealingSplitOverDuration",
+      "true"
+    ],
+    [
+      "Spells:HOTsScaleWithHealAmt",
+      "true"
+    ],
+    [
+      "Spells:IgnoreSpellDmgLvlRestriction",
+      "true"
+    ],
+    [
+      "Spells:IllusionsAlwaysPersist",
+      "false"
+    ],
+    [
+      "Spells:InvisRequiresGroup",
+      "false"
+    ],
+    [
+      "Spells:ItemExtraSpellAmtCalcAsPercent",
+      "true"
+    ],
+    [
+      "Spells:July242002PetResists",
+      "true"
+    ],
+    [
+      "Spells:Jun182014HundredHandsRevamp",
+      "true"
+    ],
+    [
+      "Spells:LegacyManaburn",
+      "false"
+    ],
+    [
+      "Spells:LegacyManaburnCap",
+      "9492"
+    ],
+    [
+      "Spells:LiveLikeFocusEffects",
+      "true"
+    ],
+    [
+      "Spells:ManaTapsOnAnyClass",
+      "false"
+    ],
+    [
+      "Spells:ManaTapsRequireNPCMana",
+      "false"
+    ],
+    [
+      "Spells:MaxBuffSlotsNPC",
+      "85"
+    ],
+    [
+      "Spells:MaxDiscSlotsNPC",
+      "1"
+    ],
+    [
+      "Spells:MaxSongSlotsNPC",
+      "10"
+    ],
+    [
+      "Spells:MaxTotalSlotsNPC",
+      "85"
+    ],
+    [
+      "Spells:MaxTotalSlotsPET",
+      "30"
+    ],
+    [
+      "Spells:NightcapHeroicSpellScaling",
+      "true"
+    ],
+    [
+      "Spells:NightcapTHJBehaviors",
+      "true"
+    ],
+    [
+      "Spells:NightcapTHJDamageScaling",
+      "true"
+    ],
+    [
+      "Spells:NPCBuffLevelRestrictions",
+      "false"
+    ],
+    [
+      "Spells:NPCIgnoreBaseImmunity",
+      "true"
+    ],
+    [
+      "Spells:NPCInnateProcOverride",
+      "true"
+    ],
+    [
+      "Spells:NPCSpellPush",
+      "true"
+    ],
+    [
+      "Spells:NPC_UseFocusFromItems",
+      "false"
+    ],
+    [
+      "Spells:NPC_UseFocusFromSpells",
+      "true"
+    ],
+    [
+      "Spells:OldRainTargets",
+      "false"
+    ],
+    [
+      "Spells:PointBlankAOEMaxTargets",
+      "0"
+    ],
+    [
+      "Spells:PreNerfBardAEDoT",
+      "false"
+    ],
+    [
+      "Spells:PreventFactionWarOnCharmBreak",
+      "false"
+    ],
+    [
+      "Spells:ReflectMessagesClose",
+      "true"
+    ],
+    [
+      "Spells:ReflectType",
+      "4"
+    ],
+    [
+      "Spells:RequireMnemonicRetention",
+      "true"
+    ],
+    [
+      "Spells:ResistFalloff",
+      "67"
+    ],
+    [
+      "Spells:ResurrectionEffectBlock",
+      "2"
+    ],
+    [
+      "Spells:RootBreakCheckChance",
+      "70"
+    ],
+    [
+      "Spells:RootBreakFromSpells",
+      "55"
+    ],
+    [
+      "Spells:SacrificeItemID",
+      "9963"
+    ],
+    [
+      "Spells:SacrificeMaxLevel",
+      "70"
+    ],
+    [
+      "Spells:SacrificeMinLevel",
+      "46"
+    ],
+    [
+      "Spells:SHDProcIDOffByOne",
+      "false"
+    ],
+    [
+      "Spells:SnareOverridesSpeedBonuses",
+      "false"
+    ],
+    [
+      "Spells:SpellResistSoftCap",
+      "255"
+    ],
+    [
+      "Spells:SuccorFailChance",
+      "1"
+    ],
+    [
+      "Spells:SwarmPetTargetLock",
+      "false"
+    ],
+    [
+      "Spells:TargetedAOEMaxTargets",
+      "4"
+    ],
+    [
+      "Spells:TargetsTargetRequiresCombatRange",
+      "true"
+    ],
+    [
+      "Spells:TranslocateTimeLimit",
+      "0"
+    ],
+    [
+      "Spells:UseAdditiveFocusFromWornSlot",
+      "false"
+    ],
+    [
+      "Spells:UseAdditiveFocusFromWornSlotWithLimits",
+      "false"
+    ],
+    [
+      "Spells:UseCHAScribeHack",
+      "false"
+    ],
+    [
+      "Spells:UseClassicHarmTouchDamage",
+      "false"
+    ],
+    [
+      "Spells:UseClassicSpellFocus",
+      "false"
+    ],
+    [
+      "Spells:UseFadingMemoriesMaxLevel",
+      "false"
+    ],
+    [
+      "Spells:UseItemCastMessage",
+      "false"
+    ],
+    [
+      "Spells:UseLegacyFizzleCode",
+      "false"
+    ],
+    [
+      "Spells:UseLiveSpellProjectileGFX",
+      "false"
+    ],
+    [
+      "Spells:UseSpellImpliedTargeting",
+      "false"
+    ],
+    [
+      "Spells:WaterMatchRequiredForLoS",
+      "true"
+    ],
+    [
+      "Spells:WizardCritMaximumRandomRatio",
+      "70"
+    ],
+    [
+      "Spells:WizardCritMinimumRandomRatio",
+      "20"
+    ],
+    [
+      "Spells:WizCritChance",
+      "5"
+    ],
+    [
+      "Spells:WizCritLevel",
+      "12"
+    ],
+    [
+      "Spells:WizCritRatio",
+      "0"
+    ]
+  ],
+  "services": {
+    "game": {
+      "id": "5d37d6af1de2813c53716b8210dc4bd978929dea0da4ac5bde5f1ad8886ed3b8",
+      "image_id": "sha256:aa94e274128c30cf683924eff6ba990f315e57a4575276f35a09a51a6b0f4a86",
+      "started_at": "2026-11-21T03:39:29.455445199Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-11-21T03:40:48.453263491Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-11-12T13:58:56.290238195Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-11-12T13:58:56.291149382Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-11-12T13:58:56.289720703Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "base_hashes": {
+    "bin/world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "bin/zone": "13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "image": "sha256:aa94e274128c30cf683924eff6ba990f315e57a4575276f35a09a51a6b0f4a86",
+  "game": {
+    "id": "5d37d6af1de2813c53716b8210dc4bd978929dea0da4ac5bde5f1ad8886ed3b8",
+    "image_id": "sha256:aa94e274128c30cf683924eff6ba990f315e57a4575276f35a09a51a6b0f4a86",
+    "started_at": "2026-11-21T03:39:29.455445199Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "caches": {
+    "items": "92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "channel": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c",
+  "client": 2026112001,
+  "stock_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",
+  "titles_receipt": "f617ac60e3b77b76aba8c63c329214c798ca2ed87e5127e37a7ca75e3de3b618",
+  "players": 0,
+  "wiki": "releases/20261121-classic-defense-v1"
+}
