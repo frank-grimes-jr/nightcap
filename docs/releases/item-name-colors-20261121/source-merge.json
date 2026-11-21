@@ -1,0 +1,9 @@
+{
+  "status": "merged",
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/517",
+  "head": "7809cbf782868c807267e2364866f0026fe4a943",
+  "merge_commit": "c65d6adc194f946d32d67d1c6be6af8551bd6556",
+  "merged_at": "2026-11-21T14:08:45Z",
+  "authorization": "Owner: Push to main and server",
+  "preserved_main": "c1bee88d33b1438af9b85d9ecaa26172a2962144"
+}

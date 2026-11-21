@@ -1,0 +1,9 @@
+{
+  "status": "installed",
+  "files": {
+    "SKILL.md": "3cbd709386cedaf28da4e210a96a44f05bb4e3cb1003580528f63a925032c5d3",
+    "references/client.md": "de72a60f62cf4a4981a4aa00a08bea174e4ec6bd493b300cc7740c4927af7c81",
+    "references/wiki.md": "617e257724e0e955d5095832dc75d4af2ba355e1c67975054bdb4c2a4d630405",
+    "references/sources.json": "60acc4a6dd56ee7a436619ef86da0d5e0abec75bf97be09eeeefb0f55b5e4347"
+  }
+}

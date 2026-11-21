@@ -1,5 +1,5 @@
 {
-  "status": "candidate only; not published",
+  "status": "published and public verified; player acceptance open",
   "baseline": "20261121-aa-purchase-latency-v1",
   "baseline_source": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\wiki",
   "candidate_source": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\artifacts\\item-name-colors\\wiki-release\\wiki",
@@ -184,5 +184,5 @@
   "generated_catalogs": "unchanged: item and zone values, rewards, drop rates and names unchanged",
   "home_features_commands": "existing owning-guide links retained; this is a display correction",
   "ledger": "historical source drift requires review; no unrelated fingerprint advance",
-  "publication": "recheck then-current public source and release authorization before publishing"
+  "publication": "20261121-item-name-colors-v1;631public files/627preserved; five private404s; rollback rehearsed"
 }
