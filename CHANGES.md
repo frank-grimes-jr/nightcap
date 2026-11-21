@@ -1,3 +1,7 @@
+## November 21, 2026 · Broad Classic focus and defense
+
+119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions, with five overlaps. Empty fields only; existing stats/effects/custom content and healing strength preserved. Native 188 pressure / 259 defense pairs and guarded SQL/cache rehearsal pass. Content-only release retains current production binaries, spell cache and signed client; older unrelated dev source is preserved. Exact in-game QA: docs/releases/classic-defense-coverage-20261121/QA.md. Player acceptance OPEN; deployment requires a recorded activation receipt.
+
 ## November20,2026 · Classic focus coverage and mana correction
 
 Add existing haste/healing/mana focuses to19stock families/76definitions. Reject healing slots only during mana focus lookup; healing evaluation, ranks and custom content remain unchanged. Native source retains the already-live five-line instant-DoT guard absent from dev, so the tested translation unit exactly matches the shipping baseline plus this correction. Full native build,144paired category scenarios,260paired pressure cases and paired SQL/cache rehearsal pass. Test QA: docs/items/classic-focus-coverage/README.md; authorization and release evidence are alongside it. Player acceptance remains OPEN.
