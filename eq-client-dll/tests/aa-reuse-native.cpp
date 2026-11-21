@@ -62,6 +62,8 @@ static void Jump(BYTE* site,const void* target) {
     *reinterpret_cast<int32_t*>(site+1)=static_cast<int32_t>(reinterpret_cast<uintptr_t>(target)-reinterpret_cast<uintptr_t>(site+5));
 }
 static int native_clock=1000000,focus_reduction=0;
+static unsigned aa_refreshes=0;
+static void __fastcall CountAARefresh(void*,void*) {++aa_refreshes;}
 static int __cdecl Clock() {return native_clock;}
 static int __fastcall Focus(void*,void*,int,int,int,int,int) {return focus_reduction;}
 using Get=int(__thiscall*)(void*,int);
@@ -123,6 +125,15 @@ int main(int argc,char** argv) {
     auto calculated=reinterpret_cast<Calculated>(image+0x0a3840);
     auto receive=reinterpret_cast<Receive>(image+0x0b5bd0);
     auto send=[&](int slot,int begin,int server_now){Packet packet{begin,slot,server_now};receive(&packet);};
+    // The real packet receiver tail-calls the AA window rebuild for EVERY
+    // timer packet. Count that boundary without creating a game window.
+    Jump(image+kUIAARva,&CountAARefresh);
+    *reinterpret_cast<void**>(image+0x91fc20)=manager;
+    for(int slot=0;slot<100;++slot)send(slot,0,2000000);
+    Expect(aa_refreshes==100,"full timer sweep rebuilds the AA window100 times");
+    aa_refreshes=0;send(1,0,2000000);
+    Expect(aa_refreshes==1,"one timer update rebuilds the AA window once");
+    *reinterpret_cast<void**>(image+0x91fc20)=nullptr;
     int raw_group=1,independent_group=2,remaining=-1,total=-1;
     // Captured rank258 Rampage:600s; rank233 Purify Body:1800s; both raw group1.
     Group(first,&raw_group,1,600,258);Group(second,&raw_group,1,1800,233);

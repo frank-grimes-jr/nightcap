@@ -1157,6 +1157,7 @@ public:
 	int GetAlternateAdvancementTimerSlot(int family_id);
 	void SendAlternateAdvancementTimer(int family_id, int begin, int end);
 	void SendAlternateAdvancementTimers();
+	void SendAlternateAdvancementTimers(int purchased_family);
 	void ResetAlternateAdvancementTimer(int ability);
 	void ResetAlternateAdvancementTimers();
 	void ResetOnDeathAlternateAdvancement();

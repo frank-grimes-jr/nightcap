@@ -1,0 +1,44 @@
+test_native_packet_prerequisites_are_per_client_and_preserve_shared_catalog (test_aa_availability.AAAvailability.test_native_packet_prerequisites_are_per_client_and_preserve_shared_catalog) ... ok
+test_native_purchase_all_class_sets_and_ownership_projection (test_aa_availability.AAAvailability.test_native_purchase_all_class_sets_and_ownership_projection) ... ok
+test_no_rank_identity_or_cap_changes (test_aa_availability.AAAvailability.test_no_rank_identity_or_cap_changes) ... ok
+test_native_sender_catalog_and_identity (test_aa_recommendations.Recommendations.test_native_sender_catalog_and_identity) ... ERROR
+test_wizard_crit_uses_maximum_in_both_orders_and_boon_adds_hot_only (test_all_class_aa_native.AllClassNative.test_wizard_crit_uses_maximum_in_both_orders_and_boon_adds_hot_only) ... ok
+
+======================================================================
+ERROR: test_native_sender_catalog_and_identity (test_aa_recommendations.Recommendations.test_native_sender_catalog_and_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\EQ_Local_Dev\_worktrees\aa-purchase-latency\tools\tests\test_aa_recommendations.py", line 111, in test_native_sender_catalog_and_identity
+    subprocess.run(command,check=True,cwd=tmp)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\verre\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\verre\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1038, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\verre\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1552, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+----------------------------------------------------------------------
+Ran 5 tests in 30.778s
+
+FAILED (errors=1)
+packet_cases=5724 shared_catalog=preserved
+purchase_cases=5808 class_sets=696 ownership_projection=passed

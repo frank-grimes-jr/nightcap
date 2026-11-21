@@ -1,0 +1,139 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\multiclass.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\multiclass.md
+@@ -1,4 +1,26 @@
+ # Multiclass, spells, skills and advancement
++
++## AA purchase freeze — November21 candidate, not deployed
++
++Every committed purchase previously sent a100-slot reset sweep. Pinned RoF2
++receiver RVA0x0b5bd0 calls AA-window rebuild0x209f90 per packet; native49checks
++confirm100updates. Purchase now passes its family to SendAlternateAdvancementTimers:
++idle passive0timer packets; idle activated1reset; running timers reproject with
++unchanged stored deadlines/current rank and haste. Reset an expired purchased
++family and retire/reset stale Imitate Death; Quick Buff stays ready. The existing
++no-argument login/class-change/bulk-reset route retains the full sweep.
++
++Ownership transactions, prices, ranks, effects and authoritative durations remain.
++Source E:/EQ_Local_Dev/_worktrees/aa-purchase-latency, zone/{aa.cpp,client.h}.
++Tests tools/tests/test_aa_cooldown_identity.py (21tests, real rank/haste controls)
++and eq-client-dll/tests/aa-reuse-native.cpp;5adjacent tests pass. Native shipping
++predecessor13ad2534 reproduced exactly; fresh PCH/fullAA compilation and link pass.
++Only a nonvirtual overload is added; Client layout/vtable/old symbol stay intact.
++Rebuild zone; no SQL/rule/cache/client-download change. Supported whole-runtime
++activation is required; never kill one production zone or restore player data.
++Evidence/build pins/exact Arena/Chronicler QA: docs/releases/aa-purchase-latency-20261121/.
++Candidate wiki notes are unpublished; historical global ledger drift stays open.
++Production install, visible freeze retest and owner acceptance remain OPEN.
+ 
+ ## AA availability — November 20 deployed
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -176,7 +176,8 @@
+     "titles_automatic_suffix_20261114": "main PR486/33a7f38a6ee8adacd283f1a30838040ec78eba6d; title-zone04cd4b50 retained in augment successor PR489/acb232e1 zone289df4f2/rest worldeafe4507;12open workers; native player QA OPEN",
+     "titles_wiki_automatic_suffix_20261114": "20261114-titles-automatic-suffix-v1;631HTTPS hashes/headers,621retained files; no global ledger advance",
+     "inventory_scrollbars_published_20261120": "main PR492/f8faa1ba + reviewed publication receipts; signed client2026112001/wiki20261120-inventory-no-scrollbars-v1; native QA OPEN",
+-    "guise_all_classes_20261120": "Main PR493; source 48af6ce5e820c7d91e028483366c11b66edf498c; reviewed df5bcf5404e50a8aa169f4492a92ce1dd1f54bc7; OVH v2 verified with four class-only cache changes and12 open workers; native player QA and Guise public wiki pending"
++    "guise_all_classes_20261120": "Main PR493; source 48af6ce5e820c7d91e028483366c11b66edf498c; reviewed df5bcf5404e50a8aa169f4492a92ce1dd1f54bc7; OVH v2 verified with four class-only cache changes and12 open workers; native player QA and Guise public wiki pending",
++    "aa_purchase_latency_candidate_20261121": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed worktree; not deployed"
+   },
+   "topics": {
+     "ghoul-assassin-guise": [
+@@ -2346,27 +2347,6 @@
+         "sha256": "fd4be8418a3cdd91ebde56f46031fbd706819ae3787a5213a64b88955c01851d"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/aa-availability",
+-        "path": "server-mods/code/zone/aa.cpp",
+-        "role": "Reviewed AA availability source/test/release; player acceptance OPEN",
+-        "revision": "ed6620a8227e0a3433aacbaac347c82312ade423",
+-        "sha256": "9d995a808ffa7eb858324de6d03cd7eb4e9a25f433a9f4ce867ed7ca007cfc3e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+-        "path": "tools/tests/test_aa_cooldown_identity.py",
+-        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+-        "revision": "live main PR425/1d763739 source5642fcc1; authoring b7f457ea79b41bedcf1a879539b5a1ec662fe121 + reviewed worktree; owner QA OPEN",
+-        "sha256": "58649ab76415a18238732c5f7563d48566d5efe1819a27c51c78f637886a9b37"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+-        "path": "eq-client-dll/tests/aa-reuse-native.cpp",
+-        "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+-        "revision": "live main PR425/1d763739 source5642fcc1; authoring b7f457ea79b41bedcf1a879539b5a1ec662fe121 + reviewed worktree; owner QA OPEN",
+-        "sha256": "e0459fac6a6a277e74bcc825a636bb28797e6d79fc009f86f379a9e47a21e583"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/imitate-death-no-cooldown",
+         "path": "tools/tests/test_imitate_death_rollout.py",
+         "role": "Reviewed Imitate Death implementation/live proof; owner gameplay and balance QA OPEN",
+@@ -3864,13 +3844,6 @@
+         "role": "Reviewed level-scaled AA implementation/verification; native owner acceptance remains open"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/rogue-tome-learning/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/client.h",
+-        "role": "Non-consuming discipline learning helper declaration",
+-        "revision": "ddd16e029074ee766971cab3037022d908ab7c1e",
+-        "sha256": "4877e4f1d27527fe788224a0fc600f09c5eb1a853b4d9db899ce08a29664f468"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "server-mods/code/zone/client.cpp",
+         "revision": "e2c45922b35afe90148fb7505d76832da7043dd9; reviewed deployed October23 release",
+@@ -3981,6 +3954,55 @@
+         "role": "24 operator regression groups on Windows/Linux",
+         "revision": "ddd16e029074ee766971cab3037022d908ab7c1e",
+         "sha256": "de88b86a4c10ac76fdf1f3029235736937d7d02937dccd91f4b469b931286d69"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "server-mods/code/zone/aa.cpp",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "f3760839061993086345b83c6a196d8882c4d487de1f933077436339c5c7cfd8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "server-mods/code/zone/client.h",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "55e0326f694e634b19719a53f74d66bcd12735ced9c23dd76c4da643e885a4c6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "tools/tests/test_aa_cooldown_identity.py",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "90f56fd86bc376fc792ef8586e5e47aec2b932c379fd7d3d26fbb59edf8972b9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "eq-client-dll/tests/aa-reuse-native.cpp",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "6cfbea5aea43f1a0059afa2ce81bd6cd2c76c7016393fd548348ddbdc67b8ac6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "docs/releases/aa-purchase-latency-20261121/README.md",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "e472f09c31dc5ddeeb36c16cb9ac7fd35c2ba85b4f1b2a2e8f7ea6812e777ca9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "docs/releases/aa-purchase-latency-20261121/build.json",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "935973595577175b7aece4e5ecfc53f4e64e0887dda4bf0d39b8c33fbba949d5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/aa-purchase-latency",
++        "path": "docs/releases/aa-purchase-latency-20261121/validation.json",
++        "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
++        "revision": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62 + reviewed feature/aa-purchase-latency worktree",
++        "sha256": "afaa98413fe997b73d73fbefa0098ccae813b7203b4e5a2ac044f861533221b9"
+       }
+     ],
+     "items": [
