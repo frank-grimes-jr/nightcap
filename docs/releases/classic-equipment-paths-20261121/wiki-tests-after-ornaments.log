@@ -1,0 +1,21 @@
+...................
+----------------------------------------------------------------------
+Ran 19 tests in 38.109s
+
+OK
+✔ every exact published variant name finds its single family (58.3682ms)
+✔ catalog pages contain families once, covering all 98 across nine pages (55.2116ms)
+✔ gear slot and level filters combine, without including augments (2.9715ms)
+✔ augments match every compatible socket slot, but not jewelry (0.3461ms)
+✔ zone filter selects its two families; query narrows by words (0.8039ms)
+✔ required-level sorting is numerical and paging resets safely on narrow results (0.7984ms)
+✔ unsafe-looking or unmatched search text returns empty results without markup (0.304ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 134.6609
+PASS: command ranking, exact items, multiword queries, unsafe text, empty query, load failure

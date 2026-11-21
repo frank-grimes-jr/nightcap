@@ -1,6 +1,6 @@
 # Classic equipment and Temple access QA
 
-Candidate; ordinary player acceptance remains open. Use a non-GM level50 character on the test environment. Reconnect after the paired item cache and complete world/zone restart; existing copies should display the new effects. No client download or spell/AA rank changes.
+Deployed; ordinary player acceptance remains open. Use a non-GM level50 character for owner gameplay QA. Reconnect after the paired item cache and complete world/zone restart; existing copies should display the new effects. No client download or spell/AA rank changes.
 
 1. From Lavastorm enter the Temple of Solusek Ro with GM OFF. Entry must succeed. Try an unmodified Kunark-only zone: it must remain era-blocked. Confirm Searfire, both undead knights, Walthin and Cryssia are present. GM travel is not evidence of access.
 2. With sufficient faction, tell Lord Searfire “bar of the alloy”: receive Sol Cauldron17977. With insufficient faction, receive no cauldron. Obtain the unchanged Soil of Underfoot hand-in from Priestess Ghalea in North Kaladim (four Fairy Dust), and combine the cauldron's Ronium recipe9679 with two enchanted platinum bars, soil, melatite, Mistmoore granite and Sand of Ro. Wrong/missing ingredients must fail; recipe contents and outputs remain unchanged.

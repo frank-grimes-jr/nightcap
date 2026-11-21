@@ -1,4 +1,4 @@
-# Classic equipment coverage candidate
+# Classic equipment coverage
 
 149 stock families / 596 existing quality definitions. This is an addition pass across offense, defense and sustain, not a defensive-only pass. Existing healing strength and occupied effects are preserved. No custom item, augment, AA rank, spell definition, quest reward, recipe output or native combat formula changes.
 
@@ -182,4 +182,8 @@ Candidate only. Native measurements, independent review and guarded database/cac
 
 ## Measured results
 
-Current shipping zone04fcbf33 reproduces exactly after incorporating the concurrently deployed AA purchase responsiveness fix. All212pressure,312defense and112offense pairs pass. Incoming-pressure outcomes remain207duration/5deaths on both sides; no matched healing reduction. No-haste timed swings increase38→46 over120seconds;36% Cloak of Flames stays52→52. Existing Prismatic Magic plus60legal offensive AA points retains identical damage through20critical-roll seeds. RankIII enables full200focus on level49 Ice Comet; duplicate item focuses do not add. Native spell figures are formula samples, and outgoing melee resets HP between swings. They do not certify full encounter AI, landed spell resists or ordinary-player zone entry.
+Shipping ornament successor zonebceda35d reproduces exactly. The full suite was rerun after the ornament integration with byte-identical results to predecessor04fcbf33. All212pressure,312defense and112offense pairs pass. Incoming-pressure outcomes remain207duration/5deaths on both sides; no matched healing reduction. No-haste timed swings increase38→46 over120seconds;36% Cloak of Flames stays52→52. Existing Prismatic Magic plus60legal offensive AA points retains identical damage through20critical-roll seeds. RankIII enables full200focus on level49 Ice Comet; duplicate item focuses do not add. Native spell figures are formula samples, and outgoing melee resets HP between swings. They do not certify full encounter AI, landed spell resists or ordinary-player zone entry.
+
+## Deployment
+
+Main PR523 / 688932e2 deployed after the ornament release on November 21. Production verification confirms 12 workers, open access and zero errors/restarts. The successor cache changes596/324796records and preserves324200, including all ornaments. Existing client2026112101 remains valid; reconnect. Player acceptance remains open. The separately prepared wiki package is unpublished. Evidence: [production verification](../../releases/classic-equipment-paths-20261121/production-verified.json).

@@ -2345,9 +2345,9 @@
   ],
   "services": {
     "game": {
-      "id": "19d205a50f204a2f5cb78b3f0547b9a0288cd89096488766b762cabb3804302b",
-      "image_id": "sha256:8edfe3c26e00cca59f0ccb3ed1e418ed2f2cbf949ce17c45949890e527a7a81f",
-      "started_at": "2026-11-21T13:32:07.506381019Z",
+      "id": "bd75e87b3f50b0af18cea2e1a510a9632982d272df122ed932ac693f792cd44a",
+      "image_id": "sha256:50bcce347049a928a923e9e7598434c19b671699346e9546eba2e080d4e13238",
+      "started_at": "2026-11-21T16:18:02.049800708Z",
       "restarts": 0,
       "running": true,
       "health": "healthy",
@@ -2356,7 +2356,7 @@
     "gateway": {
       "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
       "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
-      "started_at": "2026-11-21T13:32:58.963478557Z",
+      "started_at": "2026-11-21T16:18:53.26811625Z",
       "restarts": 0,
       "running": true,
       "health": null,
@@ -2391,8 +2391,8 @@
     }
   },
   "base_hashes": {
-    "bin/world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
-    "bin/zone": "04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43",
+    "bin/world": "9726ce1cca92ffb29b198f15428688b44f243e9513623d8e4b02a700e7dfb32d",
+    "bin/zone": "bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40",
     "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
     "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
     "bin/shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe",
@@ -2400,31 +2400,31 @@
     "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
     "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
   },
-  "image": "sha256:8edfe3c26e00cca59f0ccb3ed1e418ed2f2cbf949ce17c45949890e527a7a81f",
+  "image": "sha256:50bcce347049a928a923e9e7598434c19b671699346e9546eba2e080d4e13238",
   "game": {
-    "id": "19d205a50f204a2f5cb78b3f0547b9a0288cd89096488766b762cabb3804302b",
-    "image_id": "sha256:8edfe3c26e00cca59f0ccb3ed1e418ed2f2cbf949ce17c45949890e527a7a81f",
-    "started_at": "2026-11-21T13:32:07.506381019Z",
+    "id": "bd75e87b3f50b0af18cea2e1a510a9632982d272df122ed932ac693f792cd44a",
+    "image_id": "sha256:50bcce347049a928a923e9e7598434c19b671699346e9546eba2e080d4e13238",
+    "started_at": "2026-11-21T16:18:02.049800708Z",
     "restarts": 0,
     "running": true,
     "health": "healthy",
     "oom_killed": false
   },
   "binaries": {
-    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
-    "zone": "04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43",
+    "world": "9726ce1cca92ffb29b198f15428688b44f243e9513623d8e4b02a700e7dfb32d",
+    "zone": "bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40",
     "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
     "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
     "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
   },
   "caches": {
-    "items": "92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f",
+    "items": "9accb63c085c17c5d95fa5331d1bf035185a26acdd3e8218b586c81edabc38d9",
     "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
   },
   "channel": "06204d6b88079c5a386c1e19eab750bdcdfdbdd6b8f2230374b10452811e2b4f",
   "client": 2026112101,
   "stock_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",
   "titles_receipt": "f617ac60e3b77b76aba8c63c329214c798ca2ed87e5127e37a7ca75e3de3b618",
-  "players": 1,
-  "wiki": "releases/20261121-item-name-colors-v1"
+  "players": 0,
+  "wiki": "releases/20261121-visible-ornaments-v1"
 }
