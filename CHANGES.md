@@ -1,3 +1,7 @@
+## 2026-11-21 — Cairnwright character creation experiment
+
+Generated and checked a seventeenth radio control in an isolated RoF2 creation-screen layout. Local PEQ and the current client/world sources identify the remaining selection, persistence, spell access and Chronicler work. Playable verification is open. See [local QA evidence](docs/qa/cairnwright-creation-20261121.md).
+
 ## 2026-11-21 · Visible equipment ornaments
 
 The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](docs/items/visible-ornaments/README.md).
