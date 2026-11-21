@@ -17,6 +17,8 @@
 */
 
 #include "client.h"
+#include "zone/advanced_loot_inventory.h"
+#include "common/visible_ornaments.h"
 #include "zone/raid_augment_custody.h"
 
 #include "common/bazaar.h"
@@ -509,6 +511,16 @@ void Client::FinishTrade(Mob* tradingWith, bool finalizer, void* event_entry, st
 		}
 	}
 	else if(tradingWith->IsNPC()) {
+		if (tradingWith->GetNPCTypeID() == NightcapOrnaments::Artisan) {
+			const auto result = NightcapLoot::ConvertOrnament(this);
+			if (result == NightcapLoot::TransferResult::Declined) {
+				Message(Chat::Yellow, "Give one supported, unmodified item with no augments or coin and leave room in your pack.");
+				ResetTrade();
+			} else if (result == NightcapLoot::TransferResult::Delivered) {
+				Message(Chat::Green, "The artisan has placed your appearance ornament in your pack.");
+			}
+			return;
+		}
 
 		bool quest_npc = false;
 		if (parse->HasQuestSub(tradingWith->GetNPCTypeID(), EVENT_TRADE)) {
