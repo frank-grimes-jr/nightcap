@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43"
+  },
+  "binaries": {
+    "world": "9726ce1cca92ffb29b198f15428688b44f243e9513623d8e4b02a700e7dfb32d",
+    "zone": "bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40"
+  },
+  "objects": {
+    "common/item_instance.cpp": "9587fb6f25a34edc2dc12eeb0d95b9ed14b3513b14883c1818e8cc6913005f8d",
+    "common/patches/rof2.cpp": "d700594f14cdcd4989d0e66640db2edef78473e55d1b733a98980dae7cea5422",
+    "world/worlddb.cpp": "f717b8450fdc4c21f659a1ae9d31e24cb698d0a461d886fe5035eb2c97d02ef6",
+    "zone/advanced_loot_inventory.cpp": "8193856b71f9d2af76341c9ab4c2a02a44fb5e04ba4ff09328dec51ebc92a98e",
+    "zone/attack.cpp": "929fc8a049780115504ce2e78f0598be222a8262a304ebd2053a6a0534a3f403",
+    "zone/client_packet.cpp": "e4c2c91a3a145475d5002fe91b9a0cb21bff7f87a30bfa884164c9b615f0e79d",
+    "zone/inventory.cpp": "634a1bbc6a7861ae8e2b8c2d9357136c5bad5892e194ba09754d177987771e33",
+    "zone/trading.cpp": "965d571fecb0fbecebe7c23ceeeabb1c1d307b9720f3a9a87b2d1128fd37d859",
+    "zone/zone.cpp": "70b1d9700ab2a5dbeedb1a79f16708f60ba07d95592225a851af61ae7de6af96",
+    "zone/zone_hunt.cpp": "0847c1921329a50d4594c7c4d91c26c10e476bf8d6b8fcf282ff537ed6ca3112"
+  }
+}

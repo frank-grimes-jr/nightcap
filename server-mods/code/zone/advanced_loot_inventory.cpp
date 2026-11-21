@@ -1,3 +1,4 @@
+#include "common/visible_ornaments.h"
 #include "zone/advanced_loot_inventory.h"
 #include "zone/client.h"
 #include "zone/command.h"
@@ -211,7 +212,7 @@ ClaimStatus ReadClaim(const std::string &id)
 	return result.RowCount() ? ClaimStatus::Claimed : ClaimStatus::Available;
 }
 
-static TransferResult ReceiveItemImpl(Client *c, const EQ::ItemInstance &item, const std::vector<std::string> &drop_ids, bool quiet, Destination destination)
+static TransferResult ReceiveItemImpl(Client *c, const EQ::ItemInstance &item, const std::vector<std::string> &drop_ids, bool quiet, Destination destination, int16 donor_slot = INVALID_INDEX)
 {
 	if (!c || !c->Connected() || !c->ClientDataLoaded() || !item.GetItem() || drop_ids.empty() ||
 		drop_ids.size() > 11 || std::set<std::string>(drop_ids.begin(), drop_ids.end()).size() != drop_ids.size() ||
@@ -240,6 +241,17 @@ static TransferResult ReceiveItemImpl(Client *c, const EQ::ItemInstance &item, c
 		InventoryRepository::ColumnsRaw(), c->CharacterID()), false);
 	if (!rows.Success()) { return rollback(); }
 	for (auto row : rows) { const auto r = ReadRow(row); if (!saved.emplace(r.slot_id, r).second) { return rollback(); } }
+	if (donor_slot != INVALID_INDEX) {
+		const auto donor = c->GetInv().GetItem(donor_slot);
+		const auto old = saved.find(donor_slot);
+		if (!donor || old == saved.end() || !SameItem(old->second, FromItem(c->CharacterID(), donor_slot, *donor))) {
+			return rollback();
+		}
+		auto consumed = database.QueryDatabase(fmt::format(
+			"DELETE FROM inventory WHERE character_id={} AND slot_id={} AND item_id={}",
+			c->CharacterID(), donor_slot, donor->GetID()), false);
+		if (!consumed.Success() || consumed.RowsAffected() != 1) { return rollback(); }
+	}
 	if (equip != EQ::invslot::SLOT_INVALID) {
 		// Equipment selection depends on other worn slots (notably both hands).
 		// Lock and compare their persisted preimages before committing the choice.
@@ -303,6 +315,9 @@ static TransferResult ReceiveItemImpl(Client *c, const EQ::ItemInstance &item, c
 		return TransferResult::Uncertain;
 	}
 	transaction.Release();
+	if (donor_slot != INVALID_INDEX) {
+		std::unique_ptr<EQ::ItemInstance> consumed(c->GetInv().PopItem(donor_slot));
+	}
 	// No quest callbacks, inventory packets or in-memory mutations preceded the
 	// acknowledged commit. Installing clones cannot cause another database write.
 	for (const auto &[slot, next] : plan) {
@@ -315,6 +330,48 @@ static TransferResult ReceiveItemImpl(Client *c, const EQ::ItemInstance &item, c
 	c->CalcBonuses();
 	if (equip != EQ::invslot::SLOT_INVALID) { c->NotifyLootEquipped(*plan.at(equip), equip); }
 	return TransferResult::Delivered;
+}
+
+TransferResult ConvertOrnament(Client *c)
+{
+	if (!c || !c->trade || c->trade->cp || c->trade->sp || c->trade->gp || c->trade->pp) {
+		return TransferResult::Declined;
+	}
+	int16 slot = INVALID_INDEX;
+	for (int16 index = EQ::invslot::TRADE_BEGIN; index <= EQ::invslot::TRADE_NPC_END; ++index) {
+		if (!c->GetInv().GetItem(index)) { continue; }
+		if (slot != INVALID_INDEX) { return TransferResult::Declined; }
+		slot = index;
+	}
+	if (slot == INVALID_INDEX) { return TransferResult::Declined; }
+	const auto donor = c->GetInv().GetItem(slot);
+	const auto base_hero = donor->GetItem()->HerosForgeModel;
+	const auto shown_hero = donor->GetOrnamentHeroModel(0);
+	if (shown_hero && shown_hero != (base_hero < 1000 ? base_hero * 100 : base_hero)) {
+		return TransferResult::Declined;
+	}
+	if (!NightcapOrnaments::SocketType(*donor->GetItem()) || donor->IsEvolving() || donor->IsScaling() ||
+		donor->GetEvolveUniqueID() || !donor->GetCustomDataString().empty() ||
+		(donor->IsStackable() && donor->GetCharges() != 1) || donor->GetOrnamentationIcon() ||
+		donor->GetOrnamentationIDFile() || (donor->GetColor() && donor->GetColor() != donor->GetItem()->Color)) {
+		return TransferResult::Declined;
+	}
+	for (int i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
+		if (donor->GetAugment(i)) { return TransferResult::Declined; }
+	}
+	try {
+		auto mapping = database.QueryDatabase(fmt::format(
+			"SELECT ornament FROM nightcap_ornament_source WHERE donor={}", donor->GetID()), false);
+		if (!mapping.Success() || mapping.RowCount() != 1) { return TransferResult::Declined; }
+		const auto design = database.GetItem(Strings::ToUnsignedInt(mapping.begin()[0]));
+		if (!design || !NightcapOrnaments::Design(*design)) { return TransferResult::Declined; }
+		EQ::ItemInstance ornament(design, 1);
+		ornament.SetAttuned(donor->IsAttuned());
+		return ReceiveItemImpl(c, ornament, {NewDropID()}, true, Destination::Inventory, slot);
+	} catch (...) {
+		c->QuarantineItemTransfer("Reconnect to check the saved result of your ornament exchange.");
+		return TransferResult::Uncertain;
+	}
 }
 
 TransferResult ReceiveItem(Client *c, const EQ::ItemInstance &item, const std::vector<std::string> &drop_ids, bool quiet, Destination destination)

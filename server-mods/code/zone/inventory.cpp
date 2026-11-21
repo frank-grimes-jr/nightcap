@@ -1,3 +1,4 @@
+#include "common/visible_ornaments.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -419,6 +420,8 @@ bool Client::SummonItem(uint32 item_id, int16 charges, uint32 aug1, uint32 aug2,
 			}
 		}
 		else {
+			if (NightcapOrnaments::Design(*augtest) &&
+				(!NightcapOrnaments::Fits(*item, *augtest) || IsAugmentRestricted(item->ItemType, augtest->AugRestrict))) { return false; }
 			if (NightcapRaidAug::IsReward(augments[iter])) {
 				if (has_raid_augment || !NightcapRaidAug::IsHost(item->Slots) ||
 					item->AugSlotType[iter] != NightcapRaidAug::SocketType) { return false; }
@@ -482,7 +485,9 @@ bool Client::SummonItem(uint32 item_id, int16 charges, uint32 aug1, uint32 aug2,
 
 			// check for augment type allowance
 			if(enforce_wearable) {
-				if ((item->AugSlotType[iter] == EQ::item::AugTypeNone) || !(((uint32)1 << (item->AugSlotType[iter] - 1)) & augtest->AugType)) {
+				const bool ornament_socket = NightcapOrnaments::Socket(*item) == iter;
+				const auto type = ornament_socket ? NightcapOrnaments::SocketType(*item) : item->AugSlotType[iter];
+				if (!type || !((1u << (type - 1)) & augtest->AugType)) {
 					Message(
 						Chat::Red,
 						fmt::format(
@@ -512,7 +517,7 @@ bool Client::SummonItem(uint32 item_id, int16 charges, uint32 aug1, uint32 aug2,
 					return false;
 				}
 
-				if (!RuleB(Items, SummonItemAllowInvisibleAugments) && item->AugSlotVisible[iter] == 0) {
+				if (!RuleB(Items, SummonItemAllowInvisibleAugments) && NightcapOrnaments::Socket(*item) != iter && item->AugSlotVisible[iter] == 0) {
 					Message(
 						Chat::Red,
 						fmt::format(
@@ -3132,6 +3137,10 @@ uint32 Client::GetEquippedItemFromTextureSlot(uint8 material_slot) const
 	item = m_inv.GetItem(inventory_slot);
 
 	if (item && item->GetItem()) {
+		const auto ornament = item->GetOrnamentationAugment();
+		if (ornament && NightcapOrnaments::Design(*ornament->GetItem())) {
+			return ornament->GetID();
+		}
 		return item->GetItem()->ID;
 	}
 

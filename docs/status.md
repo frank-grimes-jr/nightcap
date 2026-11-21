@@ -2,6 +2,10 @@
 
 PR519/520 promoted the validated content package; PR521/522 refreshed its current-client release evidence on dev/test (test82ae0d9f). It contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
 
+## November 21, 2026 · Equipment ornaments in development
+
+The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
+
 ## November 21, 2026 · Item-name colors published
 
 Main PR 517 (`c65d6adc`), signed client `2026112101` / proxy `0.13.7-dev` and wiki `20261121-item-name-colors-v1` are published and verified. Usable inspection names, Advanced loot and Bazaar seller text use Regular green, Polished blue, Exalted purple and Ascended orange. Equipment warnings remain. All 148 signed descriptors/history verify; 146 unrelated assets and five service identities stay unchanged. All 631 wiki files and private 404s verify; 627 outputs preserved. Fully exit EQ and use launcher Play. Native chat/merchant/buyer lists and tooltips remain outside this release; in-game visual acceptance is OPEN. [Evidence and QA](releases/item-name-colors-20261121/README.md).

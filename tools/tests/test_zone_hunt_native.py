@@ -37,7 +37,7 @@ class NativeZoneHunt(unittest.TestCase):
         self.assertLess(death.index('NightcapDungeon::BeforeDeath'),death.index('entity_list.QueueClients(killer_mob, app'))
         self.assertIn('!prepared_dungeon_death && !prepare_corpse()',death)
         self.assertLess(death.index('NightcapHunt::Award'),death.index('corpse = new Corpse'))
-        self.assertEqual(death.count('NightcapHunt::Award'),1)
+        self.assertEqual(death.count('NightcapHunt::Award('),1)
         bonus=native.body((ROOT/'server-mods/code/zone/bonuses.cpp').read_text(),'void Mob::AddItemBonuses(')
         for stat in ('HealAmt','SpellDmg'):
             line=next(line for line in bonus.splitlines() if f'b->{stat} ' in line and '= IsClient()' in line)
