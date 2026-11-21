@@ -1,7 +1,8 @@
 # AA purchase freeze — November 21, 2026
 
 Owner authorized main and server deployment on November21 (AUTHORIZATION.md).
-Candidate built and tested; activation evidence will record installation.
+Deployed from main PR515/faaae0f9368a5e64085e4fd314724b977647a9d6 and verified on all12workers.
+Official wiki20261121-aa-purchase-latency-v1 is published and all631files verify.
 Player acceptance remains OPEN.
 
 The owner reports that the whole game briefly freezes on every AA purchase.
@@ -69,7 +70,8 @@ restart needs a fresh clean stop and backup of current player state. An old
 database snapshot is never a recovery action. The binary-only prior image is
 compatible, but restore it only through the supported controlled maintenance flow.
 
-The candidate is not installed. Build artifacts are retained in the local Docker
+The candidate is installed. Exact production/runtime receipt: production-verified.json.
+Build artifacts remain in the local Docker
 container at `/tmp/nightcap-aa-purchase-latency-20261121/`. Before a later release,
 compare the actual live binary/source against this pinned predecessor and rebuild
 if it changed. Use the supported whole-runtime maintenance release with a fresh
@@ -77,7 +79,7 @@ stopped backup and saved-state/market preservation checks. Never kill one
 production zone. No client pairing change is required; reconnect after activation.
 Recovery uses the previous compatible immutable image, preserving all earned AA
 and player data. Do not restore a player snapshot. The old image restores the
-purchase refresh overhead. Public wiki publication remains pending.
+purchase refresh overhead. Public wiki publication is verified; see wiki-publication.json and wiki-public-verification.json.
 
 ## Exact in-game QA
 

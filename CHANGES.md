@@ -1,6 +1,6 @@
-## 2026-11-21 · AA purchase freeze candidate
+## 2026-11-21 · AA purchase responsiveness deployed
 
-- Avoid the 100-slot cooldown reset on every committed AA purchase: RoF2 rebuilds its AA window for each timer packet. Update only the purchased ready family and active deadlines; retain full resets for login/class changes. Ownership, point costs and cooldown durations remain unchanged. Native client, cooldown and adjacent checks plus exact shipping reproduction/full AA build pass. Server binary update and in-game QA remain pending; no client download or database migration. Evidence: docs/releases/aa-purchase-latency-20261121/.
+- Main PR515/faaae0f9 is deployed on all12zone workers with access open. Each purchase avoids the100-slot reset sweep; active deadlines, ownership and costs remain unchanged. Exact shipping reproduction/full native build,21cooldown tests,49native-client checks,5adjacent tests and10Windows/Linux rollout fault tests pass. Fresh stopped backup, saved-state/market, runtime-file, cache/client/service checks pass. Official wiki20261121-aa-purchase-latency-v1 verifies all631files. Owner visible-freeze acceptance remains OPEN. No client download; reconnect after maintenance. Evidence and QA: docs/releases/aa-purchase-latency-20261121/.
 
 ## 2026-11-21 · Broad Classic focus and defensive coverage
 

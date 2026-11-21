@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "manifest": "e2b7f6cb5c1a6217458664569109a2ec98d32c27b00fa79ec07c2f5955c569a7",
+  "candidate": "sha256:8edfe3c26e00cca59f0ccb3ed1e418ed2f2cbf949ce17c45949890e527a7a81f",
+  "players": 0,
+  "baseline": "sha256:aa94e274128c30cf683924eff6ba990f315e57a4575276f35a09a51a6b0f4a86",
+  "binaries": {
+    "zone": "04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43"
+  },
+  "runtime_file_count": 8179,
+  "runtime_files_sha256": "955e94b2dd645d5a9403063f360ec347f49af3679f022dd7f7b5ca942fb09aeb"
+}

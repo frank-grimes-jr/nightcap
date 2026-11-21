@@ -1,6 +1,6 @@
-## November 21, 2026 · AA purchase freeze candidate
+## November 21, 2026 · AA purchase responsiveness deployed
 
-Confirmed that each purchase sends 100 cooldown-reset packets and each invokes the native AA-window rebuild. The candidate removes that sweep for purchases while preserving active deadlines and login/class resets. Local native build, cooldown regression and pinned-client checks pass; not deployed or player accepted. [Evidence and exact QA](releases/aa-purchase-latency-20261121/README.md).
+Main PR515/faaae0f9 is deployed on all12zone workers with access open. Each purchase avoids the100-slot reset sweep; active deadlines, ownership and costs remain unchanged. Exact shipping reproduction/full native build,21cooldown tests,49native-client checks,5adjacent tests and10Windows/Linux rollout fault tests pass. Fresh stopped backup, saved-state/market, runtime-file, cache/client/service checks pass. Official wiki20261121-aa-purchase-latency-v1 verifies all631files. Owner visible-freeze acceptance remains OPEN. No client download; reconnect after maintenance. [Evidence and exact QA](releases/aa-purchase-latency-20261121/README.md).
 
 ## November 21, 2026 · Broad Classic focus and defense deployed
 

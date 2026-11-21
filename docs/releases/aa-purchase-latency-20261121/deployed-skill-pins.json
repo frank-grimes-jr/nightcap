@@ -1,0 +1,22 @@
+{
+  "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\multiclass.md": {
+    "before": "f413f9fcaff62c41042c3772eb14b06b7d396f6283ead521500ea78b64df5dc1",
+    "after": "dbc7571ef2273f2ec89c3c80a492980fa5e2bc72afe7cceaadd5571b3b2b82c7",
+    "prepared": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\deployed-multiclass.md"
+  },
+  "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\operations.md": {
+    "before": "eff681c5b8d658dd79d78818662b5f1588c171b941ff69673610136750ce4824",
+    "after": "149a567526ebb9ba2b99c0b33188db8022e63d1940e4c2371564c945f404616e",
+    "prepared": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\deployed-operations.md"
+  },
+  "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md": {
+    "before": "3642a4840398bd47f0c61660b1cbabbd047a61e0936047f5aae1f32c8885f4f1",
+    "after": "88c90ed08f3ed911e70a7d213dea7d7678bc6fcc36c3fdc3d2801e2ebd506e4e",
+    "prepared": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\deployed-wiki.md"
+  },
+  "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json": {
+    "before": "595cd0f13f700f4958d149eea4a02f9645fe5e74c1a65c06d5e4de342e36827e",
+    "after": "c1d8eb1b4bfea2b4bf1943b50fef7ed15f667254e137853240190b57ae4231e1",
+    "prepared": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\deployed-sources.json"
+  }
+}
