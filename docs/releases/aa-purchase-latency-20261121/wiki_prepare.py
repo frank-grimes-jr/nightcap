@@ -28,16 +28,23 @@ def main():
     path=SITE/'articles/recent-changes.json'
     article=json.loads(path.read_bytes())
     assert 'id="aa-purchase-latency"' not in article['body']
-    article['body']=('<h2 id="aa-purchase-latency">November 21, 2026: AA purchase responsiveness</h2>'
+    notice=('<h2 id="aa-purchase-latency">November 21, 2026: AA purchase responsiveness</h2>'
         '<p>Reduced repeated window refreshes when purchasing AA ranks. Costs, earned ranks '
         'and cooldown deadlines are unchanged. Reconnect after server maintenance; no client '
         'download is needed. In-game confirmation of the reported freeze remains open. '
-        'See <a href="multiclass.html">Multiclass &amp; progression</a>.</p>'+article['body'])
+        'See <a href="multiclass.html">Multiclass &amp; progression</a>.</p>')
+    article['body']=notice+article['body']
     article['updated']='2026-11-21'
     article['sources'].append('docs/releases/aa-purchase-latency-20261121/; deploy before publication, owner visible QA open')
     raw=(json.dumps(article,ensure_ascii=False,indent=2)+'\n').encode()
     path.write_bytes(raw)
-    (ROOT/'wiki/articles/recent-changes.json').write_bytes(raw)
+    mirror=ROOT/'wiki/articles/recent-changes.json'
+    local=json.loads(mirror.read_bytes())
+    local['body']=notice+re.sub(r'<h2 id="aa-purchase-latency">.*?</h2><p>.*?</p>\n?', '',local['body'],count=1)
+    local['sources']=[s for s in local['sources'] if 'aa-purchase-latency' not in s]
+    local['sources'].append(article['sources'][-1])
+    local['updated']='2026-11-21'
+    mirror.write_text(json.dumps(local,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     pending=ROOT/'wiki/articles/unreleased.json'
     data=json.loads(pending.read_bytes())
     data['body'],count=re.subn(r'<h2 id="aa-purchase-latency">.*?</h2><p>.*?</p>\n?', '',data['body'],count=1)
