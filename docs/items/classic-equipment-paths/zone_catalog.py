@@ -1,6 +1,6 @@
 """Restore the original Temple of Solusek Ro to the Classic zone gate."""
 import gzip,json
-from catalog import HERE,literal
+from catalog import HERE,literal,field_literal
 def row():
     rows=json.loads(gzip.decompress((HERE/'soltemple.json.gz').read_bytes()))['zones']
     assert len(rows)==1
@@ -10,7 +10,7 @@ def row():
 def generate(action):
     if action not in ('before','forward','verify','rollback'):raise ValueError(action)
     r=row();old,new=(0,1) if action=='rollback' else (1,0)
-    anchor=' AND '.join(('BINARY ' if isinstance(v,str) else '')+'`'+k+'` <=> '+literal(v) for k,v in sorted(r.items()) if k!='expansion')
+    anchor=' AND '.join(('BINARY ' if isinstance(v,str) else '')+'`'+k+'` <=> '+field_literal('zone',k,v) for k,v in sorted(r.items()) if k!='expansion')
     allowed='`expansion`='+str(new if action=='verify' else old) if action in ('before','verify') else '`expansion` IN (0,1)'
     lines=['START TRANSACTION;','CREATE TEMPORARY TABLE classic_temple_guard(ok TINYINT NOT NULL CHECK(ok=1));','INSERT INTO classic_temple_guard SELECT COUNT(*)=1 FROM zone WHERE '+anchor+' AND '+allowed+' FOR UPDATE;']
     if action in ('forward','rollback'):

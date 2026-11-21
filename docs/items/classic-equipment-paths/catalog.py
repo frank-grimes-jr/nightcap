@@ -3,6 +3,7 @@ import gzip,json
 from functools import lru_cache
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
+FLOAT_COLUMNS={'items': ['sellrate'], 'zone': ['safe_x', 'safe_y', 'safe_z', 'safe_heading', 'graveyard_id', 'underworld', 'minclip', 'maxclip', 'fog_minclip', 'fog_maxclip', 'walkspeed', 'fog_minclip1', 'fog_maxclip1', 'fog_minclip2', 'fog_maxclip2', 'fog_minclip3', 'fog_maxclip3', 'fog_minclip4', 'fog_maxclip4', 'fog_density', 'gravity']}
 FIELDS=('worneffect','worntype','wornlevel','wornlevel2','focuseffect','focustype','focuslevel','focuslevel2')
 
 @lru_cache(maxsize=1)
@@ -34,6 +35,10 @@ def literal(value):
     if isinstance(value,(int,float)):return str(value)
     return "CONVERT(X'"+str(value).encode().hex()+"' USING utf8mb4)"
 
+def field_literal(table,column,value):
+    result=literal(value)
+    return 'CAST('+result+' AS FLOAT)' if column in FLOAT_COLUMNS.get(table,()) else result
+
 def generate(action):
     if action not in ('before','forward','verify','rollback'):raise ValueError(action)
     sql=['START TRANSACTION;','CREATE TEMPORARY TABLE classic_equipment_guard(ok TINYINT NOT NULL CHECK(ok=1));']
@@ -41,7 +46,7 @@ def generate(action):
         if action=='rollback':old,new=new,old
         # Guard every retained field, including clicks, procs, stats, restrictions
         # and all six sockets. Fail closed on concurrent content edits.
-        anchor=' AND '.join(('BINARY ' if isinstance(v,str) else '')+'`'+k+'` <=> '+literal(v) for k,v in sorted(row.items()) if k not in FIELDS)
+        anchor=' AND '.join(('BINARY ' if isinstance(v,str) else '')+'`'+k+'` <=> '+field_literal('items',k,v) for k,v in sorted(row.items()) if k not in FIELDS)
         def match(values):return ' AND '.join('`'+f+'`='+str(v) for f,v in zip(FIELDS,values,strict=True))
         a,b=match(old),match(new)
         allowed=b if action=='verify' else a if action=='before' else '(('+a+') OR ('+b+'))'
