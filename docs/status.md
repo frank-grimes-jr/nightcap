@@ -1,3 +1,7 @@
+## November20,2026 · Classic focus coverage and mana correction
+
+Add existing haste/healing/mana focuses to19stock families/76definitions. Reject healing slots only during mana focus lookup; healing evaluation, ranks and custom content remain unchanged. Native source retains the already-live five-line instant-DoT guard absent from dev, so the tested translation unit exactly matches the shipping baseline plus this correction. Full native build,144paired category scenarios,260paired pressure cases and paired SQL/cache rehearsal pass. Test QA: docs/items/classic-focus-coverage/README.md; authorization and release evidence are alongside it. Player acceptance remains OPEN.
+
 # Current Nightcap status
 
 ## November 20, 2026 · AA availability candidate

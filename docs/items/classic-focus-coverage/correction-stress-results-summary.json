@@ -1,0 +1,406 @@
+{
+  "pairs": 40,
+  "scope": "Controlled timed native primary-hand attacks and native self-heal casting. No NPC AI, outgoing attack policy, regen, buffs ticking, pathing, or player acceptance. AA gate plus in-memory usable ranks, not persisted earned ownership.",
+  "groups": {
+    "full_healer-raid-aa0-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6222.2,
+        "mean_mana_end": 4417.2,
+        "cast_starts": 65,
+        "landed_casts": 53,
+        "failed_started_casts": 12,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 587,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 28,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5987.4,
+        "mean_mana_end": 4448.8,
+        "cast_starts": 52,
+        "landed_casts": 51,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 587,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 26,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      }
+    },
+    "full_healer-raid-aa0-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6650.2,
+        "mean_mana_end": 4139,
+        "cast_starts": 28,
+        "landed_casts": 25,
+        "failed_started_casts": 3,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 2208,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 115,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6612.8,
+        "mean_mana_end": 4194,
+        "cast_starts": 28,
+        "landed_casts": 25,
+        "failed_started_casts": 3,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 2208,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 104,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      }
+    },
+    "full_healer-raid-aa1-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 4848,
+        "mean_mana_end": 4518,
+        "cast_starts": 40,
+        "landed_casts": 35,
+        "failed_started_casts": 3,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 606,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 28,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5211.6,
+        "mean_mana_end": 4511.2,
+        "cast_starts": 40,
+        "landed_casts": 39,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 606,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 26,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      }
+    },
+    "full_healer-raid-aa1-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5140,
+        "mean_mana_end": 4300,
+        "cast_starts": 23,
+        "landed_casts": 18,
+        "failed_started_casts": 4,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 2310,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 115,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5057,
+        "mean_mana_end": 4339.6,
+        "cast_starts": 23,
+        "landed_casts": 18,
+        "failed_started_casts": 4,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 487,
+          "healing_sample": 2310,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 104,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      }
+    },
+    "full_dodging-raid-aa0-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6076,
+        "mean_mana_end": 4366.8,
+        "cast_starts": 66,
+        "landed_casts": 62,
+        "failed_started_casts": 3,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 490,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 28,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5745.6,
+        "mean_mana_end": 4417.6,
+        "cast_starts": 57,
+        "landed_casts": 57,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 504,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 26,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      }
+    },
+    "full_dodging-raid-aa0-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6650.2,
+        "mean_mana_end": 4139,
+        "cast_starts": 28,
+        "landed_casts": 25,
+        "failed_started_casts": 3,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 1844,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 115,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 6612.8,
+        "mean_mana_end": 4194,
+        "cast_starts": 28,
+        "landed_casts": 25,
+        "failed_started_casts": 3,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 1917,
+          "hp": 4643,
+          "mana": 4714,
+          "mana_cost_sample": 104,
+          "spell_damage": 402
+        },
+        "spent_points": 0
+      }
+    },
+    "full_dodging-raid-aa1-spell17": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5090.6,
+        "mean_mana_end": 4450.8,
+        "cast_starts": 54,
+        "landed_casts": 47,
+        "failed_started_casts": 6,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2000,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 509,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 28,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 4916.2,
+        "mean_mana_end": 4490.4,
+        "cast_starts": 44,
+        "landed_casts": 43,
+        "failed_started_casts": 0,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 1700,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 523,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 26,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      }
+    },
+    "full_dodging-raid-aa1-spell15": {
+      "before": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5140,
+        "mean_mana_end": 4300,
+        "cast_starts": 23,
+        "landed_casts": 18,
+        "failed_started_casts": 4,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 3000,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 1946,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 115,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      },
+      "after": {
+        "n": 5,
+        "results": {
+          "duration": 5
+        },
+        "mean_survival_ms": 180000,
+        "mean_healing": 5057,
+        "mean_mana_end": 4339.6,
+        "cast_starts": 23,
+        "landed_casts": 18,
+        "failed_started_casts": 4,
+        "stunned_ms": 0,
+        "metrics": {
+          "cast_ms": 2550,
+          "channeling": 200,
+          "heal_amount": 407,
+          "healing_sample": 2019,
+          "hp": 5107,
+          "mana": 4714,
+          "mana_cost_sample": 104,
+          "spell_damage": 402
+        },
+        "spent_points": 108
+      }
+    }
+  }
+}

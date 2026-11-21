@@ -1,0 +1,49 @@
+{
+  "results": {
+    "pairs": 140,
+    "before": {
+      "cast_starts": 1577,
+      "landed_casts": 1463,
+      "failed_started_casts": 77,
+      "deaths": 0
+    },
+    "after": {
+      "cast_starts": 1379,
+      "landed_casts": 1302,
+      "failed_started_casts": 43,
+      "deaths": 0
+    }
+  },
+  "pressure-results": {
+    "pairs": 80,
+    "before": {
+      "cast_starts": 2875,
+      "landed_casts": 2389,
+      "failed_started_casts": 459,
+      "deaths": 26
+    },
+    "after": {
+      "cast_starts": 3093,
+      "landed_casts": 2733,
+      "failed_started_casts": 327,
+      "deaths": 8
+    }
+  },
+  "stress-results": {
+    "pairs": 40,
+    "before": {
+      "cast_starts": 327,
+      "landed_casts": 283,
+      "failed_started_casts": 38,
+      "deaths": 0
+    },
+    "after": {
+      "cast_starts": 295,
+      "landed_casts": 276,
+      "failed_started_casts": 14,
+      "deaths": 0
+    }
+  },
+  "scope": "260 paired controlled native pressure comparisons; current shipping engine, including confirmed category leak. Not full encounter/player acceptance.",
+  "release_gate": "Owner scope decision on global focus-category correction; rerun comparisons if corrected. No main/server deployment."
+}
