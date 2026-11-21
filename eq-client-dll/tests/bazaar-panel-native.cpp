@@ -90,9 +90,24 @@ int main(){
  s.request=3;s.quote={"abcd-1234",{0,1001,1,1000,"Dagger"}};
  for(const auto &m:NightcapBazaarPanel::Encode(s))bazaar_panel.Consume(m,GetTickCount64()-500);
  frame(expected_window);assert(bazaar_panel.HasQuote());
+ for(const auto& sample:std::vector<std::pair<const char*,uint32_t>>{
+  {"Sword (Polished)",0xff0070ddu},{"Sword (Exalted)",0xffa335eeu},
+  {"Sword (Ascended)",0xffff8000u},{"Polished Granite Tomahawk",0xff00ff00u}}){
+  assert(bazaar_panel.Post("1"));++s.request;
+  s.quote.item.item=213073;s.quote.item.name=sample.first;s.rows={s.quote.item};s.rows[0].id=1;s.total=1;
+  for(const auto &m:NightcapBazaarPanel::Encode(s))bazaar_panel.Consume(m,GetTickCount64()-500);
+  bazaar_panel.Pulse(GetTickCount64(),7,"Seller",true);
+  RenderBazaar(expected_window);
+  assert(*reinterpret_cast<uint32_t*>(children["NCBZ_Preview"].bytes.data()+0x12c)==sample.second);
+  assert(*reinterpret_cast<uint32_t*>(children["NCBZ_Row0"].bytes.data()+0x12c)==sample.second);
+  assert(*reinterpret_cast<uint32_t*>(children["NCBZ_Row0"].bytes.data()+0x210)==sample.second);
+  assert(*reinterpret_cast<uint32_t*>(children["NCBZ_Row0"].bytes.data()+0x214)==sample.second);
+ }
  const auto before_bad_confirm=requests.size();*reinterpret_cast<uint32_t *>(price+12)=99;
  notify(expected_window,children["NCBZ_ConfirmPost"].bytes.data(),1,nullptr);
  assert(requests.size()==before_bad_confirm&&!bazaar_panel.HasQuote());
+ RenderBazaar(expected_window);
+ assert(*reinterpret_cast<uint32_t*>(children["NCBZ_Preview"].bytes.data()+0x12c)==0xffffffff);
  *reinterpret_cast<uint32_t *>(price+12)=0;
  assert(bazaar_panel.Post("1"));
  // A character change before the next frame still invalidates the clicked state.

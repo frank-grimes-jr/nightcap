@@ -1,6 +1,7 @@
 #pragma once
 #include "advanced_loot_state.h"
 #include "advanced_loot_screen.h"
+#include "item_name_color.h"
 #include <unordered_set>
 #include <unordered_map>
 
@@ -113,6 +114,7 @@ class AdvancedLootUI {
 			if (!exists) { continue; }
 			const auto &item = s.rows[i];
 			Text("Row" + suffix, std::string(item.token == selected_ ? "> " : "") + item.name + (drops ? " x" + std::to_string(item.quantity) : ""));
+			Screen::Color(Screen::Child("NCAL_Row" + suffix), ItemNameColor(item.item,item.name), true);
 			Text("Source" + suffix, drops ? (item.capabilities & Capability(Action::Take) ? "Ready" :
 				item.capabilities & Capability(Action::TakeNoTrade) ? "NO TRADE" :
 				item.phase == Phase::Shared || item.phase == Phase::Rolling ? "Group loot" : "Unavailable") : FilterName(item.filter));
@@ -137,6 +139,7 @@ class AdvancedLootUI {
 		Text("All", all_confirm_revision_ ? "Confirm NO TRADE" : "Loot All");
 		Visible("Back", !list); Visible("PanelTitle", !list);
 		Text("PanelTitle", settings ? "Loot settings" : row ? row->name : "");
+		Screen::Color(Screen::Child("NCAL_PanelTitle"), !settings && row ? ItemNameColor(row->item,row->name) : 0xffffffff);
 		Visible("Inspect", list && matching && can(Action::Inspect)); Enable("Inspect", ready && can(Action::Inspect));
 		static const char *extras[] = {"Leave", "Find", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Assign"};
 		static const Action actions[] = {Action::Leave, Action::FindCorpse, Action::Need, Action::Greed,

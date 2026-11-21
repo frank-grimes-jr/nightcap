@@ -23,6 +23,9 @@ inline void BazaarText(void *window,const std::string &name,const std::string &t
 inline void BazaarEnable(void *window,const std::string &name,bool enabled){
 	if(void *control=BazaarChild(window,name))*reinterpret_cast<bool *>(static_cast<BYTE *>(control)+0x1a)=enabled;
 }
+inline void BazaarColor(void *window,const std::string &name,uint32_t color,bool button=false){
+	SetItemNameTextColor(BazaarChild(window,name),color,button);
+}
 inline bool BazaarPrice(void *window,char (&output)[33]){
 	void *control=AAChild(window,"NCBZ_Price");if(!control)return false;
 	// Native CEditWnd stores either byte or UTF16 CXStr input. Capacity is bytes.
@@ -67,12 +70,17 @@ inline void RenderBazaar(void *window){
 	if(bazaar_panel.HasQuote()){
 		const auto &q=s.quote.item;
 		BazaarText(window,"Preview",q.name+" x"+std::to_string(q.quantity)+" | "+Money(q.price)+" EACH | "+Money(uint64_t(q.price)*q.quantity)+" TOTAL");
-	}else BazaarText(window,"Preview","Pick up an item and click Post Item to review its exact quantity and total price.");
+		BazaarColor(window,"Preview",ItemNameColor(q.item,q.name));
+	}else {
+		BazaarText(window,"Preview","Pick up an item and click Post Item to review its exact quantity and total price.");
+		BazaarColor(window,"Preview",0xffffffff);
+	}
 	for(size_t i=0;i<PageSize;++i){
 		const std::string name="Row"+std::to_string(i);const bool exists=i<s.rows.size();
 		BazaarEnable(window,name,ready&&exists);
 		if(exists){const auto &r=s.rows[i];BazaarText(window,name,(bazaar_panel.SelectedID()==r.id?"> ":"")+r.name+" x"+std::to_string(r.quantity)+" | "+Money(r.price)+" EACH");}
 		else BazaarText(window,name,"");
+		BazaarColor(window,name,exists?ItemNameColor(s.rows[i].item,s.rows[i].name):0xffffffff,true);
 	}
 }
 inline bool UpdateBazaarContext(void *self){

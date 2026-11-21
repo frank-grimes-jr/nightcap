@@ -1,0 +1,19 @@
+{
+  "changed_assets": 2,
+  "channel_sha256": "06204d6b88079c5a386c1e19eab750bdcdfdbdd6b8f2230374b10452811e2b4f",
+  "existing_assets_preserved": 146,
+  "history_preserved": true,
+  "hosted": true,
+  "managed_files": 148,
+  "release": 2026112101,
+  "signature": "valid against shipped production key",
+  "verified_bytes": 883440,
+  "hosted_files_verified": [
+    "dinput8.dll",
+    "nightcap-patch-sites.json",
+    "uifiles/nightcap/equi_inventory.xml"
+  ],
+  "verification_scope": "All148 signed descriptors/history; served changed DLL/catalog plus retained Inventory XML; publisher hashes all146 retained files",
+  "retained_proxy_catalog_pair": "new authenticated/preflight-verified DLL/catalog",
+  "owner_pixel_acceptance": false
+}
