@@ -1,5 +1,5 @@
 {
-  "source": "63c2776eb440b05d18d6c343e8880c10f4fc2b3e",
+  "source": "4eed48123cd4a4d78597fb2b5bb05509563fc6c9",
   "base_hashes": {
     "bin/world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
     "bin/zone": "04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43",
@@ -59,11 +59,11 @@
   },
   "files": {
     "release.py": "88f37815bf33ff628ccec4e8f61de2de534a0ca176f69f99564eaef16e5d2160",
-    "catalog.py": "9c7dcbd7723b2cc37ba0e35451b030216908ddadc9e200df27964c52d3e5cef6",
+    "catalog.py": "8dd86955172d0b53489f260a736e8c910eb60ebef2e35705e1e3b42c099810a7",
     "targets.json.gz": "aab23bd40269aafae18ee317a1d3b88ffea5bef76143a94cd10e7614b478cc42",
     "policy.json": "ecda925cc519c552cc459e86dd425ee359422adb75c3a18bad91224cc9ede5e4",
     "effects.json": "fb25ae803a4098c2e3ca6086ba96cd096a421545b5c005b6985aa4b5af6b2f27",
-    "zone_catalog.py": "96477d6f30715798ec6826fcd286cafd3812c183ca71db28e8fce2fa23aabf4b",
+    "zone_catalog.py": "600d7666d633061fe20336c425b7a2c21d462c0bc59e8b5375222cea5fd042da",
     "soltemple.json.gz": "5996f6f405e7e934bae89f07f821fb0e5557f6365ad96227fe72cc7121920cd2"
   },
   "stock_operator": "58fb42402042c1e516d31f7d85704473259b21eb2ef2bbec3d40045c13c5bd94",

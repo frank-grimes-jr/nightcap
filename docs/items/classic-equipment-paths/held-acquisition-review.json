@@ -1,0 +1,552 @@
+[
+  {
+    "id": 4424,
+    "name": "Dwarven Plate Bracers",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4424,
+        "name": "Dwarven Plate Bracers"
+      }
+    ]
+  },
+  {
+    "id": 4425,
+    "name": "Dwarven Plate Gauntlets",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4425,
+        "name": "Dwarven Plate Gauntlets"
+      }
+    ]
+  },
+  {
+    "id": 4432,
+    "name": "Ogre War Plate Pauldron",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4432,
+        "name": "Ogre War Plate Pauldron"
+      }
+    ]
+  },
+  {
+    "id": 4433,
+    "name": "Ogre War Splinted Cloak",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4433,
+        "name": "Ogre War Splinted Cloak"
+      }
+    ]
+  },
+  {
+    "id": 4434,
+    "name": "Ogre War Plate Girdle",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4434,
+        "name": "Ogre War Plate Girdle"
+      }
+    ]
+  },
+  {
+    "id": 4448,
+    "name": "Dwarven Plate Helm",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4448,
+        "name": "Dwarven Plate Helm"
+      }
+    ]
+  },
+  {
+    "id": 4449,
+    "name": "Dwarven Plate Visor",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4449,
+        "name": "Dwarven Plate Visor"
+      }
+    ]
+  },
+  {
+    "id": 4450,
+    "name": "Dwarven Plate Collar",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4450,
+        "name": "Dwarven Plate Collar"
+      }
+    ]
+  },
+  {
+    "id": 4451,
+    "name": "Dwarven Plate Breastplate",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4451,
+        "name": "Dwarven Plate Breastplate"
+      }
+    ]
+  },
+  {
+    "id": 4452,
+    "name": "Dwarven Plate Pauldron",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4452,
+        "name": "Dwarven Plate Pauldron"
+      }
+    ]
+  },
+  {
+    "id": 4454,
+    "name": "Dwarven Plate Girdle",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4454,
+        "name": "Dwarven Plate Girdle"
+      }
+    ]
+  },
+  {
+    "id": 4455,
+    "name": "Dwarven Plate Vambraces",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4455,
+        "name": "Dwarven Plate Vambraces"
+      }
+    ]
+  },
+  {
+    "id": 4456,
+    "name": "Dwarven Plate Bracers",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4456,
+        "name": "Dwarven Plate Bracers"
+      }
+    ]
+  },
+  {
+    "id": 4457,
+    "name": "Dwarven Plate Gauntlets",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4457,
+        "name": "Dwarven Plate Gauntlets"
+      }
+    ]
+  },
+  {
+    "id": 4458,
+    "name": "Dwarven Plate Greaves",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4458,
+        "name": "Dwarven Plate Greaves"
+      }
+    ]
+  },
+  {
+    "id": 4459,
+    "name": "Dwarven Plate Boots",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 4459,
+        "name": "Dwarven Plate Boots"
+      }
+    ]
+  },
+  {
+    "id": 21065,
+    "name": "Enchanted Teir`Dal Chain Cape",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21065,
+        "name": "Enchanted Teir`Dal Chain Cape"
+      }
+    ]
+  },
+  {
+    "id": 21266,
+    "name": "Imbued Ogre War Collar",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21266,
+        "name": "Imbued Ogre War Collar"
+      }
+    ]
+  },
+  {
+    "id": 21277,
+    "name": "Imbued Ogre War Helm",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21277,
+        "name": "Imbued Ogre War Helm"
+      }
+    ]
+  },
+  {
+    "id": 21278,
+    "name": "Imbued Ogre War Visor",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21278,
+        "name": "Imbued Ogre War Visor"
+      }
+    ]
+  },
+  {
+    "id": 21279,
+    "name": "Imbued Ogre War Collar",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21279,
+        "name": "Imbued Ogre War Collar"
+      }
+    ]
+  },
+  {
+    "id": 21280,
+    "name": "Imbued Ogre War Breastplate",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21280,
+        "name": "Imbued Ogre War Breastplate"
+      }
+    ]
+  },
+  {
+    "id": 21281,
+    "name": "Imbued Ogre War Pauldron",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21281,
+        "name": "Imbued Ogre War Pauldron"
+      }
+    ]
+  },
+  {
+    "id": 21282,
+    "name": "Imbued Ogre War Cloak",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21282,
+        "name": "Imbued Ogre War Cloak"
+      }
+    ]
+  },
+  {
+    "id": 21283,
+    "name": "Imbued Ogre War Girdle",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21283,
+        "name": "Imbued Ogre War Girdle"
+      }
+    ]
+  },
+  {
+    "id": 21284,
+    "name": "Imbued Ogre War Vambraces",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21284,
+        "name": "Imbued Ogre War Vambraces"
+      }
+    ]
+  },
+  {
+    "id": 21285,
+    "name": "Imbued Ogre War Bracer",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21285,
+        "name": "Imbued Ogre War Bracer"
+      }
+    ]
+  },
+  {
+    "id": 21286,
+    "name": "Imbued Ogre War Gauntlets",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21286,
+        "name": "Imbued Ogre War Gauntlets"
+      }
+    ]
+  },
+  {
+    "id": 21287,
+    "name": "Imbued Ogre War Greaves",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21287,
+        "name": "Imbued Ogre War Greaves"
+      }
+    ]
+  },
+  {
+    "id": 21288,
+    "name": "Imbued Ogre War Boots",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21288,
+        "name": "Imbued Ogre War Boots"
+      }
+    ]
+  },
+  {
+    "id": 21299,
+    "name": "Enchanted Dwarven Plate Gauntlets",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21299,
+        "name": "Enchanted Dwarven Plate Gauntlets"
+      }
+    ]
+  },
+  {
+    "id": 21367,
+    "name": "Dwarven Chain Cloak",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21367,
+        "name": "Dwarven Chain Cloak"
+      }
+    ]
+  },
+  {
+    "id": 21368,
+    "name": "Dwarven Chain Skirt",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21368,
+        "name": "Dwarven Chain Skirt"
+      }
+    ]
+  },
+  {
+    "id": 21446,
+    "name": "Imbued Dwarven Chain Coif",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21446,
+        "name": "Imbued Dwarven Chain Coif"
+      }
+    ]
+  },
+  {
+    "id": 21447,
+    "name": "Imbued Dwarven Chain Veil",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21447,
+        "name": "Imbued Dwarven Chain Veil"
+      }
+    ]
+  },
+  {
+    "id": 21448,
+    "name": "Imbued Dwarven Chain Gorget",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21448,
+        "name": "Imbued Dwarven Chain Gorget"
+      }
+    ]
+  },
+  {
+    "id": 21449,
+    "name": "Imbued Dwarven Chain Mail",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21449,
+        "name": "Imbued Dwarven Chain Mail"
+      }
+    ]
+  },
+  {
+    "id": 21450,
+    "name": "Imbued Dwarven Chain Mantle",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21450,
+        "name": "Imbued Dwarven Chain Mantle"
+      }
+    ]
+  },
+  {
+    "id": 21451,
+    "name": "Imbued Dwarven Chain Cloak",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21451,
+        "name": "Imbued Dwarven Chain Cloak"
+      }
+    ]
+  },
+  {
+    "id": 21452,
+    "name": "Imbued Dwarven Chain Skirt",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21452,
+        "name": "Imbued Dwarven Chain Skirt"
+      }
+    ]
+  },
+  {
+    "id": 21453,
+    "name": "Imbued Dwarven Chain Sleeves",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21453,
+        "name": "Imbued Dwarven Chain Sleeves"
+      }
+    ]
+  },
+  {
+    "id": 21454,
+    "name": "Imbued Dwarven Chain Bracelet",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21454,
+        "name": "Imbued Dwarven Chain Bracelet"
+      }
+    ]
+  },
+  {
+    "id": 21455,
+    "name": "Imbued Dwarven Chain Gloves",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21455,
+        "name": "Imbued Dwarven Chain Gloves"
+      }
+    ]
+  },
+  {
+    "id": 21456,
+    "name": "Imbued Dwarven Chain Leggings",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21456,
+        "name": "Imbued Dwarven Chain Leggings"
+      }
+    ]
+  },
+  {
+    "id": 21457,
+    "name": "Imbued Dwarven Chain Boots",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21457,
+        "name": "Imbued Dwarven Chain Boots"
+      }
+    ]
+  },
+  {
+    "id": 21529,
+    "name": "Imbued Ogre War Mace",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21529,
+        "name": "Imbued Ogre War Mace"
+      }
+    ]
+  },
+  {
+    "id": 21530,
+    "name": "Imbued Ogre War Mace",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21530,
+        "name": "Imbued Ogre War Mace"
+      }
+    ]
+  },
+  {
+    "id": 21533,
+    "name": "Imbued Ogre War Hammer",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 21533,
+        "name": "Imbued Ogre War Hammer"
+      }
+    ]
+  },
+  {
+    "id": 23476,
+    "name": "Imbued Dwarven Plate Bracers",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 23476,
+        "name": "Imbued Dwarven Plate Bracers"
+      }
+    ]
+  },
+  {
+    "id": 23477,
+    "name": "Imbued Dwarven Plate Gauntlets",
+    "reason": "ingredient/container chain not verified",
+    "unverified_terminal_ingredients": [
+      {
+        "id": 23477,
+        "name": "Imbued Dwarven Plate Gauntlets"
+      }
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 import gzip,json,unittest
-from catalog import HERE,FIELDS,changes,generate
+from catalog import HERE,FIELDS,FLOAT_COLUMNS,field_literal,changes,generate
 
 class EquipmentTests(unittest.TestCase):
     @classmethod
@@ -35,7 +35,7 @@ class EquipmentTests(unittest.TestCase):
             self.assertIn(s['effect_base_value2'],(20,44,60))
             if spa==124:self.assertEqual(s['effect_limit_value1']*10,200)
     def test_reachable_crafts_not_orphan_recipes(self):
-        audit=json.loads((HERE/'acquisition-audit.json').read_bytes())
+        audit=json.loads(gzip.decompress((HERE/'acquisition-audit.json.gz').read_bytes()))
         for key,e in self.policy.items():
             if e['category'].startswith('crafted_'):self.assertIn(key,audit['reached'])
         self.assertEqual({e['category'] for e in self.policy.values()},{'crafted_jewelry','crafted_armor','class_quest','ro_quest','stock_drop'})
@@ -50,5 +50,12 @@ class EquipmentTests(unittest.TestCase):
                     self.assertIn('`'+f+'` <=> ',line)
         self.assertNotIn('UPDATE ',generate('verify'))
         self.assertNotIn('UPDATE ',generate('before'))
+    def test_float_guards_use_schema_precision_without_tolerance(self):
+        schema=json.loads((HERE/'float-schema.json').read_bytes())
+        for table in ('items','zone'):
+            self.assertEqual(FLOAT_COLUMNS[table],[line.split('\t')[0] for line in schema[table].splitlines() if line.split('\t')[1]=='float'])
+        self.assertEqual(field_literal('items','sellrate',3.1294),'CAST(3.1294 AS FLOAT)')
+        self.assertEqual(field_literal('items','hp',15),'15')
+        self.assertEqual(field_literal('zone','zone_exp_multiplier',0.75),'0.75')
 
 if __name__=='__main__':unittest.main()

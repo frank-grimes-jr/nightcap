@@ -1,0 +1,6503 @@
+{
+  "manifest": "188ca96f9ef4577d34a0e959ac8695b1f0b5102e8d092e81732492056a23dcc2",
+  "outside": {
+    "items": {
+      "rows": 309432,
+      "sha256": "cbb535fc1571e9a06613eee350d9bdbfb37228db250b37cab19908c3837ff1c3"
+    },
+    "zones": {
+      "rows": 617,
+      "sha256": "7f259479c14d9fd5289382a442ca50cd8d44d7fc4138b246737f94de95f83ced"
+    }
+  },
+  "publication": {
+    "channels": {
+      "channel.json": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c",
+      "launcher-channel.json": "abd6a3bceba70aae02b7ddf178c23832ecdd665bf6a708a47e1e7a4c82172d9b",
+      "nightcap-friends.zip": "bad2fd8d91c74c41e3be84c8e3a985159c1b2eb980c4fddce47780b2a310f452",
+      "guide.html": "c6160072c279b82c420f1c14122cb9bce2d9e5c6edb772db8d8d534ed3b4f675"
+    },
+    "wiki": "releases/20261121-aa-purchase-latency-v1"
+  },
+  "caches": {
+    "items": "92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f",
+    "spells": "5039b3ab2528dbfcd13830ebd966887c6256e05981f47d70f71ba0c5b432f80c"
+  },
+  "rules": [
+    [
+      1,
+      "AA:ExpPerPoint",
+      "1000000",
+      "Amount of experience per AA. Is the same as the amount of experience to go from level 51 to level 52"
+    ],
+    [
+      1,
+      "AA:LevelBasedPointsPerLevel",
+      "20",
+      "Full-focus AA points per current level of normal XP; 0 disables level scaling. PassiveExpPercent applies to retained leveling XP. Clamp 0-1000; fixed ExpPerPoint storage units preserve saved AA fractions."
+    ],
+    [
+      1,
+      "AA:MaxAAEXPPerKill",
+      "-1",
+      "Maximum AA EXP per Kill (3425214 is about 7%) - Default: -1 will disable the check"
+    ],
+    [
+      1,
+      "AA:ModernAAScalingAALimit",
+      "4000",
+      "The number of earned AA when AA experience scaling ends"
+    ],
+    [
+      1,
+      "AA:ModernAAScalingAAMinimum",
+      "0",
+      "The minimum number of earned AA before AA experience scaling begins"
+    ],
+    [
+      1,
+      "AA:ModernAAScalingEnabled",
+      "false",
+      "Are we linearly scaling AA experience based on total # of earned AA?"
+    ],
+    [
+      1,
+      "AA:ModernAAScalingStartPercent",
+      "1000.0000000000000",
+      "1000% or 10x AA experience at the start of the scaling range"
+    ],
+    [
+      1,
+      "AA:NormalizedAAEnabled",
+      "false",
+      "TSS+ change to AA that normalizes AA experience to a fixed # of white con kills independent of level"
+    ],
+    [
+      1,
+      "AA:NormalizedAANumberOfWhiteConPerAA",
+      "25",
+      "The number of white con kills per AA point"
+    ],
+    [
+      1,
+      "AA:PassiveExpPercent",
+      "10",
+      "Percent of a full AA XP award also earned from kills/quests/tasks at 0% AA allocation, without reducing level XP. Clamped to 0-100; 0 disables passive gains."
+    ],
+    [
+      1,
+      "AA:SoundForAAEarned",
+      "false",
+      "Play sound when AA point earned"
+    ],
+    [
+      1,
+      "AA:UnusedAAPointCap",
+      "-1",
+      "Cap for Unused AA Points.  Default: -1.  NOTE: DO NOT LOWER THIS WITHOUT KNOWING WHAT YOU ARE DOING. MAY RESULT IN PLAYERS LOSING AAs."
+    ],
+    [
+      1,
+      "Adventure:DistanceForRescueAccept",
+      "10000.0000000000000",
+      "Distance for adventure rescue accept"
+    ],
+    [
+      1,
+      "Adventure:DistanceForRescueComplete",
+      "2500.0000000000000",
+      "Distance for adventure rescue complete"
+    ],
+    [
+      1,
+      "Adventure:ItemIDToEnablePorts",
+      "41000",
+      "ItemID to enable adventure ports. 0 to disable, otherwise using a LDoN portal will require the user to have this item"
+    ],
+    [
+      1,
+      "Adventure:LDoNBaseTrapDifficulty",
+      "15.0000000000000",
+      "LDoN base trap difficulty"
+    ],
+    [
+      1,
+      "Adventure:LDoNCriticalFailTrapThreshold",
+      "10.0000000000000",
+      "LDoN critical fail trap threshold"
+    ],
+    [
+      1,
+      "Adventure:LDoNLootCountModifier",
+      "10",
+      "LDoN Loot Count Modifier, lower is better (default is 10)"
+    ],
+    [
+      1,
+      "Adventure:LDoNTrapDistanceUse",
+      "625",
+      "LDoN trap distance use"
+    ],
+    [
+      1,
+      "Adventure:MaxLevelRange",
+      "9",
+      "Maximum level range for adventure"
+    ],
+    [
+      1,
+      "Adventure:MaxNumberForGroup",
+      "6",
+      "Maximum members for adventure group"
+    ],
+    [
+      1,
+      "Adventure:MinNumberForGroup",
+      "2",
+      "Minimum members for adventure group"
+    ],
+    [
+      1,
+      "Adventure:NumberKillsForBossSpawn",
+      "40",
+      "Number of adventure kills to make the boss spawn"
+    ],
+    [
+      1,
+      "Aggro:AggroBotPets",
+      "false",
+      "If enabled, NPCs will aggro bot pets"
+    ],
+    [
+      1,
+      "Aggro:AggroPlayerPets",
+      "false",
+      "If enabled, NPCs will aggro player pets"
+    ],
+    [
+      1,
+      "Aggro:AllowTickPulling",
+      "false",
+      "tick pulling is an exploit in an NPC's call for help fixed sometime in 2006 on live"
+    ],
+    [
+      1,
+      "Aggro:BardAggroCap",
+      "40",
+      "per song bard aggro cap."
+    ],
+    [
+      1,
+      "Aggro:ClientAggroCheckIdleInterval",
+      "6000",
+      "Interval in which clients actually check for aggro while idle - in milliseconds - this should be higher than ClientAggroCheckMovingInterval"
+    ],
+    [
+      1,
+      "Aggro:ClientAggroCheckMovingInterval",
+      "1000",
+      "Interval in which clients actually check for aggro while moving - in milliseconds - this should be lower than ClientAggroCheckIdleInterval"
+    ],
+    [
+      1,
+      "Aggro:CriticallyWoundedAggroMod",
+      "100",
+      "Aggro increase against critical wounded targets"
+    ],
+    [
+      1,
+      "Aggro:CurrentTargetAggroMod",
+      "0",
+      "Aggro increase against current target. 0% = prefer the current target to any other. Makes it harder for our NPC to switch targets"
+    ],
+    [
+      1,
+      "Aggro:ExcludedFleeAllyFactionIDs",
+      "",
+      "Common Faction IDs that are excluded from faction checks in EntityList::FleeAllyCount"
+    ],
+    [
+      1,
+      "Aggro:InitialAggroBonus",
+      "100",
+      "Initial Aggro Bonus, Default: 100"
+    ],
+    [
+      1,
+      "Aggro:InitialPetAggroBonus",
+      "100",
+      "Initial Pet Aggro Bonus, Default 100"
+    ],
+    [
+      1,
+      "Aggro:IntAggroThreshold",
+      "20",
+      "Int lesser or equal the value will aggro regardless of level difference"
+    ],
+    [
+      1,
+      "Aggro:MaxScalingProcAggro",
+      "400",
+      "Set to -1 for no limit. Maximum amount of aggro that HP scaling SPA effect in a proc will add"
+    ],
+    [
+      1,
+      "Aggro:MeleeRangeAggroMod",
+      "20",
+      "Aggro increase against targets in melee range. 10=10%"
+    ],
+    [
+      1,
+      "Aggro:MinAggroLevel",
+      "18",
+      "Minimum level for use with UseLevelAggro"
+    ],
+    [
+      1,
+      "Aggro:NPCAggroMaxDistanceEnabled",
+      "true",
+      "If enabled, NPC's will drop aggro beyond 600 units or what is defined at the zone level"
+    ],
+    [
+      1,
+      "Aggro:PetAttackRange",
+      "40000.0000000000000",
+      "Maximum squared range /pet attack works at default is 200"
+    ],
+    [
+      1,
+      "Aggro:PetSpellAggroMod",
+      "10",
+      "Aggro increase for pet spells"
+    ],
+    [
+      1,
+      "Aggro:SittingAggroMod",
+      "35",
+      "Aggro increase against sitting targets. 35=35%"
+    ],
+    [
+      1,
+      "Aggro:SmartAggroList",
+      "true",
+      "Smart aggro list attempts to choose targets in a much smarter fashion, prefering players to pets, sitting and critically injured players to normal players, and players in melee range to players not"
+    ],
+    [
+      1,
+      "Aggro:SpellAggroMod",
+      "100",
+      "Aggro increase for spells"
+    ],
+    [
+      1,
+      "Aggro:TunnelVisionAggroMod",
+      "0.7500000000000",
+      "People not currently the top hate generate this much hate on a Tunnel Vision mob"
+    ],
+    [
+      1,
+      "Aggro:UndeadAlwaysAggro",
+      "true",
+      "should undead always aggro?"
+    ],
+    [
+      1,
+      "Aggro:UseLevelAggro",
+      "true",
+      "MinAggroLevel rule value+ and Undead will aggro regardless of level difference. This will disabled Rule:IntAggroThreshold if set to true"
+    ],
+    [
+      1,
+      "Analytics:CrashReporting",
+      "true",
+      "Automatic crash reporting analytics for EQEmu Server developers"
+    ],
+    [
+      1,
+      "Bazaar:AuditTrail",
+      "true",
+      "Setting whether a path to the trader should be displayed in the bazaar"
+    ],
+    [
+      1,
+      "Bazaar:EnableParcelDelivery",
+      "true",
+      "Enable bazaar purchases via parcel delivery.  Default is True."
+    ],
+    [
+      1,
+      "Bazaar:EnableWarpToTrader",
+      "true",
+      "Setting whether teleport to the selected trader should be active"
+    ],
+    [
+      1,
+      "Bazaar:MaxBarterSearchResults",
+      "200",
+      "The maximum results returned in the /barter search"
+    ],
+    [
+      1,
+      "Bazaar:MaxBuyerInventorySearchResults",
+      "200",
+      "Maximum number of search results when a Buyer searches the global item list. Default is 200. RoF+ Only."
+    ],
+    [
+      1,
+      "Bazaar:MaxSearchResults",
+      "200",
+      "Maximum number of search results in Bazaar"
+    ],
+    [
+      1,
+      "Bazaar:ParcelDeliveryCostMod",
+      "0.2000000029802",
+      "Cost of parcel delivery for a bazaar purchase as a percentage of item cost. Default is 20% of item cost. RoF+ Only."
+    ],
+    [
+      1,
+      "Bazaar:UseAlternateBazaarSearch",
+      "false",
+      "Allows the bazaar search window to search across bazaar shards. Default is false."
+    ],
+    [
+      1,
+      "Bazaar:VoucherDeliveryCost",
+      "200",
+      "Number of vouchers for direct delivery for a bazaar purchase. Default is 200 vouchers. RoF+ Only."
+    ],
+    [
+      1,
+      "Bots:AEMezSuccessDelay",
+      "5000",
+      "5000 (5 sec) Default. Delay between successful AEMez attempts."
+    ],
+    [
+      1,
+      "Bots:AICastSpellTypeDelay",
+      "100",
+      "Delay in milliseconds between AI cast attempts for each spell type. Default 100ms"
+    ],
+    [
+      1,
+      "Bots:AICastSpellTypeHeldDelay",
+      "2500",
+      "Delay in milliseconds between AI cast attempts for each spell type that is held or disabled. Default 2500ms (2.5s)"
+    ],
+    [
+      1,
+      "Bots:AllowAIMez",
+      "true",
+      "If enabled bots will automatically mez/AE mez eligible targets."
+    ],
+    [
+      1,
+      "Bots:AllowAISpellPulling",
+      "true",
+      "If enabled bots will rely on their detrimental AI to pull when within range."
+    ],
+    [
+      1,
+      "Bots:AllowApplyPoisonCommand",
+      "true",
+      "Allows the use of the bot command 'applypoison'"
+    ],
+    [
+      1,
+      "Bots:AllowApplyPotionCommand",
+      "true",
+      "Allows the use of the bot command 'applypotion'"
+    ],
+    [
+      1,
+      "Bots:AllowBotBlockedBuffs",
+      "true",
+      "If enabled, you can create blocked buffs for each bot and for their pets."
+    ],
+    [
+      1,
+      "Bots:AllowBotEquipAnyClassGear",
+      "false",
+      "Allows Bots to wear Equipment even if their class is not valid"
+    ],
+    [
+      1,
+      "Bots:AllowBotEquipAnyRaceGear",
+      "false",
+      "Allows Bots to wear Equipment even if their race is not valid"
+    ],
+    [
+      1,
+      "Bots:AllowBuffingHealingFamiliars",
+      "false",
+      "Determines if bots are allowed to buff and heal familiars. Default false."
+    ],
+    [
+      1,
+      "Bots:AllowCamelCaseNames",
+      "false",
+      "Allows the use of 'MyBot' type names"
+    ],
+    [
+      1,
+      "Bots:AllowCastAAs",
+      "true",
+      "If enabled, players can use ^cast aa to cast a clickable AA"
+    ],
+    [
+      1,
+      "Bots:AllowCharmedPetBuffs",
+      "true",
+      "Whether or not bots are allowed to cast buff charmed pets, default true."
+    ],
+    [
+      1,
+      "Bots:AllowCharmedPetCures",
+      "true",
+      "Whether or not bots are allowed to cast cure charmed pets, default true."
+    ],
+    [
+      1,
+      "Bots:AllowCharmedPetHeals",
+      "true",
+      "Whether or not bots are allowed to cast heal charmed pets, default true."
+    ],
+    [
+      1,
+      "Bots:AllowCommandedCharm",
+      "true",
+      "If enabled bots can be commanded to charm NPCs."
+    ],
+    [
+      1,
+      "Bots:AllowCommandedLull",
+      "true",
+      "If enabled bots can be commanded to lull targets."
+    ],
+    [
+      1,
+      "Bots:AllowCommandedMez",
+      "true",
+      "If enabled bots can be commanded to mez NPCs."
+    ],
+    [
+      1,
+      "Bots:AllowCommandedResurrect",
+      "true",
+      "If enabled bots can be commanded to resurrect players."
+    ],
+    [
+      1,
+      "Bots:AllowCommandedSummonCorpse",
+      "true",
+      "If enabled bots can be commanded to summon other's corpses."
+    ],
+    [
+      1,
+      "Bots:AllowCopySettingsAnon",
+      "false",
+      "If player's are allowed to copy settings of bots owned by anonymous players."
+    ],
+    [
+      1,
+      "Bots:AllowCrossGroupRaidAssist",
+      "true",
+      "If enabled bots will autodefend group or raid members set as main assist."
+    ],
+    [
+      1,
+      "Bots:AllowForcedCastsBySpellID",
+      "true",
+      "If enabled, players can use ^cast spellid # to cast a specific spell by ID that is in their spell list"
+    ],
+    [
+      1,
+      "Bots:AllowMagicianEpicPet",
+      "false",
+      "If enabled, magician bots can summon their epic pets following the rules AllowMagicianEpicPetLevel"
+    ],
+    [
+      1,
+      "Bots:AllowMagicianEpicPetLevel",
+      "50",
+      "If AllowMagicianEpicPet is enabled, bots can start using their epic pets at this level"
+    ],
+    [
+      1,
+      "Bots:AllowOwnerOptionAutoDefend",
+      "true",
+      "When option is enabled, bots will defend their owner on enemy aggro"
+    ],
+    [
+      1,
+      "Bots:AllowPickpocketCommand",
+      "true",
+      "Allows the use of the bot command 'pickpocket'"
+    ],
+    [
+      1,
+      "Bots:AllowRangedPulling",
+      "true",
+      "If enabled bots will pull with their ranged items if set to ranged."
+    ],
+    [
+      1,
+      "Bots:AutosaveIntervalSeconds",
+      "300",
+      "Number of seconds after which a timer is triggered which stores the bot data. The value 0 means no periodic automatic saving."
+    ],
+    [
+      1,
+      "Bots:BotArcheryConsumesAmmo",
+      "true",
+      "Set to false to disable Archery Ammo Consumption"
+    ],
+    [
+      1,
+      "Bots:BotBuffLevelRestrictions",
+      "true",
+      "Buffs will not land on low level bots like live players"
+    ],
+    [
+      1,
+      "Bots:BotCharacterLevel",
+      "0",
+      "If level is greater that value player can spawn bots if BotCharacterLevelEnabled is true"
+    ],
+    [
+      1,
+      "Bots:BotExpansionSettings",
+      "16383",
+      "Sets the expansion settings for bot use. Defaults to all expansions enabled up to TSS"
+    ],
+    [
+      1,
+      "Bots:BotHealOnLevel",
+      "false",
+      "Setting whether a bot should heal completely when leveling. Default FALSE."
+    ],
+    [
+      1,
+      "Bots:BotLevelsWithOwner",
+      "false",
+      "Auto-updates spawned bots as owner levels/de-levels (false is original behavior)"
+    ],
+    [
+      1,
+      "Bots:BotSoftDeletes",
+      "true",
+      "When bots are deleted, they are only soft deleted"
+    ],
+    [
+      1,
+      "Bots:BotThrowingConsumesAmmo",
+      "true",
+      "Set to false to disable Throwing Ammo Consumption"
+    ],
+    [
+      1,
+      "Bots:BotsCanClickItems",
+      "true",
+      "Enables the ability for bots to click items they have equipped. Default TRUE"
+    ],
+    [
+      1,
+      "Bots:BotsClickItemsMinLvl",
+      "1",
+      "Minimum level for bots to be able to use ^clickitem. Default 1."
+    ],
+    [
+      1,
+      "Bots:BotsHasteCap",
+      "100",
+      "Haste cap for non-v3(over haste) haste"
+    ],
+    [
+      1,
+      "Bots:BotsHastev3Cap",
+      "25",
+      "Haste cap for v3(over haste) haste"
+    ],
+    [
+      1,
+      "Bots:BotsIgnoreLevelBasedHasteCaps",
+      "false",
+      "Ignores hard coded level based haste caps."
+    ],
+    [
+      1,
+      "Bots:BotsRequireLoS",
+      "true",
+      "Whether or not bots require line of sight to be told to attack their target"
+    ],
+    [
+      1,
+      "Bots:BotsUseLiveBlockedMessage",
+      "true",
+      "Setting whether detailed spell block messages should be used for bots as players do on the live servers"
+    ],
+    [
+      1,
+      "Bots:CampTimer",
+      "25",
+      "Number of seconds after /camp has begun before bots camp out."
+    ],
+    [
+      1,
+      "Bots:CanCastIllusionsOnPets",
+      "false",
+      "If True, bots will be able to cast spells that have an illusion effect on pets. Default false."
+    ],
+    [
+      1,
+      "Bots:CanCastPetOnlyOnOthersPets",
+      "false",
+      "If True, bots will be able to cast pet only spells on other's pets. Default false."
+    ],
+    [
+      1,
+      "Bots:CanClickMageEpicV1",
+      "true",
+      "Whether or not bots are allowed to click Mage Epic 1.0. Default TRUE"
+    ],
+    [
+      1,
+      "Bots:CasterStopMeleeLevel",
+      "13",
+      "Level at which caster bots stop melee attacks"
+    ],
+    [
+      1,
+      "Bots:CazicTouchBotsOwner",
+      "true",
+      "Default True. Cazic Touch/DT will hit bot owner rather than bot."
+    ],
+    [
+      1,
+      "Bots:CommandSpellRank",
+      "1",
+      "Filters bot command spells by rank. 1, 2 and 3 are valid filters - any other number allows all ranks"
+    ],
+    [
+      1,
+      "Bots:CopySettingsOwnBotsOnly",
+      "true",
+      "Determines whether a bot you are copying settings from must be a bot you own or not, default true."
+    ],
+    [
+      1,
+      "Bots:CreationLimit",
+      "150",
+      "Number of bots that each account can create"
+    ],
+    [
+      1,
+      "Bots:CrossRaidBuffingAndHealing",
+      "true",
+      "If True, bots will be able to cast on all raid members rather than just their raid group members. Default true."
+    ],
+    [
+      1,
+      "Bots:DefaultFollowDistance",
+      "20",
+      "Default 20. Distance a bot will follow behind."
+    ],
+    [
+      1,
+      "Bots:DisableSpecialAbilitiesAtMaxMelee",
+      "true",
+      "If true, when bots are at max melee distance, special abilities including taunt will be disabled. Default True."
+    ],
+    [
+      1,
+      "Bots:DoResponseAnimations",
+      "true",
+      "If enabled bots will do animations to certain responses or commands."
+    ],
+    [
+      1,
+      "Bots:EnableBotTGB",
+      "true",
+      "If enabled bots will cast group buffs as TGB."
+    ],
+    [
+      1,
+      "Bots:Enabled",
+      "false",
+      "Enable of disable bot functionality, default is false"
+    ],
+    [
+      1,
+      "Bots:EpicPetSpellName",
+      "",
+      "'teleport_zone' in the spell to be cast for epic pets. This must be in their usable spell list to cast. Empty uses Manifest Elements - 'SumMageMultiElement'"
+    ],
+    [
+      1,
+      "Bots:FinishBuffing",
+      "false",
+      "Allow for buffs to complete even if the bot caster is out of mana. Only affects buffing out of combat"
+    ],
+    [
+      1,
+      "Bots:GroupBuffing",
+      "false",
+      "Bots will cast single target buffs as group buffs, default is false for single. Does not make single target buffs work for MGB"
+    ],
+    [
+      1,
+      "Bots:HasOrMayGetAggroThreshold",
+      "90",
+      "90 Default. Percent threshold of total hate where bots will stop casting spells that generate hate if they are set to try to not pull aggro via spells."
+    ],
+    [
+      1,
+      "Bots:HealRotationMaxMembers",
+      "24",
+      "Maximum number of heal rotation members"
+    ],
+    [
+      1,
+      "Bots:HealRotationMaxTargets",
+      "12",
+      "Maximum number of heal rotation targets"
+    ],
+    [
+      1,
+      "Bots:LeashDistance",
+      "562500.0000000000000",
+      "Distance a bot is allowed to travel from leash owner before being pulled back (squared value)"
+    ],
+    [
+      1,
+      "Bots:ManaRegen",
+      "2.0000000000000",
+      "Adjust mana regen. Acts as a final multiplier, stacks with Rule Character:ManaRegenMultiplier."
+    ],
+    [
+      1,
+      "Bots:MaxDelayBetweenInCombatCastAttempts",
+      "2000",
+      "The maximum delay in milliseconds between cast attempts while in-combat. This is rolled between the min and max. Default 2500ms."
+    ],
+    [
+      1,
+      "Bots:MaxDelayBetweenOutCombatCastAttempts",
+      "2500",
+      "The maximum delay in milliseconds between cast attempts while out-of-combat. This is rolled between the min and max. Default 2500ms."
+    ],
+    [
+      1,
+      "Bots:MaxDistanceRanged",
+      "300",
+      "Default 300. Max distance a bot can be set to ranged."
+    ],
+    [
+      1,
+      "Bots:MaxFollowDistance",
+      "300",
+      "Default 300. Max distance a bot can be set to follow behind."
+    ],
+    [
+      1,
+      "Bots:MaxJitterTimer",
+      "2500",
+      "Maximum ms between bot movement jitter checks. Set to 0 to disable timer checks."
+    ],
+    [
+      1,
+      "Bots:MezAEFailDelay",
+      "4000",
+      "4000 (4 sec) Default. Delay between failed AEMez attempts."
+    ],
+    [
+      1,
+      "Bots:MezFailDelay",
+      "1250",
+      "1250 (1.25 sec) Default. Delay between failed Mez attempts."
+    ],
+    [
+      1,
+      "Bots:MezSuccessDelay",
+      "2500",
+      "2500 (2.5 sec) Default. Delay between successful Mez attempts."
+    ],
+    [
+      1,
+      "Bots:MinDelayBetweenInCombatCastAttempts",
+      "500",
+      "The minimum delay in milliseconds between cast attempts while in-combat. This is rolled between the min and max. Default 500ms."
+    ],
+    [
+      1,
+      "Bots:MinDelayBetweenOutCombatCastAttempts",
+      "1000",
+      "The minimum delay in milliseconds between cast attempts while out-of-combat. This is rolled between the min and max. Default 1000ms."
+    ],
+    [
+      1,
+      "Bots:MinGroupCureTargets",
+      "3",
+      "Minimum number of targets in valid range that are required for a cure heal to cast. Default 3."
+    ],
+    [
+      1,
+      "Bots:MinGroupHealTargets",
+      "3",
+      "Minimum number of targets in valid range that are required for a group heal to cast. Default 3."
+    ],
+    [
+      1,
+      "Bots:MinJitterTimer",
+      "500",
+      "Minimum ms between bot movement jitter checks."
+    ],
+    [
+      1,
+      "Bots:MinStatusBypassCreateLimit",
+      "120",
+      "Create limit with status bypass. Default 120."
+    ],
+    [
+      1,
+      "Bots:MinStatusBypassSpawnLimit",
+      "120",
+      "Spawn limit with status bypass. Default 120."
+    ],
+    [
+      1,
+      "Bots:MinStatusToBypassBotLevelRequirement",
+      "100",
+      "Minimum status to bypass level requirement for bots. Default 100."
+    ],
+    [
+      1,
+      "Bots:MinStatusToBypassCreateLimit",
+      "100",
+      "Minimum status to bypass create limit. Default 100."
+    ],
+    [
+      1,
+      "Bots:MinStatusToBypassSpawnLimit",
+      "100",
+      "Minimum status to bypass spawn limit. Default 100."
+    ],
+    [
+      1,
+      "Bots:MinTargetsForAESpell",
+      "3",
+      "Minimum number of targets in valid range that are required for an AE spell to cast. Default 3."
+    ],
+    [
+      1,
+      "Bots:MinTargetsForGroupSpell",
+      "3",
+      "Minimum number of targets in valid range that are required for an group spell to cast. Default 3."
+    ],
+    [
+      1,
+      "Bots:OldRaceRezEffects",
+      "false",
+      "Older clients had ID 757 for races with high starting STR, but it doesn't seem used anymore"
+    ],
+    [
+      1,
+      "Bots:OldResurrectionSicknessSpell",
+      "757",
+      "757 is Default Old Resurrection Sickness Spell"
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastAEMez",
+      "40",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 40%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastAEs",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastBuff",
+      "90",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 90%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastCure",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastDOT",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastDebuff",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastDispel",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastEscape",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastFear",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastGroupCure",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastGroupHeal",
+      "90",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 90%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastHateLine",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastHateRedux",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastHeal",
+      "90",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 90%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastInCombatBuff",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastLifetap",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastMez",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastNuke",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastOtherType",
+      "90",
+      "The chance for a bot to attempt to cast the remaining spell types in combat. Default 0-%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastRoot",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastSlow",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PercentChanceToCastSnare",
+      "75",
+      "The chance for a bot to attempt to cast the given spell type in combat. Default 75%."
+    ],
+    [
+      1,
+      "Bots:PreferNoManaCommandSpells",
+      "true",
+      "Give sorting priority to newer no-mana spells (i.e., 'Bind Affinity')"
+    ],
+    [
+      1,
+      "Bots:PreventBotCampOnEngaged",
+      "true",
+      "True Default. If true, players will not be able to camp bots while you, your group or raid are engaged."
+    ],
+    [
+      1,
+      "Bots:PreventBotCampOnFD",
+      "true",
+      "True Default. If true, players will not be able to camp bots while feign death."
+    ],
+    [
+      1,
+      "Bots:PreventBotSpawnOnEngaged",
+      "true",
+      "True Default. If true, players will not be able to spawn bots while you, your group or raid are engaged."
+    ],
+    [
+      1,
+      "Bots:PreventBotSpawnOnFD",
+      "true",
+      "True Default. If true, players will not be able to spawn bots while feign death."
+    ],
+    [
+      1,
+      "Bots:PullSpellID",
+      "5225",
+      "Default 5225 - Throw Stone. Spell that will be cast to pull by bots"
+    ],
+    [
+      1,
+      "Bots:QuestableSpawnLimit",
+      "false",
+      "Optional quest method to manage bot spawn limits using the quest_globals name bot_spawn_limit, see: /bazaar/Aediles_Thrall.pl"
+    ],
+    [
+      1,
+      "Bots:RaidBuffing",
+      "false",
+      "Bots will cast single target buffs as raid buffs, default is false for single. Does not make single target buffs work for MGB"
+    ],
+    [
+      1,
+      "Bots:ReclaimEnergySpellID",
+      "331",
+      "Spell ID for reclaim energy when using ^petsettype. Default 331"
+    ],
+    [
+      1,
+      "Bots:RequirePetAffinity",
+      "true",
+      "If True, bots will be need to have the Pet Affinity AA to allow their pets to be hit with group spells."
+    ],
+    [
+      1,
+      "Bots:RequiredMagicianEpicPetItemID",
+      "28034",
+      "If AllowMagicianEpicPet is enabled and this is set, bots will be required to have this item ID equipped to cast their epic. Takes in to account AllowMagicianEpicPetLevel as well. Set to 0 to disable requirement"
+    ],
+    [
+      1,
+      "Bots:RestrictApplyPotionToRogue",
+      "true",
+      "Restricts the bot command 'applypotion' to rogue-usable potions (i.e., poisons)"
+    ],
+    [
+      1,
+      "Bots:ResurrectionSickness",
+      "true",
+      "Use Resurrection Sickness based on Resurrection spell cast, set to false to disable Resurrection Sickness."
+    ],
+    [
+      1,
+      "Bots:ResurrectionSicknessSpell",
+      "756",
+      "756 is Default Resurrection Sickness Spell"
+    ],
+    [
+      1,
+      "Bots:RunSpellTypeChecksOnBoot",
+      "false",
+      "This will run a series of checks to find potential errors in your bot_spells_entries table on boot and output to LogBotSpellTypeChecks"
+    ],
+    [
+      1,
+      "Bots:SendClassRaceOnHelp",
+      "true",
+      "If enabled a reminder of how to check class/race IDs will be sent when using compatible commands."
+    ],
+    [
+      1,
+      "Bots:ShowResistMessagesToOwner",
+      "true",
+      "Default True. If enabled, when a bot's spell is resisted it will send a spell failure to their owner."
+    ],
+    [
+      1,
+      "Bots:SpawnLimit",
+      "71",
+      "Number of bots a character can have spawned at one time, You + 71 bots is a 12 group pseudo-raid"
+    ],
+    [
+      1,
+      "Bots:SpellResistLimit",
+      "150",
+      "150 Default. This is the resist cap where bots will refuse to cast spells on enemies due to a high resist chance."
+    ],
+    [
+      1,
+      "Bots:StackSizeMin",
+      "20",
+      "20 Default. -1 to disable and use default max stack size. Minimum stack size to give a bot (Arrows/Throwing)."
+    ],
+    [
+      1,
+      "Bots:StunCastChanceIfCasting",
+      "50",
+      "50 Default. Chance for non-Paladins to cast a stun spell if the target is casting."
+    ],
+    [
+      1,
+      "Bots:StunCastChanceNormal",
+      "15",
+      "15 Default. Chance for non-Paladins to cast a stun spell on the target."
+    ],
+    [
+      1,
+      "Bots:StunCastChancePaladins",
+      "75",
+      "75 Default. Chance for Paladins to cast a stun spell if the target is casting."
+    ],
+    [
+      1,
+      "Bots:UseParentSpellTypeForChecks",
+      "true",
+      "This will check only the parent instead of AE/Group/Pet types (ex: AENukes/AERains/PBAENukes fall under Nukes or PetBuffs fall under buffs) when RunSpellTypeChecksOnSpawn fires"
+    ],
+    [
+      1,
+      "Bots:UseSpellPulling",
+      "true",
+      "If enabled bots will use a spell to pull when within range. Uses PullSpellID."
+    ],
+    [
+      1,
+      "Bots:ZoneForcedSpawnLimits",
+      "",
+      "Comma-delimited list of forced spawn limits for zones."
+    ],
+    [
+      1,
+      "Bots:ZoneSpawnLimits",
+      "",
+      "Comma-delimited list of spawn limits for zones."
+    ],
+    [
+      1,
+      "Bots:ZonesWithForcedSpawnLimits",
+      "",
+      "Comma-delimited list of zones where bot spawn limits are forced. This will take priority over any other type of spawn limits."
+    ],
+    [
+      1,
+      "Bots:ZonesWithSpawnLimits",
+      "",
+      "Comma-delimited list of zones where different bot spawn limits apply. This is the max a zone allows."
+    ],
+    [
+      1,
+      "Bugs:ReportingSystemActive",
+      "true",
+      "Activates bug reporting"
+    ],
+    [
+      1,
+      "Channels:DeleteTimer",
+      "1440",
+      "Empty password protected channels will be deleted after this many minutes"
+    ],
+    [
+      1,
+      "Channels:RequiredStatusAdmin",
+      "251",
+      "Required status to administer chat channels"
+    ],
+    [
+      1,
+      "Channels:RequiredStatusListAll",
+      "251",
+      "Required status to list all chat channels"
+    ],
+    [
+      1,
+      "Character:AAExpMinLevel",
+      "1",
+      "Minimum level required to gain AA experience (stock EQ is 51; Nightcap allows AA from level 1)"
+    ],
+    [
+      1,
+      "Character:AAExpMultiplier",
+      "0.6499999761581",
+      "If greater than 0, the AA experience gained is multiplied by this value. "
+    ],
+    [
+      1,
+      "Character:ActiveInvSnapshots",
+      "false",
+      "Takes a periodic snapshot of inventory contents from online players"
+    ],
+    [
+      1,
+      "Character:AllowCrossClassTrainers",
+      "false",
+      "If the value is true, a player can also train with other class Guildmasters."
+    ],
+    [
+      1,
+      "Character:AllowMQTarget",
+      "false",
+      "Disables putting players in the 'hackers' list for targeting beyond the clip plane or attempting to target something untargetable"
+    ],
+    [
+      1,
+      "Character:AlwaysAllowNameChange",
+      "false",
+      "Enable this option to allow /changename to work without enabling a name change via scripts."
+    ],
+    [
+      1,
+      "Character:AutoIdleFilterPackets",
+      "true",
+      "Enable or disable filtering packets when auto AFK is enabled, heavily cuts down on packet spam in zones with lots of players"
+    ],
+    [
+      1,
+      "Character:AutosaveIntervalS",
+      "300",
+      "Number of seconds after which a timer is triggered which stores the character data. The value 0 means no periodic automatic saving."
+    ],
+    [
+      1,
+      "Character:BandolierSwapDelay",
+      "0",
+      "Bandolier swap delay in milliseconds, default is 0"
+    ],
+    [
+      1,
+      "Character:BardTrackingDistanceMultiplier",
+      "7",
+      "If you want bards to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:BaseHPRegenBonusRaces",
+      "4352",
+      "A bitmask of race(s) that receive the regen bonus. Iksar (4096) & Troll (256) = 4352. See common/races.h for the bitmask values"
+    ],
+    [
+      1,
+      "Character:BaseInstrumentSoftCap",
+      "36",
+      "Softcap for instrument mods, 36 commonly referred to as 3.6 as well"
+    ],
+    [
+      1,
+      "Character:BaseRunSpeedCap",
+      "158",
+      "Base Run Speed Cap, on live it's 158% which will give you a runspeed of 1.580 hard capped to 225"
+    ],
+    [
+      1,
+      "Character:BeastlordTrackingDistanceMultiplier",
+      "0",
+      "If you want beastlords to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:BerserkerTrackingDistanceMultiplier",
+      "0",
+      "If you want berserkers to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:BindAnywhere",
+      "false",
+      "Allows players to bind their soul anywhere in the world"
+    ],
+    [
+      1,
+      "Character:BlueModifier",
+      "100",
+      "The experience obtained for blue con mobs is multiplied by value/100"
+    ],
+    [
+      1,
+      "Character:CheckCursorEmptyWhenLooting",
+      "true",
+      "If true, a player cannot loot a corpse (player or NPC) with an item on their cursor"
+    ],
+    [
+      1,
+      "Character:ClearXTargetDelay",
+      "10",
+      "Seconds between uses of the #clearxtargets command (Set to 0 to disable)"
+    ],
+    [
+      1,
+      "Character:ClericTrackingDistanceMultiplier",
+      "0",
+      "If you want clerics to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:CorpseDecayTime",
+      "604800000",
+      "Time after which the corpse decays (milliseconds) DEFAULT: 604800000 (7 Days)"
+    ],
+    [
+      1,
+      "Character:CorpseOwnerOnlineCheckTime",
+      "300",
+      "How often corpse will check if its owner is online DEFAULT: 300 (5 minutes)"
+    ],
+    [
+      1,
+      "Character:CorpseResTime",
+      "10800000",
+      "Time after which the corpse can no longer be resurrected (milliseconds) DEFAULT: 10800000 (3 Hours)"
+    ],
+    [
+      1,
+      "Character:DeathExpLossLevel",
+      "256",
+      "Any level equal to or greater than this will lose experience at death"
+    ],
+    [
+      1,
+      "Character:DeathExpLossMaxLevel",
+      "255",
+      "Every higher level will no longer lose experience at death"
+    ],
+    [
+      1,
+      "Character:DeathExpLossMultiplier",
+      "3",
+      "Adjust how much experience is lost. Default 3.5% (0=0.5%, 1=1.5%, 2=2.5%, 3=3.5%, 4=4.5%, 5=5.5%, 6=6.5%, 7=7.5%, 8=8.5%, 9=9.5%, 10=11%)"
+    ],
+    [
+      1,
+      "Character:DeathItemLossLevel",
+      "999",
+      "From this level on, items are left in the corpse when LeaveCorpses is activated"
+    ],
+    [
+      1,
+      "Character:DeathKeepLevel",
+      "false",
+      "Players can not drop below 0% experience from death."
+    ],
+    [
+      1,
+      "Character:DefaultGuild",
+      "0",
+      "If not 0, new characters placed into the guild # indicated"
+    ],
+    [
+      1,
+      "Character:DefaultGuildRank",
+      "8",
+      "Default guild rank when Character:DefaultGuild is a non-0 value, default is 8 (Recruit)"
+    ],
+    [
+      1,
+      "Character:DismountWater",
+      "true",
+      "Dismount horses when entering water"
+    ],
+    [
+      1,
+      "Character:DragCorpseDistance",
+      "400.0000000000000",
+      "If a player is using /corpsedrag and moving, the corpse will not move until the player exceeds this distance"
+    ],
+    [
+      1,
+      "Character:DruidTrackingDistanceMultiplier",
+      "10",
+      "If you want druids to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:DuelCorpseResTime",
+      "600000",
+      "Time before cant res corpse after a duel (milliseconds) DEFAULT: 600000 (10 Minutes)"
+    ],
+    [
+      1,
+      "Character:EmptyCorpseDecayTime",
+      "10800000",
+      "Time after which an empty corpse decays (milliseconds) DEFAULT: 10800000 (3 Hours)"
+    ],
+    [
+      1,
+      "Character:EnableAggroMeter",
+      "true",
+      "Enable Aggro Meter, for users with RoF and later clients"
+    ],
+    [
+      1,
+      "Character:EnableAutoAFK",
+      "false",
+      "Enable or disable the auto AFK feature, cuts down on packet spam"
+    ],
+    [
+      1,
+      "Character:EnableBardMelody",
+      "true",
+      "Enable Bard /melody by default, to disable change to false for a classic experience."
+    ],
+    [
+      1,
+      "Character:EnableCharacterEXPMods",
+      "false",
+      "Enables character zone-based experience modifiers."
+    ],
+    [
+      1,
+      "Character:EnableDiscoveredItems",
+      "false",
+      "If enabled, it enables EVENT_DISCOVER_ITEM and also saves character names and timestamps for the first time an item is discovered"
+    ],
+    [
+      1,
+      "Character:EnableFoodRequirement",
+      "true",
+      "If disabled, food is no longer required"
+    ],
+    [
+      1,
+      "Character:EnableGroupEXPModifier",
+      "true",
+      "Enable or disable the group experience modifier in group, default is true"
+    ],
+    [
+      1,
+      "Character:EnableGroupMemberEXPModifier",
+      "true",
+      "Enable or disable the group member experience modifier based on number of players in group, default is true"
+    ],
+    [
+      1,
+      "Character:EnableHackedFastCampForGM",
+      "false",
+      "Enables hacked fast camp for GM clients, if the GM doesn't have a hacked client they'll camp like normal"
+    ],
+    [
+      1,
+      "Character:EnableHungerPenalties",
+      "false",
+      "Being hungry/thirsty has negative effects -- it does appear normal live servers do not have penalties"
+    ],
+    [
+      1,
+      "Character:EnableRaidEXPModifier",
+      "true",
+      "Enable or disable the raid experience modifier, default is true"
+    ],
+    [
+      1,
+      "Character:EnableRaidMemberEXPModifier",
+      "true",
+      "Enable or disable the raid experience modifier based on members in raid, default is true"
+    ],
+    [
+      1,
+      "Character:EnableRangerAutoFire",
+      "true",
+      "Enable Ranger /autofire by default, to disable change to false for a classic experience."
+    ],
+    [
+      1,
+      "Character:EnableTGB",
+      "true",
+      "Enable /tgb (Target Group Buff) by default, to disable change to false for a classic experience."
+    ],
+    [
+      1,
+      "Character:EnableTestBuff",
+      "false",
+      "Allow the use of /testbuff"
+    ],
+    [
+      1,
+      "Character:EnableXTargetting",
+      "true",
+      "Enable Extended Targeting Window, for users with UF and later clients"
+    ],
+    [
+      1,
+      "Character:EnchanterTrackingDistanceMultiplier",
+      "0",
+      "If you want enchanters to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:EnduranceRegenMultiplier",
+      "100",
+      "The endurance regeneration is multiplied by value/100 (up to the caps)"
+    ],
+    [
+      1,
+      "Character:EnvironmentDamageMulipliter",
+      "1.0000000000000",
+      "Multiplier for environmental damage like fall damage."
+    ],
+    [
+      1,
+      "Character:ExpMultiplier",
+      "0.65",
+      "If greater than 0, the experience gained is multiplied by this value. "
+    ],
+    [
+      1,
+      "Character:ExperiencePercentCapPerKill",
+      "-1",
+      "Caps the percentage of experience that can be gained per kill. -1 disables the cap; 0 blocks all (non-aa) xp."
+    ],
+    [
+      1,
+      "Character:FeignKillsPet",
+      "false",
+      "Setting whether Feign Death kills the player pet"
+    ],
+    [
+      1,
+      "Character:FinalExpMultiplier",
+      "1",
+      "Added on top of everything else, easy for setting EXP events"
+    ],
+    [
+      1,
+      "Character:FinalRaidExpMultiplier",
+      "1.0000000000000",
+      "Multiplies all raid experience by this value. Default: 1.0"
+    ],
+    [
+      1,
+      "Character:FoodLossPerUpdate",
+      "32",
+      "How much food/water you lose per stamina update"
+    ],
+    [
+      1,
+      "Character:FullEndurOnDeath",
+      "true",
+      "On death set endurance to full"
+    ],
+    [
+      1,
+      "Character:FullGroupEXPModifier",
+      "2.1600000858307",
+      "Sets the group experience modifier for a full group, default is 2.16"
+    ],
+    [
+      1,
+      "Character:FullManaOnDeath",
+      "true",
+      "On death set mana to full"
+    ],
+    [
+      1,
+      "Character:GrantHoTTOnCreate",
+      "false",
+      "Grant Health of Target's Target leadership AA on character creation"
+    ],
+    [
+      1,
+      "Character:GreenModifier",
+      "40",
+      "The experience obtained for green con mobs is multiplied by value/100"
+    ],
+    [
+      1,
+      "Character:GroupExpMultiplier",
+      "0.6499999761581",
+      "The experience in a group is multiplied by this value in addition to the group multiplier. The group multiplier is: 2 members=x 1.2, 3=x1.4, 4=x1.6, 5=x1.8, 6=x2.16"
+    ],
+    [
+      1,
+      "Character:GroupInvitesRequireTarget",
+      "false",
+      "Enable to require players to have invitee on target (Disables /invite name) - Classic Style"
+    ],
+    [
+      1,
+      "Character:GroupMemberEXPModifier",
+      "0.2000000029802",
+      "Sets the group experience modifier per members between 2 and 5, default is 0.2"
+    ],
+    [
+      1,
+      "Character:HPRegenMultiplier",
+      "100",
+      "The hitpoint regeneration is multiplied by value/100 (up to the caps)"
+    ],
+    [
+      1,
+      "Character:HasteCap",
+      "100",
+      "Haste cap for non-v3(over haste) haste"
+    ],
+    [
+      1,
+      "Character:Hastev3Cap",
+      "25",
+      "Haste cap for v3(over haste) haste"
+    ],
+    [
+      1,
+      "Character:HealOnLevel",
+      "false",
+      "Setting whether a player should heal completely when leveling"
+    ],
+    [
+      1,
+      "Character:HeroicAgilityMultiplier",
+      "1.0000000000000",
+      "Multplier scales benefits from Heroic Agility. Grants 25 Base Endurance, 0.05 Endurance Regen, and 1 Avoidance AC per 10 Heroic Agility. (Rule does not change Dodge Chance)"
+    ],
+    [
+      1,
+      "Character:HeroicDexterityMultiplier",
+      "1.0000000000000",
+      "Multplier scales benefits from Heroic Dexterity. Grants 25 Base Endurance, 0.05 Endurance Regen, and 1 Archery/Throwing Damage each hit per 10 Heroic Dexterity. (Rule does not change Assassinate/Headshot/Block/Parry/Riposte Chances)"
+    ],
+    [
+      1,
+      "Character:HeroicIntelligenceIncreaseSpellDmgMultiplier",
+      "0.0000000000000",
+      "Allows Heroic Intelligence to increase a Players Worn Spell Damage Stat from Equipment, for example, setting this rule to 1.00 will always grant 1 Spell Damage per 1 Heroic Intelligence"
+    ],
+    [
+      1,
+      "Character:HeroicIntelligenceMultiplier",
+      "1.0000000000000",
+      "Multplier scales benefits from Heroic Intelligence. Grants 250 Base Mana, 1 Mana Regen per 25 Heroic Intelligence."
+    ],
+    [
+      1,
+      "Character:HeroicStaminaMultiplier",
+      "1.0000000000000",
+      "Multplier scales benefits from Heroic Stamina. Grants 25 Base Endurance, 0.05 Endurance Regen, 100 Base HP, and 0.5 HP Regen per 10 Heroic Stamina."
+    ],
+    [
+      1,
+      "Character:HeroicStatsUseDataBucketsToScale",
+      "false",
+      "Allows scaling the benefits a character receives from Heroic Stats using Data Buckets. Stacks with other Heroic Stats Mulitplier Rules."
+    ],
+    [
+      1,
+      "Character:HeroicStrengthMultiplier",
+      "1.0000000000000",
+      "Multplier scales benefits from Heroic Strength. Grants 25 Base Endurance, 0.05 Endurance Regen, 1 Melee Damage each Hit, and 1 Shield AC per 10 Heroic Strength."
+    ],
+    [
+      1,
+      "Character:HeroicWisdomIncreaseHealAmtMultiplier",
+      "0.0000000000000",
+      "Allows Heroic Wisdom to increase a Players Worn Heal Amount Stat from Equipment, for example, setting this rule to 1.00 will always grant 1 Heal Amount per 1 Heroic Wisdom"
+    ],
+    [
+      1,
+      "Character:HeroicWisdomMultiplier",
+      "1.0000000000000",
+      "Multplier scales benefits from Heroic Wisdom. Grants 250 Base Mana, 1 Mana Regen per 25 Heroic Wisdom."
+    ],
+    [
+      1,
+      "Character:IgnoreLevelBasedHasteCaps",
+      "false",
+      "Ignores hard coded level based haste caps."
+    ],
+    [
+      1,
+      "Character:IksarCommonTongue",
+      "95",
+      "Starting value for Common Tongue for Iksars"
+    ],
+    [
+      1,
+      "Character:InvSnapshotHistoryD",
+      "30",
+      "Time to keep snapshot entries (days)"
+    ],
+    [
+      1,
+      "Character:InvSnapshotMinIntervalM",
+      "180",
+      "Minimum time between inventory snapshots (minutes)"
+    ],
+    [
+      1,
+      "Character:InvSnapshotMinRetryM",
+      "30",
+      "Time to re-attempt an inventory snapshot after a failure  (minutes)"
+    ],
+    [
+      1,
+      "Character:ItemATKCap",
+      "250",
+      "Limit on ATK granted by items"
+    ],
+    [
+      1,
+      "Character:ItemAccuracyCap",
+      "150",
+      "Limit on accuracy granted by items"
+    ],
+    [
+      1,
+      "Character:ItemAvoidanceCap",
+      "100",
+      "Limit on avoidance granted by items"
+    ],
+    [
+      1,
+      "Character:ItemCastsUseFocus",
+      "false",
+      "If true, this allows item clickies to use focuses that have limited maximum levels on them"
+    ],
+    [
+      1,
+      "Character:ItemClairvoyanceCap",
+      "250",
+      "Limit on clairvoyance granted by items"
+    ],
+    [
+      1,
+      "Character:ItemCombatEffectsCap",
+      "100",
+      "Limit on combat effects granted by items"
+    ],
+    [
+      1,
+      "Character:ItemDSMitigationCap",
+      "50",
+      "Limit on damageshield mitigation granted by items"
+    ],
+    [
+      1,
+      "Character:ItemDamageShieldCap",
+      "30",
+      "Limit on damage shields granted by items"
+    ],
+    [
+      1,
+      "Character:ItemDoTShieldingCap",
+      "35",
+      "Limit on DoT shielding granted by items"
+    ],
+    [
+      1,
+      "Character:ItemEnduranceRegenCap",
+      "15",
+      "Limit on endurance regeneration granted by items"
+    ],
+    [
+      1,
+      "Character:ItemExtraDmgCap",
+      "150",
+      "Cap for bonuses to melee skills like Bash, Frenzy, etc."
+    ],
+    [
+      1,
+      "Character:ItemExtraSkillDamageCalcAsPercent",
+      "false",
+      "If enabled, apply Item Extra Skill Damage as Percentage-based modifiers"
+    ],
+    [
+      1,
+      "Character:ItemHealAmtCap",
+      "750",
+      "Limit on heal amount granted by items"
+    ],
+    [
+      1,
+      "Character:ItemHealthRegenCap",
+      "30",
+      "Limit on health regeneration granted by items"
+    ],
+    [
+      1,
+      "Character:ItemManaRegenCap",
+      "15",
+      "Limit on mana regeneration granted by items"
+    ],
+    [
+      1,
+      "Character:ItemShieldingCap",
+      "35",
+      "Limit on shielding granted by items"
+    ],
+    [
+      1,
+      "Character:ItemSpellDmgCap",
+      "750",
+      "Limit on spell damage granted by items"
+    ],
+    [
+      1,
+      "Character:ItemSpellShieldingCap",
+      "35",
+      "Limit on spell shielding granted by items"
+    ],
+    [
+      1,
+      "Character:ItemStrikethroughCap",
+      "35",
+      "Limit on strikethrough granted by items"
+    ],
+    [
+      1,
+      "Character:ItemStunResistCap",
+      "35",
+      "Limit on resistance granted by items"
+    ],
+    [
+      1,
+      "Character:KeepLevelOverMax",
+      "false",
+      "Don't de-level a character that has somehow gone over the level cap"
+    ],
+    [
+      1,
+      "Character:KillsPerGroupLeadershipAA",
+      "250",
+      "Minimum number of dark blue mobs that must be killed to get a Group Leadership AA"
+    ],
+    [
+      1,
+      "Character:KillsPerRaidLeadershipAA",
+      "250",
+      "Minimum number of dark blue mobs that must be killed to get a Raid Leadership AAA"
+    ],
+    [
+      1,
+      "Character:LeaveCorpses",
+      "false",
+      "Setting whether you leave a corpse behind"
+    ],
+    [
+      1,
+      "Character:LeaveCursorMoneyOnCorpse",
+      "false",
+      "Enable or disable leaving cursor money on player corpses"
+    ],
+    [
+      1,
+      "Character:LeaveNakedCorpses",
+      "false",
+      "Setting whether you leave a corpse without items"
+    ],
+    [
+      1,
+      "Character:LightBlueModifier",
+      "85",
+      "The experience obtained for light-blue con mobs is multiplied by value/100"
+    ],
+    [
+      1,
+      "Character:MagicianTrackingDistanceMultiplier",
+      "0",
+      "If you want magicians to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:MaintainIntoxicationAcrossZones",
+      "true",
+      "If true, alcohol effects are maintained across zoning and logging out/in"
+    ],
+    [
+      1,
+      "Character:ManaRegenMultiplier",
+      "100",
+      "The mana regeneration is multiplied by value/100 (up to the caps)"
+    ],
+    [
+      1,
+      "Character:MarqueeHPUpdates",
+      "false",
+      "Will show health percentage in center of screen if health lesser than 100%"
+    ],
+    [
+      1,
+      "Character:MaxCharmDurationForPlayerCharacter",
+      "15",
+      "Maximum number of tics a player can be charmed. 1 tic equls 6 seconds"
+    ],
+    [
+      1,
+      "Character:MaxDraggedCorpses",
+      "2",
+      "Maximum number of corpses you can drag at once"
+    ],
+    [
+      1,
+      "Character:MaxExpLevel",
+      "50",
+      "Defines the maximum level that can be reached through experience"
+    ],
+    [
+      1,
+      "Character:MaxFearDurationForPlayerCharacter",
+      "4",
+      "Maximum number of tics a player can be feared. 1 tic equls 6 seconds"
+    ],
+    [
+      1,
+      "Character:MaxLevel",
+      "50",
+      "Sets the highest level for players that can be reached through experience"
+    ],
+    [
+      1,
+      "Character:MendAlwaysSucceedValue",
+      "199",
+      "Value at which mend will always succeed its skill check. Default: 199"
+    ],
+    [
+      1,
+      "Character:MinStatusForNoDropExemptions",
+      "80",
+      "This allows status x and higher to trade no drop items"
+    ],
+    [
+      1,
+      "Character:MonkTrackingDistanceMultiplier",
+      "0",
+      "If you want monks to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:NecromancerTrackingDistanceMultiplier",
+      "0",
+      "If you want necromancers to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:NoSkillsOnHorse",
+      "false",
+      "Enabling this will prevent Bind Wound and Foraging while on a mount"
+    ],
+    [
+      1,
+      "Character:OPClientUpdateVisualDebug",
+      "false",
+      "Shows a pulse and forward directional particle each time the client sends its position to server"
+    ],
+    [
+      1,
+      "Character:OgreCommonTongue",
+      "95",
+      "Starting value for Common Tongue for Ogres"
+    ],
+    [
+      1,
+      "Character:OldMinMana",
+      "false",
+      "This is used for servers that want to follow older skill cap formulas so they can still have some regen w/o mediate"
+    ],
+    [
+      1,
+      "Character:OldResurrectionSicknessSpellID",
+      "757",
+      "757 is Default Old Resurrection Sickness Spell ID"
+    ],
+    [
+      1,
+      "Character:OnInviteReceiveAlreadyinGroupMessage",
+      "true",
+      "If you want clients to receive a message when trying to invite a player into a group that is currently in another group."
+    ],
+    [
+      1,
+      "Character:PVPEnableGuardFactionAssist",
+      "true",
+      "Enables faction based assisting against the aggresor in pvp."
+    ],
+    [
+      1,
+      "Character:PaladinTrackingDistanceMultiplier",
+      "0",
+      "If you want paladins to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:PerCharacterBucketMaxLevel",
+      "false",
+      "Check for data bucket 'CharMaxLevel', if player tries to level beyond that point, it will not go beyond that level"
+    ],
+    [
+      1,
+      "Character:PerCharacterQglobalMaxLevel",
+      "false",
+      "Check for qglobal 'CharMaxLevel' character qglobal (Type 5, \"\"), if player tries to level beyond that point, it will not go beyond that level"
+    ],
+    [
+      1,
+      "Character:PetZoneWithOwner",
+      "true",
+      "Should Pets Zone with Owner"
+    ],
+    [
+      1,
+      "Character:PetsUseReagents",
+      "true",
+      "Conjuring pets consumes reagents"
+    ],
+    [
+      1,
+      "Character:PlayerTradingLoreFeedback",
+      "true",
+      "If enabled, during a player to player trade, if lore items exist, it will output which items."
+    ],
+    [
+      1,
+      "Character:PreventMountsFromZoning",
+      "false",
+      "Enable to prevent mounts from zoning - Prior to December 15, 2004 this is enabled."
+    ],
+    [
+      1,
+      "Character:ProcessFearedProximity",
+      "false",
+      "Processes proximity checks when feared"
+    ],
+    [
+      1,
+      "Character:RaidExpMultiplier",
+      "0.2000000029802",
+      "The experience gained in raids is multiplied by (1-RaidExpMultiplier) "
+    ],
+    [
+      1,
+      "Character:RangerTrackingDistanceMultiplier",
+      "12",
+      "If you want rangers to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:RedModifier",
+      "120",
+      "The experience obtained for red con mobs is multiplied by value/100"
+    ],
+    [
+      1,
+      "Character:RespawnAtZoneLine",
+      "false",
+      "Setting whether players respawn at the nearest zone line instead of their bind spot"
+    ],
+    [
+      1,
+      "Character:RespawnFromHover",
+      "false",
+      "Setting whether the respawn window should be used"
+    ],
+    [
+      1,
+      "Character:RespawnFromHoverTimer",
+      "300",
+      "Respawn Window countdown timer, in seconds"
+    ],
+    [
+      1,
+      "Character:RestRegenEnabled",
+      "true",
+      "Setting to activate out-of-combat regeneration"
+    ],
+    [
+      1,
+      "Character:RestRegenRaidTimeToActivate",
+      "0",
+      "Time in seconds for rest state regen to kick in with a raid target"
+    ],
+    [
+      1,
+      "Character:RestRegenTimeToActivate",
+      "0",
+      "Time in seconds for rest state regen to kick in"
+    ],
+    [
+      1,
+      "Character:RestrictSpellScribing",
+      "false",
+      "Setting whether to restrict spell scribing to allowable races/classes of spell scroll"
+    ],
+    [
+      1,
+      "Character:ResurrectionSicknessSpellID",
+      "756",
+      "756 is Default Resurrection Sickness Spell ID"
+    ],
+    [
+      1,
+      "Character:RogueTrackingDistanceMultiplier",
+      "0",
+      "If you want rogues to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:SecondsBeforeAFKCombatZone",
+      "1800",
+      "Seconds before a player is considered AFK in combat zones (1800 = 30 minutes)"
+    ],
+    [
+      1,
+      "Character:SecondsBeforeAFKNonCombatZone",
+      "600",
+      "Seconds before a player is considered AFK in non-combat zones (600 = 10 minutes)"
+    ],
+    [
+      1,
+      "Character:SecondsBeforeIdleCombatZone",
+      "600",
+      "Seconds before a player is considered idle in combat zones (600 = 10 minutes)"
+    ],
+    [
+      1,
+      "Character:SecondsBeforeIdleNonCombatZone",
+      "60",
+      "Seconds before a player is considered idle in non-combat zones (60 = 1 minute)"
+    ],
+    [
+      1,
+      "Character:ShadowKnightTrackingDistanceMultiplier",
+      "0",
+      "If you want shadow knights to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:ShamanTrackingDistanceMultiplier",
+      "0",
+      "If you want shaman to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:SharedBankPlat",
+      "true",
+      "Shared bank platinum. Off by default to prevent duplication"
+    ],
+    [
+      1,
+      "Character:ShowExpValues",
+      "0",
+      "Show experience values. 0=normal, 1=show raw experience values, 2=show raw experience values and percent"
+    ],
+    [
+      1,
+      "Character:SkillCapMaxLevel",
+      "-1",
+      "Sets the Maximum Level used for Skill Caps (from skill_caps table). -1 makes it use MaxLevel rule value. It is set to 75 because PEQ only has skill caps up to that level, and grabbing the players' skill past 75 will return 0, breaking all skills past that level. This helps servers with obsurd level caps (75+ level cap) function without any modifications"
+    ],
+    [
+      1,
+      "Character:SkillUpFromItems",
+      "true",
+      "Allow Skill ups from clickable items"
+    ],
+    [
+      1,
+      "Character:SkillUpMaximumChancePercentage",
+      "25",
+      "Maximum chance to improve a combat skill, before skill-specific modifiers.  This should be greater than SkillUpMinimumChancePercentage."
+    ],
+    [
+      1,
+      "Character:SkillUpMinimumChancePercentage",
+      "2",
+      "Minimum chance to improve a combat skill, after skill-specific modifiers.  This should be lesser than SkillUpMaximumChancePercentage."
+    ],
+    [
+      1,
+      "Character:SkillUpModifier",
+      "100",
+      "The probability for a skill-up is multiplied by value/100"
+    ],
+    [
+      1,
+      "Character:SneakAlwaysSucceedOver100",
+      "false",
+      "When sneak skill is over 100, always succeed sneak/hide. Default: false"
+    ],
+    [
+      1,
+      "Character:SoDClientUseSoDHPManaEnd",
+      "true",
+      "Setting this to true will allow SoD clients to use the SoD HP/Mana/End formulas and previous clients will use the old formulas"
+    ],
+    [
+      1,
+      "Character:SoftDeletes",
+      "true",
+      "When characters are deleted in character select, they are only soft deleted"
+    ],
+    [
+      1,
+      "Character:StatCap",
+      "425",
+      "If StatCap > 0 then this value is used. If it is 0, the value of the following code is used: If Level < 61: 255. If Level >= 61 and the client SoF or newer: 255 + 5 x (level -60).  If the client is older than SoF and the level < 71 then: 255 + x (level-60). In all other cases: 330."
+    ],
+    [
+      1,
+      "Character:TradeskillUpAlchemy",
+      "2",
+      "Alchemy skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpBaking",
+      "2",
+      "Baking skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpBlacksmithing",
+      "2",
+      "Blacksmithing skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpBrewing",
+      "3",
+      "Brewing skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpFletching",
+      "2",
+      "Fletching skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpJewelcrafting",
+      "2",
+      "Jewelcrafting skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpMakePoison",
+      "2",
+      "Make Poison skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpMinChance",
+      "2.5000000000000",
+      "Determines the minimum percentage chance to gain a skill increase from a tradeskill.  Cannot go below 2.5"
+    ],
+    [
+      1,
+      "Character:TradeskillUpPottery",
+      "4",
+      "Pottery skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpResearch",
+      "1",
+      "Research skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpTailoring",
+      "2",
+      "Tailoring skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TradeskillUpTinkering",
+      "2",
+      "Tinkering skillup rate adjustment. Lower is faster"
+    ],
+    [
+      1,
+      "Character:TrollCommonTongue",
+      "95",
+      "Starting value for Common Tongue for Trolls"
+    ],
+    [
+      1,
+      "Character:UnmemSpellsOnDeath",
+      "false",
+      "Setting whether at death all memorized Spells are forgotten"
+    ],
+    [
+      1,
+      "Character:UseDeathExpLossMult",
+      "false",
+      "Setting to control whether DeathExpLossMultiplier or the code default is used: (Level x Level / 18.0) x 12000"
+    ],
+    [
+      1,
+      "Character:UseForageCommonFood",
+      "true",
+      "If enabled, use the common foods specified in the code."
+    ],
+    [
+      1,
+      "Character:UseNewStatsWindow",
+      "true",
+      "Setting whether the new Stats window, which displays all information, should be used"
+    ],
+    [
+      1,
+      "Character:UseNoJunkFishing",
+      "false",
+      "Disregards junk items when fishing"
+    ],
+    [
+      1,
+      "Character:UseOldBindWound",
+      "false",
+      "Uses the original bind wound behavior"
+    ],
+    [
+      1,
+      "Character:UseOldClassExpPenalties",
+      "false",
+      "Setting this to true will enable old class experience penalties for Paladin, SK, Ranger, Bard, Monk, Wizard, Enchanter, Magician, and Necromancer, as well as the bonus for Rogues and Warriors"
+    ],
+    [
+      1,
+      "Character:UseOldConSystem",
+      "false",
+      "Setting whether the pre SoF era consider system should be used"
+    ],
+    [
+      1,
+      "Character:UseOldRaceExpPenalties",
+      "false",
+      "Setting this to true will enable racial experience penalties for Iksar, Troll, Ogre, and Barbarian, as well as the bonus for Halflings"
+    ],
+    [
+      1,
+      "Character:UseOldRaceRezEffects",
+      "false",
+      "Older clients had ID 757 for races with high starting STR, but it doesn't seem used anymore"
+    ],
+    [
+      1,
+      "Character:UseRaceClassExpBonuses",
+      "true",
+      "Setting this to true will enable Class and Racial experience rate bonuses"
+    ],
+    [
+      1,
+      "Character:UseResurrectionSickness",
+      "true",
+      "Use Resurrection Sickness based on Resurrection spell cast, set to false to disable Resurrection Sickness."
+    ],
+    [
+      1,
+      "Character:UseSpellFileSongCap",
+      "true",
+      "When they removed the AA that increased the cap they removed the above and just use the spell field"
+    ],
+    [
+      1,
+      "Character:UseStackablePickPocketing",
+      "true",
+      "Allows stackable pickpocketed items to stack instead of only being allowed in empty inventory slots"
+    ],
+    [
+      1,
+      "Character:UseXPConScaling",
+      "true",
+      "When activated, the experience is modified depending on the difference between player level and NPC level. The values from the rules GreenModifier to RedModifier are used"
+    ],
+    [
+      1,
+      "Character:WarriorTrackingDistanceMultiplier",
+      "0",
+      "If you want warriors to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:WhiteModifier",
+      "105",
+      "The experience obtained for white con mobs is multiplied by value/100"
+    ],
+    [
+      1,
+      "Character:WizardTrackingDistanceMultiplier",
+      "0",
+      "If you want wizards to be able to track, increase this above 0.  0 disables tracking packets."
+    ],
+    [
+      1,
+      "Character:YellowModifier",
+      "110",
+      "The experience obtained for yellow con mobs is multiplied by value/100"
+    ],
+    [
+      1,
+      "Chat:AlwaysCaptureCommandText",
+      "false",
+      "Consume command text (# and ^ by default), regardless of which channel it is sent to"
+    ],
+    [
+      1,
+      "Chat:AutoInjectSaylinksToClientMessage",
+      "true",
+      "Automatically injects saylinks into dialogue that has [brackets in them]"
+    ],
+    [
+      1,
+      "Chat:AutoInjectSaylinksToSay",
+      "true",
+      "Automatically injects saylinks into dialogue that has [brackets in them]"
+    ],
+    [
+      1,
+      "Chat:ChannelsIgnoreNameFilter",
+      "false",
+      "Ignore name filtering when creating new chat channels"
+    ],
+    [
+      1,
+      "Chat:DialogueWindowAnimatesNPCsIfNoneSet",
+      "true",
+      "If there is no animation specified in the dialogue window markdown then it will choose a random greet animation such as wave or salute"
+    ],
+    [
+      1,
+      "Chat:EnableAntiSpam",
+      "true",
+      "Enable anti-spam system for chat"
+    ],
+    [
+      1,
+      "Chat:EnableMailKeyIPVerification",
+      "true",
+      "Setting whether the authenticity of the client should be verified via its IP address when accessing the InGame mailbox"
+    ],
+    [
+      1,
+      "Chat:EnableVoiceMacros",
+      "true",
+      "Enable voice macros"
+    ],
+    [
+      1,
+      "Chat:GlobalChatLevelLimit",
+      "1",
+      "Level limit you need to of reached to talk in ooc/auction/chat if your karma is too low"
+    ],
+    [
+      1,
+      "Chat:IntervalDurationMS",
+      "60000",
+      "Interval length in milliseconds"
+    ],
+    [
+      1,
+      "Chat:KarmaGlobalChatLimit",
+      "72",
+      "Amount of karma you need to be able to talk in ooc/auction/chat below the level limit"
+    ],
+    [
+      1,
+      "Chat:KarmaUpdateIntervalMS",
+      "1200000",
+      "Karma update interval in milliseconds"
+    ],
+    [
+      1,
+      "Chat:MaxMessagesBeforeKick",
+      "20",
+      "If an attempt is made to send more than the maximum allowed number of chat messages per interval, the client will be disconnected after this absolute number of messages"
+    ],
+    [
+      1,
+      "Chat:MaxPermanentPlayerChannels",
+      "0",
+      "Maximum number of permanent chat channels a player can make. Default 0."
+    ],
+    [
+      1,
+      "Chat:MaximumMessagesPerInterval",
+      "12",
+      "Maximum value of chat messages allowed per interval"
+    ],
+    [
+      1,
+      "Chat:MinStatusToBypassAntiSpam",
+      "80",
+      "Minimum status to bypass the anti-spam system"
+    ],
+    [
+      1,
+      "Chat:MinimumMessagesPerInterval",
+      "4",
+      "Minimum number of chat messages allowed per interval. The karma value is added to this value"
+    ],
+    [
+      1,
+      "Chat:QuestDialogueUsesDialogueWindow",
+      "false",
+      "Pipes all quest dialogue to dialogue window"
+    ],
+    [
+      1,
+      "Chat:ServerWideAuction",
+      "true",
+      "Enable server wide auction-chat"
+    ],
+    [
+      1,
+      "Chat:ServerWideOOC",
+      "true",
+      "Enable server wide ooc-chat"
+    ],
+    [
+      1,
+      "Chat:SuppressCommandErrors",
+      "false",
+      "Do not suppress command errors by default"
+    ],
+    [
+      1,
+      "Cheat:EnableMQFastMemDetector",
+      "true",
+      "Enable the MQFastMem Detector. Set to False to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:EnableMQGateDetector",
+      "true",
+      "Enable the MQGate Detector. Set to False to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:EnableMQGhostDetector",
+      "true",
+      "Enable the MQGhost Detector. Set to False to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:EnableMQWarpDetector",
+      "true",
+      "Enable the MQWarp Detector. Set to False to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:EnableMQZoneDetector",
+      "true",
+      "Enable the MQZone Detector. Set to False to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:MQFastMemExemptStatus",
+      "-1",
+      "Required status level to exempt the MQFastMemDetector. Set to -1 to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:MQGateExemptStatus",
+      "-1",
+      "Required status level to exempt the MQGateDetector. Set to -1 to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:MQGhostExemptStatus",
+      "-1",
+      "Required status level to exempt the MQGhostDetector. Set to -1 to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:MQWarpDetectionDistanceFactor",
+      "9.0000000000000",
+      "clients move at 4.4 about if in a straight line but with movement and to acct for lag we raise it a bit"
+    ],
+    [
+      1,
+      "Cheat:MQWarpExemptStatus",
+      "-1",
+      "Required status level to exempt the MQWarpDetector. Set to -1 to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:MQZoneExemptStatus",
+      "-1",
+      "Required status level to exempt the MQZoneDetector. Set to -1 to disable this feature."
+    ],
+    [
+      1,
+      "Cheat:MarkMQWarpLT",
+      "false",
+      "Mark clients makeing smaller warps"
+    ],
+    [
+      1,
+      "Client:UseLiveBlockedMessage",
+      "false",
+      "Setting whether detailed spell block messages should be used as on the live servers"
+    ],
+    [
+      1,
+      "Client:UseLiveFactionMessage",
+      "true",
+      "Allows players to see detailed faction adjustments as on the live servers"
+    ],
+    [
+      1,
+      "Combat:AERampageMaxDistance",
+      "70",
+      "Max AERampage range (% of max combat distance)"
+    ],
+    [
+      1,
+      "Combat:AdjustProcPerMinute",
+      "true",
+      "Adapt the average proc rate to the speed of the weapon"
+    ],
+    [
+      1,
+      "Combat:AllowRaidTargetBlind",
+      "false",
+      "Toggle to allow raid targets to be blinded, default is false (Live-like)"
+    ],
+    [
+      1,
+      "Combat:ArcheryBaseDamage",
+      "0",
+      "Archery base damage, default is 0"
+    ],
+    [
+      1,
+      "Combat:ArcheryBaseDamageBonus",
+      "1.0000000000000",
+      "Percentage modifier to base archery Damage 0.5=50% base damage, 1=100%,2=200% - Default: 1"
+    ],
+    [
+      1,
+      "Combat:ArcheryBonusLevelRequirement",
+      "51",
+      "Level requirement when the 2x archery bonus will be enabled. The default is 51."
+    ],
+    [
+      1,
+      "Combat:ArcheryBonusRequiresStationary",
+      "true",
+      "does the 2x archery bonus chance require a stationary npc"
+    ],
+    [
+      1,
+      "Combat:ArcheryConsumesAmmo",
+      "true",
+      "Set to false to disable Archery Ammo Consumption"
+    ],
+    [
+      1,
+      "Combat:ArcheryCritDifficulty",
+      "3400",
+      "Value against which is rolled to check if an archery crit is triggered. Lower is easier"
+    ],
+    [
+      1,
+      "Combat:ArcheryHitPenalty",
+      "0.0000000000000",
+      "Archery has a hit penalty to try to help balance it with the plethora of long term +hit modifiers for it - Default: 0"
+    ],
+    [
+      1,
+      "Combat:ArcheryNPCMultiplier",
+      "1.0000000000000",
+      "Value is multiplied by the regular dmg to get the archery dmg"
+    ],
+    [
+      1,
+      "Combat:AssassinateLevelRequirement",
+      "60",
+      "Level requirement to enable assassinate attempts on backstabs. The default is 60."
+    ],
+    [
+      1,
+      "Combat:AssassinateOnlyHumanoids",
+      "true",
+      "Enable or disable Assassinate only being allowed on Humanoids, true by default."
+    ],
+    [
+      1,
+      "Combat:AssistNoTargetSelf",
+      "false",
+      "When assisting a target that does not have a target: true = target self, false = leave target as was before assist (false = live like)"
+    ],
+    [
+      1,
+      "Combat:AvgDefProcsPerMinute",
+      "2.0000000000000",
+      "Average defense procs per minute"
+    ],
+    [
+      1,
+      "Combat:AvgProcsPerMinute",
+      "2.0000000000000",
+      "Average proc rate per minute"
+    ],
+    [
+      1,
+      "Combat:BackstabBaseDamage",
+      "0",
+      "Backstab base damage, default is 0"
+    ],
+    [
+      1,
+      "Combat:BackstabIgnoresBane",
+      "false",
+      "Enable or disable Bane weapon damage affecting backstab damage, false by default."
+    ],
+    [
+      1,
+      "Combat:BackstabIgnoresElemental",
+      "false",
+      "Enable or disable Elemental weapon damage affecting backstab damage, false by default."
+    ],
+    [
+      1,
+      "Combat:BaseProcChance",
+      "0.0350000001490",
+      "Base chance for procs"
+    ],
+    [
+      1,
+      "Combat:BashACBonusDivisor",
+      "25.0000000000000",
+      "this divides the AC value contribution to bash damage, lower to increase damage"
+    ],
+    [
+      1,
+      "Combat:BashBaseDamage",
+      "2",
+      "Bash base damage, default is 2"
+    ],
+    [
+      1,
+      "Combat:BashTwoHanderUseShoulderAC",
+      "false",
+      "Enable to use shoulder AC for bash calculations when two hander is equipped. Unproven if accurate DEFAULT: false"
+    ],
+    [
+      1,
+      "Combat:BerserkerFrenzyEnd",
+      "45",
+      "Percentage Health Points above which Warrior and Berserker end frenzy"
+    ],
+    [
+      1,
+      "Combat:BerserkerFrenzyStart",
+      "35",
+      "Percentage Health Points below which Warrior and Berserker start frenzy"
+    ],
+    [
+      1,
+      "Combat:Classic2HBAnimation",
+      "false",
+      "2HB will use the 2 hand piercing animation instead of the overhead slashing animation"
+    ],
+    [
+      1,
+      "Combat:ClassicMasterWu",
+      "false",
+      "Classic Master Wu uses a random special, modern doesn't"
+    ],
+    [
+      1,
+      "Combat:ClassicNPCBackstab",
+      "false",
+      "True disables NPC facestab - NPC get normal attack if not behind"
+    ],
+    [
+      1,
+      "Combat:ClassicTauntSystem",
+      "false",
+      "Enable to use the pre 2006 taunt system."
+    ],
+    [
+      1,
+      "Combat:ClassicTripleAttack",
+      "false",
+      "enable to use non-skill based classic triple attack. Originally it was Warrior Only but was expanded, can use the TripleAttackChance to tune the classes out."
+    ],
+    [
+      1,
+      "Combat:ClassicTripleAttackChanceBerserker",
+      "100",
+      "Innate Chance for Berserker to Triple Attack after a Double Attack (200 = 20%). DEFAULT: 100"
+    ],
+    [
+      1,
+      "Combat:ClassicTripleAttackChanceMonk",
+      "100",
+      "Innate Chance for Monk to Triple Attack after a Double Attack (200 = 20%). DEFAULT: 100"
+    ],
+    [
+      1,
+      "Combat:ClassicTripleAttackChanceRanger",
+      "100",
+      "Innate Chance for Ranger to Triple Attack after a Double Attack (200 = 20%). DEFAULT: 100"
+    ],
+    [
+      1,
+      "Combat:ClassicTripleAttackChanceWarrior",
+      "100",
+      "Innate Chance for Warrior to Triple Attack after a Double Attack (125 = 12.5%). DEFAULT: 100"
+    ],
+    [
+      1,
+      "Combat:ClientStunMessage",
+      "false",
+      "Client stunning NPC produces message. DEFAULT false"
+    ],
+    [
+      1,
+      "Combat:DefProcPerMinAgiContrib",
+      "0.0750000029802",
+      "How much agility contributes to defensive proc rate"
+    ],
+    [
+      1,
+      "Combat:DefaultRampageTargets",
+      "1",
+      "Default number of people to hit with rampage"
+    ],
+    [
+      1,
+      "Combat:DoubleBackstabLevelRequirement",
+      "55",
+      "Level requirement to enable double backstab attempts. The default is 55."
+    ],
+    [
+      1,
+      "Combat:DragonPunchBaseDamage",
+      "12",
+      "Dragon Punch base damage, default is 12"
+    ],
+    [
+      1,
+      "Combat:EXPFromDmgShield",
+      "false",
+      "Determine if damage from a damage shield counts for experience gain"
+    ],
+    [
+      1,
+      "Combat:EagleStrikeBaseDamage",
+      "7",
+      "Eagle Strike base damage, default is 7"
+    ],
+    [
+      1,
+      "Combat:EnableFearPathing",
+      "true",
+      "Setting whether to use pathing during fear"
+    ],
+    [
+      1,
+      "Combat:EnableSneakPull",
+      "false",
+      "Enable implementation of Sneak Pull"
+    ],
+    [
+      1,
+      "Combat:EnableWarriorShielding",
+      "true",
+      "Enable or disable Warrior Shielding Ability (/shield), true by default."
+    ],
+    [
+      1,
+      "Combat:ExtraAllowedKickClassesBitmask",
+      "0",
+      "Bitmask for allowing extra classes beyond Warrior, Ranger, Beastlord, and Berserker to kick, No Extra Classes (0) by default"
+    ],
+    [
+      1,
+      "Combat:FinishingBlowOnlyWhenFleeing",
+      "false",
+      "Enable to only allow Finishing Blow when fleeing (Original Style Finishing Blow)"
+    ],
+    [
+      1,
+      "Combat:FleeGray",
+      "true",
+      "If true FleeGrayHPRatio will be used"
+    ],
+    [
+      1,
+      "Combat:FleeGrayHPRatio",
+      "50",
+      "HP percentage when a Gray NPC begins to flee"
+    ],
+    [
+      1,
+      "Combat:FleeGrayMaxLevel",
+      "18",
+      "NPC above this level won't do gray/green con flee"
+    ],
+    [
+      1,
+      "Combat:FleeHPRatio",
+      "21",
+      "HP percentage when a NPC begins to flee"
+    ],
+    [
+      1,
+      "Combat:FleeIfNotAlone",
+      "false",
+      "If false, mobs won't flee if other mobs are in combat with it"
+    ],
+    [
+      1,
+      "Combat:FlyingKickBaseDamage",
+      "25",
+      "Flying Kick base damage, default is 25"
+    ],
+    [
+      1,
+      "Combat:FrenzyBaseDamage",
+      "10",
+      "Frenzy base damage, default is 10"
+    ],
+    [
+      1,
+      "Combat:FrontalStunImmunityClasses",
+      "0",
+      "Bitmask for Classes than have frontal stun immunity, No Races (0) by default."
+    ],
+    [
+      1,
+      "Combat:FrontalStunImmunityRaces",
+      "512",
+      "Bitmask for Races than have frontal stun immunity, Ogre (512) only by default."
+    ],
+    [
+      1,
+      "Combat:HeadshotOnlyHumanoids",
+      "true",
+      "Enable or disable Headshot only being allowed on Humanoids, true by default."
+    ],
+    [
+      1,
+      "Combat:HitBoxMod",
+      "1.0000000000000",
+      "Added to test hit boxes."
+    ],
+    [
+      1,
+      "Combat:KickBaseDamage",
+      "3",
+      "Kick base damage, default is 3"
+    ],
+    [
+      1,
+      "Combat:LegacyComputeDefense",
+      "false",
+      "Trim AGI Scaling of defense mostly for lower levels to help compensate for the newer agi based defense system. Default: False"
+    ],
+    [
+      1,
+      "Combat:LevelDifferenceRollBonus",
+      "0.5000000000000",
+      "Roll Bonus/Detrement if using LevelDifferenceRollCheck"
+    ],
+    [
+      1,
+      "Combat:LevelDifferenceRollCheck",
+      "-1",
+      "Level Difference to enable LeverDifferenceRollBonus for MeleeMitigation - Default: -1 is disabled, 20 is common"
+    ],
+    [
+      1,
+      "Combat:LevelToStopACTwinkControl",
+      "50",
+      "Level to stop armorclass twink control. 1 will effectively disable it, 50 should give basically same results as current system"
+    ],
+    [
+      1,
+      "Combat:LevelToStopDamageCaps",
+      "0",
+      "Level to stop damage caps. 1 will effectively disable them, 20 should give basically same results as old incorrect system"
+    ],
+    [
+      1,
+      "Combat:MaxFlurryHits",
+      "2",
+      "Maximum number of extra hits from flurry"
+    ],
+    [
+      1,
+      "Combat:MaxProcs",
+      "4",
+      "Adjustable maximum number of procs per round, the hard cap is MAX_PROCS (11). Requires mob repop or client zone when changed"
+    ],
+    [
+      1,
+      "Combat:MaxRampageTargets",
+      "3",
+      "Maximum number of people hit with rampage"
+    ],
+    [
+      1,
+      "Combat:MaximumLevelStunsCripplingBlow",
+      "55",
+      "Maximum level that Crippling Blows will stun a npc. Default: 55"
+    ],
+    [
+      1,
+      "Combat:MeleeCritDifficulty",
+      "8900",
+      "Value against which is rolled to check if a melee crit is triggered. Lower is easier"
+    ],
+    [
+      1,
+      "Combat:MeleePush",
+      "true",
+      "Enable melee push"
+    ],
+    [
+      1,
+      "Combat:MeleePushChance",
+      "50",
+      "NPC chance the target will be pushed. Made up, 100 actually isn't that bad"
+    ],
+    [
+      1,
+      "Combat:MeleePushForceClientPercent",
+      "0.0000000000000",
+      "Percent to add or remove from push for players"
+    ],
+    [
+      1,
+      "Combat:MeleePushForcePetPercent",
+      "0.0000000000000",
+      "Percent to add or remove from push for pets"
+    ],
+    [
+      1,
+      "Combat:MinHastedDelay",
+      "400",
+      "Minimum hasted combat delay"
+    ],
+    [
+      1,
+      "Combat:MinRangedAttackDist",
+      "25",
+      "Minimum Distance to use Ranged Attacks"
+    ],
+    [
+      1,
+      "Combat:NPCAssistCap",
+      "15",
+      "Maximum number of NPC that will assist another NPC at once"
+    ],
+    [
+      1,
+      "Combat:NPCAssistCapTimer",
+      "6000",
+      "Time a NPC will take to clear assist aggro cap space (milliseconds)"
+    ],
+    [
+      1,
+      "Combat:NPCAttackMagicLevel",
+      "10",
+      "Level at which NPC and pets can cause magic damage"
+    ],
+    [
+      1,
+      "Combat:NPCBashKickLevel",
+      "6",
+      "The level that NPCcan KICK/BASH"
+    ],
+    [
+      1,
+      "Combat:NPCCanCrit",
+      "false",
+      "Setting whether an NPC can land critical hits"
+    ],
+    [
+      1,
+      "Combat:NPCFlurryChance",
+      "20",
+      "Chance for NPC to flurry"
+    ],
+    [
+      1,
+      "Combat:NPCKickStunLevel",
+      "1",
+      "The level that NPC has a chance to stun with kick."
+    ],
+    [
+      1,
+      "Combat:NPCsUseFrontalStunImmunityClasses",
+      "false",
+      "Enable or disable NPCs using frontal stun immunity Classes from Combat:FrontalStunImmunityClasses, false by default."
+    ],
+    [
+      1,
+      "Combat:NPCsUseFrontalStunImmunityRaces",
+      "true",
+      "Enable or disable NPCs using frontal stun immunity Races from Combat:FrontalStunImmunityRaces, true by default."
+    ],
+    [
+      1,
+      "Combat:NPCtoNPCPush",
+      "false",
+      "Disabled prevents NPC to NPC pushing per the 2013+ patch."
+    ],
+    [
+      1,
+      "Combat:NightcapHeroicMeleeScaling",
+      "true",
+      "Enable Nightcap diminishing heroic STR percentage scaling for player weapon hits; pair with reviewed WPM content"
+    ],
+    [
+      1,
+      "Combat:OneProcPerWeapon",
+      "true",
+      "If enabled, One proc per weapon per round"
+    ],
+    [
+      1,
+      "Combat:PCAccuracyAvoidanceMod2Scale",
+      "100",
+      "Scale Factor for PC Accuracy and Avoidance (Mod2, found on items).  Found a value of 100 to make both too strong (75 = x0.75).  DEFAULT: 100 to not adjust existing Servers"
+    ],
+    [
+      1,
+      "Combat:PCAttackPowerScaling",
+      "100",
+      "Applies scaling to PC Attack Power (75 = 75%).  DEFAULT: 100 to not adjust existing Servers"
+    ],
+    [
+      1,
+      "Combat:PCKickStunLevel",
+      "56",
+      "The level that PC has a chance to stun with kick."
+    ],
+    [
+      1,
+      "Combat:PetAttackMagicLevel",
+      "30",
+      "Level at which pets can cause magic damage, no longer used"
+    ],
+    [
+      1,
+      "Combat:PetBaseCritChance",
+      "0",
+      "Pet base crit chance"
+    ],
+    [
+      1,
+      "Combat:ProcDexDivideBy",
+      "11000.0000000000000",
+      "Divisor for the probability of a proc increased by dexterity"
+    ],
+    [
+      1,
+      "Combat:ProcPerMinDexContrib",
+      "0.0750000029802",
+      "Increases the probability of a proc increased by DEX by the value indicated"
+    ],
+    [
+      1,
+      "Combat:ProjectileDmgOnImpact",
+      "true",
+      "If enabled, projectiles (i.e. arrows) will hit on impact, instead of instantly"
+    ],
+    [
+      1,
+      "Combat:QuiverHasteCap",
+      "1000",
+      "Quiver haste cap 1000 on live for a while, currently 700 on live"
+    ],
+    [
+      1,
+      "Combat:RampageHitsTarget",
+      "false",
+      "Rampage will hit the target if it still has targets left"
+    ],
+    [
+      1,
+      "Combat:RogueBackstabHasteCorrection",
+      "false",
+      "Toggle to enable correction for Haste impacting Backstab DPS too much.  DEFAULT: false"
+    ],
+    [
+      1,
+      "Combat:RoundKickBaseDamage",
+      "5",
+      "Round Kick base damage, default is 5"
+    ],
+    [
+      1,
+      "Combat:SlayDamageMultiplier",
+      "1.0000000000000",
+      "Slay Damage Adjustment - Multiply final slay damage by this value. Default: 1.0"
+    ],
+    [
+      1,
+      "Combat:SlayRateMultiplier",
+      "1.0000000000000",
+      "Slay Rate Adjustments - Multiply final slay rate check by this value. Default: 1.0"
+    ],
+    [
+      1,
+      "Combat:SneakPullAssistRange",
+      "400",
+      "Modified range of assist for sneak pull"
+    ],
+    [
+      1,
+      "Combat:StunChance",
+      "12",
+      "Percent chance that client will be stunned when mob is behind player. DEFAULT: 12"
+    ],
+    [
+      1,
+      "Combat:StunDuration",
+      "2000",
+      "Duration of stuns in ms. DEFAULT: 2000"
+    ],
+    [
+      1,
+      "Combat:SummonMeleeRange",
+      "true",
+      "Enable or disable summoning of a player when already in melee range of the summoner."
+    ],
+    [
+      1,
+      "Combat:TauntChanceBonus",
+      "0",
+      "Bonus to taunt chance"
+    ],
+    [
+      1,
+      "Combat:TauntOverAggro",
+      "0",
+      "+ amount over hate_top it will add before any bonus hate."
+    ],
+    [
+      1,
+      "Combat:TauntOverLevel",
+      "true",
+      "Allows you to taunt NPC's over warriors level"
+    ],
+    [
+      1,
+      "Combat:TauntSkillFalloff",
+      "0.3300000131130",
+      "For every taunt skill point that's not maxed you lose this percentage chance to taunt"
+    ],
+    [
+      1,
+      "Combat:ThrowingBaseDamage",
+      "0",
+      "Throwing base damage, default is 0"
+    ],
+    [
+      1,
+      "Combat:ThrowingConsumesAmmo",
+      "true",
+      "Set to false to disable Throwing Ammo Consumption"
+    ],
+    [
+      1,
+      "Combat:ThrowingCritDifficulty",
+      "1100",
+      "Value against which is rolled to check if a throwing crit is triggered. Lower is easier"
+    ],
+    [
+      1,
+      "Combat:TigerClawBaseDamage",
+      "4",
+      "Tiger Claw base damage, default is 4"
+    ],
+    [
+      1,
+      "Combat:UseEnhancedMobStaticWeaponSkill",
+      "false",
+      "Toggle to enabled the use of an enhanced (slightly higher hit rate) static weapon skill for Mobs.  DEFAULT: false"
+    ],
+    [
+      1,
+      "Combat:UseExtendedPoisonProcs",
+      "false",
+      "Allow old school poisons to last until characrer zones, at a lower proc rate"
+    ],
+    [
+      1,
+      "Combat:UseIntervalAC",
+      "true",
+      "Switch whether bonuses, armour class, multipliers, classes and caps should be considered in the calculation of damage values"
+    ],
+    [
+      1,
+      "Combat:UseLiveCombatRounds",
+      "true",
+      "Turn this false if you don't want to worry about fixing up combat rounds for NPCs"
+    ],
+    [
+      1,
+      "Combat:UseLiveRiposteMechanics",
+      "false",
+      "Set to true to disable SPA 173 SpellEffect::RiposteChance from making those with the effect on them immune to enrage, can longer riposte from a riposte."
+    ],
+    [
+      1,
+      "Combat:UseMobStaticOffenseSkill",
+      "false",
+      "Toggle to enabled the use of a static offense skill for Mobs.  DEFAULT: false"
+    ],
+    [
+      1,
+      "Combat:UseNPCDamageClassLevelMods",
+      "true",
+      "Uses GetClassLevelDamageMod calc in npc_scale_manager"
+    ],
+    [
+      1,
+      "Combat:UseRevampHandToHand",
+      "false",
+      "Use h2h revamped dmg/delays I believe this was implemented during SoF"
+    ],
+    [
+      1,
+      "Combat:WaterMatchRequiredForAutoFireLoS",
+      "true",
+      "Enable/Disable the requirement of both the attacker/victim being both in or out of water for AutoFire LoS to pass."
+    ],
+    [
+      1,
+      "Command:DyeCommandRequiresDyes",
+      "false",
+      "Enable this to require a Prismatic Dye (32557) each time someone uses #dye."
+    ],
+    [
+      1,
+      "Command:HideMeCommandDisablesTells",
+      "true",
+      "Disable this to allow tells to be received when using #hideme."
+    ],
+    [
+      1,
+      "Command:MaxHelpLineLength",
+      "53",
+      "Maximum length of a line before splitting it in to new lines for DiaWind. Default 53."
+    ],
+    [
+      1,
+      "Console:SessionTimeOut",
+      "600000",
+      "Amount of time in ms for the console session to time out"
+    ],
+    [
+      1,
+      "Doors:RequireKeyOnCursor",
+      "false",
+      "Enable this to require pre-keyring keys to be on player cursor to open doors."
+    ],
+    [
+      1,
+      "DynamicZone:ClientRemovalDelayMS",
+      "60000",
+      "Delay (milliseconds) until a client is teleported out of dynamic zone after being removed as member"
+    ],
+    [
+      1,
+      "DynamicZone:EmptyShutdownDelaySeconds",
+      "1500",
+      "Seconds to set dynamic zone instance expiration if early shutdown enabled"
+    ],
+    [
+      1,
+      "DynamicZone:EmptyShutdownEnabled",
+      "true",
+      "Enable early instance shutdown for dynamic zones that have no members"
+    ],
+    [
+      1,
+      "DynamicZone:EnableInDynamicZoneStatus",
+      "false",
+      "Enables the 'In Dynamic Zone' member status in dynamic zone window. If false (live-like) players inside the dynamic zone will show as 'Online'"
+    ],
+    [
+      1,
+      "DynamicZone:WorldProcessRate",
+      "6000",
+      "Timer interval (milliseconds) that systems check their dynamic zone states"
+    ],
+    [
+      1,
+      "EventLog:RecordBuyFromMerchant",
+      "false",
+      "Record purchases by a player from an NPC merchant in eventlog table"
+    ],
+    [
+      1,
+      "EventLog:RecordSellToMerchant",
+      "false",
+      "Record sales from a player to an NPC merchant in eventlog table"
+    ],
+    [
+      1,
+      "EvolvingItems:DelayUponEquipping",
+      "30000",
+      "Delay in ms before an evolving item will earn rewards after equipping.  Default is 30000ms or 30s."
+    ],
+    [
+      1,
+      "EvolvingItems:DestroyAugmentsOnEvolve",
+      "false",
+      "If this is enabled, any augments in an item will be destroyed when the item evolves. Otherwise, send augments to the player via the parcel system (requires that the Parcel System be enabled)."
+    ],
+    [
+      1,
+      "EvolvingItems:PercentOfGroupExperience",
+      "0.1000000014901",
+      "Percentage of group experience allocated to evolving items that require experience."
+    ],
+    [
+      1,
+      "EvolvingItems:PercentOfRaidExperience",
+      "0.1000000014901",
+      "Percentage of raid experience allocated to evolving items that require experience."
+    ],
+    [
+      1,
+      "EvolvingItems:PercentOfSoloExperience",
+      "0.1000000014901",
+      "Percentage of solo experience allocated to evolving items that require experience."
+    ],
+    [
+      1,
+      "Expansion:AutoGrantAAExpansion",
+      "-1",
+      "Expansion to auto grant AAs up to, [-1 = Disabled, 0 = Classic, 1 = Kunark etc.]"
+    ],
+    [
+      1,
+      "Expansion:CurrentExpansion",
+      "0",
+      "The current expansion enabled for the server [-1 = ALL, 0 = Classic, 1 = Kunark etc.]"
+    ],
+    [
+      1,
+      "Expansion:UseCurrentExpansionAAOnly",
+      "false",
+      "When true will only load AA ranks that match CurrentExpansion rule"
+    ],
+    [
+      1,
+      "Expedition:AlwaysNotifyNewLeaderOnChange",
+      "false",
+      "Always notify clients when made expedition leader. If false (live-like) new leaders are only notified when made leader via /dzmakeleader"
+    ],
+    [
+      1,
+      "Expedition:ChooseLeaderCooldownTime",
+      "2000",
+      "Cooldown time (milliseconds) between choosing a new leader for automatic leader changes"
+    ],
+    [
+      1,
+      "Expedition:LockoutDurationMultiplier",
+      "1.0000000000000",
+      "Multiplies lockout duration by this value when new lockouts are added"
+    ],
+    [
+      1,
+      "Expedition:MinStatusToBypassPlayerCountRequirements",
+      "80",
+      "Minimum GM status to bypass minimum player requirements for Expedition creation"
+    ],
+    [
+      1,
+      "Faction:AllyFactionMinimum",
+      "1100",
+      "Minimum faction for ally"
+    ],
+    [
+      1,
+      "Faction:AmiablyFactionMinimum",
+      "100",
+      "Minimum faction for amiably"
+    ],
+    [
+      1,
+      "Faction:ApprehensivelyFactionMinimum",
+      "-100",
+      "Minimum faction for apprehensively"
+    ],
+    [
+      1,
+      "Faction:DubiouslyFactionMinimum",
+      "-500",
+      "Minimum faction for dubiously"
+    ],
+    [
+      1,
+      "Faction:IndifferentlyFactionMinimum",
+      "0",
+      "Minimum faction for indifferently"
+    ],
+    [
+      1,
+      "Faction:KindlyFactionMinimum",
+      "500",
+      "Minimum faction for kindly"
+    ],
+    [
+      1,
+      "Faction:ThreateninglyFactionMinimum",
+      "-750",
+      "Minimum faction for threateningly"
+    ],
+    [
+      1,
+      "Faction:WarmlyFactionMinimum",
+      "750",
+      "Minimum faction for warmly"
+    ],
+    [
+      1,
+      "GM:MinStatusToBypassCheckSumVerification",
+      "100",
+      "Players >= this status can bypass the eqgame.exe and spells_us.txt checksum verification"
+    ],
+    [
+      1,
+      "GM:MinStatusToBypassLockedServer",
+      "100",
+      "Players >= this status can log in to the server even when it is locked"
+    ],
+    [
+      1,
+      "GM:MinStatusToLevelTarget",
+      "100",
+      "Minimum required status to set the level of a player"
+    ],
+    [
+      1,
+      "GM:MinStatusToSummonItem",
+      "250",
+      "Minimum required status to summon items"
+    ],
+    [
+      1,
+      "GM:MinStatusToZoneAnywhere",
+      "250",
+      "Minimum required status to zone anywhere"
+    ],
+    [
+      1,
+      "Guild:EnableLFGuild",
+      "false",
+      "Enable the LFGuild system (Requires queryserv)"
+    ],
+    [
+      1,
+      "Guild:PlayerCreationAllowed",
+      "true",
+      "Allow players to create a guild using the window in Underfoot+"
+    ],
+    [
+      1,
+      "Guild:PlayerCreationLimit",
+      "1",
+      "Only allow use of the UF+ window if the account has < than this number of guild leaders on it"
+    ],
+    [
+      1,
+      "Guild:PlayerCreationRequiredLevel",
+      "0",
+      "Required level of the player attempting to create the guild"
+    ],
+    [
+      1,
+      "Guild:PlayerCreationRequiredStatus",
+      "0",
+      "Required status to create a guild"
+    ],
+    [
+      1,
+      "Guild:PlayerCreationRequiredTime",
+      "0",
+      "Time needed online on the account to create a guild (in minutes)"
+    ],
+    [
+      1,
+      "Guild:TributePlatConversionRate",
+      "10",
+      "The conversion rate of platinum donations.  Default is 10 guild favor to 1 platinum."
+    ],
+    [
+      1,
+      "Guild:TributeTime",
+      "600000",
+      "Time in ms for guild tributes.  Default is 10 mins."
+    ],
+    [
+      1,
+      "Guild:TributeTimeRefreshInterval",
+      "180000",
+      "Time in ms to send all guild members a Tribute Time refresh. Default is 3 mins."
+    ],
+    [
+      1,
+      "Guild:UseCharacterMaxLevelForGuildTributes",
+      "true",
+      "Guild Tributes will adhere to Character:MaxLevel.  Default is true."
+    ],
+    [
+      1,
+      "HotReload:QuestsAutoReloadGlobalScripts",
+      "false",
+      "When a quest, plugin, or global script changes, auto reload."
+    ],
+    [
+      1,
+      "HotReload:QuestsRepopWhenPlayersNotInCombat",
+      "true",
+      "When a hot reload is triggered, the zone will repop when no clients are in combat"
+    ],
+    [
+      1,
+      "HotReload:QuestsRepopWithReload",
+      "true",
+      "When a hot reload is triggered, the zone will repop"
+    ],
+    [
+      1,
+      "HotReload:QuestsResetTimersWithReload",
+      "true",
+      "When a hot reload is triggered, quest timers will be reset"
+    ],
+    [
+      1,
+      "Instances:ExpireOffsetTimeSeconds",
+      "3600",
+      "Amount of seconds to beyond instance expiration time we wait to purge the entry from the database. (Default: 1 Hour)"
+    ],
+    [
+      1,
+      "Instances:GuildHallExpirationDays",
+      "90",
+      "Amount of days before a Guild Hall instance expires"
+    ],
+    [
+      1,
+      "Instances:RecycleInstanceIds",
+      "true",
+      "Setting whether free instance IDs should be recycled to prevent them from gradually running out at 32k"
+    ],
+    [
+      1,
+      "Instances:ReservedInstances",
+      "100",
+      "Number of instance IDs which are reserved for globals. This value should not be changed while a server is running"
+    ],
+    [
+      1,
+      "Inventory:AllowAnyWeaponTransformation",
+      "false",
+      "Weapons can use any weapon transformation"
+    ],
+    [
+      1,
+      "Inventory:AllowMultipleOfSameAugment",
+      "false",
+      "Allows multiple of the same augment to be placed in an item via #augmentitem or MQ2, set to true to allow"
+    ],
+    [
+      1,
+      "Inventory:AlternateAugmentationSealer",
+      "53",
+      "Allows RoF+ clients to augment items from a special container type"
+    ],
+    [
+      1,
+      "Inventory:DeleteTransformationMold",
+      "true",
+      "False if you want mold to last forever"
+    ],
+    [
+      1,
+      "Inventory:EnforceAugmentRestriction",
+      "false",
+      "Forces augment slot restrictions"
+    ],
+    [
+      1,
+      "Inventory:EnforceAugmentUsability",
+      "false",
+      "Forces augmented item usability"
+    ],
+    [
+      1,
+      "Inventory:EnforceAugmentWear",
+      "false",
+      "Forces augment wear slot validation"
+    ],
+    [
+      1,
+      "Inventory:LazyLoadBank",
+      "true",
+      "Don't load bank during zoning, only when in proximinity to a banker. May increase zone speed and stability"
+    ],
+    [
+      1,
+      "Inventory:TransformSummonedBags",
+      "false",
+      "Transforms summoned bags into disenchanted ones instead of deleting"
+    ],
+    [
+      1,
+      "Items:AlwaysReturnHandins",
+      "true",
+      "Enable this to always return handins to the player"
+    ],
+    [
+      1,
+      "Items:AugmentItemAllowInvisibleAugments",
+      "false",
+      "Enable this to allow augments to be put in invisible augment slots by players"
+    ],
+    [
+      1,
+      "Items:DisableAttuneable",
+      "false",
+      "Enable this to disable Attuneable Items"
+    ],
+    [
+      1,
+      "Items:DisableBardFocusEffects",
+      "false",
+      "Enable this to disable Bard Focus Effects on Items"
+    ],
+    [
+      1,
+      "Items:DisableLore",
+      "true",
+      "Enable this to disable Lore Items"
+    ],
+    [
+      1,
+      "Items:DisableNoDrop",
+      "false",
+      "Enable this to disable No Drop Items"
+    ],
+    [
+      1,
+      "Items:DisableNoPet",
+      "false",
+      "Enable this to disable No Pet Items"
+    ],
+    [
+      1,
+      "Items:DisableNoRent",
+      "false",
+      "Enable this to disable No Rent Items"
+    ],
+    [
+      1,
+      "Items:DisableNoTransfer",
+      "false",
+      "Enable this to disable No Transfer Items"
+    ],
+    [
+      1,
+      "Items:DisablePotionBelt",
+      "false",
+      "Enable this to disable Potion Belt Items"
+    ],
+    [
+      1,
+      "Items:DisableSpellFocusEffects",
+      "false",
+      "Enable this to disable Spell Focus Effects on Items"
+    ],
+    [
+      1,
+      "Items:FreeTrade",
+      "true",
+      "All items are tradable; original NO DROP items sell for 1 platinum. Requires shared-memory regeneration and world/zone restart."
+    ],
+    [
+      1,
+      "Items:NPCUseRecommendedLevels",
+      "false",
+      "Enable to have NPCs scale item stats by recommended levels"
+    ],
+    [
+      1,
+      "Items:PowerSourceItemXP",
+      "true",
+      "Enable combat item training in the Power Source slot. Requires paired native builds and supported RoF2 slot projection; does not replace the Reforging Box."
+    ],
+    [
+      1,
+      "Items:SummonItemAllowInvisibleAugments",
+      "false",
+      "Enable this to allow augments to be put in invisible augment slots of items in Client::SummonItem"
+    ],
+    [
+      1,
+      "Logging:BatchPlayerEventProcessChunkSize",
+      "10000",
+      "This is the cap of events that can be inserted into the queue before a force flush. This is to keep from hitting MySQL max_allowed_packet and killing the connection"
+    ],
+    [
+      1,
+      "Logging:BatchPlayerEventProcessIntervalSeconds",
+      "5",
+      "This is the interval in which player events are processed in world or qs"
+    ],
+    [
+      1,
+      "Logging:PlayerEventsIgnoreGMCommands",
+      "help,show",
+      "This is a comma delimited list of commands to ignore when recording GM command player events."
+    ],
+    [
+      1,
+      "Logging:PlayerEventsQSProcess",
+      "false",
+      "Have query server process player events instead of world. Useful when wanting to use a dedicated server and database for processing player events on separate disk"
+    ],
+    [
+      1,
+      "Logging:PrintFileFunctionAndLine",
+      "false",
+      "Ex: [World Server] [net.cpp::main:309] Loading variables..."
+    ],
+    [
+      1,
+      "Logging:WorldGMSayLogging",
+      "true",
+      "Relay worldserver logging to zone processes via GM say output"
+    ],
+    [
+      1,
+      "Mail:EnableMailSystem",
+      "true",
+      "Setting whether the mail system is activated. If false, client won't bring up the Mail window"
+    ],
+    [
+      1,
+      "Mail:ExpireRead",
+      "31536000",
+      "Setting when read mails expire. 31536000=1 Year. Set to -1 for never"
+    ],
+    [
+      1,
+      "Mail:ExpireTrash",
+      "0",
+      "Setting when the mail trash is emptied. Time in seconds. 0 will delete all messages in the trash when the mailserver starts"
+    ],
+    [
+      1,
+      "Mail:ExpireUnread",
+      "31536000",
+      "Setting when unread mails expire. 31536000=1 Year. Set to -1 for never"
+    ],
+    [
+      1,
+      "Map:CheckForDoorLoSCheat",
+      "true",
+      "Runs LoS checks to prevent cheating through doors."
+    ],
+    [
+      1,
+      "Map:EnableLoSCheatExemptions",
+      "false",
+      "Enables exemptions for the LoS Cheat check. Must modify source to create these."
+    ],
+    [
+      1,
+      "Map:FindBestZHeightAdjust",
+      "1",
+      "Adds this to the current Z before seeking the best Z position"
+    ],
+    [
+      1,
+      "Map:FixPathingZMaxDeltaSendTo",
+      "20.0000000000000",
+      "At runtime in SendTo: maximum change in Z to allow the BestZ code to apply"
+    ],
+    [
+      1,
+      "Map:FixPathingZOnSendTo",
+      "false",
+      "Try to repair Z coordinates in the SendTo routine as well"
+    ],
+    [
+      1,
+      "Map:FixZWhenPathing",
+      "true",
+      "Automatically fix NPC Z coordinates when moving/pathing/engaged (Far less CPU intensive than its predecessor)"
+    ],
+    [
+      1,
+      "Map:MobPathingVisualDebug",
+      "false",
+      "Displays nodes in pathing points in realtime to help with visual debugging"
+    ],
+    [
+      1,
+      "Map:MobZVisualDebug",
+      "false",
+      "Displays spell effects determining whether or not NPC is hitting Best Z calcs (blue for hit, red for miss)"
+    ],
+    [
+      1,
+      "Map:RangeCheckForDoorLoSCheat",
+      "250.0000000000000",
+      "Default 250.0. Range to check if a door is blocking LoS from the target."
+    ],
+    [
+      1,
+      "Map:ZonesToCheckDoorCheat",
+      "89,103",
+      "Zones that will check for the door LoS cheat. You can leave it blank to disable, 'all' to check all zones or use a comma-delimited list of zones. Default Sebilis & Chardok"
+    ],
+    [
+      1,
+      "Merchant:AllowCorpse",
+      "false",
+      "Setting whether dealers leave a corpse behind "
+    ],
+    [
+      1,
+      "Merchant:BuyCostMod",
+      "2.5",
+      "Modifier for NPC buy price"
+    ],
+    [
+      1,
+      "Merchant:ChaBonusMod",
+      "3.4500000476837",
+      "Determines CHA cap, from 104 CHA. 3.45 is 132 CHA at apprehensive. 0.34 is 400 CHA at apprehensive"
+    ],
+    [
+      1,
+      "Merchant:ChaPenaltyMod",
+      "1.5199999809265",
+      "Determines CHA bottom, up to 102 CHA. 1.52 is 37 CHA at apprehensive. 0.98 is 0 CHA at apprehensive"
+    ],
+    [
+      1,
+      "Merchant:EnableAltCurrencySell",
+      "true",
+      "Enables the ability to resell items to alternate currency merchants"
+    ],
+    [
+      1,
+      "Merchant:PriceBonusPct",
+      "4",
+      "Determines maximum price bonus from having good faction/CHA. Value is a percent"
+    ],
+    [
+      1,
+      "Merchant:PricePenaltyPct",
+      "4",
+      "Determines maximum price penalty from having bad faction/CHA. Value is a percent"
+    ],
+    [
+      1,
+      "Merchant:SellCostMod",
+      "1.0499999523163",
+      "Modifier for NPC sell price"
+    ],
+    [
+      1,
+      "Merchant:UseClassicPriceMod",
+      "false",
+      "Must also set UsePriceMod. Negates other rules for vendor price mods."
+    ],
+    [
+      1,
+      "Merchant:UsePriceMod",
+      "true",
+      "Use faction/charisma price modifiers"
+    ],
+    [
+      1,
+      "Mercs:AggroRadius",
+      "100",
+      "Determines the distance from which a merc will aggro group member's target(also used to determine the distance at which a healer merc will begin healing a group member)"
+    ],
+    [
+      1,
+      "Mercs:AggroRadiusPuller",
+      "25",
+      "Determines the distance from which a merc will aggro group member's target, if they have the group role of puller (also used to determine the distance at which a healer merc will begin healing a group member, if they have the group role of puller)"
+    ],
+    [
+      1,
+      "Mercs:AllowMercSuspendInCombat",
+      "true",
+      "Allow merc suspend in combat"
+    ],
+    [
+      1,
+      "Mercs:AllowMercs",
+      "false",
+      "Allow the use of mercs"
+    ],
+    [
+      1,
+      "Mercs:ChargeMercPurchaseCost",
+      "false",
+      "Turns Mercenary purchase costs on or off"
+    ],
+    [
+      1,
+      "Mercs:ChargeMercUpkeepCost",
+      "false",
+      "Turns Mercenary upkeep costs on or off"
+    ],
+    [
+      1,
+      "Mercs:MercsHasteCap",
+      "100",
+      "Haste cap for non-v3(over haste) haste"
+    ],
+    [
+      1,
+      "Mercs:MercsHastev3Cap",
+      "25",
+      "Haste cap for v3(over haste) haste"
+    ],
+    [
+      1,
+      "Mercs:MercsIgnoreLevelBasedHasteCaps",
+      "false",
+      "Ignores hard coded level based haste caps."
+    ],
+    [
+      1,
+      "Mercs:ResurrectRadius",
+      "50",
+      "Determines the distance from which a healer merc will attempt to resurrect a group member's corpse"
+    ],
+    [
+      1,
+      "Mercs:ScaleRate",
+      "100",
+      "Merc scale factor"
+    ],
+    [
+      1,
+      "Mercs:SuspendIntervalMS",
+      "10000",
+      "Time interval for merc suspend (milliseconds)"
+    ],
+    [
+      1,
+      "Mercs:SuspendIntervalS",
+      "10",
+      "Time interval for merc suspend command (seconds)"
+    ],
+    [
+      1,
+      "Mercs:UpkeepIntervalMS",
+      "180000",
+      "Time interval for merc upkeep (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:AnimalsOpenDoors",
+      "true",
+      "Determines or not whether animals open doors or not when they approach them"
+    ],
+    [
+      1,
+      "NPC:BuffFriends",
+      "true",
+      "Setting whether NPC should buff other NPC"
+    ],
+    [
+      1,
+      "NPC:CorpseUnlockTimer",
+      "150000",
+      "Time after which corpses are unlocked for everyone to loot (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:DisableLastNames",
+      "false",
+      "Enable to disable NPC Last Names"
+    ],
+    [
+      1,
+      "NPC:EmptyNPCCorpseDecayTime",
+      "0",
+      "NPC corpse decay time, if no items are left on the corpse (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:EnableMeritBasedFaction",
+      "false",
+      "If set to true, faction will be given in the same way as experience (solo/group/raid)"
+    ],
+    [
+      1,
+      "NPC:EnableNPCQuestJournal",
+      "true",
+      "Setting whether the NPC Quest Journal is active"
+    ],
+    [
+      1,
+      "NPC:ExcludedFaceTargetRaces",
+      "52,72,73,141,233,328,329,372,376,377,378,379,380,381,382,383,404,422,423,424,425,426,428,429,445,449,460,462,463,500,501,502,503,504,505,506,507,508,509,510,511,513,514,515,516,533,534,535,536,537,538,539,540,541,542,543,544,545,546,550,551,552,553,554,555,556,557,567,573,577,586,589,590,591,592,593,595,596,599,601,616,619,621,628,629,630,633,634,635,636,665,683,684,685,691,692,693,694,702,703,705,706,707,710,711,714,720,2250,2254",
+      "Race IDs excluded from facing target when hailed"
+    ],
+    [
+      1,
+      "NPC:LastFightingDelayMovingMax",
+      "30000",
+      "Maximum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:LastFightingDelayMovingMin",
+      "5000",
+      "Minimum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:LiveLikeEnrage",
+      "false",
+      "If set to true then only player controlled pets will enrage"
+    ],
+    [
+      1,
+      "NPC:MajorNPCCorpseDecayTime",
+      "1500000",
+      "NPC corpse decay time, if NPC equal or greater than level 55 (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:MaxRaceID",
+      "732",
+      "Maximum Race ID, RoF2 by default supports up to 732"
+    ],
+    [
+      1,
+      "NPC:MinorNPCCorpseDecayTime",
+      "450000",
+      "NPC corpse decay time, if NPC below level 55 (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:NPCBackstabMod",
+      "1.8999999761581",
+      "Multiplier for NPC Backstab, Higher = Lower backstab amount"
+    ],
+    [
+      1,
+      "NPC:NPCGateDistanceBind",
+      "75",
+      "Distance from bind before NPC will attempt to gate"
+    ],
+    [
+      1,
+      "NPC:NPCGateNearBind",
+      "false",
+      "Will NPC attempt to gate when near bind location?"
+    ],
+    [
+      1,
+      "NPC:NPCGatePercent",
+      "20",
+      " Percentage at which the NPC Will attempt to gate at"
+    ],
+    [
+      1,
+      "NPC:NPCHasteCap",
+      "150",
+      "Haste cap for non-v3(over haste) haste"
+    ],
+    [
+      1,
+      "NPC:NPCHastev3Cap",
+      "25",
+      "Haste cap for v3(over haste) haste"
+    ],
+    [
+      1,
+      "NPC:NPCHealOnGate",
+      "true",
+      "Will the NPC Heal on Gate"
+    ],
+    [
+      1,
+      "NPC:NPCHealOnGateAmount",
+      "25.0000000000000",
+      "How much the NPC will heal on gate if enabled"
+    ],
+    [
+      1,
+      "NPC:NPCIgnoreLevelBasedHasteCaps",
+      "false",
+      "Ignores hard coded level based haste caps."
+    ],
+    [
+      1,
+      "NPC:NPCToNPCAggroTimerMax",
+      "6000",
+      "Maximum time span after which one NPC aggro another NPC (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:NPCToNPCAggroTimerMin",
+      "500",
+      "Minimum time span after which one NPC aggro another NPC (milliseconds)"
+    ],
+    [
+      1,
+      "NPC:NewLevelScaling",
+      "true",
+      "Better level scaling, use old if new formulas would break your server"
+    ],
+    [
+      1,
+      "NPC:OOCRegen",
+      "1",
+      "Enable out-of-combat regeneration for NPC"
+    ],
+    [
+      1,
+      "NPC:SayPauseTimeInSec",
+      "10",
+      "Time span in which an NPC pauses his movement after a Say event without aggro (seconds)"
+    ],
+    [
+      1,
+      "NPC:SmartLastFightingDelayMoving",
+      "true",
+      "When true, mobs that started going home previously will do so again immediately if still on FD hate list"
+    ],
+    [
+      1,
+      "NPC:StartEnrageValue",
+      "9",
+      " Percentage HP that an NPC will begin to enrage"
+    ],
+    [
+      1,
+      "NPC:UseBaneDamage",
+      "false",
+      "If NPCs can't inherently hit the target we don't add bane/magic dmg which isn't exactly the same as PCs"
+    ],
+    [
+      1,
+      "NPC:UseClassAsLastName",
+      "true",
+      "Uses class archetype as LastName for NPC with none"
+    ],
+    [
+      1,
+      "NPC:UseItemBonusesForNonPets",
+      "true",
+      "Switch whether item bonuses should be used for NPCs who are not pets"
+    ],
+    [
+      1,
+      "NPC:UseMeditateBasedManaRegen",
+      "false",
+      "Based NPC ooc regen on Meditate skill"
+    ],
+    [
+      1,
+      "Network:ClientDataRate",
+      "0.0000000000000",
+      "KB / sec, 0.0 disabled"
+    ],
+    [
+      1,
+      "Network:CompressZoneStream",
+      "true",
+      "Setting whether the zone stream should be compressed for transmission"
+    ],
+    [
+      1,
+      "Network:ResendDelayBaseMS",
+      "100",
+      "Base delay for resending data in EQStreamManager (milliseconds)"
+    ],
+    [
+      1,
+      "Network:ResendDelayFactor",
+      "1.5000000000000",
+      "Multiplier for the base delay when resending data in EQStreamManager"
+    ],
+    [
+      1,
+      "Network:ResendDelayMaxMS",
+      "5000",
+      "Maximum timespan between two send retries (milliseconds)"
+    ],
+    [
+      1,
+      "Network:ResendDelayMinMS",
+      "100",
+      "Minimum timespan between two send retries (milliseconds)"
+    ],
+    [
+      1,
+      "Parcel:DeleteOnDuplicate",
+      "false",
+      "Delete retrieved item if it creates a lore conflict."
+    ],
+    [
+      1,
+      "Parcel:EnableDirectToInventoryDelivery",
+      "false",
+      "Enable or Disable RoF2 bazaar purchases to be delivered directly to the buyer's inventory."
+    ],
+    [
+      1,
+      "Parcel:EnableParcelMerchants",
+      "true",
+      "Enable or Disable Parcel Merchants.  Requires RoF+ Clients."
+    ],
+    [
+      1,
+      "Parcel:EnablePruning",
+      "false",
+      "Enable the automatic pruning of sent parcels.  Uses rule ParcelPruneDelay for prune delay."
+    ],
+    [
+      1,
+      "Parcel:ParcelDeliveryDelay",
+      "30000",
+      "Sets the time that a player must wait between sending parcels."
+    ],
+    [
+      1,
+      "Parcel:ParcelMaxItems",
+      "50",
+      "The maximum number of parcels a player is allowed to have in their mailbox."
+    ],
+    [
+      1,
+      "Parcel:ParcelPruneDelay",
+      "30",
+      "The number of days after which a parcel is deleted. Items are lost!"
+    ],
+    [
+      1,
+      "Pathing:Fear",
+      "true",
+      "Enable pathing for fear"
+    ],
+    [
+      1,
+      "Pathing:Find",
+      "true",
+      "Enable pathing for FindPerson requests from the client"
+    ],
+    [
+      1,
+      "Pathing:MaxNavmeshNodes",
+      "1024",
+      "Maximum navmesh nodes in a traversable path"
+    ],
+    [
+      1,
+      "Pathing:NavmeshStepSize",
+      "100",
+      "Step size for the movement manager"
+    ],
+    [
+      1,
+      "Pathing:ShortMovementUpdateRange",
+      "130.0000000000000",
+      "Range for short movement updates"
+    ],
+    [
+      1,
+      "Pets:AlwaysAllowPetRename",
+      "true",
+      "Enable this option to allow /changepetname to work without enabling a pet name change via scripts."
+    ],
+    [
+      1,
+      "Pets:AttackCommandRange",
+      "200.0000000000000",
+      "Range at which a pet will respond to attack commands"
+    ],
+    [
+      1,
+      "Pets:CanTakeNoDrop",
+      "false",
+      "Setting whether anyone can give no-drop items to pets"
+    ],
+    [
+      1,
+      "Pets:ClientPetsUseOwnerNameInLastName",
+      "true",
+      "Disable this to keep client pet's last names from being owner_name's pet"
+    ],
+    [
+      1,
+      "Pets:LivelikeBreakCharmOnInvis",
+      "true",
+      "Default: true will break charm on any type of invis (hide/ivu/iva/etc) false will only break if the pet can not see you (ex. you have an undead pet and cast IVU"
+    ],
+    [
+      1,
+      "Pets:PetPowerLevelCap",
+      "10.0000000000000",
+      "Maximum number of levels a player pet can go up with pet power"
+    ],
+    [
+      1,
+      "Pets:PetTauntRange",
+      "150",
+      "Range at which a pet will taunt targets."
+    ],
+    [
+      1,
+      "Pets:PetsRequireLoS",
+      "false",
+      "Whether or not pets require line of sight to be told to attack their target"
+    ],
+    [
+      1,
+      "Pets:UnTargetableSwarmPet",
+      "false",
+      "Setting whether swarm pets should be targetable"
+    ],
+    [
+      1,
+      "QueryServ:PlayerDropItems",
+      "false",
+      "Log player dropping items"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogAAPurchases",
+      "false",
+      "Log player AA purchases"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogAARate",
+      "false",
+      "Log player AA experience rates"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogAlternateCurrencyTransactions",
+      "false",
+      "Log player alternate currency transactions"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogChat",
+      "false",
+      "Log player chat"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogConnectDisconnect",
+      "false",
+      "Logs player connect/disconnect state"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogDeaths",
+      "false",
+      "Log player deaths"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogDeletes",
+      "false",
+      "Log player deletes"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogHandins",
+      "false",
+      "Log player hand ins"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogIssuedCommandes",
+      "false",
+      "Log player issued commands"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogLevels",
+      "false",
+      "Log player leveling/deleveling"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogMerchantTransactions",
+      "false",
+      "Log merchant transactions"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogMoves",
+      "false",
+      "Log player moves"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogNPCKills",
+      "false",
+      "Log player NPC kills"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogQGlobalUpdate",
+      "false",
+      "Log player QGlobal updates"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogTaskUpdates",
+      "false",
+      "Log player Task updates"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogTradeSkillEvents",
+      "false",
+      "Log player tradeskill transactions"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogTrades",
+      "false",
+      "Log player trades"
+    ],
+    [
+      1,
+      "QueryServ:PlayerLogZone",
+      "false",
+      "Log player zone events"
+    ],
+    [
+      1,
+      "Range:Anims",
+      "135",
+      "The packet range in which begin cast messages are sent"
+    ],
+    [
+      1,
+      "Range:BeginCast",
+      "200",
+      "The packet range in which begin cast messages are sent"
+    ],
+    [
+      1,
+      "Range:ClientPositionUpdates",
+      "300",
+      "Distance in which the own changed position is communicated to other clients"
+    ],
+    [
+      1,
+      "Range:CriticalDamage",
+      "80",
+      "The packet range in which critical hit messages are sent"
+    ],
+    [
+      1,
+      "Range:DamageMessages",
+      "50",
+      "The packet range in which damage messages are sent (non-crit)"
+    ],
+    [
+      1,
+      "Range:Emote",
+      "135",
+      "The packet range in which emote messages are sent'"
+    ],
+    [
+      1,
+      "Range:MaxDistanceToClickDoors",
+      "100",
+      "Max distance that a client can click a door from (Client says 'You can't reach that' at roughly 25-50 for most doors)"
+    ],
+    [
+      1,
+      "Range:MobCloseScanDistance",
+      "600",
+      "Close scan distance"
+    ],
+    [
+      1,
+      "Range:Say",
+      "135",
+      "The range that is required before /say or hail messages will work to an NPC"
+    ],
+    [
+      1,
+      "Range:SongMessages",
+      "75",
+      "The packet range in which song messages are sent"
+    ],
+    [
+      1,
+      "Range:SpellMessages",
+      "75",
+      "The packet range in which spell damage messages are sent"
+    ],
+    [
+      1,
+      "Range:SpellParticles",
+      "135",
+      "The packet range in which spell particles are sent"
+    ],
+    [
+      1,
+      "Range:StunMessages",
+      "75",
+      "The packet range in which stun messages are sent"
+    ],
+    [
+      1,
+      "Skills:MaxTradeskillSearchSkillDiff",
+      "50",
+      "The maximum difference in skill between the trivial of an item and the skill of the player if the trivial is higher than the skill. Recipes that have not been learnt or made at least once via the Experiment mode will be removed from searches based on this criteria."
+    ],
+    [
+      1,
+      "Skills:MaxTrainResearch",
+      "21",
+      "Highest level for training research from a GM."
+    ],
+    [
+      1,
+      "Skills:MaxTrainSpecializations",
+      "50",
+      "Maximum level a GM trainer will train casting specializations"
+    ],
+    [
+      1,
+      "Skills:MaxTrainTradeskills",
+      "21",
+      "Highest level for trade skills that can be taught by the trainer"
+    ],
+    [
+      1,
+      "Skills:MaximumTauntDistance",
+      "150",
+      "Maximum player taunt distance."
+    ],
+    [
+      1,
+      "Skills:RequireTomeHandin",
+      "false",
+      "Disable click-to-learn and force hand in to Guild Master"
+    ],
+    [
+      1,
+      "Skills:SelfLanguageLearning",
+      "true",
+      "Enabling self-learning of languages"
+    ],
+    [
+      1,
+      "Skills:SenseHeadingStartValue",
+      "200",
+      "Start value of sense heading skill"
+    ],
+    [
+      1,
+      "Skills:SwimmingStartValue",
+      "100",
+      "Start value of swimming skill"
+    ],
+    [
+      1,
+      "Skills:TrackingAutoRefreshSkillUps",
+      "true",
+      "Disable to prevent tracking auto-refresh from giving skill-ups. Classic Style"
+    ],
+    [
+      1,
+      "Skills:TradeSkillClamp",
+      "0",
+      "Legacy tradeskills would clamp at 252 regardless of item modifiers and skill combination. DEFAULT: 0 will bypass clamp. Legacy value 252"
+    ],
+    [
+      1,
+      "Skills:TrainSenseHeading",
+      "false",
+      "Switch whether SenseHeading is trained by use"
+    ],
+    [
+      1,
+      "Skills:TrivialTradeskillCombinesNoFail",
+      "false",
+      "Enable to make all trivial tradeskill combines unable to fail"
+    ],
+    [
+      1,
+      "Skills:UseAltSinisterStrikeFormula",
+      "false",
+      "Enabling will utilize a formula derived from 2004 monkey business post which makes the AA actually worth something."
+    ],
+    [
+      1,
+      "Skills:UseLimitTradeskillSearchSkillDiff",
+      "true",
+      "Enables the limit for the maximum difference between trivial and skill for recipe searches and favorites"
+    ],
+    [
+      1,
+      "Spells:AI_EngagedBeneficialOtherChance",
+      "25",
+      "Chance during second AI Cast check to do a beneficial spell on others"
+    ],
+    [
+      1,
+      "Spells:AI_EngagedBeneficialSelfChance",
+      "100",
+      "Chance during first AI Cast check to do a beneficial spell on self"
+    ],
+    [
+      1,
+      "Spells:AI_EngagedDetrimentalChance",
+      "20",
+      "Chance during third AI Cast check to do a determental spell on others"
+    ],
+    [
+      1,
+      "Spells:AI_EngagedNoSpellMaxRecast",
+      "1000",
+      "AI spell recast time check when no spell is cast engaged. Mmaximum time in random (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AI_EngagedNoSpellMinRecast",
+      "500",
+      "AI spell recast time check when no spell is cast while engaged. Min time in random (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AI_HealHPPct",
+      "50",
+      "Hitpoint percentage at which NPC starts healing when max_hp of the spell is not set (inside and outside combat)"
+    ],
+    [
+      1,
+      "Spells:AI_IdleBeneficialChance",
+      "100",
+      "Chance while idle to do a beneficial spell on self or others"
+    ],
+    [
+      1,
+      "Spells:AI_IdleNoSpellMaxRecast",
+      "60000",
+      "AI spell recast time check when no spell is cast while chasing target. Maximum time in random (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AI_IdleNoSpellMinRecast",
+      "6000",
+      "AI spell recast time check when no spell is cast while idle. Mmin time in random (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AI_PursueDetrimentalChance",
+      "90",
+      "Chance while chasing target to cast a detrimental spell"
+    ],
+    [
+      1,
+      "Spells:AI_PursueNoSpellMaxRecast",
+      "2000",
+      "AI spell recast time check when no spell is cast while chasing target. Maximum time in random (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AI_PursueNoSpellMinRecast",
+      "500",
+      "AI spell recast time check when no spell is cast while chasing target. Mmin time in random (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AI_SpellCastFinishedFailRecast",
+      "800",
+      "AI spell recast time  when an spell is cast but fails, ie if stunned (milliseconds)"
+    ],
+    [
+      1,
+      "Spells:AdditiveBonusWornType",
+      "0",
+      "Calc worn bonuses to add together (instead of taking highest) if set to THIS worn type. (2=Will covert live items automatically)"
+    ],
+    [
+      1,
+      "Spells:AllowDoubleInvis",
+      "true",
+      "Allows you to cast invisibility spells on a player that is already invisible, live like behavior."
+    ],
+    [
+      1,
+      "Spells:AllowExtraDmgSkill",
+      "false",
+      "Allow ExtraDmgSkill from Items, Spells, and AAs to apply ExtraDmgAmt when the ExtraDmgSkill matches the casted Spells Skill Type."
+    ],
+    [
+      1,
+      "Spells:AllowFocusOnSkillDamageSpells",
+      "false",
+      "Allow focus effects 185, 459, and 482 to enhance SkillAttack spell effect 193"
+    ],
+    [
+      1,
+      "Spells:AllowItemTGB",
+      "false",
+      "Target group buff (/tgb) doesn't work with items on live, custom servers want it though"
+    ],
+    [
+      1,
+      "Spells:AllowSpellMemorizeFromItem",
+      "true",
+      "Allows players to memorize spells by right-clicking spell scrolls"
+    ],
+    [
+      1,
+      "Spells:AlwaysSendTargetsBuffs",
+      "true",
+      "Ignore Leadership Alternate Abilities level if true"
+    ],
+    [
+      1,
+      "Spells:AlwaysStackSpells",
+      "",
+      "Comma-Seperated list of spell IDs to always stack with every other spell, except themselves."
+    ],
+    [
+      1,
+      "Spells:AvgSpellProcsPerMinute",
+      "6.0000000000000",
+      "Adjust rate for sympathetic spell procs"
+    ],
+    [
+      1,
+      "Spells:BaseCritChance",
+      "0",
+      "Base percentage chance that everyone has to crit a spell"
+    ],
+    [
+      1,
+      "Spells:BaseCritRatio",
+      "100",
+      "Base percentage bonus to damage on a successful spell crit. 100=2xdamage"
+    ],
+    [
+      1,
+      "Spells:BaseImmunityLevel",
+      "55",
+      "The level that targets start to be immune to stun, fear and mez spells with a maximum level of 0"
+    ],
+    [
+      1,
+      "Spells:BreakFeignDeathWhenCastOn",
+      "2.0000000000000",
+      "Percentage that Feign Death will break when you resist a spell"
+    ],
+    [
+      1,
+      "Spells:BreakSneakWhenCastOn",
+      "2.0000000000000",
+      "Percentage that Sneak will break when you resist a spell"
+    ],
+    [
+      1,
+      "Spells:BuffLevelRestrictions",
+      "true",
+      "Buffs will not land on low level toons like live"
+    ],
+    [
+      1,
+      "Spells:BuffsFadeOnDeath",
+      "true",
+      "Disable to keep buffs from fading on death"
+    ],
+    [
+      1,
+      "Spells:CallOfTheHeroAggroClearDist",
+      "250.0000000000000",
+      "Distance at which CoTH will wipe aggro. To disable and always enable aggro wipe on any distance of CoTH, set to 0."
+    ],
+    [
+      1,
+      "Spells:CazicTouchTargetsPetOwner",
+      "true",
+      "If True, causes Cazic Touch to swap targets from pet to pet owner if a pet is tanking."
+    ],
+    [
+      1,
+      "Spells:CharismaCharmDuration",
+      "false",
+      "Allow CHA resist mod to extend charm duration"
+    ],
+    [
+      1,
+      "Spells:CharismaEffectiveness",
+      "10",
+      "Determines how much resist modification charisma applies to charm/pacify checks. Default 10 CHA = -1 resist mod"
+    ],
+    [
+      1,
+      "Spells:CharismaEffectivenessCap",
+      "255",
+      "Determines how much resist modification charisma applies to charm/pacify checks. Default 10 CHA = -1 resist mod"
+    ],
+    [
+      1,
+      "Spells:CharmAggroOverLevel",
+      "false",
+      "Enabling this rule will cause Charm casts over level to show resisted and cause aggro. Early EQ style."
+    ],
+    [
+      1,
+      "Spells:CharmBreakCheckChance",
+      "25",
+      "Determines chance for a charm break check to occur each buff tick"
+    ],
+    [
+      1,
+      "Spells:CharmDisablesSpecialAbilities",
+      "false",
+      "When charm is cast on an NPC, strip their special abilities"
+    ],
+    [
+      1,
+      "Spells:ClericInnateHealFocus",
+      "5",
+      "Clerics on live get a 5 pct innate heal focus"
+    ],
+    [
+      1,
+      "Spells:CompoundLifetapHeals",
+      "true",
+      "True: Lifetap heals calculate damage bonuses and then heal bonuses.  False:  Lifetaps heal using the amount damaged to mob."
+    ],
+    [
+      1,
+      "Spells:DOTBonusDamageSplitOverDuration",
+      "true",
+      "Disable to have Damage Over Time total bonus damage added to each tick instead of divided across duration"
+    ],
+    [
+      1,
+      "Spells:DOTsScaleWithSpellDmg",
+      "true",
+      "Allow SpellDmg stat to affect DoT spells"
+    ],
+    [
+      1,
+      "Spells:DeathSaveCharismaMod",
+      "3",
+      "Determines how much charisma effects chance of death save firing"
+    ],
+    [
+      1,
+      "Spells:DefaultAOEMaxTargets",
+      "0",
+      "Max number of targets that an AOE spell which does not meet other descriptions can cast on. Set to 0 for no limit."
+    ],
+    [
+      1,
+      "Spells:DefensiveProcPenaltyLevelGap",
+      "6",
+      "Defensive Proc Penalty Level Gap where procs start losing their proc rate at RuleR(Spells, DefensiveProcPenaltyModifier)% per level difference"
+    ],
+    [
+      1,
+      "Spells:DefensiveProcPenaltyLevelGapModifier",
+      "10.0000000000000",
+      "Defensive Proc Penalty Level Gap Modifier where procs start losing their proc rate at defined % after RuleI(Spells, DefensiveProcLevelGap) level difference"
+    ],
+    [
+      1,
+      "Spells:DivineInterventionHeal",
+      "8000",
+      "Divine intervention heal amount"
+    ],
+    [
+      1,
+      "Spells:EnableBlockedBuffs",
+      "true",
+      "Allow blocked spells"
+    ],
+    [
+      1,
+      "Spells:EnableResistSoftCap",
+      "false",
+      "Enabled resist softcap and can be adjusted by rule, SpellResistSoftCap"
+    ],
+    [
+      1,
+      "Spells:EnableSpellBuckets",
+      "false",
+      "If enabled, spells check the spell_buckets table and compare character data from their data buckets before allowing the spell to scribe with scribespells/traindiscs"
+    ],
+    [
+      1,
+      "Spells:EnableSpellGlobals",
+      "false",
+      "If enabled, spells check the spell_globals table and compare character data from their quest globals before allowing the spell to scribe with scribespells/traindiscs"
+    ],
+    [
+      1,
+      "Spells:EvacClearAggroInSameZone",
+      "false",
+      "Enable to clear aggro on clients when evacing in same zone."
+    ],
+    [
+      1,
+      "Spells:EvacClearCharmPet",
+      "false",
+      "Enable to have evac in zone clear charm from charm pets and detach buffs."
+    ],
+    [
+      1,
+      "Spells:FRProjectileItem_NPC",
+      "80684",
+      "Item id for NPC Fire 'spell projectile'"
+    ],
+    [
+      1,
+      "Spells:FRProjectileItem_SOF",
+      "80684",
+      "Item id for SOF clients for Fire 'spell projectile'"
+    ],
+    [
+      1,
+      "Spells:FRProjectileItem_Titanium",
+      "1113",
+      "Item id for Titanium clients for Fire 'spell projectile'"
+    ],
+    [
+      1,
+      "Spells:FearBreakCheckChance",
+      "70",
+      "Determines chance for a fear break check to occur each buff tick"
+    ],
+    [
+      1,
+      "Spells:FixBeaconHeading",
+      "false",
+      "Beacon spells use casters heading to fix live bug.  False: Live like heading always 0."
+    ],
+    [
+      1,
+      "Spells:FlatItemExtraSpellAmt",
+      "true",
+      "Allow SpellDmg stat to affect all spells, regardless of cast time/cooldown/etc"
+    ],
+    [
+      1,
+      "Spells:FocusCombatProcs",
+      "false",
+      "Allow all combat procs to receive focus effects"
+    ],
+    [
+      1,
+      "Spells:HOTBonusHealingSplitOverDuration",
+      "true",
+      "Disable to have Heal Over Time total bonus healing added to each tick instead of divided across duration"
+    ],
+    [
+      1,
+      "Spells:HOTsScaleWithHealAmt",
+      "true",
+      "Allow HealAmt stat to affect HoT spells"
+    ],
+    [
+      1,
+      "Spells:HarmTouchCritRatio",
+      "200",
+      "Harmtouch crit bonus, on top of BaseCritRatio"
+    ],
+    [
+      1,
+      "Spells:HealAmountMessageFilterThreshold",
+      "100",
+      "Lifetaps below this threshold will not have a message sent to the client (Heal will still process) 0 to Disable."
+    ],
+    [
+      1,
+      "Spells:IgnoreSpellDmgLvlRestriction",
+      "true",
+      "Ignore the 5 level spread on applying SpellDmg"
+    ],
+    [
+      1,
+      "Spells:IllusionsAlwaysPersist",
+      "false",
+      "Allows Illusions to persist beyond death and zoning always."
+    ],
+    [
+      1,
+      "Spells:InvisRequiresGroup",
+      "false",
+      "Invis requires the the target to be in group."
+    ],
+    [
+      1,
+      "Spells:ItemExtraSpellAmtCalcAsPercent",
+      "true",
+      "Apply the Item stats Spell Dmg and Heal Amount as Percentage-based modifiers instead of flat additions"
+    ],
+    [
+      1,
+      "Spells:July242002PetResists",
+      "true",
+      "Enable Pets using PCs resist change from July 24 2002"
+    ],
+    [
+      1,
+      "Spells:Jun182014HundredHandsRevamp",
+      "true",
+      "This should be true for if you import a spell file newer than June 18, 2014"
+    ],
+    [
+      1,
+      "Spells:LegacyManaburn",
+      "false",
+      "Enable to have the legacy manaburn system from 2003 and earlier."
+    ],
+    [
+      1,
+      "Spells:LegacyManaburnCap",
+      "9492",
+      "Adjusted the hard cap (Normal or Crit) for the Legacy Manaburn system. DEFAULT: 9492"
+    ],
+    [
+      1,
+      "Spells:LiveLikeFocusEffects",
+      "true",
+      "Determines whether specific healing, dmg and mana reduction focuses are randomized"
+    ],
+    [
+      1,
+      "Spells:ManaTapsOnAnyClass",
+      "false",
+      "Enabling this will allow you to cast mana taps on any class, this will bypass ManaTapsRequireNPCMana rule."
+    ],
+    [
+      1,
+      "Spells:ManaTapsRequireNPCMana",
+      "false",
+      "Enabling will require target to have mana to tap. Default off as many npc's are caster class with 0 mana and need fixed."
+    ],
+    [
+      1,
+      "Spells:MaxBuffSlotsNPC",
+      "85",
+      "Maximum number of NPC buff slots. The default value is the limit of the Titanium client"
+    ],
+    [
+      1,
+      "Spells:MaxDiscSlotsNPC",
+      "1",
+      "Maximum number of NPC disc slots. NPC don't have discs, so it should be 0"
+    ],
+    [
+      1,
+      "Spells:MaxSongSlotsNPC",
+      "10",
+      "Maximum number of NPC song slots. NPC don't have songs, so it should be 0"
+    ],
+    [
+      1,
+      "Spells:MaxTotalSlotsNPC",
+      "85",
+      "Maximum total of NPC slots. The default value is the limit of the Titanium client"
+    ],
+    [
+      1,
+      "Spells:MaxTotalSlotsPET",
+      "30",
+      "Maximum total of pet slots. The default value is the limit of the Titanium client"
+    ],
+    [
+      1,
+      "Spells:NPCBuffLevelRestrictions",
+      "false",
+      "Impose BuffLevelRestrictions on NPCs if true"
+    ],
+    [
+      1,
+      "Spells:NPCIgnoreBaseImmunity",
+      "true",
+      "Whether or not NPC get to ignore the BaseImmunityLevel for their spells"
+    ],
+    [
+      1,
+      "Spells:NPCInnateProcOverride",
+      "true",
+      "NPC innate procs override the target type to single target"
+    ],
+    [
+      1,
+      "Spells:NPCSpellPush",
+      "true",
+      "Enable spell push on NPCs"
+    ],
+    [
+      1,
+      "Spells:NPC_UseFocusFromItems",
+      "false",
+      "Allow NPC to use most item derived focus effects"
+    ],
+    [
+      1,
+      "Spells:NPC_UseFocusFromSpells",
+      "true",
+      "Allow NPC to use most spell derived focus effects"
+    ],
+    [
+      1,
+      "Spells:NightcapHeroicSpellScaling",
+      "true",
+      "Player heroic INT/WIS add 0.1 percent per point to final direct damage/healing; excludes DoTs and HoTs"
+    ],
+    [
+      1,
+      "Spells:NightcapTHJBehaviors",
+      "true",
+      "Enable reviewed THJ custom AAs, resource conversions, and player/permanent-pet focus behavior; requires paired content and client data"
+    ],
+    [
+      1,
+      "Spells:NightcapTHJDamageScaling",
+      "true",
+      "Player/permanent-pet item SD adds to direct damage; half SD per DoT tick before native critical ratio. Healing retains its separate legacy policy"
+    ],
+    [
+      1,
+      "Spells:OldRainTargets",
+      "false",
+      "Use old incorrectly implemented maximum targets for rains"
+    ],
+    [
+      1,
+      "Spells:PointBlankAOEMaxTargets",
+      "0",
+      "Max number of targets a Point-Blank AOE spell can cast on. Set to 0 for no limit."
+    ],
+    [
+      1,
+      "Spells:PreNerfBardAEDoT",
+      "false",
+      "Allow bard AOE dots to damage targets when moving"
+    ],
+    [
+      1,
+      "Spells:PreventFactionWarOnCharmBreak",
+      "false",
+      "Enable spell interupts and dot removal on charm break to prevent faction wars."
+    ],
+    [
+      1,
+      "Spells:ReflectMessagesClose",
+      "true",
+      "True (Live functionality) is for Reflect messages to show to players within close proximity. False shows just player reflecting"
+    ],
+    [
+      1,
+      "Spells:ReflectType",
+      "4",
+      "Reflect type. 0=disabled, 1=single target player spells only, 2=all player spells, 3=all single target spells, 4=all spells"
+    ],
+    [
+      1,
+      "Spells:RequireMnemonicRetention",
+      "true",
+      "Enabling will require spell slots 9-12 to have the appropriate Mnemonic Retention AA learned."
+    ],
+    [
+      1,
+      "Spells:ResistFalloff",
+      "67",
+      "Maximum that level that will adjust our resist chance based on level modifiers"
+    ],
+    [
+      1,
+      "Spells:ResurrectionEffectBlock",
+      "2",
+      "0 = allow overwrites/rule disabled. If set to 1 = Block all buffs that would overwrite Resurrection Effects. If set to 2 = Will not overwrite Resurrection Effects, instead moves new buff to an empty slot if available. Default is 2."
+    ],
+    [
+      1,
+      "Spells:RootBreakCheckChance",
+      "70",
+      "Determines chance for a root break check to occur each buff tick"
+    ],
+    [
+      1,
+      "Spells:RootBreakFromSpells",
+      "55",
+      "Chance for root to break when cast on"
+    ],
+    [
+      1,
+      "Spells:SHDProcIDOffByOne",
+      "false",
+      "Pre June 2009 SHD spell procs were off by 1, they stopped doing this in June 2009 (UF+ spell files need this false)"
+    ],
+    [
+      1,
+      "Spells:SacrificeItemID",
+      "9963",
+      "Item ID of the item Sacrifice will return (defaults to an Essence Emerald)"
+    ],
+    [
+      1,
+      "Spells:SacrificeMaxLevel",
+      "70",
+      "Last level the spell Sacrifice will work on"
+    ],
+    [
+      1,
+      "Spells:SacrificeMinLevel",
+      "46",
+      "First level the spell Sacrifice will work on"
+    ],
+    [
+      1,
+      "Spells:SnareOverridesSpeedBonuses",
+      "false",
+      "Enabling will allow snares to override any speed bonuses the entity may have. Default: False"
+    ],
+    [
+      1,
+      "Spells:SpellResistSoftCap",
+      "255",
+      "Softcap for spell resists."
+    ],
+    [
+      1,
+      "Spells:SuccorFailChance",
+      "1",
+      "Determines chance for a succor spell not to teleport an invidual player"
+    ],
+    [
+      1,
+      "Spells:SwarmPetTargetLock",
+      "false",
+      "Use old method of swarm pets target locking till target dies then despawning"
+    ],
+    [
+      1,
+      "Spells:TargetedAOEMaxTargets",
+      "4",
+      "Max number of targets a Targeted AOE spell can cast on. Set to 0 for no limit."
+    ],
+    [
+      1,
+      "Spells:TargetsTargetRequiresCombatRange",
+      "true",
+      "Disable to remove combat range requirement from Target's Target Spell Target Type"
+    ],
+    [
+      1,
+      "Spells:TranslocateTimeLimit",
+      "0",
+      "If not zero, time in seconds to accept a Translocate"
+    ],
+    [
+      1,
+      "Spells:UseAdditiveFocusFromWornSlot",
+      "false",
+      "Allows an additive focus effect to be calculated from worn slot. Does not apply limits checks. Can only have one additive focus rule be true."
+    ],
+    [
+      1,
+      "Spells:UseAdditiveFocusFromWornSlotWithLimits",
+      "false",
+      "Allows an additive focus effect to be calculated from worn slot. Applies normal limit checks. Can only have one additive focus rule be true."
+    ],
+    [
+      1,
+      "Spells:UseCHAScribeHack",
+      "false",
+      "ScribeSpells and TrainDiscs quest functions will ignore entries where field 12 is CHA"
+    ],
+    [
+      1,
+      "Spells:UseClassicHarmTouchDamage",
+      "false",
+      "Use pre 2007 Harm Touch calculations - Default: False"
+    ],
+    [
+      1,
+      "Spells:UseClassicSpellFocus",
+      "false",
+      "Enabling will tell the server to handle random focus damage as classic spell imports lack the limit values."
+    ],
+    [
+      1,
+      "Spells:UseFadingMemoriesMaxLevel",
+      "false",
+      "Enables to limit field in spell data to set the max level that over which an NPC will ignore fading memories effect and not lose aggro."
+    ],
+    [
+      1,
+      "Spells:UseItemCastMessage",
+      "false",
+      "Enable to use the \"item begins to glow\" messages when casting from an item."
+    ],
+    [
+      1,
+      "Spells:UseLegacyFizzleCode",
+      "false",
+      "Enable will turn on the legacy fizzle code which is far stricter and more accurate to 2001/2002 testing."
+    ],
+    [
+      1,
+      "Spells:UseLiveSpellProjectileGFX",
+      "false",
+      "Use spell projectile graphics set in the spells_new table (player_1). Server must be using UF+ spell file"
+    ],
+    [
+      1,
+      "Spells:UseSpellImpliedTargeting",
+      "false",
+      "Replicates EQ2-style targeting behavior for spells. Spells will 'pass through' inappropriate targets to target's target if it is appropriate."
+    ],
+    [
+      1,
+      "Spells:WaterMatchRequiredForLoS",
+      "true",
+      "Enable/Disable the requirement of both the attacker/victim being both in or out of water for spells LoS to pass."
+    ],
+    [
+      1,
+      "Spells:WizCritChance",
+      "5",
+      "Wizards crit chance, on top of BaseCritChance"
+    ],
+    [
+      1,
+      "Spells:WizCritLevel",
+      "12",
+      "Level wizards first get spell crits"
+    ],
+    [
+      1,
+      "Spells:WizCritRatio",
+      "0",
+      "Wizards crit bonus, on top of BaseCritRatio (should be 0 for Live-like)"
+    ],
+    [
+      1,
+      "Spells:WizardCritMaximumRandomRatio",
+      "70",
+      "The maximum value for the random range which Wizards and Caster DPS Mercs innately have for spell crit ratio. Set to 70 for vanilla values."
+    ],
+    [
+      1,
+      "Spells:WizardCritMinimumRandomRatio",
+      "20",
+      "The minimum value for the random range which Wizards and Caster DPS Mercs innately have for spell crit ratio. Set to 20 for vanilla values."
+    ],
+    [
+      1,
+      "TaskSystem:EnableTaskProximity",
+      "true",
+      "Enable task proximity system"
+    ],
+    [
+      1,
+      "TaskSystem:EnableTaskSystem",
+      "true",
+      "Globally enable or disable the Task system"
+    ],
+    [
+      1,
+      "TaskSystem:ExpRewardsIgnoreLevelBasedEXPMods",
+      "false",
+      "Rewarding Level Based Exp will ignore Rule LevelBasedEXPMods if true"
+    ],
+    [
+      1,
+      "TaskSystem:KeepOneRecordPerCompletedTask",
+      "true",
+      "Keep only one record per completed task"
+    ],
+    [
+      1,
+      "TaskSystem:MaxUpdateMessages",
+      "50",
+      "Maximum update messages for non-GiveCash activity types in IncrementDoneCount"
+    ],
+    [
+      1,
+      "TaskSystem:PeriodicCheckTimer",
+      "5",
+      "Seconds between checks for failed tasks. Also used by the 'Touch' activity"
+    ],
+    [
+      1,
+      "TaskSystem:RecordCompletedOptionalActivities",
+      "true",
+      "Record completed optional activities"
+    ],
+    [
+      1,
+      "TaskSystem:RecordCompletedTasks",
+      "true",
+      "Record completed tasks"
+    ],
+    [
+      1,
+      "TaskSystem:RequestCooldownTimerSeconds",
+      "15",
+      "Seconds between allowing characters to request tasks (live-like default: 15 seconds)"
+    ],
+    [
+      1,
+      "TaskSystem:SharedTasksTerminateTimerMS",
+      "120000",
+      "Delay (milliseconds) until a shared task is terminated if requirements are no longer met after member removal (default: 2 minutes)"
+    ],
+    [
+      1,
+      "TaskSystem:SharedTasksWorldProcessRate",
+      "6000",
+      "Timer interval (milliseconds) that shared tasks are processed in world"
+    ],
+    [
+      1,
+      "TaskSystem:UpdateOneElementPerTask",
+      "true",
+      "If true (live-like) task updates only increment the first matching activity. If false all matching elements will be incremented."
+    ],
+    [
+      1,
+      "Watermap:CheckForWaterOnSendTo",
+      "false",
+      "Checks if a mob has moved into/out of water on SendTo"
+    ],
+    [
+      1,
+      "Watermap:CheckForWaterWhenFishing",
+      "true",
+      "Only lets a player fish near water (if a water map exists for the zone)"
+    ],
+    [
+      1,
+      "Watermap:FishingLineLength",
+      "100.0000000000000",
+      "If water is more than this far below the player, it is considered too far to fish"
+    ],
+    [
+      1,
+      "Watermap:FishingLineStepSize",
+      "1.0000000000000",
+      "Basic step size for fishing calc, too small and it will eat cpu, too large and it will miss potential water"
+    ],
+    [
+      1,
+      "Watermap:FishingRodLength",
+      "30.0000000000000",
+      "How far in front of player water must be for fishing to work"
+    ],
+    [
+      1,
+      "World:AddMaxClientsPerIP",
+      "-1",
+      "Maximum number of clients allowed to connect per IP address if account status is < ExemptMaxClientsStatus. Default value: -1 (feature disabled)"
+    ],
+    [
+      1,
+      "World:AddMaxClientsStatus",
+      "-1",
+      "Accounts with status >= this rule will be allowed to use the amount of accounts defined in the AddMaxClientsPerIP. Default value: -1 (feature disabled)"
+    ],
+    [
+      1,
+      "World:BootHour",
+      "0",
+      "Sets the in-game hour world will set when it first boots. 0-24 are valid options, where 0 disables this rule"
+    ],
+    [
+      1,
+      "World:CharacterSelectExpansionSettings",
+      "522239",
+      "Sets the expansion settings bitmask for character select if you wish to override. -1 is off"
+    ],
+    [
+      1,
+      "World:ClearTempMerchantlist",
+      "true",
+      "Clears temp merchant items when world boots"
+    ],
+    [
+      1,
+      "World:CustomFilesAdminLevel",
+      "20",
+      "Admin level at which custom file key is not required when CustomFilesKey is specified"
+    ],
+    [
+      1,
+      "World:CustomFilesKey",
+      "",
+      "Enable if the server requires custom files and sends a key to validate. Empty string to disable. Example: eqcustom_v1"
+    ],
+    [
+      1,
+      "World:CustomFilesUrl",
+      "github.com/knervous/eqnexus/releases",
+      "URL to display at character select if client is missing custom files"
+    ],
+    [
+      1,
+      "World:EnableAutoLogin",
+      "false",
+      "Enables or disables auto login of characters, allowing people to log characters in directly from loginserver to ingame"
+    ],
+    [
+      1,
+      "World:EnableChecksumVerification",
+      "false",
+      "Enable or Disable the Checksum Verification for eqgame.exe and spells_us.txt"
+    ],
+    [
+      1,
+      "World:EnableDevTools",
+      "true",
+      "Enable or Disable the Developer Tools globally (Most of the time you want this enabled)"
+    ],
+    [
+      1,
+      "World:EnableIPExemptions",
+      "false",
+      "If true, ip_exemptions table is used, if there is no entry for the IP it will default to RuleI(World, MaxClientsPerIP)"
+    ],
+    [
+      1,
+      "World:EnablePVPRegions",
+      "true",
+      "Enables or disables PVP Regions automatically setting your PVP flag"
+    ],
+    [
+      1,
+      "World:EnableReturnHomeButton",
+      "true",
+      "Setting whether the Return Home button should be active"
+    ],
+    [
+      1,
+      "World:EnableTutorialButton",
+      "false",
+      "Setting whether the Tutorial button should be active. At least in RoF2 you can always press the button, but it loses its effect"
+    ],
+    [
+      1,
+      "World:EnforceCharacterLimitAtLogin",
+      "false",
+      "Enforce the limit for characters that are online at login"
+    ],
+    [
+      1,
+      "World:ExemptMaxClientsStatus",
+      "-1",
+      "Exempt accounts from the MaxClientsPerIP and AddMaxClientsStatus rules, if their status is >= this value. Default value: -1 (feature disabled)"
+    ],
+    [
+      1,
+      "World:ExpansionSettings",
+      "2097151",
+      "Sets the expansion settings bitmask for the server, This is sent on login to world and affects client expansion settings. Defaults to all expansions enabled up to TSS, value is bitmask"
+    ],
+    [
+      1,
+      "World:FVNoDropFlag",
+      "0",
+      "Sets the Firiona Vie settings on the client, allowing trading of no-drop items. 1=for all players, 2=for GM only"
+    ],
+    [
+      1,
+      "World:GMAccountIPList",
+      "false",
+      "Check IP list against GM accounts. This increases the security of GM accounts, e.g. if you only allow localhost '127.0.0.1' for GM accounts. Think carefully about what you enter!"
+    ],
+    [
+      1,
+      "World:IPExemptionZones",
+      "",
+      "Comma-delimited list of zones to exclude from IP-limit checks. Empty string to disable."
+    ],
+    [
+      1,
+      "World:IPLimitDisconnectAll",
+      "false",
+      "Disconnect all current clients by IP if they go over the IP limit.  This should allow people to quickly reconnect in the case of dead sessions waiting to timeout"
+    ],
+    [
+      1,
+      "World:IsGMPetitionWindowEnabled",
+      "false",
+      "Setting whether the GM petition window is available"
+    ],
+    [
+      1,
+      "World:MOTD",
+      "",
+      "Server MOTD sent on login, change from empty to have this be used instead of variables table 'motd' value"
+    ],
+    [
+      1,
+      "World:MaxClientsPerIP",
+      "-1",
+      "Maximum number of clients allowed to connect per IP address if account status is < AddMaxClientsStatus. Default value: -1 (feature disabled)"
+    ],
+    [
+      1,
+      "World:MaxClientsSetByStatus",
+      "false",
+      "If true, IP Limiting will be set to the status on the account as long as the status is > MaxClientsPerIP"
+    ],
+    [
+      1,
+      "World:MaxLevelForTutorial",
+      "15",
+      "The highest level with which you can enter the tutorial"
+    ],
+    [
+      1,
+      "World:MaximumQuestErrors",
+      "30",
+      "Changes the maximum number of quest errors that can be displayed in #questerrors, default is 30"
+    ],
+    [
+      1,
+      "World:MinGMAntiHackStatus",
+      "11",
+      "Minimum status to check against AntiHack list"
+    ],
+    [
+      1,
+      "World:MinOfflineTimeToReturnHome",
+      "21600",
+      "Minimum offline time to activate the Return Home button. 21600 seconds is 6 Hours"
+    ],
+    [
+      1,
+      "World:PVPMinLevel",
+      "0",
+      "Minimum level to pvp"
+    ],
+    [
+      1,
+      "World:PVPSettings",
+      "0",
+      "Sets the PVP settings for the server. 1=Rallos Zek RuleSet, 2=Tallon/Vallon Zek Ruleset, 4=Sullon Zek Ruleset, 6=Discord Ruleset, anything above 6 is the Discord Ruleset without the no-drop restrictions removed. NOTE: edit IsAttackAllowed in Zone-table to accomodate for these rules"
+    ],
+    [
+      1,
+      "World:RealTimeCalculateGuilds",
+      "false",
+      "(Temp feature flag) If true, guilds will be calculated in real time instead of at zone boot. This is a performance hit but allows for more dynamic guilds."
+    ],
+    [
+      1,
+      "World:Rules",
+      "",
+      "Server Rules, change from empty to have this be used instead of variables table 'rules' value, lines are pipe (|) separated, example: A|B|C"
+    ],
+    [
+      1,
+      "World:SoFStartZoneID",
+      "22",
+      "Sets the Starting Zone for SoF Clients separate from Titanium Clients (-1 is disabled)"
+    ],
+    [
+      1,
+      "World:StartZoneSameAsBindOnCreation",
+      "true",
+      "Should the start zone always be the same location as your bind?"
+    ],
+    [
+      1,
+      "World:SupportedClients",
+      "Titanium,SoF,SoD,UF,RoF,RoF2",
+      "Comma-delimited list of clients to restrict to. Supported values are Titanium | SoF | SoD | UF | RoF | RoF2. Example: Titanium,RoF2"
+    ],
+    [
+      1,
+      "World:TellQueueSize",
+      "20",
+      "Maximum tell queue size"
+    ],
+    [
+      1,
+      "World:TitaniumStartZoneID",
+      "-1",
+      "Sets the Starting Zone for Titanium Clients (-1 is disabled). Replaces the old method"
+    ],
+    [
+      1,
+      "World:TutorialZoneID",
+      "202",
+      "Zone ID of the tutorial"
+    ],
+    [
+      1,
+      "World:UseBannedIPsTable",
+      "true",
+      "Toggle whether or not to check incoming client connections against the banned_ips table. Set this value to false to disable this feature"
+    ],
+    [
+      1,
+      "World:UseClientBasedExpansionSettings",
+      "false",
+      "If true it will overrule World, ExpansionSettings and set someone's expansion based on the client they're using"
+    ],
+    [
+      1,
+      "World:UseItemLinksForKeyRing",
+      "false",
+      "Uses item links for Key Ring Listing instead of item name"
+    ],
+    [
+      1,
+      "World:UseOldShadowKnightClassExport",
+      "true",
+      "Disable to have Shadowknight show as Shadow Knight (live-like)"
+    ],
+    [
+      1,
+      "World:ZoneAutobootTimeoutMS",
+      "120000",
+      "Time out for automatic booting of zones in milliseconds"
+    ],
+    [
+      1,
+      "Zone:AllowCrossZoneSpellsOnBots",
+      "false",
+      "Set to true to allow cross zone spells (cast/remove) to affect bots"
+    ],
+    [
+      1,
+      "Zone:AllowCrossZoneSpellsOnMercs",
+      "false",
+      "Set to true to allow cross zone spells (cast/remove) to affect mercenaries"
+    ],
+    [
+      1,
+      "Zone:AllowCrossZoneSpellsOnPets",
+      "false",
+      "Set to true to allow cross zone spells (cast/remove) to affect pets"
+    ],
+    [
+      1,
+      "Zone:AutoShutdownDelay",
+      "5000",
+      "How long a dynamic zone stays loaded while empty (milliseconds)"
+    ],
+    [
+      1,
+      "Zone:ClientLinkdeadMS",
+      "60000",
+      "The time a client remains link dead on the server after a sudden disconnection (milliseconds)"
+    ],
+    [
+      1,
+      "Zone:EbonCrystalItemID",
+      "40902",
+      "Item ID for Ebon Crystal"
+    ],
+    [
+      1,
+      "Zone:EnableLoggedOffReplenishments",
+      "true",
+      "'Replenish mana/hp/end if logged off for MinOfflineTimeToReplenishments"
+    ],
+    [
+      1,
+      "Zone:EnableShadowrest",
+      "true",
+      "Enables or disables the Shadowrest zone feature for player corpses. Default is turned on"
+    ],
+    [
+      1,
+      "Zone:EnableZoneControllerGlobals",
+      "false",
+      "Enables the ability to use quest globals with the zone controller NPC"
+    ],
+    [
+      1,
+      "Zone:FishingChance",
+      "399",
+      "Chance of fishing from zone table vs global table"
+    ],
+    [
+      1,
+      "Zone:ForageChance",
+      "25",
+      "Chance of foraging from zone table vs global table"
+    ],
+    [
+      1,
+      "Zone:GlobalLootMultiplier",
+      "4",
+      "Sets Global Loot drop multiplier for database based drops, useful for double, triple loot etc"
+    ],
+    [
+      1,
+      "Zone:GraveyardTimeMS",
+      "1200000",
+      "Time until a player corpse is moved to a zone's graveyard, if one is specified for the zone (milliseconds)"
+    ],
+    [
+      1,
+      "Zone:HotZoneBonus",
+      "0.7500000000000",
+      "Value which is added to the experience multiplier. This also applies to AA experience."
+    ],
+    [
+      1,
+      "Zone:KillProcessOnDynamicShutdown",
+      "false",
+      "When process has booted a zone and has hit its zone shut down timer, it will hard kill the process to free memory back to the OS"
+    ],
+    [
+      1,
+      "Zone:LevelBasedEXPMods",
+      "true",
+      "Allows you to use the level_exp_mods table in consideration to your players experience hits"
+    ],
+    [
+      1,
+      "Zone:LootTierEpicChance",
+      "500",
+      "Tiered loot: chance out of 10000 to upgrade to Epic (id +400000). 0 disables."
+    ],
+    [
+      1,
+      "Zone:LootTierLegendaryChance",
+      "100",
+      "Tiered loot: chance out of 10000 to upgrade to Legendary (id +600000). 0 disables."
+    ],
+    [
+      1,
+      "Zone:LootTierRareChance",
+      "2000",
+      "Tiered loot: chance out of 10000 a dropped equippable/bag upgrades to Rare (id +200000). 0 disables."
+    ],
+    [
+      1,
+      "Zone:MinOfflineTimeToReplenishments",
+      "21600",
+      "Minimum time a player must be offline before LoggedOffReplenishments becomes active (seconds)"
+    ],
+    [
+      1,
+      "Zone:PEQZoneDebuff1",
+      "4454",
+      "First debuff casted by #peqzone Default is Cursed Keeper's Blight"
+    ],
+    [
+      1,
+      "Zone:PEQZoneDebuff2",
+      "2209",
+      "Second debuff casted by #peqzone Default is Tendrils of Apathy"
+    ],
+    [
+      1,
+      "Zone:PEQZoneHPRatio",
+      "75",
+      "Required HP Ratio to use #peqzone"
+    ],
+    [
+      1,
+      "Zone:PEQZoneReuseTime",
+      "300",
+      "Seconds between two uses of the #peqzone command (Set to 0 to disable)"
+    ],
+    [
+      1,
+      "Zone:RadiantCrystalItemID",
+      "40903",
+      "Item ID for Radiant Crystal"
+    ],
+    [
+      1,
+      "Zone:SpawnEventMin",
+      "3",
+      "When strict is set in spawn_events, specifies the max EQ minutes into the trigger hour a spawn_event will fire. Going below 3 may cause the spawn_event to not fire."
+    ],
+    [
+      1,
+      "Zone:StateSaveBuffs",
+      "true",
+      "Set to true if you want buffs to be saved on shutdown"
+    ],
+    [
+      1,
+      "Zone:StateSaveClearDays",
+      "7",
+      "Clears state save data older than this many days"
+    ],
+    [
+      1,
+      "Zone:StateSaveEntityVariables",
+      "true",
+      "Set to true if you want buffs to be saved on shutdown"
+    ],
+    [
+      1,
+      "Zone:StateSavingOnShutdown",
+      "true",
+      "Set to true if you want zones to save state on shutdown (npcs, corpses, loot, entity variables, buffs etc.)"
+    ],
+    [
+      1,
+      "Zone:UpdateWhoTimer",
+      "120",
+      "Seconds between updates to /who list, CLE stale timer"
+    ],
+    [
+      1,
+      "Zone:UsePEQZoneDebuffs",
+      "false",
+      "Setting if the command #peqzone applies the defined debuffs"
+    ],
+    [
+      1,
+      "Zone:UseZoneController",
+      "true",
+      "Enables the ability to use persistent quest based zone controllers (zone_controller.pl/lua)"
+    ],
+    [
+      1,
+      "Zone:WeatherTimer",
+      "600",
+      "Weather timer when no duration is available"
+    ],
+    [
+      1,
+      "Zone:ZoneShardQuestMenuOnly",
+      "false",
+      "Set to true if you only want quests to show the zone shard menu"
+    ],
+    [
+      2,
+      "NPC:LastFightingDelayMovingMax",
+      "20000",
+      "Maximum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      2,
+      "Spells:SuccorFailChance",
+      "2",
+      "Determines chance for a succor spell not to teleport an invidual player"
+    ],
+    [
+      4,
+      "NPC:LastFightingDelayMovingMax",
+      "20000",
+      "Maximum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      4,
+      "Spells:SuccorFailChance",
+      "2",
+      "Determines chance for a succor spell not to teleport an invidual player"
+    ],
+    [
+      5,
+      "Character:RestRegenTimeToActivate",
+      "0",
+      "Time in seconds for rest state regen to kick in"
+    ],
+    [
+      5,
+      "NPC:LastFightingDelayMovingMax",
+      "20000",
+      "Maximum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      5,
+      "Spells:SuccorFailChance",
+      "2",
+      "Determines chance for a succor spell not to teleport an invidual player"
+    ],
+    [
+      5,
+      "Zone:GraveyardTimeMS",
+      "991200000",
+      "Time until a player corpse is moved to a zone's graveyard, if one is specified for the zone (milliseconds)"
+    ],
+    [
+      6,
+      "Character:RestRegenTimeToActivate",
+      "0",
+      "Time in seconds for rest state regen to kick in"
+    ],
+    [
+      6,
+      "NPC:LastFightingDelayMovingMax",
+      "20000",
+      "Maximum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      6,
+      "Spells:SuccorFailChance",
+      "2",
+      "Determines chance for a succor spell not to teleport an invidual player"
+    ],
+    [
+      6,
+      "Zone:GraveyardTimeMS",
+      "991200000",
+      "Time until a player corpse is moved to a zone's graveyard, if one is specified for the zone (milliseconds)"
+    ],
+    [
+      10,
+      "Adventure:LDoNBaseTrapDifficulty",
+      "15.0",
+      "LDoN base trap difficulty"
+    ],
+    [
+      10,
+      "Adventure:LDoNCriticalFailTrapThreshold",
+      "10.0",
+      "LDoN critical fail trap threshold"
+    ],
+    [
+      10,
+      "Adventure:LDoNTrapDistanceUse",
+      "625",
+      "LDoN trap distance use"
+    ],
+    [
+      10,
+      "Adventure:NumberKillsForBossSpawn",
+      "45",
+      "Number of adventure kills to make the boss spawn"
+    ],
+    [
+      10,
+      "Aggro:IntAggroThreshold",
+      "75",
+      "Int lesser or equal the value will aggro regardless of level difference"
+    ],
+    [
+      10,
+      "Aggro:MeleeRangeAggroMod",
+      "10",
+      "Aggro increase against targets in melee range. 10=10%"
+    ],
+    [
+      10,
+      "Aggro:TunnelVisionAggroMod",
+      "0.75",
+      "People not currently the top hate generate this much hate on a Tunnel Vision mob"
+    ],
+    [
+      10,
+      "Bazaar:MaxSearchResults",
+      "50",
+      "Maximum number of search results in Bazaar"
+    ],
+    [
+      10,
+      "Character:AAExpMultiplier",
+      "0.65",
+      "If greater than 0, the AA experience gained is multiplied by this value. "
+    ],
+    [
+      10,
+      "Character:BaseHPRegenBonusRaces",
+      "4352",
+      "A bitmask of race(s) that receive the regen bonus. Iksar (4096) & Troll (256) = 4352. See common/races.h for the bitmask values"
+    ],
+    [
+      10,
+      "Character:BaseInstrumentSoftCap",
+      "36",
+      "Softcap for instrument mods, 36 commonly referred to as 3.6 as well"
+    ],
+    [
+      10,
+      "Character:BaseRunSpeedCap",
+      "158",
+      "Base Run Speed Cap, on live it's 158% which will give you a runspeed of 1.580 hard capped to 225"
+    ],
+    [
+      10,
+      "Character:ExpMultiplier",
+      "0.65",
+      "If greater than 0, the experience gained is multiplied by this value. "
+    ],
+    [
+      10,
+      "Character:FoodLossPerUpdate",
+      "32",
+      "How much food/water you lose per stamina update"
+    ],
+    [
+      10,
+      "Character:GroupExpMultiplier",
+      "0.65",
+      "The experience in a group is multiplied by this value in addition to the group multiplier. The group multiplier is: 2 members=x 1.2, 3=x1.4, 4=x1.6, 5=x1.8, 6=x2.16"
+    ],
+    [
+      10,
+      "Character:ItemATKCap",
+      "250",
+      "Limit on ATK granted by items"
+    ],
+    [
+      10,
+      "Character:ItemHealthRegenCap",
+      "30",
+      "Limit on health regeneration granted by items"
+    ],
+    [
+      10,
+      "Character:LightBlueModifier",
+      "40",
+      "The experience obtained for light-blue con mobs is multiplied by value/100"
+    ],
+    [
+      10,
+      "Character:MaxExpLevel",
+      "68",
+      "Defines the maximum level that can be reached through experience"
+    ],
+    [
+      10,
+      "Character:MaxLevel",
+      "68",
+      "Sets the highest level for players that can be reached through experience"
+    ],
+    [
+      10,
+      "Character:RedModifier",
+      "150",
+      "The experience obtained for red con mobs is multiplied by value/100"
+    ],
+    [
+      10,
+      "Character:SkillCapMaxLevel",
+      "75",
+      "Sets the Maximum Level used for Skill Caps (from skill_caps table). -1 makes it use MaxLevel rule value. It is set to 75 because PEQ only has skill caps up to that level, and grabbing the players' skill past 75 will return 0, breaking all skills past that level. This helps servers with obsurd level caps (75+ level cap) function without any modifications"
+    ],
+    [
+      10,
+      "Character:YellowModifier",
+      "125",
+      "The experience obtained for yellow con mobs is multiplied by value/100"
+    ],
+    [
+      10,
+      "Chat:GlobalChatLevelLimit",
+      "1",
+      "Level limit you need to of reached to talk in ooc/auction/chat if your karma is too low"
+    ],
+    [
+      10,
+      "Chat:MinStatusToBypassAntiSpam",
+      "100",
+      "Minimum status to bypass the anti-spam system"
+    ],
+    [
+      10,
+      "Combat:BerserkerFrenzyEnd",
+      "45",
+      "Percentage Health Points above which Warrior and Berserker end frenzy"
+    ],
+    [
+      10,
+      "Combat:BerserkerFrenzyStart",
+      "35",
+      "Percentage Health Points below which Warrior and Berserker start frenzy"
+    ],
+    [
+      10,
+      "Combat:DefaultRampageTargets",
+      "1",
+      "Default number of people to hit with rampage"
+    ],
+    [
+      10,
+      "Combat:FleeHPRatio",
+      "25",
+      "HP percentage when a NPC begins to flee"
+    ],
+    [
+      10,
+      "Combat:MinHastedDelay",
+      "400",
+      "Minimum hasted combat delay"
+    ],
+    [
+      10,
+      "Combat:MinRangedAttackDist",
+      "25",
+      "Minimum Distance to use Ranged Attacks"
+    ],
+    [
+      10,
+      "Combat:TauntOverLevel",
+      "1",
+      "Allows you to taunt NPC's over warriors level"
+    ],
+    [
+      10,
+      "Combat:TauntSkillFalloff",
+      "0.33",
+      "For every taunt skill point that's not maxed you lose this percentage chance to taunt"
+    ],
+    [
+      10,
+      "NPC:LastFightingDelayMovingMax",
+      "20000",
+      "Maximum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      10,
+      "NPC:LastFightingDelayMovingMin",
+      "10000",
+      "Minimum time before mob goes home after all aggro loss (milliseconds)"
+    ],
+    [
+      10,
+      "NPC:OOCRegen",
+      "0",
+      "Enable out-of-combat regeneration for NPC"
+    ],
+    [
+      10,
+      "NPC:SayPauseTimeInSec",
+      "5",
+      "Time span in which an NPC pauses his movement after a Say event without aggro (seconds)"
+    ],
+    [
+      10,
+      "Pets:AttackCommandRange",
+      "150",
+      "Range at which a pet will respond to attack commands"
+    ],
+    [
+      10,
+      "Spells:BaseImmunityLevel",
+      "55",
+      "The level that targets start to be immune to stun, fear and mez spells with a maximum level of 0"
+    ],
+    [
+      10,
+      "Spells:CharismaEffectivenessCap",
+      "200",
+      "Determines how much resist modification charisma applies to charm/pacify checks. Default 10 CHA = -1 resist mod"
+    ],
+    [
+      10,
+      "Spells:MaxTotalSlotsPET",
+      "25",
+      "Maximum total of pet slots. The default value is the limit of the Titanium client"
+    ],
+    [
+      10,
+      "Spells:SacrificeMaxLevel",
+      "69",
+      "Last level the spell Sacrifice will work on"
+    ],
+    [
+      10,
+      "Spells:SuccorFailChance",
+      "2",
+      "Determines chance for a succor spell not to teleport an invidual player"
+    ],
+    [
+      10,
+      "Spells:WizCritChance",
+      "7",
+      "Wizards crit chance, on top of BaseCritChance"
+    ],
+    [
+      10,
+      "World:MaxLevelForTutorial",
+      "10",
+      "The highest level with which you can enter the tutorial"
+    ],
+    [
+      10,
+      "World:MinGMAntiHackStatus",
+      "1",
+      "Minimum status to check against AntiHack list"
+    ],
+    [
+      10,
+      "World:SoFStartZoneID",
+      "22",
+      "Sets the Starting Zone for SoF Clients separate from Titanium Clients (-1 is disabled)"
+    ],
+    [
+      10,
+      "World:ZoneAutobootTimeoutMS",
+      "60000",
+      "Time out for automatic booting of zones in milliseconds"
+    ],
+    [
+      10,
+      "Zone:EbonCrystalItemID",
+      "40902",
+      "Item ID for Ebon Crystal"
+    ],
+    [
+      10,
+      "Zone:LevelBasedEXPMods",
+      "false",
+      "Allows you to use the level_exp_mods table in consideration to your players experience hits"
+    ],
+    [
+      10,
+      "Zone:PEQZoneReuseTime",
+      "900",
+      "Seconds between two uses of the #peqzone command (Set to 0 to disable)"
+    ],
+    [
+      10,
+      "Zone:RadiantCrystalItemID",
+      "40903",
+      "Item ID for Radiant Crystal"
+    ]
+  ],
+  "rehearsal": {
+    "records": 310028,
+    "changed": 596,
+    "unchanged": 309432,
+    "items_sha256": "a751b964d8b2e46122781c743dca54d5302326d85abf540c9e48e51659eade3f"
+  },
+  "candidate_image": "sha256:8edfe3c26e00cca59f0ccb3ed1e418ed2f2cbf949ce17c45949890e527a7a81f"
+}

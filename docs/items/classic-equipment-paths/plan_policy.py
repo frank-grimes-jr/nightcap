@@ -3,7 +3,7 @@ import collections,gzip,json,re
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 def main():
- a=json.loads(gzip.decompress((HERE/'acquisition.json.gz').read_bytes()));it={r['id']:r for r in a['items']};audit=json.loads((HERE/'acquisition-audit.json').read_bytes());reached=audit['reached'];policy={};held=[]
+ a=json.loads(gzip.decompress((HERE/'acquisition.json.gz').read_bytes()));it={r['id']:r for r in a['items']};audit=json.loads(gzip.decompress((HERE/'acquisition-audit.json.gz').read_bytes()));reached=audit['reached'];policy={};held=[]
  def add(k,category,**effects):
   i=it[k];effects={f:v for f,v in effects.items() if i[{'focus':'focuseffect','worn':'worneffect'}[f]]<=0}
   if effects:policy[str(k)]={'name':i['Name'],'category':category,**effects}

@@ -174,8 +174,12 @@ Enchanted jewelcraft outputs are distinct from identically named unenchanted/sta
 
 ## Deliberate exclusions
 
-No dormant cultural output promotion is activated. No starter/epic/custom blanket matching. Empty-slot additions do not replace occupied effects, and some reviewed family members therefore remain unchanged. The retained acquisition audit lists unresolved outputs and the policy lists50 named armor candidates whose ingredient/container chain is not yet verified. Tailored racial sets with unresolved forage components remain review items, rather than receiving unsupported availability claims.
+No dormant cultural output promotion is activated. No starter/epic/custom blanket matching. Empty-slot additions do not replace occupied effects, and some reviewed family members therefore remain unchanged. The retained acquisition audit lists unresolved outputs. A separate all-status recipe lookup found no output producer at any of the four qualities for50same-name armor definitions; these orphan duplicates remain unchanged. Tailored racial sets with unresolved forage components remain review items, rather than receiving unsupported availability claims.
 
 ## Validation boundary
 
 Candidate only. Native measurements, independent review and guarded database/cache rehearsal are recorded separately. No deployment, public wiki publication or manual player acceptance is implied by this report.
+
+## Measured results
+
+Current shipping zone04fcbf33 reproduces exactly after incorporating the concurrently deployed AA purchase responsiveness fix. All212pressure,312defense and112offense pairs pass. Incoming-pressure outcomes remain207duration/5deaths on both sides; no matched healing reduction. No-haste timed swings increase38→46 over120seconds;36% Cloak of Flames stays52→52. Existing Prismatic Magic plus60legal offensive AA points retains identical damage through20critical-roll seeds. RankIII enables full200focus on level49 Ice Comet; duplicate item focuses do not add. Native spell figures are formula samples, and outgoing melee resets HP between swings. They do not certify full encounter AI, landed spell resists or ordinary-player zone entry.
