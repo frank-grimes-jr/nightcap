@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "ruleset_id": 1,
+      "rule_name": "Expansion:AutoGrantAAExpansion",
+      "rule_value": "-1",
+      "notes": "Expansion to auto grant AAs up to, [-1 = Disabled, 0 = Classic, 1 = Kunark etc.]"
+    },
+    {
+      "ruleset_id": 1,
+      "rule_name": "Expansion:CurrentExpansion",
+      "rule_value": "0",
+      "notes": "The current expansion enabled for the server [-1 = ALL, 0 = Classic, 1 = Kunark etc.]"
+    },
+    {
+      "ruleset_id": 1,
+      "rule_name": "Expansion:UseCurrentExpansionAAOnly",
+      "rule_value": "false",
+      "notes": "When true will only load AA ranks that match CurrentExpansion rule"
+    },
+    {
+      "ruleset_id": 1,
+      "rule_name": "World:ExpansionSettings",
+      "rule_value": "2097151",
+      "notes": "Sets the expansion settings bitmask for the server, This is sent on login to world and affects client expansion settings. Defaults to all expansions enabled up to TSS, value is bitmask"
+    }
+  ],
+  "variables": []
+}

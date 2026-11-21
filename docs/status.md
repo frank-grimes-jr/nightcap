@@ -1,3 +1,7 @@
+## Classic equipment paths — test branch (2026-11-21)
+
+PR519/520 promoted the validated content package; PR521/522 refreshed its current-client release evidence on dev/test (test82ae0d9f). It contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
+
 ## November 21, 2026 · Equipment ornaments staged
 
 Main PR526 adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The production rehearsal added 14,768 statless designs and preserved all 310,028 previous cache records. Public activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).

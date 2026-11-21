@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "pressure_pairs": 212,
+  "defense_pairs": 312,
+  "offense_pairs": 112,
+  "pressure_outcomes": {
+    "before": {
+      "duration": 207,
+      "player_death": 5
+    },
+    "after": {
+      "duration": 207,
+      "player_death": 5
+    }
+  },
+  "haste_controls": {
+    "haste-control-no_haste": [
+      {
+        "damage": 412,
+        "damaging_swings": 20,
+        "duration_ms": 120000,
+        "interval_ms": 3100,
+        "swings": 38
+      },
+      {
+        "damage": 550,
+        "damaging_swings": 27,
+        "duration_ms": 120000,
+        "interval_ms": 2583,
+        "swings": 46
+      }
+    ],
+    "haste-control-stronger_haste": [
+      {
+        "damage": 607,
+        "damaging_swings": 29,
+        "duration_ms": 120000,
+        "interval_ms": 2279,
+        "swings": 52
+      },
+      {
+        "damage": 607,
+        "damaging_swings": 29,
+        "duration_ms": 120000,
+        "interval_ms": 2279,
+        "swings": 52
+      }
+    ]
+  },
+  "caster_aug_aa_damage_outcomes": [
+    -4265,
+    -3631,
+    -2852
+  ],
+  "input_sha256": "15a069f65716ccad095fbc57db284ebb67ff9a01b62e3e16e95a1bd5727694b9",
+  "limits": "Native spell formula samples, not landed casts/resists/ticks. Timed primary-hand throughput resets HP between swings; not a survival encounter. Incoming pressure includes combat regen/self-heals but no full AI, bash or raid AEs. Player acceptance remains open.",
+  "results_sha256": "fc82cc19a9c9744a526d4e528f4968013d58a1e4eddcbaa9230848e502ab2abc"
+}
