@@ -1,3 +1,4 @@
+#include "common/visible_ornaments.h"
 #include "zone/earned_titles.h"
 #include "common/raid_augment.h"
 #include "zone/raid_augment_custody.h"
@@ -3259,6 +3260,12 @@ void Client::Handle_OP_AugmentItem(const EQApplicationPacket *app)
 					Message(Chat::Red, "Error: No augment found on cursor for inserting.");
 					break;
 				} else {
+					if (NightcapOrnaments::Design(*new_aug->GetItem()) &&
+						(IsAugmentRestricted(tobe_auged->GetItem()->ItemType, new_aug->GetAugmentRestriction()) ||
+						 !NightcapOrnaments::Fits(*tobe_auged->GetItem(), *new_aug->GetItem()))) {
+						Message(Chat::Red, "That ornament does not fit this kind of equipment.");
+						break;
+					}
 					if (NightcapRaidAug::IsReward(new_aug->GetID()) &&
 						!NightcapRaidAug::CanInsert(*tobe_auged, in_augment->augment_index, in_augment->augment_action == AugmentActions::Swap)) {
 						Message(Chat::Red, "One raid augment fits a type-22 socket on chest armor.");

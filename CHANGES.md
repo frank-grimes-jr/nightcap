@@ -1,3 +1,7 @@
+## 2026-11-21 · Visible equipment ornaments
+
+The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](docs/items/visible-ornaments/README.md).
+
 ## 2026-11-21 · Item name quality colors (client candidate)
 
 - Add one quality palette for usable inspection names, Advanced loot and Bazaar seller text: Regular green, Polished blue, Exalted purple, Ascended orange. Hunt Ascension is orange; natural stock names such as Polished Granite Tomahawk remain green. Preserve native equipment warnings and disabled button colors; hover/pressed rows keep their quality color. Native regression and controller tests cover repeated window/row use. Requires a matching signed DLL/catalog publication and client restart, with no server/cache change. Not published or player-accepted. Evidence and exact QA: `docs/releases/item-name-colors-20261121/`. Wiki source and current-public-source publication candidate updated; publication pending.

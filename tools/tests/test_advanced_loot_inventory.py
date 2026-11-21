@@ -12,6 +12,10 @@ def run(root: Path, output: Path):
     source = root / 'server-mods/code/zone/advanced_loot_inventory.cpp'
     # Only dependency includes are replaced; every function body is production code.
     body = '\n'.join(line for line in source.read_text().splitlines() if not line.startswith('#include '))
+    # Campaign refits and item XP have independent native fixtures. This one
+    # hosts the loot, hand-in and forging entry points with inventory/DB doubles.
+    body = body[:body.index("TransferResult RefitLanternItem(")] + body[body.index("static bool PlainUpgradeMetadata("):]
+    body = body[:body.index("void command_itemxp(")]
     fixture = Path(__file__).with_name('advanced_loot_inventory_fixture.cpp').read_text()
     fixture = fixture.replace('ADVANCED_LOOT_POLICY_PATH', (root / 'server-mods/code/zone/advanced_loot_inventory.h').as_posix())
     with tempfile.TemporaryDirectory(prefix='nightcap-advloot-inventory-') as temporary:

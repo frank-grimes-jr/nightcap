@@ -1,3 +1,7 @@
+## November 21, 2026 · Equipment ornaments in development
+
+The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
+
 ## November 21, 2026 · Item-name colors candidate
 
 Source candidate only: usable inspection names, Advanced loot and Bazaar seller text use Regular green, Polished blue, Exalted purple and Ascended orange. Native equipment warnings remain. Proxy `0.13.7-dev` and matching catalogs build locally; signed publication and in-game QA remain open. No server/cache update. Generic native chat, merchant/buyer lists and tooltips are outside this candidate. Wiki source and a scoped current-public-source candidate are prepared but unpublished. [Evidence and QA](releases/item-name-colors-20261121/README.md).

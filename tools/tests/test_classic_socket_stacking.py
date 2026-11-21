@@ -15,6 +15,7 @@ stop = handler.index('\n\t\t\t\t\t) {', start)
 policy = handler[start:stop]
 assert handler.index('in_augment->augment_index > EQ::invaug::SOCKET_END') < handler.index('tobe_auged->GetAugment(')
 fixture = r"""
+#include "common/visible_ornaments.h"
 #include <cassert>
 #include <cstdint>
 using int32=int32_t; using uint8=uint8_t;
@@ -25,7 +26,7 @@ bool allow_hidden=false, enforce=true;
 namespace EQ {
 namespace invaug { constexpr int SOCKET_BEGIN=0, SOCKET_END=5; }
 struct Data {
- int AugSlotType[6]={7,0,22}; bool AugSlotVisible[6]={true,false,true}; int Slots=1,ItemType=10;
+ int AugSlotType[6]={7,0,22}; bool AugSlotVisible[6]={true,false,true}; int Slots=1,ItemType=10,ItemClass=0,AugType=0;
  bool IsClassCommon()const{return true;}
 };
 struct ItemInstance {
@@ -68,6 +69,6 @@ int main(){
 """
 if __name__=='__main__':
     with tempfile.TemporaryDirectory() as tmp:
-        exe=compile_native(Path(tmp),fixture+body+entry+tests)
+        exe=compile_native(Path(tmp),fixture.replace("common/visible_ornaments.h", (root/"common/visible_ornaments.h").as_posix())+body+entry+tests)
         subprocess.run([str(exe)],check=True)
     print('Native socket compatibility, occupancy, replacement and visibility checks passed.')
