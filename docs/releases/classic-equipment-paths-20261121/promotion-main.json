@@ -1,0 +1,9 @@
+{
+  "state": "MERGED",
+  "mergeCommit": {
+    "oid": "688932e26ce24855f658611d08234b0caa5742fe"
+  },
+  "url": "https://github.com/frank-grimes-jr/nightcap/pull/523",
+  "authorization": "AUTHORIZATION.md",
+  "production": "deployed; production-verified.json"
+}

@@ -1,6 +1,6 @@
 {
-  "release": "20261121-classic-equipment-paths-v3",
-  "previous": "20261121-item-name-colors-v1",
+  "release": "20261121-classic-equipment-paths-v4",
+  "previous": "20261121-visible-ornaments-v1",
   "published": false,
   "files": 631,
   "changed": [
@@ -14,5 +14,5 @@
   ],
   "preserved": 624,
   "review": "All authored guides reviewed for effect, acquisition, commands, home and generated catalog impact. Existing custom item/zone numeric catalogs contain no changed stock definitions and remain unchanged. Home already links the updated guides. Historical source drift remains review-required.",
-  "source": "E:\\EQ_Local_Dev\\artifacts\\classic-equipment-paths-20261121\\wiki-current"
+  "source": "E:\\EQ_Local_Dev\\artifacts\\classic-equipment-paths-20261121\\wiki-after-ornaments"
 }

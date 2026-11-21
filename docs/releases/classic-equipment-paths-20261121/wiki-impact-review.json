@@ -222,5 +222,13 @@
     }
   ],
   "generated_catalogs": "No changed stock IDs are introduced to the custom numeric catalog; existing generated pages retain their hashes.",
-  "publication": "pending"
+  "publication": "pending",
+  "successor_review": {
+    "predecessor": "20261121-visible-ornaments-v1",
+    "package": "20261121-classic-equipment-paths-v4",
+    "changed_outputs": 7,
+    "preserved_outputs": 624,
+    "published": false,
+    "scope": "Rebuilt over exact published ornament source; current ornament instructions, item-color guides and all unrelated outputs preserved."
+  }
 }

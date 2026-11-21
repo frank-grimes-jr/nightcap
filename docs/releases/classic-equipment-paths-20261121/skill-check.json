@@ -5,112 +5,122 @@
     "classic-equipment": [
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\README.md",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\policy.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\catalog.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\zone_catalog.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\acquisition_audit.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\test_catalog.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\probe.cpp",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\native.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\native-build.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\make_input.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\validate_native.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\validation.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\items\\classic-equipment-paths\\quest-route-review.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\release.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\candidate-preflight.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\atomic-rehearsal.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\review.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\QA.md",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\wiki_prepare.py",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\wiki-candidate.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\promotion-dev.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       },
       {
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\promotion-test.json",
-        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\promotion-main.json",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\ornament-compatibility.json",
+        "role": "Main PR523 integrated; production/public publication pending; player QA open",
         "state": "unchanged"
       }
     ]

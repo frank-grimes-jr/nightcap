@@ -1,6 +1,6 @@
-## Classic equipment paths — test branch (2026-11-21)
+## Classic equipment paths — deployed (2026-11-21)
 
-PR519/520 promoted the validated content package; PR521/522 refreshed its current-client release evidence on dev/test (test82ae0d9f). It contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
+Main PR523 / 688932e2 is deployed as classic-equipment-paths-20261121-v1 after the ornament rollout. All 636 native pairs pass on reproduced shipping bceda35d. Production rehearsal and activation changed 596 item definitions, preserved 324200 other cache records including all ornaments, and corrected Temple of Solusek Ro access. Fresh stopped backup, saved-state/market preservation, 12 healthy workers, zero errors/restarts and reopened access verified. Existing healing strength, custom augments, ornament runtime and client2026112101 remain unchanged; reconnect. Wiki v4 is prepared over the published ornament wiki but is not published. Manual player QA remains open. [Release evidence](releases/classic-equipment-paths-20261121/README.md) · [QA](releases/classic-equipment-paths-20261121/QA.md).
 
 ## November 21, 2026 · Equipment ornaments staged
 
