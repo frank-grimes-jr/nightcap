@@ -102,6 +102,16 @@
         "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\wiki-candidate.json",
         "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
         "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\promotion-dev.json",
+        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\classic-equipment-paths\\docs\\releases\\classic-equipment-paths-20261121\\promotion-test.json",
+        "role": "Reviewed validated candidate; main/server and public publication pending; player QA open",
+        "state": "unchanged"
       }
     ]
   }
