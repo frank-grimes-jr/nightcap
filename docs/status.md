@@ -1,3 +1,7 @@
+## November 21, 2026 · Broad Classic focus and defense candidate
+
+119 stock families / 476 definitions prepared; 188 paired pressure and 259 paired defense checks pass. Database/cache rehearsal, promotion, deployment and wiki publication pending. Player acceptance OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
+
 ## November 20, 2026 · Classic stock focus coverage deployed
 
 19 stock families / 76 definitions now provide broader haste, healing and mana-preservation coverage. The mana-only correction removes unintended savings without reducing healing strength. Dev/test/main, zero-player production deployment and all twelve workers verified; the official wiki is published. Native 144 paired category and 260 paired pressure comparisons pass. Visible player acceptance remains OPEN. [Audit, evidence and QA](items/classic-focus-coverage/README.md).

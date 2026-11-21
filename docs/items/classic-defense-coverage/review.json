@@ -1,0 +1,8 @@
+{
+  "content": "119 stock families / 476 definitions independently reviewed; all target routes active, all non-effect fields guarded. 84 focus and 40 worn additions, five overlap.",
+  "reviewer": "classic_focus_review",
+  "native": "Input/result/probe hashes verified. 188 pressure pairs and259 defense pairs; no blockers.",
+  "mechanics": "Dodge10 and Parry/Block8 retain strongest ordinary worn behavior. Regeneration head/feet allocation bounds new contribution to3HP and3mana per tick. Skill chance rounding means some low-skill and priest dodge rolls do not change; not universal avoidance improvement.",
+  "release": "Content-only manifest cannot ship diagnostic binary; fullspellrows,zero-playerdrain,stoppedbackup,fullcachecompare,12workers and fail-closed post-SQL guard reviewed.",
+  "player_acceptance": "OPEN"
+}

@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "pressure_pairs": 188,
+  "defense_pairs": 259,
+  "conditional_defensive_rolls": 41440000,
+  "summary": {
+    "ordinary": {
+      "before": {
+        "runs": 108,
+        "outcomes": {
+          "duration": 108
+        },
+        "landed_casts": 973,
+        "damage": 336282,
+        "elapsed_ms": 19440000
+      },
+      "after": {
+        "runs": 108,
+        "outcomes": {
+          "duration": 108
+        },
+        "landed_casts": 803,
+        "damage": 332224,
+        "elapsed_ms": 19440000
+      }
+    },
+    "pressure": {
+      "before": {
+        "runs": 80,
+        "outcomes": {
+          "player_death": 23,
+          "duration": 57
+        },
+        "landed_casts": 2584,
+        "damage": 991178,
+        "elapsed_ms": 12925200
+      },
+      "after": {
+        "runs": 80,
+        "outcomes": {
+          "duration": 75,
+          "player_death": 5
+        },
+        "landed_casts": 3209,
+        "damage": 1051529,
+        "elapsed_ms": 14169000
+      }
+    }
+  },
+  "input_sha256": "597d4f7cb144ebc8e60e4be5485764a1221a3b0be93847b7f09e558a01957572",
+  "result_sha256": "d12538936bc885b504f09a4b3ad7fbd588b39d3841b20ee6dddfda708426bfbe",
+  "limits": "Actual native skill-roll checks and primary-hand pressure with six-second combat regen; not full NPC AI, special attack rounds, bash/stun or raid AE simulation. Conditional skill avoidance is not total incoming hit-rate reduction. Player acceptance remains open."
+}
