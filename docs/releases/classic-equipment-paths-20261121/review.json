@@ -13,5 +13,6 @@
     "Typed FLOAT literal conversion retains exact stored precision; negative drift and atomic rollback tests required"
   ],
   "player_acceptance": "open",
-  "final_review": "No blockers: typed FLOAT guards match schema, native input/probe/result hashes match, current shipping04fcbf33 reproduces. Level49, duplicates, existing Magic scale/60AA points, critical outcomes, haste and healing protections pass."
+  "final_review": "No blockers: typed FLOAT guards match schema, native input/probe/result hashes match, current shipping04fcbf33 reproduces. Level49, duplicates, existing Magic scale/60AA points, critical outcomes, haste and healing protections pass.",
+  "client_reconciliation": "Item-name-colors main/production client2026112101 and public wiki preserved; fresh read confirms identical server image/binaries/rules/caches. Refresh release metadata and public predecessor only."
 }
