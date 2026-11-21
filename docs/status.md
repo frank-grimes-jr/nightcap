@@ -1,3 +1,8 @@
+## Classic equipment paths — candidate (2026-11-21)
+
+New worktree feature/classic-equipment-paths contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
+
+
 ## November 21, 2026 · Broad Classic focus and defense
 
 119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions, with five overlaps. Empty fields only; existing stats/effects/custom content and healing strength preserved. Native 188 pressure / 259 defense pairs and guarded SQL/cache rehearsal pass. Content-only release retains current production binaries, spell cache and signed client; older unrelated dev source is preserved. Exact in-game QA: docs/releases/classic-defense-coverage-20261121/QA.md. Player acceptance OPEN; deployment requires a recorded activation receipt.
