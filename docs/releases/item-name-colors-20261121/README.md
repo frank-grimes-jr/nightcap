@@ -1,8 +1,9 @@
 # Item name quality colors
 
-November 21, 2026 source candidate on `feature/item-name-colors`, based on freshly
-fetched main `0b7ca302`. No production or signed-client publication has occurred.
-Owner visible acceptance remains open.
+November 21, 2026: merged to main in PR517 (`c65d6adc`) and published as signed
+client `2026112101` / proxy `0.13.7-dev`. Wiki `20261121-item-name-colors-v1` is
+published and verified. Owner visible acceptance remains open. The newer AA
+purchase runtime and all five service identities stayed unchanged.
 
 ## Behavior and review
 
@@ -15,7 +16,7 @@ Owner visible acceptance remains open.
 
 The audit found no quality-color policy in the current proxy. Native item
 inspection selects green/red/purple according to equipment eligibility. The
-candidate colors usable item headings after native rendering, plus Advanced loot
+release colors usable item headings after native rendering, plus Advanced loot
 rows/details and Bazaar seller listing/quote text. Red and native unmet-requirement
 purple remain warnings; the quality palette does not grant equipment access.
 Button normal, hover and pressed text retain the quality color; disabled text
@@ -27,7 +28,7 @@ catalog range. Natural stock names such as Polished Granite Tomahawk remain gree
 IDs alone do not imply quality. Stats, rewards, item names, wire contracts and
 server/cache data are unchanged. Generic native chat links, stock merchant lists,
 tooltips and the Bazaar buyer list have separate rendering paths and are outside
-this candidate's coverage; do not claim universal native text replacement.
+this release's coverage; do not claim universal native text replacement.
 
 ## Native evidence
 
@@ -50,7 +51,7 @@ prove final pixels, clipping, real gameplay timing or owner acceptance.
 
 ## Delivery and recovery
 
-Candidate proxy `0.13.7-dev` must ship with its matching generated patch catalog;
+Published proxy `0.13.7-dev` ships with its matching generated patch catalog;
 the launcher's embedded catalog is regenerated too. Preserve the then-current
 signed client manifest and all unrelated assets. No SQL, server build, cache
 regeneration, quest/rule reload or server restart is required. Fully exit EQ and
@@ -58,11 +59,23 @@ use normal launcher Play after an authorized signed publication. Never copy into
 the protected reference client. Recovery uses a higher signed release counter
 containing the previously verified DLL/catalog pair and current unrelated assets.
 
-Default branch policy and explicit main/publication approval still apply. The
-candidate is not a deployed fix. Wiki source is updated locally; the three-article
-publication candidate is prepared from `20261121-classic-defense-v1` by
-`prepare_wiki.py`. `wiki-review.json` records the whole-wiki impact assessment.
-Historical source drift remains review-required; no ledger is blindly advanced.
+The owner explicitly authorized main/server publication on November 21; see
+`AUTHORIZATION.md` and `source-merge.json`. The signed envelope and served DLL,
+catalog and retained Inventory XML verify using the shipped production trust key.
+All 148 signed descriptors/history remain valid; 146 unrelated assets retain their
+original descriptors/URLs and were hashed at origin. All 20 Linux publisher/recovery
+tests passed. See `client-staged.json`, `client-published.json` and
+`client-public-verification.json`.
+
+The current AA purchase wiki release `20261121-aa-purchase-latency-v1` reproduced
+all 631 files before edits. Publication changes Equipment, Advanced loot, Change
+Log and search only; 627 outputs stay exact. All 631 public HTTPS hashes/headers
+and five private 404s verify. The updater rehearsed rollback and preserved all
+five services, the client channel and Nginx configuration bytes/inode. All 16 Linux
+wiki publisher/recovery tests and 24 guide/language/refresh tests pass. Exact
+receipts: `wiki-publication.json`, `wiki-public-verification.json` and
+`wiki-candidate.json`. Historical source drift remains REVIEW REQUIRED without
+an unrelated ledger advance. Publication does not establish player acceptance.
 
 ## In-game QA
 
@@ -82,5 +95,5 @@ Historical source drift remains review-required; no ledger is blindly advanced.
 6. Use the Bazaar seller page with QA items. Check quotes/listings at each quality,
    hover/press and quote dismissal. Price, quantity and confirmation behavior must
    remain intact. Use disposable QA listings for transaction checks.
-7. Relog through the launcher-installed candidate; confirm the same colors and no
+7. Relog through the launcher-installed release; confirm the same colors and no
    missing-item or UI-reload crashes. Record screenshots and client generation.

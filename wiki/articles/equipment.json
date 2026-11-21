@@ -55,7 +55,7 @@
     "docs/items/stock-worn-atk/changes.csv",
     "docs/items/sympathetic-clicks/README.md",
     "docs/items/tunnel-distiller/production.json; production stock verified, RoF2 player QA open",
-    "docs/releases/item-name-colors-20261121/README.md; client candidate, unpublished, player QA open"
+    "docs/releases/item-name-colors-20261121/README.md; main PR517; signed2026112101 and wiki20261121-item-name-colors-v1 published; player QA open"
   ],
   "keywords": [
     "#sellall",
