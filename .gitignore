@@ -80,3 +80,5 @@ eq-launcher/cmd/last-lantern-verify/
 # Local native analysis dependencies, client/wiki builds and skill validation copies.
 /artifacts/item-name-colors/
 /docs/releases/item-name-colors-20261121/skill-update/
+/eq-launcher/cmd/item-colors-sign/
+/eq-launcher/cmd/item-colors-verify/

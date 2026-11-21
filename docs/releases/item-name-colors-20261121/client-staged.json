@@ -1,0 +1,12 @@
+{
+  "status": "staged_not_published",
+  "pins": {
+    "channel.json": "06204d6b88079c5a386c1e19eab750bdcdfdbdd6b8f2230374b10452811e2b4f",
+    "previous-channel.json": "c2858b68e9bd8dc639a1ce2e0ea9a5ac1180853df21eade2254f16a4abb2533c",
+    "dinput8.dll": "665eddb9cb11cef77fc15e9c10f42277fa65219e055d13cc4b6e55b0d78fe086",
+    "nightcap-patch-sites.json": "8f653cd770f21f97a39a621cfffb3ce20209be72c029532217fb0d125d734585",
+    "publish.py": "a519d6f8818e82c940eafd48b6fef0b3ceb21c6302268f6854ea5842e0542fa3",
+    "test_publish.py": "6561bb74c68048fff14e7c3dab210e602b3f108fdeae70f2c69f2d7d8001af6a"
+  },
+  "linux_tests": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.227s\n\nOK"
+}

@@ -1,8 +1,8 @@
 {
   "status": "candidate only; not published",
-  "baseline": "20261121-classic-defense-v1",
-  "baseline_source": "E:\\EQ_Local_Dev\\artifacts\\classic-defense-coverage-20261121\\wiki",
-  "candidate_source": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\artifacts\\item-name-colors\\wiki",
+  "baseline": "20261121-aa-purchase-latency-v1",
+  "baseline_source": "E:\\EQ_Local_Dev\\artifacts\\aa-purchase-latency-20261121\\wiki",
+  "candidate_source": "E:\\EQ_Local_Dev\\_worktrees\\item-name-colors\\artifacts\\item-name-colors\\wiki-release\\wiki",
   "articles": [
     {
       "article": "about.json",

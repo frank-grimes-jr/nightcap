@@ -1,11 +1,14 @@
 """Prepare only the item-color guide delta; never publish or advance the ledger."""
 import json
 import shutil
+import subprocess
+import sys
+import hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-BASE = Path('E:/EQ_Local_Dev/artifacts/classic-defense-coverage-20261121/wiki')
-OUT = ROOT / 'artifacts/item-name-colors/wiki'
+BASE = Path('E:/EQ_Local_Dev/artifacts/aa-purchase-latency-20261121/wiki')
+OUT = ROOT / 'artifacts/item-name-colors/wiki-release/wiki'
 EVIDENCE = Path(__file__).resolve().parent
 GUIDE = ('<h2 id="item-name-colors">Item name colors</h2>'
     '<p>Usable item names show their quality: Regular is green, Polished is blue, Exalted is purple, and Ascended is orange.</p>'
@@ -39,6 +42,14 @@ if __name__ == '__main__':
             shutil.copytree(BASE.parent / name, OUT.parent / name)
     if not OUT.exists():
         shutil.copytree(BASE, OUT, ignore=shutil.ignore_patterns('dist', '__pycache__'))
+    # Reproduce the authenticated current publication before applying our delta.
+    if 'item-name-colors' not in json.loads((OUT/'articles/equipment.json').read_bytes())['body']:
+        subprocess.run([sys.executable, '-B', str(OUT/'build.py')],check=True)
+        baseline = json.loads((EVIDENCE/'baseline.json').read_bytes())['wiki_manifest']
+        actual = {p.relative_to(OUT/'dist').as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in (OUT/'dist').rglob('*') if p.is_file()}
+        assert actual == baseline, 'current public wiki reproduction drift'
+        print('Reproduced all',len(actual),'current public wiki files')
     edit(OUT)
     edit(ROOT / 'wiki')
     reviews = []
@@ -46,7 +57,7 @@ if __name__ == '__main__':
         changed = path.name in {'equipment.json', 'advanced-loot.json', 'recent-changes.json'}
         reviews.append({'article': path.name, 'decision': 'color guidance updated' if changed else
             'no impact: no mechanics, acquisition, commands, stats, rates or reward definitions change'})
-    report = {'status': 'candidate only; not published', 'baseline': '20261121-classic-defense-v1',
+    report = {'status': 'candidate only; not published', 'baseline': '20261121-aa-purchase-latency-v1',
         'baseline_source': str(BASE), 'candidate_source': str(OUT), 'articles': reviews,
         'generated_catalogs': 'unchanged: item and zone values, rewards, drop rates and names unchanged',
         'home_features_commands': 'existing owning-guide links retained; this is a display correction',
