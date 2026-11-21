@@ -1,0 +1,14 @@
+{
+  "public_predecessor": "20261120-classic-focus-v3",
+  "candidate_source": "E:\\EQ_Local_Dev\\artifacts\\classic-defense-coverage-20261121\\wiki",
+  "changed_guides": [
+    "Equipment",
+    "Combat",
+    "Features",
+    "Recent changes"
+  ],
+  "generated_search": "Rebuilt from changed guides",
+  "whole_wiki_review": "All authored guides and generated systems reviewed for impact. Home already routes to Features/Equipment; commands unchanged. Numeric catalogs cover custom systems not these stock gear families; loot finder sources unchanged. Preserve catalogs, other guides, game/client/private routes. Global historical source drift remains REVIEW REQUIRED.",
+  "publication": "pending",
+  "gameplay": "candidate until verified activation"
+}

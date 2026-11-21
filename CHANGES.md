@@ -1,3 +1,7 @@
+## 2026-11-21 · Broad Classic focus and defensive coverage
+
+- Candidate: 119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions (five overlap). Existing stats/effects/custom content preserved. Strongest Dodge I / Parry Block I and head/feet regeneration bounded to +3 HP / +3 mana per tick. Native 188 pressure / 259 defense pairs pass; no healing reduction. Content-only cache refresh; no native/client/spell changes. Evidence and exact QA: docs/items/classic-defense-coverage/ and docs/releases/classic-defense-coverage-20261121/. Promotion/deployment pending.
+
 ## 2026-11-20 · Classic stock focus coverage and mana correction
 
 - Add existing spell haste, healing and mana-preservation focuses to19stock families/76definitions. Reject healing slots only during mana-cost focus lookup; preserve all existing healing evaluation, Greater Healing, ranks and custom content. Deployed through dev/test/main after full native build, paired category/pressure validation and guarded SQL/cache rehearsal. All twelve workers and the official wiki verified. Evidence and exact in-game QA: docs/items/classic-focus-coverage/. Requires paired zone binary and item-cache rebuild; no new client download. Deployment status remains in docs/status.md.
