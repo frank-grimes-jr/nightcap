@@ -5,14 +5,21 @@ R=Path('/tmp/nightcap-classic-equipment-paths-20261121')
 OLD=Path('/tmp/nightcap-classic-focus-coverage-20261120')
 s=importlib.util.spec_from_file_location('prior_focus',OLD/'native.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 b,src,build,objs=m.b,m.src,m.build,m.objs
-EXPECTED='04fcbf33eb30f8be9ff478be4af4d48f816364f222e737e20adf90de5d02cd43'
+ORNAMENT=Path('/tmp/nightcap-ornaments-shipping-20261121')
+EXPECTED='bceda35d719343d6e7f7ace503201a76ed47f136866f8ef94cdf95cf4c308f40'
 def main():
     rep=dict(m.rep);rep['spell_effects']=OLD/'correction/candidate/spell_effects.o';rep['aa']=Path('/tmp/nightcap-aa-purchase-latency-20261121/candidate/aa.o')
+    shipping=json.loads((ORNAMENT/'build.json').read_bytes())
+    assert shipping['binaries']['zone']==EXPECTED
+    for name in shipping['objects']:
+        if name.startswith('zone/'):
+            rep[Path(name).stem]=ORNAMENT/'candidate'/(Path(name).stem+'.o')
+    link_args=[str(ORNAMENT/'candidate/zone-libcommon.a') if x.endswith('/libcommon.a') else x for x in m.args]
     reproduced=R/'reproduced';reproduced.mkdir(exist_ok=True)
-    b.linker('shipping',reproduced,build,objs,m.args,rep)
+    b.linker('shipping',reproduced,build,objs,link_args,rep)
     assert b.sha(reproduced/'zone')==EXPECTED,'current shipping reproduction mismatch'
     flags=b.ninja(build,str(objs/'main.cpp.o'));flags=flags[:flags.index('-MD')];index=flags.index('-include-pch');del flags[index-1:index+3]
-    mapping=json.loads((OLD/'correction/candidate/vfs.json').read_bytes())
+    mapping=json.loads((ORNAMENT/'candidate/vfs.json').read_bytes())
     header=str(src/'zone/client.h');entry=next((x for x in mapping['roots'] if x['name']==header),None)
     original=Path(entry['external-contents'] if entry else header).read_text()
     edited=original
@@ -25,7 +32,7 @@ def main():
     vfs=R/'probe-vfs.json';vfs.write_text(json.dumps(mapping))
     b.run([*flags,'-ivfsoverlay',str(vfs),'-I'+str(src/'zone'),'-o',str(R/'probe.o'),'-c',str(R/'probe.cpp')],build,R/'probe.log')
     rep['client']=OLD/'client-diagnostic.o';rep['main']=Path('/tmp/nightcap-classic-stack-20261114/main.o')
-    args=list(m.args);args[1:1]=[str(R/'probe.o'),'-Wl,--wrap=_ZNSt13random_device9_M_getvalEv','-Wl,--wrap=gettimeofday','-Wl,--wrap=time']
+    args=list(link_args);args[1:1]=[str(R/'probe.o'),'-Wl,--wrap=_ZNSt13random_device9_M_getvalEv','-Wl,--wrap=gettimeofday','-Wl,--wrap=time']
     diag=R/'diagnostic';diag.mkdir(exist_ok=True);b.linker('shipping',diag,build,objs,args,rep)
     b.save(R/'native-build.json',{'shipping_zone':EXPECTED,'diagnostic_zone':b.sha(diag/'zone'),'probe':b.sha(R/'probe.cpp'),'adapter':'Retained diagnostic login-completion constructor, clock, RNG and test entry point only. Two regen declarations exposed only to probe compilation; no layout or combat formula modifications.'})
     for name in ['maps','plugins','quests','lua_modules']:
