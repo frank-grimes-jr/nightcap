@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "windows_fault_tests": 10,
+  "linux_fault_tests": 10,
+  "independent_review": "No blockers after guard corrections",
+  "source_pins": {
+    "release.py": "fc0c0db88a98882bd4c2f32f7027aac600cde6ea96b9bbafb7d61705a52ade63",
+    "ship.py": "63f09957ac1c2315bcb18356e00d9b83267d381cdc042e2a03df1a25a9f3de9d",
+    "capture.py": "10c5692ce1d6df68d2e6e74a68df84c2708b082ee08bc47b0a4601f55ba8b61c",
+    "test_release.py": "b3bf04b64dca2126edd10a0c9db54aac05e43a7646b033dacaac87d21c51ccd4"
+  },
+  "scope": "Mocked runtime/DB operations; production preflight and activation remain separately evidenced"
+}

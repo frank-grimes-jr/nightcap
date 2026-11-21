@@ -1,3 +1,7 @@
+## 2026-11-21 · AA purchase freeze candidate
+
+- Avoid the 100-slot cooldown reset on every committed AA purchase: RoF2 rebuilds its AA window for each timer packet. Update only the purchased ready family and active deadlines; retain full resets for login/class changes. Ownership, point costs and cooldown durations remain unchanged. Native client, cooldown and adjacent checks plus exact shipping reproduction/full AA build pass. Server binary update and in-game QA remain pending; no client download or database migration. Evidence: docs/releases/aa-purchase-latency-20261121/.
+
 ## 2026-11-21 · Broad Classic focus and defensive coverage
 
 - Deployed: 119 stock families / 476 definitions gain 84 casting-focus and 40 worn-effect additions (five overlap). Existing stats/effects/custom content preserved. Strongest Dodge I / Parry Block I and head/feet regeneration bounded to +3 HP / +3 mana per tick. Native 188 pressure / 259 defense pairs pass; no healing reduction. Content-only cache refresh; no native/client/spell changes. Evidence and exact QA: docs/items/classic-defense-coverage/ and docs/releases/classic-defense-coverage-20261121/. Merged through dev/test/main; production twelve-worker health verified; official wiki release 20261121-classic-defense-v1 published and verified after explicit owner approval. Player acceptance OPEN.

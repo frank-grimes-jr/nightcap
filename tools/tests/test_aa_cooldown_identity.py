@@ -45,6 +45,7 @@ uint32 clock_now=100000;
 namespace EQ {namespace spells {enum class CastingSlot {AltAbility};}}
 namespace Chat {enum {Red,White,SpellFailure};}
 namespace Class {enum {Warrior=1,Cleric=2,Monk=7,Bard=8};}
+namespace SpellEffect {enum {HastenedAASkill=264};}
 enum {SNEAK_RESTRICT,ST_Pet,ST_SummonedPet,eaSitting,eaStanding,STAND_TO_CAST,
  OP_AAAction,OP_SendAATable};
 struct UseAA_Struct {uint32 ability=0,begin=0,end=0;};
@@ -146,7 +147,8 @@ struct Client {
  uint32 GetAA(int id,uint32* charges=nullptr) const {
   if(charges)*charges=1;const auto it=earned.find(id);return it==earned.end()?0:it->second;
  }
- int GetAlternateAdvancementCooldownReduction(AA::Rank*) const {return reduction;}
+ int NativeCooldownReduction(AA::Rank*);
+ int GetAlternateAdvancementCooldownReduction(AA::Rank* rank) {return reduction+NativeCooldownReduction(rank);}
  template<class... T> void Message(T...) {++rejected;}
  template<class... T> void MessageString(T...) {++rejected;}
  void CommonBreakInvisible() {} int GetPetID() const {return 5;}
@@ -175,6 +177,10 @@ struct Client {
  void SendAlternateAdvancementRank(int,int);
  void SendAlternateAdvancementTimer(int,int,int);
  void SendAlternateAdvancementTimers();
+ void SendAlternateAdvancementTimers(int);
+ void SendAlternateAdvancementPoints() {}
+ void SendAlternateAdvancementStats() {}
+ void PublishPurchase(AA::Rank*);
  void ResetAlternateAdvancementTimer(int);
  void ResetAlternateAdvancementTimers();
  void ResetOnDeathAlternateAdvancement();
@@ -371,6 +377,84 @@ void focused_resend() {
  clock_now+=300;c.actions.clear();c.SendAlternateAdvancementTimers();
  check(active_wire_timers(c,{258}).empty(),"expired AA recreated an active client countdown");
 }
+void purchase_refresh() {
+ Client c;own(c,258);own(c,233);
+ auto* bought=zone->GetAlternateAdvancementRank(258);
+ c.PublishPurchase(bought);
+ check(c.actions.size()==1,"idle purchase must update only its own clock, not rebuild100 times");
+ check(c.actions[0].ability==wire_group(c,258) && c.actions[0].begin==0 && c.actions[0].end==clock_now,
+  "purchased ready ability must explicitly reset its own stable slot");
+ c.ActivateAlternateAdvancementAbility(258,1);c.ActivateAlternateAdvancementAbility(233,1);
+ clock_now+=100;
+ const auto rampage_start=c.p_timers.values.at(pTimerAAStart+109).start;
+ for(int focus:{0,120,1000,-60}) {
+  c.reduction=focus;c.actions.clear();c.PublishPurchase(bought);
+  check(c.actions.size()==2,"purchase must send only the two active family clocks");
+  check(active_wire_timers(c,{258,233})==std::map<int,int64>{{258,500},{233,1700}},
+   "purchase changed a running deadline under focus "+std::to_string(focus));
+  check(c.p_timers.values.at(pTimerAAStart+109).start==rampage_start &&
+   c.p_timers.GetRemainingTime(pTimerAAStart+109)==500 && c.p_timers.GetRemainingTime(pTimerAAStart+98)==1700,
+   "purchase must not rewrite authoritative timers");
+ }
+ // Expired purchased clock must clear even if its newly selected rank would
+ // otherwise make an old client timestamp look active again.
+ clock_now+=600;c.actions.clear();c.PublishPurchase(bought);
+ check(c.actions.size()==2 && active_wire_timers(c,{258,233})==std::map<int,int64>{{233,1100}},
+  "expired purchased clock reset lost another family's running cooldown");
+}
+void purchase_passive_and_zero_reuse() {
+ add_rank(1,2,1,-1,0,0,3,65535); // Innate Strength: no native clock.
+ Client c;own(c,2);c.PublishPurchase(zone->GetAlternateAdvancementRank(2));
+ check(c.actions.empty(),"idle passive purchase must not send timer packets");
+ own(c,258);c.ActivateAlternateAdvancementAbility(258,1);clock_now+=50;
+ c.actions.clear();c.PublishPurchase(zone->GetAlternateAdvancementRank(2));
+ check(c.actions.size()==1 && active_wire_timers(c,{258})==std::map<int,int64>{{258,550}},
+  "passive purchase must preserve active timers without a reset sweep");
+ add_rank(48,147,1,-1,0,0,3,25134);
+ auto* quick=zone->GetAlternateAdvancementRank(147);
+ quick->effects.push_back({127,50,0,1});
+ NightcapQuickBuff::Configure(48,*quick->base_ability,*quick);
+ Client instant;own(instant,147);instant.PublishPurchase(quick);
+ check(instant.actions.size()==1 && instant.actions[0].begin==0 && instant.actions[0].end==clock_now,
+  "purchased Quick Buff must be ready immediately");
+ Client monk;own(monk,1255);monk.PublishPurchase(zone->GetAlternateAdvancementRank(1255));
+ check(monk.actions.size()==1 && monk.actions[0].begin==0 && monk.actions[0].end==clock_now,
+  "purchased Imitate Death must be ready immediately");
+ monk.p_timers.Start(pTimerAAStart+420,1080);own(monk,2);
+ monk.actions.clear();monk.PublishPurchase(zone->GetAlternateAdvancementRank(2));
+ check(monk.actions.size()==1 && monk.actions[0].begin==0 && monk.actions[0].end==clock_now &&
+  !monk.p_timers.Get(pTimerAAStart+420),"purchase must retire and reset a stale Imitate Death wait");
+ monk.actions.clear();monk.PublishPurchase(zone->GetAlternateAdvancementRank(2));
+ check(monk.actions.empty(),"ready Imitate Death must not add work to every passive purchase");
+}
+void purchase_rank_and_haste() {
+ Client upgraded;own(upgraded,1146);
+ const int slot=wire_group(upgraded,1146);
+ upgraded.ActivateAlternateAdvancementAbility(1146,1);clock_now+=100;
+ own(upgraded,1147);upgraded.actions.clear();upgraded.PublishPurchase(zone->GetAlternateAdvancementRank(1147));
+ check(upgraded.actions.size()==1 && upgraded.actions[0].ability==slot &&
+  active_wire_timers(upgraded,{1147})==std::map<int,int64>{{1147,1400}} &&
+  upgraded.p_timers.GetRemainingTime(pTimerAAStart+372)==1400,
+  "rank upgrade from1500s to1200s must retain its existing1400s deadline and slot");
+ add_rank(164,492,1,-1,0,0,4,32769); // Captured Hastened Rampage I.
+ zone->GetAlternateAdvancementRank(492)->effects.push_back({264,60,109,1});
+ Client hastened;own(hastened,258);own(hastened,233);
+ hastened.ActivateAlternateAdvancementAbility(258,1);
+ hastened.ActivateAlternateAdvancementAbility(233,1);clock_now+=100;
+ own(hastened,492);hastened.actions.clear();hastened.PublishPurchase(zone->GetAlternateAdvancementRank(492));
+ check(hastened.GetAlternateAdvancementCooldownReduction(zone->GetAlternateAdvancementRank(258))==60 &&
+  hastened.GetAlternateAdvancementCooldownReduction(zone->GetAlternateAdvancementRank(233))==0,
+  "actual Hastened Rampage reduction must apply only to Rampage");
+ check(hastened.actions.size()==2,"Hastened purchase must send only active clocks");
+ for(const auto& action:hastened.actions) {
+  const bool rampage=action.ability==wire_group(hastened,258);
+  const int seconds=rampage?540:1800;
+  check(int64(seconds)-(int64(action.end)-action.begin)==(rampage?500:1700),
+   "Hastened purchase changed a native projected deadline");
+ }
+ check(hastened.p_timers.GetRemainingTime(pTimerAAStart+109)==500 &&
+  hastened.p_timers.GetRemainingTime(pTimerAAStart+98)==1700,"Hastened purchase changed server timers");
+}
 void quick_buff_activation() {
  add_rank(48,147,1,-1,0,0,3,25134);
  auto* rank=zone->GetAlternateAdvancementRank(147);
@@ -456,6 +540,9 @@ int main(int argc,char** argv) {
   else if(s=="resend")relog(true);
   else if(s=="death-reset")death_reset();
   else if(s=="purchase-stability")purchase_stability();
+  else if(s=="purchase-refresh")purchase_refresh();
+  else if(s=="purchase-passive")purchase_passive_and_zero_reuse();
+  else if(s=="purchase-rank-haste")purchase_rank_and_haste();
   else if(s=="class-remap")class_remap();
   else if(s=="focused-resend")focused_resend();
   else if(s=="completion-pulses")completion_pulses();
@@ -518,6 +605,15 @@ class AACooldownIdentityTests(unittest.TestCase):
             "void Client::ResetAlternateAdvancementTimer(",
             "void Client::ResetAlternateAdvancementTimers(",
             "void Client::ResetOnDeathAlternateAdvancement("))
+        # Exercise the actual post-commit purchase feedback, keeping SQL and
+        # unrelated stats/event hooks outside this timer/packet fixture.
+        purchase = function(aa, "bool Client::FinishAlternateAdvancementPurchase(")
+        feedback = function(purchase, "if (send_message)")
+        methods += "\nvoid Client::PublishPurchase(AA::Rank* rank) {bool send_message=true;auto ability=rank->base_ability;\n" + feedback + "\n}\n"
+        if "void Client::SendAlternateAdvancementTimers(int" in aa:
+            methods += "\n" + function(aa, "void Client::SendAlternateAdvancementTimers(int")
+        methods += "\n" + function(aa, "int Mob::GetAlternateAdvancementCooldownReduction(").replace(
+            "Mob::GetAlternateAdvancementCooldownReduction", "Client::NativeCooldownReduction", 1)
         spells = (SOURCE / "zone/spells.cpp").read_text(encoding="utf-8")
         completion = spells[spells.index("Set Recast Timer on spells."):]
         completion = function(completion, "if (slot == CastingSlot::AltAbility)")
@@ -560,6 +656,9 @@ class AACooldownIdentityTests(unittest.TestCase):
     def test_relog_timer_packets_match_catalog_family_identity(self): self.scenario("resend")
     def test_death_reset_is_scoped_to_flagged_family(self): self.scenario("death-reset")
     def test_wire_slots_do_not_move_on_purchase_or_refund(self): self.scenario("purchase-stability")
+    def test_purchase_refresh_is_bounded_and_preserves_deadlines(self): self.scenario("purchase-refresh")
+    def test_passive_purchases_and_zero_reuse_send_only_needed_updates(self): self.scenario("purchase-passive")
+    def test_rank_upgrade_and_hastened_purchase_preserve_existing_waits(self): self.scenario("purchase-rank-haste")
     def test_class_slot_remap_preserves_family_deadlines(self): self.scenario("class-remap")
     def test_resend_focus_changes_preserve_stored_remaining_time(self): self.scenario("focused-resend")
     def test_native_successful_completion_pulses_target_catalog_slots(self): self.scenario("completion-pulses")
