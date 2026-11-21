@@ -1,0 +1,10 @@
+{
+  "release": "20261121-classic-defense-v1",
+  "state": "UNPUBLISHED",
+  "reason": "Automatic approval review rejected public wiki publication because explicit authorization for this current release was not present. No bypass attempted.",
+  "approval": "Requested asynchronously; no response recorded.",
+  "ready_source": "E:\\EQ_Local_Dev\\artifacts\\classic-defense-coverage-20261121\\wiki",
+  "ready_archive": "E:\\EQ_Local_Dev\\artifacts\\classic-defense-coverage-20261121\\20261121-classic-defense-v1.tar.gz",
+  "current_public_release": "20261120-classic-focus-v3",
+  "gameplay": "Deployed and verified separately."
+}
