@@ -1,0 +1,12 @@
+{
+  "release": "20261121-aa-purchase-latency-v1",
+  "previous": "20261121-classic-defense-v1",
+  "files": 631,
+  "changed": [
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved": 629,
+  "published": false,
+  "review": "All44authored pages plus Home/Features/commands and generated catalogs reviewed; no mechanics, acquisition, values, or guide steps change. Retain historical ledger drift."
+}

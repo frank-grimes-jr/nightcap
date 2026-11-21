@@ -1,6 +1,8 @@
 # AA purchase freeze — November 21, 2026
 
-Candidate built and tested locally. Not deployed or player accepted.
+Owner authorized main and server deployment on November21 (AUTHORIZATION.md).
+Candidate built and tested; activation evidence will record installation.
+Player acceptance remains OPEN.
 
 The owner reports that the whole game briefly freezes on every AA purchase.
 `FinishAlternateAdvancementPurchase` called the full cooldown resynchronization:
@@ -51,6 +53,21 @@ and full `aa.cpp`, and retains the other authenticated shipping link inputs.
   global source drift remains REVIEW REQUIRED in `wiki-refresh.json`.
 
 ## Release and recovery
+
+The November21 preflight capture matches the built native predecessor and has
+zero players and6.39GBfree. The release operator binds both compiled source
+pins, the immutable candidate image and manifest-approved preflight. Independent
+review and10mocked fault tests pass on Windows and Linux. Preserve runtime-file
+hashes as well as caches/publication. The game must stop in under70seconds,
+before the supervisor's forced-exit boundary. Post-backup headroom must exceed2GiB.
+
+Any uncertainty closes admissions. Only a drained game transition that has not
+attempted opening may stop the runtime automatically; a failed drain or possible
+admission keeps the game running. `opening.json` distinguishes possible exposure.
+Do not replay terminal actions. Inspect actual state and receipts; any recovery
+restart needs a fresh clean stop and backup of current player state. An old
+database snapshot is never a recovery action. The binary-only prior image is
+compatible, but restore it only through the supported controlled maintenance flow.
 
 The candidate is not installed. Build artifacts are retained in the local Docker
 container at `/tmp/nightcap-aa-purchase-latency-20261121/`. Before a later release,
