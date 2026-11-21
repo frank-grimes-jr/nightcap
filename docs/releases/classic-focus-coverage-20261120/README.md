@@ -1,0 +1,9 @@
+# Classic focus paired release
+
+The owner authorized the mana-only engine correction, unchanged healing strength, stock Classic focus additions, test/main promotion and production deployment after validation. See ../../items/classic-focus-coverage/AUTHORIZATION.md and the native/input/QA evidence in that folder.
+
+Use paired_ops.py for this release. The older ops.py supplies the retained action helper and documents the earlier content-only candidate; do not use its stage command for the paired binary release. Candidate and final archives are immutable. Never replay completed activation. Read-only status: `python docs/releases/classic-focus-coverage-20261120/paired_ops.py status --job activate`.
+
+The final manifest pins main source, the complete native build, corrected zone, exact item preimages, stock focus spells, cache layout, predecessor services/binaries/cache/client and the retained release operator. Preflight clones the production content into a disposable database, runs forward/replay/inverse, builds and compares all item cache records, and validates the zone-only image. Activation checks zero players, drains admissions, stops the whole runtime cleanly, backs up current state, applies guarded content, selects the paired image and verifies twelve workers before reopening. Post-SQL failures hold access closed. Recovery retains all current player state; see the authorization document's inverse/image procedure.
+
+The production-verified.json receipt is authoritative for actual installation. The initial candidate-preflight.json is content-only historical evidence; correction-candidate-preflight.json validates the paired candidate. The final production preflight/activation receipts and public wiki verification are retained separately. Native fixtures are not full raid or visible-client acceptance.

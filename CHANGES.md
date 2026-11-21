@@ -1,6 +1,6 @@
 ## 2026-11-20 · Classic stock focus coverage and mana correction
 
-- Add existing spell haste, healing and mana-preservation focuses to19stock families/76definitions. Reject healing slots only during mana-cost focus lookup; preserve all existing healing evaluation, Greater Healing, ranks and custom content. Full native build and paired category/pressure validation plus guarded SQL/cache rehearsal precede test/main and production. Evidence and exact in-game QA: docs/items/classic-focus-coverage/. Requires paired zone binary and item-cache rebuild; no new client download. Deployment status remains in docs/status.md.
+- Add existing spell haste, healing and mana-preservation focuses to19stock families/76definitions. Reject healing slots only during mana-cost focus lookup; preserve all existing healing evaluation, Greater Healing, ranks and custom content. Deployed through dev/test/main after full native build, paired category/pressure validation and guarded SQL/cache rehearsal. All twelve workers and the official wiki verified. Evidence and exact in-game QA: docs/items/classic-focus-coverage/. Requires paired zone binary and item-cache rebuild; no new client download. Deployment status remains in docs/status.md.
 
 ## 2026-11-20 · AA availability
 

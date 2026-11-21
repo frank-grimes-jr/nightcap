@@ -1,6 +1,6 @@
-## November20,2026 · Classic stock focus coverage candidate
+## November 20, 2026 · Classic stock focus coverage deployed
 
-19stock families/76definitions fill focus gaps. The authorized mana-only correction preserves healing strength. Native comparison and paired SQL/cache/image rehearsal precede test/main promotion and production. Player acceptance remains OPEN. [Audit and QA](items/classic-focus-coverage/README.md).
+19 stock families / 76 definitions now provide broader haste, healing and mana-preservation coverage. The mana-only correction removes unintended savings without reducing healing strength. Dev/test/main, zero-player production deployment and all twelve workers verified; the official wiki is published. Native 144 paired category and 260 paired pressure comparisons pass. Visible player acceptance remains OPEN. [Audit, evidence and QA](items/classic-focus-coverage/README.md).
 
 # Current Nightcap status
 

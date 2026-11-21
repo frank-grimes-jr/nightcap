@@ -10,7 +10,7 @@
     "stuns_observed": 0
   },
   "scope": "Controlled primary-hand pressure; no full NPC AI, special rounds, pathing, regeneration, or player acceptance",
-  "blocker": "Current shipping healing/mana focus category leak; global correction proposal is sound but unapplied pending owner scope decision",
+  "blocker": "Resolved by owner-authorized mana-only correction, separately reviewed and validated",
   "proposal_checks": [
     "Neither/heal-only/mana-only/both",
     "Mixed item, augment and worn focus sources",
@@ -19,5 +19,5 @@
     "Reproduce incumbent and compile full changed translation unit",
     "Repeat native pressure matrix after correction"
   ],
-  "deployment": "None; test/main/production held"
+  "deployment": "Verified; see correction-review.json and production receipt"
 }

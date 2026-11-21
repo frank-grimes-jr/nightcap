@@ -30,5 +30,7 @@
     "Generated item/zone catalogs",
     "Client downloads"
   ],
-  "scope": "Guide changes plus two existing public-language corrections; all numeric catalogs unchanged"
+  "scope": "Guide changes plus two existing public-language corrections; all numeric catalogs unchanged",
+  "deployment": "Verified classic-focus-coverage-20261120-v2; player acceptance OPEN",
+  "wiki": "Verified 20261120-classic-focus-v3"
 }
