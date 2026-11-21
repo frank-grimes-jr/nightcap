@@ -1,0 +1,194 @@
+{
+  "source": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62",
+  "includes_worktree": true,
+  "publication": "PENDING; candidate source only",
+  "changed": [
+    "unreleased",
+    "recent-changes"
+  ],
+  "review": {
+    "multiclass/combat/launcher": "No purchase steps, costs, ownership, cooldown or client-update instructions change.",
+    "home/features/commands": "Performance repair; no new feature, command or major departure from Classic.",
+    "generated_items/zones/catalogs/build_lab": "No item, zone, rank, effect, numeric or balance changes.",
+    "other_guides": "No acquisition, quest, trade, equipment, pet, travel or progression changes.",
+    "ledger": "Historical global source drift retained; do not advance unrelated reviewed revisions."
+  },
+  "authored_pages": {
+    "about": {
+      "title": "About this wiki",
+      "sha256": "bb0c00893547a84c221292f3954226f049a2a0c5fcf004b577febe81c8b9b79f"
+    },
+    "advanced-loot": {
+      "title": "Advanced loot",
+      "sha256": "007275978669fff6eba2c479af95f901784f7ffa7bc4644a1dae51110d1cfaf6"
+    },
+    "adventure-journal": {
+      "title": "Wayfarer’s Oath: The Last Lantern",
+      "sha256": "29ba9ad7305b2857847bcff8d3c0e16ff8acb2e626acc9d41451e001daa60de4"
+    },
+    "ascension": {
+      "title": "Ascension quest",
+      "sha256": "eccf171315a2dc8d6ac5530da7641976cae1cac1ebde8dc8ea22d2602771115f"
+    },
+    "ashen-compact": {
+      "title": "The Ashen Compact",
+      "sha256": "ae5e25dbe84c86576d6d4feaca6175a378f83f0a19fa641a388706bc9df2ba6c"
+    },
+    "augment-audit": {
+      "title": "Zone augments: rewards and specialties",
+      "sha256": "2096af494d3f9341a3340b3412314d935eec4a8e4c60a3fd57a7b00e0a2c9e18"
+    },
+    "build-lab": {
+      "title": "Build Lab",
+      "sha256": "c941fd2425991e7747c4870a426c3ec7b430f3f8fba0c80eeb8a4ce9f60d5a58"
+    },
+    "camil-vigil": {
+      "title": "The Vigil of the Dawn",
+      "sha256": "e99aadc821e59045685d112c3dca6c8e9facd7827668dcede096a069425524ad"
+    },
+    "classic-raid-augments": {
+      "title": "Classic raid augments",
+      "sha256": "8e4bd9c329534c7b0599852d865417ab3748ec51d0719f19817ec533ad87083a"
+    },
+    "combat": {
+      "title": "Combat, buffs & recovery",
+      "sha256": "40affe2e45fdf1f31967f3c3829b6b987d90687912ab75d5af051c163c2fe79a"
+    },
+    "commands": {
+      "title": "Command reference",
+      "sha256": "39f4685353dd8101e6183f8fd0f66da1ec7157d25ec904644a2f9490e445f705"
+    },
+    "dungeon-modes": {
+      "title": "Raid & Grind dungeons",
+      "sha256": "fe25247d11ca48004c72b1611d94231de301bbe071c51bbdaf39f577ef0c388e"
+    },
+    "equipment": {
+      "title": "Equipment & trading",
+      "sha256": "af5da8a30dfee20d13f9c63e4af43680e2d0741ff30e38de79bc302085ecaa94"
+    },
+    "features": {
+      "title": "Features",
+      "sha256": "4ef546feab199288b9383edbe382a6eca325513df4765abf62840df477237a3b"
+    },
+    "getting-started": {
+      "title": "Getting started",
+      "sha256": "b6d7c1ee4305e1ff4476379fe49cac8f0aaae583f4055e60fa38c5f64e595151"
+    },
+    "index": {
+      "title": "Nightcap Wiki",
+      "sha256": "8f91e36185b045a43a017baeb5d90dbf94d5a2180a49ff819e70231e39b96195"
+    },
+    "item-960420": {
+      "title": "Polished Blade of the Ashen Compact",
+      "sha256": "7dc456845365c6401b581a4966895fb4e38f93e7613b89569ead5d72ad62133e"
+    },
+    "item-960421": {
+      "title": "Ascended Blade of the Ashen Compact",
+      "sha256": "935a676d6a7e1c7182d1ad44a8e118d764d9f888157ade5dbcdb273caef80ea0"
+    },
+    "item-960422": {
+      "title": "Polished Mantle of the Iron Oath",
+      "sha256": "26c777ab5cad3dc2b95e13e49aef3a65f85a413dee4accde1682275af3b5b69c"
+    },
+    "item-960423": {
+      "title": "Ascended Mantle of the Iron Oath",
+      "sha256": "79df52b91a51d178f95d41f76a0005d00681185a420b49f9711b268a2a12ebcb"
+    },
+    "item-960424": {
+      "title": "Polished Seal of Commanded Souls",
+      "sha256": "e4fb2170e37979997419984b05193b415c2e82cc6e04007c3cda0dcfb412d86d"
+    },
+    "item-960425": {
+      "title": "Ascended Seal of Commanded Souls",
+      "sha256": "01d231484a35661a5ce18ede40b1e9af151b888a71ab6f510f24876f419a39bb"
+    },
+    "item-961020": {
+      "title": "Cinder of the Ashen Compact",
+      "sha256": "aea9f156efac1e2bcebfc5ef159f2cc99adab2a7e1f8f7727a283ba2f8863dc4"
+    },
+    "item-961021": {
+      "title": "Cinder of the Ashen Compact (Polished)",
+      "sha256": "a67e8015fd384f35fcc13d930730d49cc817bc49aa2559724d0495ef82a9ec7f"
+    },
+    "item-961022": {
+      "title": "Cinder of the Ashen Compact (Exalted)",
+      "sha256": "c2769c03a2a74ac493eb41248c6764c30c082f639d3d0810e56cbeb68dc62bf1"
+    },
+    "item-961023": {
+      "title": "Cinder of the Ashen Compact (Ascension)",
+      "sha256": "2dece2f1ecd7711a91ac11d04edcfb89a1d676f783c967307835f2a9a54e0ded"
+    },
+    "item-961030": {
+      "title": "Iron Oath Gorget",
+      "sha256": "c4b5870e9b632d6ff9776082acb43abb24787926153b8aed1b20e98c5c6a73a9"
+    },
+    "item-961031": {
+      "title": "Kharzug's War Mantle",
+      "sha256": "3b4b4820713111d92b83f72ab78875f7f4c342831d29395bae89abf6ae289020"
+    },
+    "item-961032": {
+      "title": "Vhalek's Soulcleaver",
+      "sha256": "95602012ff9b11410cdfc8f20223835e4d89434d047018ac04bc9dd1c88af22d"
+    },
+    "item-990510": {
+      "title": "Warhelm of the Ashen Compact",
+      "sha256": "2a1add7b11f0d910209d7bf06f8e0e5b3e9e12ac6563281cb99614f078939408"
+    },
+    "item-upgrades": {
+      "title": "Item upgrades",
+      "sha256": "7e3dfd9a722cfbc5042b0d92d09936de8d159d299406fd843a58b5d1179d8385"
+    },
+    "launcher": {
+      "title": "Launcher & interface",
+      "sha256": "9e433342745b079fd6db2101060c2f3fbf95fd1b0f664e6c9f621ec49d46b4e7"
+    },
+    "loot-finder": {
+      "title": "Loot finder",
+      "sha256": "0248ec75f3e2b0c532fdff25f2ee249fb1e10284c0671d9acf2d6c247e2a9967"
+    },
+    "multiclass": {
+      "title": "Multiclass & progression",
+      "sha256": "4a0bda887063dd12d874c6b5bf50154c0db443fa32b8ec2227f661d1188c263b"
+    },
+    "pets": {
+      "title": "Pets & pet armor",
+      "sha256": "38c6311de1e95f4a0616e92e6a11443e33f2e49cbfb2a5ef3fe4f16cde8c1fb9"
+    },
+    "recent-changes": {
+      "title": "Change Log",
+      "sha256": "4bba1df85b23d0d33475aaf92c1d66e1614dc142a170418ea95815a093c9ca13"
+    },
+    "titles": {
+      "title": "Titles",
+      "sha256": "a088d3291e72348195d4888bff3d110d8d86778c7f77ebd51b06bebd6cbf2ce1"
+    },
+    "tradeskills": {
+      "title": "Tradeskills & Craft All",
+      "sha256": "7f020e7bb97ec38a28d00421b1e7e3519f5c5f5b22ae0448f61fdef45dbb10c3"
+    },
+    "travel": {
+      "title": "Travel & instances",
+      "sha256": "4857d513bcfd22df6fc8fec96c7f015b8144e5b64ce702e5ced2253b2062880b"
+    },
+    "tunnel": {
+      "title": "East Commonlands tunnel",
+      "sha256": "a1d54f0171966192159d97314716a4daa53c6b849eba19285875331f206ac285"
+    },
+    "unreleased": {
+      "title": "In development",
+      "sha256": "27de10482e9017261106d4c6956922e49d8b1fe8c8e5900838e250761efce2b6"
+    },
+    "waypoints": {
+      "title": "Waypoint Explorer",
+      "sha256": "990a2f6acda98f868a30da2f0b2a6eeff9550c7b6472c505eeec6e97a1277e89"
+    },
+    "zone-hunt": {
+      "title": "Zone hunt & forging",
+      "sha256": "807691b5e78848774d20eedde1ad298293cc6257870d86dbccb31960ebfa0fc6"
+    },
+    "zone-kael": {
+      "title": "Kael Drakkel — The Ashen Compact",
+      "sha256": "2c5efd23028146024172b77d3ff03a863b838710a918ffad49cbb09b7054d48b"
+    }
+  }
+}

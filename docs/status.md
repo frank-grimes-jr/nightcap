@@ -1,3 +1,7 @@
+## November 21, 2026 · AA purchase freeze candidate
+
+Confirmed that each purchase sends 100 cooldown-reset packets and each invokes the native AA-window rebuild. The candidate removes that sweep for purchases while preserving active deadlines and login/class resets. Local native build, cooldown regression and pinned-client checks pass; not deployed or player accepted. [Evidence and exact QA](releases/aa-purchase-latency-20261121/README.md).
+
 ## November 21, 2026 · Broad Classic focus and defense deployed
 
 119 stock families / 476 definitions now provide 84 casting-focus and 40 defensive worn additions, with five overlaps. Dev/test/main, zero-player production activation, all twelve workers verified. Official wiki release 20261121-classic-defense-v1 is published and all 631 public files are verified. Native 188 pressure pairs / 259 defensive pairs and full SQL/cache rehearsal pass. Healing strength and custom content are preserved; player encounter acceptance remains OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).

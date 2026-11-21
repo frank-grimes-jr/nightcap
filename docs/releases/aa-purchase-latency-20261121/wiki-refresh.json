@@ -1,0 +1,8 @@
+{
+  "full_output": "wiki-refresh.json.gz",
+  "full_output_sha256": "5577d5f007117c63c5033ec361b887e2b64ea1cc1dc9d7e136579561cd63ce60",
+  "result": "REVIEW REQUIRED",
+  "source_ref": "HEAD",
+  "changed_source_count": 2163,
+  "note": "Full historical drift retained, unrelated review ledger not advanced."
+}

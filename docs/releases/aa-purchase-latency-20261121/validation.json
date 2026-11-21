@@ -1,0 +1,12 @@
+{
+  "cooldown_tests": 21,
+  "native_rof2_checks": 49,
+  "adjacent_tests": 5,
+  "baseline_regression": "FAIL as expected: idle purchase sends100 resets",
+  "candidate_regression": "PASS",
+  "native_build": "PASS; see build.json",
+  "independent_review": "No blocking findings; added requested rank-upgrade and passive-haste controls",
+  "native_boundaries": "SQL persistence, rendered window and live frame time not simulated",
+  "deployment": "NOT DEPLOYED",
+  "player_acceptance": "OPEN"
+}
