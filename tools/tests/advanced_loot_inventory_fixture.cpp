@@ -16,6 +16,10 @@
 #include "common/zone_hunt_catalog.h"
 #include "common/zone_hunt_policy.h"
 #include "common/item_upgrade_policy.h"
+#include "common/item_xp_eligibility.h"
+#include "common/item_xp_metadata.h"
+#include "common/visible_ornaments.h"
+constexpr int INVALID_INDEX = -1;
 using uint8=uint8_t; using uint16=uint16_t; using uint32=uint32_t; using uint64=uint64_t; using int16=int16_t;
 void check(bool value,const char *message) { if(!value) throw std::runtime_error(message); }
 struct InventoryRepository {
@@ -28,6 +32,7 @@ struct InventoryRepository {
 	static std::string ColumnsRaw() { std::string result; for(auto &column:Columns()) { if(!result.empty())result+=","; result+=column; } return result; }
 };
 namespace Strings {
+uint32 ToUnsignedInt(const char *value) { return std::stoul(value); }
 std::string ToLower(std::string value) { return value; }
 std::string Implode(const std::string &separator,const std::vector<std::string> &values) { std::string result; bool first=true; for(const auto &value:values) { if(!first)result+=separator; first=false; result+=value; } return result; }
 }
@@ -42,7 +47,7 @@ namespace EQ {
 namespace invaug { constexpr uint8 SOCKET_COUNT=6; }
 namespace invslot { constexpr int16 EQUIPMENT_BEGIN=0,EQUIPMENT_END=22,GENERAL_BEGIN=23,GENERAL_END=32,slotCursor=33,SLOT_INVALID=-1,TRADE_BEGIN=3000,TRADE_NPC_END=3003; }
 namespace invbag { constexpr uint8 SLOT_COUNT=10; constexpr int16 CURSOR_BAG_BEGIN=351,CURSOR_BAG_END=360; }
-struct ItemData { uint32 ID=1001,Color=0; int16 StackSize=20,MaxCharges=0; uint8 BagSlots=0,BagType=13; int Size=1,BagSize=10; std::string Name; bool Stackable=false; };
+struct ItemData { int ItemClass=0,ItemType=10,AugType=0,Slots=4,HerosForgeModel=0; std::string Lore; uint32 ID=1001,Color=0; int16 StackSize=20,MaxCharges=0; uint8 BagSlots=0,BagType=13; int Size=1,BagSize=10; std::string Name; bool Stackable=false; };
 struct ItemInstance {
 	ItemData data; InventoryRepository::Inventory row; int16 charges=1; bool stackable=false,evolving=false,equipped=false;
 	uint64 evolve_id=0; std::map<uint8,std::shared_ptr<ItemInstance>> contents;
@@ -52,11 +57,12 @@ struct ItemInstance {
 	const ItemInstance *GetItem(uint8 slot)const{auto i=contents.find(slot);return i==contents.end()?nullptr:i->second.get();}
 	uint32 GetID()const{return row.item_id;} int16 GetCharges()const{return charges;} void SetCharges(int value){charges=static_cast<int16>(value);}
 	uint32 GetColor()const{return row.color;}
+	const ItemInstance *GetAugment(int i)const{return GetAugmentItemID(i) ? this : nullptr;}
 	uint32 GetAugmentItemID(int i)const{return std::array<uint32,6>{row.augment_one,row.augment_two,row.augment_three,row.augment_four,row.augment_five,row.augment_six}[i];}
 	bool IsAttuned()const{return row.instnodrop!=0;} std::string GetCustomDataString()const{return row.custom_data;}
 	void SetAttuned(bool b){row.instnodrop=b;} bool IsScaling()const{return false;} bool IsClassCommon()const{return !IsClassBag();}
 	uint32 GetOrnamentationIcon()const{return row.ornament_icon;} uint32 GetOrnamentationIDFile()const{return row.ornament_idfile;}
-	int GetOrnamentHeroModel()const{return row.ornament_hero_model;} uint32 GetSerialNumber()const{return row.guid;} void SetSerialNumber(uint32 id){row.guid=id;}
+	int GetOrnamentHeroModel(int=-1)const{return row.ornament_hero_model;} uint32 GetSerialNumber()const{return row.guid;} void SetSerialNumber(uint32 id){row.guid=id;}
 	bool IsClassBag()const{return data.BagSlots>0;} bool IsStackable()const{return stackable;} ItemInstance *Clone()const{return new ItemInstance(*this);}
 	void SetEvolveEquipped(bool value){equipped=value;} bool IsEvolving()const{return evolving;} uint64 GetEvolveUniqueID()const{return evolve_id;}
 	uint64 GetEvolveCurrentAmount()const{return 10;} void SetEvolveUniqueID(uint64 value){evolve_id=value;}
@@ -68,6 +74,7 @@ struct InventoryProfile {
 	const Lookup *GetLookup()const{return &lookup;}
 	bool CursorEmpty()const{return items.count(invslot::slotCursor)==0;}
 	const ItemInstance *GetItem(int16 slot)const{auto i=items.find(slot);return i==items.end()?nullptr:i->second.get();}
+	ItemInstance *PopItem(int16 slot){const auto current=GetItem(slot);auto result=current ? current->Clone() : nullptr;items.erase(slot);return result;}
 	int16 PutItem(int16 slot,const ItemInstance &item){++puts;if(fail_put)return -1;items[slot]=std::shared_ptr<ItemInstance>(item.Clone());return slot;}
 	static int16 CalcSlotId(int16 parent,uint8 index){return static_cast<int16>(251+(parent-23)*10+index);}
 	static int16 CalcSlotId(int16 child){return static_cast<int16>(23+(child-251)/10);}
@@ -102,6 +109,7 @@ struct ZoneDatabase {
 		if(q.rfind("SHOW COLUMNS",0)==0){for(const auto &column:InventoryRepository::Columns())result.cells.push_back({column});}
 		else if(q.find("information_schema.TABLES")!=std::string::npos)result.cells={{wrong_engine?"0":q.find("nightcap_zone_hunt_state")!=std::string::npos||q.find("nightcap_item_upgrade_state")!=std::string::npos?"2":"3"}};
 		else if(q.find("information_schema.TRIGGERS")!=std::string::npos)result.cells={{"0"}};
+		else if(q.rfind("SELECT ornament FROM",0)==0)result.cells={{"1000000"}};
 		else if(q=="SELECT @@in_transaction")result.cells={{active?"1":"0"}};
 		else if(q=="START TRANSACTION")active=true;
 		else if(q=="COMMIT"){committed=true;active=false;}
@@ -118,7 +126,7 @@ struct ZoneDatabase {
 namespace Chat { constexpr int Red=1; }
 constexpr int ItemPacketTrade=1;
 struct Client {
-	struct TradeState { bool active=false; bool With(){return active;} } trade_state;
+	struct TradeState { int cp=0,sp=0,gp=0,pp=0;bool active=false; bool With(){return active;} } trade_state;
 	TradeState *trade=&trade_state;
 	bool busy=false;
 	bool IsDead()const{return busy;} bool IsEngaged()const{return busy;} bool AutoAttackEnabled()const{return busy;}
@@ -146,6 +154,33 @@ static EQ::ItemInstance Item(bool stack=false,int count=1) {
 static void SaveRow(int16 slot,const EQ::ItemInstance &item) {
 	auto values=NightcapLoot::Values(NightcapLoot::FromItem(77,slot,item));
 	values[12]=item.GetCustomDataString();database.inventory.push_back(values);
+}
+static void TestOrnamentHandin() {
+	using namespace NightcapLoot;
+	auto prepare=[](Client &client){
+		database={};
+		auto item=Item(); item.SetAttuned(true);
+		client.inventory.items[3000]=std::make_shared<EQ::ItemInstance>(item);
+		SaveRow(3000,item);
+		auto &design=database.definitions[1000000];
+		design.ID=1000000; design.ItemType=54; design.AugType=1<<20; design.Lore="Nightcap appearance ornament";
+	};
+	Client client; prepare(client);
+	check(ConvertOrnament(&client)==TransferResult::Delivered,"valid donor failed");
+	check(!client.inventory.GetItem(3000) && client.inventory.GetItem(23)->GetID()==1000000 &&
+		client.inventory.GetItem(23)->IsAttuned(),"donor or binding mismatch");
+	const auto queries=database.queries;
+	for(size_t step=1;step<=queries.size();++step){
+		Client attempt;prepare(attempt);database.fail=static_cast<int>(step);
+		auto result=ConvertOrnament(&attempt);
+		check(result!=TransferResult::Delivered && attempt.inventory.GetItem(3000) &&
+			!attempt.inventory.GetItem(23) && !attempt.packets,"failed exchange published inventory");
+		if(queries[step-1]=="COMMIT")check(attempt.quarantined,"uncertain exchange retried");
+	}
+	Client rejected;prepare(rejected);rejected.trade->pp=1;
+	check(ConvertOrnament(&rejected)==TransferResult::Declined && database.queries.empty(),"coin consumed");
+	rejected.trade->pp=0;rejected.inventory.items.at(3000)->row.augment_one=55;
+	check(ConvertOrnament(&rejected)==TransferResult::Declined && database.queries.empty(),"socketed donor consumed");
 }
 static std::vector<NightcapLoot::ForgeInput> PrepareForge(Client &c) {
 	c.inventory.lookup.PossessionsBitmask|=uint64{1}<<25;
@@ -451,6 +486,7 @@ int main() { try {
 	database={};Client duplicate;
 	check(ReceiveItem(&duplicate,source,{id,id})==TransferResult::Declined && database.queries.empty(),"duplicate physical IDs accepted");
 	check(!ValidDropID("wrong") && ValidDropID(id),"drop identity validation failed");
+	TestOrnamentHandin();
 	TestForge();
 	TestDefaultColors();
 	TestCombine();

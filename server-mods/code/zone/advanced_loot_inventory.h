@@ -25,6 +25,7 @@ TransferResult ForgeItems(Client *client, const std::vector<ForgeInput> &inputs,
 // Uses the four slots in a carried reusable reforging box.
 TransferResult CombineUpgrade(Client *client, int16_t container_slot, const std::string &request_id);
 // Additional, non-consuming combat progression in the Power Source slot.
+TransferResult ConvertOrnament(Client *client);
 bool CanTrainItem(Client *client, const EQ::ItemInstance *item);
 TransferResult AwardItemExperience(Client *client, uint64_t full_combat_experience);
 // After a completed swap, resend items whose client copy no longer matches its slot:

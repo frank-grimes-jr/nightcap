@@ -1,3 +1,7 @@
+## November 21, 2026 · Equipment ornaments in development
+
+The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
+
 ## Classic equipment paths — candidate (2026-11-21)
 
 New worktree feature/classic-equipment-paths contains149families/596definitions plus the narrowly scoped Temple of Solusek Ro access correction. All636native pairs and content checks pass against current shipping04fcbf33. Guarded rehearsal and atomic drift tests pass; no gameplay activation or new wiki publication yet. Custom augments and existing healing strength remain unchanged. Exact QA: [Classic equipment paths](releases/classic-equipment-paths-20261121/QA.md). The prior classic-defense-coverage deployment remains the live baseline.
