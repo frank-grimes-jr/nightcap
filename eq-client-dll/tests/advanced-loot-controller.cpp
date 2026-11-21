@@ -285,6 +285,20 @@ int main() {
 	assert(!AdvancedLootScreen::Visible()); // unchanged queue respects the close
 	s.total = 10; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
 	assert(!AdvancedLootUI::Consume("ordinary chat"));
+	// Reuse the same live row and detail controls across every quality.
+	for(const auto& sample:std::vector<std::pair<const char*,uint32_t>>{
+		{"Sword (Polished)",0xff0070ddu},{"Sword (Exalted)",0xffa335eeu},
+		{"Sword (Ascended)",0xffff8000u},{"Polished Granite Tomahawk",0xff00ff00u}}){
+		s.rows[0].name=sample.first;s.rows[0].item=213073;SnapshotReady(s);
+		assert(*reinterpret_cast<uint32_t*>(controls.at("NCAL_Row0")->bytes+0x12c)==sample.second);
+		assert(*reinterpret_cast<uint32_t*>(controls.at("NCAL_Row0")->bytes+0x210)==sample.second);
+		assert(*reinterpret_cast<uint32_t*>(controls.at("NCAL_Row0")->bytes+0x214)==sample.second);
+		Click("Row0");Click("Rule");
+		assert(*reinterpret_cast<uint32_t*>(controls.at("NCAL_PanelTitle")->bytes+0x12c)==sample.second);
+		Click("Back");
+	}
+	Click("Options");
+	assert(*reinterpret_cast<uint32_t*>(controls.at("NCAL_PanelTitle")->bytes+0x12c)==0xffffffff);
 	AdvancedLootScreen::Destroy(); assert(!AdvancedLootScreen::Window());
 	std::cout << "PASS: native notification ABI; panels, timeout/retry, commands, snapshots, NO TRADE, inline rule toggles and empty-queue auto-close\n";
 }

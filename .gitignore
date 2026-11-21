@@ -77,3 +77,6 @@ eq-launcher/cmd/last-lantern-verify/
 # Generated Inventory combat-stat release artifacts.
 /artifacts/heroic-stats/
 /artifacts/titles-live-20261114/
+# Local native analysis dependencies, client/wiki builds and skill validation copies.
+/artifacts/item-name-colors/
+/docs/releases/item-name-colors-20261121/skill-update/

@@ -49,6 +49,10 @@ static void Jump(BYTE* site,const void* target) {
 
 using nightcap::client_ui::EqString;
 static std::string rendered;
+static uint32_t drawn_color=0;
+static int __fastcall CaptureButtonText(void*,void*,uint32_t,const EqString*,void*,void*,uint32_t color,uint32_t,uint32_t) {
+ drawn_color=color;return 0;
+}
 static void __fastcall Capture(void*,void*,EqString text,bool,void*) {
  const auto rep=static_cast<const BYTE*>(text.rep);
  rendered=rep?reinterpret_cast<const char*>(rep+0x14):"";
@@ -73,11 +77,29 @@ static BYTE definition[0x300]={};
 static void* __fastcall Definition(void*,void*) { return definition; }
 int main(int argc,char** argv) {
  Check(argc==2,"read-only client path required");auto image=LoadClient(argv[1]);
+ Jump(image+0x489a50,reinterpret_cast<void*>(&CaptureButtonText));
+ // Execute actual CButtonWnd::DrawText through its normal/hover/pressed/disabled
+ // selectors, stopping only at the font renderer (no graphics device in tests).
+ BYTE button[0x280]={};int rect[4]={0,0,200,22};Text button_text("Tiered item");
+ *reinterpret_cast<void**>(button+0x1a8)=button_text.bytes.data();
+ *reinterpret_cast<uint32_t*>(button+0x218)=0xff777777;
+ using DrawButton=int(__thiscall*)(void*,void*,void*);
+ for(uint32_t color:{0xff00ff00u,0xff0070ddu,0xffa335eeu,0xffff8000u}){
+  nightcap::SetItemNameTextColor(button,color,true);
+  for(unsigned mode=0;mode<4;++mode){
+   button[0x1a]=mode!=3;button[0x20]=mode==1;button[0x1e4]=mode==2;
+   reinterpret_cast<DrawButton>(image+0x497b30)(button,rect,rect);
+   Expect(drawn_color==(mode==3?0xff777777:color),"native button draw preserves tiers across hover/press and keeps disabled color");
+  }
+ }
  Jump(image+0x483e10,reinterpret_cast<void*>(&Capture));
  Jump(image+0x405b20,reinterpret_cast<void*>(&Release));
  BYTE window[0x600]={}; void* table[0x130/4]={};
  table[0x124/4]=reinterpret_cast<void*>(&Title);*reinterpret_cast<void***>(window)=table;
  *reinterpret_cast<void**>(window+0x220)=window;
+ BYTE name_label[0x200]={};
+ *reinterpret_cast<void**>(window+0x314)=name_label;
+ auto& name_color=*reinterpret_cast<uint32_t*>(name_label+0x12c);
  *reinterpret_cast<uint32_t*>(definition+0xec)=940282;
  void* item_table[3]={nullptr,nullptr,reinterpret_cast<void*>(&Definition)};void** item=item_table;
  *reinterpret_cast<void**>(window+0x2b0)=&item;
@@ -88,6 +110,26 @@ int main(int argc,char** argv) {
   reinterpret_cast<uintptr_t>(image)+kItemDescriptionUpdateRva,kExpectedItemDescriptionUpdate,reinterpret_cast<void*>(&nightcap::client_ui::ItemDescriptionHook)));
  Check(nightcap::client_ui::original_item_description!=nullptr,"guarded item-description hook");
  nightcap::client_ui::item_description_assign=reinterpret_cast<nightcap::client_ui::AssignString>(&Assign);
+ // Native item rendering has already selected green for usable equipment.
+ // Exercise the installed description hook, including repeated window reuse.
+ for(const auto& sample:std::vector<std::pair<const char*,uint32_t>>{
+  {"Sword (Polished)",0xff0070ddu},{"Sword (Exalted)",0xffa335eeu},
+  {"Sword (Ascended)",0xffff8000u},{"Sword",0xff00ff00u}}){
+  strcpy_s(reinterpret_cast<char*>(definition),64,sample.first);
+  *reinterpret_cast<uint32_t*>(definition+0xec)=213073;
+  name_color=0xff00ff00;
+  reinterpret_cast<Update>(image+0x29ae30)(window);
+  Expect(name_color==sample.second,"item heading uses requested quality color");
+  reinterpret_cast<Update>(image+0x29ae30)(window);
+  Expect(name_color==sample.second,"repeat refresh preserves quality color");
+ }
+ strcpy_s(reinterpret_cast<char*>(definition),64,"Sword (Ascended)");
+ for(uint32_t warning:{0xffff0000u,0xffa020f0u}){
+  name_color=warning;
+  reinterpret_cast<Update>(image+0x29ae30)(window);
+  Expect(name_color==warning,"native equipment restriction warning retained");
+ }
+ *reinterpret_cast<uint32_t*>(definition+0xec)=940282;
  reinterpret_cast<Update>(image+0x29ae30)(window);
  Expect(rendered.find("Shield Block: +1%")!=std::string::npos,"Exalted shield block must be visible in native Description");
  Expect(rendered.find("not Shielding")!=std::string::npos,"distinguishes Shielding");

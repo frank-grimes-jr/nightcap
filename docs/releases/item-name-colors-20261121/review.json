@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-21",
+  "kind": "author final diff review; not independent or owner approval",
+  "result": "no remaining blockers for the documented local candidate scope",
+  "correctness": "Palette and repeated controls verified. Natural Polished stock names remain green; Hunt and dungeon naming conventions are handled. Native equipment warnings and disabled colors remain.",
+  "resolved_finding": "Native CButtonWnd uses separate hover/pressed fields. Added those writes and executed the actual draw selector for every quality/state, stopping only at the font renderer.",
+  "security": "Only known UI controls receive color writes. Native item reads are bounded and protected by SEH. No database/network/action authorization changes or protected-client writes.",
+  "regressions": "Native item descriptions, augment annotation, 78 equipment checks and loot/Bazaar controller suites pass. Quantity, prices, selected rows and transaction requests retain their paths.",
+  "maintenance": "Shared palette, source fingerprints, installed client/wiki reference, CHANGES, status and exact in-game QA updated. Wiki delta is exactly three articles over the retained current public source; no ledger advance.",
+  "release_boundary": "Not promoted to main, signed, published, deployed or player accepted. Generic native chat/merchant/buyer lists and tooltips are outside this candidate's documented coverage."
+}

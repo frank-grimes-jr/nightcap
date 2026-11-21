@@ -11,6 +11,7 @@
 #include "augment_item_description.h"
 #include "equipped_stats_state.h"
 #include "inventory_stats_state.h"
+#include "item_name_color.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -51,6 +52,26 @@ inline bool SnapshotItemDescription(void* self, uint32_t& id, char (&text)[16385
         return true;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
 }
+// Native SetItem colors ItemInfo1 before it calls UpdateStrings. The definition
+// starts with Name[64]; ItemInfo1 is at +0x314 and CXWnd::TextColor at +0x12c.
+// Only this name label changes; class/level text and equipment checks stay native.
+inline void ColorItemName(void* self) {
+    __try {
+        if (!self) return;
+        void* label = *reinterpret_cast<void**>(static_cast<BYTE*>(self)+0x314);
+        void* item = *reinterpret_cast<void**>(static_cast<BYTE*>(self)+0x2b0);
+        if (!label || !item) return;
+        using Definition = const BYTE* (__thiscall *)(void*);
+        const auto table = *static_cast<void***>(item);
+        const BYTE* definition = reinterpret_cast<Definition>(table[2])(item);
+        if (!definition) return;
+        char name[64];
+        memcpy(name,definition,sizeof(name));
+        if (!memchr(name,0,sizeof(name))) return;
+        auto& color = *reinterpret_cast<uint32_t*>(static_cast<BYTE*>(label)+0x12c);
+        color = InspectionItemNameColor(color,*reinterpret_cast<const uint32_t*>(definition+0xec),name);
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return; }
+}
 inline void __fastcall ItemDescriptionHook(void* self, void*) {
     uint32_t id = 0;
     char before[16385] = {};
@@ -60,6 +81,7 @@ inline void __fastcall ItemDescriptionHook(void* self, void*) {
             item_description_assign(reinterpret_cast<EqString*>(static_cast<BYTE*>(self)+0x294),after.c_str());
     }
     original_item_description(self);
+    ColorItemName(self);
 }
 inline EqString* __fastcall SkinHook(EqString* self, void*, const char*) {
     return skin_assign(self, "nightcap");
