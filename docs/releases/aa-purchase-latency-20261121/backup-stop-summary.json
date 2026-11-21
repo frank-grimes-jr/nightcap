@@ -1,0 +1,7 @@
+{
+  "stopped_seconds": 1.1662122410489246,
+  "exit_code": 0,
+  "oom": false,
+  "backup_gzip_integrity": "passed",
+  "backup_sha256": "dd9d5b67419b7c8429dcdac374d730c08d891109f9c704c4a052d7df52204232"
+}

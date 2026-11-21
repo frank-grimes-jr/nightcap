@@ -1,7 +1,7 @@
 {
-  "source": "0b7ca302baeb1fbfa4ef54ac65813cb98c632b62",
+  "source": "faaae0f9368a5e64085e4fd314724b977647a9d6",
   "includes_worktree": true,
-  "publication": "PENDING; candidate source only",
+  "publication": "VERIFIED20261121-aa-purchase-latency-v1",
   "changed": [
     "unreleased",
     "recent-changes"
@@ -156,7 +156,7 @@
     },
     "recent-changes": {
       "title": "Change Log",
-      "sha256": "4bba1df85b23d0d33475aaf92c1d66e1614dc142a170418ea95815a093c9ca13"
+      "sha256": "d20fcd7e0f9f7f9555885e6388d30bf26bbcae920c513ddb7783360a93b05cb8"
     },
     "titles": {
       "title": "Titles",
@@ -176,7 +176,7 @@
     },
     "unreleased": {
       "title": "In development",
-      "sha256": "27de10482e9017261106d4c6956922e49d8b1fe8c8e5900838e250761efce2b6"
+      "sha256": "fdb0cdf44551af5063eb9547b529a2641a81aac120b117cc88ede3289b0e7856"
     },
     "waypoints": {
       "title": "Waypoint Explorer",
@@ -190,5 +190,10 @@
       "title": "Kael Drakkel — The Ashen Compact",
       "sha256": "2c5efd23028146024172b77d3ff03a863b838710a918ffad49cbb09b7054d48b"
     }
-  }
+  },
+  "public_changed": [
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "public_preserved": 629
 }
