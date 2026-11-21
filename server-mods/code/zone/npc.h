@@ -612,7 +612,7 @@ public:
 	// zone state save
 	inline void SetQueuedToCorpse() { m_queued_for_corpse = true; }
 	inline bool IsQueuedForCorpse() const { return m_queued_for_corpse; }
-	bool m_zone_hunt_rolled = false;
+	uint8_t m_death_rolls = 0; // One byte preserves the shipping NPC layout.
 	inline void SetResumedFromZoneSuspend(bool state = true) { m_resumed_from_zone_suspend = state; }
 	inline bool IsResumedFromZoneSuspend() const { return m_resumed_from_zone_suspend; }
 
