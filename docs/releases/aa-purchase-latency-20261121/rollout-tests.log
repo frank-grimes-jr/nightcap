@@ -1,0 +1,15 @@
+test_authorized_drain_and_verification_precede_opening (test_release.RolloutTests.test_authorized_drain_and_verification_precede_opening) ... ok
+test_changed_incumbent_blocks_before_maintenance (test_release.RolloutTests.test_changed_incumbent_blocks_before_maintenance) ... ok
+test_drain_timeout_closes_admissions_without_stopping_players (test_release.RolloutTests.test_drain_timeout_closes_admissions_without_stopping_players) ... ok
+test_failed_backup_blocks_image_selection (test_release.RolloutTests.test_failed_backup_blocks_image_selection) ... ok
+test_market_drift_blocks_opening (test_release.RolloutTests.test_market_drift_blocks_opening) ... ok
+test_saved_state_drift_blocks_opening (test_release.RolloutTests.test_saved_state_drift_blocks_opening) ... ok
+test_stale_preflight_or_changed_candidate_blocks_before_maintenance (test_release.RolloutTests.test_stale_preflight_or_changed_candidate_blocks_before_maintenance) ... ok
+test_stop_that_partially_closes_gateway_blocks_activation (test_release.RolloutTests.test_stop_that_partially_closes_gateway_blocks_activation) ... ok
+test_supervisor_timeout_blocks_backup_even_with_zero_exit_status (test_release.RolloutTests.test_supervisor_timeout_blocks_backup_even_with_zero_exit_status) ... ok
+test_uncertain_open_is_held_and_terminal_attempt_cannot_replay (test_release.RolloutTests.test_uncertain_open_is_held_and_terminal_attempt_cannot_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.309s
+
+OK

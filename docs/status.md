@@ -2,6 +2,10 @@
 
 Source candidate only: usable inspection names, Advanced loot and Bazaar seller text use Regular green, Polished blue, Exalted purple and Ascended orange. Native equipment warnings remain. Proxy `0.13.7-dev` and matching catalogs build locally; signed publication and in-game QA remain open. No server/cache update. Generic native chat, merchant/buyer lists and tooltips are outside this candidate. Wiki source and a scoped current-public-source candidate are prepared but unpublished. [Evidence and QA](releases/item-name-colors-20261121/README.md).
 
+## November 21, 2026 · AA purchase responsiveness deployed
+
+Main PR515/faaae0f9 is deployed on all12zone workers with access open. Each purchase avoids the100-slot reset sweep; active deadlines, ownership and costs remain unchanged. Exact shipping reproduction/full native build,21cooldown tests,49native-client checks,5adjacent tests and10Windows/Linux rollout fault tests pass. Fresh stopped backup, saved-state/market, runtime-file, cache/client/service checks pass. Official wiki20261121-aa-purchase-latency-v1 verifies all631files. Owner visible-freeze acceptance remains OPEN. No client download; reconnect after maintenance. [Evidence and exact QA](releases/aa-purchase-latency-20261121/README.md).
+
 ## November 21, 2026 · Broad Classic focus and defense deployed
 
 119 stock families / 476 definitions now provide 84 casting-focus and 40 defensive worn additions, with five overlaps. Dev/test/main, zero-player production activation, all twelve workers verified. Official wiki release 20261121-classic-defense-v1 is published and all 631 public files are verified. Native 188 pressure pairs / 259 defensive pairs and full SQL/cache rehearsal pass. Healing strength and custom content are preserved; player encounter acceptance remains OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).

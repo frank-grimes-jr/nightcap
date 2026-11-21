@@ -1,0 +1,114 @@
+{
+  "full_output": "skill-check.json.gz",
+  "full_output_sha256": "3cb8ebcedc6a9309a0828b8a49257839b35f1ca1281c1435acfd60bb15216d61",
+  "entries": 237,
+  "candidate": [
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\server-mods\\code\\zone\\aa.cpp",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\server-mods\\code\\zone\\client.h",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\tools\\tests\\test_aa_cooldown_identity.py",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\eq-client-dll\\tests\\aa-reuse-native.cpp",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\docs\\releases\\aa-purchase-latency-20261121\\README.md",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\docs\\releases\\aa-purchase-latency-20261121\\build.json",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\aa-purchase-latency\\docs\\releases\\aa-purchase-latency-20261121\\validation.json",
+      "role": "Reviewed AA purchase-latency candidate; built/tested, NOT deployed or player accepted",
+      "state": "unchanged"
+    }
+  ],
+  "unrelated_drift": [
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\aa_tbs_policy.py",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\README.md",
+      "role": "verified deployment, preserved baseline, limits and exact owner QA",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\server-receipt.json",
+      "role": "closed-state player/custom preservation and twelve native hashes",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\final-health.json",
+      "role": "dated post-deployment runtime health; not gameplay acceptance",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\build_aa_level1_candidate.py",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\README.md",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\build-manifest.json",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\verification.json",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\server-receipt.json",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\post-notes-health.json",
+      "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\verify_triple_backstab_native.py",
+      "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\README.md",
+      "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\activated.json",
+      "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+      "state": "missing: select the correct checkout"
+    },
+    {
+      "path": "E:\\CodexData\\home\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\final-runtime-verification.json",
+      "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+      "state": "missing: select the correct checkout"
+    }
+  ]
+}

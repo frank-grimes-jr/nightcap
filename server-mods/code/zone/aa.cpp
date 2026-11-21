@@ -1318,18 +1318,26 @@ void Client::SendAlternateAdvancementTimer(int family_id, int begin, int end) {
 }
 
 void Client::SendAlternateAdvancementTimers() {
+	SendAlternateAdvancementTimers(-1);
+}
+
+void Client::SendAlternateAdvancementTimers(int purchased_family) {
 	const uint32 now = static_cast<uint32>(time(nullptr));
-	// Clear every native slot, including slots belonging to a released class.
-	// (0,0) STARTS a native cooldown; (0,now) is the reset packet.
-	auto outapp = new EQApplicationPacket(OP_AAAction, sizeof(UseAA_Struct));
-	auto *timer = reinterpret_cast<UseAA_Struct *>(outapp->pBuffer);
-	timer->begin = 0;
-	timer->end = now;
-	for (int slot = 0; slot < 100; ++slot) {
-		timer->ability = slot;
-		QueuePacket(outapp);
+	// Login/class changes must clear released or remapped slots. Purchases do
+	// not change the held-class slot map. Each OP_AAAction rebuilds RoF2's AA
+	// window, so avoid a hundred redundant rebuilds on every purchase.
+	if (purchased_family < 0) {
+		// (0,0) STARTS a native cooldown; (0,now) is the reset packet.
+		auto outapp = new EQApplicationPacket(OP_AAAction, sizeof(UseAA_Struct));
+		auto *timer = reinterpret_cast<UseAA_Struct *>(outapp->pBuffer);
+		timer->begin = 0;
+		timer->end = now;
+		for (int slot = 0; slot < 100; ++slot) {
+			timer->ability = slot;
+			QueuePacket(outapp);
+		}
+		safe_delete(outapp);
 	}
-	safe_delete(outapp);
 	for (const auto &aa : aa_ranks) {
 		auto pair = zone->GetAlternateAdvancementAbilityAndRank(aa.first, aa.second.first);
 		auto *ability = pair.first;
@@ -1337,11 +1345,20 @@ void Client::SendAlternateAdvancementTimers() {
 		if (!ability || !rank || !CanUseAlternateAdvancementRank(rank)) { continue; }
 		if (ability->id == NightcapImitateDeath::Family) {
 			// Retire this family's pre-update saved wait; keep every other deadline.
+			const bool had_timer = p_timers.Get(pTimerAAStart + ability->id) != nullptr;
 			p_timers.Clear(&database, pTimerAAStart + ability->id);
+			if (purchased_family >= 0 && (had_timer || purchased_family == ability->id)) {
+				SendAlternateAdvancementTimer(ability->id, 0, now);
+			}
 			continue;
 		}
 		const uint32 remaining = p_timers.GetRemainingTime(pTimerAAStart + ability->id);
-		if (!remaining) { continue; }
+		if (!remaining) {
+			if (purchased_family == ability->id) {
+				SendAlternateAdvancementTimer(ability->id, 0, now);
+			}
+			continue;
+		}
 		const int effective_reuse = rank->recast_time - GetAlternateAdvancementCooldownReduction(rank);
 		// Native readiness subtracts its effective reuse from this start timestamp.
 		// A future start preserves a migrated legacy wait longer than this AA's reuse.
@@ -1452,7 +1469,7 @@ bool Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 		}
 		SendAlternateAdvancementPoints();
 		SendAlternateAdvancementStats();
-		SendAlternateAdvancementTimers();
+		SendAlternateAdvancementTimers(ability->id);
 	}
 
 	if (PlayerEventLogs::Instance()->IsEventEnabled(PlayerEvent::AA_PURCHASE)) {
