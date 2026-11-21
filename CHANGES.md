@@ -2,6 +2,8 @@
 
 Promoted PR533 to main and deployed the reviewed world, zone, spell and item data, quests and Chronicler plugin to OVH. The starter migration accepts the two-damage production Rusty Warhammer and the four-damage local template. Both produce the same six-damage starter hammer. The official wiki and private guide describe Cairnwright as an additional discipline. The signed launcher pair and RoF2 starting-class integration are pending. [Release evidence](docs/releases/cairnwright-20261121/README.md)
 
+Live QA confirmed a Berserker adopted Cairnwright in slot two and received both starter spells. A client regression test reproduces the class update and following AA messages observed during diagnosis. The signed launcher still serves `2026112101`. The prepared `2026112102` client consumes these messages in the test. Casting, release and reconnect through the player client still need verification. [QA results](docs/releases/cairnwright-20261121/README.md#production-receipts)
+
 ## 2026-11-21 — Cairnwright world creation and persistence candidate
 
 World accepts the Classic Dwarf Cairnwright combination from RoF2 and equips its creation-only robe and hammer. The stock creation list stays within the native 16 class slots. Zone handles Cairnwright spell levels during damage, healing, mana and decay calculations, and avoids querying a seventeenth stock spell column. A native world test created a level-one class 17 character and reloaded the same ID from a fresh process. A fresh zone loaded the same spell gems, resolved damage against the engaged on-line target, and exercised the Ancient Chronicler in slots two and three. The RoF2 creation button and character-select display remain open. [Candidate evidence](docs/qa/cairnwright-creation-20261121.md)

@@ -10,6 +10,8 @@ Once the paired client is installed, enter the East Commonlands tunnel on a char
 
 ## Production receipts
 
+A player reported choosing Cairnwright and seeing repeated control messages in chat. A scoped live read confirmed a level-one Berserker in East Commonlands had Cairnwright in slot two and both starter spells scribed. This confirms live secondary adoption for that character. The recent world and zone logs contained no matching control-frame text. A native parser replay used synthetic identifiers and the same class and zone values. The released parser rejected the new class snapshot and passed its following AA messages to chat. The candidate consumed the snapshot, AA row and complete recommendation batch and displayed `BER/CRW/---`. Regression coverage is in `eq-client-dll/tests/ui-state.cpp`. Casting, release, relog and primary creation on the player's client remain unverified. The public guides already identify the pending launcher update.
+
 | Check | Observed |
 |---|---|
 | World SHA-256 | `a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521` |

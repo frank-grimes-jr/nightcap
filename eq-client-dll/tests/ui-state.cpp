@@ -28,7 +28,7 @@ int main() {
     assert(state.AAClasses(125) == "WAR/ENC");
     assert(!state.Consume("[NCUI1]S|4294967296|22|202|0|7|10|1|14|Zozobra"));
     assert(!state.Consume("[NCUI1]S|-1|22|202|0|7|10|1|14|Zozobra"));
-    assert(!state.Consume("[NCUI1]S|2|22|202|0|7|17|1|14|Zozobra"));
+    assert(!state.Consume("[NCUI1]S|2|22|202|0|7|18|1|14|Zozobra"));
     assert(!state.Consume("[NCUI1]S|2|22|202|0|7|10|10|14|Zozobra"));
     assert(!state.Consume("[NCUI1]S|2|22|202|0|7|10|1|1|Zozobra"));
     assert(state.Consume("[NCUI1]S|2|22|202|0|7|10|0|0|Zozobra"));
@@ -40,5 +40,16 @@ int main() {
     assert(!state.Consume((std::string("[NCUI1]S|")+std::string(1024,'9')).c_str()));
     state.Clear();
     assert(!state.Matches(7,"Pups"));
+    // A Chronicler adoption starts a new generation. All AA metadata must
+    // follow that generation so the chat handler consumes each control line.
+    assert(state.Consume("[NCUI1]S|1|42|22|0|7|16|0|0|Testchar"));
+    assert(state.Consume("[NCUI1]S|2|42|22|0|7|16|17|0|Testchar"));
+    assert(state.Classes() == "BER/CRW/---");
+    assert(state.Consume("[NCUI1]A|2|42|22|0|7|123|65536"));
+    assert(state.Consume("[NCUI1]B|2|42|22|0|7|1"));
+    assert(state.Consume("[NCUI1]R|2|42|22|0|7|123|1|0|1"));
+    assert(state.Consume("[NCUI1]E|2|42|22|0|7"));
+    assert(state.AAClasses(123) == "BER");
+    assert(state.RecommendationsReady() && state.RecommendationCount() == 1);
     std::cout << "UI state controls passed\n";
 }
