@@ -1,0 +1,28 @@
+{
+  "source": "50626fbe79b97f512f147fd9c9de83eae7b8d2d8",
+  "gateway_open": true,
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "image": "sha256:aa94e274128c30cf683924eff6ba990f315e57a4575276f35a09a51a6b0f4a86",
+  "binaries": {
+    "world": "eafe45077715d7e91193c1a262227cffe61dcdb96a7cb0d1b8daf8a48b9f3466",
+    "zone": "13ad25346d8548b2c2592adafdc7dca2e52be020d836bbf0315a4f0f80ecc6c9",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "client": 2026112001,
+  "cache": {
+    "records": 310028,
+    "changed": 476,
+    "unchanged": 309552,
+    "items_sha256": "92d057642282f4a8d608b68e9c0089d0c990774cd6728627461b82309252180f"
+  },
+  "backup_sha256": "0453148c8466250f047fe905f618b3e5b2922973c524bf2903e412d62901441e",
+  "player_qa": "open"
+}

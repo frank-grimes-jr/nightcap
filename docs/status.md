@@ -1,6 +1,6 @@
-## November 21, 2026 · Broad Classic focus and defense candidate
+## November 21, 2026 · Broad Classic focus and defense deployed
 
-119 stock families / 476 definitions prepared; 188 paired pressure and 259 paired defense checks pass. Database/cache rehearsal passed (476 changed, 309552 identical records). Promotion, deployment and wiki publication pending. Player acceptance OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
+119 stock families / 476 definitions now provide 84 casting-focus and 40 defensive worn additions, with five overlaps. Dev/test/main, zero-player production activation, all twelve workers verified. Wiki publication awaits explicit owner approval after automatic review rejection. Native 188 pressure pairs / 259 defensive pairs and full SQL/cache rehearsal pass. Healing strength and custom content are preserved; player encounter acceptance remains OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
 
 ## November 20, 2026 · Classic stock focus coverage deployed
 
@@ -1844,7 +1844,7 @@ This source promotion does not deploy a client or enable the default preview.
 | AA XP | Minimum level 1 survives matching world startup | Actual XP award/allocation and persistence |
 | Waypoints | Marker discovery quest and relocated PoK travel service | Discovery, recall, safe arrivals and Explorer completion |
 
-[Exact live QA checklist](releases/live-qa-20260915/QA.md) Â·
+[Exact live QA checklist](releases/live-qa-20260915/QA.md) ·
 [Deployment and rollback](releases/live-qa-20260915/README.md).
 The server release entered dev/test in PR #49. The owner subsequently authorized
 all gameplay to move to main for live testing; [promotion record](releases/main-live-qa-20260915.md).
