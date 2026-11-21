@@ -1,0 +1,165 @@
+{
+  "matrix": {
+    "cases_per_engine": 144,
+    "healing_exactly_preserved": true,
+    "mana_ignores_healing_slots": true,
+    "reverse_mana_to_healing_behavior": "Intentionally unchanged to preserve existing healing strength",
+    "stock_controls": {
+      "none": {
+        "base_mana": 28,
+        "direct_heal_as_heal": 20,
+        "direct_heal_as_mana": 0,
+        "direct_mana_as_heal": 10,
+        "direct_mana_as_mana": 10,
+        "id": "none",
+        "mana_cost": 28,
+        "selected_heal": 0,
+        "selected_mana": 0
+      },
+      "healing_only": {
+        "base_mana": 28,
+        "direct_heal_as_heal": 20,
+        "direct_heal_as_mana": 0,
+        "direct_mana_as_heal": 10,
+        "direct_mana_as_mana": 10,
+        "id": "healing_only",
+        "mana_cost": 28,
+        "selected_heal": 20,
+        "selected_mana": 0
+      },
+      "mana_only": {
+        "base_mana": 28,
+        "direct_heal_as_heal": 20,
+        "direct_heal_as_mana": 0,
+        "direct_mana_as_heal": 10,
+        "direct_mana_as_mana": 10,
+        "id": "mana_only",
+        "mana_cost": 26,
+        "selected_heal": 0,
+        "selected_mana": 10
+      },
+      "both": {
+        "base_mana": 28,
+        "direct_heal_as_heal": 20,
+        "direct_heal_as_mana": 0,
+        "direct_mana_as_heal": 10,
+        "direct_mana_as_mana": 10,
+        "id": "both",
+        "mana_cost": 26,
+        "selected_heal": 20,
+        "selected_mana": 10
+      }
+    }
+  },
+  "pressure": {
+    "results": {
+      "pairs": 140,
+      "same_gear_healing_exactly_preserved": true,
+      "original_baseline": {
+        "runs": 140,
+        "deaths": 0,
+        "survived_duration": 140,
+        "landed_casts": 1463,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 141166
+      },
+      "uncorrected_content_candidate": {
+        "runs": 140,
+        "deaths": 0,
+        "survived_duration": 140,
+        "landed_casts": 1302,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 155585
+      },
+      "corrected_baseline": {
+        "runs": 140,
+        "deaths": 0,
+        "survived_duration": 140,
+        "landed_casts": 1463,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 141166
+      },
+      "corrected_content_candidate": {
+        "runs": 140,
+        "deaths": 0,
+        "survived_duration": 140,
+        "landed_casts": 1302,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 150208
+      }
+    },
+    "pressure-results": {
+      "pairs": 80,
+      "same_gear_healing_exactly_preserved": true,
+      "original_baseline": {
+        "runs": 80,
+        "deaths": 26,
+        "survived_duration": 54,
+        "landed_casts": 2389,
+        "mean_duration_ms": 166897.5,
+        "mana_end": 46458
+      },
+      "uncorrected_content_candidate": {
+        "runs": 80,
+        "deaths": 8,
+        "survived_duration": 72,
+        "landed_casts": 2733,
+        "mean_duration_ms": 175365.0,
+        "mana_end": 57726
+      },
+      "corrected_baseline": {
+        "runs": 80,
+        "deaths": 26,
+        "survived_duration": 54,
+        "landed_casts": 2389,
+        "mean_duration_ms": 166897.5,
+        "mana_end": 46458
+      },
+      "corrected_content_candidate": {
+        "runs": 80,
+        "deaths": 13,
+        "survived_duration": 67,
+        "landed_casts": 2612,
+        "mean_duration_ms": 174727.5,
+        "mana_end": 50262
+      }
+    },
+    "stress-results": {
+      "pairs": 40,
+      "same_gear_healing_exactly_preserved": true,
+      "original_baseline": {
+        "runs": 40,
+        "deaths": 0,
+        "survived_duration": 40,
+        "landed_casts": 283,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 173154
+      },
+      "uncorrected_content_candidate": {
+        "runs": 40,
+        "deaths": 0,
+        "survived_duration": 40,
+        "landed_casts": 276,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 176278
+      },
+      "corrected_baseline": {
+        "runs": 40,
+        "deaths": 0,
+        "survived_duration": 40,
+        "landed_casts": 283,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 173154
+      },
+      "corrected_content_candidate": {
+        "runs": 40,
+        "deaths": 0,
+        "survived_duration": 40,
+        "landed_casts": 276,
+        "mean_duration_ms": 180000.0,
+        "mana_end": 174676
+      }
+    }
+  },
+  "limits": "Controlled primary-hand attacks, finite HP/mana, no NPC AI or special attacks; no stuns observed in original fixtures. Per-cast healing strength preserved; mana efficiency intentionally corrected."
+}

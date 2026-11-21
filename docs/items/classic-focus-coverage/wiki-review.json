@@ -1,28 +1,8 @@
 {
-  "result": "Task-specific review complete; historical global ledger still requires review",
-  "global_refresh_result": "REVIEW REQUIRED",
-  "source_ref": "b18018fd2f31d5ac95d4f02f9b7b09c98a87c4f2 plus task changes",
-  "affected": [
-    "Equipment focus table and restrictions",
-    "Combat focus guidance",
-    "Features entry",
-    "Recent changes",
-    "Multiclass sentence split only"
-  ],
-  "reviewed_no_numeric_change": [
-    "Home goal paths link equipment already",
-    "Commands",
-    "All generated item and zone catalogs",
-    "Custom reward stats",
-    "Client downloads",
-    "AA ranks and prices",
-    "Loot finder ownership and refresh"
-  ],
-  "public_predecessor": "20261120-aa-availability-v1",
-  "public_candidate": "20261120-classic-focus-v2",
   "candidate": {
-    "release": "20261120-classic-focus-v2",
+    "release": "20261120-classic-focus-v3",
     "previous": "20261120-aa-availability-v1",
+    "files": 631,
     "changed": [
       "combat.html",
       "equipment.html",
@@ -32,14 +12,23 @@
       "search-index.json"
     ],
     "preserved": 625,
-    "files": 631,
-    "editorial_corrections": "Remove public QA labels and split two long existing sentences in affected guides; numeric catalogs unchanged."
+    "public_tests": 19,
+    "equipment_tests": 7,
+    "search": "PASS",
+    "catalogs": "unchanged",
+    "publication": "pending gameplay verification"
   },
-  "tests": {
-    "public_source_wiki_and_language": 19,
-    "repository_wiki_and_refresh": 20,
-    "equipment_node": 7,
-    "search_node": "PASS"
-  },
-  "publication": "pending; do not publish before gameplay verified"
+  "global_refresh": "Historical source ledger remains REVIEW REQUIRED; no blanket advancement",
+  "reviewed": [
+    "Home goal paths",
+    "Features",
+    "Combat",
+    "Equipment",
+    "Multiclass editorial sentence only",
+    "Recent changes",
+    "Commands",
+    "Generated item/zone catalogs",
+    "Client downloads"
+  ],
+  "scope": "Guide changes plus two existing public-language corrections; all numeric catalogs unchanged"
 }

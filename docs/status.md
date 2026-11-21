@@ -1,6 +1,6 @@
 ## November20,2026 · Classic stock focus coverage candidate
 
-19 stock families / 76 definitions fill dungeon and raid focus gaps. Isolated SQL and full-cache rehearsal passed. Native controls confirmed an existing healing-to-mana focus category leak; 260 paired native pressure comparisons are complete, but the category correction scope decision gates promotion. Nothing from this candidate is deployed; player QA OPEN. [Audit and QA](items/classic-focus-coverage/README.md).
+19stock families/76definitions fill focus gaps. The authorized mana-only correction preserves healing strength. Native comparison and paired SQL/cache/image rehearsal precede test/main promotion and production. Player acceptance remains OPEN. [Audit and QA](items/classic-focus-coverage/README.md).
 
 # Current Nightcap status
 

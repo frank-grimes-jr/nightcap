@@ -1,6 +1,6 @@
 # Existing healing/mana focus category leak
 
-Confirmed on the current shipping zone, not introduced by the stock-item candidate.
+Confirmed on the predecessor shipping zone, not introduced by the stock-item candidate. The authorized correction is implemented and undergoing paired-release validation.
 
 | Level-20 PAL/WAR, Light Healing, no AAs | Selected healing focus | Selected mana focus | Mana cost |
 |---|---:|---:|---:|
@@ -39,3 +39,9 @@ Until the paired release is verified, the live engine still has the defect. Corr
 Evidence: `focus-controls-input.json`, `focus-controls-results.json`, the isolated
 diagnostic source and build pins in this directory. These are native method tests,
 not player acceptance or a claim that a full raid encounter was simulated.
+
+## Authorized resolution
+
+The implemented guard applies only when the requested category is mana cost. ImprovedHeal slots cannot contribute to that request. Healing requests execute the original code without the new branch, preserving all existing healing strength rather than introducing a global healing nerf. The reverse mana-to-healing behavior is intentionally retained.
+
+All144paired native category scenarios preserve direct healing focus, selected healing focus and actual healing output exactly. Neither/healing-only/mana-only/both controls now select mana0/0/10/10; the Light Healing both-focus case costs26instead of23 with its20%healing focus unchanged. Final combat comparisons are recorded in correction-validation.json.

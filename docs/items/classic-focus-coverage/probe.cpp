@@ -98,6 +98,16 @@ public:
 		}
 		return rows;
 	}
+	// Synthetic focus placement on real legal hosts/augments, in memory only.
+	void control_item(int slot,int host,int focus,int worn,int augfocus){
+		auto *stock=database.GetItem(host);legal(stock,slot);auto h=std::make_unique<EQ::ItemData>(*stock);
+		h->Focus.Effect=focus;h->Focus.Type=6;h->Worn.Effect=worn;h->Worn.Type=2;
+		EQ::ItemInstance inst(h.get(),1);owned.push_back(std::move(h));
+		if(augfocus){auto *stockaug=database.GetItem(609607);legal(stockaug,slot);auto a=std::make_unique<EQ::ItemData>(*stockaug);
+			a->Focus.Effect=augfocus;a->Focus.Type=6;a->Worn.Effect=0;int socket=inst.AvailableAugmentSlot(a->AugType);
+			check(socket>=0&&!IsAugmentRestricted(stock->ItemType,a->AugRestrict),"control augment legal socket");inst.PutAugment(socket,EQ::ItemInstance(a.get(),1));owned.push_back(std::move(a));}
+		check(GetInv().PutItem(slot,inst)==slot,"control item insert");
+	}
 };
 class Threat:public NPC{
 public:
@@ -111,6 +121,49 @@ int NightcapBalanceMain(int argc,char **argv){
 	zone=new Zone(32,0,"soldungb");check(zone->LoadZoneCFG("soldungb",0)&&zone->CanDoCombat(),"native arena config missing/combat disabled");zone->LoadBaseData();zone->LoadAlternateAdvancement();is_zone_loaded=true;
 	if(!input["cases"].empty()){zone->ReloadMaps();check(zone->zonemap&&zone->pathing&&zone->watermap,"native arena maps missing");}
 	json out={{"scope","Controlled timed native primary-hand attacks and native self-heal casting. No NPC AI, outgoing attack policy, regen, buffs ticking, pathing, or player acceptance. AA gate plus in-memory usable ranks, not persisted earned ownership."},{"cases",json::array()}};
+	if(input.contains("category_matrix")){
+		const auto *original_spells=spells;
+		std::vector<SPDat_Spell_Struct> private_spells(spells,spells+SPDAT_RECORDS);
+		spells=private_spells.data();
+		auto reset_seed=[&]{seed=42;zone->random.Reseed();EQ::Random::Instance()->Reseed();};
+		auto focus_spell=[&](int id,const std::vector<std::pair<int,int>>&effects){
+			private_spells[id]=original_spells[id];
+			for(int i=0;i<EFFECT_COUNT;i++){private_spells[id].effect_id[i]=SpellEffect::Blank;private_spells[id].base_value[i]=0;private_spells[id].limit_value[i]=0;}
+			int i=0;for(auto e:effects){private_spells[id].effect_id[i]=e.first;private_spells[id].base_value[i]=e.second;private_spells[id].limit_value[i]=e.second;++i;}
+		};
+		for(bool classic:{false,true})for(int worn_mode:{0,1,2})for(bool strong_mana:{false,true}){
+			check(RuleManager::Instance()->SetRule("Spells:UseClassicSpellFocus",classic?"true":"false"),"classic rule");
+			check(RuleManager::Instance()->SetRule("Spells:UseAdditiveFocusFromWornSlotWithLimits",worn_mode==1?"true":"false"),"worn limits rule");
+			check(RuleManager::Instance()->SetRule("Spells:UseAdditiveFocusFromWornSlot",worn_mode==2?"true":"false"),"worn rule");
+			int h=strong_mana?10:20,m=strong_mana?30:10;
+			for(std::string placement:{"none","healing_item","mana_item","both_items","heal_item_mana_aug","mana_item_heal_aug","both_aug","heal_worn_mana_item","mana_worn_heal_item","both_worn","multi_heal_first","multi_mana_first"}){
+				focus_spell(2345,{{SpellEffect::ImprovedHeal,h}});focus_spell(2342,{{SpellEffect::ReduceManaCost,m}});
+				if(placement=="multi_heal_first")focus_spell(2345,{{SpellEffect::ImprovedHeal,h},{SpellEffect::ReduceManaCost,m}});
+				if(placement=="multi_mana_first")focus_spell(2345,{{SpellEffect::ReduceManaCost,m},{SpellEffect::ImprovedHeal,h}});
+				auto *p=new Subject();p->init(input["category_matrix"]);
+				if(placement=="healing_item")p->control_item(2,602191,2345,0,0);
+				if(placement=="mana_item")p->control_item(2,602191,2342,0,0);
+				if(placement=="both_items"){p->control_item(2,602191,2345,0,0);p->control_item(9,604344,2342,0,0);}
+				if(placement=="heal_item_mana_aug")p->control_item(2,602191,2345,0,2342);
+				if(placement=="mana_item_heal_aug")p->control_item(2,602191,2342,0,2345);
+				if(placement=="both_aug"){p->control_item(2,602191,0,0,2345);p->control_item(9,604344,0,0,2342);}
+				if(placement=="heal_worn_mana_item")p->control_item(2,602191,2342,2345,0);
+				if(placement=="mana_worn_heal_item")p->control_item(2,602191,2345,2342,0);
+				if(placement=="both_worn"){p->control_item(2,602191,0,2345,0);p->control_item(9,604344,0,2342,0);}
+				if(placement.rfind("multi_",0)==0)p->control_item(2,602191,2345,0,0);
+				p->CalcBonuses();int spell=17;json row={{"classic",classic},{"worn_mode",worn_mode},{"heal_endpoint",h},{"mana_endpoint",m},{"placement",placement}};
+				reset_seed();row["direct_heal"]=p->CalcFocusEffect(focusImprovedHeal,2345,spell,true);
+				reset_seed();row["direct_mana"]=p->CalcFocusEffect(focusManaCost,2345,spell,true);
+				reset_seed();row["selected_heal"]=p->GetFocusEffect(focusImprovedHeal,spell);
+				reset_seed();row["selected_mana"]=p->GetFocusEffect(focusManaCost,spell);
+				reset_seed();row["mana_cost"]=p->GetActSpellCost(spell,spells[spell].mana);
+				reset_seed();int base=p->CalcSpellEffectValue(spell,0,p->GetLevel(),10,p);row["healing"]=NightcapHeroicCast::Cast::Deliver(true,[&]{return p->GetActSpellHealing(spell,base,p);});
+				out["category_matrix"].push_back(row);
+			}
+		}
+		spells=original_spells;
+		for(auto&r:input["rules"])check(RuleManager::Instance()->SetRule(r[0],r[1]),"restore rule");
+	}
 	for(auto &c:input.value("focus_controls",json::array())){
 		auto*p=new Subject();p->init(c);for(auto&r:c["slots"])p->equip(r,c["policy"],true,true);p->CalcBonuses();
 		int spell=c["heal_spell"],heal=c["heal_focus"],mana=c["mana_focus"];

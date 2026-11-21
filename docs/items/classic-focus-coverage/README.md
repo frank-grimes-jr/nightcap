@@ -1,6 +1,6 @@
 # Classic dropped-gear focus coverage
 
-Candidate; controlled measurement and SQL/cache rehearsal are complete, but the authorized mana-only correction is undergoing validation before test/main/production promotion. Visible player acceptance is pending. User authorized test, main and deployment after validation. No custom content changes.
+Candidate validation PASSED for the authorized mana-only correction and stock focus additions; test/main/production promotion follows. Visible player acceptance is pending. User authorized test, main and deployment after validation. No custom content changes.
 
 ## Audit boundary
 
@@ -40,11 +40,11 @@ Stock haste is 15%, Improved Healing up to20%, Mana Preservation up to10%. Curre
 
 Same-category item/augment focus uses the strongest eligible source, not additive stacking from multiple pieces. Spell/AA contributions remain native separate sources and caps. Quality variants receive identical focuses. Before recovery/interruptions, the upper-bound new three-focus package gives1.2/0.85≈41% cast-limited healing throughput and1.2/0.9≈33% healing per mana; actual benefits depend on existing effects and legal spells. This is meaningful sustain, not interrupt immunity or instant casting. Greater Healing's spell data is unchanged.
 
-## Confirmed existing focus-category issue — release gate
+## Confirmed predecessor focus-category issue and authorized correction
 
 Native isolation on the unchanged shipping engine found a category leak in Client::CalcFocusEffect: the grouped ImprovedHeal/ReduceManaCost switch accepts either requested focus type. With only a healing focus, mana remains unaffected because its category-presence flag is absent. Once both categories exist, the healing focus is also considered for mana preservation.
 
-Level20 PAL/WAR, Light Healing17, identical stock equipment, no AAs or specialization: no focus costs28mana; healing-only selects20% healing/0% mana and costs28; mana-only selects0%/10% and costs26; both select20%/20% and cost23. Direct category calls confirm the wrong matches. Evidence: focus-controls-input.json and focus-controls-results.json. This changes the actual combined HPM ceiling from the nominal33% to50% before other mechanics; the earlier nominal percentages are spell definitions, not proof of runtime isolation.
+Level20 PAL/WAR, Light Healing17, identical stock equipment, no AAs or specialization: no focus costs28 mana; healing-only selects20% healing/0% mana and costs28; mana-only selects0%/10% and costs26; both select20%/20% and cost23. Direct category calls confirm the wrong matches. Evidence: focus-controls-input.json and focus-controls-results.json. This changes the actual combined HPM ceiling from the nominal33% to50% before other mechanics; the earlier nominal percentages are spell definitions, not proof of runtime isolation.
 
 The owner approved correction without reducing healing strength. The candidate rejects ImprovedHeal slots only during mana-cost lookup, preserving all existing healing evaluation. Validation must prove unchanged healing across Classic/later-effect magnitudes and mixed-source/order cases. The paired release includes the new zone binary and stock item changes; existing combinations lose unintended mana savings. See AUTHORIZATION.md.
 
@@ -54,11 +54,19 @@ Catalog tests validate existing routes, all qualities, exact focus limits and fo
 
 The diagnostic reproduces the exact shipping zone hash and uses production item/spell caches,452 freshly captured rules and identical NPC definitions. Seven level20/35/50 legal held-class fixtures compare identical before/after equipment across five seeds and AA off/on. Sustain AA budgets spend39/99/108 points, not unrestricted AAs. It runs native timed casts, mana consumption, damage, avoidance, fizzle/channeling and healing under primary-hand pressure. Synthetic character IDs920100–920106 exist only in an isolated balance DB and have no player character rows.
 
-This is a neutral-arena primary-hand pressure measurement, not a complete boss fight: no NPC AI/AEs, outgoing attack policy, pets, pathing, regen or timed buff processing. It cannot prove live encounter win rates or player acceptance. Final controlled measurements are in measurement-summary.json and the three detailed summaries. Deployment remains held for the confirmed category issue.
+This is a neutral-arena primary-hand pressure measurement, not a complete boss fight: no NPC AI/AEs, outgoing attack policy, pets, pathing, regen or timed buff processing. It cannot prove live encounter win rates or player acceptance. Final controlled measurements are in measurement-summary.json and the three detailed summaries. Corrected evidence is recorded separately in correction-validation.json and validation.json.
 
-## Measured results on the current shipping engine
+## Corrected release validation
 
-260 before/after pairs (520 runs), five seeds per build/spell/AA condition. Every run has actual NPC damage and healing attempts; native cast completions are observed. HP, mana capacity, Heal Amount, Spell Damage, channeling and AA spend remain identical within each pair. HP conservation holds in all520runs. No stuns occurred: this does not validate bash/stun resistance. Earlier login-protected dry runs and the incomplete landing-counter attempt are discarded. Raw successful runs are retained losslessly as results.json.gz, pressure-results.json.gz and stress-results.json.gz.
+The full predecessor translation unit reproduced shipping zone98d62146 exactly. The corrected production zone is13ad2534; diagnostic login/clock/main adapters are excluded. All144 paired category scenarios preserve direct healing focus, selected healing focus and actual healing output exactly, covering modern/Classic modes, mixed item/augment/worn sources, unequal20/10 and10/30 endpoints and both multi-effect orders. Mana-cost requests ignore healing slots; reverse behavior remains intentionally unchanged to avoid a healing nerf.
+
+All260 paired pressure comparisons were rerun (520 native runs). Every identical-gear healing sample, cast time, HP, mana capacity, HA, SD, channeling and AA spend matches the predecessor. HP accounting and positive damage/cast activity pass. Corrected three-attacker deaths improve26/80→13/80; ordinary140pairs and combined40pairs have no deaths before or after. The earlier26→8 result below included unintended mana preservation and is not the released balance result. No stuns occurred; full raid AI and visible player acceptance remain outside the fixture.
+
+The paired native/content rehearsal passes full-row forward/replay/inverse SQL and exact cache comparison:76 focus-only records changed,309952 identical. The new image preserves every other binary. Light Healing's both-focus control retains20%healing and correctly selects10%mana preservation (26 mana instead of the erroneous23). See correction-validation.json, correction-build.json, correction-review.json and validation.json.
+
+## Pre-correction measurements (historical comparison)
+
+260 before/after pairs (520 runs), five seeds per build/spell/AA condition. Every run has actual NPC damage and healing attempts; native cast completions are observed. HP, mana capacity, Heal Amount, Spell Damage, channeling and AA spend remain identical within each pair. HP conservation holds in all520 runs. No stuns occurred: this does not validate bash/stun resistance. Earlier login-protected dry runs and the incomplete landing-counter attempt are discarded. Raw successful runs are retained losslessly as results.json.gz, pressure-results.json.gz and stress-results.json.gz.
 
 | Controlled pressure | Pairs | Before deaths | After deaths | Before / after landed casts |
 |---|---:|---:|---:|---:|
@@ -66,11 +74,11 @@ This is a neutral-arena primary-hand pressure measurement, not a complete boss f
 | Three primary-hand attackers, four progression cohorts |80|26|8|2389 /2733|
 | Full healer and Dodging augment loadouts |40|0|0|283 /276|
 
-Fewer casts in a surviving run can reflect larger heals and fewer necessary casts. These are deterministic fixture outcomes, not population survival rates. Some casts remain pending at the180second horizon or death; failed-started counts are not a complete interruption/fizzle breakdown.
+Fewer casts in a surviving run can reflect larger heals and fewer necessary casts. These are deterministic fixture outcomes, not population survival rates. Some casts remain pending at the180 second horizon or death; failed-started counts are not a complete interruption/fizzle breakdown.
 
 Under three attackers, no-AA pre-raid PAL/WAR with Light Healing increases mean survival99→171seconds (five deaths→two); Greater Healing165→180seconds (four→zero). Mid-level PAL/WAR Light Healing164.4→180seconds (five→zero). Raid PAL/WAR Light Healing98.64→117.72seconds still dies in all five no-AA runs; Greater Healing survives both configurations. This is meaningful sustain without proving encounter triviality or balance acceptance.
 
-Full-healer gear retains4643HP,4714mana,487HA and402SD without AAs (5107HP with the selected sustain AAs). Existing Prismatic healing focus already wins: added healing focus does not further increase its heal sample. Light Healing gains the eligible HasteII lane,2000→1700ms; Greater3000→2550ms. The Dodging variant retains4643HP/4714mana/407HA/402SD. Its existing worn effects and sockets are preserved by full-row/cache comparison. These are test loadouts, not a claim of universal BiS or the same stats as older differently-equipped fixtures.
+Full-healer gear retains4643 HP,4714 mana,487 HA and402 SD without AAs (5107 HP with the selected sustain AAs). Existing Prismatic healing focus already wins: added healing focus does not further increase its heal sample. Light Healing gains the eligible HasteII lane,2000→1700ms; Greater3000→2550ms. The Dodging variant retains4643 HP/4714 mana/407 HA/402 SD. Its existing worn effects and sockets are preserved by full-row/cache comparison. These are test loadouts, not a claim of universal BiS or the same stats as older differently-equipped fixtures.
 
 **All results include the existing healing-to-mana category leak.** Do not use them to certify the proposed correction. The owner authorized the correction; the corrected matrix and no-healing-reduction comparisons are separate evidence required before promotion.
 
