@@ -1,3 +1,7 @@
+## November20,2026 · Classic focus coverage and mana correction
+
+Add existing haste/healing/mana focuses to19stock families/76definitions. Reject healing slots only during mana focus lookup; healing evaluation, ranks and custom content remain unchanged. Native source retains the already-live five-line instant-DoT guard absent from dev, so the tested translation unit exactly matches the shipping baseline plus this correction. Full native build,144paired category scenarios,260paired pressure cases and paired SQL/cache rehearsal pass. Test QA: docs/items/classic-focus-coverage/README.md; authorization and release evidence are alongside it. Player acceptance remains OPEN.
+
 ## 2026-11-20 · AA availability
 
 - Correct the impossible Spell Casting Expertise prerequisite on existing Mastery of the Past ranks for CLR/PAL/RNG/DRU/SHM/BST. Purchase checks and per-client AA packets agree; all ranks, costs, effects, class masks and custom content remain unchanged. Rebuild zone and relog; no client/cache/SQL update. Audit, tests, release status and exact QA: docs/audits/aa-availability-20261120/.
