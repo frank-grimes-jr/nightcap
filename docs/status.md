@@ -1,6 +1,6 @@
 ## November 21, 2026 · Broad Classic focus and defense candidate
 
-119 stock families / 476 definitions prepared; 188 paired pressure and 259 paired defense checks pass. Database/cache rehearsal, promotion, deployment and wiki publication pending. Player acceptance OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
+119 stock families / 476 definitions prepared; 188 paired pressure and 259 paired defense checks pass. Database/cache rehearsal passed (476 changed, 309552 identical records). Promotion, deployment and wiki publication pending. Player acceptance OPEN. [Evidence](items/classic-defense-coverage/README.md) · [Exact QA](releases/classic-defense-coverage-20261121/QA.md).
 
 ## November 20, 2026 · Classic stock focus coverage deployed
 
