@@ -75,6 +75,100 @@ static EqString* __fastcall Assign(EqString* self,void*,const char* value) {
 }
 static BYTE definition[0x300]={};
 static void* __fastcall Definition(void*,void*) { return definition; }
+
+struct ComparisonItem {
+    BYTE instance[0xd8]{};
+    BYTE def[0x634]{};
+    static BYTE* __fastcall Get(void* self, void*) {
+        return static_cast<ComparisonItem*>(self)->def;
+    }
+    ComparisonItem(const char* name, int hp) {
+        static void* table[] = {nullptr, nullptr, reinterpret_cast<void*>(&Get)};
+        *reinterpret_cast<void***>(instance) = table;
+        strcpy_s(reinterpret_cast<char*>(def), 64, name);
+        *reinterpret_cast<int*>(def + 0x130) = hp;
+    }
+};
+static BYTE comparison_profile[0x100]{};
+static BYTE* __fastcall CurrentProfile(void*, void*) { return comparison_profile; }
+static BYTE __fastcall Eligible(void*, void*, ComparisonItem** ref, int slot, bool first, bool second) {
+    return !first && second && (*reinterpret_cast<unsigned*>((*ref)->def + 0xf0) & (1u << slot)) != 0;
+}
+static void CheckWornComparison(BYTE* image, BYTE* window) {
+    nightcap::client_ui::base = reinterpret_cast<uintptr_t>(image);
+    BYTE character[32]{}, game[0x600]{};
+    int vb[2]{};
+    *reinterpret_cast<int**>(character + 8) = vb;
+    *reinterpret_cast<void**>(image + 0x9d261c) = character;
+    *reinterpret_cast<void**>(image + 0xa67ccc) = game;
+    int& state = *reinterpret_cast<int*>(game + 0x5c8);
+    state = 5;
+    Jump(image + kSpellMenuProfileRva, reinterpret_cast<void*>(&CurrentProfile));
+    Jump(image + 0x183550, reinterpret_cast<void*>(&Eligible));
+    ComparisonItem ring("Candidate", 12), left("Old <Ring>", 6), right("Heavy Ring", 30), aug("Gem", 3);
+    auto& slots = *reinterpret_cast<unsigned*>(ring.def + 0xf0);
+    slots = (1u << 15) | (1u << 16);
+    ring.def[0x128] = 0xfe; // signed STR -2
+    aug.def[0x1d4] = 54;
+    aug.def[0x183] = 3; aug.def[0x184] = 2;
+    ring.def[0x183] = 2; ring.def[0x184] = 2;
+    void* gems[] = {nullptr, &aug};
+    *reinterpret_cast<void***>(left.instance + 0xa8) = gems;
+    *reinterpret_cast<int*>(left.instance + 0xac) = 2;
+    void* worn[23]{};
+    worn[15] = &left; worn[16] = &right;
+    *reinterpret_cast<void***>(comparison_profile + 0x20) = worn;
+    *reinterpret_cast<unsigned*>(comparison_profile + 0x18) = 34;
+    int& count = *reinterpret_cast<int*>(comparison_profile + 0x24);
+    count = 23;
+    Text original("Ordinary item description<BR>");
+    *reinterpret_cast<void**>(window + 0x294) = original.bytes.data();
+    *reinterpret_cast<void**>(window + 0x2b0) = &ring;
+    auto refresh = [&]() { reinterpret_cast<nightcap::client_ui::UpdateItemDescription>(
+        image + kItemDescriptionUpdateRva)(window); };
+    refresh();
+    Expect(rendered.find("Left ring: Old &lt;Ring&gt;<BR>HP +3, STR -2") != std::string::npos,
+           "left ring includes socketed stats and escapes names");
+    Expect(rendered.find("Right ring: Heavy Ring<BR>HP -18, STR -2") != std::string::npos,
+           "right ring has an independent signed baseline");
+    Expect(rendered.find("Fire damage +2, Cold damage -2") != std::string::npos,
+           "different elemental types do not cancel each other");
+    const auto both = rendered;
+    refresh();
+    Expect(rendered == both && rendered.find("Ordinary item description") == 0, "refresh is idempotent");
+    worn[15] = nullptr;
+    worn[16] = &ring;
+    refresh();
+    Expect(rendered.find("Left ring: Empty<BR>HP +12") != std::string::npos &&
+           rendered.find("Right ring: Candidate<BR>Same listed stats") != std::string::npos,
+           "empty and identical slots");
+    slots = (1u << 1) | (1u << 4) | (1u << 9) | (1u << 10);
+    refresh();
+    Expect(rendered.find("Right ring:") == std::string::npos && rendered.find("Left ear:") != std::string::npos &&
+           rendered.find("Right ear:") != std::string::npos && rendered.find("Left wrist:") != std::string::npos &&
+           rendered.find("Right wrist:") != std::string::npos, "new slot mask replaces all old rows");
+    slots = 1u << 15;
+    worn[15] = &left;
+    *reinterpret_cast<int*>(left.instance + 0xac) = 7;
+    refresh();
+    Expect(rendered == "Ordinary item description<BR>", "incomplete socket read discards partial comparison");
+    *reinterpret_cast<int*>(left.instance + 0xac) = 2;
+    count = 12;
+    refresh();
+    Expect(rendered.find("Left ring: Empty<BR>HP +12") != std::string::npos, "unallocated trailing slot is empty");
+    count = -1;
+    refresh();
+    Expect(rendered == "Ordinary item description<BR>", "unavailable inventory never appears empty");
+    count = 23;
+    state = 1;
+    refresh();
+    Expect(rendered == "Ordinary item description<BR>", "zoning clears comparison");
+    state = 5;
+    ring.def[0x1d4] = 54;
+    refresh();
+    Expect(rendered == "Ordinary item description<BR>", "standalone augment has no worn comparison");
+    nightcap::client_ui::base = 0;
+}
 int main(int argc,char** argv) {
  Check(argc==2,"read-only client path required");auto image=LoadClient(argv[1]);
  Jump(image+0x489a50,reinterpret_cast<void*>(&CaptureButtonText));
@@ -166,5 +260,6 @@ int main(int argc,char** argv) {
  Expect(!nightcap::client_ui::SnapshotItemDescription(window,id,copy),"oversized string rejected");
  *reinterpret_cast<uint32_t*>(info.bytes.data()+8)=static_cast<uint32_t>(strlen("AC: 5<BR>HP: 114<BR>This Augmentation fits in slot types: 22"));
  Expect(!nightcap::client_ui::EntryHook(reinterpret_cast<uintptr_t>(image)+kItemDescriptionUpdateRva,kExpectedItemDescriptionUpdate,reinterpret_cast<void*>(&nightcap::client_ui::ItemDescriptionHook)),"foreign/repeated patch rejected");
+ CheckWornComparison(image, window);
  std::cout<<checks<<" checks, "<<failures<<" failures\n";return failures?1:0;
 }

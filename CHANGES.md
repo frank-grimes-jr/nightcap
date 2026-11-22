@@ -1,3 +1,7 @@
+## 2026-11-22 — Worn-item comparison
+
+Native item inspection compares the inspected item with each slot the character can use. Left and right rings, ears and wrists each use their own worn item. The comparison includes numeric socketed augment stats and treats an empty slot as zero. This builds on the NPC target candidate and uses the same launcher delivery. [Build and QA](docs/qa/worn-item-comparison.md)
+
 ## 2026-11-22 — Native NPC target details
 
 Added a level and class line to the Nightcap target window. The signed-client packaging path includes the target skin alongside the existing Bazaar skin. The local x86 candidate reads only the selected NPC and clears the line when the selection changes. The stock HP, aggro and buff controls remain available. Player delivery and visual QA are pending. [Build and QA](docs/qa/native-target-details.md)

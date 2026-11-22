@@ -1,3 +1,7 @@
+## Worn-item comparison (2026-11-22)
+
+The combined x86 client candidate includes item inspection and NPC target details. Native renderer and equipment tests and launcher package preflight passed. The player channel, visual QA and wiki publication are pending. [Build and QA](qa/worn-item-comparison.md)
+
 ## Native NPC target details (2026-11-22)
 
 The local client candidate displays level and class for a selected NPC. The x86 fixture, real target skin, proxy/catalog pairing and launcher preflight passed. Signing, player delivery and visual acceptance are pending. [Candidate and in-game QA](qa/native-target-details.md)

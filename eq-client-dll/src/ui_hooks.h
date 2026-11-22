@@ -13,6 +13,7 @@
 #include "inventory_stats_state.h"
 #include "item_name_color.h"
 #include "target_details.h"
+#include "worn_comparison.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -30,6 +31,7 @@ static AssignString skin_assign = nullptr;
 using UpdateItemDescription = void (__thiscall *)(void*);
 static UpdateItemDescription original_item_description = nullptr;
 static AssignString item_description_assign = nullptr;
+static uintptr_t base = 0;
 
 // Pinned CItemDisplayWnd: Description0x220, ItemInfo CXStr0x294, ItemPtr0x2b0.
 // Native item definition accessor is vtable slot2; item ID is at definition0xec.
@@ -77,9 +79,20 @@ inline void __fastcall ItemDescriptionHook(void* self, void*) {
     uint32_t id = 0;
     char before[16385] = {};
     if (item_description_assign && SnapshotItemDescription(self,id,before)) {
-        const auto after = AugmentItemDescription(before,id);
-        if (after != before)
-            item_description_assign(reinterpret_cast<EqString*>(static_cast<BYTE*>(self)+0x294),after.c_str());
+        auto after = AugmentItemDescription(before,id);
+        worn_comparison::Comparison comparison{};
+        if (worn_comparison::Read(base, self, comparison))
+            after += worn_comparison::Render(comparison);
+        if (after != before) {
+            auto source = reinterpret_cast<EqString*>(static_cast<BYTE*>(self) + 0x294);
+            item_description_assign(source, after.c_str());
+            original_item_description(self);
+            // UpdateStrings copies the source into the rendered STML. Restore it
+            // so reused windows and subsequent refreshes start from native text.
+            item_description_assign(source, before);
+            ColorItemName(self);
+            return;
+        }
     }
     original_item_description(self);
     ColorItemName(self);
@@ -97,7 +110,6 @@ using SetGameState = void (__thiscall *)(void*, int);
 using UpdateAA = void (__thiscall *)(void*);
 using GetRowData = uint32_t (__thiscall *)(void*, int);
 using SetCellText = void (__thiscall *)(void*, int, int, const EqString*);
-static uintptr_t base = 0;
 static const char* install_failure = "not_started";
 static UIState state;
 static EquippedStatsState equipped_stats;
