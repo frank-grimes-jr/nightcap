@@ -49,5 +49,10 @@
   ],
   "zone_sha256": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
   "world_sha256": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
-  "gui_sha256": "71557c9f3c8dfa92586b0764ffdb0503f0be1c7692e9f46a14e3dbb40f3b94f6"
+  "gui_sha256": "71557c9f3c8dfa92586b0764ffdb0503f0be1c7692e9f46a14e3dbb40f3b94f6",
+  "world_events": [
+    "13:49:06 name approval Torsulin race Dwarf class Cairnwright",
+    "13:49:08 creation race 8 class 17 deity 202 start_zone 67",
+    "13:49:09 Character creation succeeded for Torsulin"
+  ]
 }

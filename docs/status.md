@@ -1,6 +1,6 @@
 ## Dwarf Cairnwright in the opt-in Hailstone client (2026-11-22)
 
-LocalDev authenticated a new Dwarf Cairnwright, saved class 17 through camp and relog, and resolved Strike Cairn and Sound the Seam from the spell gems. A separate Warrior added and released Cairnwright through the Ancient Chronicler across fresh logins. The launcher exposes **Play Hailstone preview** as a separate choice. [Acceptance and player test steps](qa/cairnwright-hailstone/README.md)
+LocalDev authenticated a new Dwarf Cairnwright, saved class 17 through camp and relog, and resolved Strike Cairn and Sound the Seam from the spell gems. A separate Warrior added and released Cairnwright through the Ancient Chronicler across fresh logins. Launcher 0.8.0 is signed and its immutable desktop and source files passed HTTPS verification. Production still serves the previous launcher channel pending a restart window for the paired zone. [Acceptance and player test steps](qa/cairnwright-hailstone/README.md)
 
 ## Native target and item windows in production (2026-11-22)
 

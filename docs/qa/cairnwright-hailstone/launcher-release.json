@@ -1,0 +1,20 @@
+{
+  "launcher_version": "0.8.0",
+  "desktop_release": 2026112202,
+  "game_asset_release": 2026112201,
+  "signed_channel_sha256": "ed6f1fb889cb12ab82403c238a200fa2d644c2d3032b2e340ea29ffd37b603d7",
+  "public_files": {
+    "desktop": {
+      "sha256": "e632198ccd12b080b4cc2469baf1ef33ef92e5d70db7ac91ade3079e539be195",
+      "bytes": 23574016
+    },
+    "source": {
+      "sha256": "c34ee76c4cb2a61ce839f02d5ae739e6445c15556ed6576654a955289578ae50",
+      "bytes": 67438535
+    }
+  },
+  "gameplay_evidence": "local-acceptance.json",
+  "live_zone_active": false,
+  "launcher_channel_active": false,
+  "wiki_and_player_guide_active": false
+}
