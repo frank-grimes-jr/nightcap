@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"nightcap/eq-launcher/internal/gametunnel"
+	"nightcap/eq-launcher/internal/hailstone"
 	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
 	"nightcap/eq-launcher/internal/playeraccess"
@@ -35,6 +36,14 @@ func (c *Controller) inspectLocal(ctx context.Context, dir string, trust manifes
 // changes until all owned processes exit and their verified lease is released.
 // Start freshly verifies the cached signed release; production also opens its relay.
 func (c *Controller) Play(ctx context.Context) (err error) {
+	return c.play(ctx, false)
+}
+
+func (c *Controller) PlayHailstone(ctx context.Context) error {
+	return c.play(ctx, true)
+}
+
+func (c *Controller) play(ctx context.Context, preview bool) (err error) {
 	ctx, dir, err := c.begin(ctx)
 	if err != nil {
 		return err
@@ -75,6 +84,24 @@ func (c *Controller) Play(ctx context.Context) (err error) {
 		disconnected = tunnel.Done()
 	}
 	trust.Now = time.Now().UTC()
+	if preview {
+		if c.policy.RelayURL == "" || !hailstone.Available() {
+			return fmt.Errorf("this launcher does not include the Hailstone preview")
+		}
+		local, err := c.inspectLocal(ctx, dir, trust)
+		if err != nil {
+			return err
+		}
+		if !local.Current || !local.Present || local.RecoveryRequired {
+			return fmt.Errorf("update your installed client before launching Hailstone")
+		}
+		c.show("playing", "Nightcap Hailstone is running. Keep this launcher open while playing.")
+		if err := hailstone.Run(ctx, c.home, dir, disconnected); err != nil {
+			return err
+		}
+		c.show("stopped", "Nightcap Hailstone closed.")
+		return nil
+	}
 	active, err := c.start(ctx, dir, trust)
 	if err != nil {
 		return err

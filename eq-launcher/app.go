@@ -87,6 +87,12 @@ func (a *App) Play() error {
 	}
 	return a.controller.Play(a.ctx)
 }
+func (a *App) PlayHailstone() error {
+	if err := a.available(); err != nil {
+		return err
+	}
+	return a.controller.PlayHailstone(a.ctx)
+}
 func (a *App) SetAccessCode(code string) error {
 	if err := a.available(); err != nil {
 		return err

@@ -811,6 +811,10 @@ int64 Client::CalcManaRegen(bool bCombat)
 						regen += skill / 15;
 				}
 			}
+			// A novice Cairnwright has no Meditation skill and a mana pool
+			// smaller than the zone's rest divisor. Allow one point while seated.
+			if (IsMulticlassMember(Cairnwright::ClassId))
+				regen = std::max<int64>(regen, 1);
 			if (old)
 				regen = std::max(regen, static_cast<int64>(2));
 		} else if (old) {

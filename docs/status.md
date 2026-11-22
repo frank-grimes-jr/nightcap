@@ -1,3 +1,7 @@
+## Dwarf Cairnwright in the opt-in Hailstone client (2026-11-22)
+
+LocalDev authenticated a new Dwarf Cairnwright, saved class 17 through camp and relog, and resolved Strike Cairn and Sound the Seam from the spell gems. A separate Warrior added and released Cairnwright through the Ancient Chronicler across fresh logins. The launcher exposes **Play Hailstone preview** as a separate choice. [Acceptance and player test steps](qa/cairnwright-hailstone/README.md)
+
 ## Native target and item windows in production (2026-11-22)
 
 Signed launcher release `2026112201` delivers NPC level and class, per-slot worn comparison and private item notes. The public envelope and all four client files passed HTTPS verification. The Combat and Equipment guides are in wiki release `20261122-native-qol-v1`. In-game QA is open. [Release and QA](releases/native-client-qol-20261122/README.md)

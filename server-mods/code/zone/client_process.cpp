@@ -1,4 +1,5 @@
 #include "../common/item_trade_policy.h"
+#include "../common/cairnwright.h"
 #include "zone/advanced_loot.h"
 #include "zone/earned_titles.h"
 /*	EQEMu: Everquest Server Emulator
@@ -1196,7 +1197,7 @@ void Client::OPMemorizeSpell(const EQApplicationPacket* app)
 	if (
 		m->scribing != memSpellForget &&
 		(
-			!IsPlayerClass(GetClass()) ||
+			(!IsPlayerClass(GetClass()) && GetClass() != Cairnwright::ClassId) ||
 			spell_min_level == 255 ||
 			(m->scribing != memSpellScribing && GetLevel() < spell_min_level)
 		)

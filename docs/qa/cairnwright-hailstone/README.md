@@ -1,0 +1,50 @@
+# Dwarf Cairnwright in the Nightcap Hailstone preview
+
+The optional Windows client uses Hailstone's character creation UI, the RoF2 protocol and the player's installed game assets. Use [the preview patch](nightcap-preview.patch) on Hailstone commit `45cf0cf6489f30f39f660c6791a85d4e531d6f8f` for the launcher build. [Build and packaging](BUILD-PREVIEW.md)
+
+The launcher offers **Play Hailstone preview** alongside **Play**. The preview uses the existing Nightcap access code and relay. The signed launcher contains the Hailstone executable, runtime libraries and UI. It constructs a per-profile spell catalog from the installed catalog and the three Nightcap records. Source for the corresponding Hailstone build is included in the release upload.
+
+## Gameplay acceptance
+
+1. Open character creation, choose Dwarf, Cairnwright, Brell Serilis and Kaladim. Spend the 20 starting points and create the character. Nightcap places it in East Commonlands. Camp, close the client and sign in again. The character and the server's zone profile should still show Cairnwright.
+2. Memorize Strike Cairn and Sound the Seam from the starting spellbook. Sit with food and drink until you have at least 9 mana. Stand, cast Strike Cairn, move away and cast Sound the Seam. The first spell places a cairn. The second checks the line back to the cairn for engaged targets. An empty line produces a specific no-foe message.
+3. On a separate character with a free class slot, hail the Ancient Chronicler in the East Commonlands tunnel. Choose Cairnwright and confirm. Camp and log back in before releasing that same slot. Confirm release with the Chronicler and verify on another login that the slot is empty. The primary character keeps its starting class.
+
+[Creation and fresh-login test](run_local.py) · [Spell and Chronicler tests](run_gameplay.py)
+
+## Earlier LocalDev-only prototype
+
+1. Check out Hailstone commit `45cf0cf6489f30f39f660c6791a85d4e531d6f8f` and apply [the LocalDev patch](hailstone-localdev.patch) with `git apply`. The patch is for the upstream GPL-licensed project. [Hailstone source and build instructions](https://github.com/projecthailstone/hailstone-client/tree/45cf0cf6489f30f39f660c6791a85d4e531d6f8f)
+2. Configure with `cmake -S . -B build -DHAILSTONE_BROWSER=OFF` and build `playprobe` and `hailstone` in Release. For the creation-option regression, compile [creation_test.cpp](creation_test.cpp) as C++20 with Hailstone's `src` include directory and run the executable.
+3. In the Windows QA workspace, open `artifacts/cairnwright-creation-20261121/Open Hailstone LocalDev.cmd`. Log into LocalDev and open character creation. Choose **Dwarf → Cairnwright → Brell Serilis → Kaladim**, enter a name, and spend all 20 starting points before clicking Create. The QA run puts them in Stamina. Nightcap places the character in East Commonlands. Camp, select the same character, and enter again.
+4. The [two-login regression](run_local.py) takes the path to the built `playprobe` and a local RoF2 asset directory. Set `NIGHTCAP_QA_ACCOUNT` and `NIGHTCAP_QA_PASSWORD` for a provisioned disposable LocalDev account. It uses a fresh character name unless `NIGHTCAP_QA_CHARACTER` is set. It requires a Dwarf/class-17 roster entry, a race-8/class-17 zone profile, and a completed camp in each process. The LocalDev login listener is UDP 5998. Its configured credential format currently differs from the auto-registration default.
+
+## How the selection survives approval
+
+The Lua class button passes its numeric ID to the creation view. The view matches the selected race, class, deity and city to a creation option. On submission the app constructs one typed character request. Its class goes into name approval and the saved copy supplies character creation when the world approves the name. A refusal discards the pending request. These are the existing Hailstone code paths in `ui/modern/charcreate.lua`, `src/app/lua_ui_pregame.cpp`, `src/ui/dev_screens.cpp`, `src/app/client_app_ui.cpp` and `src/net/game_connection.cpp`.
+
+World filters the class-17 combination from the table served to the original RoF2 client. The LocalDev-only Hailstone patch supplies the reviewed Dwarf combination to its own creation model once it sees the corresponding allocation and stock Dwarf Paladin row. The world still validates the final choice against its database. An original RoF2 implementation needs a creation-state setter or editable creation controller that both submissions use. The MQ2 RoF2 library examined at `ef037e896cfdd34163f33e460f61cfd51334becb` exports window lookup. Its public bindings do not supply that setter. [RoF2 EQLib source](https://github.com/macroquest/eqlib/tree/ef037e896cfdd34163f33e460f61cfd51334becb)
+
+## LocalDev evidence on November 22, 2026
+
+The first full character request exposed a mismatch in the local server deployment. World recorded Dwarf and Cairnwright at name approval, then received race 8, class 17, deity 202 and starting city 67. World stopped while allocating starter equipment. The earlier scratch test used a cache written by the world-linked test program. The full LocalDev catalog had been generated by a writer with 1,324-byte records. The running world expects 1,332 bytes.
+
+The [paired writer build](build_item_writer.py) uses the same headers and common library as world `a641bef7`. The [read-only cache check](check_item_cache.py) verified every index and embedded ID in the 308,942-item replacement along with the two named pieces of starter gear. Writer `c980474b` produced item cache `a432632a` and reproduced spell cache `e8b738dc` byte for byte. World and eight zone workers mapped the replacement after a LocalDev restart with zero players online.
+
+At 11:57:10 on the LocalDev world clock, world approved Torukeld as Dwarf and Cairnwright. At 11:57:11 it received class 17, race 8, deity 202 and starting city 67 and recorded successful creation. Local PEQ stored character 24 at level 1 in zone 22. A separate empty reservation from the earlier failed run belongs to the disposable QA account.
+
+East Commonlands initially refused to admit players because LocalDev lacked the zone binary's required cooldown v1 migration. The existing [cooldown migration](../../../tools/cooldown_identity_migration.py) passed forward and rollback rehearsals against a fresh LocalDev catalog. The stopped PEQ backup passed integrity verification (`87bac077e7b8`). The migration retained all five timer rows exactly. All five had expired and there were zero item-recast rows. LocalDev's login configuration stayed at its existing mode.
+
+After the migration, two independent Hailstone processes authenticated, selected Torukeld, entered East Commonlands and completed a normal camp. Each received the roster entry `Torukeld(L1 r8 c17 z22)` and the server zone profile `race 8 class 17 level 1`. The second process started after the first reported `Camped out.` The database also contained the starter hammer and robe in slots 13 and 17, plus Strike Cairn (44381) and Sound the Seam (44382) in spellbook slots 0 and 1. These sessions verified the creation UI handler, saved roster, zone entry, camp and relog. They did not exercise casting or a Chronicler transaction.
+
+The Windows GUI started with the modern UI, LocalDev profile and local RoF2 assets. Binary SHA-256 prefixes were `10f964e5` for the GUI and `1f1a3be3` for the acceptance client. The in-game creation action was exercised through Hailstone's pregame API. The original executable still needs a creation-state integration. The public wiki and website describe the signed player client. The refresh check still reports historical drift from October 24. This LocalDev prototype leaves their published list of starting classes accurate.
+
+## Opt-in preview acceptance on November 22, 2026
+
+The final LocalDev zone SHA-256 was `34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa`. Its parent, `771122fc`, linked byte-for-byte from retained production inputs before rebuilding the three changed units. The paired world was `a641bef7`. LocalDev restarted with an empty world and verified eight zone workers.
+
+Torsulin selected Dwarf, Cairnwright, Brell Serilis and Kaladim in the Hailstone creation flow. A fresh process received the roster entry `Torsulin(L1 r8 c17 z22)` and the zone profile `race 8 class 17 level 1`. Both sessions camped normally. On the next login the client memorized spells 44381 and 44382 into gems one and two, sat, reported 14 current mana and cast both through those gems. The probe had not received a maximum-mana value when it took this sample. The server replied “You set your cairn into the ground.” After Torsulin moved, Sound the Seam replied “Your hammer finds no foe along the seam.” Six assertions passed and Torsulin camped. This exercised an empty seam. Damage to an engaged enemy remains a live combat check.
+
+The disposable Warrior Torbalen approached the Ancient Chronicler, hailed, requested Cairnwright and confirmed popup 317. A fresh login released the second discipline through popup 402. A third session asked about that slot and received “That binding is already empty.” On the final zone, Torvalus independently added and released the discipline and verified an empty slot after a fresh login. With the secondary discipline active, Torvalus recovered from 5 to 9 mana while seated and resolved both spell effects. The first Sound the Seam attempt fizzled normally. [Filtered gameplay evidence](local-acceptance.json). The test exercised Hailstone's gameplay handlers and real LocalDev services. Windows mouse interaction and production player acceptance are separate checks.
+
+Cairnwright now passes the memorization handler's primary-class check, subject to the existing spellbook and level checks. The zone loads class 17 base-stat rows. A fed, seated character with the discipline has a minimum mana regeneration of one, including before it learns Meditation. The deployed Lua class-name list also includes Cairnwright. Use the matching zone executable and quest. The original RoF2 client still submits Warrior in the previously recorded creation-button test.

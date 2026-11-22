@@ -255,7 +255,7 @@ function event_combine_success(e)
 	end
 end
 
-local CLASS_NAMES = {"Warrior","Cleric","Paladin","Ranger","Shadow Knight","Druid","Monk","Bard","Rogue","Shaman","Necromancer","Wizard","Magician","Enchanter","Beastlord","Berserker"}
+local CLASS_NAMES = {"Warrior","Cleric","Paladin","Ranger","Shadow Knight","Druid","Monk","Bard","Rogue","Shaman","Necromancer","Wizard","Magician","Enchanter","Beastlord","Berserker","Cairnwright"}
 
 local function show_class_summary(client, c2, c3)
     local base = client:GetClass()

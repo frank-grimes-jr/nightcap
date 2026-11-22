@@ -1,3 +1,7 @@
+## 2026-11-22 — Optional Hailstone client for Cairnwright
+
+Added **Play Hailstone preview** to the Windows launcher. The separate client uses the installed game assets and the Nightcap relay. It carries the Dwarf's class 17 selection through name approval and creation. The zone now accepts the primary class in its spellbook handler, loads its base stats and provides seated mana recovery before Meditation. LocalDev verified fresh creation, camp, relog, both starter spells and Chronicler add and release. [Build, QA and limitations](docs/qa/cairnwright-hailstone/README.md)
+
 ## 2026-11-22 — Native target and item windows released for live QA
 
 The normal launcher now installs the matched client and both Nightcap windows in signed release `2026112201`. Fully exit EQ and press Play. Live checks cover NPC changes, both ring slots and persistence of local item notes. [Production evidence](docs/releases/native-client-qol-20261122/README.md)

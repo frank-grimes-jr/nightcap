@@ -1,0 +1,5 @@
+# Nightcap Hailstone preview build
+
+The source archive contains the edited Hailstone tree, its pinned dependencies and their notices. On Windows use the Visual Studio 2022 C++ toolchain, CMake and a Vulkan shader compiler. Hailstone's README and CMakeLists.txt describe its other platform requirements. Configure Hailstone with `-DHAILSTONE_BROWSER=OFF` and build the Release targets `hailstone` and `playprobe`. CMake can fetch dependencies at their pinned revisions. For an offline build, point the matching `FETCHCONTENT_SOURCE_DIR_<NAME>` cache entries at the supplied dependency directories.
+
+Run `package_preview.py SOURCE RUNTIME DEPS OUTPUT` from the Nightcap checkout or adjacent to this build guide. RUNTIME is the generated folder containing hailstone.exe and the compiled shaders. Stage the resulting nightcap-hailstone.zip under eq-launcher/internal/hailstone/payload before building the signed desktop launcher. Distribute the corresponding source archive beside the launcher release. Each player supplies their existing RoF2 assets through the launcher's selected EverQuest folder.

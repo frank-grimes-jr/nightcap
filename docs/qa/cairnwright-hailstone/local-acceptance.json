@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-22",
+  "environment": "LocalDev",
+  "client": "Hailstone game and creation handlers, instrumented playprobe",
+  "primary": "Torsulin",
+  "race": 8,
+  "class": 17,
+  "creation_and_relog": [
+    "create: creating Torsulin: race 8 class 17 deity 202 zone 67",
+    "create: zone profile: race 8 class 17 level 1",
+    "create: final state: disconnected Camped out.",
+    "relog: zone profile: race 8 class 17 level 1",
+    "relog: final state: disconnected Camped out."
+  ],
+  "primary_spells": [
+    "zone profile: race 8 class 17 level 1",
+    "REST: server mana 14/0, level 1",
+    "REST: server mana 14/0",
+    "QUEST PASS [8]: chat \"You set your cairn into the ground\"",
+    "QUEST PASS [11]: chat \"Your hammer finds no foe along the seam\"",
+    "QUEST SUMMARY: 6 passed, 0 failed, 11 of 11 steps run",
+    "final state: disconnected Camped out."
+  ],
+  "warrior": "Torvalus",
+  "addition": [
+    "QUEST PASS [8]: confirmed server popup 317",
+    "QUEST PASS [9]: chat \"You have learned the Cairnwright discipline\"",
+    "QUEST SUMMARY: 3 passed, 0 failed, 9 of 9 steps run",
+    "final state: disconnected Camped out."
+  ],
+  "secondary_spells": [
+    "REST: server mana 5/0, level 1",
+    "REST: server mana 9/0",
+    "QUEST PASS [8]: chat \"You set your cairn into the ground\"",
+    "QUEST PASS [11]: chat \"Your hammer finds no foe along the seam\"",
+    "QUEST SUMMARY: 4 passed, 0 failed, 11 of 11 steps run",
+    "final state: disconnected Camped out."
+  ],
+  "release": [
+    "QUEST PASS [5]: confirmed server popup 402",
+    "QUEST PASS [6]: chat \"Your Cairnwright discipline has been released\"",
+    "QUEST SUMMARY: 2 passed, 0 failed, 6 of 6 steps run",
+    "final state: disconnected Camped out."
+  ],
+  "empty_slot_after_relog": [
+    "QUEST PASS [5]: chat \"That binding is already empty\"",
+    "QUEST SUMMARY: 1 passed, 0 failed, 5 of 5 steps run",
+    "final state: disconnected Camped out."
+  ],
+  "zone_sha256": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
+  "world_sha256": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+  "gui_sha256": "71557c9f3c8dfa92586b0764ffdb0503f0be1c7692e9f46a14e3dbb40f3b94f6"
+}

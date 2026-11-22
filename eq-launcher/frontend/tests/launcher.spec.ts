@@ -1,6 +1,23 @@
 import { test, expect, type Page } from "@playwright/test";
 import type { Status } from "../src/bridge";
 
+test("Hailstone is opt-in and calls its own native action", async ({ page }) => {
+  await desktop(page, "play");
+  const preview = page.getByRole("button", { name: "Play Hailstone preview" });
+  await expect(preview).toHaveCount(0);
+  await page.evaluate(() => {
+    const api = window.go!.main!.App!;
+    const previous = api.GetStatus.bind(api);
+    api.GetStatus = async () => ({ ...await previous(), can_play: true, hailstone_available: true });
+    api.PlayHailstone = async () => { document.body.dataset.played = "hailstone"; };
+    api.Play = async () => { document.body.dataset.played = "original"; };
+  });
+  await preview.click();
+  await expect(page.locator("body")).toHaveAttribute("data-played", "hailstone");
+  await page.getByRole("button", { name: "Play Nightcap" }).click();
+  await expect(page.locator("body")).toHaveAttribute("data-played", "original");
+});
+
 test("player access is entered once, hidden, replaceable and forgettable", async ({ page }) => {
   await desktop(page, "access");
   await page.goto("/");

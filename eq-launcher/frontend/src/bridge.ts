@@ -23,6 +23,7 @@ export interface Status {
   can_update: boolean;
   can_recover: boolean;
   can_play: boolean;
+  hailstone_available?: boolean;
   access_required: boolean;
   access_saved: boolean;
 }
@@ -34,6 +35,7 @@ export interface NativeAPI {
   Recover(): Promise<void>;
   Cancel(): Promise<void>;
   Play(): Promise<void>;
+  PlayHailstone(): Promise<void>;
   OpenGuide(): Promise<void>;
   SetAccessCode(code: string): Promise<void>;
   ForgetAccessCode(): Promise<void>;

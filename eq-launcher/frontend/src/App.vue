@@ -358,6 +358,7 @@ onUnmounted(() => {
           <strong>{{ state.phase === "playing" ? "Your session is running" : state.phase === "stopping" ? "Finishing your session" : state.can_play ? "Ready when you are" : "Play is not available yet" }}</strong>
           <p>{{ state.phase === "playing" || state.phase === "stopping" ? "Keep the launcher open until your game session ends." : state.can_play ? "Play checks for updates, downloads changed files and starts Nightcap." : "Client compatibility and release checks must pass first." }}</p>
         </div>
+        <button v-if="state.hailstone_available" @click="run('PlayHailstone')" :disabled="!native() || !state.can_play || busy">Play Hailstone preview</button>
         <button class="play-button" @click="run('Play')" :disabled="!native() || !state.can_play || busy" aria-describedby="play-reason">
           Play Nightcap <span aria-hidden="true">→</span></button
         ><span id="play-reason" class="sr-only"

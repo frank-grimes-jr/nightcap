@@ -1,0 +1,407 @@
+diff --git a/src/game/eq_names.cpp b/src/game/eq_names.cpp
+index 937cb45..97c904f 100644
+--- a/src/game/eq_names.cpp
++++ b/src/game/eq_names.cpp
+@@ -128,6 +128,7 @@ bool is_playable_race(std::uint32_t race_id) {
+ }
+ 
+ std::string stock_class_name(std::uint32_t class_id) {
++    if (class_id == 17) return "Cairnwright"; // LocalDev-only client
+     if (class_id >= 1 && class_id <= std::size(kClasses)) return std::string(kClasses[class_id - 1].name);
+     if (class_id >= kGmClassFirst && class_id <= kGmClassLast)
+         return std::string(kClasses[class_id - kGmClassFirst].name) + " Guildmaster";
+@@ -137,6 +138,7 @@ std::string stock_class_name(std::uint32_t class_id) {
+ }
+ 
+ std::string stock_class_short_name(std::uint32_t class_id) {
++    if (class_id == 17) return "CRW";
+     if (class_id >= 1 && class_id <= std::size(kClasses)) return std::string(kClasses[class_id - 1].abbrev);
+     return stock_class_name(class_id);
+ }
+@@ -149,6 +151,7 @@ std::string class_name(std::uint32_t class_id) {
+ }
+ 
+ std::string class_short_name(std::uint32_t class_id) {
++    if (class_id == 17) return stock_class_short_name(class_id);
+     if (class_id >= 1 && class_id <= std::size(kClasses)) {
+         if (auto o = override_of(class_id); o && !o->second.empty()) return std::move(o->second);
+         return std::string(kClasses[class_id - 1].abbrev);
+diff --git a/src/net/game_connection.cpp b/src/net/game_connection.cpp
+index cc9589f..2be066c 100644
+--- a/src/net/game_connection.cpp
++++ b/src/net/game_connection.cpp
+@@ -1,4 +1,5 @@
+ #include "net/game_connection.h"
++#include "net/nightcap_creation.h"
+ 
+ #include "net/notice_packets.h"
+ #include "net/player_packets.h"
+@@ -193,6 +194,10 @@ void GameConnection::chat(ChatEvent::Kind kind, std::string text, std::uint32_t
+ }
+ 
+ void GameConnection::start(const WorldTicket& ticket) {
++    if (!nightcap_qa_world(ticket.world_host, ticket.server_name)) {
++        fail("Choose Nightcap through its launcher or the Local Development Server.");
++        return;
++    }
+     close_evolving_transfer();
+     reset_fellowship();
+     reset_achievements();
+@@ -602,6 +607,7 @@ void GameConnection::handle_world(const AppPacket& p) {
+     }
+     case Op::CharacterCreateRequest:
+         create_data_ = decode_char_create_data(p);
++        if (create_data_) add_nightcap_creation_option(*create_data_);
+         break;
+     case Op::SendMembership:
+         // FreeToPlayClient::Instance() (GameFeatureRestrictions_ReadEntry); the original then refreshes the character
+diff --git a/src/net/game_connection.h b/src/net/game_connection.h
+index 69383f1..93a4210 100644
+--- a/src/net/game_connection.h
++++ b/src/net/game_connection.h
+@@ -3306,6 +3306,7 @@ private:
+     std::string status_;
+ 
+     WorldTicket ticket_;
++    bool nightcap_extra_cairnwright_ = false;
+     mutable std::optional<std::pair<std::string, std::optional<ServerProfile>>> saved_server_; // by profile id
+     std::unique_ptr<Session> world_session_;
+     std::unique_ptr<Session> zone_session_;
+diff --git a/src/net/game_connection_cast.cpp b/src/net/game_connection_cast.cpp
+index 83281fd..1347476 100644
+--- a/src/net/game_connection_cast.cpp
++++ b/src/net/game_connection_cast.cpp
+@@ -152,6 +152,7 @@ public:
+             // rest).
+             s.class_level.fill(0xff);
+             for (std::uint8_t k = 1; k <= 16; ++k) s.class_level[k] = c_.spell_level_needed(*d, k);
++            s.class_level[17] = c_.spell_level_needed(*d, 17);
+             raw_bard_level_[&s] = d->class_level[8 - 1]; // the record's own Bard byte
+             s.spell_type = d->spell_type;
+             s.target_type = d->target_type;
+diff --git a/src/net/game_connection_player.cpp b/src/net/game_connection_player.cpp
+index 433eb8e..67fa4b0 100644
+--- a/src/net/game_connection_player.cpp
++++ b/src/net/game_connection_player.cpp
+@@ -95,6 +95,7 @@ bool GameConnection::is_ignored(const std::string& name) const {
+ }
+ 
+ void GameConnection::reset_player_for_zone() {
++    nightcap_extra_cairnwright_ = false;
+     inspect_.reset();
+     book_.reset();
+     discard_questions(); // the shown one and those waiting: they were about the zone left
+@@ -664,6 +665,7 @@ std::int32_t GameConnection::aa_effect_total(std::int32_t spa) const {
+ }
+ 
+ bool GameConnection::is_spellcaster() const {
++    if (profile_ && (profile_->class_ == 17 || nightcap_extra_cairnwright_)) return true;
+     // EQ_Character::IsSpellcaster: classes 2..15 except Monk (7) and Rogue (9). A server's client may answer for the
+     // local character (the NMS patch's detours: any caster class in the mask).
+     if (auto v = server_ext().is_spellcaster(*this)) return *v;
+diff --git a/src/net/game_connection_social.cpp b/src/net/game_connection_social.cpp
+index fea3b96..5a77e5e 100644
+--- a/src/net/game_connection_social.cpp
++++ b/src/net/game_connection_social.cpp
+@@ -604,6 +604,15 @@ void GameConnection::social_emote(const game::SocialEmote& e, const std::string&
+ // named speaker goes to the conversation journal when its journal mode is 2, or 1 and it is aimed at the player
+ // (CJournalTextWnd's 0x6b3c00, while the journal window exists: take_journal_lines()).
+ void GameConnection::handle_special_message(const SpecialMessage& m) {
++    // The world quest and Chronicler report the complete current membership at
++    // entry and after each committed change. Only parse their direct system message.
++    if (profile_ && m.speak_mode == 0 && m.sayer.empty() && m.type == 15 &&
++        m.message.starts_with("Your classes: ") && m.message.ends_with(" (Third)") &&
++        m.message.find(" (Primary) | ") != std::string::npos &&
++        m.message.find(" (Second) | ") != std::string::npos) {
++        nightcap_extra_cairnwright_ = m.message.find(" | Cairnwright (Second) | ") != std::string::npos ||
++                                     m.message.ends_with(" | Cairnwright (Third)");
++    }
+     handle_adventure_leave_denial(m);
+     log::debug("special message: speak mode {} journal mode {} language {} type {} target {} from '{}'", m.speak_mode,
+                m.journal_mode, m.language, m.type, m.target_spawn_id, m.sayer);
+diff --git a/src/net/game_connection_spells.cpp b/src/net/game_connection_spells.cpp
+index e3c92bf..a6f30ee 100644
+--- a/src/net/game_connection_spells.cpp
++++ b/src/net/game_connection_spells.cpp
+@@ -83,6 +83,11 @@ std::uint8_t GameConnection::visible_class() const {
+ }
+ 
+ std::uint8_t GameConnection::spell_level_needed(const game::SpellData& spell, std::uint32_t class_id) const {
++    // Nightcap's RoF2 spell file has sixteen class columns. The Cairnwright
++    // parents have a separate server-side grant; its triggered child is never learned.
++    if (spell.id == 44381 || spell.id == 44382)
++        return class_id == 17 || (profile_ && class_id == profile_->class_ && nightcap_extra_cairnwright_) ? 1 : 255;
++    if (class_id == 17 || spell.id == 44383) return 255;
+     if (auto v = server_ext().spell_level_needed(*this, spell, class_id)) return *v;
+     // EQ_Spell::GetSpellLevelNeeded reads the class's level byte (classes outside 1..16: the warrior byte, as the
+     // memorise port reads it).
+@@ -91,7 +96,7 @@ std::uint8_t GameConnection::spell_level_needed(const game::SpellData& spell, st
+ 
+ std::uint32_t GameConnection::player_class_mask() const {
+     std::uint32_t mask = server_class_mask();
+-    if (mask == 0 && profile_ && profile_->class_ >= 1 && profile_->class_ <= 16) mask = 1u << (profile_->class_ - 1);
++    if (mask == 0 && profile_ && profile_->class_ >= 1 && profile_->class_ <= 17) mask = 1u << (profile_->class_ - 1);
+     return mask;
+ }
+ 
+diff --git a/tools/playprobe.cpp b/tools/playprobe.cpp
+index 8887b19..4f3164e 100644
+--- a/tools/playprobe.cpp
++++ b/tools/playprobe.cpp
+@@ -61,6 +61,7 @@
+ #include "core/log.h"
+ #include "net/game_connection.h"
+ #include "net/login.h"
++#include "nightcap_ui_probe.h"
+ #include "item_probe.h"
+ #include "spell_probe.h"
+ #include "group_probe.h"
+@@ -146,6 +147,11 @@ int main(int argc, char** argv) {
+         host.resize(c);
+     }
+     std::string user = argv[2], pass = argv[3], want, create, say;
++    if (pass == "--password-env") {
++        const char* value = std::getenv("NIGHTCAP_QA_PASSWORD");
++        if (!value || !*value) return 2;
++        pass = value;
++    }
+     bool check_floor = false;
+     float walk = 0;
+     int zone_line = -1;
+@@ -327,7 +333,9 @@ int main(int argc, char** argv) {
+                 for (const auto& c : data.combos)
+                     if (c.race == create_race && c.class_ == create_class && c.expansion_required == 0 &&
+                         (start_zone < 0 || c.zone == static_cast<std::uint32_t>(start_zone))) { combo = &c; break; }
+-                if (!combo && start_zone >= 0) {
++                if (create_race == 8 && create_class == 17)
++                    combo = choose_dwarf_cairnwright(data, conn.world_expansions(), create);
++                if (!combo && start_zone >= 0 && create_class != 17) {
+                     // Any race and class that may start there (human warriors may not).
+                     for (const auto& c : data.combos)
+                         if (c.zone == static_cast<std::uint32_t>(start_zone)) { combo = &c; break; }
+@@ -340,8 +348,9 @@ int main(int argc, char** argv) {
+                         if (c.zone == static_cast<std::uint32_t>(start_zone)) std::printf(" r%u/c%u", c.race, c.class_);
+                     std::printf("\n");
+                 }
+-                if (!combo) { std::fprintf(stderr, "no human warrior combination\n"); return 1; }
++                if (!combo) { std::fprintf(stderr, "missing combination for race %u class %u\n", create_race, create_class); return 1; }
+                 auto cc = net::default_char_create(data, *combo, 0);
++                if (!cc) { std::fprintf(stderr, "missing creation allocation\n"); return 1; }
+                 if (cc && tutorial) cc->tutorial = 1;
+                 std::printf("  creating %s: race %u class %u deity %u zone %u\n", create.c_str(), cc->race, cc->class_, cc->deity, cc->start_zone);
+                 conn.create_character(create, *cc);
+@@ -374,6 +383,9 @@ int main(int argc, char** argv) {
+                 augment.zone_in(conn);
+                 quest.zone_in(conn);
+                 const auto& w = conn.world();
++                if (const auto& profile = conn.profile())
++                    std::printf("  zone profile: race %u class %u level %u\n", profile->race,
++                                static_cast<unsigned>(profile->class_), static_cast<unsigned>(profile->level));
+                 std::printf("  in %s (%s): %zu spawns, me id %u", w.zone_short_name.c_str(), w.zone_long_name.c_str(), w.spawns.size(), w.player_id);
+                 if (const auto* me = w.player()) std::printf(" at %.1f %.1f %.1f heading %.1f", me->position.x, me->position.y, me->position.z, me->heading);
+                 std::printf("\n");
+diff --git a/tools/quest_probe.h b/tools/quest_probe.h
+index 22dd824..cd1600e 100644
+--- a/tools/quest_probe.h
++++ b/tools/quest_probe.h
+@@ -128,7 +128,7 @@ public:
+             std::printf("  QUEST [%zu] %s\n", index_ + 1, lines_[index_].c_str());
+             started_ = now;
+         }
+-        if (now - started_ > std::chrono::seconds(cmd == "zone" ? 60 : cmd == "kill" ? 30 * std::max(1, count_arg(rest)) : 20)) {
++        if (now - started_ > std::chrono::seconds(cmd == "rest-mana" ? 150 : cmd == "zone" ? 60 : cmd == "kill" ? 30 * std::max(1, count_arg(rest)) : 20)) {
+             check(false, "timed out");
+             next();
+             return;
+@@ -330,6 +330,93 @@ private:
+             bool have = find_item(conn, static_cast<std::uint32_t>(std::strtoul(rest.c_str(), nullptr, 10))).has_value();
+             check(cmd == "expect-item" ? have : !have, "item " + rest + (have ? " in the inventory" : " not in the inventory"));
+             next();
++        } else if (cmd == "step-east" && w.player()) {
++            // One short walk between the two self-casts, then stand still.
++            if (phase_ == 0) { pos_ = w.player()->position; phase_ = 1; }
++            const auto seconds = std::chrono::duration<float>(now - started_).count();
++            const auto at = pos_ + glm::vec3(8.0f * std::min(1.0f, seconds), 0, 0);
++            const bool moving = seconds < 1;
++            conn.set_player_motion(at, w.player()->heading, glm::vec3(moving ? 8.0f : 0.0f, 0, 0), moving);
++            if (!moving) { conn.send_position_now(); pause(now, 1700); }
++        } else if (cmd == "target-near" && w.player()) {
++            for (const auto& [id, spawn] : w.spawns) {
++                if (!spawn.is_npc || spawn.is_corpse || lower(spawn.name).find(lower(rest)) == std::string::npos) continue;
++                const float distance = glm::distance(w.player()->position, spawn.position);
++                if (phase_ == 0) {
++                    std::printf("  NPC distance: %.1f\n", distance);
++                    pos_ = w.player()->position;
++                    phase_ = 1;
++                }
++                const auto direction = spawn.position - pos_;
++                const auto length = glm::length(direction);
++                if (length > 18.0f) {
++                    const float elapsed = std::chrono::duration<float>(now - started_).count();
++                    const float walked = std::min(length - 18.0f, 14.0f * elapsed);
++                    const auto velocity = direction / length * 14.0f;
++                    conn.set_player_motion(pos_ + direction / length * walked, w.player()->heading,
++                                           walked < length - 18.0f ? velocity : glm::vec3(0), walked < length - 18.0f);
++                    if (walked < length - 18.0f) return;
++                    conn.send_position_now();
++                }
++                conn.set_target(id);
++                pause(now, 500);
++                return;
++            }
++            phase_ = 1;
++        } else if (cmd == "memorize") {
++            unsigned id = 0;
++            int gem = 0;
++            std::istringstream(rest) >> id >> gem;
++            const auto& spells = conn.spell_state();
++            const auto slot = std::find(spells.book.begin(), spells.book.end(), id);
++            if (!id || slot == spells.book.end() || gem < 1 || gem > conn.usable_gems()) {
++                check(false, "missing book entry or unavailable gem");
++                next();
++            } else if (spells.gems[gem - 1].spell == id) {
++                check(true, "memorized " + rest);
++                next();
++            } else if (phase_ == 0) {
++                check(conn.open_spell_book(), "open spell book");
++                phase_ = 1;
++            } else if (phase_ == 1 && conn.sitting()) {
++                conn.memorize(static_cast<int>(slot - spells.book.begin()), gem - 1);
++                phase_ = 2;
++            }
++        } else if (cmd == "rest-mana") {
++            const auto& stats = conn.player_status();
++            if (phase_ == 0) {
++                std::printf("  REST: server mana %u/%u, level %u\n", stats.mana, stats.max_mana, stats.level);
++                conn.set_sitting(true);
++                phase_ = 1;
++            }
++            if (stats.mana >= static_cast<unsigned>(std::atoi(rest.c_str()))) {
++                std::printf("  REST: server mana %u/%u\n", stats.mana, stats.max_mana);
++                next();
++            }
++        } else if (cmd == "stand") {
++            conn.close_spell_book();
++            conn.set_sitting(false);
++            pause(now, 1800);
++        } else if (cmd == "cast-self") {
++            const int gem = std::atoi(rest.c_str());
++            if (gem < 1 || gem > conn.usable_gems() || !w.player()) {
++                check(false, "unavailable cast gem or player");
++                next();
++                return;
++            }
++            conn.set_target(w.player()->id);
++            conn.cast_gem(gem - 1);
++            pause(now, 3500);
++        } else if (cmd == "confirm-popup") {
++            const auto& dialog = conn.large_dialog();
++            const auto id = static_cast<unsigned>(std::strtoul(rest.c_str(), nullptr, 10));
++            if (dialog && dialog->popup_id == id && id != 0) {
++                conn.answer_large_dialog(1);
++                check(true, "confirmed server popup " + rest);
++                pause(now, 1800);
++            } else {
++                phase_ = 1;
++            }
+         } else if (cmd == "expect-chat") {
+             std::string want = lower(rest);
+             bool ok = std::any_of(chat_.begin(), chat_.end(), [&](const std::string& c) { return c.find(want) != std::string::npos; });
+diff --git a/src/net/nightcap_creation.h b/src/net/nightcap_creation.h
+new file mode 100644
+index 0000000..25ec78b
+--- /dev/null
++++ b/src/net/nightcap_creation.h
+@@ -0,0 +1,33 @@
++#pragma once
++
++#include "net/world_packets.h"
++#include <algorithm>
++#include <string_view>
++
++namespace hailstone::net {
++
++inline bool nightcap_qa_world(std::string_view host, std::string_view name) {
++    if (host == "127.77.0.1" && name == "Nightcap") return true;
++    return (host == "127.0.0.1" || host == "localhost" || host == "::1") && name == "Local Development Server";
++}
++
++// The local world validates class 17 but omits it from the table sent to stock RoF2.
++// Mirror only the row specified by Nightcap's cairnwright_creation.sql.
++inline void add_nightcap_creation_option(CharCreateData& data) {
++    if (std::any_of(data.combos.begin(), data.combos.end(), [](const auto& c) { return c.class_ == 17; })) return;
++    const auto base = std::find_if(data.combos.begin(), data.combos.end(), [](const auto& c) {
++        return c.race == 8 && c.class_ == 3 && c.deity == 202 && c.zone == 67 &&
++               c.allocation_index == 14 && c.expansion_required == 0;
++    });
++    if (base == data.combos.end()) return;
++    const auto matches = [](const CharCreateAllocation& a) {
++        return a.index == 14 && a.base == std::array<std::uint32_t,7>{100,90,70,95,60,88,55} &&
++               a.points == std::array<std::uint32_t,7>{0,0,0,20,0,0,0};
++    };
++    if (std::none_of(data.allocations.begin(), data.allocations.end(), matches)) return;
++    auto cairnwright = *base;
++    cairnwright.class_ = 17;
++    data.combos.push_back(cairnwright);
++}
++
++} // namespace hailstone::net
+diff --git a/tools/nightcap_ui_probe.h b/tools/nightcap_ui_probe.h
+new file mode 100644
+index 0000000..d1c4630
+--- /dev/null
++++ b/tools/nightcap_ui_probe.h
+@@ -0,0 +1,53 @@
++#pragma once
++
++#include "app/lua_ui.h"
++#include "net/world_packets.h"
++#include "ui/dev_screens.h"
++#include <lua.hpp>
++#include <cstdio>
++
++// Exercise the same pregame API as the modern skin, using the actual world's
++// options. Reproduce the owner's Warrior -> name -> Cairnwright sequence.
++inline const hailstone::net::CharCreateCombo* choose_dwarf_cairnwright(
++    const hailstone::net::CharCreateData& data, std::uint32_t expansions, const std::string& name) {
++    using namespace hailstone;
++    ui::CharacterCreateView view;
++    for (const auto& c : data.combos) {
++        if (!net::char_create_allowed(c, expansions)) continue;
++        const auto cc = net::default_char_create(data, c, 0);
++        if (!cc) continue;
++        const auto alloc = net::validate_char_create(data, *cc);
++        if (alloc) view.options.push_back({c.race, c.class_, c.deity, c.zone, alloc->base, alloc->points});
++    }
++    app::UiHost host;
++    host.char_create_view = &view;
++    app::UiApi api{host};
++    lua_State* lua = luaL_newstate();
++    if (!lua) return nullptr;
++    luaL_openlibs(lua);
++    lua_newtable(lua);
++    api.register_functions(lua);
++    lua_setglobal(lua, "hs");
++    lua_pushlstring(lua, name.data(), name.size());
++    lua_setglobal(lua, "qa_name");
++    const int result = luaL_dostring(lua, R"(
++        assert(hs.CharacterCreateDo('race', 8))
++        assert(hs.CharacterCreateDo('class', 1))
++        assert(hs.CharacterCreateDo('name', qa_name))
++        assert(hs.CharacterCreateDo('class', 17))
++        local v = hs.CharacterCreate()
++        assert(v.className == 'Cairnwright' and v.name == qa_name)
++        if v.pointsLeft > 0 then assert(hs.CharacterCreateDo('statMax', 4)) end
++        assert(hs.CharacterCreate().pointsLeft == 0)
++        assert(hs.CharacterCreateDo('create'))
++    )");
++    if (result != LUA_OK) std::fprintf(stderr, "creation UI: %s\n", lua_tostring(lua, -1));
++    lua_close(lua);
++    if (result != LUA_OK || host.char_create_action != static_cast<int>(ui::CharacterCreateAction::Create) ||
++        view.option < 0 || static_cast<std::size_t>(view.option) >= view.options.size()) return nullptr;
++    const auto& selected = view.options[static_cast<std::size_t>(view.option)];
++    for (const auto& c : data.combos)
++        if (c.race == selected.race && c.class_ == selected.class_id &&
++            c.zone == selected.start_zone && c.deity == selected.deity) return &c;
++    return nullptr;
++}
