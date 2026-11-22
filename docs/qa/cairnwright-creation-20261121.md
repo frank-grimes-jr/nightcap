@@ -6,6 +6,14 @@ Feature worktree based on main `cca7e6dfcb312dd30528609c1483d2382de35226`. Local
 
 The world, zone, quest scripts and content described here are now on OVH. The signed client pair and creation button remain pending. The sections below record the earlier local experiments. [Live server and player guides](../releases/cairnwright-20261121/README.md)
 
+## November 22 LocalDev character creation
+
+The owner selected Dwarf Warrior in the QA client, then clicked the Cairnwright radio button. MacroQuest's local log at 09:30:08 Eastern showed Warrior checked and Cairnwright clear. At 09:30:32 the same two controls reported Warrior clear and Cairnwright checked. At 09:44 Eastern, world logged Warrior at name approval, received class 1 at creation and admitted the resulting character to East Commonlands. A separate read of `character_data` confirmed primary class 1, race 8, level 1 and zone 22. This reproduces a client defect before name approval. A checked button alone is insufficient evidence for class selection.
+
+After the test, the reviewed creation migration passed first application and replay against LocalDev PEQ. The class 17 combination is Dwarf (8), Brell (202), Kaladim (67), allocation 14, expansion mask 0. Its start and bind are East Commonlands (22). The signed-client release is independent of these rows. The retained server archive passed its content rehearsal, and a local read verified one combination, one start, 50 stat rows, two starter items and three spell records. At inspection the running post-combat-recovery world and zone were `4985c51d` and `b9256b94`. The matching Cairnwright builds are `a641bef7` and `771122fc`. World reads the combinations on boot. Native class-17 name approval, creation and relog remain pending in LocalDev.
+
+Wiki impact: this local QA result leaves the published player guide's 16 starting choices accurate.
+
 ## Observed
 
 - The QA and protected reference copies of `EQUI_CharacterCreate.xml` have SHA-256 `2da0ea6ecf7eb04a1ca4bd2ec3ba15c8062160df86540ab3ce9809c11398249a`. Their class screen defines 16 radio buttons and 16 overlays.

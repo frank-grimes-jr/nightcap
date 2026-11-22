@@ -1,3 +1,7 @@
+## Cairnwright creation on LocalDev (2026-11-22)
+
+The QA client displays the seventeenth button. After the owner clicked it, the client submitted Warrior at both name approval and creation. Local PEQ now contains the Dwarf/Brell creation combination and class content. The owner test for creating and reloading a primary Cairnwright remains open. [Local client and database evidence](qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)
+
 ## Cairnwright server and guides deployed (2026-11-21)
 
 Main includes PR533. The production world and 12 zone workers run the Cairnwright candidate. The Ancient Chronicler can grant and release the discipline in slots two and three. The official wiki and private player guide describe the level-one spells. Launcher release 2026112101 lacks the paired client update. The native starting-class button and player acceptance remain open. [Deployment and testing](releases/cairnwright-20261121/README.md)

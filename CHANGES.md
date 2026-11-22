@@ -1,3 +1,7 @@
+## 2026-11-22 — LocalDev Cairnwright creation
+
+Installed and verified the Dwarf Cairnwright creation combination, start, stats, starter items and spells in local PEQ. An owner test showed that the visible button switches on while the client continues to submit Warrior for name approval and creation. [Local QA evidence](docs/qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)
+
 ## 2026-11-21 — Cairnwright server testing and player guides
 
 Promoted PR533 to main and deployed the reviewed world, zone, spell and item data, quests and Chronicler plugin to OVH. The starter migration accepts the two-damage production Rusty Warhammer and the four-damage local template. Both produce the same six-damage starter hammer. The official wiki and private guide describe Cairnwright as an additional discipline. The signed launcher pair and RoF2 starting-class integration are pending. [Release evidence](docs/releases/cairnwright-20261121/README.md)
