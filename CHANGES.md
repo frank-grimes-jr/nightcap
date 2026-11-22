@@ -1,3 +1,7 @@
+## 2026-11-22 — Private item notes
+
+Added a Notes tab to the native item inspection window. Save a reminder for an exact item ID and read it in the item description. Notes are private to the Windows account and shared among its Nightcap characters. The combined client retains worn-item comparison and NPC target details. [Client pairing and QA](docs/qa/private-item-notes.md)
+
 ## 2026-11-22 — Worn-item comparison
 
 Native item inspection compares the inspected item with each slot the character can use. Left and right rings, ears and wrists each use their own worn item. The comparison includes numeric socketed augment stats and treats an empty slot as zero. This builds on the NPC target candidate and uses the same launcher delivery. [Build and QA](docs/qa/worn-item-comparison.md)

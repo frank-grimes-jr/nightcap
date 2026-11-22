@@ -18,6 +18,7 @@ var gameplayNames = append(append([]string{
 	"uifiles/nightcap/equi_merchantwnd.xml",
 	"uifiles/nightcap/equi_bazaarsearchwnd.xml",
 	"uifiles/nightcap/equi_targetwindow.xml",
+	"uifiles/nightcap/equi_itemdisplay.xml",
 	"uifiles/nightcap/equi_tradeskillwnd.xml",
 	"ecommons_chr.txt", "ecommons_assets.txt", "poknowledge_obj.s3d", "nektulos.s3d", "nektulos_obj.s3d", "dbstr_us.txt", "maps/ecommons_3.txt",
 	"lavastorm.s3d", "lavastorm_obj.s3d",

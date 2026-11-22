@@ -14,6 +14,7 @@ from client_character_stats_ui import add_character_stats
 from client_pet_management_ui import add_pet_management
 from client_merchant_ui import add_sell_all
 from client_target_ui import add_target_details
+from client_item_notes_ui import add_item_notes
 from client_bazaar_ui import add_bazaar_panel
 from client_tradeskill_ui import add_crafting
 from client_advanced_loot_ui import add_advanced_loot
@@ -135,6 +136,8 @@ def ui_xml(raw, kind):
         add_sell_all(root)
     elif kind == 'target':
         add_target_details(root)
+    elif kind == 'item_notes':
+        add_item_notes(root)
     elif kind == 'aa':
         for name in ('AAW_GeneralList','AAW_ArchList','AAW_ClassList','AAW_SpecialList'):
             matches = root.findall(f"Listbox[@item='{name}']")
@@ -256,7 +259,7 @@ def main():
     from hate_client import files as hate_files
     files.update(hate_files(client))
     files.update(lavastorm_files(args.lavastorm,client))
-    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets'),('EQUI_MerchantWnd.xml','merchant'),('EQUI_TradeskillWnd.xml','tradeskill'),('EQUI_BazaarSearchWnd.xml','bazaar'),('EQUI_TargetWindow.xml','target')]:
+    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets'),('EQUI_MerchantWnd.xml','merchant'),('EQUI_TradeskillWnd.xml','tradeskill'),('EQUI_BazaarSearchWnd.xml','bazaar'),('EQUI_TargetWindow.xml','target'),('EQUI_ItemDisplay.xml','item_notes')]:
         files['uifiles/nightcap/'+filename.lower()] = ui_xml((client/'uifiles/default'/filename).read_bytes(),kind)
     files['poknowledge_chr.txt'] = add_models((client/'poknowledge_chr.txt').read_bytes())
     for model in MODELS.values():
@@ -280,7 +283,7 @@ def main():
         target = output/name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','target_details','pet_armor','merchant_sell_all','tradeskill_repeat','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet','classic_race_robes'],
+    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','target_details','private_item_notes','pet_armor','merchant_sell_all','tradeskill_repeat','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet','classic_race_robes'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,

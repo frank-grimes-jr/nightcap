@@ -39,6 +39,27 @@ func TestTargetDetailsCandidate(t *testing.T) {
 	}
 }
 
+func TestPrivateItemNotesCandidate(t *testing.T) {
+	root := os.Getenv("NIGHTCAP_ITEM_NOTES_CANDIDATE")
+	if root == "" {
+		t.Skip("requires the generated item inspection skin")
+	}
+	const path = "uifiles/nightcap/equi_itemdisplay.xml"
+	if !manifest.GameAssetPath(path) {
+		t.Fatal("launcher rejects item display skin")
+	}
+	item, err := os.ReadFile(filepath.Join(root, filepath.FromSlash(path)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := validateNativeSkin(item); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(item), "<Pages>NC_NotePage</Pages>") {
+		t.Fatal("item window omits the private Notes tab")
+	}
+}
+
 func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 	for _, required := range []string{"butcher.s3d",
 		"butcher_obj.s3d",
@@ -78,6 +99,7 @@ func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 		"global4_chr.s3d",
 		"uifiles/nightcap/equi_merchantwnd.xml",
 		"uifiles/nightcap/equi_targetwindow.xml",
+		"uifiles/nightcap/equi_itemdisplay.xml",
 		"uifiles/nightcap/equi_bazaarsearchwnd.xml",
 		"uifiles/nightcap/equi_tradeskillwnd.xml"} {
 		found := false

@@ -169,6 +169,109 @@ static void CheckWornComparison(BYTE* image, BYTE* window) {
     Expect(rendered == "Ordinary item description<BR>", "standalone augment has no worn comparison");
     nightcap::client_ui::base = 0;
 }
+static BYTE note_controls[4][0x240]{};
+static const char* NoteControlText(void* control) {
+    const auto rep = *reinterpret_cast<BYTE**>(static_cast<BYTE*>(control) + 0x1ec);
+    return rep ? reinterpret_cast<const char*>(rep + 0x14) : "";
+}
+static void __fastcall NoteSetText(void* control, void*, const EqString* text) {
+    *reinterpret_cast<void**>(static_cast<BYTE*>(control) + 0x1ec) = text->rep;
+}
+static void* __fastcall NoteChild(void*, void*, const EqString* text) {
+    const char* name = reinterpret_cast<const char*>(text->rep) + 0x14;
+    const char* names[] = {"NC_NoteEdit", "NC_NoteSave", "NC_NoteReload", "NC_NoteStatus"};
+    for (size_t i = 0; i < std::size(names); ++i) if (!strcmp(name, names[i])) return note_controls[i];
+    return nullptr;
+}
+static int __fastcall StockItemNotify(void*, void*, void*, uint32_t, void*) { return 71; }
+static void* __fastcall StockItemDestroy(void* window, void*, unsigned flags) { return flags == 1 ? window : nullptr; }
+static void CheckPrivateNotes(BYTE* image, BYTE* window) {
+    using namespace nightcap::client_ui;
+    using namespace nightcap::item_notes;
+    const std::string key = "Software\\NightcapNotesFixture-" + std::to_string(GetCurrentProcessId()) +
+                            "-" + std::to_string(GetTickCount64());
+    HKEY test_key{}; DWORD disposition{};
+    Check(RegCreateKeyExA(HKEY_CURRENT_USER, key.c_str(), 0, nullptr, REG_OPTION_VOLATILE,
+                          KEY_ALL_ACCESS, nullptr, &test_key, &disposition) == ERROR_SUCCESS &&
+          disposition == REG_CREATED_NEW_KEY, "unique temporary notes registry key");
+    RegCloseKey(test_key);
+    note_store = Store(key.c_str());
+    std::string stored;
+    Expect(!note_store.Save(0, "invalid") && !note_store.Save(1, std::string(241, 'x')) &&
+           !note_store.Save(1, "two\nlines"), "reject invalid key, oversized and multiline notes");
+    Expect(note_store.Save(1, std::string(240, 'x')) && Store(key.c_str()).Read(1, stored) &&
+           stored.size() == 240, "maximum note survives reopening store");
+    base = reinterpret_cast<uintptr_t>(image);
+    *reinterpret_cast<void**>(image + 0xa67ccc) = nullptr; // comparison has separate fixture
+    Jump(image + kUIStringAssignRva, reinterpret_cast<void*>(&Assign));
+    Jump(image + kUIChildRva, reinterpret_cast<void*>(&NoteChild));
+    void* vtable[0x128 / 4]{};
+    vtable[0x124 / 4] = reinterpret_cast<void*>(&NoteSetText);
+    for (auto& control : note_controls) *reinterpret_cast<void***>(control) = vtable;
+    original_note_notify = reinterpret_cast<InventoryNotify>(&StockItemNotify);
+    Check(PatchBazaarSlot(base + kItemNoteNotifySlotRva, kExpectedItemNoteNotifySlot, base,
+          reinterpret_cast<uintptr_t>(&ItemNoteNotify)), "bind actual item notify vtable slot");
+    auto click = [&](unsigned button, unsigned message = 1) {
+        return (*reinterpret_cast<InventoryNotify*>(base + kItemNoteNotifySlotRva))(
+            window, note_controls[button], message, nullptr);
+    };
+    auto update = reinterpret_cast<UpdateItemDescription>(image + kItemDescriptionUpdateRva);
+    auto type = [](Text& text) { *reinterpret_cast<void**>(note_controls[0] + 0x1ec) = text.bytes.data(); };
+    ComparisonItem a("Ring", 4), b("Ring", 7);
+    *reinterpret_cast<uint32_t*>(a.def + 0xec) = 14679;
+    *reinterpret_cast<uint32_t*>(b.def + 0xec) = 214679;
+    auto& item = *reinterpret_cast<void**>(window + 0x2b0);
+    item = &a;
+    Text native("Native stats"), draft("Save <for> A & B"), blank("");
+    *reinterpret_cast<void**>(window + 0x294) = native.bytes.data();
+    update(window);
+    type(draft); update(window); click(1, 2);
+    Expect(!strcmp(NoteControlText(note_controls[0]), "Save <for> A & B") &&
+           note_store.Read(14679, stored) && stored.empty(), "refresh and non-click preserve unsaved edit");
+    click(1);
+    Expect(rendered.find("Save &lt;for&gt; A &amp; B") != std::string::npos &&
+           rendered.find("Native stats") == 0 && !strcmp(NoteControlText(note_controls[3]), "Note saved."),
+           "save renders escaped private note through the native description");
+    type(blank); click(2);
+    Expect(!strcmp(NoteControlText(note_controls[0]), "Save <for> A & B"), "reload discards unsaved draft");
+    item = &b; click(1);
+    Expect(note_store.Read(214679, stored) && stored.empty() && !*NoteControlText(note_controls[0]) &&
+           rendered.find("Private note") == std::string::npos, "stale save cannot cross same-name variants");
+    item = &a; update(window);
+    Expect(!strcmp(NoteControlText(note_controls[0]), "Save <for> A & B"), "reinspection retrieves note by ID");
+    Text keep("unsaved changes");
+    type(keep);
+    DWORD wrong_type = 7;
+    Check(RegSetKeyValueA(HKEY_CURRENT_USER, key.c_str(), "14679", REG_DWORD, &wrong_type,
+                          sizeof(wrong_type)) == ERROR_SUCCESS, "simulate unreadable saved value");
+    update(window);
+    Expect(!strcmp(NoteControlText(note_controls[0]), "unsaved changes") &&
+           !strcmp(NoteControlText(note_controls[3]), "Could not read this item note."),
+           "read error preserves the draft for the same item");
+    alignas(4) BYTE wide[0x14 + 8]{};
+    *reinterpret_cast<DWORD*>(wide + 4) = 8;
+    *reinterpret_cast<DWORD*>(wide + 8) = 3;
+    *reinterpret_cast<DWORD*>(wide + 12) = 1;
+    memcpy(wide + 0x14, L"Gem", 8);
+    *reinterpret_cast<void**>(note_controls[0] + 0x1ec) = wide;
+    click(1);
+    Expect(note_store.Read(14679, stored) && stored == "Gem", "native UTF16 edit saves through the client code page");
+    type(blank); click(1);
+    Expect(note_store.Read(14679, stored) && stored.empty() && rendered.find("Private note") == std::string::npos,
+           "blank save removes this item only");
+    Expect(note_store.Read(1, stored) && stored.size() == 240, "other note retained after removal");
+    item = nullptr; update(window);
+    Expect(note_editors.empty() && !*NoteControlText(note_controls[0]), "empty window drops draft binding");
+    Expect(ItemNoteNotify(window, nullptr, window, 1, nullptr) == 71, "stock notifications delegate");
+    item = &a; update(window);
+    original_item_window_destroy = reinterpret_cast<ItemWindowDestroy>(&StockItemDestroy);
+    Check(PatchBazaarSlot(base + kItemWindowDestroySlotRva, kExpectedItemWindowDestroySlot, base,
+          reinterpret_cast<uintptr_t>(&ItemWindowDestroyHook)), "bind actual item destruction slot");
+    Expect((*reinterpret_cast<ItemWindowDestroy*>(base + kItemWindowDestroySlotRva))(window,1) == window &&
+           note_editors.empty(), "UI destruction removes editor binding and preserves native callback");
+    original_note_notify = nullptr; base = 0; note_store = Store();
+    Check(RegDeleteKeyA(HKEY_CURRENT_USER, key.c_str()) == ERROR_SUCCESS, "remove temporary test key");
+}
 int main(int argc,char** argv) {
  Check(argc==2,"read-only client path required");auto image=LoadClient(argv[1]);
  Jump(image+0x489a50,reinterpret_cast<void*>(&CaptureButtonText));
@@ -261,5 +364,6 @@ int main(int argc,char** argv) {
  *reinterpret_cast<uint32_t*>(info.bytes.data()+8)=static_cast<uint32_t>(strlen("AC: 5<BR>HP: 114<BR>This Augmentation fits in slot types: 22"));
  Expect(!nightcap::client_ui::EntryHook(reinterpret_cast<uintptr_t>(image)+kItemDescriptionUpdateRva,kExpectedItemDescriptionUpdate,reinterpret_cast<void*>(&nightcap::client_ui::ItemDescriptionHook)),"foreign/repeated patch rejected");
  CheckWornComparison(image, window);
+ CheckPrivateNotes(image, window);
  std::cout<<checks<<" checks, "<<failures<<" failures\n";return failures?1:0;
 }

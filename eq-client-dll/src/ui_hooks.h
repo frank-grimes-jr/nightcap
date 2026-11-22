@@ -14,12 +14,17 @@
 #include "item_name_color.h"
 #include "target_details.h"
 #include "worn_comparison.h"
+#include "item_notes.h"
+#include <unordered_map>
 
 namespace nightcap {
 namespace client_ui {
 inline void ResetMonkReuse();
 inline bool ConsumeBazaarReply(const char *message);
 inline void ResetBazaarPanel();
+inline void ResetItemNoteEditors();
+inline void ClearItemNoteEditor(void* window);
+inline void RefreshItemNote(void* window, uint32_t id, std::string& description);
 // All offsets and instruction boundaries belong to the pinned May 2013 RoF2
 // executable. They are also guarded by the generated signed patch catalog.
 struct EqString { void* rep; };
@@ -80,6 +85,7 @@ inline void __fastcall ItemDescriptionHook(void* self, void*) {
     char before[16385] = {};
     if (item_description_assign && SnapshotItemDescription(self,id,before)) {
         auto after = AugmentItemDescription(before,id);
+        RefreshItemNote(self, id, after);
         worn_comparison::Comparison comparison{};
         if (worn_comparison::Read(base, self, comparison))
             after += worn_comparison::Render(comparison);
@@ -93,6 +99,8 @@ inline void __fastcall ItemDescriptionHook(void* self, void*) {
             ColorItemName(self);
             return;
         }
+    } else if (self) {
+        ClearItemNoteEditor(self);
     }
     original_item_description(self);
     ColorItemName(self);
@@ -535,6 +543,7 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
+    if (next != 5) ResetItemNoteEditors();
     if (next != 5) ResetMonkReuse();
     if (next != 5) ResetBazaarPanel();
     if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
@@ -551,6 +560,8 @@ inline void* AAChild(void* window, const char* name) {
     assign(&id,""); return child;
 }
 #include "bazaar_panel_hooks.h"
+#include "item_note_ui.h"
+inline void ResetItemNoteEditors() { note_editors.clear(); }
 inline void ResetBazaarPanel(){bazaar_panel.Close();bazaar_next_render=0;}
 inline bool AARecommendedChecked(void* window) {
     __try {
@@ -807,6 +818,17 @@ inline bool Install(uintptr_t image_base) {
     original_item_description = reinterpret_cast<UpdateItemDescription>(EntryHook(
         base+kItemDescriptionUpdateRva,kExpectedItemDescriptionUpdate,reinterpret_cast<void*>(&ItemDescriptionHook)));
     if (!original_item_description) return false;
+    install_failure = "item_note_controls";
+    uint32_t preferred_notify;
+    memcpy(&preferred_notify, kExpectedItemNoteNotifySlot, sizeof(preferred_notify));
+    original_note_notify = reinterpret_cast<InventoryNotify>(base + preferred_notify - 0x400000u);
+    if (!PatchBazaarSlot(base + kItemNoteNotifySlotRva, kExpectedItemNoteNotifySlot, base,
+                         reinterpret_cast<uintptr_t>(&ItemNoteNotify))) return false;
+    uint32_t preferred_destroy;
+    memcpy(&preferred_destroy, kExpectedItemWindowDestroySlot, sizeof(preferred_destroy));
+    original_item_window_destroy = reinterpret_cast<ItemWindowDestroy>(base + preferred_destroy - 0x400000u);
+    if (!PatchBazaarSlot(base + kItemWindowDestroySlotRva, kExpectedItemWindowDestroySlot, base,
+                         reinterpret_cast<uintptr_t>(&ItemWindowDestroyHook))) return false;
     original_label = reinterpret_cast<GetLabel>(EntryHook(base+kUILabelRva, kExpectedUILabel, reinterpret_cast<void*>(&LabelHook)));
     if (!original_label) return false;
     install_failure = "chat_entry";

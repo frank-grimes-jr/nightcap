@@ -1,3 +1,7 @@
+## Private item notes (2026-11-22)
+
+The local x86 client candidate adds private notes to item inspection and retains the two previous client features. The player release, wiki publication and in-game visual acceptance remain pending. [Candidate and QA](qa/private-item-notes.md)
+
 ## Worn-item comparison (2026-11-22)
 
 The combined x86 client candidate includes item inspection and NPC target details. Native renderer and equipment tests and launcher package preflight passed. The player channel, visual QA and wiki publication are pending. [Build and QA](qa/worn-item-comparison.md)
