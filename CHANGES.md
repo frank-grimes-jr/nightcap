@@ -1,5 +1,7 @@
 ## 2026-11-22 — LocalDev Cairnwright creation
 
+Built a separate Windows Hailstone QA client for LocalDev. Its Dwarf creation form submits Cairnwright at both name approval and character creation. LocalDev saved Torukeld as race 8, class 17, level 1 in East Commonlands. Two independent sessions entered as class 17 and camped. The matching item-cache writer replaced a 1,324-byte record layout with the 1,332-byte format required by world and zone. Verified all 308,942 item IDs and reproduced the spell cache byte for byte. Rehearsed and applied the zone binary's required cooldown v1 migration, preserving all five saved timer rows. [Hailstone implementation and test evidence](docs/qa/cairnwright-hailstone/README.md)
+
 Restarted LocalDev on the tested Cairnwright world and zone. Verified open admissions, eight zone workers, the mapped item and spell caches, and the matching quest files. The new world populated eight ruleset defaults. Native class-17 creation and relog still require the client selection fix.
 
 Installed and verified the Dwarf Cairnwright creation combination, start, stats, starter items and spells in local PEQ. An owner test showed that the visible button switches on while the client continues to submit Warrior for name approval and creation. [Local QA evidence](docs/qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)

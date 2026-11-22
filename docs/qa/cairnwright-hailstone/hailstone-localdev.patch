@@ -1,0 +1,210 @@
+diff --git a/src/game/eq_names.cpp b/src/game/eq_names.cpp
+index 937cb45..97c904f 100644
+--- a/src/game/eq_names.cpp
++++ b/src/game/eq_names.cpp
+@@ -128,6 +128,7 @@ bool is_playable_race(std::uint32_t race_id) {
+ }
+
+ std::string stock_class_name(std::uint32_t class_id) {
++    if (class_id == 17) return "Cairnwright"; // LocalDev-only client
+     if (class_id >= 1 && class_id <= std::size(kClasses)) return std::string(kClasses[class_id - 1].name);
+     if (class_id >= kGmClassFirst && class_id <= kGmClassLast)
+         return std::string(kClasses[class_id - kGmClassFirst].name) + " Guildmaster";
+@@ -137,6 +138,7 @@ std::string stock_class_name(std::uint32_t class_id) {
+ }
+
+ std::string stock_class_short_name(std::uint32_t class_id) {
++    if (class_id == 17) return "CRW";
+     if (class_id >= 1 && class_id <= std::size(kClasses)) return std::string(kClasses[class_id - 1].abbrev);
+     return stock_class_name(class_id);
+ }
+@@ -149,6 +151,7 @@ std::string class_name(std::uint32_t class_id) {
+ }
+
+ std::string class_short_name(std::uint32_t class_id) {
++    if (class_id == 17) return stock_class_short_name(class_id);
+     if (class_id >= 1 && class_id <= std::size(kClasses)) {
+         if (auto o = override_of(class_id); o && !o->second.empty()) return std::move(o->second);
+         return std::string(kClasses[class_id - 1].abbrev);
+diff --git a/src/net/game_connection.cpp b/src/net/game_connection.cpp
+index cc9589f..fa7e19c 100644
+--- a/src/net/game_connection.cpp
++++ b/src/net/game_connection.cpp
+@@ -1,4 +1,5 @@
+ #include "net/game_connection.h"
++#include "net/nightcap_creation.h"
+
+ #include "net/notice_packets.h"
+ #include "net/player_packets.h"
+@@ -193,6 +194,10 @@ void GameConnection::chat(ChatEvent::Kind kind, std::string text, std::uint32_t
+ }
+
+ void GameConnection::start(const WorldTicket& ticket) {
++    if (!nightcap_qa_world(ticket.world_host, ticket.server_name)) {
++        fail("This Nightcap QA build requires the loopback Local Development Server.");
++        return;
++    }
+     close_evolving_transfer();
+     reset_fellowship();
+     reset_achievements();
+@@ -602,6 +607,7 @@ void GameConnection::handle_world(const AppPacket& p) {
+     }
+     case Op::CharacterCreateRequest:
+         create_data_ = decode_char_create_data(p);
++        if (create_data_) add_nightcap_creation_option(*create_data_);
+         break;
+     case Op::SendMembership:
+         // FreeToPlayClient::Instance() (GameFeatureRestrictions_ReadEntry); the original then refreshes the character
+diff --git a/tools/playprobe.cpp b/tools/playprobe.cpp
+index 8887b19..4f3164e 100644
+--- a/tools/playprobe.cpp
++++ b/tools/playprobe.cpp
+@@ -61,6 +61,7 @@
+ #include "core/log.h"
+ #include "net/game_connection.h"
+ #include "net/login.h"
++#include "nightcap_ui_probe.h"
+ #include "item_probe.h"
+ #include "spell_probe.h"
+ #include "group_probe.h"
+@@ -146,6 +147,11 @@ int main(int argc, char** argv) {
+         host.resize(c);
+     }
+     std::string user = argv[2], pass = argv[3], want, create, say;
++    if (pass == "--password-env") {
++        const char* value = std::getenv("NIGHTCAP_QA_PASSWORD");
++        if (!value || !*value) return 2;
++        pass = value;
++    }
+     bool check_floor = false;
+     float walk = 0;
+     int zone_line = -1;
+@@ -327,7 +333,9 @@ int main(int argc, char** argv) {
+                 for (const auto& c : data.combos)
+                     if (c.race == create_race && c.class_ == create_class && c.expansion_required == 0 &&
+                         (start_zone < 0 || c.zone == static_cast<std::uint32_t>(start_zone))) { combo = &c; break; }
+-                if (!combo && start_zone >= 0) {
++                if (create_race == 8 && create_class == 17)
++                    combo = choose_dwarf_cairnwright(data, conn.world_expansions(), create);
++                if (!combo && start_zone >= 0 && create_class != 17) {
+                     // Any race and class that may start there (human warriors may not).
+                     for (const auto& c : data.combos)
+                         if (c.zone == static_cast<std::uint32_t>(start_zone)) { combo = &c; break; }
+@@ -340,8 +348,9 @@ int main(int argc, char** argv) {
+                         if (c.zone == static_cast<std::uint32_t>(start_zone)) std::printf(" r%u/c%u", c.race, c.class_);
+                     std::printf("\n");
+                 }
+-                if (!combo) { std::fprintf(stderr, "no human warrior combination\n"); return 1; }
++                if (!combo) { std::fprintf(stderr, "missing combination for race %u class %u\n", create_race, create_class); return 1; }
+                 auto cc = net::default_char_create(data, *combo, 0);
++                if (!cc) { std::fprintf(stderr, "missing creation allocation\n"); return 1; }
+                 if (cc && tutorial) cc->tutorial = 1;
+                 std::printf("  creating %s: race %u class %u deity %u zone %u\n", create.c_str(), cc->race, cc->class_, cc->deity, cc->start_zone);
+                 conn.create_character(create, *cc);
+@@ -374,6 +383,9 @@ int main(int argc, char** argv) {
+                 augment.zone_in(conn);
+                 quest.zone_in(conn);
+                 const auto& w = conn.world();
++                if (const auto& profile = conn.profile())
++                    std::printf("  zone profile: race %u class %u level %u\n", profile->race,
++                                static_cast<unsigned>(profile->class_), static_cast<unsigned>(profile->level));
+                 std::printf("  in %s (%s): %zu spawns, me id %u", w.zone_short_name.c_str(), w.zone_long_name.c_str(), w.spawns.size(), w.player_id);
+                 if (const auto* me = w.player()) std::printf(" at %.1f %.1f %.1f heading %.1f", me->position.x, me->position.y, me->position.z, me->heading);
+                 std::printf("\n");
+diff --git a/src/net/nightcap_creation.h b/src/net/nightcap_creation.h
+new file mode 100644
+index 0000000..6136a79
+--- /dev/null
++++ b/src/net/nightcap_creation.h
+@@ -0,0 +1,32 @@
++#pragma once
++
++#include "net/world_packets.h"
++#include <algorithm>
++#include <string_view>
++
++namespace hailstone::net {
++
++inline bool nightcap_qa_world(std::string_view host, std::string_view name) {
++    return (host == "127.0.0.1" || host == "localhost" || host == "::1") && name == "Local Development Server";
++}
++
++// The local world validates class 17 but omits it from the table sent to stock RoF2.
++// Mirror only the row specified by Nightcap's cairnwright_creation.sql.
++inline void add_nightcap_creation_option(CharCreateData& data) {
++    if (std::any_of(data.combos.begin(), data.combos.end(), [](const auto& c) { return c.class_ == 17; })) return;
++    const auto base = std::find_if(data.combos.begin(), data.combos.end(), [](const auto& c) {
++        return c.race == 8 && c.class_ == 3 && c.deity == 202 && c.zone == 67 &&
++               c.allocation_index == 14 && c.expansion_required == 0;
++    });
++    if (base == data.combos.end()) return;
++    const auto matches = [](const CharCreateAllocation& a) {
++        return a.index == 14 && a.base == std::array<std::uint32_t,7>{100,90,70,95,60,88,55} &&
++               a.points == std::array<std::uint32_t,7>{0,0,0,20,0,0,0};
++    };
++    if (std::none_of(data.allocations.begin(), data.allocations.end(), matches)) return;
++    auto cairnwright = *base;
++    cairnwright.class_ = 17;
++    data.combos.push_back(cairnwright);
++}
++
++} // namespace hailstone::net
+diff --git a/tools/nightcap_ui_probe.h b/tools/nightcap_ui_probe.h
+new file mode 100644
+index 0000000..d1c4630
+--- /dev/null
++++ b/tools/nightcap_ui_probe.h
+@@ -0,0 +1,53 @@
++#pragma once
++
++#include "app/lua_ui.h"
++#include "net/world_packets.h"
++#include "ui/dev_screens.h"
++#include <lua.hpp>
++#include <cstdio>
++
++// Exercise the same pregame API as the modern skin, using the actual world's
++// options. Reproduce the owner's Warrior -> name -> Cairnwright sequence.
++inline const hailstone::net::CharCreateCombo* choose_dwarf_cairnwright(
++    const hailstone::net::CharCreateData& data, std::uint32_t expansions, const std::string& name) {
++    using namespace hailstone;
++    ui::CharacterCreateView view;
++    for (const auto& c : data.combos) {
++        if (!net::char_create_allowed(c, expansions)) continue;
++        const auto cc = net::default_char_create(data, c, 0);
++        if (!cc) continue;
++        const auto alloc = net::validate_char_create(data, *cc);
++        if (alloc) view.options.push_back({c.race, c.class_, c.deity, c.zone, alloc->base, alloc->points});
++    }
++    app::UiHost host;
++    host.char_create_view = &view;
++    app::UiApi api{host};
++    lua_State* lua = luaL_newstate();
++    if (!lua) return nullptr;
++    luaL_openlibs(lua);
++    lua_newtable(lua);
++    api.register_functions(lua);
++    lua_setglobal(lua, "hs");
++    lua_pushlstring(lua, name.data(), name.size());
++    lua_setglobal(lua, "qa_name");
++    const int result = luaL_dostring(lua, R"(
++        assert(hs.CharacterCreateDo('race', 8))
++        assert(hs.CharacterCreateDo('class', 1))
++        assert(hs.CharacterCreateDo('name', qa_name))
++        assert(hs.CharacterCreateDo('class', 17))
++        local v = hs.CharacterCreate()
++        assert(v.className == 'Cairnwright' and v.name == qa_name)
++        if v.pointsLeft > 0 then assert(hs.CharacterCreateDo('statMax', 4)) end
++        assert(hs.CharacterCreate().pointsLeft == 0)
++        assert(hs.CharacterCreateDo('create'))
++    )");
++    if (result != LUA_OK) std::fprintf(stderr, "creation UI: %s\n", lua_tostring(lua, -1));
++    lua_close(lua);
++    if (result != LUA_OK || host.char_create_action != static_cast<int>(ui::CharacterCreateAction::Create) ||
++        view.option < 0 || static_cast<std::size_t>(view.option) >= view.options.size()) return nullptr;
++    const auto& selected = view.options[static_cast<std::size_t>(view.option)];
++    for (const auto& c : data.combos)
++        if (c.race == selected.race && c.class_ == selected.class_id &&
++            c.zone == selected.start_zone && c.deity == selected.deity) return &c;
++    return nullptr;
++}

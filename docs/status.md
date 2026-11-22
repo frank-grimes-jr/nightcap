@@ -1,5 +1,7 @@
 ## Cairnwright creation on LocalDev (2026-11-22)
 
+The separate Hailstone QA build submitted class 17 at name approval and creation. LocalDev saved Dwarf Cairnwright Torukeld in East Commonlands. After a camp, a fresh client logged back in and received the same level-1, class-17 zone profile. LocalDev now has the matching item cache and required cooldown migration. The original RoF2 selector and signed launcher release remain open. [Hailstone QA](qa/cairnwright-hailstone/README.md)
+
 LocalDev now runs the Cairnwright world and eight matching zone workers. Admissions are open. Startup loaded the creation data, and the processes mapped the verified item and spell caches.
 
 The QA client displays the seventeenth button. After the owner clicked it, the client submitted Warrior at both name approval and creation. Local PEQ now contains the Dwarf/Brell creation combination and class content. The owner test for creating and reloading a primary Cairnwright remains open. [Local client and database evidence](qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)
