@@ -1,3 +1,7 @@
+## 2026-11-22 — Native target and item windows released for live QA
+
+The normal launcher now installs the matched client and both Nightcap windows in signed release `2026112201`. Fully exit EQ and press Play. Live checks cover NPC changes, both ring slots and persistence of local item notes. [Production evidence](docs/releases/native-client-qol-20261122/README.md)
+
 ## 2026-11-22 — Private item notes
 
 Added a Notes tab to the native item inspection window. Save a reminder for an exact item ID and read it in the item description. Notes are private to the Windows account and shared among its Nightcap characters. The combined client retains worn-item comparison and NPC target details. [Client pairing and QA](docs/qa/private-item-notes.md)

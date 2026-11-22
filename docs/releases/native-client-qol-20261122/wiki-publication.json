@@ -1,0 +1,17 @@
+{
+  "release": "20261122-native-qol-v1",
+  "previous": "20261121-cairnwright-v1",
+  "files": 631,
+  "changed": [
+    "combat.html",
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "preserved": 627,
+  "package_sha256": "6aa885b77d221bd98d2288b401de050e38400fb74c2405299c8eb0f7423ac1dd",
+  "manifest_sha256": "e992a922684b181829c177f34f35f897fe9c04db80642703210680a499ec538c",
+  "result": "PASS",
+  "rollback_rehearsed": true,
+  "origin_verified": true
+}

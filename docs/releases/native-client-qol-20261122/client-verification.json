@@ -1,0 +1,31 @@
+{
+  "archive_sha256": {
+    "dinput8.dll": "9bf8b95382d4210d76e458c478cf226d74b103c24a5675704d375a913e3a6428",
+    "nightcap-patch-sites.json": "2d88adcc351afe9e1c9567d8760c720eab7f8115737b2c6ab0ca302bb9c1b358",
+    "uifiles/nightcap/equi_itemdisplay.xml": "8d37558ea0fa4cb3eeece8bd636643afa10b94548d76483fb31a4ecefef71196",
+    "uifiles/nightcap/equi_targetwindow.xml": "ec59307a3091696b6c3284c829615628131ad4814d522c708b5d6c0a7e11f60f"
+  },
+  "assets_preserved": 146,
+  "candidate_proxy_catalog_pair": "passed",
+  "changed_assets": 4,
+  "channel_sha256": "f4ad99f337dc6e83ea87706f110833dad2b49f17c9b7549f65082285e9a02e9d",
+  "exact_executable_preflight": "passed",
+  "native_player_acceptance": "pending",
+  "previous_channel_sha256": "06204d6b88079c5a386c1e19eab750bdcdfdbdd6b8f2230374b10452811e2b4f",
+  "previous_release": 2026112101,
+  "release": 2026112201,
+  "signature": "verified against shipped production key",
+  "status": "published_https_verified",
+  "unchanged_asset_urls_preserved": true,
+  "hosted": true,
+  "managed_files": 150,
+  "services_stable": true,
+  "services_checked": [
+    "db",
+    "game",
+    "gateway",
+    "tunnel",
+    "web"
+  ],
+  "publisher_linux_tests": 20
+}

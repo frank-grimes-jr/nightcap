@@ -1,14 +1,6 @@
-## Private item notes (2026-11-22)
+## Native target and item windows in production (2026-11-22)
 
-The local x86 client candidate adds private notes to item inspection and retains the two previous client features. The player release, wiki publication and in-game visual acceptance remain pending. [Candidate and QA](qa/private-item-notes.md)
-
-## Worn-item comparison (2026-11-22)
-
-The combined x86 client candidate includes item inspection and NPC target details. Native renderer and equipment tests and launcher package preflight passed. The player channel, visual QA and wiki publication are pending. [Build and QA](qa/worn-item-comparison.md)
-
-## Native NPC target details (2026-11-22)
-
-The local client candidate displays level and class for a selected NPC. The x86 fixture, real target skin, proxy/catalog pairing and launcher preflight passed. Signing, player delivery and visual acceptance are pending. [Candidate and in-game QA](qa/native-target-details.md)
+Signed launcher release `2026112201` delivers NPC level and class, per-slot worn comparison and private item notes. The public envelope and all four client files passed HTTPS verification. The Combat and Equipment guides are in wiki release `20261122-native-qol-v1`. In-game QA is open. [Release and QA](releases/native-client-qol-20261122/README.md)
 
 ## Cairnwright creation on LocalDev (2026-11-22)
 
