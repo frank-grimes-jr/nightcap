@@ -158,6 +158,14 @@ int main(int argc,char** argv) {
     using Equip=BYTE (__thiscall*)(void*,const void*,int,bool,bool);
     auto equip=reinterpret_cast<Equip>(image+0x183550);
     Item item; void* ref=&item;
+    item.type=10; item.Slots=(1u<<15)|(1u<<16); item.Classes=64;
+    Expect(equip(character,&ref,15,false,true) && equip(character,&ref,16,false,true),
+        "both ring alternatives pass through held Monk");
+    Expect(!equip(character,&ref,9,false,true),"ring excludes wrist");
+    item.Slots=1u<<16;
+    Expect(!equip(character,&ref,15,false,true) && equip(character,&ref,16,false,true),
+        "one-sided mask exposes only right ring");
+    item=Item{};
     Expect(placement(character+0x2dc8,&ref,false,false)!=0,"Forged Javelin inventory placement accepts held Warrior/Monk");
     Expect(equip(character,&ref,11,false,true)!=0,"Forged Javelin ranged slot accepts held classes");
     Expect(equip(character,&ref,22,false,true)!=0,"Forged Javelin ammo slot accepts held classes");

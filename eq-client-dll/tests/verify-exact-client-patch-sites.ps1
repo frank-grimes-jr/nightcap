@@ -423,6 +423,9 @@ Assert-Bytes $image 0x005E3A64 ([byte[]](0xF0,0x36,0x63,0x00)) 'BazaarFrameSlot'
 Assert-Bytes $image 0x005E39A4 ([byte[]](0x40,0x6E,0x63,0x00)) 'BazaarDestroySlot'
 Write-Output 'PASS: all native UI, model, loot and spell-menu signatures verified.'
 
+# Item inspection window lifetime and Notes tab controls.
+Assert-Bytes $image 0x005EBC10 ([byte[]](0x70,0xE8,0x6A,0x00)) 'Item display notification slot'
+Assert-Bytes $image 0x005EBB8C ([byte[]](0xB0,0xED,0x6A,0x00)) 'Item display destroy slot'
 # Per-instance Paladin grip definition boundary.
 Assert-Bytes $image 0x155745 ([byte[]](0xE8,0xC6,0x0E,0x00,0x00)) 'Grip definition intern call'
 Assert-Bytes $image 0x156610 ([byte[]](0x6A,0xFF,0x68,0xF3,0x99,0x97,0x00)) 'Grip definition intern entry'

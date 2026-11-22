@@ -3,11 +3,62 @@ package main
 import (
 	"encoding/json"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/preflight"
 	"os"
 	"path/filepath"
 	"strings"
 	"testing"
 )
+
+// Set NIGHTCAP_TARGET_CANDIDATE to exercise the staged x86 build and real skin.
+func TestTargetDetailsCandidate(t *testing.T) {
+	root := os.Getenv("NIGHTCAP_TARGET_CANDIDATE")
+	if root == "" {
+		t.Skip("requires generated RoF2 target skin and built x86 proxy")
+	}
+	read := func(name string) []byte {
+		t.Helper()
+		if !manifest.GameAssetPath(name) {
+			t.Fatalf("launcher rejects asset path %s", name)
+		}
+		data, err := os.ReadFile(filepath.Join(root, filepath.FromSlash(name)))
+		if err != nil {
+			t.Fatal(err)
+		}
+		return data
+	}
+	if err := preflight.CheckProxyCatalog(read("dinput8.dll"), read(preflight.CatalogPath)); err != nil {
+		t.Fatal(err)
+	}
+	skin := read("uifiles/nightcap/equi_targetwindow.xml")
+	if err := validateNativeSkin(skin); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(skin), "<Pieces>NC_TargetDetails</Pieces>") {
+		t.Fatal("target window omits the NPC detail label")
+	}
+}
+
+func TestPrivateItemNotesCandidate(t *testing.T) {
+	root := os.Getenv("NIGHTCAP_ITEM_NOTES_CANDIDATE")
+	if root == "" {
+		t.Skip("requires the generated item inspection skin")
+	}
+	const path = "uifiles/nightcap/equi_itemdisplay.xml"
+	if !manifest.GameAssetPath(path) {
+		t.Fatal("launcher rejects item display skin")
+	}
+	item, err := os.ReadFile(filepath.Join(root, filepath.FromSlash(path)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := validateNativeSkin(item); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(item), "<Pages>NC_NotePage</Pages>") {
+		t.Fatal("item window omits the private Notes tab")
+	}
+}
 
 func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 	for _, required := range []string{"butcher.s3d",
@@ -47,6 +98,9 @@ func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 		"global_chr.s3d",
 		"global4_chr.s3d",
 		"uifiles/nightcap/equi_merchantwnd.xml",
+		"uifiles/nightcap/equi_targetwindow.xml",
+		"uifiles/nightcap/equi_itemdisplay.xml",
+		"uifiles/nightcap/equi_bazaarsearchwnd.xml",
 		"uifiles/nightcap/equi_tradeskillwnd.xml"} {
 		found := false
 		for _, name := range gameplayNames {
