@@ -1,3 +1,7 @@
+## Native NPC target details (2026-11-22)
+
+The local client candidate displays level and class for a selected NPC. The x86 fixture, real target skin, proxy/catalog pairing and launcher preflight passed. Signing, player delivery and visual acceptance are pending. [Candidate and in-game QA](qa/native-target-details.md)
+
 ## Cairnwright creation on LocalDev (2026-11-22)
 
 The QA client displays the seventeenth button. After the owner clicked it, the client submitted Warrior at both name approval and creation. Local PEQ now contains the Dwarf/Brell creation combination and class content. The owner test for creating and reloading a primary Cairnwright remains open. [Local client and database evidence](qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)

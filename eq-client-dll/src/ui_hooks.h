@@ -12,6 +12,7 @@
 #include "equipped_stats_state.h"
 #include "inventory_stats_state.h"
 #include "item_name_color.h"
+#include "target_details.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -450,6 +451,13 @@ inline int __fastcall InventoryHook(void* self, void*, void* sender, uint32_t me
     return original_inventory(self, sender, message, data);
 }
 inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, unsigned long* color) {
+    if (type == target_details::LabelType) {
+        char text[48];
+        target_details::Format(target_details::Read(base), text);
+        reinterpret_cast<AssignString>(base + kUIStringAssignRva)(output, text);
+        if (override_color) *override_color = false;
+        return true;
+    }
     // The always-visible HUD requests identity too; opening Inventory/AA is not
     // a prerequisite for a correct shop or spellbook. Requests are throttled.
     if (!CurrentIdentity()) RequestRefresh();
