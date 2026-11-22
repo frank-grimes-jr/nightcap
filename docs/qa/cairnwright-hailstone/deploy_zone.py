@@ -51,8 +51,8 @@ def prepare(pin):
     run("docker","build","--network","none","--pull=false","-t",tag,str(stage))
     assert run("docker","run","--rm","--network","none","--entrypoint","sha256sum",tag,"/opt/nightcap/bin/zone").split()[0]==pin
 
-def activate(pin):
-    assert image()==base and binary("zone")==parent_zone and players()==0
+def activate(pin, allowed_test_players=0):
+    assert image()==base and binary("zone")==parent_zone and players() <= allowed_test_players
     env = root/".env"
     old_env, old_lua = env.read_bytes(),quest.read_bytes()
     assert b'"Berserker"}' in old_lua
@@ -64,8 +64,9 @@ def activate(pin):
     assert run("docker","run","--rm","--network","none","--entrypoint","sha256sum",tag,"/opt/nightcap/bin/zone").split()[0]==pin
     (stage/"before-global_player.lua").write_bytes(old_lua)
     try:
+        assert players() <= allowed_test_players
         compose("stop","gateway")
-        assert players()==0
+        assert players() <= allowed_test_players
         compose("stop","-t","90","game")
         replace(env,new_env)
         replace(quest,new_lua)
@@ -84,8 +85,12 @@ if __name__=="__main__":
     p=argparse.ArgumentParser()
     p.add_argument("mode",choices=["prepare","activate"])
     p.add_argument("zone_sha")
+    p.add_argument("--allow-one-test-character", action="store_true")
     a=p.parse_args()
     assert re.fullmatch("[a-f0-9]{64}",a.zone_sha)
     with (root/".deployment.lock").open("a") as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        (prepare if a.mode=="prepare" else activate)(a.zone_sha)
+        if a.mode=="prepare":
+            prepare(a.zone_sha)
+        else:
+            activate(a.zone_sha,int(a.allow_one_test_character))

@@ -14,7 +14,69 @@
     }
   },
   "gameplay_evidence": "local-acceptance.json",
-  "live_zone_active": false,
-  "launcher_channel_active": false,
-  "wiki_and_player_guide_active": false
+  "live_zone_active": true,
+  "launcher_channel_active": true,
+  "wiki_and_player_guide_active": true,
+  "production_server": {
+    "world": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+    "zone": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
+    "image": "sha256:3460a06aa7d2670bd711cf584142c9ccf7279919e4eb628e3a550fa74956cd8d",
+    "players": 0
+  },
+  "public_channel_check": {
+    "desktop": {
+      "sha256": "e632198ccd12b080b4cc2469baf1ef33ef92e5d70db7ac91ade3079e539be195",
+      "bytes": 23574016
+    },
+    "source": {
+      "sha256": "c34ee76c4cb2a61ce839f02d5ae739e6445c15556ed6576654a955289578ae50",
+      "bytes": 67438535
+    },
+    "channel": {
+      "sha256": "ed6f1fb889cb12ab82403c238a200fa2d644c2d3032b2e340ea29ffd37b603d7",
+      "bytes": 577
+    },
+    "release": 2026112202
+  },
+  "player_guides": {
+    "wiki": {
+      "result": "PASS",
+      "release": "20261122-hailstone-preview",
+      "previous_release": "20261122-native-qol-v1",
+      "files": 631,
+      "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+      "rollback_rehearsed": true,
+      "private_downloads_preserved": true,
+      "service_ids_start_times_preserved": true,
+      "nginx_reload_required": false
+    },
+    "guide": {
+      "result": "ORIGIN_VERIFIED",
+      "release": "20261122-hailstone-player-guide",
+      "files": 5
+    }
+  },
+  "public_wiki_check": {
+    "result": "PASS",
+    "release": "20261122-hailstone-preview",
+    "files": 631,
+    "canonical_root": true,
+    "hashes_and_headers": true,
+    "asset_version": "a783e4b52bd4",
+    "versioned_assets": 2,
+    "private_status": {
+      ".env": 404,
+      "articles/features.json": 404,
+      "content-review.json": 404,
+      "catalog.json": 404,
+      "wiki/current/index.html": 404
+    },
+    "verified_at": "2026-11-22T20:09:41.471640+00:00"
+  },
+  "private_guide_external_status": 403,
+  "item_cache": {
+    "verified_records": 324798,
+    "stride_bytes": 1332,
+    "sha256": "996cc1950ac23d90c6995302fd17d63ff273b46faa72c60b066a74ccaf2fc7f2"
+  }
 }
