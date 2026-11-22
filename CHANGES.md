@@ -1,5 +1,7 @@
 ## 2026-11-22 — LocalDev Cairnwright creation
 
+Restarted LocalDev on the tested Cairnwright world and zone. Verified open admissions, eight zone workers, the mapped item and spell caches, and the matching quest files. The new world populated eight ruleset defaults. Native class-17 creation and relog still require the client selection fix.
+
 Installed and verified the Dwarf Cairnwright creation combination, start, stats, starter items and spells in local PEQ. An owner test showed that the visible button switches on while the client continues to submit Warrior for name approval and creation. [Local QA evidence](docs/qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)
 
 ## 2026-11-21 — Cairnwright server testing and player guides

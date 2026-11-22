@@ -1,5 +1,7 @@
 ## Cairnwright creation on LocalDev (2026-11-22)
 
+LocalDev now runs the Cairnwright world and eight matching zone workers. Admissions are open. Startup loaded the creation data, and the processes mapped the verified item and spell caches.
+
 The QA client displays the seventeenth button. After the owner clicked it, the client submitted Warrior at both name approval and creation. Local PEQ now contains the Dwarf/Brell creation combination and class content. The owner test for creating and reloading a primary Cairnwright remains open. [Local client and database evidence](qa/cairnwright-creation-20261121.md#november-22-localdev-character-creation)
 
 ## Cairnwright server and guides deployed (2026-11-21)
