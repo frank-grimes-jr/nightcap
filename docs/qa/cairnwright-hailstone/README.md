@@ -51,6 +51,10 @@ Cairnwright now passes the memorization handler's primary-class check, subject t
 
 ## Live testing release
 
-The production zone and gateway are running. Windows launcher 0.8.0 offers **Play Hailstone preview** in signed desktop release `2026112202`. The primary game asset channel is `2026112201`. The public launcher, desktop and matching source passed HTTPS verification against the release digests. The player guide and wiki have been published. Live player acceptance is open. [Release receipt](launcher-release.json) · [Player guide](https://wiki.nightcapgame.org/multiclass.html#cairnwright) · [Corresponding Hailstone source](https://play.nightcapgame.org/launcher/2026112202/nightcap-hailstone-source.zip)
+The production zone and gateway are running. Windows launcher 0.8.0 offers **Play Hailstone preview** in signed desktop release `2026112202`. The primary game asset channel is `2026112201`. The public launcher, desktop and matching source passed HTTPS verification against the release digests. The player guide and wiki have been published. Live player results are recorded below. [Release receipt](launcher-release.json) · [Player guide](https://wiki.nightcapgame.org/multiclass.html#cairnwright) · [Corresponding Hailstone source](https://play.nightcapgame.org/launcher/2026112202/nightcap-hailstone-source.zip)
 
 The production item cache passed a read-only check of all 324,798 records, including the starter robe and hammer. Its stride was 1,332 bytes with SHA-256 prefix `996cc195`. The public wiki returned the reviewed hashes for all seven changed outputs.
+
+### Live player check with Testern, November 22
+
+World approved Testern as a Dwarf Cairnwright and received race 8, class 17, deity 202 and starting zone 67 at creation. Production saved the level-one character in East Commonlands (zone 22), with Sound the Seam in gem 1 and Strike Cairn in gem 2. Testern's Hailstone gameplay log recorded a successful cairn placement at 3:26:15 p.m. Eastern and another at 3:26:55 p.m. Sound the Seam reached its server effect. The log contains the missing-cairn and unclear-seam messages. A clear seam and damage on an engaged enemy remain open live checks, as do camp/relog and Chronicler add/release on a separate character. The existing player guide already describes the range, visibility and engagement requirements.
