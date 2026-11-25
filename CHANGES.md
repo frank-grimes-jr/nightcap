@@ -1,3 +1,7 @@
+## 2026-11-25 — Classic sympathetic inventory sources (candidate)
+
+- Add two stock Ascended sources for each sympathetic line and change all six clicks to inventory-click type; existing buffs, strengths, other qualities and focuses remain. Guarded forward and rollback, item-cache refresh and player QA are documented in `docs/items/sympathetic-clicks/inventory-sources-20261125.md`. Not deployed.
+
 ## 2026-11-22 — Optional Hailstone client for Cairnwright
 
 Added **Play Hailstone preview** to the Windows launcher. The separate client uses the installed game assets and the Nightcap relay. It carries the Dwarf's class 17 selection through name approval and creation. The zone now accepts the primary class in its spellbook handler, loads its base stats and provides seated mana recovery before Meditation. Signed desktop 0.8.0 and the paired production zone are available for live testing. LocalDev verified fresh creation, camp, relog, both starter spells and Chronicler add and release. [Build, QA and limitations](docs/qa/cairnwright-hailstone/README.md)

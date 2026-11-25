@@ -1,3 +1,7 @@
+## November 25, 2026 · Sympathetic inventory sources candidate
+
+Four extra Ascended sources and inventory clicks are prepared, not deployed or player accepted. [Scope and QA](items/sympathetic-clicks/inventory-sources-20261125.md).
+
 ## Dwarf Cairnwright in the opt-in Hailstone client (2026-11-22)
 
 LocalDev authenticated a new Dwarf Cairnwright, saved class 17 through camp and relog, and resolved Strike Cairn and Sound the Seam from the spell gems. A separate Warrior added and released Cairnwright through the Ancient Chronicler across fresh logins. The production zone and gateway are running. Windows launcher 0.8.0 offers **Play Hailstone preview** in signed desktop release `2026112202`. The primary game asset channel is `2026112201`. The public launcher, desktop and matching source passed HTTPS verification against the release digests. The player guide and wiki have been published. Live QA confirmed Dwarf class-17 creation, both saved spell gems, cairn placement and the Sound the Seam validation messages on Testern. Clear-seam resolution, relog and the Chronicler remain open on live. [Acceptance and player test steps](qa/cairnwright-hailstone/README.md)
