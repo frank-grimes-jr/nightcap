@@ -22,4 +22,4 @@ Run the focused content tests and isolated typed-database rehearsal before promo
 3. Confirm all existing focuses remain, both different buffs coexist, same-line copies refresh instead of stacking, and a qualifying heal or nuke receives only the established 5% capped at 48. Test worn healing precedence and partial resists.
 4. Compare representative progression and geared multiclass encounters with and without the buffs, including cheapest eligible casts, effective healing and mana; retain open balance acceptance until owner sign-off.
 
-Wiki impact: Equipment, Features and Recent changes have staged instructions for the six live items; ordinary dynamic loot finder supplies stock sources. Home, commands and custom item/zone catalogs have no new custom entries. Publication is separate and pending.
+Wiki impact: Equipment, Features and Recent changes have published instructions for the six live items; ordinary dynamic loot finder supplies stock sources. Home, commands and custom item/zone catalogs have no new custom entries. The public release 20261125-sympathetic-inventory-v1 passed all 631 HTTPS file checks and five private-path checks.

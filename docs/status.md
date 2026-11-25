@@ -1,6 +1,6 @@
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 
-Right-click any of six Ascended Classic items from inventory. Healing I comes from Moonstone Ring, White Gold Necklace and Jagged Band. Strike I comes from Runed Lava Pendant, Ring of Xorbb and Djarn's Amethyst Ring. Main PR 534 reached production with six changed item definitions and 12 healthy workers. Reconnect and test a loose item and a bagged item. Player acceptance and wiki publication remain open. [Production verification](releases/sympathetic-inventory-20261125/production-verified.json).
+Right-click any of six Ascended Classic items from inventory. Healing I comes from Moonstone Ring, White Gold Necklace and Jagged Band. Strike I comes from Runed Lava Pendant, Ring of Xorbb and Djarn's Amethyst Ring. Main PR 534 reached production with six changed item definitions and 12 healthy workers. Reconnect and test a loose item and a bagged item. The [public Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-sympathetic) is published. Player acceptance remains open. [Production verification](releases/sympathetic-inventory-20261125/production-verified.json).
 
 ## Dwarf Cairnwright in the opt-in Hailstone client (2026-11-22)
 
