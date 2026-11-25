@@ -24,10 +24,10 @@ class ContentTests(unittest.TestCase):
     def test_item_scope_and_stock_focus(self):
         items = [(a[0], b[0]) for t, _, a, b in content.groups() if t == "items"]
         changed = [(old, new) for old, new in items if old != new]
-        self.assertEqual(len(items), 8)
-        self.assertEqual({(r["id"], r["clickeffect"]) for _,r in changed}, {(610338,44379),(610150,44380)})
+        self.assertEqual(len(items), 24)
+        self.assertEqual({(r["id"], r["clickeffect"]) for _,r in changed}, {(610338,44379),(610150,44380),(610147,44380),(610364,44380),(610215,44379),(610366,44379)})
         for old, new in changed:
-            self.assertEqual((new["clicktype"], new["maxcharges"], new["classes"]), (4,-1,65535))
+            self.assertEqual((new["clicktype"], new["maxcharges"], new["classes"]), (1,-1,65535))
             self.assertEqual((new["casttime"], new["casttime_"]), (2000,2000))
             self.assertEqual(new["focuseffect"], old["focuseffect"])
         self.assertEqual([r["focuseffect"] for _,r in changed if r["id"] == 610150], [2349])
