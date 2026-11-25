@@ -1,0 +1,31 @@
+{
+  "source": "2d66fe1b65d076ccc7942854b90814de5929070c",
+  "gateway_open": true,
+  "workers": 12,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "restarts": 0,
+  "image": "sha256:3460a06aa7d2670bd711cf584142c9ccf7279919e4eb628e3a550fa74956cd8d",
+  "binaries": {
+    "world": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+    "zone": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "client": null,
+  "cache": {
+    "records": 324798,
+    "changed": 6,
+    "unchanged": 324792,
+    "items_sha256": "23b652a010147772d941e5e1bec304b620430bd061c2501c3bce599c0a9c72a7"
+  },
+  "backup_sha256": "de90449d6a0678a66aef64c1b1510bbfcc0c502a8eeee792377166bbb5604d8a",
+  "player_qa": "open",
+  "verified_channel_release": 2026112201,
+  "stage": "sympathetic-inventory-20261125-v2",
+  "main": "44163ace14e79ad518fe6a06442c2bd6845892ad"
+}

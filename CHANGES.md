@@ -1,6 +1,6 @@
-## 2026-11-25 — Classic sympathetic inventory sources (candidate)
+## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 
-- Add two stock Ascended sources for each sympathetic line and change all six clicks to inventory-click type; existing buffs, strengths, other qualities and focuses remain. Guarded forward and rollback, item-cache refresh and player QA are documented in `docs/items/sympathetic-clicks/inventory-sources-20261125.md`. Not deployed.
+Right-click any of six Ascended Classic items from inventory. Healing I comes from Moonstone Ring, White Gold Necklace and Jagged Band. Strike I comes from Runed Lava Pendant, Ring of Xorbb and Djarn's Amethyst Ring. Main PR 534 reached production with six changed item definitions and 12 healthy workers. Reconnect and test a loose item and a bagged item. Player acceptance and wiki publication remain open. [Production verification](docs/releases/sympathetic-inventory-20261125/production-verified.json).
 
 ## 2026-11-22 — Optional Hailstone client for Cairnwright
 

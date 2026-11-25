@@ -1,0 +1,18 @@
+{
+  "manifest": "6e6b0a5a9b8a93c9f1c4167557877e2e4536c6d039fe3a64feb4ddbdb3bb7676",
+  "rehearsal": {
+    "records": 324798,
+    "changed": 6,
+    "unchanged": 324792,
+    "items_sha256": "23b652a010147772d941e5e1bec304b620430bd061c2501c3bce599c0a9c72a7"
+  },
+  "candidate_image": "sha256:3460a06aa7d2670bd711cf584142c9ccf7279919e4eb628e3a550fa74956cd8d",
+  "caches": {
+    "items": "996cc1950ac23d90c6995302fd17d63ff273b46faa72c60b066a74ccaf2fc7f2",
+    "spells": "81ef565bcd7d4b6cbf15af2935dd122f2943456bfa0e71c632bf73b3d5f05a35"
+  },
+  "stage": "sympathetic-inventory-20261125-v2",
+  "gameplay": "2d66fe1b6",
+  "main": "44163ace14e79ad518fe6a06442c2bd6845892ad",
+  "client_release": 2026112201
+}
