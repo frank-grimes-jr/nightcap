@@ -16,14 +16,14 @@ def run():
     db = "nightcap_sympathetic_" + uuid.uuid4().hex
     def sql(query, schema=db, check=True):
         client = ["docker", "exec", "-i", "akk-stack-mariadb-1", "sh", "-c",
-                  'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" exec mariadb -uroot --default-character-set=utf8mb4 -B -r --skip-column-names "$1"',
+                  'MYSQL_PWD="$(if [ -r /run/local-secrets/root ]; then cat /run/local-secrets/root; else printf %s "${MARIADB_ROOT_PASSWORD:-$MYSQL_ROOT_PASSWORD}"; fi)" exec mariadb -uroot --default-character-set=utf8mb4 -B -r --skip-column-names "$1"',
                   "rehearsal", schema]
         record = subprocess.run(client, input=query.encode(), capture_output=True, timeout=120)
         if check and record.returncode:
             raise RuntimeError(record.stderr.decode()[-700:])
         return record
 
-    ids = (10150, 210150, 410150, 610150, 10338, 210338, 410338, 610338, 1001)
+    ids = tuple(base + tier * 200000 for base in content.FAMILIES for tier in range(4)) + (1001,)
     id_list = ",".join(map(str, ids))
     forward = content.BOOTSTRAP.read_text()
     disable = (content.CONTENT/"disable.sql").read_text()
@@ -59,6 +59,19 @@ def run():
         for table,key,_,after in content.groups():
             if table == "items":
                 expected[key["id"]].update(after[0])
+        # The two previously deployed equipped clicks are accepted and upgraded.
+        sql(forward)
+        sql("UPDATE items SET clicktype=4 WHERE id IN (610150,610338)")
+        sql(forward)
+        assert all_items() == expected
+        rollback = content.migration(rollback=True)
+        sql(rollback)
+        rolled = all_items()
+        assert all(rolled[i]["clicktype"] == 4 for i in (610150,610338))
+        assert all(rolled[i]["clickeffect"] == -1 for i in (610147,610215,610364,610366))
+        sql(forward)
+        assert all_items() == expected
+        sql(disable)
         # Adjacent fields can evolve independently and survive replay/disable.
         for mode, query, image in (("forward",forward,expected), ("replay",forward,expected),
                                    ("disable",disable,before), ("disable replay",disable,before),

@@ -1,3 +1,7 @@
+## 2026-11-25 — Classic sympathetic inventory sources (candidate)
+
+- Add two stock Ascended sources for each sympathetic line and change all six clicks to inventory-click type; existing buffs, strengths, other qualities and focuses remain. Guarded forward and rollback, item-cache refresh and player QA are documented in `docs/items/sympathetic-clicks/inventory-sources-20261125.md`. Not deployed.
+
 ## 2026-11-21 — Cairnwright character creation experiment
 
 Generated and checked a seventeenth radio control in an isolated RoF2 creation-screen layout. Local PEQ and the current client/world sources identify the remaining selection, persistence, spell access and Chronicler work. Playable verification is open. See [local QA evidence](docs/qa/cairnwright-creation-20261121.md).
