@@ -1,3 +1,7 @@
+## November 25, 2026 · Sympathetic inventory sources candidate
+
+Four extra Ascended sources and inventory clicks are prepared, not deployed or player accepted. [Scope and QA](items/sympathetic-clicks/inventory-sources-20261125.md).
+
 ## November 21, 2026 · Equipment ornaments in development
 
 The feature candidate adds cosmetic sockets, a single-donor exchange beside the East Commonlands Epic Forgemaster and a shared worldwide ornament roll. The local catalog resolves 14,691 designs. Production activation and owner RoF2 acceptance remain open. [Catalog, pairing and in-game QA](items/visible-ornaments/README.md).
