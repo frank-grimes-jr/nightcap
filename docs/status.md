@@ -1,6 +1,6 @@
-## November 27, 2026 · Classic fixes prepared for deployment
+## November 27, 2026 · Classic fixes verified on LocalDev
 
-The five reported issues have scoped candidates. The ordinary armor roll and Imitate Death packet path passed native regression tests. The Power Source fix requires the paired RoF2 update. Primary Cairnwrights also need the updated Hailstone preview to see their Recall rank in General. [Release QA](releases/classic-qa-20261127/QA.md)
+LocalDev reopened with all 12 zone workers running the tested binary. A primary Cairnwright with a stale grant marker received Ancient Attunement, found it in General, camped and kept it on a second login. The Power Source fix requires the paired RoF2 update. [LocalDev verification](releases/classic-qa-20261127/ops/local-verified.json) · [In-game QA](releases/classic-qa-20261127/QA.md)
 
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 
