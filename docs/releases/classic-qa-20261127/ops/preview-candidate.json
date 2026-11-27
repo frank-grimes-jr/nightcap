@@ -1,0 +1,33 @@
+{
+  "build": {
+    "hailstone.exe": "91149a087b063c2088f487cd54f176be2435433e74ebfad6b504557107200eb1",
+    "recall_probe.exe": "6b2dc591f34954934f6d6e3b074e760bcdef6011b3cebf5aee865cb198912d88",
+    "nightcap-hailstone.zip": "1ace3364f1d7d3043ce66d6550bcf8f94841c3e18b5c14b3fa72ed54fde9c07a",
+    "nightcap-hailstone-source.zip": "b90ec8a5f56305cd7936999c3803e1d88f681df1da9cd0a9055490b59f46d75f",
+    "predecessor_text": "bf0d8b5e9f5af9577876bad9511c71882c66d79995ccfbba1d4c1df501e201ab",
+    "predecessor_source": "c34ee76c4cb2a61ce839f02d5ae739e6445c15556ed6576654a955289578ae50",
+    "source_changes": [
+      "hailstone/src/game/alt_adv.cpp",
+      "hailstone/src/game/alt_adv.h"
+    ]
+  },
+  "patch": {
+    "upstream": "45cf0cf6489f30f39f660c6791a85d4e531d6f8f",
+    "applied_files": 13,
+    "matches_paired_source": true
+  },
+  "signed": {
+    "desktop": "9c55db52ba019c20cf03ad372d3966583ac1480d010d0c8455e7c8920e400e27",
+    "channel": "a901a34d300d2e9010dad245601d0752adac3cd9a46ff4e54b33df62253be310",
+    "source": "b90ec8a5f56305cd7936999c3803e1d88f681df1da9cd0a9055490b59f46d75f"
+  },
+  "desktop_release": 2026112702,
+  "checks": [
+    "reproduced predecessor code section",
+    "class bits 0, 16, 17, 18",
+    "instant reset, normal countdown and expiry",
+    "Hailstone and launcher production Go tests",
+    "signed launcher releasecheck"
+  ],
+  "player_qa": "open"
+}

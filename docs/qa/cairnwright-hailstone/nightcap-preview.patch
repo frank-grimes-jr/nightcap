@@ -405,3 +405,27 @@ index 0000000..d1c4630
 +            c.zone == selected.start_zone && c.deity == selected.deity) return &c;
 +    return nullptr;
 +}
+diff --git a/src/game/alt_adv.cpp b/src/game/alt_adv.cpp
+--- a/src/game/alt_adv.cpp
++++ b/src/game/alt_adv.cpp
+@@ -5,7 +5,7 @@
+ namespace hailstone::game {
+ 
+ bool AltAbility::class_allowed(std::uint32_t cls) const {
+-    if (cls - 1 > 15) return false;
++    if (cls < 1 || cls > 17) return false; // Nightcap adds Cairnwright as class 17.
+     return (classes & (1u << cls)) != 0;
+ }
+ 
+diff --git a/src/game/alt_adv.h b/src/game/alt_adv.h
+--- a/src/game/alt_adv.h
++++ b/src/game/alt_adv.h
+@@ -59,7 +59,7 @@
+     std::vector<AltAbilityEffect> effects; // +0x98
+ 
+     bool monster_only() const { return flags[0] != 0; } // AltAbility_IsMonsterOnly @0x4a1f80
+-    // AltAbility_IsClassAllowed @0x4a1f50: bit (1 << class) for classes 1..16.
++    // AltAbility_IsClassAllowed @0x4a1f50: bit (1 << class), including Nightcap Cairnwright (17).
+     bool class_allowed(std::uint32_t cls) const;
+     bool activated() const { return spell > 0; }
+ };

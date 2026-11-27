@@ -1,0 +1,56 @@
+{
+  "local": {
+    "binaries": {
+      "world": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+      "zone": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
+      "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+      "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+      "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+    },
+    "running": {
+      "loginserver": 1,
+      "world": 1,
+      "ucs": 1,
+      "zone": 12
+    },
+    "cache": {
+      "items": "996cc1950ac23d90c6995302fd17d63ff273b46faa72c60b066a74ccaf2fc7f2",
+      "spells": "81ef565bcd7d4b6cbf15af2935dd122f2943456bfa0e71c632bf73b3d5f05a35"
+    },
+    "quests": {
+      "quests/fearplane/Cazic_Thule.lua": "ca26aff682e1205e3af17a2e75248b83b34ce25f6900b6a51a7abe2db9e3739f",
+      "quests/global/global_player.lua": "68e5c19d0d1c62b1395b413f5ece74a197873e63108fa900d45dcda7c96690d2"
+    },
+    "players": 0,
+    "image": "sha256:8783e7845a5e1f5e7754c688c966a2620fec45e679c50cc2f6111e4e36207de1",
+    "image_ref": "nightcap-local:hailstone-loopback-20261122",
+    "health": "healthy"
+  },
+  "production": {
+    "binaries": {
+      "world": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+      "zone": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
+      "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+      "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+      "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+    },
+    "running": {
+      "loginserver": 1,
+      "world": 1,
+      "ucs": 1,
+      "zone": 12
+    },
+    "cache": {
+      "items": "23b652a010147772d941e5e1bec304b620430bd061c2501c3bce599c0a9c72a7",
+      "spells": "81ef565bcd7d4b6cbf15af2935dd122f2943456bfa0e71c632bf73b3d5f05a35"
+    },
+    "quests": {
+      "quests/fearplane/Cazic_Thule.lua": "ca26aff682e1205e3af17a2e75248b83b34ce25f6900b6a51a7abe2db9e3739f",
+      "quests/global/global_player.lua": "68e5c19d0d1c62b1395b413f5ece74a197873e63108fa900d45dcda7c96690d2"
+    },
+    "players": 0,
+    "image": "sha256:3460a06aa7d2670bd711cf584142c9ccf7279919e4eb628e3a550fa74956cd8d",
+    "image_ref": "sha256:3460a06aa7d2670bd711cf584142c9ccf7279919e4eb628e3a550fa74956cd8d",
+    "health": "healthy"
+  }
+}
