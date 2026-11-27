@@ -1,3 +1,7 @@
+## November 27, 2026 · 7% Ascended for ordinary equipment and bags
+
+Weapons, armor, shields, jewelry and bags now use one Ascended band of 700 out of 10,000 eligible drops. The release removes the separate armor bonus and preserves 20% Polished and 5% Exalted. Fresh-install SQL seeds the live rates. The server and Loot Finder use the same distribution. [Verification and in-game QA](docs/releases/ascended-seven-20261127/README.md)
+
 ## November 27, 2026 · Classic encounter, loot, training and AA fixes
 
 Plane of Fear Cazic Thule receives Classic solo tuning and loses the inherited Avatar Power knockback. Fresh ordinary armor and shield drops roll Ascended at 4% with the current rules. RoF2 keeps the training item's own display definition so its Power Source percentage can update while the character stays in zone. Tunnel Recall checks actual ownership at login and includes Cairnwright. Imitate Death sends its ready state after a hotkey request, including a click while down. Deployed to LocalDev and OVH with 12 verified workers each. Fully exit RoF2 and use the launcher to receive game release `2026112701`. See the [release and exact player checks](docs/releases/classic-qa-20261127/QA.md).

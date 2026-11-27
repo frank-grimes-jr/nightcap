@@ -1,0 +1,37 @@
+{
+  "baseline_smoke": {
+    "exit_code": 1,
+    "missing_config_rejected": true,
+    "reached": "configuration load"
+  },
+  "candidate_object": "ebd91a12259accafc39379b76728da531c5787213aa25df0ceb3ba814003f65b",
+  "candidate_smoke": {
+    "exit_code": 1,
+    "missing_config_rejected": true,
+    "reached": "configuration load"
+  },
+  "matches_pre_armor_boost_object": true,
+  "network": "isolated",
+  "patch_sha256": "89253c02364ef50484aaab86ec9afc6bc8c0e83a3916649bd0b42d5158b25129",
+  "previous_and_reproduced_object": "5e1969020ea5376792467d85d09b964c8a517f46a0fa42dd77b61ac452a80410",
+  "previous_zone": "d150d164b19f8e0da21b571067b544947b8cebdc119a0053a391136edb06da0b",
+  "reproduced_zone": "d150d164b19f8e0da21b571067b544947b8cebdc119a0053a391136edb06da0b",
+  "resolved_dynamic_dependencies": [
+    "libc.so.6",
+    "libcrypt.so.1",
+    "libgcc_s.so.1",
+    "libm.so.6",
+    "libperl.so.5.36",
+    "libstdc++.so.6",
+    "libuuid.so.1"
+  ],
+  "retained_link_inputs": 143,
+  "reviewed_gameplay_commit": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4",
+  "runtime_activation": "pending",
+  "source_after_lf": "e2ed2a41250db18919bc69bf5834cc4b957f8888e7cde8c8909e4824f51a5159",
+  "source_before_lf": "36d6ce101cb955aa8091a8c37dd4b9ca0d525f6a7fb38435d48fee7a22fa00e9",
+  "total_link_inputs": 144,
+  "translation_unit": "zone/loot.cpp",
+  "zone": "d0e667c80b92ac3501011f060c79fa30723cdb9f4c7e6ccc99de15015a966c18",
+  "zone_bytes": 53409144
+}

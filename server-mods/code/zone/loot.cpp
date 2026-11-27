@@ -304,11 +304,6 @@ void NPC::AddLootDrop(
 			tier_offset = 400000;
 		} else if (roll <= legendary + epic + rare) {
 			tier_offset = 200000;
-		} else if (item2->ItemClass == EQ::item::ItemClassCommon && item2->Slots &&
-			(item2->ItemType == EQ::item::ItemTypeArmor || item2->ItemType == EQ::item::ItemTypeShield) &&
-			roll <= 4LL * legendary + epic + rare) {
-			// Armor gets three extra Ascended bands from otherwise Normal outcomes.
-			tier_offset = 600000;
 		}
 		if (tier_offset) {
 			const EQ::ItemData *upgraded = database.GetItem(item2->ID + tier_offset);
