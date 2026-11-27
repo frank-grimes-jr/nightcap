@@ -1,0 +1,18 @@
+{
+  "read_date": "2026-11-27",
+  "zone_id": 72,
+  "npc_type": 72003,
+  "spawn2": 13816,
+  "local": {"saved_rows":0,"corpses":0,"respawn_timers":0},
+  "production": {"saved_rows":1,"living":1,"corpses":0,"respawn_timers":0,"instance_id":0,"saved_current_hp":451000},
+  "analysis": "LoadZoneState reconstructs the living NPC with the current npc_types template. Spawn2::Process inserts it with EntityList::AddNPC, which dispatches EVENT_SPAWN. QuestParserCollection::EventNPC suppresses resumed queued corpses. The saved public row is living. LoadNPCState restores current HP through Mob::SetHP, which clamps at the new max_hp, and does not restore an AI spell list. No saved-row or timer edit is needed.",
+  "sources": [
+    "server-mods/code/zone/zone_save_state.cpp:LoadNPCState",
+    "server-mods/code/zone/zone_save_state.cpp:Zone::LoadZoneState",
+    "server-mods/code/zone/spawn2.cpp:Spawn2::Process",
+    "akk-stack/code/zone/entity.cpp:EntityList::AddNPC",
+    "akk-stack/code/zone/quest_parser_collection.cpp:QuestParserCollection::EventNPC",
+    "server-mods/code/zone/spells.cpp:Mob::SetHP"
+  ]
+}
+

@@ -1,3 +1,7 @@
+## November 27, 2026 · Classic fixes verified on LocalDev
+
+LocalDev reopened with all 12 zone workers running the tested binary. A primary Cairnwright with a stale grant marker received Ancient Attunement, found it in General, camped and kept it on a second login. The Power Source fix requires the paired RoF2 update. [LocalDev verification](releases/classic-qa-20261127/ops/local-verified.json) · [In-game QA](releases/classic-qa-20261127/QA.md)
+
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 
 Right-click any of six Ascended Classic items from inventory. Healing I comes from Moonstone Ring, White Gold Necklace and Jagged Band. Strike I comes from Runed Lava Pendant, Ring of Xorbb and Djarn's Amethyst Ring. Main PR 534 reached production with six changed item definitions and 12 healthy workers. Reconnect and test a loose item and a bagged item. The [public Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-sympathetic) is published. Player acceptance remains open. [Production verification](releases/sympathetic-inventory-20261125/production-verified.json).

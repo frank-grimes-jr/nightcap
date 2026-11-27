@@ -310,11 +310,10 @@ vet_aa = {
 
 
 function event_connect(e)
-    -- Keep the existing grant marker and AA ownership across the hub move.
-    if not eq.get_qglobals(e.self)["pok_attuned"] then
-        e.self:GrantAlternateAdvancementAbility(2220, 1)
+    -- A previous connection may have set pok_attuned before the grant succeeded.
+    if e.self:GetAAByAAID(2220) == 0 and e.self:GrantAlternateAdvancementAbility(2220, 1) then
         eq.set_global("pok_attuned", "1", 0, "F")
-        e.self:Message(MT.Yellow, "You have been granted Ancient Attunement. Open the AA window (V key, General tab) to activate your recall to the East Commonlands tunnel.")
+        e.self:Message(MT.Yellow, "Open the AA window (V), select General, and look for Ancient Attunement. Its Nightcap Recall hotkey returns you to the East Commonlands tunnel.")
     end
 
     local c2 = e.self:GetClass2()

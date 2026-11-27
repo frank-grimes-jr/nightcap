@@ -1,0 +1,27 @@
+{
+  "archive_sha256": {
+    "dinput8.dll": "ddfff6b07632dc0c848f842a451ab736daa29d3598efdf32f7d23cdbcf1a7980",
+    "nightcap-patch-sites.json": "e397b52cd034a7d6464adedcc57e90eabd2633d6a5f317d586d23a25c8bac26c"
+  },
+  "assets_preserved": 148,
+  "candidate_proxy_catalog_pair": "passed",
+  "changed_assets": 2,
+  "channel_sha256": "349e63febda737b2bafff06a22cd0eae4821c34cb7e1e8c389fe7afea55c6a19",
+  "exact_executable_preflight": "passed",
+  "native_player_acceptance": "pending",
+  "previous_channel_sha256": "f4ad99f337dc6e83ea87706f110833dad2b49f17c9b7549f65082285e9a02e9d",
+  "previous_release": 2026112201,
+  "release": 2026112701,
+  "signature": "verified against shipped production key",
+  "status": "staged_for_qa_publication",
+  "unchanged_asset_urls_preserved": true,
+  "proxy_version": "0.14.3-dev",
+  "verified_patch_sites": 122,
+  "pinned_x86_native_training_and_grip_test": "passed",
+  "exports": [
+    "DirectInput8Create",
+    "GetdfDIJoystick"
+  ],
+  "verified_parent_at_staging": "f4ad99f337dc6e83ea87706f110833dad2b49f17c9b7549f65082285e9a02e9d",
+  "linux_publisher_regressions": 20
+}

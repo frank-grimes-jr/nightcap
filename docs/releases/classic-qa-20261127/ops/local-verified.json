@@ -1,0 +1,38 @@
+{
+  "image": "sha256:7f530cc91194642db9f371715f04994d4057827cace357517c948e41551ca8da",
+  "quests": {
+    "quests/fearplane/Cazic_Thule.lua": "a238808244debd1747667f321564abc3d14bd30de1c7d02a77a3b90cb69b2507",
+    "quests/global/global_player.lua": "d195f9be0c49182a0c64c1b4b0389e006aafc5cd89fc2f4cd64306ac3a29b719"
+  },
+  "players": 0,
+  "source": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
+  "binaries": {
+    "world": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+    "zone": "d150d164b19f8e0da21b571067b544947b8cebdc119a0053a391136edb06da0b",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "running": {
+    "loginserver": 1,
+    "world": 1,
+    "ucs": 1,
+    "zone": 12
+  },
+  "cache": {
+    "items": "996cc1950ac23d90c6995302fd17d63ff273b46faa72c60b066a74ccaf2fc7f2",
+    "spells": "81ef565bcd7d4b6cbf15af2935dd122f2943456bfa0e71c632bf73b3d5f05a35"
+  },
+  "admission_open": true,
+  "player_qa": "open",
+  "db_backup_sha256": "2d26e16628ec19a54166992bd55b10472e1e16a246e7cc891adbeafd1eb38778",
+  "transaction": {
+    "npc_type": 72003,
+    "hp": 24000,
+    "level": 55,
+    "recall_family": 2220,
+    "classes": 131071,
+    "forward_and_inverse_rehearsed": true,
+    "stale_second_row_rolled_back": true
+  }
+}

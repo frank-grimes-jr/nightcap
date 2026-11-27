@@ -1,0 +1,13 @@
+{
+  "stage": "candidate",
+  "source": "local disposable primary class 17, two fresh authenticated camps",
+  "rank_before": 0,
+  "rank_after": 1,
+  "aa_points_unchanged": true,
+  "results": [
+    "NIGHTCAP_RECALL class=17 catalog=1 owned=1 general=1 family=2220 spell=42604 title=Ancient Attunement hotkey_string=Nightcap Recall preview_label=Ancient Attunement",
+    "NIGHTCAP_RECALL class=17 catalog=1 owned=1 general=1 family=2220 spell=42604 title=Ancient Attunement hotkey_string=Nightcap Recall preview_label=Ancient Attunement"
+  ],
+  "hailstone_probe": "6b2dc591f34954934f6d6e3b074e760bcdef6011b3cebf5aee865cb198912d88",
+  "mouse_hotbar_test": "open"
+}

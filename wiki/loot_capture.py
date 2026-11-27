@@ -24,7 +24,7 @@ FIELDS = {
     'links': ('loottable_entries','loottable_id lootdrop_id multiplier droplimit mindrop probability'),
     'drops': ('lootdrop','id '+GATES),
     'entries': ('lootdrop_entries','lootdrop_id item_id chance multiplier npc_min_level npc_max_level trivial_min_level trivial_max_level '+GATES),
-    'items': ('items','id Name classes slots reqlevel reclevel ac hp mana endur damage delay bagslots bagwr itemtype minstatus deity races astr asta aagi adex awis aint acha heroic_str heroic_sta heroic_agi heroic_dex heroic_wis heroic_int heroic_cha haste regen manaregen spelldmg healamt attack accuracy mr fr cr dr pr'),
+    'items': ('items','id Name classes slots reqlevel reclevel ac hp mana endur damage delay bagslots bagwr itemclass itemtype minstatus deity races astr asta aagi adex awis aint acha heroic_str heroic_sta heroic_agi heroic_dex heroic_wis heroic_int heroic_cha haste regen manaregen spelldmg healamt attack accuracy mr fr cr dr pr'),
     'global_loot': ('global_loot','id loottable_id enabled min_level max_level rare raid race class bodytype zone hot_zone '+GATES),
     'rules': ('rule_values','ruleset_id rule_name rule_value'),
     'flags': ('content_flags','flag_name enabled'),

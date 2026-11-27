@@ -56,6 +56,20 @@ class LootModelTests(unittest.TestCase):
         items={1: dict(id=1, slots=4, bagslots=0), 200001: dict(id=200001)}
         self.assertEqual(quality_outputs(items[1], items, [2000,500,100]), {1:.8,200001:.2})
 
+    def test_ascended_armor_and_shields_share_only_the_normal_band(self):
+        variants = {offset + 1: {} for offset in (0, 200000, 400000, 600000)}
+        chances = [2000, 500, 100]
+        for kind in (8, 10):
+            armor = dict(id=1, slots=4, itemclass=0, itemtype=kind)
+            self.assertEqual(quality_outputs(armor, variants, chances),
+                             {1: .71, 200001: .20, 400001: .05, 600001: .04})
+            self.assertEqual(quality_outputs(armor, {1, 200001, 400001}, chances),
+                             {1: .75, 200001: .20, 400001: .05})
+        for item in (dict(itemclass=0, itemtype=1, slots=4), dict(itemclass=1, itemtype=10, slots=4),
+                     dict(itemclass=0, itemtype=10, slots=0, bagslots=4)):
+            self.assertEqual(quality_outputs(dict(id=1, **item), variants, chances),
+                             {1: .74, 200001: .20, 400001: .05, 600001: .01})
+
     def test_content_flags_all_for_runtime_any_for_sql(self):
         row=dict(min_expansion=-1,max_expansion=0,content_flags='a,b',content_flags_disabled='c')
         self.assertFalse(content_passes(row,0,{'a'},{'c'}))

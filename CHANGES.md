@@ -1,3 +1,7 @@
+## November 27, 2026 · Classic encounter, loot, training and AA fixes
+
+Plane of Fear Cazic Thule receives Classic solo tuning and loses the inherited Avatar Power knockback. Fresh ordinary armor and shield drops roll Ascended at 4% with the current rules. RoF2 keeps the training item's own display definition so its Power Source percentage can update while the character stays in zone. Tunnel Recall checks actual ownership at login and includes Cairnwright. Imitate Death sends its ready state after a hotkey request, including a click while down. See the [release and exact player checks](docs/releases/classic-qa-20261127/QA.md).
+
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 
 Right-click any of six Ascended Classic items from inventory. Healing I comes from Moonstone Ring, White Gold Necklace and Jagged Band. Strike I comes from Runed Lava Pendant, Ring of Xorbb and Djarn's Amethyst Ring. Main PR 534 reached production with six changed item definitions and 12 healthy workers. Reconnect and test a loose item and a bagged item. The [public Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-sympathetic) is published. Player acceptance remains open. [Production verification](docs/releases/sympathetic-inventory-20261125/production-verified.json).

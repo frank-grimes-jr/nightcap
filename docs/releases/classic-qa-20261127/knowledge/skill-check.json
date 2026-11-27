@@ -1,0 +1,32 @@
+{
+  "wiki": {
+    "candidate_fingerprints": 5,
+    "all_candidate_entries_match": true,
+    "retained_topic_drift": 11
+  },
+  "items": {
+    "candidate_fingerprints": 2,
+    "all_candidate_entries_match": true,
+    "retained_topic_drift": 8
+  },
+  "balance": {
+    "candidate_fingerprints": 6,
+    "all_candidate_entries_match": true,
+    "retained_topic_drift": 41
+  },
+  "multiclass": {
+    "candidate_fingerprints": 7,
+    "all_candidate_entries_match": true,
+    "retained_topic_drift": 14
+  },
+  "item-xp": {
+    "candidate_fingerprints": 3,
+    "all_candidate_entries_match": true,
+    "retained_topic_drift": 0
+  },
+  "client": {
+    "candidate_fingerprints": 5,
+    "all_candidate_entries_match": true,
+    "retained_topic_drift": 57
+  }
+}
