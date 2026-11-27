@@ -173,6 +173,7 @@ struct Client {
  bool SpellFinished(int,Mob*,EQ::spells::CastingSlot,int,int,int,bool,int,pTimerType timer,
   int duration,bool,int rank_id) {return CompleteCast(rank_id,timer,duration);}
  void ActivateAlternateAdvancementAbility(int,int);
+ void PressAA(int);
  void CastQuickBuff(int rank) {casts.push_back(rank);}
  void SendAlternateAdvancementRank(int,int);
  void SendAlternateAdvancementTimer(int,int,int);
@@ -492,6 +493,11 @@ void imitate_death() {
  c.actions.clear();c.SendAlternateAdvancementTimers();
  check(c.p_timers.Expired(&database,pTimerAAStart+420,false),"saved Imitate Death wait survived resend");
  check(c.p_timers.GetRemainingTime(pTimerAAStart+98)==1800,"cleared unrelated Purify Body wait");
+ {const int id_slot=wire_group(c,1255);bool found=false;
+  for(const auto& a:c.actions)if(a.ability==(uint32)id_slot&&a.begin==0&&a.end==clock_now){found=true;break;}
+  // ponytail: mass-reset sweep sends (0,now) for all 100 slots; loop skips 420 entirely.
+  // This asserts the client visual is reset, not just that the timer was cleared.
+  check(found,"Imitate Death visual not reset to ready on full resend");}
  c.SendAlternateAdvancementRank(420,1);
  check(c.catalog.back().spell_refresh==1,"Imitate Death Make Hotkey is disabled");
  c.actions.clear();
@@ -500,8 +506,9 @@ void imitate_death() {
  check(c.p_timers.Expired(&database,pTimerAAStart+420,false),"Imitate Death starts a server wait");
  check(c.actions.size()==3,"Imitate Death completion packets missing");
  for(const auto& action:c.actions)check(action.begin==0 && action.end==clock_now,"Imitate Death starts client countdown");
- c.p_timers.Start(pTimerAAStart+420,1080);c.ActivateAlternateAdvancementAbility(1255,1);
+ c.p_timers.Start(pTimerAAStart+420,1080);c.actions.clear();c.ActivateAlternateAdvancementAbility(1255,1);
  check(c.casts.size()==5,"stale wait blocks activation before resend");
+ check(c.actions.size()==1&&c.actions.back().begin==0&&c.actions.back().end==clock_now,"stale-wait activation must send visual reset");
  for(int guard=0;guard<5;++guard) {
   Client denied;own(denied,1255);
   if(guard==0)denied.valid=false;if(guard==1)denied.earned.clear();
@@ -509,6 +516,17 @@ void imitate_death() {
   denied.ActivateAlternateAdvancementAbility(1255,1);
   check(denied.casts.empty() && denied.p_timers.values.empty(),"Imitate Death bypasses native authorization/casting");
  }
+ c.appearance=99;c.actions.clear();c.PressAA(1255);
+ check(c.casts.size()==5 && c.actions.size()==1 && c.actions.back().begin==0 && c.actions.back().end==clock_now,
+  "a rejected click while down must leave Imitate Death visually ready");
+ c.appearance=eaStanding;c.actions.clear();c.PressAA(1255);
+ check(c.casts.size()==6 && c.actions.size()==2 && c.actions.back().end==clock_now,
+  "the last reply to an instant Imitate Death click must reconcile its button");
+ c.actions.clear();c.PressAA(233);
+ check(c.actions.empty() && !c.p_timers.Expired(&database,pTimerAAStart+98,false),
+  "the existing Purify Body cooldown survived the Imitate Death clicks");
+ Client fresh;own(fresh,233);fresh.PressAA(233);
+ check(fresh.actions.size()==1 && fresh.actions.back().end==0,"other ready hotkeys start their normal cooldown");
 }
 void completion_pulses() {
  for(const auto& row:zone->aa_ranks_values) {
@@ -620,6 +638,11 @@ class AACooldownIdentityTests(unittest.TestCase):
         methods += "\nvoid Client::PublishAACompletion(int aa_id) {\n"
         methods += "using CastingSlot=EQ::spells::CastingSlot;auto slot=CastingSlot::AltAbility;\n"
         methods += completion + "\n}\n"
+        packet = (SOURCE / "zone/client_packet.cpp").read_text(encoding="utf-8")
+        activate = function(packet, "if (action->action == aaActionActivate)")
+        methods += "\nvoid Client::PressAA(int id) { enum {aaActionActivate}; " \
+                   "struct Action { int action,ability,target_id; } input{aaActionActivate,id,1}; " \
+                   "auto* action=&input;\n#define LogAA(...)\n" + activate + "\n#undef LogAA\n}\n"
         cls.temp = tempfile.TemporaryDirectory(prefix="aa-cooldown-identity-")
         cls.addClassCleanup(cls.temp.cleanup)
         path = Path(cls.temp.name)
