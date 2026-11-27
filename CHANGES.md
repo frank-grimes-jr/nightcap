@@ -1,6 +1,6 @@
 ## November 27, 2026 · Classic encounter, loot, training and AA fixes
 
-Plane of Fear Cazic Thule receives Classic solo tuning and loses the inherited Avatar Power knockback. Fresh ordinary armor and shield drops roll Ascended at 4% with the current rules. RoF2 keeps the training item's own display definition so its Power Source percentage can update while the character stays in zone. Tunnel Recall checks actual ownership at login and includes Cairnwright. Imitate Death sends its ready state after a hotkey request, including a click while down. See the [release and exact player checks](docs/releases/classic-qa-20261127/QA.md).
+Plane of Fear Cazic Thule receives Classic solo tuning and loses the inherited Avatar Power knockback. Fresh ordinary armor and shield drops roll Ascended at 4% with the current rules. RoF2 keeps the training item's own display definition so its Power Source percentage can update while the character stays in zone. Tunnel Recall checks actual ownership at login and includes Cairnwright. Imitate Death sends its ready state after a hotkey request, including a click while down. Deployed to LocalDev and OVH with 12 verified workers each. Fully exit RoF2 and use the launcher to receive game release `2026112701`. See the [release and exact player checks](docs/releases/classic-qa-20261127/QA.md).
 
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 

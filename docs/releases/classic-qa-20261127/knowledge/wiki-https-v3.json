@@ -1,0 +1,26 @@
+{
+  "release": "20261127-classic-qa-v3",
+  "files": 631,
+  "changed": [
+    "combat.html",
+    "commands.html",
+    "equipment.html",
+    "features.html",
+    "item-upgrades.html",
+    "recent-changes.html",
+    "search-index.json",
+    "travel.html",
+    "zone-fearplane.html",
+    "zone-hunt.html"
+  ],
+  "unchanged": 621,
+  "private_paths": {
+    ".env": 404,
+    "articles/features.json": 404,
+    "content-review.json": 404,
+    "catalog.json": 404,
+    "wiki/current/index.html": 404
+  },
+  "https": "all hashes and response headers verified",
+  "encounter_url": "https://wiki.nightcapgame.org/combat.html#fear-cazic"
+}

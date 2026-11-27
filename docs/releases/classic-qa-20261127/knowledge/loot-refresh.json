@@ -1,0 +1,43 @@
+{
+  "previous": "565da8438869fc83",
+  "snapshot": "443ab18ccb27d072",
+  "captured_at": "2026-11-27T14:21:23.834058+00:00",
+  "items": 6377,
+  "cazic_level": [
+    55,
+    55
+  ],
+  "rates": {
+    "armor": {
+      "item_id": 601001,
+      "npc_id": 11001,
+      "zone": "runnyeye",
+      "before": [
+        0.659965069222157,
+        0.659965069222157
+      ],
+      "after": [
+        2.617050371063956,
+        2.617050371063956
+      ]
+    },
+    "weapon": {
+      "item_id": 601074,
+      "npc_id": 39015,
+      "zone": "hole",
+      "before": [
+        0.9962562460937296,
+        0.9962562460937296
+      ],
+      "after": [
+        0.9962562460937296,
+        0.9962562460937296
+      ]
+    }
+  },
+  "service": "success",
+  "source_sha256": {
+    "loot_capture.py": "71a42e3c3bab8a81ff5fcf45933dfe2fe4215a26521ccf002c6b1e387b378093",
+    "loot_model.py": "83ba4a01a7426bb56d6155e4648e832a55aadfe23c6ec3ad161cab0da93cf093"
+  }
+}

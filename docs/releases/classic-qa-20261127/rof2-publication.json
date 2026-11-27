@@ -1,0 +1,23 @@
+{
+  "changed_assets": 2,
+  "channel_sha256": "349e63febda737b2bafff06a22cd0eae4821c34cb7e1e8c389fe7afea55c6a19",
+  "existing_assets_preserved": 148,
+  "history_preserved": true,
+  "hosted": true,
+  "managed_files": 150,
+  "release": 2026112701,
+  "signature": "valid against shipped production key",
+  "verified_bytes": 300800671,
+  "status": "published_https_verified",
+  "proxy_version": "0.14.3-dev",
+  "publisher_regressions": 20,
+  "origin_services_stable": [
+    "db",
+    "game",
+    "gateway",
+    "tunnel",
+    "web"
+  ],
+  "access": "Fully exit RoF2 and press Play in the standard Nightcap launcher.",
+  "player_acceptance": "pending"
+}

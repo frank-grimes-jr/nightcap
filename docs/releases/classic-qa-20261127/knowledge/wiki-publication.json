@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "release": "20261127-classic-qa-v4",
+  "previous_release": "20261127-classic-qa-v3",
+  "files": 631,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "changed": [
+    "search-index.json",
+    "travel.html"
+  ],
+  "package_sha256": "a9e21a6ae2ab94ab42bfddbd7000381f9fedd892211a8aa69abade5febf6407a",
+  "manifest_sha256": "3f78380f0ed238f27c746fc58a71d9ad4c9989e073dc4dff8589ce5f54006142"
+}

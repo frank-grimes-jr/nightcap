@@ -1,6 +1,6 @@
 {
   "wiki": {
-    "candidate_fingerprints": 5,
+    "candidate_fingerprints": 9,
     "all_candidate_entries_match": true,
     "retained_topic_drift": 11
   },
@@ -10,7 +10,7 @@
     "retained_topic_drift": 8
   },
   "balance": {
-    "candidate_fingerprints": 6,
+    "candidate_fingerprints": 7,
     "all_candidate_entries_match": true,
     "retained_topic_drift": 41
   },
@@ -25,7 +25,7 @@
     "retained_topic_drift": 0
   },
   "client": {
-    "candidate_fingerprints": 5,
+    "candidate_fingerprints": 7,
     "all_candidate_entries_match": true,
     "retained_topic_drift": 57
   }

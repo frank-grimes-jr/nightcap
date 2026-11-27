@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "release": "20261127-classic-qa-v3",
+  "previous_release": "20261125-sympathetic-inventory-v1",
+  "files": 631,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "changed": [
+    "combat.html",
+    "commands.html",
+    "equipment.html",
+    "features.html",
+    "item-upgrades.html",
+    "recent-changes.html",
+    "search-index.json",
+    "travel.html",
+    "zone-fearplane.html",
+    "zone-hunt.html"
+  ],
+  "package_sha256": "76e17739fc69a731408cd603f536123549850ee0b401b4ee710709063eec5e31",
+  "manifest_sha256": "55f44f72f1d7d3b30a228c669116bc94e564d19c72dddc3e13eb04dcf8e54691"
+}
