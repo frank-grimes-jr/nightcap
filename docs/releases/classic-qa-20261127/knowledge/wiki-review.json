@@ -1,0 +1,94 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-24",
+  "source_ref": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "source_revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
+  "reviewed_paths_count": 2475,
+  "reviewed_paths_sha256": "15db695cb7ee5c265fade824c25c9e19855e6a6e8efa57bc8c5e98459b474009",
+  "scope": "The November 27 review covers these player reports. The October 24 refresh ledger still has unrelated drift.",
+  "inspected": [
+    "features",
+    "equipment",
+    "item-upgrades",
+    "zone-hunt",
+    "combat",
+    "travel",
+    "commands",
+    "unreleased",
+    "recent-changes",
+    "loot-finder",
+    "home",
+    "generated item and zone catalogs"
+  ],
+  "generated_catalog": "The generated Plane of Fear page links to Cazic’s encounter. Existing item IDs and required levels, regular NPC drop tables, and Hunt and dungeon reward odds are unchanged. The service reads NPC min/max spawn level on capture and computes ordinary loot tier probabilities.",
+  "baseline": {
+    "release": "20261125-sympathetic-inventory-v1",
+    "reproduced": 631,
+    "manifest_sha256": "a0b8408c17b516ceaa1ed86538b3d9e5ce43d4de8f735bb3ed91da85e6234be9"
+  },
+  "state": "Candidate sources. Public wiki and Loot Finder refresh service have not been updated by this review.",
+  "candidate": {
+    "files": 631,
+    "unchanged": 621,
+    "changed": [
+      "combat.html",
+      "commands.html",
+      "equipment.html",
+      "features.html",
+      "item-upgrades.html",
+      "recent-changes.html",
+      "search-index.json",
+      "travel.html",
+      "zone-fearplane.html",
+      "zone-hunt.html"
+    ],
+    "manifest_sha256": "1ee92a0c4b5a1f92e6107bab641ff2a1eea3df588711603a0285a589e047f150",
+    "package_sha256": "9a727e09f95aa97f04772510e65d881dbd8095145fce0a0acd7b495efac36c75",
+    "publication": "staged locally",
+    "runtime_loot_model": "service update and refresh pending",
+    "release": "20261127-classic-qa-v2"
+  },
+  "verified_public_loot_preimage": {
+    "observed_utc": "2026-11-27T13:54:26Z",
+    "public_index_http": 200,
+    "timer": "enabled, active",
+    "last_service_result": "success",
+    "previous_snapshot_observed": "f5da8455ec86417e",
+    "production_source": "installed capture, model and refresh script match 89b4c2751 file bytes"
+  },
+  "pairing": {
+    "gameplay_ref": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
+    "hailstone_ref": "8ab70dd8f",
+    "state": "candidate pending production"
+  },
+  "loot_samples": {
+    "snapshot": "f5da8455ec86417e",
+    "cazic": {
+      "item_id": 1531,
+      "npc_id": 72003,
+      "level": [
+        70,
+        70
+      ]
+    },
+    "armor": {
+      "item_id": 601001,
+      "npc_id": 11001,
+      "zone": "runnyeye",
+      "before_percent": [
+        0.659965069222157,
+        0.659965069222157
+      ]
+    },
+    "weapon": {
+      "item_id": 601074,
+      "npc_id": 39015,
+      "zone": "hole",
+      "before_percent": [
+        0.9962562460937296,
+        0.9962562460937296
+      ]
+    }
+  }
+}

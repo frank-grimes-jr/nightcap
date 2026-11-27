@@ -25,12 +25,17 @@ def quality_outputs(item, items, chances):
         return result
     # Native order is Ascended, Exalted, Polished; missing definitions retain base.
     used = 0
-    for offset, chance in reversed(list(zip((200000, 400000, 600000), chances))):
+    bands = list(zip((600000, 400000, 200000), reversed(chances)))
+    if item.get('itemclass') == 0 and item.get('slots') and item.get('itemtype') in (8, 10):
+        # Ordinary worn shields and armor take three more Ascended bands from Normal.
+        bands.append((600000, 3 * chances[2]))
+    for offset, chance in bands:
         upper = min(10000, max(0, used + chance))
         probability = max(0, upper - min(10000, max(0, used))) / 10000
         used += chance
         if probability and item['id'] + offset in items:
-            result[item['id'] + offset] = probability
+            target = item['id'] + offset
+            result[target] = result.get(target, 0) + probability
             result[item['id']] -= probability
     result[item['id']] = round(result[item['id']], 12)
     return {key: value for key, value in result.items() if value > 0}
