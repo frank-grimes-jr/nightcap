@@ -1,6 +1,6 @@
-## November 27, 2026 · Universal 7% Ascended ordinary drops
+## November 27, 2026 · Universal 7% Ascended ordinary drops live
 
-The tested update gives all eligible ordinary equipment and bags the same 7% Ascended chance per drop. The native test covers every outcome for five representative item types. [Release and player checks](releases/ascended-seven-20261127/README.md)
+All eligible ordinary equipment and bags now have a 7% Ascended chance per fresh drop. OVH reopened with 12 healthy zone workers. Production rules and the tested native binary were verified after startup. [Live receipt](releases/ascended-seven-20261127/ops/production-verified.json) [Release and player checks](releases/ascended-seven-20261127/README.md)
 
 ## November 27, 2026 · Classic fixes live for in-game QA
 

@@ -1,6 +1,6 @@
 ## November 27, 2026 · 7% Ascended for ordinary equipment and bags
 
-Weapons, armor, shields, jewelry and bags now use one Ascended band of 700 out of 10,000 eligible drops. The release removes the separate armor bonus and preserves 20% Polished and 5% Exalted. Fresh-install SQL seeds the live rates. The server and Loot Finder use the same distribution. [Verification and in-game QA](docs/releases/ascended-seven-20261127/README.md)
+Weapons, armor, shields, jewelry and bags now use one Ascended band of 700 out of 10,000 eligible drops. The release removes the separate armor bonus and preserves 20% Polished and 5% Exalted. Fresh-install SQL seeds the live rates. LocalDev and OVH both reopened with the new zone and rule. The server and Loot Finder use the same distribution. [Verification and in-game QA](docs/releases/ascended-seven-20261127/README.md)
 
 ## November 27, 2026 · Classic encounter, loot, training and AA fixes
 
