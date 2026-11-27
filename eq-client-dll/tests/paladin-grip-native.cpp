@@ -142,6 +142,29 @@ int main(int argc,char** argv) {
   KeepPaladinGripDefinition(&cache,nullptr,reinterpret_cast<GripDefinitionRef*>(&out),reinterpret_cast<GripDefinitionRef*>(&incoming));
   Check(out.data==&old_definition,"unrelated item bypassed native cache");release(&out);
  }
+ // Training and a second ordinary copy share an item ID. Repeated progress
+ // packets must keep their own name/stats and leave the ordinary definition intact.
+ {
+  Definition plain,training;
+  constexpr unsigned id=12345;
+  *reinterpret_cast<unsigned*>(plain.bytes+0xec)=id;
+  *reinterpret_cast<unsigned*>(training.bytes+0xec)=id;
+  strcpy_s(reinterpret_cast<char*>(plain.bytes),64,"Test mail");
+  Counts plain_counts,training_counts;
+  Node node{&plain_counts,&plain,id};Node* bucket=&node;Cache cache{&bucket};
+  for(const char* name:{"Test mail [Training 0%]","Test mail [Training 1%]","Test mail [Training 99%]","Test mail [Trained]"}) {
+   strcpy_s(reinterpret_cast<char*>(training.bytes),64,name);
+   Handle in{&training_counts,&training},out{};
+   KeepPaladinGripDefinition(&cache,nullptr,reinterpret_cast<GripDefinitionRef*>(&out),reinterpret_cast<GripDefinitionRef*>(&in));
+   Check(out.data==&training && node.data==&plain,"training packet retained stale cached definition");
+   release(&out);
+   Check(training_counts.strong==1 && training_counts.all==2,"training reference leaked");
+  }
+  strcpy_s(reinterpret_cast<char*>(training.bytes),64,"Test mail [Training hall]");
+  Check(!IsTrainingDefinition(training.bytes),"unrelated item name matched training");
+  memset(training.bytes,'X',64);
+  Check(!IsTrainingDefinition(training.bytes),"unterminated item name matched training");
+ }
  // Run native final release too, with the native inline control/data layout.
  auto deletion=image+0x5fee0;deletion[0]=0xe9;
  *reinterpret_cast<int32_t*>(deletion+1)=static_cast<int32_t>(reinterpret_cast<uintptr_t>(&FreeNativeControl)-reinterpret_cast<uintptr_t>(deletion+5));

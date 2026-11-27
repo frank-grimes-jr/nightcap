@@ -4,6 +4,9 @@ local dungeon = require("nightcap_dungeons")
 -- items: 18898, 8226, 18899, 7836
 
 function event_spawn(e)
+	-- Avatar Power comes from the shared parent spell list. Remove it only
+	-- from this spawn so other NPCs keep their spell and Cazic keeps Panic.
+	e.self:RemoveAISpell(808)
 	eq.set_timer("Shout",600000);
 	-- use a timer for the zone repop so that the entire zone is not popping twice immediately on zone bootup.
 	if not dungeon.managed() then eq.set_timer("RepopZone",5000); end
