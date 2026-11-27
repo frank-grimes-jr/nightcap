@@ -11,6 +11,9 @@
 // Build: x86 ONLY (RoF2 is a 32-bit client) — see build.bat.
 // =============================================================================
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
 #include <windows.h>
 #include "../../server-mods/code/common/paladin_weapon_grip.h"
 #include <bcrypt.h>
