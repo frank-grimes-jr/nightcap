@@ -1,3 +1,7 @@
+## November 27, 2026 · 7% Ascended for ordinary equipment and bags
+
+Weapons, armor, shields, jewelry and bags now use one Ascended band of 700 out of 10,000 eligible drops. The release removes the separate armor bonus and preserves 20% Polished and 5% Exalted. Fresh-install SQL seeds the live rates. The server and Loot Finder use the same distribution. [Verification and in-game QA](docs/releases/ascended-seven-20261127/README.md)
+
 ## 2026-11-25 — Classic sympathetic inventory sources (candidate)
 
 - Add two stock Ascended sources for each sympathetic line and change all six clicks to inventory-click type; existing buffs, strengths, other qualities and focuses remain. Guarded forward and rollback, item-cache refresh and player QA are documented in `docs/items/sympathetic-clicks/inventory-sources-20261125.md`. Not deployed.
