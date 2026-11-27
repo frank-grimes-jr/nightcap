@@ -28,6 +28,9 @@ def refresh():
     if expansion.exists():
         contract['content']=[c for c in contract['content'] if not c['label'].startswith('classic/')]
         contract['content']+=json.loads(expansion.read_text())
+    cazic, = (c for c in contract['content'] if c['label'] == 'classic/objective/72003')
+    tuned = json.loads((ROOT/'docs/releases/classic-qa-20261127/cazic-contract.json').read_text())
+    cazic['sql'] = 'SELECT COUNT(*) FROM npc_types WHERE ' + predicate(tuned)
     rewards=ROOT/'docs/dungeons/classic-rewards-20261022/runtime-checks.json'
     if rewards.exists():
         contract['content']=[c for c in contract['content'] if not c['label'].startswith('rewards/')]

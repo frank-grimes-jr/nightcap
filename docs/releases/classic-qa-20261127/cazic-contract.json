@@ -1,0 +1,19 @@
+{
+  "id": 72003,
+  "name": "Cazic_Thule",
+  "level": 55,
+  "class": 5,
+  "hp": 24000,
+  "mindmg": 85,
+  "maxdmg": 218,
+  "attack_delay": 32,
+  "hp_regen_rate": 13,
+  "hp_regen_per_second": 0,
+  "AC": 397,
+  "ATK": 0,
+  "Accuracy": 0,
+  "loottable_id": 291,
+  "npc_spells_id": 116,
+  "npc_faction_id": 1361,
+  "merchant_id": 0
+}
