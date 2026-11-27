@@ -1,3 +1,7 @@
+## November 27, 2026 · Classic fixes prepared for deployment
+
+The five reported issues have scoped candidates. The ordinary armor roll and Imitate Death packet path passed native regression tests. The Power Source fix requires the paired RoF2 update. Primary Cairnwrights also need the updated Hailstone preview to see their Recall rank in General. [Release QA](releases/classic-qa-20261127/QA.md)
+
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 
 Right-click any of six Ascended Classic items from inventory. Healing I comes from Moonstone Ring, White Gold Necklace and Jagged Band. Strike I comes from Runed Lava Pendant, Ring of Xorbb and Djarn's Amethyst Ring. Main PR 534 reached production with six changed item definitions and 12 healthy workers. Reconnect and test a loose item and a bagged item. The [public Equipment guide](https://wiki.nightcapgame.org/equipment.html#stock-sympathetic) is published. Player acceptance remains open. [Production verification](releases/sympathetic-inventory-20261125/production-verified.json).

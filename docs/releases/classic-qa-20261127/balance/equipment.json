@@ -1,0 +1,973 @@
+{
+  "snapshot": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae",
+  "builds": {
+    "hybrid": [
+      {
+        "slot": 1,
+        "id": 662283,
+        "name": "Shiny Gold Earring (Ascended)",
+        "source": {
+          "item_id": 62283,
+          "zone": "hole",
+          "npc_id": 39065,
+          "npc_name": "#an_old_construct",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 2,
+        "id": 662291,
+        "name": "Rock Helm of Defense (Ascended)",
+        "source": {
+          "item_id": 62291,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 3,
+        "id": 603618,
+        "name": "Grotesque Alloy Mask (Ascended)",
+        "source": {
+          "item_id": 3618,
+          "zone": "runnyeye",
+          "npc_id": 11017,
+          "npc_name": "#Lord_Pickclaw",
+          "npc_level": 32
+        }
+      },
+      {
+        "slot": 4,
+        "id": 679621,
+        "name": "Silverwing Loop (Ascended)",
+        "source": {
+          "item_id": 79621,
+          "zone": "mistmoore",
+          "npc_id": 59017,
+          "npc_name": "a_Mistmoore_guard",
+          "npc_level": 15
+        }
+      },
+      {
+        "slot": 5,
+        "id": 662294,
+        "name": "Rock Prism Necklace (Ascended)",
+        "source": {
+          "item_id": 62294,
+          "zone": "hole",
+          "npc_id": 39031,
+          "npc_name": "a_ratman_inhabitant",
+          "npc_level": 51
+        }
+      },
+      {
+        "slot": 6,
+        "id": 604394,
+        "name": "Imbued Granite Spauldors (Ascended)",
+        "source": {
+          "item_id": 4394,
+          "zone": "hole",
+          "npc_id": 39105,
+          "npc_name": "a_massive_construct",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 7,
+        "id": 662293,
+        "name": "Naturalists Leather Arm Wraps (Ascended)",
+        "source": {
+          "item_id": 62293,
+          "zone": "hole",
+          "npc_id": 39117,
+          "npc_name": "#an_ancient_gargoyle",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 8,
+        "id": 611621,
+        "name": "Cloak of Flames (Ascended)",
+        "source": {
+          "item_id": 11621,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 9,
+        "id": 662292,
+        "name": "Steel Bracer of Law (Ascended)",
+        "source": {
+          "item_id": 62292,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 10,
+        "id": 462292,
+        "name": "Steel Bracer of Law (Exalted)",
+        "source": {
+          "item_id": 62292,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 11,
+        "id": 608408,
+        "name": "Bow of the Underfoot (Ascended)",
+        "source": {
+          "item_id": 8408,
+          "zone": "hole",
+          "npc_id": 39105,
+          "npc_name": "a_massive_construct",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 12,
+        "id": 620655,
+        "name": "Slime Blood of Cazic-Thule (Ascended)",
+        "source": {
+          "item_id": 20655,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 13,
+        "id": 606502,
+        "name": "Whitened Treant Fists (Ascended)",
+        "source": {
+          "item_id": 6502,
+          "zone": "airplane",
+          "npc_id": 71000,
+          "npc_name": "an_undine_spirit",
+          "npc_level": 53
+        }
+      },
+      {
+        "slot": 14,
+        "id": 611632,
+        "name": "Bladestopper (Ascended)",
+        "source": {
+          "item_id": 11632,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 15,
+        "id": 610366,
+        "name": "Djarn's Amethyst Ring (Ascended)",
+        "source": {
+          "item_id": 10366,
+          "zone": "soldungb",
+          "npc_id": 32062,
+          "npc_name": "Efreeti_Lord_Djarn",
+          "npc_level": 50
+        }
+      },
+      {
+        "slot": 16,
+        "id": 679871,
+        "name": "Warforged Emerald Hoop (Ascended)",
+        "source": {
+          "item_id": 79871,
+          "zone": "soldunga",
+          "npc_id": 31025,
+          "npc_name": "young_goblin",
+          "npc_level": 18
+        }
+      },
+      {
+        "slot": 17,
+        "id": 604309,
+        "name": "Mithril Breastplate (Ascended)",
+        "source": {
+          "item_id": 4309,
+          "zone": "soldungb",
+          "npc_id": 32059,
+          "npc_name": "kobold_priest",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 18,
+        "id": 662286,
+        "name": "Plate Greaves of the Golden Sun (Ascended)",
+        "source": {
+          "item_id": 62286,
+          "zone": "hole",
+          "npc_id": 39118,
+          "npc_name": "#an_old_gargoyle",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 19,
+        "id": 602337,
+        "name": "Kobold-hide Boots (Ascended)",
+        "source": {
+          "item_id": 2337,
+          "zone": "soldunga",
+          "npc_id": 31146,
+          "npc_name": "kobold_predator",
+          "npc_level": 25
+        }
+      },
+      {
+        "slot": 20,
+        "id": 632969,
+        "name": "Cracked Leather Belt (Ascended)",
+        "source": {
+          "item_id": 32969,
+          "zone": "hole",
+          "npc_id": 39166,
+          "npc_name": "Lost_Spirit",
+          "npc_level": 38
+        }
+      }
+    ],
+    "melee": [
+      {
+        "slot": 1,
+        "id": 662283,
+        "name": "Shiny Gold Earring (Ascended)",
+        "source": {
+          "item_id": 62283,
+          "zone": "hole",
+          "npc_id": 39065,
+          "npc_name": "#an_old_construct",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 2,
+        "id": 662291,
+        "name": "Rock Helm of Defense (Ascended)",
+        "source": {
+          "item_id": 62291,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 3,
+        "id": 603618,
+        "name": "Grotesque Alloy Mask (Ascended)",
+        "source": {
+          "item_id": 3618,
+          "zone": "runnyeye",
+          "npc_id": 11017,
+          "npc_name": "#Lord_Pickclaw",
+          "npc_level": 32
+        }
+      },
+      {
+        "slot": 4,
+        "id": 679621,
+        "name": "Silverwing Loop (Ascended)",
+        "source": {
+          "item_id": 79621,
+          "zone": "mistmoore",
+          "npc_id": 59017,
+          "npc_name": "a_Mistmoore_guard",
+          "npc_level": 15
+        }
+      },
+      {
+        "slot": 5,
+        "id": 662294,
+        "name": "Rock Prism Necklace (Ascended)",
+        "source": {
+          "item_id": 62294,
+          "zone": "hole",
+          "npc_id": 39031,
+          "npc_name": "a_ratman_inhabitant",
+          "npc_level": 51
+        }
+      },
+      {
+        "slot": 6,
+        "id": 604394,
+        "name": "Imbued Granite Spauldors (Ascended)",
+        "source": {
+          "item_id": 4394,
+          "zone": "hole",
+          "npc_id": 39105,
+          "npc_name": "a_massive_construct",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 7,
+        "id": 662293,
+        "name": "Naturalists Leather Arm Wraps (Ascended)",
+        "source": {
+          "item_id": 62293,
+          "zone": "hole",
+          "npc_id": 39117,
+          "npc_name": "#an_ancient_gargoyle",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 8,
+        "id": 611621,
+        "name": "Cloak of Flames (Ascended)",
+        "source": {
+          "item_id": 11621,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 9,
+        "id": 662292,
+        "name": "Steel Bracer of Law (Ascended)",
+        "source": {
+          "item_id": 62292,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 10,
+        "id": 462292,
+        "name": "Steel Bracer of Law (Exalted)",
+        "source": {
+          "item_id": 62292,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 11,
+        "id": 608408,
+        "name": "Bow of the Underfoot (Ascended)",
+        "source": {
+          "item_id": 8408,
+          "zone": "hole",
+          "npc_id": 39105,
+          "npc_name": "a_massive_construct",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 12,
+        "id": 620655,
+        "name": "Slime Blood of Cazic-Thule (Ascended)",
+        "source": {
+          "item_id": 20655,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 13,
+        "id": 606502,
+        "name": "Whitened Treant Fists (Ascended)",
+        "source": {
+          "item_id": 6502,
+          "zone": "airplane",
+          "npc_id": 71000,
+          "npc_name": "an_undine_spirit",
+          "npc_level": 53
+        }
+      },
+      {
+        "slot": 14,
+        "id": 611632,
+        "name": "Bladestopper (Ascended)",
+        "source": {
+          "item_id": 11632,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 15,
+        "id": 610366,
+        "name": "Djarn's Amethyst Ring (Ascended)",
+        "source": {
+          "item_id": 10366,
+          "zone": "soldungb",
+          "npc_id": 32062,
+          "npc_name": "Efreeti_Lord_Djarn",
+          "npc_level": 50
+        }
+      },
+      {
+        "slot": 16,
+        "id": 679871,
+        "name": "Warforged Emerald Hoop (Ascended)",
+        "source": {
+          "item_id": 79871,
+          "zone": "soldunga",
+          "npc_id": 31025,
+          "npc_name": "young_goblin",
+          "npc_level": 18
+        }
+      },
+      {
+        "slot": 17,
+        "id": 604309,
+        "name": "Mithril Breastplate (Ascended)",
+        "source": {
+          "item_id": 4309,
+          "zone": "soldungb",
+          "npc_id": 32059,
+          "npc_name": "kobold_priest",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 18,
+        "id": 662286,
+        "name": "Plate Greaves of the Golden Sun (Ascended)",
+        "source": {
+          "item_id": 62286,
+          "zone": "hole",
+          "npc_id": 39118,
+          "npc_name": "#an_old_gargoyle",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 19,
+        "id": 602293,
+        "name": "Withered Leather Boots (Ascended)",
+        "source": {
+          "item_id": 2293,
+          "zone": "hole",
+          "npc_id": 39007,
+          "npc_name": "a_citybound_spirit",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 20,
+        "id": 611666,
+        "name": "Bone-Clasped Girdle (Ascended)",
+        "source": {
+          "item_id": 11666,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      }
+    ],
+    "spell": [
+      {
+        "slot": 1,
+        "id": 662283,
+        "name": "Shiny Gold Earring (Ascended)",
+        "source": {
+          "item_id": 62283,
+          "zone": "hole",
+          "npc_id": 39065,
+          "npc_name": "#an_old_construct",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 2,
+        "id": 662291,
+        "name": "Rock Helm of Defense (Ascended)",
+        "source": {
+          "item_id": 62291,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 3,
+        "id": 662284,
+        "name": "Shiny Silver Mask (Ascended)",
+        "source": {
+          "item_id": 62284,
+          "zone": "hole",
+          "npc_id": 39065,
+          "npc_name": "#an_old_construct",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 4,
+        "id": 679621,
+        "name": "Silverwing Loop (Ascended)",
+        "source": {
+          "item_id": 79621,
+          "zone": "mistmoore",
+          "npc_id": 59017,
+          "npc_name": "a_Mistmoore_guard",
+          "npc_level": 15
+        }
+      },
+      {
+        "slot": 5,
+        "id": 662294,
+        "name": "Rock Prism Necklace (Ascended)",
+        "source": {
+          "item_id": 62294,
+          "zone": "hole",
+          "npc_id": 39031,
+          "npc_name": "a_ratman_inhabitant",
+          "npc_level": 51
+        }
+      },
+      {
+        "slot": 6,
+        "id": 602924,
+        "name": "Weight of the Gods (Ascended)",
+        "source": {
+          "item_id": 2924,
+          "zone": "airplane",
+          "npc_id": 71033,
+          "npc_name": "a_thunder_spirit",
+          "npc_level": 50
+        }
+      },
+      {
+        "slot": 7,
+        "id": 601362,
+        "name": "Embroidered Black Sleeves (Ascended)",
+        "source": {
+          "item_id": 1362,
+          "zone": "gukbottom",
+          "npc_id": 66108,
+          "npc_name": "a_ghoul_ritualist",
+          "npc_level": 34
+        }
+      },
+      {
+        "slot": 8,
+        "id": 611621,
+        "name": "Cloak of Flames (Ascended)",
+        "source": {
+          "item_id": 11621,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 9,
+        "id": 662292,
+        "name": "Steel Bracer of Law (Ascended)",
+        "source": {
+          "item_id": 62292,
+          "zone": "hole",
+          "npc_id": 39067,
+          "npc_name": "#an_ancient_construct",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 10,
+        "id": 612803,
+        "name": "Bracelet of Distortion (Ascended)",
+        "source": {
+          "item_id": 12803,
+          "zone": "soltemple",
+          "npc_id": 80026,
+          "npc_name": "Romar_Sunto",
+          "npc_level": 34
+        }
+      },
+      {
+        "slot": 11,
+        "id": 662285,
+        "name": "Ancient Tome of Lost Lore (Ascended)",
+        "source": {
+          "item_id": 62285,
+          "zone": "hole",
+          "npc_id": 39118,
+          "npc_name": "#an_old_gargoyle",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 12,
+        "id": 620655,
+        "name": "Slime Blood of Cazic-Thule (Ascended)",
+        "source": {
+          "item_id": 20655,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 13,
+        "id": 614337,
+        "name": "Blue Crystal Staff (Ascended)",
+        "source": {
+          "item_id": 14337,
+          "zone": "kedge",
+          "npc_id": 64001,
+          "npc_name": "Phinigel_Autropos",
+          "npc_level": 53
+        }
+      },
+      {
+        "slot": 14,
+        "id": 611632,
+        "name": "Bladestopper (Ascended)",
+        "source": {
+          "item_id": 11632,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 15,
+        "id": 679871,
+        "name": "Warforged Emerald Hoop (Ascended)",
+        "source": {
+          "item_id": 79871,
+          "zone": "soldunga",
+          "npc_id": 31025,
+          "npc_name": "young_goblin",
+          "npc_level": 18
+        }
+      },
+      {
+        "slot": 16,
+        "id": 679872,
+        "name": "Flamewrought Emerald Band (Ascended)",
+        "source": {
+          "item_id": 79872,
+          "zone": "soldunga",
+          "npc_id": 31025,
+          "npc_name": "young_goblin",
+          "npc_level": 18
+        }
+      },
+      {
+        "slot": 17,
+        "id": 611641,
+        "name": "Crimson Robe of Alendine (Ascended)",
+        "source": {
+          "item_id": 11641,
+          "zone": "fearplane",
+          "npc_id": 72002,
+          "npc_name": "Terror",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 18,
+        "id": 662286,
+        "name": "Plate Greaves of the Golden Sun (Ascended)",
+        "source": {
+          "item_id": 62286,
+          "zone": "hole",
+          "npc_id": 39118,
+          "npc_name": "#an_old_gargoyle",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 19,
+        "id": 602293,
+        "name": "Withered Leather Boots (Ascended)",
+        "source": {
+          "item_id": 2293,
+          "zone": "hole",
+          "npc_id": 39007,
+          "npc_name": "a_citybound_spirit",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 20,
+        "id": 611666,
+        "name": "Bone-Clasped Girdle (Ascended)",
+        "source": {
+          "item_id": 11666,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      }
+    ],
+    "pet": [
+      {
+        "slot": 1,
+        "id": 662283,
+        "name": "Shiny Gold Earring (Ascended)",
+        "source": {
+          "item_id": 62283,
+          "zone": "hole",
+          "npc_id": 39065,
+          "npc_name": "#an_old_construct",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 2,
+        "id": 610143,
+        "name": "Platinum Tiara (Ascended)",
+        "source": {
+          "item_id": 10143,
+          "zone": "gukbottom",
+          "npc_id": 66121,
+          "npc_name": "a_froglok_tactician",
+          "npc_level": 45
+        }
+      },
+      {
+        "slot": 3,
+        "id": 662284,
+        "name": "Shiny Silver Mask (Ascended)",
+        "source": {
+          "item_id": 62284,
+          "zone": "hole",
+          "npc_id": 39065,
+          "npc_name": "#an_old_construct",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 4,
+        "id": 679621,
+        "name": "Silverwing Loop (Ascended)",
+        "source": {
+          "item_id": 79621,
+          "zone": "mistmoore",
+          "npc_id": 59017,
+          "npc_name": "a_Mistmoore_guard",
+          "npc_level": 15
+        }
+      },
+      {
+        "slot": 5,
+        "id": 662294,
+        "name": "Rock Prism Necklace (Ascended)",
+        "source": {
+          "item_id": 62294,
+          "zone": "hole",
+          "npc_id": 39031,
+          "npc_name": "a_ratman_inhabitant",
+          "npc_level": 51
+        }
+      },
+      {
+        "slot": 6,
+        "id": 601905,
+        "name": "Squallsurge Shawl (Ascended)",
+        "source": {
+          "item_id": 1905,
+          "zone": "kedge",
+          "npc_id": 64087,
+          "npc_name": "Undertow",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 7,
+        "id": 601362,
+        "name": "Embroidered Black Sleeves (Ascended)",
+        "source": {
+          "item_id": 1362,
+          "zone": "gukbottom",
+          "npc_id": 66108,
+          "npc_name": "a_ghoul_ritualist",
+          "npc_level": 34
+        }
+      },
+      {
+        "slot": 8,
+        "id": 662288,
+        "name": "Specious Gemmed Cape (Ascended)",
+        "source": {
+          "item_id": 62288,
+          "zone": "hole",
+          "npc_id": 39117,
+          "npc_name": "#an_ancient_gargoyle",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 9,
+        "id": 612805,
+        "name": "Bracelet of Exertion (Ascended)",
+        "source": {
+          "item_id": 12805,
+          "zone": "airplane",
+          "npc_id": 71033,
+          "npc_name": "a_thunder_spirit",
+          "npc_level": 50
+        }
+      },
+      {
+        "slot": 10,
+        "id": 612804,
+        "name": "Bracelet of Cessation (Ascended)",
+        "source": {
+          "item_id": 12804,
+          "zone": "airplane",
+          "npc_id": 71025,
+          "npc_name": "a_sprited_harpie",
+          "npc_level": 54
+        }
+      },
+      {
+        "slot": 11,
+        "id": 662285,
+        "name": "Ancient Tome of Lost Lore (Ascended)",
+        "source": {
+          "item_id": 62285,
+          "zone": "hole",
+          "npc_id": 39118,
+          "npc_name": "#an_old_gargoyle",
+          "npc_level": 49
+        }
+      },
+      {
+        "slot": 12,
+        "id": 620655,
+        "name": "Slime Blood of Cazic-Thule (Ascended)",
+        "source": {
+          "item_id": 20655,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 13,
+        "id": 611625,
+        "name": "Orb of Tishan (Ascended)",
+        "source": {
+          "item_id": 11625,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 14,
+        "id": 611632,
+        "name": "Bladestopper (Ascended)",
+        "source": {
+          "item_id": 11632,
+          "zone": "soldungb",
+          "npc_id": 32040,
+          "npc_name": "Lord_Nagafen",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 15,
+        "id": 679872,
+        "name": "Flamewrought Emerald Band (Ascended)",
+        "source": {
+          "item_id": 79872,
+          "zone": "soldunga",
+          "npc_id": 31025,
+          "npc_name": "young_goblin",
+          "npc_level": 18
+        }
+      },
+      {
+        "slot": 16,
+        "id": 679623,
+        "name": "Silverwing Circlet (Ascended)",
+        "source": {
+          "item_id": 79623,
+          "zone": "permafrost",
+          "npc_id": 73019,
+          "npc_name": "an_ice_goblin",
+          "npc_level": 10
+        }
+      },
+      {
+        "slot": 17,
+        "id": 611641,
+        "name": "Crimson Robe of Alendine (Ascended)",
+        "source": {
+          "item_id": 11641,
+          "zone": "fearplane",
+          "npc_id": 72002,
+          "npc_name": "Terror",
+          "npc_level": 55
+        }
+      },
+      {
+        "slot": 18,
+        "id": 601651,
+        "name": "Loam Encrusted Pantaloons (Ascended)",
+        "source": {
+          "item_id": 1651,
+          "zone": "hole",
+          "npc_id": 39004,
+          "npc_name": "an_elemental_monstrosity",
+          "npc_level": 38
+        }
+      },
+      {
+        "slot": 19,
+        "id": 602293,
+        "name": "Withered Leather Boots (Ascended)",
+        "source": {
+          "item_id": 2293,
+          "zone": "hole",
+          "npc_id": 39007,
+          "npc_name": "a_citybound_spirit",
+          "npc_level": 40
+        }
+      },
+      {
+        "slot": 20,
+        "id": 611666,
+        "name": "Bone-Clasped Girdle (Ascended)",
+        "source": {
+          "item_id": 11666,
+          "zone": "fearplane",
+          "npc_id": 72000,
+          "npc_name": "Dread",
+          "npc_level": 55
+        }
+      }
+    ]
+  }
+}

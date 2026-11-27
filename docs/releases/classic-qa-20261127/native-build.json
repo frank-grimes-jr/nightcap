@@ -1,0 +1,58 @@
+{
+  "previous_and_reproduced_zone": "34de795f61e495221d5fbc36e2240a96f694b10c68f70c4d8de9623571c805aa",
+  "zone": "d150d164b19f8e0da21b571067b544947b8cebdc119a0053a391136edb06da0b",
+  "link_input_count": 144,
+  "retained_inputs": 141,
+  "translation_units": [
+    "loot",
+    "client_packet",
+    "dungeon_service"
+  ],
+  "original_object_reproduction": {
+    "loot": "ebd91a12259accafc39379b76728da531c5787213aa25df0ceb3ba814003f65b",
+    "client_packet": "e4c2c91a3a145475d5002fe91b9a0cb21bff7f87a30bfa884164c9b615f0e79d",
+    "dungeon_service": "cee854824186fa84b792263c248135165c7aad05ef78ed23d2b08670d2eb6feb"
+  },
+  "added_runtime_dependencies": [],
+  "all_native_dependencies_resolved": true,
+  "feature_patch_sha256": "a81b6f6fd0018a942f643880d0625f67461049b5c4f6123c46ec2cf97870841b",
+  "source_preimages": {
+    "common/imitate_death.h": "fd4be8418a3cdd91ebde56f46031fbd706819ae3787a5213a64b88955c01851d",
+    "zone/client_packet.cpp": "07fa88d1c824979dc427aa6668d9e6ec28509cf53a509819fb341b74de0c831a",
+    "zone/loot.cpp": "e2ed2a41250db18919bc69bf5834cc4b957f8888e7cde8c8909e4824f51a5159",
+    "common/dungeon_contract.h": "3925fe542edb20b4a6109d5238b21a532363accfea7216af7931a8696a5b172d"
+  },
+  "source_after": {
+    "common/imitate_death.h": {
+      "repo_lf": "b79805cc95cb279dbd75320e188deb20f2d485a2846ff49576f1c1d24ea1ecfa",
+      "shipped_lf": "b79805cc95cb279dbd75320e188deb20f2d485a2846ff49576f1c1d24ea1ecfa"
+    },
+    "zone/client_packet.cpp": {
+      "repo_lf": "6cd6ea870d047ca7e5e92b3719dcde23d5eaab137c5f5018ee31af8b3f83d2ac",
+      "shipped_lf": "6cd6ea870d047ca7e5e92b3719dcde23d5eaab137c5f5018ee31af8b3f83d2ac"
+    },
+    "zone/loot.cpp": {
+      "repo_lf": "36d6ce101cb955aa8091a8c37dd4b9ca0d525f6a7fb38435d48fee7a22fa00e9",
+      "shipped_lf": "36d6ce101cb955aa8091a8c37dd4b9ca0d525f6a7fb38435d48fee7a22fa00e9"
+    },
+    "common/dungeon_contract.h": {
+      "repo_lf": "b7c3ba37592b16118a24a15fd70eb0039a6018a3a0457ea7cad603d8349e7b9d",
+      "shipped_lf": "b7c3ba37592b16118a24a15fd70eb0039a6018a3a0457ea7cad603d8349e7b9d"
+    }
+  },
+  "isolated_network": "none",
+  "deployed": false,
+  "dungeon_contract_patch_sha256": "280d4182f56624adfbc4add1c62697a11f982132a81b008013fcdf34219fb734",
+  "dynamic_dependencies": [
+    "libc.so.6",
+    "libcrypt.so.1",
+    "libgcc_s.so.1",
+    "libm.so.6",
+    "libperl.so.5.36",
+    "libstdc++.so.6",
+    "libuuid.so.1"
+  ],
+  "dungeon_contract_consumers": [
+    "zone/dungeon_service.cpp"
+  ]
+}
