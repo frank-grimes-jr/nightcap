@@ -1050,6 +1050,27 @@ static bool ApplyMonkAttackActivationPatches(
     return true;
 }
 
+#include <string_view>
+
+// RoF2 stores a 64-byte name at the start of the definition. The server
+// reserves these exact suffixes for the per-instance Power Source projection.
+static bool IsTrainingDefinition(const BYTE* definition)
+{
+    const char* name = reinterpret_cast<const char*>(definition);
+    const char* end = static_cast<const char*>(memchr(name, 0, 64));
+    if (!end) return false;
+    const std::string_view text(name, static_cast<size_t>(end - name));
+    const auto bracket = text.rfind(" [");
+    if (bracket == std::string_view::npos) return false;
+    const auto suffix = text.substr(bracket);
+    if (suffix == " [Trained]") return true;
+    constexpr std::string_view prefix = " [Training ";
+    if (suffix.size() < prefix.size() + 3 || suffix.size() > prefix.size() + 4 ||
+        suffix.substr(0, prefix.size()) != prefix || suffix.substr(suffix.size() - 2) != "%]") return false;
+    const auto digits = suffix.substr(prefix.size(), suffix.size() - prefix.size() - 2);
+    return digits.find_first_not_of("0123456789") == std::string_view::npos;
+}
+
 // RoF2 interns incoming item definitions by item ID at the deserialize boundary.
 // Grip variants share their real ID but must retain distinct instance definitions.
 struct GripDefinitionRef {
@@ -1060,7 +1081,7 @@ extern "C" __declspec(noinline) GripDefinitionRef* __fastcall KeepPaladinGripDef
     void* cache, void*, GripDefinitionRef* output, const GripDefinitionRef* incoming)
 {
     const auto id = *reinterpret_cast<const uint32_t*>(incoming->definition + 0xec);
-    if (NightcapPaladinGrip::Supported(id) && incoming->counts) {
+    if (incoming->counts && (NightcapPaladinGrip::Supported(id) || IsTrainingDefinition(incoming->definition))) {
         // Match the native shared-reference copy (556736..556759), including
         // both counters. The caller owns an uninitialized return slot and will
         // release it normally. Never edit the cache or another item's data.
