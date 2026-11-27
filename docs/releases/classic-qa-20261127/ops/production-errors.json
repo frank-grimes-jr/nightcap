@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-11-27T14:18:18.323143826Z",
+  "image": "sha256:d6b94931f00c22cc5b0097af601d536b8a321afd0bbb098c5a3ed81ef1574071",
+  "health": "healthy",
+  "restarts": 0,
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  }
+}
