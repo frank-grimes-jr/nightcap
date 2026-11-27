@@ -15,7 +15,10 @@ class LootQualityRates(unittest.TestCase):
 #include <cassert>
 #include <cstdint>
 using uint32 = uint32_t;
-namespace EQ { struct ItemData { uint32 ID; int Slots; int BagSlots; }; }
+namespace EQ {
+ namespace item { enum { ItemClassCommon=0, ItemTypeShield=8, ItemTypeArmor=10 }; }
+ struct ItemData { uint32 ID; int Slots; int BagSlots; int ItemClass; int ItemType; };
+}
 struct Random { int value=1; int Int(int,int) { return value; } };
 struct Zone { Random random; } actual_zone;
 Zone *zone=&actual_zone;
@@ -33,17 +36,26 @@ uint32 pick(EQ::ItemData base) {
 }
 int main() {
  int count[4]={};
+ int armor_count[4]={};
  for(int r=1;r<=10000;++r) {
   zone->random.value=r;
   auto id=pick({42,1,0}); ++count[id/200000];
+  auto armor=pick({42,1,0,0,EQ::item::ItemTypeArmor});
+  ++armor_count[armor/200000];
+  assert(pick({42,1,0,0,EQ::item::ItemTypeShield})==armor);
+  assert(pick({42,0,0,0,EQ::item::ItemTypeArmor})==42);
+  if (r<=2600) assert(armor==id);
   assert(pick({42,0,10})==id);
   assert(pick({42,0,0})==42);
   assert(pick({940000,1,0})==940000);
   assert(pick({960000,1,0})==960000);
   assert(pick({200042,1,0})==200042);
-  database.available=false; assert(pick({42,1,0})==42); database.available=true;
+  database.available=false;
+  assert(pick({42,1,0})==42 && pick({42,1,0,0,EQ::item::ItemTypeArmor})==42);
+  database.available=true;
  }
  assert(count[0]==7400 && count[1]==2000 && count[2]==500 && count[3]==100);
+ assert(armor_count[0]==7100 && armor_count[1]==2000 && armor_count[2]==500 && armor_count[3]==400);
 }
 '''
         scratch=ROOT/'artifacts/loot-quality-tests'
