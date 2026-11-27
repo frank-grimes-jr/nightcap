@@ -1,11 +1,11 @@
 {
   "result": "REVIEW REQUIRED",
   "reviewed": "2026-10-24",
-  "source_ref": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
+  "source_ref": "58e14d9b15582c455c48571c15f4d76ed16bb970",
   "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
-  "source_revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
-  "reviewed_paths_count": 2475,
-  "reviewed_paths_sha256": "15db695cb7ee5c265fade824c25c9e19855e6a6e8efa57bc8c5e98459b474009",
+  "source_revision": "58e14d9b15582c455c48571c15f4d76ed16bb970",
+  "reviewed_paths_count": 2493,
+  "reviewed_paths_sha256": "6427528063b073d31ec961a10367f96d11119b57e44d1ce48e27a172ea719291",
   "scope": "The November 27 review covers these player reports. The October 24 refresh ledger still has unrelated drift.",
   "inspected": [
     "features",
@@ -27,28 +27,7 @@
     "reproduced": 631,
     "manifest_sha256": "a0b8408c17b516ceaa1ed86538b3d9e5ce43d4de8f735bb3ed91da85e6234be9"
   },
-  "state": "Candidate sources. Public wiki and Loot Finder refresh service have not been updated by this review.",
-  "candidate": {
-    "files": 631,
-    "unchanged": 621,
-    "changed": [
-      "combat.html",
-      "commands.html",
-      "equipment.html",
-      "features.html",
-      "item-upgrades.html",
-      "recent-changes.html",
-      "search-index.json",
-      "travel.html",
-      "zone-fearplane.html",
-      "zone-hunt.html"
-    ],
-    "manifest_sha256": "1ee92a0c4b5a1f92e6107bab641ff2a1eea3df588711603a0285a589e047f150",
-    "package_sha256": "9a727e09f95aa97f04772510e65d881dbd8095145fce0a0acd7b495efac36c75",
-    "publication": "staged locally",
-    "runtime_loot_model": "service update and refresh pending",
-    "release": "20261127-classic-qa-v2"
-  },
+  "state": "Server and RoF2 are live for player QA. The owner retained the verified Hailstone preview privately. The static wiki and standalone Loot Finder are published and HTTPS-verified.",
   "verified_public_loot_preimage": {
     "observed_utc": "2026-11-27T13:54:26Z",
     "public_index_http": 200,
@@ -60,7 +39,7 @@
   "pairing": {
     "gameplay_ref": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a",
     "hailstone_ref": "8ab70dd8f",
-    "state": "candidate pending production"
+    "state": "OVH and RoF2 release 2026112701 live. Hailstone candidate 2026112702 privately staged at owner request. Public desktop remains 2026112202."
   },
   "loot_samples": {
     "snapshot": "f5da8455ec86417e",
@@ -90,5 +69,32 @@
         0.9962562460937296
       ]
     }
-  }
+  },
+  "release": {
+    "name": "20261127-classic-qa-v4",
+    "files": 631,
+    "net_changed_from_november_25": [
+      "combat.html",
+      "commands.html",
+      "equipment.html",
+      "features.html",
+      "item-upgrades.html",
+      "recent-changes.html",
+      "search-index.json",
+      "travel.html",
+      "zone-fearplane.html",
+      "zone-hunt.html"
+    ],
+    "net_unchanged_from_november_25": 621,
+    "latest_change": [
+      "search-index.json",
+      "travel.html"
+    ],
+    "package_sha256": "a9e21a6ae2ab94ab42bfddbd7000381f9fedd892211a8aa69abade5febf6407a",
+    "manifest_sha256": "3f78380f0ed238f27c746fc58a71d9ad4c9989e073dc4dff8589ce5f54006142",
+    "verification": "wiki-https.json and wiki-publication.json",
+    "loot_snapshot": "443ab18ccb27d072",
+    "loot_https": "loot-https.json"
+  },
+  "captured_catalog": "The worker captured the new level, projected rates using common equippable armor and shield fields, and resumed its enabled 15-minute timer. The canonical HTTPS index and three source controls passed."
 }

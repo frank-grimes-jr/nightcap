@@ -1,6 +1,6 @@
-## November 27, 2026 · Classic fixes verified on LocalDev
+## November 27, 2026 · Classic fixes live for in-game QA
 
-LocalDev reopened with all 12 zone workers running the tested binary. A primary Cairnwright with a stale grant marker received Ancient Attunement, found it in General, camped and kept it on a second login. The Power Source fix requires the paired RoF2 update. [LocalDev verification](releases/classic-qa-20261127/ops/local-verified.json) · [In-game QA](releases/classic-qa-20261127/QA.md)
+The production gateway reopened with all 12 zone workers healthy after [main PR 539](https://github.com/frank-grimes-jr/nightcap/pull/539). Plane of Fear Cazic is level 55 with 24,000 HP. Eligible ordinary armor and shields now roll Ascended at 4%. Fully exit RoF2 and use the Nightcap launcher to receive the Power Source display fix in game release `2026112701`. Look for **Ancient Attunement** in General after logging in. LocalDev verified the missing Recall rank persisted across two Cairnwright logins. The owner kept the class-17 Hailstone preview update privately staged. The public preview can still hide that entry. The full encounter and visible item and hotbar checks are open for players. [Production verification](releases/classic-qa-20261127/ops/production-verified.json) · [In-game QA](releases/classic-qa-20261127/QA.md)
 
 ## November 25, 2026 · Classic sympathetic inventory clicks live for player QA
 

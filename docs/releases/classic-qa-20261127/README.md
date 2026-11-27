@@ -9,3 +9,13 @@
 | Imitate Death | The hotkey handler finishes an owned rank 1255 request by sending that AA's ready state. A click while feigned can return before the normal cast completion packet. | The 21-case AA suite included the final packet after successful and rejected clicks, 46,872 ordered family pairs and independent Purify Body reuse. The native RoF2 readiness fixture passed 49 checks. |
 
 The base release was reproduced before compiling the changed zone. The operator checks each environment's current binary, mapped workers, two caches, affected quests, two database rows and occupancy. Rollback restores the previous scoped content and native image while keeping player progress. [Operations](ops/README.md) · [In-game QA](QA.md)
+
+## Live deployment
+
+The gameplay changes passed automated checks on dev and test and reached main in [PR 539](https://github.com/frank-grimes-jr/nightcap/pull/539). LocalDev and OVH each ran the same rebuilt zone on all twelve workers. OVH reopened admissions with the two scoped database changes, both quest files and the paired native binary verified. The post-start checks recorded zero restarts and zero recognized native, quest or database errors. [LocalDev receipt](ops/local-verified.json) · [OVH receipt](ops/production-verified.json) · [OVH runtime checks](ops/production-errors.json)
+
+A primary Cairnwright received the missing Recall rank on LocalDev, retained it on a second login and kept the same AA point totals. The Plane of Fear encounter with adds, live item-window refresh, tunnel arrival and hotbar appearance still need player QA. [In-game test steps](QA.md)
+
+Fully exit EQ and restart through the Nightcap launcher to receive standard game release `2026112701`. All 150 public game files passed verification. At the owner’s request Hailstone release `2026112702` stays privately staged. The public preview remains on `2026112202` and can still hide the General entry for a primary Cairnwright. [Standard game publication](rof2-publication.json) · [Hailstone release status](ops/preview-publication.json)
+
+The production Loot Finder regenerated 6,377 items. Its Runnyeye armor example rose from 0.660% to 2.617% per kill, and the Hole weapon example held at 0.996%. These figures include each NPC's chance to drop the base item. [Loot Finder snapshot and controls](knowledge/loot-refresh.json)

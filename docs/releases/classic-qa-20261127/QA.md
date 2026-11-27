@@ -14,7 +14,7 @@ Loot newly generated ordinary NPCs in Unrest or Befallen. Count eligible armor a
 
 ## Tunnel Recall
 
-Reconnect on an existing character, including a primary Cairnwright in the updated Hailstone preview. In the AA window, open General and include owned abilities. Look for **Ancient Attunement**. Make its hotkey, cast from outside East Commonlands and confirm arrival at the tunnel. RoF2 labels the hotkey **Nightcap Recall**. Reconnect twice and check that the rank stays owned without a second grant. Check the normal ten-minute reuse and that the character's bind point stays intact.
+Reconnect on an existing character in standard RoF2. The primary Cairnwright case requires the privately staged Hailstone preview `2026112702`. Public preview `2026112202` can still hide the entry on that class. In the AA window, open General and include owned abilities. Look for **Ancient Attunement**. Make its hotkey, cast from outside East Commonlands and confirm arrival at the tunnel. RoF2 labels the hotkey **Nightcap Recall**. Reconnect twice and check that the rank stays owned without a second grant. Check the normal ten-minute reuse and that the character's bind point stays intact.
 
 ## Imitate Death
 

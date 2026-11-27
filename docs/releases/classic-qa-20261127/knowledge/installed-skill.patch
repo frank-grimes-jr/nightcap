@@ -1,21 +1,9 @@
---- a/references/client.md
-+++ b/references/client.md
-@@ -1,4 +1,9 @@
- # RoF2 client, pets and buff effects
-+
-+
-+## RoF2 Power Source training display · November 27 candidate
-+
-+The zone sends whole-percent and tier updates for the training slot. RoF2's item-definition cache can substitute an older definition of the same ID. The candidate in eq-client-dll/src/dllmain.cpp extends the per-instance definition path to the bounded server training suffixes. eq-client-dll/tests/paladin-grip-native.cpp checks repeated progress alongside an ordinary identical-ID copy and existing grip behavior. Test with the paired signed client after it is available. Player acceptance is open. Source 8ab70dd8f pairs a rebuilt Hailstone preview for primary class 17 to list Ancient Attunement. Both server eligibility and the matching preview are required.
- 
- ## Furnace Warden character art
- 
 --- a/references/items.md
 +++ b/references/items.md
 @@ -197,53 +197,13 @@
  their zone's next boot; in-game loot/unlocked-corpse QA open. Evidence:
  E:/EQ_Local_Dev/_worktrees/npc-placeholder-loot/docs/ops/npc-placeholder-loot-20261101/.
- 
+
 -## Power Source item experience — October30 candidate, not released
 -
 -Source: E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test,
@@ -69,14 +57,14 @@
 +
 +`common/item_xp_{policy,metadata,inventory,eligibility}.h` and `zone/advanced_loot_inventory.cpp` own the saved, item-ID-bound custom_data. Exact-row updates retain saved GUID, augments, charges, binding, grip and explicit dye. An uncertain write quarantines the session. Box and #zoneforge consume eligible inputs and their partial XP with the regular 3/4/4 recipes. Never restore player inventories to roll back training. Older loaders can lose multi-key metadata. For a rollback after training, use a metadata-compatible binary.
 +
-+RoF2 formats the training name at whole percents; `#itemxp` reports progress independently. The owner reported on November 27 that the display required zoning. RoF2 interns incoming definitions by item ID. The November 27 client candidate preserves the incoming training instance definition, including its name and suppressed stats, even if a loose copy has already populated that cache. The deployed server already sends a new item packet on each whole-percent change and tier upgrade. Pair the signed RoF2 client before testing same-zone updates. Check the training and ordinary copies together, then removal, zoning and relog. Player QA is open.
- 
++RoF2 formats the training name at whole percents; `#itemxp` reports progress independently. The owner reported on November 27 that the display required zoning. RoF2 interns incoming definitions by item ID. The November 27 signed RoF2 client preserves the incoming training instance definition, including its name and suppressed stats, even if a loose copy has already populated that cache. The deployed server already sends a new item packet on each whole-percent change and tier upgrade. Use signed RoF2 game channel 2026112701 to test same-zone updates. Check the training and ordinary copies together, then removal, zoning and relog. Player QA is open.
+
  ## Character sale recovery — October29 operational evidence
- 
+
 @@ -674,20 +634,11 @@
  rejection and other tiers/zoneforge remain unconfirmed. owner-acceptance.json
  records that scope; historical deployment receipts retain their earlier status.
- 
+
 -## Ordinary loot rates and quest reward direction — October 18
 -
 -20% Polished / 5% Exalted / 1% Ascended: deployed and globally reloaded; player balance QA remains open.
@@ -95,10 +83,10 @@
 +
 +The October 18 rule values are 2000 Polished, 500 Exalted and 100 Ascended out of 10000. A single roll applies to each eligible, newly generated ordinary equipment or bag drop. A missing quality variant falls back to the base item. Zone Hunt, instance rewards and quest turn-ins have separate policies.
 +
-+The November 27 `NPC::AddLootDrop` candidate in `server-mods/code/zone/loot.cpp` adds three times the existing Ascended band from otherwise Normal rolls only for equippable common armor and shields (item types 10 and 8). At the live baseline this gives 4% Ascended armor and shields and 1% for other eligible items. Both have 20% Polished and 5% Exalted. The override values themselves stay at 2000/500/100. This code requires the matching zone executable and fresh NPC loot. `tools/tests/test_loot_quality_rates.py` exhausts all rolls, and `wiki/loot_model.py` mirrors the model using captured itemclass, itemtype and slots. The wiki loot-data worker requires its matching model and a fresh content snapshot before public rates can be claimed. Gameplay source 7b53fcbd4 and paired Hailstone candidate 8ab70dd8f are staged for server QA. Production and player acceptance are pending.
- 
++The deployed November 27 `NPC::AddLootDrop` policy in `server-mods/code/zone/loot.cpp` adds three times the existing Ascended band from otherwise Normal rolls only for equippable common armor and shields (item types 10 and 8). At the live baseline this gives 4% Ascended armor and shields and 1% for other eligible items. Both have 20% Polished and 5% Exalted. The override values themselves stay at 2000/500/100. This code requires the matching zone executable and fresh NPC loot. `tools/tests/test_loot_quality_rates.py` exhausts all rolls, and `wiki/loot_model.py` mirrors the model using captured itemclass, itemtype and slots. The public Loot Finder now uses the matching worker. Its HTTPS snapshot verified the Runnyeye armor and Hole weapon controls. Main 58e14d9b, LocalDev and OVH deployment verified November 27. All 12 OVH zone workers passed. Player acceptance is open. See docs/releases/classic-qa-20261127/QA.md and ops/production-verified.json in that release.
+
  ## Substantial class-armor rewards — October22 deployed for live QA
- 
+
 --- a/references/multiclass.md
 +++ b/references/multiclass.md
 @@ -1,4 +1,8 @@
@@ -106,21 +94,21 @@
 +
 +## East Commonlands tunnel recall
 +
-+General lists `Ancient Attunement`, family 2220/rank 22200. Its hotbutton reads `Nightcap Recall`. Spell 42604 has a five-second cast and 600-second independent reuse. The original 16-class mask 65535 excluded a primary Cairnwright without another eligible class. The old Lua connect grant also marked `pok_attuned` even if purchase failed. The November 27 candidate pairs the targeted 17-class mask 131071 with ownership-aware connect in `server-mods/quests/global/global_player.lua`. Existing ownership is retained and a previously failed grant retries. Pair `docs/releases/classic-qa-20261127/recall-forward.sql`, the live quest and the AA table reload/restart. RoF2 already has the signed list and hotkey strings. The paired Hailstone preview from 8ab70dd8f is required to list Recall for a primary Cairnwright. Verify on fresh login with an existing and a previously ungranted character. Gameplay source 7b53fcbd4 and paired Hailstone candidate 8ab70dd8f are staged for server QA. Production and player acceptance are pending.
- 
++General lists `Ancient Attunement`, family 2220/rank 22200. Its hotbutton reads `Nightcap Recall`. Spell 42604 has a five-second cast and 600-second independent reuse. The original 16-class mask 65535 excluded a primary Cairnwright without another eligible class. The old Lua connect grant also marked `pok_attuned` even if purchase failed. The deployed November 27 fix pairs the targeted 17-class mask 131071 with ownership-aware connect in `server-mods/quests/global/global_player.lua`. Existing ownership is retained and a previously failed grant retries. Pair `docs/releases/classic-qa-20261127/recall-forward.sql`, the live quest and the AA table reload/restart. RoF2 already has the signed list and hotkey strings. The class-17 list fix is in Hailstone 2026112702, privately staged at the owner’s request. Public desktop 2026112202 still filters out the primary Cairnwright entry. RoF2 is live. Verify on fresh login with an existing and a previously ungranted character. Main 58e14d9b, LocalDev and OVH deployment verified November 27. All 12 OVH zone workers passed. Player acceptance is open. See docs/releases/classic-qa-20261127/QA.md and ops/production-verified.json in that release.
+
  ## Cairnwright · primary and Chronicler testing
- 
+
 @@ -38,6 +42,10 @@
  Mastery of the Past150 now waives only Spell Casting Expertise26 when the player holds CLR/PAL/RNG/DRU/SHM/BST. The enabled union line had inherited a prerequisite those classes cannot buy; disabled equivalent251 has their original no-prerequisite path. SHD/BRD/NEC/WIZ/MAG/ENC-only builds retain Expertise III. common/aa_availability.h serves both native purchase and per-client AA packet filtering; shared rank definitions stay intact. No ranks, prices, effects, masks, SQL, custom content or client assets change. Existing earned projection/refunds remain; already-earned eligible ranks survive prerequisite changes.
- 
+
  Evidence: E:/EQ_Local_Dev/_worktrees/aa-availability/docs/audits/aa-availability-20261120/. All696 single/pair/trio class sets audited. Native extracted purchase5808 and packet5724 cases pass, 65536mask controls, 30focused/adjacent tests and11dev checks pass. Shipping predecessor35330918 was reproduced exactly before full aa.cpp compilation. These fixtures are not real SQL purchase/release or visible-client acceptance; that QA stays OPEN. Whole-runtime zone release and12workers verified; relog for AA-window refresh. No cache rebuild or client download. Current generator passes; an older all-class generation test is stale on unchanged main and remains separately documented.
 +
-+## Imitate Death ready display · November 27 candidate
++## Imitate Death ready display · November 27 deployed for QA
 +
-+The owner reproduced a clickable button that still looked used. Family 420 (retained rank 1255, spell 5918) already has zero server reuse. The revised AA action handler in zone/client_packet.cpp finishes every owned rank-1255 hotkey request with the ready packet, including attempts rejected for posture or casting. It preserves standing and spell restrictions and other AA clocks. Deploy the zone executable for this change. Check the visible button after an accepted and a denied use while an unrelated AA is cooling down. The visible RoF2 result awaits player QA.
- 
++The owner reproduced a clickable button that still looked used. Family 420 (retained rank 1255, spell 5918) already has zero server reuse. The revised AA action handler in zone/client_packet.cpp finishes every owned rank-1255 hotkey request with the ready packet, including attempts rejected for posture or casting. It preserves standing and spell restrictions and other AA clocks. The matching zone executable is deployed. Check the visible button after an accepted and a denied use while an unrelated AA is cooling down. The visible RoF2 result awaits player QA.
+
  ## Imitate Death — November 12 deployed for live QA
- 
+
 --- a/references/balance.md
 +++ b/references/balance.md
 @@ -1,4 +1,8 @@
@@ -128,21 +116,37 @@
 +
 +## Plane of Fear Cazic Thule · November 27 QA
 +
-+NPC 72003 uses spawn 13816 in Plane of Fear. The prechange boss had 451,000 HP and inherited Avatar Power (808) from spell list 27 through list 116. The candidate sets level 55, 24,000 HP, 85–218 melee, 3.2-second base delay, 13 HP per tick, 397 AC, and zero innate ATK and accuracy. The paired dungeon contract uses the same values. The Lua spawn handler removes only Avatar Power. Fear, the Panic melee proc, and the call for assistance remain. Two distinct pre-boss level-50 triplets with 199 spent AAs defeated the tuned encounter in the diagnostic. The fixture excludes human movement and room-specific assist waves. Review docs/releases/classic-qa-20261127/balance/measurements.json.gz, cazic-forward.sql and cazic-contract.json. Pair the scoped NPC row, quest and updated dungeon check, and test a fresh public and Raid spawn. Deployment and in-game acceptance are pending.
- 
++NPC 72003 uses spawn 13816 in Plane of Fear. The prechange boss had 451,000 HP and inherited Avatar Power (808) from spell list 27 through list 116. The deployed encounter sets level 55, 24,000 HP, 85–218 melee, 3.2-second base delay, 13 HP per tick, 397 AC, and zero innate ATK and accuracy. The paired dungeon contract uses the same values. The Lua spawn handler removes only Avatar Power. Fear, the Panic melee proc, and the call for assistance remain. Two distinct pre-boss level-50 triplets with 199 spent AAs defeated the tuned encounter in the diagnostic. The fixture excludes human movement and room-specific assist waves. Review docs/releases/classic-qa-20261127/balance/measurements.json.gz, cazic-forward.sql and cazic-contract.json. Pair the scoped NPC row, quest and updated dungeon check, and test a fresh public and Raid spawn. The matching quest, NPC row and dungeon contract are deployed on LocalDev and OVH. Human encounter acceptance is open.
+
  ## Classic equipment paths · November21 deployed
- 
+
 --- a/references/wiki.md
 +++ b/references/wiki.md
-@@ -1,4 +1,8 @@
+@@ -1,4 +1,10 @@
  # Official player wiki and Features
 +
-+## Classic QA guide update · November 27
++## Classic QA guides and Loot Finder · November 27 published
 +
-+The public November 25 source reproduced all 631 files against the publication manifest. Candidate guide source lives in `E:/EQ_Local_Dev/artifacts/classic-qa-20261127/wiki-public-candidate/wiki`. The refreshed equipment, travel, combat and item training guides are tied to the release's gameplay checks. The separate Loot Finder refresher needs the new itemclass capture and armor-quality model. `docs/releases/classic-qa-20261127/knowledge/wiki-review.json` records the scoped review; the October 24 historical drift remains open. The public Loot Finder route returned 200 and its enabled 15-minute refresh timer succeeded on November 27. Its two worker files require an update and fresh snapshot paired with the game. The wiki package is staged. Publication and post-release snapshot verification are pending. The retained public predecessor is 20261125-sympathetic-inventory-v1. Ten candidate outputs differ and 621 match.
- 
++Public release 20261127-classic-qa-v4 preserves the owner-directed private staging label for Hailstone. Ten outputs differ from the November 25 publication across both switches and 621 are identical. All 631 files and five private path exclusions passed HTTPS verification. Retained public source is E:/EQ_Local_Dev/artifacts/classic-qa-20261127/wiki-public-candidate/wiki. See docs/releases/classic-qa-20261127/knowledge/wiki-review.json, wiki-publication.json and wiki-https.json. The October 24 historical review backlog remains open.
++
++The separate Loot Finder timer is enabled. Its captured itemclass, itemtype and slots now match the deployed ordinary armor policy. Snapshot 443ab18ccb27d072 served 6,377 items. HTTPS confirmed Cazic at level 55, a Runnyeye armor source at 2.617050% per kill and the Hole weapon control at 0.996256%. loot-refresh.json and loot-https.json identify the exact items and source NPCs. Future snapshots continue on the existing 15-minute timer.
+
  ## Classic sympathetic inventory clicks · November 25 published
- 
+
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,4 +1,11 @@
+ # RoF2 client, pets and buff effects
++
++
++## RoF2 Power Source display and Hailstone Recall · November 27
++
++Game channel 2026112701 is public. The changed RoF2 DLL and patch catalog, signature and retained files passed HTTPS checks. The server sends whole-percent and tier updates for the training slot. The DLL now keeps the training instance's name and suppressed stats separate from an ordinary copy of the same ID. See eq-client-dll/src/dllmain.cpp, tests/paladin-grip-native.cpp and docs/releases/classic-qa-20261127/rof2-publication.json. In-game percentage, tier, duplicate-copy and durability checks remain open.
++
++Hailstone candidate 2026112702 admits the class-17 client AA mask for Ancient Attunement. The owner retained this verified preview in private staging. Public desktop remains 2026112202. The server-side Recall grant is live. See docs/releases/classic-qa-20261127/ops/preview-publication.json.
+
+ ## Furnace Warden character art
+
 --- a/references/sources.json
 +++ b/references/sources.json
 @@ -185,7 +185,8 @@
@@ -151,7 +155,7 @@
      "localdev_ovh_parity_20261122": "3806085bb06ac95772b29bfcb6c46543676e1a4e",
 -    "sympathetic_inventory_sources_20261125": "Main gameplay PR 534; OVH evidence PR 537, public wiki publication PR 538 at 89b4c275. Player QA open."
 +    "sympathetic_inventory_sources_20261125": "Main gameplay PR 534; OVH evidence PR 537, public wiki publication PR 538 at 89b4c275. Player QA open.",
-+    "classic_qa_20261127": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree, Gameplay source 7b53fcbd4 and paired Hailstone candidate 8ab70dd8f are staged for server QA. Production and player acceptance are pending."
++    "classic_qa_20261127": "Main 58e14d9b15582c455c48571c15f4d76ed16bb970; gameplay source 7b53fcbd4, RoF2 2026112701 public, Hailstone 2026112702 privately staged at owner request, wiki 20261127-classic-qa-v4, player QA open."
    },
    "topics": {
      "eq-texture-reference": [
@@ -165,7 +169,7 @@
 -        "role": "primary and secondary class snapshots",
 -        "revision": "1310162d16b7ae1b3b00b57bb41c0c83d931e9f2",
 -        "sha256": "a7cb0a889ce62fde320742a91739851e1fbf05485998eddc9359e90ef049285d"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Tunnel recall ownership recovery at connect",
 +        "sha256": "c2199dbaff7b8c547636763f577a71e222f2548725d888635801c8e98de6aca1"
        },
@@ -181,7 +185,7 @@
 -        "role": "Right-click consume only after successful learning; original instance retained on rejection",
 -        "revision": "ddd16e029074ee766971cab3037022d908ab7c1e",
 -        "sha256": "c9795c20c39646f45158e267b99391561c86c6494f6d55648f613faa1e67a513"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Final Imitate Death hotkey readiness reply",
 +        "sha256": "6cd6ea870d047ca7e5e92b3719dcde23d5eaab137c5f5018ee31af8b3f83d2ac"
        },
@@ -197,7 +201,7 @@
 -        "role": "Reviewed AA purchase deployed evidence; owner visible QA OPEN",
 -        "revision": "Main faaae0f9368a5e64085e4fd314724b977647a9d6 + verified deployment records",
 -        "sha256": "90f56fd86bc376fc792ef8586e5e47aec2b932c379fd7d3d26fbb59edf8972b9"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Imitate Death readiness and adjacent family clocks",
 +        "sha256": "4d523943b789551f71ebf5d3c4b55baff6ba5a0006929c2a0e04742db711d642"
        },
@@ -211,30 +215,30 @@
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/recall-forward.sql",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Class 17 entitlement for recall",
 +        "sha256": "802a138408dbf97ac4b16a3f609f73cbecd6a04fa2531ab2f1da3383c650d630"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "tools/tests/test_recall_login.lua",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Existing and missing recall grant coverage",
 +        "sha256": "361160793347eafda6170bf1850738a4f06934c41d92a248c29724bf9e86310e"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/native-build.json",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
-+        "role": "Reproduced zone and two changed native units",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "Reproduced shipping zone and three rebuilt native units",
 +        "sha256": "ebf97f8a9748e77ee45d90d8cdfc10db8e448aa2f0995b21de1a2a48403e98e8"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/QA.md",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Release-specific AA and display checks",
-+        "sha256": "3307dd303b4ba8a0bd11d8f168e1403649b0e7fbb11c2b7d8c6e27a496c5f97e"
++        "sha256": "c9d3ecec1097d370cf2624373ea1b6a52603f6556d4eb8aa26f365c4176b2ace"
        }
      ],
      "items": [
@@ -248,7 +252,7 @@
 -        "role": "actual retained-build ordinary tier-roll hook",
 -        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
 -        "sha256": "a826b26e65199692a037f62f3c22cbd36d26da1a97e03bf2106c691f38cbab46"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Armor-only Ascended bands",
 +        "sha256": "5ab6a72b03ec3a7090a0b8822828d21ccb8c4c342b87d4f7be29ed8fbb15480b"
        },
@@ -264,7 +268,7 @@
 -        "role": "exhaustive actual native loot-block verification",
 -        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
 -        "sha256": "57ee280dc5137e187d4cf20203f08b8222751a768dc61a84111a23b026b2c80d"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Exhaustive ordinary loot bands",
 +        "sha256": "731d7c03e7f156ded4111b02175c575e9f0901a45b46806a55e018f68c8570f6"
        },
@@ -280,7 +284,7 @@
 -        "role": "Hailstone source changes on 45cf0cf6",
 -        "revision": "1310162d16b7ae1b3b00b57bb41c0c83d931e9f2",
 -        "sha256": "0bb80b0fb54c235bca99cfc334c1af01b9e431548781627b56694929090fbc42"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Hailstone AA list entry for primary Cairnwright",
 +        "sha256": "662bccdd31b7e9aa78569a2ca9bb3fddd42cd56148a4b23f1fc22cfbdd56a6b6"
        },
@@ -296,7 +300,7 @@
 -        "role": "Reviewed Paladin implementation/release evidence; main/OVH/client/wiki deployed October28; owner gameplay QA open",
 -        "revision": "074ae26742fb21ee5b247c92be07ca63a98e0085",
 -        "sha256": "d78bcfbaa1cafb7f88888797d6f2a535a0286b82605856852aa480b48b699d4e"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Native item-definition reference checks",
 +        "sha256": "9568eb2e8a60a94d0e8ce3ff8d1b177554fa5ec919f5735856d5d274142d3943"
        },
@@ -312,13 +316,13 @@
 -        "role": "Reviewed Paladin implementation/release evidence; main/OVH/client/wiki deployed October28; owner gameplay QA open",
 -        "revision": "074ae26742fb21ee5b247c92be07ca63a98e0085",
 -        "sha256": "89b407c9a91ed95e45bf2e21accef01b918262c3f4e2126476826e74caf9d842"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "RoF2 training definition presentation",
 +        "sha256": "180e897c35145d5d59954ef25d31c507a8a229c0c9fa2b614be28f0309bd77f4"
        },
        {
          "root": "C:/Users/verre/Documents/Codex/2026-10-26/make/work/paladin-weapon-toggle",
-@@ -13600,6 +13629,20 @@
+@@ -13600,6 +13629,34 @@
          "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
          "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
          "sha256": "1fce4f3ee2bc8a6bdcff2cf5736085ed798dd77611801e452bc45b7ed3a70a39"
@@ -326,20 +330,34 @@
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/rof2-candidate.json",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Verified RoF2 pairing and staged identity",
 +        "sha256": "be8b97ba9eeabdee05b9ec37d20c0b06629beaf8cee8b41859f95bc2decdea03"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/ops/preview-candidate.json",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Validated Hailstone preview identity",
 +        "sha256": "37211b63b3b3d607262f243a1b01d226a3086fc1b2822caf9aa51577bf6d5506"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/rof2-publication.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "RoF2 HTTPS release proof",
++        "sha256": "a23e6cd3d6883826e6c494c298460e80ac68895d68dddc738f59ba4ddcf1831d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/ops/preview-publication.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "Owner-directed private Hailstone staging",
++        "sha256": "4da370ef2e5e694e9cad2a36cd0be46da9a3abb209485fbe3a644c9b9253b5cf"
        }
      ],
      "admin": [
-@@ -15277,6 +15320,48 @@
+@@ -15277,6 +15334,55 @@
          "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
          "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
          "sha256": "6afd4432c68f2083a93af7e2a5e150e0178454d0d05a6777942d5fbd46b9323a"
@@ -347,48 +365,55 @@
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "server-mods/quests/fearplane/Cazic_Thule.lua",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Cazic spawn spells and assist mechanics",
 +        "sha256": "bea7c7a6e69b5f93c3823646df0d7cc1c651e9987b1cd45bf2bca75443cabc20"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/cazic-forward.sql",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Scoped boss tuning",
 +        "sha256": "2909f0f8d5f66353a60503790fa3c705641a6383ce7b01371db1c6117cbc267a"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/cazic-contract.json",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Updated encounter contract",
 +        "sha256": "17843e9f425e0e3f167bd1cce533e0b01ce64c2f04bd6b6d6b0a889314258d3a"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "tools/tests/test_cazic_spawn.lua",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Fearplane spawn and shared spell scope",
 +        "sha256": "86c4de0c938ecaba874b6f6990eff2121b6d89fba8a251df29e53a3f29cceb70"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/balance/measurements.json.gz",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Native encounter measurements with actual spent AAs",
 +        "sha256": "66aea028410d78f5758f2383584a7b06539fec65a05890d06b92e6f4756ec070"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/balance/README.md",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Preboss gear progression, cohorts and limits",
 +        "sha256": "bc24df225380c17f5dce9f7b1595a6e3770c9788f34476048315cf443f807621"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/ops/production-verified.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "OVH boss profile and native zone proof",
++        "sha256": "1b20d1ec93cb94c5ca87e29456880877ee03e166982a1d7dce8f1c1cad2d0adb"
        }
      ],
      "wiki": [
-@@ -16663,11 +16748,11 @@
+@@ -16663,11 +16769,11 @@
          "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
        },
        {
@@ -398,13 +423,13 @@
 -        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
 -        "sha256": "903d2f3716e0b0d6dd35dd314d71163d0df5e16a6d9e3d0ed3d982db5550d0d0",
 -        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Approved item fields for Loot Finder",
 +        "sha256": "71a42e3c3bab8a81ff5fcf45933dfe2fe4215a26521ccf002c6b1e387b378093"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
-@@ -16684,11 +16769,11 @@
+@@ -16684,11 +16790,11 @@
          "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
        },
        {
@@ -414,13 +439,13 @@
 -        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
 -        "sha256": "0a0c35e431c7cf02ad3a2e2296549e5b2a661137c16671986b00e10b157bf4aa",
 -        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Ordinary armor and shield tier probabilities",
 +        "sha256": "83ba4a01a7426bb56d6155e4648e832a55aadfe23c6ec3ad161cab0da93cf093"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
-@@ -16733,11 +16818,11 @@
+@@ -16733,11 +16839,11 @@
          "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
        },
        {
@@ -430,13 +455,13 @@
 -        "revision": "d3b6deff0e2a14135f933ee2fe4802f7443074e9",
 -        "sha256": "24d8eede31dcb4967691763c7254c3d365bceed8d79c6b95347ee652b0e41513",
 -        "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Quality multipliers and fallback tests",
 +        "sha256": "1ebb511b9132dfe2cd935d9c2fb77f8f1b48b222840acba47f931d85c1ce15c0"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
-@@ -18171,11 +18256,11 @@
+@@ -18171,11 +18277,11 @@
          "sha256": "418719245be588ff0e6b5fdf5758d7263ee79dbba21297d0fdec4edd36c88cbb"
        },
        {
@@ -446,13 +471,13 @@
 -        "role": "Reviewed simple wiki layout, public language and preservation contract; browser excluded by owner",
 -        "revision": "0e5cd23b reviewed overhaul; 20261113-wiki-simple-ste-v1 published and HTTPS verified; browser excluded",
 -        "sha256": "87c6f1bbd776b708aa32c7e86fd4c1457ff6d228553c3ea2cfab8559d2746106"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Generated Plane of Fear encounter guide entry",
 +        "sha256": "9a64c2346cbfa521c3ed1a45bbb15bd63a959cf4391b002aee836c9a6b062b77"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/wiki-simple-ste",
-@@ -18300,6 +18385,13 @@
+@@ -18300,6 +18406,41 @@
          "role": "Reviewed AA purchase deployed evidence; owner visible QA OPEN",
          "revision": "Main faaae0f9368a5e64085e4fd314724b977647a9d6 + verified deployment records",
          "sha256": "1cf9c09953853ff7ac49d0b0344bfa3b3096fef785f8e9ad03de0d8384123df0"
@@ -460,13 +485,41 @@
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "docs/releases/classic-qa-20261127/knowledge/wiki-review.json",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Publication baseline and scope of review",
-+        "sha256": "f25f1e69880b43651e0f0b81c4aeaf77db775e8da43185bea5c7d0b0e8901247"
++        "sha256": "95674dbd577a08d99d93b9fec30e46929a3cb6d93c8c3b0aee19273588df339a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/knowledge/wiki-publication.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "Final static publication",
++        "sha256": "06c17a1671df66f3538369a1fc34ea016f6ae255ccbaaf5c02ea68236d7a4a73"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/knowledge/wiki-https.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "Canonical HTTPS hashes and private checks",
++        "sha256": "eb750215a749dbfeca008a95011cdfa07866e0f4fa79c7a855a57c8a71376fc4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/knowledge/loot-https.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "Public per-NPC source rates and Cazic level",
++        "sha256": "80464f741f384adbc2db8f35c6db42838068248b9070c5405d9c682137e38c4c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "path": "docs/releases/classic-qa-20261127/knowledge/loot-refresh.json",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
++        "role": "Worker release and data snapshot",
++        "sha256": "eb6dcf8dbab2d047866a7291ef7354c80a4d49f669ee2b0dca27938295206bf3"
        }
      ],
      "factions": [
-@@ -18612,11 +18704,11 @@
+@@ -18612,11 +18753,11 @@
          "sha256": "7968bd7acc8cb1a6499c1283f708cc2f452bf05635c58cf2ae434d5b553cb598"
        },
        {
@@ -476,13 +529,13 @@
 -        "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
 -        "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
 -        "sha256": "66d4df88f7ddc1cc0078803785736d02757d73bbe2c5819bf35b91891ec79fb9"
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Server whole-percent and tier publication",
 +        "sha256": "3ce5e6dbde3403c460c90309397dcad23efd1fac19e29d0d03bd9ef5fd91ca14"
        },
        {
          "root": "E:/EQ_Local_Dev/_worktrees/power-source-item-xp-test",
-@@ -18862,6 +18954,20 @@
+@@ -18862,6 +19003,20 @@
          "revision": "faf8ea2bd9eaa6c16a3babcf933ab938c9a83e6d plus reviewed candidate working tree; not deployed",
          "role": "Reviewed Power Source XP candidate implementation/test/evidence; not deployed or owner accepted",
          "sha256": "0226b35ae84167d6ce89cb8f4fb5e5d786a6ddbd1cbbbc3a1f399404deb157bc"
@@ -490,14 +543,14 @@
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "eq-client-dll/src/dllmain.cpp",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Per-instance RoF2 training display",
 +        "sha256": "180e897c35145d5d59954ef25d31c507a8a229c0c9fa2b614be28f0309bd77f4"
 +      },
 +      {
 +        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
 +        "path": "eq-client-dll/tests/paladin-grip-native.cpp",
-+        "revision": "7b53fcbd4be35e42f9b748ffa2aaca0f769e7c4a plus reviewed worktree",
++        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
 +        "role": "Identical-ID native definition retention",
 +        "sha256": "9568eb2e8a60a94d0e8ce3ff8d1b177554fa5ec919f5735856d5d274142d3943"
        }
