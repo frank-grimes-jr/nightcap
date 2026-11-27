@@ -25,7 +25,8 @@ def quality_outputs(item, items, chances):
         return result
     # Native order is Ascended, Exalted, Polished; missing definitions retain base.
     used = 0
-    for offset, chance in reversed(list(zip((200000, 400000, 600000), chances))):
+    bands = list(zip((600000, 400000, 200000), reversed(chances)))
+    for offset, chance in bands:
         upper = min(10000, max(0, used + chance))
         probability = max(0, upper - min(10000, max(0, used))) / 10000
         used += chance

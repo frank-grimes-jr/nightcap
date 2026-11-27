@@ -10,6 +10,8 @@ Fully exit RoF2, update through the launcher, and log in. Put an eligible, non-A
 
 ## Ascended drops
 
+For the subsequent 7% release, use the [updated ordinary loot checks](../ascended-seven-20261127/README.md#verification-and-in-game-qa). The following checks describe the earlier 4% armor rollout.
+
 Loot newly generated ordinary NPCs in Unrest or Befallen. Count eligible armor and shields separately from weapons and bags. Inspect a resulting Ascended armor piece and equip it. The current expected rate is 4% per eligible armor or shield drop with an Ascended variant. Weapons and bags remain at 1%. Existing corpses can retain previously rolled items. A short run can produce zero Ascended pieces.
 
 ## Tunnel Recall

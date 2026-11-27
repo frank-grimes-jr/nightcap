@@ -1,3 +1,7 @@
+## November 27, 2026 · Universal 7% Ascended ordinary drops
+
+The tested update gives all eligible ordinary equipment and bags the same 7% Ascended chance per drop. The native test covers every outcome for five representative item types. [Release and player checks](releases/ascended-seven-20261127/README.md)
+
 ## November 25, 2026 · Sympathetic inventory sources candidate
 
 Four extra Ascended sources and inventory clicks are prepared, not deployed or player accepted. [Scope and QA](items/sympathetic-clicks/inventory-sources-20261125.md).
