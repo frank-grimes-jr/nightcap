@@ -241,9 +241,9 @@ VALUES (9001,'Essence of Ascension (lvl55+)',990001,1,55,999,-1,-1);
 -- Rule names keep the original Rare/Epic/Legendary tokens (internal only, avoids a
 -- C++ rebuild); they map to Polished/Exalted/Ascended respectively.
 INSERT INTO rule_values (ruleset_id, rule_name, rule_value, notes) VALUES
- (1,'Zone:LootTierRareChance','1000','Tiered loot: /10000 chance to upgrade a drop to Polished (+200000)'),
- (1,'Zone:LootTierEpicChance','200','Tiered loot: /10000 chance to upgrade to Exalted (+400000)'),
- (1,'Zone:LootTierLegendaryChance','25','Tiered loot: /10000 chance to upgrade to Ascended (+600000)')
+ (1,'Zone:LootTierRareChance','2000','Tiered loot: /10000 chance to upgrade a drop to Polished (+200000)'),
+ (1,'Zone:LootTierEpicChance','500','Tiered loot: /10000 chance to upgrade to Exalted (+400000)'),
+ (1,'Zone:LootTierLegendaryChance','700','Tiered loot: /10000 chance to upgrade to Ascended (+600000)')
 ON DUPLICATE KEY UPDATE rule_value=VALUES(rule_value), notes=VALUES(notes);
 
 -- Pinned stock model companion is generated with tools/thj_stock_scaling.py.
