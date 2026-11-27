@@ -56,6 +56,21 @@ class LootModelTests(unittest.TestCase):
         items={1: dict(id=1, slots=4, bagslots=0), 200001: dict(id=200001)}
         self.assertEqual(quality_outputs(items[1], items, [2000,500,100]), {1:.8,200001:.2})
 
+    def test_configured_quality_band_applies_to_all_eligible_families(self):
+        variants = {1, 200001, 400001, 600001}
+        for item in (dict(slots=4, itemtype=10), dict(slots=4, itemtype=8),
+                     dict(slots=4, itemtype=1), dict(slots=4, itemtype=29),
+                     dict(slots=0, bagslots=8)):
+            item['id'] = 1
+            with self.subTest(item=item):
+                self.assertEqual(quality_outputs(item, variants, [2000, 500, 700]),
+                                 {1: .68, 200001: .20, 400001: .05, 600001: .07})
+                self.assertEqual(quality_outputs(item, variants, [2000, 500, 100]),
+                                 {1: .74, 200001: .20, 400001: .05, 600001: .01})
+                self.assertEqual(quality_outputs(item, variants - {600001}, [2000, 500, 700]),
+                                 {1: .75, 200001: .20, 400001: .05})
+        self.assertEqual(quality_outputs(dict(id=1, slots=0), variants, [2000, 500, 700]), {1: 1})
+
     def test_content_flags_all_for_runtime_any_for_sql(self):
         row=dict(min_expansion=-1,max_expansion=0,content_flags='a,b',content_flags_disabled='c')
         self.assertFalse(content_passes(row,0,{'a'},{'c'}))

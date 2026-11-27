@@ -1,6 +1,7 @@
 """Exhaustively execute the deployed loot selection block with proposed rules."""
 import pathlib
 import os
+import re
 import subprocess
 import tempfile
 import unittest
@@ -8,6 +9,11 @@ import unittest
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 class LootQualityRates(unittest.TestCase):
+    def test_fresh_install_rates(self):
+        sql = (ROOT / 'eq-solo-gm/scripts/tiered_loot_setup.sql').read_text()
+        rows = re.findall(r"\(1,'Zone:LootTier(\w+)Chance','(\d+)'", sql)
+        self.assertCountEqual(rows, [('Rare', '2000'), ('Epic', '500'), ('Legendary', '700')])
+
     def test_actual_native_block(self):
         text = (ROOT/'server-mods/code/zone/loot.cpp').read_text()
         block = text[text.index('\tif (item2->ID < 200000'):text.index('\n\tauto item = new LootItem;')]
@@ -27,7 +33,7 @@ struct DB {
  EQ::ItemData item{};
  const EQ::ItemData *GetItem(uint32 id) { item={id,1,0}; return available?&item:nullptr; }
 } database;
-int LootTierRareChance=2000, LootTierEpicChance=500, LootTierLegendaryChance=100;
+int LootTierRareChance=2000, LootTierEpicChance=500, LootTierLegendaryChance=700;
 #define RuleI(category,name) name
 uint32 pick(EQ::ItemData base) {
  const EQ::ItemData *item2=&base;
@@ -36,26 +42,33 @@ uint32 pick(EQ::ItemData base) {
 }
 int main() {
  int count[4]={};
- int armor_count[4]={};
- for(int r=1;r<=10000;++r) {
+ for (int r=1; r<=10000; ++r) {
   zone->random.value=r;
-  auto id=pick({42,1,0}); ++count[id/200000];
-  auto armor=pick({42,1,0,0,EQ::item::ItemTypeArmor});
-  ++armor_count[armor/200000];
-  assert(pick({42,1,0,0,EQ::item::ItemTypeShield})==armor);
-  assert(pick({42,0,0,0,EQ::item::ItemTypeArmor})==42);
-  if (r<=2600) assert(armor==id);
-  assert(pick({42,0,10})==id);
+  const uint32 expected=42 + (r<=700 ? 600000 : r<=1200 ? 400000 : r<=3200 ? 200000 : 0);
+  const EQ::ItemData eligible[] = {
+   {42,1,0,0,0},                             // weapon
+   {42,1,0,0,EQ::item::ItemTypeArmor},
+   {42,1,0,0,EQ::item::ItemTypeShield},
+   {42,1,0,0,29},                            // jewelry
+   {42,0,10,1,0}                             // bag
+  };
+  for (const auto &base : eligible) {
+   assert(pick(base)==expected);
+   database.available=false;
+   assert(pick(base)==base.ID);
+   database.available=true;
+  }
+  ++count[expected/200000];
   assert(pick({42,0,0})==42);
+  assert(pick({200042,1,0})==200042);
   assert(pick({940000,1,0})==940000);
   assert(pick({960000,1,0})==960000);
-  assert(pick({200042,1,0})==200042);
-  database.available=false;
-  assert(pick({42,1,0})==42 && pick({42,1,0,0,EQ::item::ItemTypeArmor})==42);
-  database.available=true;
  }
- assert(count[0]==7400 && count[1]==2000 && count[2]==500 && count[3]==100);
- assert(armor_count[0]==7100 && armor_count[1]==2000 && armor_count[2]==500 && armor_count[3]==400);
+ assert(count[0]==6800 && count[1]==2000 && count[2]==500 && count[3]==700);
+ LootTierLegendaryChance=0;
+ zone->random.value=1;
+ assert(pick({42,1,0,0,EQ::item::ItemTypeArmor})==400042);
+ assert(pick({42,1,0,0,0})==400042);
 }
 '''
         scratch=ROOT/'artifacts/loot-quality-tests'
