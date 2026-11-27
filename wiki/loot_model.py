@@ -26,9 +26,6 @@ def quality_outputs(item, items, chances):
     # Native order is Ascended, Exalted, Polished; missing definitions retain base.
     used = 0
     bands = list(zip((600000, 400000, 200000), reversed(chances)))
-    if item.get('itemclass') == 0 and item.get('slots') and item.get('itemtype') in (8, 10):
-        # Ordinary worn shields and armor take three more Ascended bands from Normal.
-        bands.append((600000, 3 * chances[2]))
     for offset, chance in bands:
         upper = min(10000, max(0, used + chance))
         probability = max(0, upper - min(10000, max(0, used))) / 10000
