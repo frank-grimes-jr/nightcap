@@ -1,0 +1,50 @@
+{
+  "image": "sha256:259ef8b457e07d174fd887071409559504b93bc4f2cb9e8f96df1f5edaee5b4f",
+  "source": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4",
+  "players": 0,
+  "rules": [
+    "1\tZone:LootTierEpicChance\t500",
+    "1\tZone:LootTierLegendaryChance\t700",
+    "1\tZone:LootTierRareChance\t2000"
+  ],
+  "binaries": {
+    "world": "a641bef73c39fcc37192685bb077f1f5e9acf77dd4d79e7998ae899912eff521",
+    "zone": "d0e667c80b92ac3501011f060c79fa30723cdb9f4c7e6ccc99de15015a966c18",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "2bb1155da5f3b08cf1579d97329a9baf3f367cbee6e56e517857992dec76b5fe"
+  },
+  "running": {
+    "loginserver": 1,
+    "world": 1,
+    "ucs": 1,
+    "zone": 12
+  },
+  "cache": {
+    "items": "23b652a010147772d941e5e1bec304b620430bd061c2501c3bce599c0a9c72a7",
+    "spells": "81ef565bcd7d4b6cbf15af2935dd122f2943456bfa0e71c632bf73b3d5f05a35"
+  },
+  "quests": {
+    "quests/fearplane/Cazic_Thule.lua": "a238808244debd1747667f321564abc3d14bd30de1c7d02a77a3b90cb69b2507",
+    "quests/global/global_player.lua": "d195f9be0c49182a0c64c1b4b0389e006aafc5cd89fc2f4cd64306ac3a29b719"
+  },
+  "admission_open": true,
+  "previous_image": "sha256:d6b94931f00c22cc5b0097af601d536b8a321afd0bbb098c5a3ed81ef1574071",
+  "backup_sha256": "02ab2638adaaaf43f2b24023bb745b4e638500e0addc632c87922aa0cd04cee3",
+  "prepared": {
+    "manifest": "b91506a3a9f9928fa7c126d398125acda8937f60fd5c48f3603efaae00a8f982",
+    "image": "sha256:259ef8b457e07d174fd887071409559504b93bc4f2cb9e8f96df1f5edaee5b4f",
+    "forward_inverse_stale_rehearsed": true
+  },
+  "stage": "/opt/nightcap/releases/ascended-seven-20261127-b91506a3a9f9",
+  "player_qa": "pending",
+  "post_boot": {
+    "health": "healthy",
+    "restarts": 0,
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  }
+}

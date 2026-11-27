@@ -1,0 +1,201 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -636,9 +636,10 @@
+
+ ## Ordinary equipment loot quality
+
+-The October 18 rule values are 2000 Polished, 500 Exalted and 100 Ascended out of 10000. A single roll applies to each eligible, newly generated ordinary equipment or bag drop. A missing quality variant falls back to the base item. Zone Hunt, instance rewards and quest turn-ins have separate policies.
+-
+-The deployed November 27 `NPC::AddLootDrop` policy in `server-mods/code/zone/loot.cpp` adds three times the existing Ascended band from otherwise Normal rolls only for equippable common armor and shields (item types 10 and 8). At the live baseline this gives 4% Ascended armor and shields and 1% for other eligible items. Both have 20% Polished and 5% Exalted. The override values themselves stay at 2000/500/100. This code requires the matching zone executable and fresh NPC loot. `tools/tests/test_loot_quality_rates.py` exhausts all rolls, and `wiki/loot_model.py` mirrors the model using captured itemclass, itemtype and slots. The public Loot Finder now uses the matching worker. Its HTTPS snapshot verified the Runnyeye armor and Hole weapon controls. Main 58e14d9b, LocalDev and OVH deployment verified November 27. All 12 OVH zone workers passed. Player acceptance is open. See docs/releases/classic-qa-20261127/QA.md and ops/production-verified.json in that release.
++The November 27 seven-percent release uses the native zone rule on all newly generated ordinary equippable item and bag drops. Ruleset 1 on LocalDev and OVH has Zone:LootTierLegendaryChance=700, Zone:LootTierEpicChance=500 and Zone:LootTierRareChance=2000 out of 10,000. All variants present gives 7% Ascended, 5% Exalted, 20% Polished and 68% Normal. The same roll applies to armor, shields, weapons, jewelry and bags. The server leaves a missing selected variant on its base item. Previously generated loot, the separate Hunt and dungeon pools, direct grants and forging retain their existing behavior.
++
++Main bd478e11b pairs the zone binary from gameplay source 4901749f9 with the PEQ rule. No client update is needed. server-mods/code/zone/loot.cpp and tools/tests/test_loot_quality_rates.py implement and exhaust the native roll. eq-solo-gm/scripts/tiered_loot_setup.sql supplies the setup value. wiki/loot_model.py projects the effective rule for each NPC source. See docs/releases/ascended-seven-20261127/ for the guarded rollout and tests. In-game player QA is open.
++
+
+ ## Substantial class-armor rewards — October22 deployed for live QA
+
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,10 +1,10 @@
+ # Official player wiki and Features
+
+-## Classic QA guides and Loot Finder · November 27 published
+-
+-Public release 20261127-classic-qa-v4 preserves the owner-directed private staging label for Hailstone. Ten outputs differ from the November 25 publication across both switches and 621 are identical. All 631 files and five private path exclusions passed HTTPS verification. Retained public source is E:/EQ_Local_Dev/artifacts/classic-qa-20261127/wiki-public-candidate/wiki. See docs/releases/classic-qa-20261127/knowledge/wiki-review.json, wiki-publication.json and wiki-https.json. The October 24 historical review backlog remains open.
+-
+-The separate Loot Finder timer is enabled. Its captured itemclass, itemtype and slots now match the deployed ordinary armor policy. Snapshot 443ab18ccb27d072 served 6,377 items. HTTPS confirmed Cazic at level 55, a Runnyeye armor source at 2.617050% per kill and the Hole weapon control at 0.996256%. loot-refresh.json and loot-https.json identify the exact items and source NPCs. Future snapshots continue on the existing 15-minute timer.
++## Ascended loot and Classic QA guides Â· November 27 published
++
++Public wiki 20261127-ascended-seven-v1 updates Equipment, Recent changes and the search index. All 631 files and five private path exclusions passed HTTPS checks against its v4 predecessor. Retained public source is E:/EQ_Local_Dev/artifacts/ascended-seven-20261127/wiki-public-candidate/wiki. The previous Classic QA guides still describe the owner-directed private Hailstone staging. The October 24 historical review backlog remains open.
++
++The Loot Finder uses the effective 7% Ascended quality roll for all eligible ordinary equipment and bags. Public snapshot 221bfbea2854901b served 6,377 items. Runnyeye armor and Hole weapon controls verified 4.540315% and 6.818384% per kill. The separate 15-minute timer remains enabled. See docs/releases/ascended-seven-20261127/knowledge/wiki-review.json, wiki-publication.json, wiki-https.json, loot-refresh.json and loot-https.json.
+
+ ## Classic sympathetic inventory clicks · November 25 published
+
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -186,7 +186,8 @@
+     "native_qol_production_20261122": "5babfb9bc000b90b86306921727753f246216816",
+     "localdev_ovh_parity_20261122": "3806085bb06ac95772b29bfcb6c46543676e1a4e",
+     "sympathetic_inventory_sources_20261125": "Main gameplay PR 534; OVH evidence PR 537, public wiki publication PR 538 at 89b4c275. Player QA open.",
+-    "classic_qa_20261127": "Main 58e14d9b15582c455c48571c15f4d76ed16bb970; gameplay source 7b53fcbd4, RoF2 2026112701 public, Hailstone 2026112702 privately staged at owner request, wiki 20261127-classic-qa-v4, player QA open."
++    "classic_qa_20261127": "Main 58e14d9b15582c455c48571c15f4d76ed16bb970; gameplay source 7b53fcbd4, RoF2 2026112701 public, Hailstone 2026112702 privately staged at owner request, wiki 20261127-classic-qa-v4, player QA open.",
++    "ordinary_ascended_seven_20261127": "Gameplay 4901749f900eb9f365c4d03d5cd4f8a754ec24a4; LocalDev and OVH live, static wiki and live Loot Finder verified, in-game QA open."
+   },
+   "topics": {
+     "eq-texture-reference": [
+@@ -6152,11 +6153,11 @@
+         "sha256": "30e76c3fe9a7aa6dc3c2d13090ddc029e5c3c3ca0a5d9b70e752ebc8d3731d95"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
+         "path": "server-mods/code/zone/loot.cpp",
+-        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
+-        "role": "Armor-only Ascended bands",
+-        "sha256": "5ab6a72b03ec3a7090a0b8822828d21ccb8c4c342b87d4f7be29ed8fbb15480b"
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "Native ordinary item tier assignment",
++        "sha256": "9c49026c0485f16af81c6c53771d08eacefce5e2afd3c52456a1a8a12cfb6aee"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+@@ -6166,11 +6167,11 @@
+         "sha256": "89a0f6e313c3aa16390a5f3ea8bfaf74c1bd7f855674a0d8841a0d406a4524d2"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
+         "path": "tools/tests/test_loot_quality_rates.py",
+-        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
+-        "role": "Exhaustive ordinary loot bands",
+-        "sha256": "731d7c03e7f156ded4111b02175c575e9f0901a45b46806a55e018f68c8570f6"
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "Exhaustive rate and eligibility tests",
++        "sha256": "7e3a9d1a23b661b7cb6b8dbb3c4c33beed7b81c7181f0396d68602ae9f14787a"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+@@ -7940,6 +7941,34 @@
+         "role": "Reviewed Last Lantern paired live-QA release; normal-player acceptance remains open",
+         "revision": "8d75f8daf7fdd4513075430aaa5379dc0358c096 + reviewed release working tree and verified receipts",
+         "sha256": "80b70c82a81f79a6f5cc4ab0475bacc697f6d93dcda172c4b690db2a86d31539"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "eq-solo-gm/scripts/tiered_loot_setup.sql",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "Default ruleset setup for ordinary loot",
++        "sha256": "6f89827f4307f060d3f4aad9a1f98f60067140e6b181a091e3d57c2673410a67"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/native-build.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "native-build.json",
++        "sha256": "ce3a1f842ac7e2ec52abae8f318b190d67c387317a8f30ff54696650ed2a1790"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/ops/production-verified.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "ops/production-verified.json",
++        "sha256": "d5828629d87137f83f9c325894b6b3e088edd20794211f45cf30ec2a084f9d94"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/ops/local-verified.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "ops/local-verified.json",
++        "sha256": "26d9a40f5ff467bf2a94a3bef5f740220464e0c5352e1e4918a4eddc3398e826"
+       }
+     ],
+     "world": [
+@@ -16790,11 +16819,11 @@
+         "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
+         "path": "wiki/loot_model.py",
+-        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
+-        "role": "Ordinary armor and shield tier probabilities",
+-        "sha256": "83ba4a01a7426bb56d6155e4648e832a55aadfe23c6ec3ad161cab0da93cf093"
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "NPC-source probability model",
++        "sha256": "a3933eba67ccd108f54d0ab00aae92a41583990870e6244374a2f1faf4016305"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+@@ -16839,11 +16868,11 @@
+         "role": "Reviewed published production loot finder, automatic refresh and retained wiki guidance; dated deployment/agent QA separate from owner acceptance"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-qa-20261127",
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
+         "path": "wiki/test_loot_model.py",
+-        "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
+-        "role": "Quality multipliers and fallback tests",
+-        "sha256": "1ebb511b9132dfe2cd935d9c2fb77f8f1b48b222840acba47f931d85c1ce15c0"
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "Eligible item classes and variant fallback",
++        "sha256": "1b1a018155e655bdae4b8ceb86b5736fabcec9b92a2d28e4f28fe9634875c9eb"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-loot-finder",
+@@ -18441,6 +18470,55 @@
+         "revision": "main 58e14d9b15582c455c48571c15f4d76ed16bb970 plus reviewed release evidence",
+         "role": "Worker release and data snapshot",
+         "sha256": "eb6dcf8dbab2d047866a7291ef7354c80a4d49f669ee2b0dca27938295206bf3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "wiki/articles/equipment.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "Player-facing ordinary quality values",
++        "sha256": "5fbd3cf635b5c5be0e49727cbc1d971623165a696e67c4e7e6befa998f4d9d18"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "wiki/articles/recent-changes.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "Published history",
++        "sha256": "cff12eb8bec0196bedd1b19739b4224798ecf405c5360c5cadde8a125ffd8d84"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/knowledge/wiki-review.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "wiki review",
++        "sha256": "c0b3cad4183d488e955293d3d3489d8585505106c1a6983d7b0149cbdbdf8a19"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/knowledge/wiki-publication.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "wiki publication",
++        "sha256": "75d11f3971f25d5abeda879ea15f45340ccb84636f24be24ec73066d3a2841a9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/knowledge/wiki-https.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "wiki https",
++        "sha256": "aa07139a5658a794185c86b2be76799a3e6b7965f44b2322f7904facc38afe58"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/knowledge/loot-https.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "loot https",
++        "sha256": "55539ecd1400c14329281835b9b5ad6202fc45d243f2eb84528d0bbdb18884ae"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/ascended-seven-20261127",
++        "path": "docs/releases/ascended-seven-20261127/knowledge/loot-refresh.json",
++        "revision": "4901749f900eb9f365c4d03d5cd4f8a754ec24a4 and verified release evidence",
++        "role": "loot refresh",
++        "sha256": "799edbe5722922654831dad22532cee8a7892478f29e60a1fecb436e6487ee2a"
+       }
+     ],
+     "factions": [
