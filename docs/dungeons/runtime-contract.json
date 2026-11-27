@@ -2619,7 +2619,7 @@
     },
     {
       "label": "classic/objective/72003",
-      "sql": "SELECT COUNT(*) FROM npc_types WHERE (`id` <=> 72003 AND `name` <=> X'43617a69635f5468756c65' AND `level` <=> 70 AND `class` <=> 5 AND `hp` <=> 451000 AND `mindmg` <=> 223 AND `maxdmg` <=> 603 AND `loottable_id` <=> 291 AND `npc_spells_id` <=> 116 AND `npc_faction_id` <=> 1361 AND `merchant_id` <=> 0)",
+      "sql": "SELECT COUNT(*) FROM npc_types WHERE (`id` <=> 72003 AND `name` <=> X'43617a69635f5468756c65' AND `level` <=> 55 AND `class` <=> 5 AND `hp` <=> 24000 AND `mindmg` <=> 85 AND `maxdmg` <=> 218 AND `attack_delay` <=> 32 AND `hp_regen_rate` <=> 13 AND `hp_regen_per_second` <=> 0 AND `AC` <=> 397 AND `ATK` <=> 0 AND `Accuracy` <=> 0 AND `loottable_id` <=> 291 AND `npc_spells_id` <=> 116 AND `npc_faction_id` <=> 1361 AND `merchant_id` <=> 0)",
       "expected": "1"
     },
     {

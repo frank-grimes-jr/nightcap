@@ -1,4 +1,5 @@
 #include "common/visible_ornaments.h"
+#include "common/imitate_death.h"
 #include "common/raid_augment.h"
 #include "zone/raid_augment_custody.h"
 #include "zone/dungeon_service.h"
@@ -1930,6 +1931,12 @@ void Client::Handle_OP_AAAction(const EQApplicationPacket *app)
 	if (action->action == aaActionActivate) {//AA Hotkey
 		LogAA("Activating AA [{}]", action->ability);
 		ActivateAlternateAdvancementAbility(action->ability, action->target_id);
+		// The instant cast can finish and update the spell bar before this
+		// request returns. A click while feigned can also return without a
+		// completion packet. In both cases the owned AA has no reuse clock.
+		if (action->ability == NightcapImitateDeath::RankId && GetAA(action->ability)) {
+			SendAlternateAdvancementTimer(NightcapImitateDeath::Family, 0, time(nullptr));
+		}
 	}
 	else if (action->action == aaActionBuy) {
 		PurchaseAlternateAdvancementRank(action->ability);
