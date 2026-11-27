@@ -1,0 +1,19 @@
+{
+  "release": "20261127-ascended-seven-v1",
+  "files": 631,
+  "changed": [
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "unchanged": 628,
+  "private_paths": {
+    ".env": 404,
+    "articles/features.json": 404,
+    "content-review.json": 404,
+    "catalog.json": 404,
+    "wiki/current/index.html": 404
+  },
+  "https": "all hashes and response headers verified",
+  "equipment_url": "https://wiki.nightcapgame.org/equipment.html#item-tiers"
+}

@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "release": "20261127-ascended-seven-v1",
+  "previous_release": "20261127-classic-qa-v4",
+  "files": 631,
+  "config_sha256": "46355a5e09bc63bc0a05713c02a315966378ef2ecbc5856bbab2140093a619c6",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "changed": [
+    "equipment.html",
+    "recent-changes.html",
+    "search-index.json"
+  ],
+  "package_sha256": "48a84be0bb07c7d6f99eca23824bbf3ce844da4bcfdd8d277037b40755a6cb48",
+  "manifest_sha256": "25d30a222e7716f69532e94d8f927e1270f6865ed50b81fbfcb0097b73c7ee38"
+}
